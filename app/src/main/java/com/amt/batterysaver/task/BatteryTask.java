@@ -6,7 +6,7 @@ import androidx.core.content.ContextCompat;
 import android.widget.TextView;
 
 import com.amt.batterysaver.Utilsb.Utils;
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 
 import me.itangqi.waveloadingview.WaveLoadingView;
 

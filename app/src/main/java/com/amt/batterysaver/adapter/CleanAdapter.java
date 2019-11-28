@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.model.ChildItem;
 import com.amt.batterysaver.model.GroupItem;

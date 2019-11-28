@@ -26,7 +26,7 @@ import com.github.mikephil.charting.interfaces.dataprovider.LineDataProvider;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.github.mikephil.charting.utils.Utils;
 import com.amt.batterysaver.BatteryMode.BatteryInfo;
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 import com.amt.batterysaver.Utilsb.HistoryPref;
 import com.amt.batterysaver.service.BatteryService;
 

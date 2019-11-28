@@ -28,7 +28,7 @@ import android.widget.Toast;
 import com.amt.batterysaver.activity.PermissionActivity;
 import com.amt.batterysaver.notification.NotificationDevice;
 import com.amt.batterysaver.Alarm.AlarmUtils;
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 import com.amt.batterysaver.model.DeviceStatus;
 import com.amt.batterysaver.activity.ChargeActivity;
 import com.amt.batterysaver.activity.ChargeResultActivity;

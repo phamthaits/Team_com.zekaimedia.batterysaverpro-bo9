@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.TextView;
 
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 
 public class TaskCountDoing extends AsyncTask<Void, Integer, Void> {
 

@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.model.TaskInfo;
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 
 import java.util.ArrayList;
 import java.util.Iterator;

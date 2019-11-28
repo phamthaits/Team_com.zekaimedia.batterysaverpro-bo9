@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 
 public class ChargeSettingActivity extends AppCompatActivity implements View.OnClickListener{
 

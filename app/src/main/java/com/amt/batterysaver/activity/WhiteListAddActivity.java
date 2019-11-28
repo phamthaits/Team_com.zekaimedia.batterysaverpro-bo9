@@ -18,7 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 import com.amt.batterysaver.Utilsb.PreferAppList;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.adapter.ManagerConnect;

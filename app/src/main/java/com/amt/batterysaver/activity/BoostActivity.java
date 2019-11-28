@@ -27,7 +27,7 @@ import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.notification.NotificationDevice;
 import com.amt.batterysaver.task.TaskBoost;
 import com.amt.batterysaver.view.HoloCircularProgressBar;
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 
 
 public class BoostActivity extends AppCompatActivity implements View.OnClickListener {

@@ -18,7 +18,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.LinearInterpolator;
 
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 
 public class RotateLoading extends View {
 

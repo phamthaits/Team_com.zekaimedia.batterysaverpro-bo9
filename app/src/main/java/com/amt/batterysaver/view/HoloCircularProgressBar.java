@@ -14,7 +14,7 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 
 public class HoloCircularProgressBar extends View {
 

@@ -23,7 +23,7 @@ import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.service.BatteryService;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

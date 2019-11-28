@@ -8,7 +8,7 @@ import android.provider.Settings;
 
 import android.view.View;
 
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 
 public class PermissionActivity extends Activity {
 

@@ -54,7 +54,7 @@ import com.amt.batterysaver.task.TaskCountDoing;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 import com.skyfishjy.library.RippleBackground;
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 import com.amt.batterysaver.task.BatteryTask;
 import com.amt.batterysaver.task.TaskCount;
 import com.amt.batterysaver.activity.CoolActivity;

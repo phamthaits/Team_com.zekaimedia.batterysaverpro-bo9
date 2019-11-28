@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.ads.control.AdmobHelp;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.MainActivity;
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 
 
 public class SplashActivity extends AppCompatActivity {

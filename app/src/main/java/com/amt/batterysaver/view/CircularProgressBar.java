@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 
 
 public class CircularProgressBar extends View {

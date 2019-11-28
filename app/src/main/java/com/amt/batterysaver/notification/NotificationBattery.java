@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.RemoteViews;
 
 import com.amt.batterysaver.MainActivity;
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.activity.BoostActivity;

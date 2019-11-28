@@ -20,7 +20,7 @@ import com.amt.batterysaver.fragment.fmAppManager;
 import com.amt.batterysaver.fragment.fmBatterySaveMain;
 import com.amt.batterysaver.fragment.fmChart;
 import com.amt.batterysaver.fragment.fmSetting;
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 
 
 

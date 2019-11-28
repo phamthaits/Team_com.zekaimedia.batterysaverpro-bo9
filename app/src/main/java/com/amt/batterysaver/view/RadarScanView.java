@@ -12,7 +12,7 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 
 public class RadarScanView extends View {
     private static final int DEFAULT_WIDTH = 200;

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.model.GroupItemAppManager;
 import com.amt.batterysaver.view.AnimatedExpandableListView;

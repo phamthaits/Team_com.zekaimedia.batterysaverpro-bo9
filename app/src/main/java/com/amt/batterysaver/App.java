@@ -9,7 +9,7 @@ import androidx.core.internal.view.SupportMenu;
 import androidx.multidex.MultiDexApplication;
 
 import com.facebook.ads.AudienceNetworkAds;
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 
 public class App  extends MultiDexApplication {
     @Override

@@ -20,7 +20,7 @@ import com.ads.control.AdmobHelp;
 import com.airbnb.lottie.LottieAnimationView;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 import com.amt.batterysaver.task.TaskCharge;
 import com.amt.batterysaver.task.TaskChargeDetail;
 

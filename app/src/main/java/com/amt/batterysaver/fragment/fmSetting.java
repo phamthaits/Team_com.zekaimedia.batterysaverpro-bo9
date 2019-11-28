@@ -18,7 +18,7 @@ import com.amt.batterysaver.activity.LanguageActivity;
 import com.amt.batterysaver.activity.WhiteListActivity;
 import com.amt.batterysaver.notification.NotificationBattery;
 import com.amt.batterysaver.MainActivity;
-import com.amt.fastcharging.batterysaver.R;
+import com.amt.batterysaver.R;
 import com.amt.batterysaver.activity.ChargeSettingActivity;
 
 import static android.app.Activity.RESULT_OK;
