@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:background="#f2f2f2"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/divider">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/screen_padding_5"
+                android:layout_marginStart="@dimen/screen_padding_5"
+                android:layout_marginEnd="@dimen/screen_padding_5"
+                android:background="@drawable/bg_rounded"
+                android:gravity="center">
+                <RelativeLayout
+                    android:id="@+id/view_chart"
+                    android:layout_width="@dimen/chart_battery_charge_count_width"
+                    android:layout_height="@dimen/chart_battery_charge_count_width"
+                    android:layout_margin="@dimen/chart_battery_charge_count_margin">
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/chartPie"
+
+                        android:layout_width="@dimen/chart_battery_charge_count_width"
+                        android:layout_height="@dimen/chart_battery_charge_count_width" />
+                    <TextView
+                        android:textSize="@dimen/text_size_value_status"
+                        android:textColor="@color/tv_charge_count_color"
+                        android:fontFamily="@font/roboto_regular"
+                        android:id="@+id/tvCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:includeFontPadding="false"
+                        android:layout_centerInParent="true" />
+                    <ImageView
+                        android:id="@+id/img_charge_icon"
+                        android:layout_width="@dimen/img_charge_icon_width"
+                        android:layout_height="@dimen/img_charge_icon_width"
+                        android:tint="@color/color_black_6"
+                        android:layout_below="@+id/tvCount"
+                        android:layout_centerHorizontal="true"
+                        app:srcCompat="@drawable/ic_power" />
+                    <ImageView
+                        android:id="@+id/imgColor"
+                        android:visibility="invisible"
+                        android:layout_width="@dimen/img_chart_item_color_width"
+                        android:layout_height="@dimen/img_chart_item_color_width"
+                        android:layout_above="@+id/tvCount"
+                        android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginStart="20.0dip"
+                    android:layout_marginEnd="24.0dip">
+                    <RelativeLayout
+                        android:id="@+id/view_info_healthy"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+                        <ImageView
+                            android:id="@+id/imgHealthy"
+                            android:background="@drawable/shape_status_normal"
+                            android:layout_width="@dimen/img_chart_item_color_width"
+                            android:layout_height="@dimen/img_chart_item_color_width"
+                            android:layout_centerVertical="true" />
+                        <TextView
+                            android:textSize="@dimen/textsize_history_charge"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textColor="@color/color_normal"
+                            android:id="@+id/tvHealthy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true" />
+                        <TextView
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textColor="@color/text_color"
+                            android:id="@+id/label_info_healthy"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8.0dip"
+                            android:text="@string/bd_charge_record_healthy"
+                            android:layout_toStartOf="@+id/tvHealthy"
+                            android:layout_toEndOf="@+id/imgHealthy"
+                            android:layout_centerVertical="true" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/view_info_normal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/view_info_healthy">
+                        <ImageView
+                            android:id="@+id/imgNorml"
+                            android:background="@drawable/status_healthy"
+                            android:layout_width="@dimen/img_chart_item_color_width"
+                            android:layout_height="@dimen/img_chart_item_color_width"
+                            android:layout_centerVertical="true" />
+                        <TextView
+                            android:textSize="@dimen/textsize_history_charge"
+                            android:textColor="@color/color_normal"
+                            android:fontFamily="@font/roboto_regular"
+                            android:id="@+id/tvNormal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0" android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true" />
+                        <TextView
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textColor="@color/text_color"
+                            android:id="@+id/label_info_full"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8.0dip"
+                            android:text="@string/bd_charge_record_normal"
+                            android:layout_toStartOf="@+id/tvNormal"
+                            android:layout_toEndOf="@+id/imgNorml"
+                            android:layout_centerVertical="true" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/view_info_over"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/view_info_healthy">
+                        <ImageView
+                            android:id="@+id/imgOver"
+                            android:background="@drawable/shape_status_over"
+                            android:layout_width="@dimen/img_chart_item_color_width"
+                            android:layout_height="@dimen/img_chart_item_color_width"
+                            android:layout_centerVertical="true" />
+                        <TextView
+                            android:textSize="@dimen/textsize_history_charge"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textColor="@color/color_normal"
+                            android:id="@+id/tvOver"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true" />
+                        <TextView
+                            android:textSize="@dimen/text_size"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textColor="@color/text_color"
+                            android:id="@+id/label_info_over"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8.0dip"
+                            android:text="@string/bd_charge_record_overcharging"
+                            android:layout_toStartOf="@+id/tvOver"
+                            android:layout_toEndOf="@+id/imgOver"
+                            android:layout_centerVertical="true" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+
+            android:layout_marginBottom="@dimen/screen_padding_5"
+            android:layout_marginStart="@dimen/screen_padding_5"
+            android:layout_marginEnd="@dimen/screen_padding_5"
+            android:background="@drawable/bg_rounded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip">
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dip"
+                android:paddingTop="10dip">
+                <TextView
+                    android:textSize="@dimen/text_size_title"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/progress_color"
+                    android:id="@+id/last_charge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/setting_item_margin_left"
+                    android:text="@string/go_last_charge_record"
+                    android:layout_centerVertical="true"
+
+                    android:textAllCaps="true" />
+                <View
+                    android:background="@color/color_divider"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0dip"
+                    android:layout_marginStart="@dimen/setting_item_margin_left"
+                    android:layout_marginEnd="@dimen/setting_item_margin_left"
+                    android:layout_toEndOf="@+id/last_charge"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                style="@style/ItemFrameTextRecord">
+                <TextView
+                    android:textSize="@dimen/text_size"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/text_color"
+                    android:id="@+id/label_last_full"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/go_since_the_last_full_charge"
+                    android:layout_alignParentStart="true" />
+                <TextView
+                    android:textSize="@dimen/text_size"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/color_normal"
+                    android:id="@+id/tvLastFull"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_text_value_record"
+                    android:text="@string/du_no_charger_record"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                style="@style/ItemFrameTextRecord">
+                <TextView
+                    android:textSize="@dimen/text_size"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/text_color"
+                    android:id="@+id/label_mode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bd_charger_type"
+                    android:layout_alignParentStart="true" />
+                <TextView
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/color_normal"
+                    android:id="@+id/tvChargeType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/du_no_charger_record"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                style="@style/ItemFrameTextRecord">
+                <TextView
+                    android:textSize="@dimen/text_size"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/text_color"
+                    android:id="@+id/label_duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bd_charge_duration"
+                    android:layout_alignParentStart="true" />
+                <TextView
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/color_normal"
+                    android:id="@+id/tvTimeCharge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_text_value_record"
+                    android:text="@string/du_no_charger_record"
+                    android:fontFamily="@font/roboto_regular"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16.0dip"
+                android:layout_marginEnd="16.0dip"
+                style="@style/ItemFrameTextRecord">
+                <TextView
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/text_color"
+                    android:id="@+id/label_quantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/go_charge_quantity"
+                    android:layout_alignParentStart="true" />
+                <TextView
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="@dimen/text_size"
+                    android:textColor="@color/color_normal"
+                    android:id="@+id/tvQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_text_value_record"
+                    android:text="@string/du_no_charger_record"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/screen_padding_5"
+            android:layout_marginStart="@dimen/screen_padding_5"
+            android:layout_marginEnd="@dimen/screen_padding_5"
+            android:paddingBottom="10dip"
+            android:paddingTop="10dip"
+            android:background="@drawable/bg_rounded"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            >
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dip"
+                android:paddingTop="10dip">
+                <TextView
+                    android:fontFamily="@font/roboto_regular"
+                    android:textSize="@dimen/text_size_title"
+                    android:textColor="@color/progress_color"
+                    android:id="@+id/last_3_days_charge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/setting_item_margin_left"
+                    android:text="@string/go_last_3_days"
+                    android:layout_centerVertical="true"
+                    android:textAllCaps="true" />
+                <View
+                    android:background="@color/color_divider"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0dip"
+                    android:layout_marginStart="@dimen/setting_item_margin_left"
+                    android:layout_marginEnd="@dimen/setting_item_margin_left"
+                    android:layout_toEndOf="@+id/last_3_days_charge"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <include android:id="@+id/news_title"
+                android:layout_centerHorizontal="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/fragment_history_battery"/>
+        </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

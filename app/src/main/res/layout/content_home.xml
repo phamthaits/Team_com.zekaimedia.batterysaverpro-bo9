@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#f2f2f2"
+        >
+        <include
+            android:id="@+id/news_title"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/activity_optimize"
+            android:layout_marginBottom="@dimen/screen_padding_5"
+            android:layout_marginLeft="@dimen/screen_padding_5"
+            android:layout_marginRight="@dimen/screen_padding_5"
+            android:layout_marginTop="@dimen/screen_padding_5"
+           />
+        <LinearLayout
+
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_marginBottom="@dimen/screen_padding_5"
+                android:layout_marginLeft="@dimen/screen_padding_5"
+                android:layout_marginRight="@dimen/screen_padding_5"
+                android:background="@drawable/bg_rounded"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:id="@+id/ll_btn_charging_tip"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/progress_charging_height">
+                <RelativeLayout
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4.0dip"
+                    android:layout_weight="1.0">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="2.0dip"
+                        android:layout_marginTop="@dimen/progress_trickle_charging_margin_top">
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/progress_hight"
+                            android:layout_weight="1.0" />
+                        <View android:id="@+id/view1"
+                            android:background="@color/colorAccent"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/progress_hight"
+                            android:layout_marginLeft="@dimen/progress_trickle_charging_margin"
+                            android:layout_weight="1.0" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/fl_quick_chaging"
+
+                        android:layout_width="@dimen/progress_trickle_charging_width"
+                        android:layout_height="@dimen/progress_trickle_charging_width"
+                        android:layout_centerHorizontal="true">
+                        <FrameLayout
+                            android:orientation="horizontal"
+                            android:layout_width="@dimen/progress_trickle_charging_width"
+                            android:layout_height="@dimen/progress_trickle_charging_width"
+                            android:layout_centerHorizontal="true">
+                            <ProgressBar
+
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:id="@+id/pbQuick"
+                                android:layout_width="@dimen/progress_trickle_charging_width"
+                                android:layout_height="@dimen/progress_trickle_charging_width"
+                                android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan"
+                                style="?android:attr/progressBarStyleLarge" />
+                            <ImageView android:id="@+id/imgQuick"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:background="@drawable/icon_shape_progress_cyan"
+                                android:layout_width="@dimen/progress_trickle_charging_width_image"
+                                android:layout_height="@dimen/progress_trickle_charging_width_image"
+                                android:src="@drawable/ic_quick_charging_end" />
+                        </FrameLayout>
+                    </FrameLayout>
+                    <com.romainpiel.shimmer.ShimmerTextView
+                        android:text="@string/fast_charging"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:reflectionColor="#f00"
+                        android:layout_below="@+id/fl_quick_chaging"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="@dimen/textsize_ram_storage_total"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/color_text_progress_charge_dim"
+                        android:id="@+id/tvFast"
+                        android:paddingTop="3.0dip"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4.0dip"
+                    android:layout_weight="1.0">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="2.0dip"
+                        android:layout_marginTop="@dimen/progress_trickle_charging_margin_top">
+
+                        <View
+                            android:id="@+id/view2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/progress_hight"
+                            android:layout_marginRight="@dimen/progress_trickle_charging_margin"
+                            android:layout_weight="1.0"
+                            android:background="@color/colorAccent" />
+                        <View android:id="@+id/view3"
+                            android:background="@color/color_progress_charge_dim"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/progress_hight"
+                            android:layout_marginLeft="@dimen/progress_trickle_charging_margin"
+                            android:layout_weight="1.0" />
+                    </LinearLayout>
+                    <FrameLayout
+                        android:id="@+id/fl_full_charging"
+
+                        android:layout_width="@dimen/progress_trickle_charging_width"
+                        android:layout_height="@dimen/progress_trickle_charging_width"
+                        android:layout_centerHorizontal="true">
+                        <FrameLayout
+                            android:orientation="horizontal"
+                            android:layout_width="@dimen/progress_trickle_charging_width"
+                            android:layout_height="@dimen/progress_trickle_charging_width"
+                            android:layout_centerHorizontal="true">
+                            <ProgressBar
+
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:id="@+id/pbFull"
+                                android:layout_width="@dimen/progress_trickle_charging_width"
+                                android:layout_height="@dimen/progress_trickle_charging_width"
+                                android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan"
+                                style="?android:attr/progressBarStyleLarge" />
+                            <ImageView android:id="@+id/imgFull"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:background="@drawable/icon_shape_progress_cyan"
+                                android:layout_width="@dimen/progress_trickle_charging_width_image"
+                                android:layout_height="@dimen/progress_trickle_charging_width_image"
+                                android:src="@drawable/ic_full_charging_end" />
+                        </FrameLayout>
+                    </FrameLayout>
+
+                    <com.romainpiel.shimmer.ShimmerTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:reflectionColor="#00ccff"
+                        android:layout_below="@+id/fl_full_charging"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="@dimen/textsize_ram_storage_total"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/color_text_progress_charge_dim"
+                        android:id="@+id/tvFull"
+                        android:text="@string/full_charging"
+                        android:paddingTop="3.0dip"/>
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4.0dip"
+                    android:layout_weight="1.0">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="2.0dip"
+                        android:layout_marginTop="@dimen/progress_trickle_charging_margin_top">
+                        <View android:id="@+id/view4"
+                            android:background="@color/color_progress_charge_dim"
+                            android:layout_width="fill_parent"
+                            android:layout_height="@dimen/progress_hight"
+                            android:layout_marginRight="@dimen/progress_trickle_charging_margin"
+                            android:layout_weight="1.0" />
+                        <View android:layout_width="fill_parent"
+                            android:layout_height="@dimen/progress_hight"
+                            android:layout_weight="1.0" />
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:id="@+id/fl_trickle_charging"
+
+                        android:layout_width="@dimen/progress_trickle_charging_width"
+                        android:layout_height="@dimen/progress_trickle_charging_width"
+                        android:layout_centerHorizontal="true">
+                        <FrameLayout
+                            android:orientation="horizontal"
+                            android:layout_width="@dimen/progress_trickle_charging_width"
+                            android:layout_height="@dimen/progress_trickle_charging_width"
+                            android:layout_centerHorizontal="true">
+                            <ProgressBar
+
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:id="@+id/pbTrickle"
+                                android:layout_width="@dimen/progress_trickle_charging_width"
+                                android:layout_height="@dimen/progress_trickle_charging_width"
+                                android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan"
+                                style="?android:attr/progressBarStyleLarge" />
+                            <ImageView android:id="@+id/imgTrickle"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:background="@drawable/shape_process_green"
+                                android:layout_width="@dimen/progress_trickle_charging_width_image"
+                                android:layout_height="@dimen/progress_trickle_charging_width_image"
+                                android:src="@drawable/ic_trickle_charging_end" />
+                        </FrameLayout>
+                    </FrameLayout>
+                    <com.romainpiel.shimmer.ShimmerTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:reflectionColor="@color/colorAccent"
+                        android:layout_below="@+id/fl_trickle_charging"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="@dimen/textsize_ram_storage_total"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/color_text_progress_charge_dim"
+                        android:id="@+id/tvTrickle"
+                        android:text="@string/trickle_charging"
+                        android:paddingTop="3.0dip"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+
+                android:layout_marginBottom="@dimen/screen_padding_5"
+                android:layout_marginStart="@dimen/screen_padding_5"
+                android:layout_marginEnd="@dimen/screen_padding_5"
+                
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:id="@+id/lrClean"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:layout_marginEnd="@dimen/screen_padding_5"
+                    android:background="@drawable/bg_rounded"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/ivVoltage"
+                        android:layout_width="@dimen/_38sdp"
+                        android:layout_height="@dimen/_38sdp"
+                        android:tint="@color/more_clean"
+                        android:src="@drawable/ic_clean_trash"
+                        />
+
+                    <TextView
+                        android:maxLines="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@string/junk_clean_nav"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/grey_400"
+                        android:textSize="@dimen/textsize_compo_ram_cpu_des" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/lrBoost"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:background="@drawable/bg_rounded"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_marginEnd="@dimen/screen_padding_5"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:tint="#FF80AB"
+                        android:id="@+id/ivTemperaturePin"
+                        android:layout_width="@dimen/_38sdp"
+                        android:layout_height="@dimen/_38sdp"
+                        android:src="@drawable/ic_memory_boost"
+                        />
+
+                    <TextView
+                        android:maxLines="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:singleLine="true"
+                        android:text="@string/phone_boost_nav"
+                        android:textColor="@color/grey_400"
+                        android:textSize="@dimen/textsize_compo_ram_cpu_des" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/lrCool"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:background="@drawable/bg_rounded"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:id="@+id/ivCapacity"
+                        android:layout_width="@dimen/_38sdp"
+                        android:layout_height="@dimen/_38sdp"
+                        android:src="@drawable/ic_temperature"
+                        />
+                    
+
+                    <TextView
+                        android:maxLines="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@string/phone_cool_nav"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/grey_400"
+                        android:textSize="@dimen/textsize_compo_ram_cpu_des" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <include
+                android:layout_marginBottom="@dimen/screen_padding_5"
+                android:layout_marginStart="@dimen/screen_padding_5"
+                android:layout_marginEnd="@dimen/screen_padding_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/layout_ads_control">
+            </include>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvFastCharge"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8.0dip"
+                android:layout_marginBottom="5.0dip"
+                android:layout_marginRight="8.0dip"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="8.0dip"
+                app:cardElevation="0.0dip">
+
+                <include
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    layout="@layout/layout_enable_charge"/>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_marginBottom="@dimen/screen_padding_5"
+                android:layout_marginStart="@dimen/screen_padding_5"
+                android:layout_marginEnd="@dimen/screen_padding_5"
+                android:background="@drawable/bg_rounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="@dimen/margin_between_progress"
+                android:paddingTop="@dimen/margin_between_progress">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvTemperaturePin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/temperature"
+                        android:textSize="@dimen/text_size"
+                        android:textStyle="bold"
+                        android:text="40 C" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:singleLine="true"
+                        android:text="@string/temperature"
+                        android:textColor="@color/grey_400"
+                        android:textSize="@dimen/textsize_compo_ram_cpu_des" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvVoltage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/storage"
+                        android:textSize="@dimen/text_size"
+                        android:textStyle="bold"
+                        android:text="30 V" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@string/voltage"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/grey_400"
+                        android:textSize="@dimen/textsize_compo_ram_cpu_des" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvCapacity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/ram"
+                        android:textSize="@dimen/text_size"
+                        android:textStyle="bold"
+                        android:text="2500 mA"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:text="@string/capacity"
+                        android:fontFamily="@font/roboto_regular"
+                        android:textColor="@color/grey_400"
+                        android:textSize="@dimen/textsize_compo_ram_cpu_des" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+
+                android:layout_marginStart="@dimen/screen_padding_5"
+                android:layout_marginEnd="@dimen/screen_padding_5"
+                android:background="@drawable/bg_rounded"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/margin_between_progress"
+                android:paddingTop="@dimen/margin_between_progress">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/btnWifi"
+                            android:layout_width="@dimen/size_status_wifi"
+                            android:layout_height="@dimen/size_status_wifi"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/bg_circle_progress"
+                            android:contentDescription="@string/app_name"
+                            android:padding="15dp"
+
+                            android:src="@drawable/ic_wifi_true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/btnSound"
+                            android:layout_width="@dimen/size_status_wifi"
+                            android:layout_height="@dimen/size_status_wifi"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/bg_circle_progress"
+                            android:contentDescription="@string/app_name"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_volume_normal" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/btnScreenTime"
+                            android:layout_width="@dimen/size_status_wifi"
+                            android:layout_height="@dimen/size_status_wifi"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/bg_circle_progress"
+                            android:contentDescription="@string/app_name"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_lock_outline_teal_700_24dp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/btnBluetooth"
+                            android:layout_width="@dimen/size_status_wifi"
+                            android:layout_height="@dimen/size_status_wifi"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/bg_circle_progress"
+                            android:contentDescription="@string/app_name"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_bluetooth_false" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/btnSync"
+                            android:layout_width="@dimen/size_status_wifi"
+                            android:layout_height="@dimen/size_status_wifi"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/bg_circle_progress"
+                            android:contentDescription="@string/app_name"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_sync_true" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_between_progress">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/btnBrightness"
+                            android:layout_width="@dimen/size_status_wifi"
+                            android:layout_height="@dimen/size_status_wifi"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/bg_circle_progress"
+                            android:contentDescription="@string/app_name"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_mobile_true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/btnMobileData"
+                            android:layout_width="@dimen/size_status_wifi"
+                            android:layout_height="@dimen/size_status_wifi"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/bg_circle_progress"
+                            android:contentDescription="@string/app_name"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_mobile_false" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/btnRotate"
+                            android:layout_width="@dimen/size_status_wifi"
+                            android:layout_height="@dimen/size_status_wifi"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/bg_circle_progress"
+                            android:contentDescription="@string/app_name"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_rotate_true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/btnGPS"
+                            android:layout_width="@dimen/size_status_wifi"
+                            android:layout_height="@dimen/size_status_wifi"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/bg_circle_progress"
+                            android:contentDescription="@string/app_name"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_gps_true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/btnAirPlane"
+                            android:layout_width="@dimen/size_status_wifi"
+                            android:layout_height="@dimen/size_status_wifi"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/bg_circle_progress"
+                            android:contentDescription="@string/app_name"
+                            android:padding="15dp"
+                            android:src="@drawable/ic_airplane_false" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</ScrollView>

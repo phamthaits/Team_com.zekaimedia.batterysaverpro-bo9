@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffefefef"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:id="@+id/lr1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/screen_padding_5"
+                android:layout_marginRight="@dimen/screen_padding_5"
+                android:layout_marginTop="@dimen/screen_padding_5"
+                android:background="@drawable/bg_rounded"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/title2"
+                        android:fontFamily="@font/roboto_medium"
+                        style="@style/tvTitleStyle"
+                        android:text="@string/battery_title" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lrKillApp"
+                    android:clickable="false"
+                    style="@style/Ripple"
+                    android:paddingBottom="@dimen/screen_padding_2"
+                    android:paddingTop="@dimen/screen_padding_2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/imageStyle"
+                        android:src="@drawable/ic_rocket_white"
+                        android:tint="#FF5252"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/sw_wave_mode"
+                            style="@style/rowSwitchStyle"
+                            android:text="@string/kill_app_screen_off" />
+
+                        <TextView
+                            android:paddingBottom="@dimen/screen_padding_2"
+                            style="@style/rowdetails"
+                            android:text="@string/kill_app_screen_off_des" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swKillApp"
+                        style="@style/swStyle" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/lrIngoreList"
+                    style="@style/Ripple"
+                    android:paddingBottom="@dimen/screen_padding_2"
+                    android:paddingTop="@dimen/screen_padding_2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/imageStyle"
+                        android:src="@drawable/ic_setting_white_list"
+                        android:tint="#536DFE"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/rowSwitchStyle"
+                            android:text="@string/app_white_list" />
+
+                        <TextView
+                            android:id="@+id/tvNumWave"
+                            style="@style/rowdetails"
+                            android:text="@string/app_white_list_des" />
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:layout_width="@dimen/checkbox_size"
+                        android:layout_height="@dimen/checkbox_size"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:padding="@dimen/checkbox_padding"
+                        android:src="@drawable/ic_next_page" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/lrFastCharge"
+                    style="@style/Ripple"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/imageStyle"
+                        android:src="@drawable/ic_charge_full_reminder"
+                        android:tint="#7C4DFF"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/rowSwitchStyle"
+                            android:text="@string/fast_charging" />
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:layout_width="@dimen/checkbox_size"
+                        android:layout_height="@dimen/checkbox_size"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:padding="@dimen/checkbox_padding"
+                        android:src="@drawable/ic_next_page" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/screen_padding_5"
+                android:layout_marginLeft="@dimen/screen_padding_5"
+                android:layout_marginRight="@dimen/screen_padding_5"
+                android:layout_marginTop="@dimen/screen_padding_5"
+                android:background="@drawable/bg_rounded"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:fontFamily="@font/roboto_medium"
+                        style="@style/tvTitleStyle"
+                        android:text="@string/notification_setting" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/lrEnableNotification"
+                    android:clickable="false"
+                    style="@style/Ripple"
+                    android:paddingBottom="@dimen/screen_padding_2"
+                    android:paddingTop="@dimen/screen_padding_2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/imageStyle"
+                        android:src="@drawable/ic_rocket_white"
+                        android:tint="@color/more_clean"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/rowSwitchStyle"
+                            android:text="@string/kill_app_screen_off" />
+
+                        <TextView
+                            android:paddingBottom="@dimen/screen_padding_2"
+                            style="@style/rowdetails"
+                            android:text="@string/kill_app_screen_off_des" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swEnableNotification"
+                        style="@style/swStyle" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/lrDnd"
+                    style="@style/Ripple"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/imageStyle"
+                        android:src="@drawable/ic_moon"
+                        android:tint="#FF4081"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/rowSwitchStyle"
+                            android:text="@string/do_not_disturb" />
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/tvDNDDes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="5dp"
+                        android:text="20:00-8:00" />
+                    <ImageView
+                        android:layout_width="@dimen/checkbox_size"
+                        android:layout_height="@dimen/checkbox_size"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:padding="@dimen/checkbox_padding"
+                        android:src="@drawable/ic_next_page" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/lrBoost"
+                    style="@style/Ripple"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/imageStyle"
+                        android:src="@drawable/ic_rocket_white"
+                        android:tint="#FFD740"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/rowSwitchStyle"
+
+                            android:text="@string/bg_power_use" />
+
+
+                    </LinearLayout>
+
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swBoost"
+                        style="@style/swStyle" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/lrCoolDown"
+                    style="@style/Ripple"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/imageStyle"
+                        android:src="@drawable/ic_temperature_normal"
+                        android:tint="@color/colorAccent"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/rowSwitchStyle"
+
+                            android:text="@string/phone_cool_reminder" />
+
+
+                    </LinearLayout>
+
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swCoolDown"
+                        style="@style/swStyle" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lrLowPower"
+                    style="@style/Ripple"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/imageStyle"
+                        android:src="@drawable/ic_battery_low"
+                        android:tint="#FF5252"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/rowSwitchStyle"
+
+                            android:text="@string/low_power_reminder" />
+
+
+                    </LinearLayout>
+
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swLowPower"
+                        style="@style/swStyle" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/lrBatteryFull"
+                    style="@style/Ripple"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/imageStyle"
+                        android:src="@drawable/ic_charge_full_reminder"
+                        android:tint="#536DFE"
+
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/rowSwitchStyle"
+
+                            android:text="@string/charging_completed" />
+
+
+                    </LinearLayout>
+
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swBatteryFull"
+                        style="@style/swStyle" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lr2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/screen_padding_5"
+                android:layout_marginLeft="@dimen/screen_padding_5"
+                android:layout_marginRight="@dimen/screen_padding_5"
+                android:layout_marginTop="@dimen/screen_padding_5"
+                android:background="@drawable/bg_rounded"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:fontFamily="@font/roboto_medium"
+                        style="@style/tvTitleStyle"
+                        android:text="@string/general_title" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lrTemperture"
+                    style="@style/Ripple"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/imageStyle"
+                        android:src="@drawable/ic_temperature_normal"
+                        android:tint="#FF5252"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/rowSwitchStyle"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/temperature" />
+
+                        <TextView
+                            android:id="@+id/tvTempertureDes"
+                            style="@style/rowdetails"
+                            android:text="@string/celsius" />
+
+                    </LinearLayout>
+
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/swTemp"
+                        style="@style/swStyle" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/lrLanguage"
+                    style="@style/Ripple"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        style="@style/imageStyle"
+                        android:src="@drawable/ic_langue"
+                        android:tint="#536DFE"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/rowSwitchStyle"
+                            android:layout_marginTop="10dp"
+                            android:text="@string/title_activity_language" />
+
+                        <TextView
+                            android:id="@+id/tvLanguageDes"
+                            style="@style/rowdetails"
+                            android:text="@string/language_name" />
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:layout_width="@dimen/checkbox_size"
+                        android:layout_height="@dimen/checkbox_size"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:padding="@dimen/checkbox_padding"
+                        android:src="@drawable/ic_next_page" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>

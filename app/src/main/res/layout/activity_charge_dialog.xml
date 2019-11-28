@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+    android:orientation="vertical" 
+    android:background="@android:color/transparent" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:orientation="vertical" 
+        android:layout_width="fill_parent" 
+        android:layout_height="wrap_content">
+        <TextView
+            android:fontFamily="@font/roboto_regular"
+            android:textSize="12.0sp"
+            android:textColor="#ffcccccc" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content" 
+            android:layout_marginStart="16.0dip"
+            android:layout_marginBottom="4.0dip" 
+            android:text="@string/fast_charging"
+            android:layout_centerVertical="true" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/lockscreen_container"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                shimmer:cardBackgroundColor="@color/white"
+                shimmer:cardCornerRadius="8.0dip">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/screen"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:id="@+id/time_container"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16.0dip"
+                            android:layout_marginTop="8.0dip">
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:id="@+id/time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="@dimen/Optimize_big_size"
+                                    android:textColor="@color/text_second"
+                                    android:id="@+id/tvTime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="12:00"
+                                    />
+                                <TextView android:fontFamily="@font/roboto_regular"
+                                    android:textSize="@dimen/text_size"
+                                    android:textColor="@color/text_second"
+                                    android:id="@+id/tvFormatTime"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5.0dip"
+                                    android:text="AM" />
+                            </LinearLayout>
+                            <TextView
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="12.0sp"
+                                android:textColor="@color/text_second"
+                                android:id="@+id/tvDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Thứ 2, 6 tháng tám"
+                                android:layout_below="@+id/time"
+                                android:layout_centerHorizontal="true" />
+                        </LinearLayout>
+                        <FrameLayout
+                            android:id="@+id/fmOff"
+                            android:padding="15.0dip"
+                            android:layout_width="48.0dip"
+                            android:layout_height="48.0dip"
+                            android:layout_toStartOf="@+id/fmClose"
+                            android:onClick="onClick">
+                            <ImageView
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:src="@drawable/ic_setting_fast_charge"
+                                android:tint="@color/colorAccent"/>
+                        </FrameLayout>
+                        <FrameLayout
+                            android:id="@+id/fmClose"
+                            android:padding="16.0dip"
+                            android:layout_width="48.0dip"
+                            android:layout_height="48.0dip"
+                            android:layout_alignParentEnd="true"
+                            android:onClick="onClick">
+                            <ImageView
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:tint="@color/colorAccent"
+                                android:src="@drawable/ic_close_turn_off" />
+                        </FrameLayout>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:layout_width="128.0dip"
+                        android:layout_height="64.0dip"
+                        android:layout_marginTop="16.0dip">
+                        <FrameLayout
+                            android:background="@drawable/progess_bar_container"
+                            android:padding="4.0dip"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_toStartOf="@+id/progressBar_header">
+                            <ProgressBar
+                                android:id="@+id/progressBattery"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:max="100"
+                                android:progress="50"
+                                android:progressDrawable="@drawable/progess_bar"
+                                style="?android:progressBarStyleHorizontal" />
+                        </FrameLayout>
+                        <View
+                            android:id="@+id/progressBar_header"
+                            android:background="@drawable/progess_bar_header"
+                            android:layout_width="4.0dip"
+                            android:layout_height="32.0dip"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true" />
+                        <LinearLayout
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:id="@+id/shimmer_battery"
+                            android:padding="6.0dip"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent">
+                            <ImageView
+                                android:layout_gravity="center_vertical"
+                                android:id="@+id/ivCharge"
+                                android:layout_width="28.0dip"
+                                android:layout_height="28.0dip"
+                                android:src="@drawable/ic_charging"
+                                android:tint="@color/text_color"/>
+                            <TextView
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="@dimen/Optimize_big_size"
+                                android:textStyle="bold"
+                                android:textColor="@color/text_second"
+                                android:layout_gravity="center"
+                                android:id="@+id/tvPercent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="50%"
+                                android:layout_centerInParent="true" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:fontFamily="@font/roboto_regular"
+                            android:textSize="@dimen/text_size"
+                            android:textColor="@color/text_gray"
+                            android:id="@+id/tvTimeLeftTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/time_left"
+                            android:layout_marginEnd="10dp"
+                            android:layout_above="@+id/view_time_left"
+                            android:layout_centerHorizontal="true" />
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:id="@+id/view_time_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true">
+                            <TextView android:fontFamily="@font/roboto_regular"
+                                android:textSize="@dimen/text_size_hour"
+                                android:textColor="@color/colorAccent"
+                                android:layout_gravity="bottom|center"
+                                android:id="@+id/tvHour"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="00" />
+                            <TextView
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="@dimen/text_size"
+                                android:textColor="@color/gray"
+                                android:layout_gravity="bottom|center"
+                                android:id="@+id/tv_time_h_unit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2.0dip"
+                                android:text="h" />
+                            <TextView android:fontFamily="@font/roboto_regular"
+                                android:textSize="@dimen/text_size_hour"
+                                android:textColor="@color/colorAccent"
+                                android:layout_gravity="bottom|center"
+                                android:id="@+id/tvMin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2.0dip"
+                                android:text="00" />
+                            <TextView android:fontFamily="@font/roboto_regular"
+                                android:textSize="@dimen/text_size"
+                                android:textColor="@color/gray"
+                                android:layout_gravity="bottom|center"
+                                android:id="@+id/tv_time_m_unit"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="2.0dip"
+                                android:text="m" />
+                        </LinearLayout>
+                        <TextView
+                            android:textSize="18dip"
+                            android:textStyle="normal"
+                            android:textColor="@color/text_color"
+                            android:id="@+id/tvFullCharge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="@string/app_name"
+                            android:visibility="gone"/>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginEnd="5dip"
+                        android:layout_marginStart="5dip"
+                        android:layout_marginBottom="10dip"
+                        android:gravity="center"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:id="@+id/battery_charge_container"
+                        android:weightSum="5"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10.0dip"
+                        android:layout_below="@+id/time"
+                        android:layout_centerHorizontal="true">
+
+                        <LinearLayout
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                        <TextView
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="@dimen/textsize_compo_ram_cpu_des"
+                                android:textColor="@color/grey_500"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4.0dip"
+                                android:text="@string/go_charge_quantity"
+                                android:maxLines="1"
+                                android:lines="2"/>
+
+
+
+                            <TextView
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="@dimen/text_size"
+                                android:textColor="@color/colorAccent"
+                                android:id="@+id/tvQuati"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2.0dip"                                        android:text="@string/du_no_charger_record"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="@dimen/textsize_compo_ram_cpu_des"
+                                android:textColor="@color/grey_500"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4.0dip"
+                                android:text="@string/bd_charge_duration"
+                                android:maxLines="1"
+                                android:lines="2"/>
+                            <TextView android:fontFamily="@font/roboto_regular"
+                                android:textSize="@dimen/text_size"
+                                android:textColor="@color/colorAccent"
+                                android:id="@+id/tvChargeTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2.0dip"       android:text="@string/du_no_charger_record"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+                            <TextView
+
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="@dimen/textsize_compo_ram_cpu_des"
+                                android:textColor="@color/grey_500"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4.0dip"
+                                android:text="@string/bd_charger_type"
+                                android:lines="2"/>
+                            <TextView
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="@dimen/text_size"
+                                android:textColor="@color/colorAccent"
+                                android:id="@+id/tvChargeType"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2.0dip"
+                                android:text="@string/du_no_charger_record"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:gravity="center"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:background="@drawable/bg_charging_status"
+                        android:paddingStart="8.0dip"
+                        android:paddingTop="4.0dip"
+                        android:paddingEnd="8.0dip"
+                        android:paddingBottom="5.0dip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8.0dip"
+                        android:layout_marginTop="8.0dip"
+                        android:layout_marginEnd="8.0dip"
+                        android:layout_marginBottom="8dip">
+                        <FrameLayout
+                            android:id="@+id/shimmer_view_container_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <com.romainpiel.shimmer.ShimmerTextView
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="@dimen/textsize_ram_storage_total"
+                                android:textColor="@color/text_second"
+                                android:id="@+id/tvFast"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/fast_charging"
+                                android:maxLines="1"
+                                android:textAllCaps="true"
+                                app:reflectionColor="#f00"/>
+                        </FrameLayout>
+                        <FrameLayout
+                            android:id="@+id/shimmer_view_container_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8.0dip"
+                            android:layout_marginEnd="8.0dip">
+                            <com.romainpiel.shimmer.ShimmerTextView
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="@dimen/textsize_ram_storage_total"
+                                android:textColor="@color/text_second"
+                                android:id="@+id/tvFull"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/full_charging"
+                                android:textAllCaps="true"
+                                app:reflectionColor="#69F0AE"/>
+                        </FrameLayout>
+                        <FrameLayout
+                            android:id="@+id/shimmer_view_container_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                            <com.romainpiel.shimmer.ShimmerTextView
+                                android:fontFamily="@font/roboto_regular"
+                                android:textSize="@dimen/textsize_ram_storage_total"
+                                android:textColor="@color/text_second"
+                                android:id="@+id/tvTrick"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/trickle_charging"
+                                android:lines="1"
+                                android:textAllCaps="true"
+                                app:reflectionColor="#00ccff"/>
+                        </FrameLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+        <include
+            android:layout_marginTop="5dip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/layout_ads_control">
+        </include>
+
+
+    </LinearLayout>
+</RelativeLayout>

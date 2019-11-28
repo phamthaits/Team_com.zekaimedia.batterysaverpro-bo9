@@ -1,0 +1,296 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/activity_battery_actionbar"
+        android:fitsSystemWindows="true"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:layout_alignParentTop="true">
+        <LinearLayout
+            android:id="@+id/lr_back"
+            android:paddingEnd="8.0dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick">
+            <FrameLayout
+                android:layout_width="48.0dip"
+                android:layout_height="48.0dip"
+                android:layout_centerVertical="true">
+                <ImageView
+                    android:id="@+id/iv_arrow"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="8.0dip"
+                    android:src="@drawable/ic_navigate_before_white_48dp" />
+            </FrameLayout>
+            <TextView
+                android:textSize="16.0sp"
+                android:textColor="@color/text_second"
+                android:gravity="center_vertical"
+                android:id="@+id/activity_charge_tv_title_1"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="@string/junk_clean_nav"
+                android:fontFamily="sans" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/text_boost_header"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvTotalCache"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff57c00"
+            android:textSize="@dimen/textview_header_clean"
+            android:fontFamily="@font/roboto_regular"
+            tools:text="75" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginStart="3dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textColor="#ff414f71"
+                android:textSize="@dimen/text_size"
+                android:fontFamily="@font/roboto_regular"
+                tools:text="@string/percent_none" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/pc_ram_free_able"
+                android:textColor="#ff414f71"
+                android:textSize="@dimen/text_size"
+                android:fontFamily="@font/roboto_regular" />
+        </LinearLayout>
+    </LinearLayout>
+    <View
+        android:layout_gravity="bottom"
+        android:background="#103c3c3c"
+        android:layout_width="fill_parent"
+        android:layout_height="1.0dip"
+        android:layout_below="@+id/view_action_bar" />
+
+    <TextView
+        android:id="@+id/tvTotalFound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_clean_junk"
+        android:gravity="center"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#ff414f71"
+        android:textSize="@dimen/text_size"
+        android:fontFamily="@font/roboto_regular"
+        tools:text="@string/total_found" />
+    <View
+        android:layout_gravity="bottom"
+        android:id="@+id/divider"
+        android:background="#103c3c3c"
+        android:layout_width="fill_parent"
+        android:layout_height="1.0dip"
+        android:layout_below="@+id/view_action_bar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="10dip">
+
+        <com.amt.batterysaver.view.AnimatedExpandableListView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:padding="5dp"
+            android:scrollbars="none" />
+
+        <TextView
+            android:id="@+id/tvNoJunk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/no_junk"
+            android:textColor="@color/text_color"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/viewLoading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="7dp">
+
+                <ImageView
+                    android:id="@+id/imgFileApk"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/bg_icon_file"
+                    android:contentDescription="@string/app_name"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_android_white_24dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:text="@string/obsolete_apk"
+                    android:textSize="@dimen/text_size_title"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/text_color" />
+
+                <com.amt.batterysaver.view.RotateLoading
+                    android:id="@+id/rotateloadingApks"
+                    android:layout_width="@dimen/view_rotate_image"
+                    android:layout_height="@dimen/view_rotate_image"
+                    app:loading_speed="7"
+                    app:loading_width="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/bg_icon_file"
+                    android:contentDescription="@string/app_name"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_layers_white_24dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:text="@string/system_cache"
+                    android:textSize="@dimen/text_size_title"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/text_color" />
+
+                <com.amt.batterysaver.view.RotateLoading
+                    android:id="@+id/rotateloadingCache"
+                    android:layout_width="@dimen/view_rotate_image"
+                    android:layout_height="@dimen/view_rotate_image"
+                    app:loading_speed="7"
+                    app:loading_width="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/bg_icon_file"
+                    android:contentDescription="@string/app_name"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_file_download_white_24dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:text="@string/downloader_files"
+                    android:textSize="@dimen/text_size_title"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/text_color" />
+
+                <com.amt.batterysaver.view.RotateLoading
+                    android:id="@+id/rotateloadingDownload"
+                    android:layout_width="@dimen/view_rotate_image"
+                    android:layout_height="@dimen/view_rotate_image"
+                    app:loading_speed="7"
+                    app:loading_width="2dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/bg_icon_file"
+                    android:contentDescription="@string/app_name"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_description_white_24dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="7dp"
+                    android:layout_weight="1"
+                    android:text="@string/large_files"
+                    android:textSize="@dimen/text_size_title"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/text_color" />
+
+                <com.amt.batterysaver.view.RotateLoading
+                    android:id="@+id/rotateloadingLargeFiles"
+                    android:layout_width="@dimen/view_rotate_image"
+                    android:layout_height="@dimen/view_rotate_image"
+                    app:loading_speed="7"
+                    app:loading_width="2dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/btnCleanUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="30dip"
+        android:paddingStart="30dip"
+        android:background="@drawable/bg_btn"
+        android:text="@string/op_clean"
+        android:textAllCaps="true"
+        android:textSize="@dimen/text_size"
+        android:fontFamily="@font/roboto_regular"
+        android:textColor="@color/white"
+        android:layout_marginBottom="10dip"/>
+</LinearLayout>

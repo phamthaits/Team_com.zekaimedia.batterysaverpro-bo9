@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:id="@+id/activity_battery_actionbar"
+        android:fitsSystemWindows="true"
+        android:layout_width="fill_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentTop="true">
+        <LinearLayout
+            android:id="@+id/lr_back"
+            android:paddingEnd="8.0dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick">
+            <FrameLayout
+                android:layout_width="48.0dip"
+                android:layout_height="48.0dip"
+                android:layout_centerVertical="true">
+                <ImageView
+                    android:id="@+id/iv_arrow"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="8.0dip"
+                    android:src="@drawable/ic_navigate_before_white_48dp" />
+            </FrameLayout>
+            <TextView
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/text_second"
+                android:gravity="center_vertical"
+                android:id="@+id/activity_charge_tv_title_1"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="@string/phone_cool_nav"
+                android:fontFamily="sans"
+                android:textAllCaps="true"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/lrScan"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <com.skyfishjy.library.RippleBackground
+            android:layout_gravity="center"
+            android:id="@+id/charge_boost_ripple_background"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:rb_color="#2222aaff"
+            app:rb_duration="1200"
+            app:rb_radius="56.0dip"
+            app:rb_rippleAmount="2"
+            app:rb_scale="2.5">
+            <FrameLayout
+                android:layout_gravity="center"
+                android:id="@+id/fm_scan_container"
+                android:padding="44.0dip"
+                android:layout_width="280.0dip"
+                android:layout_height="280.0dip"
+                android:layout_centerInParent="true">
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+                    <ImageView
+                        android:id="@+id/ivDoneHoloCirular"
+                        android:visibility="visible"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:alpha="0.6" />
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:id="@+id/clean_done_iv_done"
+                        android:background="@drawable/circle_bg_done"
+                        android:padding="24.0dip"
+                        android:visibility="gone"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_margin="40.0dip"
+                        android:src="@drawable/ic_complete_tick" />
+                </FrameLayout>
+                <FrameLayout
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerInParent="true">
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:id="@+id/ivScan"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/ic_fan" />
+                    <ImageView
+                        android:tint="#ff3c485b"
+                        android:layout_gravity="center"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:src="@drawable/ic_fan_white" />
+                </FrameLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:visibility="visible"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:weightSum="2.0">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="96.0dip"
+                        android:weightSum="2.0">
+                        <FrameLayout
+                            android:id="@+id/fm_scan_container_1"
+                            android:layout_width="96.0dip"
+                            android:layout_height="fill_parent" />
+                        <FrameLayout
+                            android:id="@+id/fm_scan_container_2"
+                            android:layout_width="96.0dip"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1.0" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="96.0dip"
+                        android:weightSum="2.0">
+                        <FrameLayout android:id="@+id/fm_scan_container_4"
+                            android:layout_width="96.0dip"
+                            android:layout_height="fill_parent" />
+                        <FrameLayout android:id="@+id/fm_scan_container_3"
+                            android:layout_width="96.0dip"
+                            android:layout_height="fill_parent" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+        </com.skyfishjy.library.RippleBackground>
+        <TextView
+            android:textSize="@dimen/Optimize_big_size"
+            android:fontFamily="@font/roboto_regular"
+            android:textColor="@color/colorAccent"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/clean_up_done_tv_result"
+            android:visibility="visible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16.0dip"
+            android:layout_marginEnd="16.0dip"
+            android:text="@string/cool_down_button"
+            android:textAllCaps="true" />
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/iv_bg_snow"
+        android:layout_width="320.0dip"
+        android:layout_height="1138.0dip"
+        android:src="@drawable/bg_snow"
+        android:translationY="-1138.0dip" />
+    <FrameLayout
+        android:visibility="gone"
+        android:layout_marginTop="?actionBarSize"
+        android:id="@+id/fmResult"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:animateLayoutChanges="true">
+        <ScrollView
+            android:background="@color/main_dark_color"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+
+        <LinearLayout
+
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <RelativeLayout
+                android:background="#ffffffff"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/iv_bg_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/img_mark_size"
+                    android:src="@drawable/bg_snow_result"
+                    android:tint="@color/colorAccent"/>
+                <ImageView
+                    android:padding="15dp"
+                    android:id="@+id/img_done"
+                    android:layout_width="@dimen/img_mark_size"
+                    android:layout_height="@dimen/img_mark_size"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_temperature"/>
+
+                <TextView
+                    android:textSize="@dimen/optimize_result_size"
+                    android:fontFamily="@font/roboto_regular"
+                    android:textColor="@color/colorAccent"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/tv_optimized_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dip"
+                    android:textAllCaps="true"
+                    android:text="@string/result_cooler"
+
+                    android:layout_below="@+id/img_done"
+                    android:layout_centerHorizontal="true" />
+                <View android:layout_width="wrap_content"
+                    android:layout_height="0.0dip"
+                    android:layout_below="@+id/tv_optimized_info" />
+            </RelativeLayout>
+
+
+            <View
+                android:background="@color/divider"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0dip"/>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+
+                    <include
+                        android:layout_margin="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        layout="@layout/layout_ads_control">
+                    </include>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvFastCharge"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8.0dip"
+                        android:layout_marginTop="5.0dip"
+                        android:layout_marginRight="8.0dip"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="8.0dip"
+                        app:cardElevation="0.0dip">
+
+                        <include
+                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            layout="@layout/layout_enable_charge"/>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvBoost"
+                        android:layout_width="fill_parent"
+                        android:layout_height="120.0dip"
+                        android:layout_marginStart="8.0dip"
+                        android:layout_marginTop="8.0dip"
+                        android:layout_marginEnd="8.0dip"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="8.0dip"
+                        app:cardElevation="0.0dip"
+
+                        >
+                        <RelativeLayout
+                            android:id="@+id/rlBoost"
+                            android:onClick="onClick"
+                            android:background="@drawable/card_selector"
+                            android:clickable="true"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent">
+                            <FrameLayout
+                                android:id="@+id/fl_boost"
+                                android:background="@drawable/more_clean_bg"
+                                android:layout_width="72.0dip"
+                                android:layout_height="fill_parent">
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:id="@+id/ivBoost"
+                                    android:layout_width="32.0dip"
+                                    android:layout_height="32.0dip"
+                                    android:src="@drawable/ic_rocket_white" />
+                            </FrameLayout>
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:paddingStart="16.0dip"
+                                android:paddingEnd="8.0dip"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_toEndOf="@+id/fl_boost">
+                                <TextView
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="@dimen/optimize_result_size"
+                                    android:textColor="@color/text_color"
+                                    android:id="@+id/tvBoost1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8.0dip"
+                                    android:text="@string/ram_boost_title"
+                                    android:textAllCaps="true" />
+                                <TextView
+                                    android:textSize="@dimen/text_details_optimize"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textColor="@color/grey_500"
+                                    android:id="@+id/tvBoost2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8.0dip"
+                                    android:text="@string/sm_ram_detail"
+                                    android:layout_above="@+id/tvBoost3"
+                                    android:layout_below="@+id/tvBoost1" />
+                                <TextView
+                                    android:textSize="@dimen/text_details_optimize"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:typeface="sans"
+                                    android:textColor="@color/more_boost"
+                                    android:gravity="center"
+                                    android:id="@+id/tvBoost3"
+                                    android:background="@drawable/button_dialog_selector"
+                                    android:paddingStart="8.0dip"
+                                    android:paddingEnd="8.0dip"
+                                    android:clickable="true"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="36.0dip"
+                                    android:layout_marginBottom="8.0dip"
+                                    android:minWidth="64.0dip"
+                                    android:text="@string/op_boost"
+                                    android:layout_gravity="end"
+                                    android:textAllCaps="true" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvClean"
+                        android:layout_width="fill_parent"
+                        android:layout_height="120.0dip"
+                        android:layout_marginStart="8.0dip"
+                        android:layout_marginTop="8.0dip"
+                        android:layout_marginEnd="8.0dip"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="8.0dip"
+                        app:cardElevation="0.0dip">
+                        <RelativeLayout
+                            android:id="@+id/rlClean"
+                            android:onClick="onClick"
+                            android:background="@drawable/card_selector"
+                            android:clickable="true"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent">
+                            <FrameLayout
+                                android:id="@+id/fm_header_clean"
+                                android:background="@drawable/more_boost_bg"
+                                android:layout_width="72.0dip"
+                                android:layout_height="fill_parent">
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:layout_width="32.0dip"
+                                    android:layout_height="32.0dip"
+                                    android:src="@drawable/ic_clean_white" />
+                            </FrameLayout>
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:paddingStart="16.0dip"
+                                android:paddingEnd="8.0dip"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_toEndOf="@+id/fm_header_clean">
+                                <TextView
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="@dimen/optimize_result_size"
+                                    android:textColor="@color/text_color"
+                                    android:id="@+id/tv_jc_1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8.0dip"
+                                    android:text="@string/junk_clean_nav"
+                                    android:textAllCaps="true" />
+                                <TextView
+                                    android:textSize="@dimen/text_details_optimize"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textColor="@color/grey_500"
+                                    android:id="@+id/tv_jc_2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8.0dip"
+                                    android:text="@string/op_storage_des"
+                                    android:layout_above="@+id/tv_jc_3"
+                                    android:layout_below="@+id/tv_jc_1" />
+                                <TextView
+                                    android:textSize="@dimen/text_details_optimize"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:typeface="sans"
+                                    android:textColor="@color/more_clean"
+                                    android:gravity="center"
+                                    android:id="@+id/tv_jc_3"
+                                    android:background="@drawable/button_dialog_selector"
+                                    android:paddingStart="8.0dip"
+                                    android:paddingEnd="8.0dip"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="36.0dip"
+                                    android:layout_marginBottom="8.0dip"
+                                    android:minWidth="64.0dip"
+                                    android:text="@string/op_clean"
+                                    android:layout_gravity="end"
+                                    android:textAllCaps="true" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvCool"
+                        android:layout_width="fill_parent"
+                        android:layout_height="120.0dip"
+                        android:layout_marginStart="8.0dip"
+                        android:layout_marginTop="8.0dip"
+                        android:layout_marginBottom="8dip"
+                        android:layout_marginEnd="8.0dip"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="8.0dip"
+                        app:cardElevation="0.0dip"
+                        android:visibility="gone">
+                        <RelativeLayout
+                            android:id="@+id/rlCool"
+                            android:onClick="onClick"
+                            android:background="@drawable/card_selector"
+                            android:clickable="true"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent">
+                            <FrameLayout
+                                android:id="@+id/fl_cool"
+                                android:background="@drawable/more_share_bg"
+                                android:layout_width="72.0dip"
+                                android:layout_height="fill_parent">
+                                <ImageView
+                                    android:layout_gravity="center"
+                                    android:id="@+id/ivCool"
+                                    android:layout_width="32.0dip"
+                                    android:layout_height="32.0dip"
+                                    android:src="@drawable/ic_temperature_normal"
+                                    android:tint="@color/white" />
+                            </FrameLayout>
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:paddingStart="16.0dip"
+                                android:paddingEnd="8.0dip"
+                                android:layout_width="fill_parent"
+                                android:layout_height="fill_parent"
+                                android:layout_toEndOf="@+id/fl_cool">
+                                <TextView
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textSize="@dimen/optimize_result_size"
+                                    android:textColor="@color/text_color"
+                                    android:id="@+id/tvCool1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8.0dip"
+                                    android:text="@string/phone_cool_nav"
+                                    android:textAllCaps="true" />
+                                <TextView
+                                    android:textSize="@dimen/text_details_optimize"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:textColor="@color/grey_500"
+                                    android:id="@+id/tvCool2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8.0dip"
+                                    android:text="@string/op_cool_down_tip"
+                                    android:layout_above="@+id/tvCool3"
+                                    android:layout_below="@+id/tvCool1" />
+                                <TextView
+                                    android:textSize="@dimen/text_details_optimize"
+                                    android:fontFamily="@font/roboto_regular"
+                                    android:typeface="sans"
+                                    android:textColor="@color/more_share"
+                                    android:gravity="center"
+                                    android:id="@+id/tvCool3"
+                                    android:background="@drawable/button_dialog_selector"
+                                    android:paddingStart="8.0dip"
+                                    android:paddingEnd="8.0dip"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="36.0dip"
+                                    android:layout_marginBottom="8.0dip"
+                                    android:minWidth="64.0dip"
+                                    android:text="@string/cool_down_button"
+                                    android:layout_gravity="end"
+                                    android:textAllCaps="true" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+        </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</FrameLayout>

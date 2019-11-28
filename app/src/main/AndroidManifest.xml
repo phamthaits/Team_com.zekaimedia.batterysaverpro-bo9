@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.amt.fastcharging.batterysaver">
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.QUICKBOOT_POWERON" />
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+
+    <application
+        android:name="com.amt.batterysaver.App"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id" />
+
+        <!--        <meta-data-->
+        <!--            android:name="com.google.android.gms.ads.AD_MANAGER_APP"-->
+        <!--            android:value="true"/>-->
+
+        <activity android:name="com.amt.batterysaver.activity.ChargeSettingActivity"></activity>
+        <activity
+            android:name="com.amt.batterysaver.activity.DoNotDisturbActivity"
+            android:label="@string/title_activity_do_not_disturb"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name="com.amt.batterysaver.activity.LanguageActivity"
+            android:label="@string/title_activity_language"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity android:name="com.amt.batterysaver.activity.WhiteListAddActivity" />
+        <activity
+            android:name="com.amt.batterysaver.activity.WhiteListActivity"
+            android:label="@string/title_activity_white_list"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+        <activity
+            android:name="com.amt.batterysaver.activity.ChargeResultActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/DialogActivity" />
+        <activity
+            android:name="com.amt.batterysaver.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.amt.batterysaver.activity.CleanResultActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <receiver android:name="com.amt.batterysaver.Receiver.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.app.action.alarmmanager" />
+            </intent-filter>
+        </receiver>
+
+
+        <service
+            android:name="com.amt.batterysaver.service.BatteryService"
+            android:exported="false">
+
+        </service>
+
+
+        <receiver android:name="com.amt.batterysaver.Receiver.BatteryStatusReceiver"></receiver>
+
+        <receiver
+            android:name="com.amt.batterysaver.Receiver.AutoRebootReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter android:priority="99999">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.SCREEN_ON" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.amt.batterysaver.Receiver.UpgradeReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.amt.batterysaver.activity.ChargeActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.amt.batterysaver.activity.CleanActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.amt.batterysaver.activity.BatterySaverActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.amt.batterysaver.activity.BoostActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.amt.batterysaver.activity.CoolActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.amt.batterysaver.activity.PermissionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.amt.batterysaver.activity.SplashActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme_AppCompat_Light_NoActionBar_FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

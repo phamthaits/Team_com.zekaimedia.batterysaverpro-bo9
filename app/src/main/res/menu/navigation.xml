@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_shop"
+        android:icon="@drawable/ic_bottom_battery"
+        android:title="@string/battery" />
+
+    <item
+        android:id="@+id/navigation_gifts"
+        android:icon="@drawable/ic_pie_chart"
+        android:title="@string/bd_charge_history" />
+    <item
+        android:id="@+id/navigation_app"
+        android:icon="@drawable/ic_app_manager"
+        android:title="@string/title_app_manager" />
+
+    <item
+        android:id="@+id/navigation_cart"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/setting_nav" />
+
+
+</menu>

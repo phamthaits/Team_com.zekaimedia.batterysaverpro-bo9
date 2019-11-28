@@ -1,0 +1,188 @@
+<resources>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
+
+    <string name="title_activity_language">LAUNGUAGE</string>
+    <string name="language_name">English</string>
+
+
+    <string name="fix_now">FIX NOW</string>
+    <string name="optimize">OPTIMIZE</string>
+
+    //
+    <string name="fast_charging">Fast Charge</string>
+    <string name="full_charging">Full Charge</string>
+    <string name="trickle_charging">Trickle Charge</string>
+    //
+    <string name="temperature">Temperature</string>
+    <string name="voltage">Voltage</string>
+    <string name="capacity">Capacity</string>
+    <string name="time_left">Time left</string>
+    <string name="battery">Battery</string>
+    //
+
+    <string name="noti_battery_charging_timer_left">Charging left</string>
+    <string name="celsius" translatable="false">℃</string>
+    <string name="fahrenheit" translatable="false">°F</string>
+
+    <string name="time_left_pin" formatted="false" translatable="false"><Data><![CDATA[<big>%d</big>h <big>%d</big>min]]> </Data></string>
+    <string name="title_app_manager">App Manager</string>
+    <string name="title_optimize">BATTERY OPTIMIZATION</string>
+
+    <string name="minutes" translatable="false">%d minute(s)</string>
+    <string name="seconds" translatable="false">%d seconds</string>
+
+    <string name="uninstall">Uninstall</string>
+    <string name="system_app">System App</string>
+    <string name="user_app">User App</string>
+    <string name="app_manager">APP MANAGER</string>
+
+    //Cooler
+    <string name="done">DONE</string>
+
+    //junk
+    <string name="pc_ram_free_able">Freeable</string>
+    <string name="percent_none" translatable="false">%</string>
+    <string name="total_found">Total found: %s</string>
+    <string name="no_junk" translatable="false">No junk file found</string>
+    <string name="system_cache">System Cache</string>
+    <string name="downloader_files">Downloaded Files</string>
+    <string name="large_files">Large Files</string>
+    <string name="calculating" translatable="false">Calculating…</string>
+    <string name="obsolete_apk">Useless APKs</string>
+
+    //Cap quyen
+    <string name="setting_permission_request_title">Allow write system settings</string>
+    <string name="setting_permission_request_summary">You need turn on permission to use this funtion</string>
+
+    <string name="screen_brightness">Brightness</string>
+    <string name="auto">Auto</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="bluetooth" translatable="false">Bluetooth</string>
+    <string name="start_at">Start time</string>
+    <string name="stop_at">End time</string>
+    <string name="enabled">Enable</string>
+    <string name="super_saving">Prolong</string>
+    <string name="normal">General</string>
+    <string name="custom">Sleep</string>
+
+    //Optimize
+    <string name="sm_edge_device_optimized">Great! Solved the power problem.</string>
+    <string name="ram_boost_title">PHONE BOOST</string>
+    <string name="sm_ram_detail">To improve performance, free up memory by stopping background apps.</string>
+    <string name="op_boost">Boost</string>
+    <string name="op_storage_des">Clear more storage space by deleting unnecessary data, such as cached, residual, and advertisement files</string>
+    <string name="op_clean">Clean</string>
+    <string name="op_cool_down_tip">Cools down device temperature to save battey life</string>
+
+
+    //
+    <string name="bd_charge_duration">Charge duration</string>
+    <string name="bd_charge_history">Charge History</string>
+    <string name="bd_charge_record_healthy">Healthy</string>
+    <string name="bd_charge_record_normal">Normal</string>
+    <string name="bd_charge_record_overcharging">Overcharged</string>
+    <string name="bd_charger_type">Charger type</string>
+    <string name="go_since_the_last_full_charge">Since last full charge</string>
+    <string name="du_no_charger_record">No record</string>
+    <string name="go_last_3_days">LAST 3 DAYS CHARGE RECORD</string>
+    <string name="go_last_charge_record">LAST CHARGE RECORD</string>
+    <string name="go_charge_quantity">Charge quantity</string>
+    <string name="title_activity_charge_history">CHARGE HISTORY</string>
+
+    <string name="title_activity_setting">SETTINGS</string>
+    <string name="title_activity_fast_charge">Fast Charge</string>
+
+    //Setting
+    <string name="kill_app_screen_off">Auto Kill Apps</string>
+    <string name="kill_app_screen_off_des">Clean unused background apps when the screen is locked</string>
+    <string name="app_white_list">App ignore list</string>
+    <string name="app_white_list_des">Ignore list for memory boost</string>
+    <string name="battery_title">BATTERY SAVER</string>
+    <string name="general_title" translatable="false">GENERAL</string>
+
+    //Fast charger
+    <string name="charging_completed">Charging complete</string>
+    <string name="fast_charger_boosted">Fast charging boosted</string>
+    <string name="auto_sync">Sync</string>
+    <string name="title_activity_white_list">APP IGNORE LIST</string>
+    <string name="remove">REMOVE</string>
+    <string name="white_list_add">ADD</string>
+    <string name="no_item">No item</string>
+    <string name="notification_setting">NOTIFICATION SETTING</string>
+    <string name="do_not_disturb">Do not disturb</string>
+    <string name="title_activity_do_not_disturb">DO NOT DISTURB</string>
+
+
+    //
+    <string name="phone_cool_reminder">Phone cool down reminder</string>
+    <string name="bg_power_use">Background power use reminder</string>
+    <string name="low_power_reminder">Low Power Reminder</string>
+
+    //Noti
+    <string name="cool_down_title">CPU is a little hot</string>
+    <string name="cool_down_title_2">Temperature is too high</string>
+    <string name="cool_down_des">Heat culprits detected!</string>
+    <string name="cool_down_button">COOL DOWN</string>
+
+    <string name="low_battery">Power too low!</string>
+    <string name="low_battery_des">Clearing background apps can save power.</string>
+    <string name="saving_now">Saving Now</string>
+    <string name="optimize_noti">Optimize</string>
+
+
+    <string name="boost_title">Running Slow</string>
+    <string name="boost_des_2">Device is getting slow. Tap to boost</string>
+    <string name="boost_action">Boost</string>
+
+
+    <string name="battery_full_des">Charging finished. Please unplug the power.</string>
+
+    //
+    <string name="bluetooth_is_enabling" translatable="false">Bluetooth is enabling, please wait...</string>
+
+
+    //
+    <string name="ram_result">Boosted</string>
+    <string name="boosting">Boosting Memory</string>
+    <string name="result_cooler">Excellent! Successfully cooled down.</string>
+    <string name="cleaning_junk">Cleaning junk files</string>
+    <string name="cleaned">Cleaned: %s</string>
+
+    <string name="battery_exellent">Great!</string>
+
+    //
+    <string name="phone_cool_nav">Phone Cooler</string>
+    <string name="phone_boost_nav">Phone Boost</string>
+    <string name="junk_clean_nav">Trash Cleaner</string>
+
+    <string name="setting_nav">Settings</string>
+    <string name="share_nav" translatable="false">Share App</string>
+    <string name="feedback_nav" translatable="false">Feed Back</string>
+
+    <string name="pc_auto_optimizing">Auto Optimizing</string>
+    <string name="pc_scanning">Scanning</string>
+    <string name="cpugpuram" translatable="false">CPU,GPU,RAM</string>
+    <string name="bd_power_issue">Power issue</string>
+    <string name="app_name" translatable="false">SAVE BATTERY</string>
+    <string name="power_full">Power is full</string>
+    <string name="auto_disable">Disable</string>
+    <string name="on_status">ON</string>
+    <string name="off_status">OFF</string>
+    <string name="boost_title2">Memory is low</string>
+    <string name="boost_des">Tap to speed up laggy phone</string>
+    <string name="low_power_30">Low battery</string>
+    <string name="my_mode">My Mode</string>
+    <string name="toast_mode_title">Has switched to</string>
+    <string name="charge_des" >Monitor battery charge status and charge overload to prevent (May contain ads)</string>
+    <string name="disable_fast_charging_des" translatable="false">You will not be able monitor battery charge status. Sure you want to disable</string>
+    <string name="disable_fast_charging" translatable="false">Disable Fast Charging</string>
+    <string name="enable_fast_charging">Enable Fast Charging</string>
+
+    <color name="main_darker_color">#ffffffff</color>
+
+    <string name="stringGreen" translatable="false">#ff3fb5cf</string>
+    <string name="stringGray" translatable="false">#b2bec3</string>
+
+    <string name="link_policy" translatable="false">https://policy.com</string>
+</resources>

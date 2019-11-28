@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3FB5CF</color>
+    <color name="colorPrimaryDark">#3fb5cf</color>
+    <color name="colorAccent">#3fb5cf</color>
+
+    <color name="text_color">#ff666666</color>
+    <color name="text_gray">#7d7d7d</color>
+    <color name="red">#FF1744</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffffff</color>
+    <color name="black_alpha_40">#66000000</color>
+    <color name="black_alpha_70">#b3000000</color>
+
+    <color name="color_white">#ffffff</color>
+
+
+    //
+
+    <color name="progress_background">#40bab9b9</color>
+
+    //
+    <color name="grey_400">#b1b1b1</color>
+
+    //Noti custom
+
+    <color name="battery_almost_die">#ff800000</color>
+    <color name="battery_averange">#ffff8000</color>
+    <color name="battery_bad">#ffff0000</color>
+
+    <color name="point_chart">#ff3fb5cf</color>
+
+    //device status
+    <color name="ram">#27ae60</color>
+    <color name="storage">#e67e22</color>
+    <color name="temperature">#3498db</color>
+    <color name="opacity_button">#0D000000</color>
+    <color name="grey_500">#9E9E9E</color>r
+    <color name="grey_700">#616161</color>
+
+    //clean
+
+    //mode
+    <color name="background_list">#F5F5F5</color>
+
+    //Optimize
+    <color name="color_blue_1">#ff2baaff</color>
+
+    <color name="color_green_2">#446ebd52</color>
+    <color name="color_green_5">#c0155334</color>
+
+
+    <color name="tv_charge_count_color">#ff45527a</color>
+    <color name="color_black_6">#ffacacac</color>
+    <color name="color_normal">#ff55b2dd</color>
+    <color name="color_text_title_item_setting">#881f4060</color>
+    <color name="color_divider">#222c2c2c</color>
+    <color name="color_text_item_setting">#ff19334d</color>
+    <color name="color_over">#ffe95e57</color>
+    <color name="color_healthy">#57cc57</color>
+
+    <color name="list_selector_pressed_dark">#55eeeeff</color>
+
+    <color name="phoneboost_top_color_blue">#ff2a91cd</color>
+    <color name="text_second">#ff666666</color>
+
+    <color name="text_value">#ff999999</color>
+    <color name="divider">#55aaaaaa</color>
+    <color name="main_dark_color">#ffeeeeee</color>
+    <color name="dark_ripple_sub">#ffcccccc</color>
+    <color name="more_clean">#69F0AE</color>
+    <color name="more_clean_bg">#B9F6CA</color>
+    <color name="gray">#ff99a0b6</color>
+    <color name="dark_background_sub">#ffffffff</color>
+    <color name="more_boost">#ff7bc144</color>
+    <color name="more_share">#ff3fbcf6</color>
+    <color name="dark_icon_color">#ff212121</color>
+    <color name="progress_color">#ff3fb5cf</color>
+    <color name="color_complete_bg">#151ca0ea</color>
+
+    <color name="color_text_progress_charge_dim">#ff777777</color>
+    <color name="progress_bg">#553fb5cf</color>
+    <color name="color_progress_charge_dim">#ff3c485b</color>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="imgCircle_size">200dp</dimen>
+
+    <dimen name="charge_buble">185dp</dimen>
+    <dimen name="charge_battery">110dp</dimen>
+
+    <dimen name="progress_percent2">22.5sp</dimen>
+    <dimen name="arc_suffix_text_size">20.5sp</dimen>
+    <dimen name="arc_title_time_left">16.5sp</dimen>
+    <dimen name="arc_battery_title">16.5sp</dimen>
+    <dimen name="imgUsb_size">30dp</dimen>
+
+    <dimen name="text_size">17sp</dimen>
+    <dimen name="textsize_compo_ram_cpu_des">15sp</dimen>
+    <dimen name="textsize_ram_storage_total">15sp</dimen>
+    <dimen name="cirularsize">5dp</dimen>
+    <dimen name="btn_size">35dp</dimen>
+    <dimen name="size_status_wifi">74dp</dimen>
+
+    <dimen name="text_size_hour">21sp</dimen>
+
+    <dimen name="size_ic_spash">90dp</dimen>
+    <dimen name="size_title_spash">24sp</dimen>
+    <dimen name="size_detail_spash">11.5sp</dimen>
+    //speed
+</resources>

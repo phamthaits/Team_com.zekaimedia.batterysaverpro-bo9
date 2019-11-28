@@ -1,0 +1,216 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rounded">
+
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/rlScanning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/rlRound"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <com.skyfishjy.library.RippleBackground
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ripple_size"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                app:rb_color="@color/colorAccent"
+                app:rb_duration="10000"
+                app:rb_radius="92dip"
+                app:rb_rippleAmount="2"
+                app:rb_scale="3"
+                app:rb_strokeWidth="0.8dip"
+                app:rb_type="strokeRipple"
+                android:visibility="gone">
+
+            </com.skyfishjy.library.RippleBackground>
+            <me.itangqi.waveloadingview.WaveLoadingView
+                android:id="@+id/waveLoadingView"
+                android:layout_width="@dimen/imgCircle_size"
+                android:layout_height="@dimen/imgCircle_size"
+                app:wlv_borderColor="#f2f2f2"
+                app:wlv_borderWidth="7dp"
+                app:wlv_progressValue="0"
+                app:wlv_shapeType="circle"
+                app:wlv_round_rectangle="true"
+                app:wlv_triangle_direction="north"
+                app:wlv_titleCenterStrokeColor="@color/white"
+                app:wlv_titleCenterStrokeWidth="3dp"
+                app:wlv_titleCenterColor="@android:color/white"
+                app:wlv_titleCenterSize="24sp"
+                app:wlv_waveAmplitude="70"
+                app:wlv_waveColor="#ff3fb5cf"
+                android:layout_centerInParent="true"
+                app:wlv_wave_background_Color="#ff3c485b"/>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPercentPin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/progress_percent2"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="20%" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/time_left"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/roboto_light"
+                    android:textSize="@dimen/arc_title_time_left" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:id="@+id/view_time_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true">
+                    <TextView android:fontFamily="@font/roboto_regular"
+                        android:textSize="@dimen/text_size_hour"
+                        android:textColor="@color/white"
+                        android:layout_gravity="bottom|center"
+                        android:id="@+id/tvHour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="00"
+                        />
+                    <TextView
+                        android:fontFamily="@font/roboto_regular"
+                        android:textSize="@dimen/arc_suffix_text_size"
+                        android:textColor="@color/white"
+                        android:layout_gravity="bottom|center"
+                        android:id="@+id/tv_time_h_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2.0dip"
+                        android:text="h" />
+                    <TextView android:fontFamily="@font/roboto_regular"
+                        android:textSize="@dimen/text_size_hour"
+                        android:textColor="@color/white"
+                        android:layout_gravity="bottom|center"
+                        android:id="@+id/tvMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2.0dip"
+                        android:text="00" />
+                    <TextView android:fontFamily="@font/roboto_regular"
+                        android:textSize="@dimen/arc_suffix_text_size"
+                        android:textColor="@color/white"
+                        android:layout_gravity="bottom|center"
+                        android:id="@+id/tv_time_m_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2.0dip"
+                        android:text="m" />
+                </LinearLayout>
+                <TextView
+                    android:textSize="18dip"
+                    android:textStyle="normal"
+                    android:textColor="@color/white"
+                    android:id="@+id/tvFullCharge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:visibility="gone"/>
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/battery"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/roboto_light"
+                    android:textSize="@dimen/arc_battery_title"
+                    />
+
+                <ImageView
+                    android:id="@+id/imgUsb"
+                    android:layout_width="@dimen/imgUsb_size"
+                    android:layout_height="@dimen/imgUsb_size"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/baseline_usb_white_48" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+
+        <LinearLayout
+            android:id="@+id/layout_power_issue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_below="@+id/rlRound"
+            android:layout_marginTop="15dp"
+            android:visibility="invisible"
+            android:layout_centerHorizontal="true">
+            <View
+                android:layout_gravity="center_vertical"
+                android:id="@+id/vPowerIssue"
+                android:layout_width="@dimen/imgUsb_size"
+                android:layout_height="@dimen/imgUsb_size"
+                android:layout_marginEnd="3.0dip"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:textSize="@dimen/text_size"
+                android:textColor="@color/red"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/tv_power_issue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5.0dip" />
+        </LinearLayout>
+
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@+id/layout_power_issue"
+            android:id="@+id/btnOptimize"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_rounded"
+            android:fontFamily="@font/roboto_regular"
+            android:paddingStart="@dimen/btn_size"
+            android:paddingEnd="@dimen/btn_size"
+            android:text="OPTIMIZE"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

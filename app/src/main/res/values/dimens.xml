@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="navDrawer_header_height">170dp</dimen>
+
+
+    <dimen name="row_height">60.0dip</dimen>
+    <dimen name="screen_padding_5">5.0dip</dimen>
+    <dimen name="screen_padding_2">2.0dip</dimen>
+    <dimen name="item_ic_padding">14.0dip</dimen>
+
+    <dimen name="text_title_block">13sp</dimen>
+    <dimen name="text_details">12.5sp</dimen>
+
+
+    <dimen name="checkbox_padding">10.0dip</dimen>
+    <dimen name="checkbox_size">32.0dip</dimen>
+
+    //app
+    <dimen name="power_issue_width_height">28dip</dimen>
+    //
+    <dimen name="margin_between_progress">20dp</dimen>
+
+
+    //Noti
+    <dimen name="marging_left_ne">4.0dip</dimen>
+
+    //device status
+
+
+    <dimen name="width_icon">50dp</dimen>
+
+    //clean
+    <dimen name="text_boost_header">90dp</dimen>
+    <dimen name="textview_header_clean">50sp</dimen>
+
+    <dimen name="view_rotate_image">30dp</dimen>
+    <dimen name="arrow_size">32dp</dimen>
+    <dimen name="standard_padding">8dp</dimen>
+    //mode
+
+    //result
+    <dimen name="img_mark_size">110.0dip</dimen>
+
+    //main
+    <dimen name="imgCircle_size">190dp</dimen>
+    <dimen name="ripple_size">220dp</dimen>
+    <dimen name="progress_percent2">20sp</dimen>
+    <dimen name="arc_suffix_text_size">18sp</dimen>
+    <dimen name="arc_title_time_left">12sp</dimen>
+    <dimen name="arc_battery_title">12sp</dimen>
+    <dimen name="imgUsb_size">28dp</dimen>
+    <dimen name="text_size">13sp</dimen>
+    <dimen name="text_size_title">15sp</dimen>
+    <dimen name="btn_size">30dp</dimen>
+    <dimen name="size_status_wifi">54dp</dimen>
+    <dimen name="text_details_optimize">12sp</dimen>
+
+
+    <dimen name="textsize_compo_ram_cpu_des">12.0sp</dimen>
+    <dimen name="textsize_ram_storage_total">11.0sp</dimen>
+
+    <dimen name="cirularsize">5dp</dimen>
+
+    <dimen name="chart_battery_charge_count_width">150.0dip</dimen>
+    <dimen name="chart_battery_charge_count_margin">16.0dip</dimen>
+    <dimen name="text_size_value_status">24.0dip</dimen>
+    <dimen name="img_charge_icon_width">20.0dip</dimen>
+    <dimen name="img_chart_item_color_width">8.0dip</dimen>
+
+    <dimen name="margin_text_value_record">10.0dip</dimen>
+    <dimen name="setting_item_height">56.0dip</dimen>
+    <dimen name="setting_item_margin_left">16.0dip</dimen>
+
+
+    //History
+    <dimen name="textsize_history_charge">16.0dip</dimen>
+
+    <dimen name="size_title_spash">20sp</dimen>
+    <dimen name="size_detail_spash">10sp</dimen>
+    <dimen name="size_ic_spash">80dp</dimen>
+
+    <dimen name="icon_size">40.0dip</dimen>
+    <dimen name="progress_charging_height">80.0dip</dimen>
+    <dimen name="progress_trickle_charging_margin_top">20dip</dimen>
+    <dimen name="progress_hight">1.0dip</dimen>
+    <dimen name="progress_trickle_charging_margin">20.0dip</dimen>
+    <dimen name="progress_trickle_charging_width">43dip</dimen>
+    <dimen name="progress_trickle_charging_width_image">40dip</dimen>
+
+</resources>

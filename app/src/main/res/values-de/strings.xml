@@ -1,0 +1,158 @@
+<resources>
+
+    <string name="title_activity_language">Sprache</string>
+    <string name="language_name">Deutsch</string>
+
+    <string name="fix_now">JETZT BEHEBEN</string>
+    <string name="optimize">OPTIMIEREN</string>
+
+    //
+    <string name="fast_charging">Schnellaufladung</string>
+    <string name="full_charging">Vollaufladung</string>
+    <string name="trickle_charging">Erhaltungsaufladung</string>
+    //
+    <string name="temperature">Temperatur</string>
+    <string name="voltage">Spannung</string>
+    <string name="capacity">Kapazität</string>
+
+    <string name="battery">Batterie</string>
+    //
+
+    <string name="noti_battery_charging_timer_left">Verbl. Ladezeit</string>
+    <string name="time_left">Verbl. Zeit</string>
+
+    <string name="title_app_manager">App Manager</string>
+    <string name="title_optimize">Akku-Optimierung</string>
+
+    <string name="uninstall">DEINSTALLIEREN</string>
+    <string name="system_app">System-Task</string>
+    <string name="user_app">User-Task</string>
+    <string name="app_manager">APP MANAGER</string>
+
+    //Cooler
+    <string name="done">Fertig</string>
+
+    //junk
+    <string name="pc_ram_free_able">Kann frei gemacht werden</string>
+    <string name="total_found">Gef. Ausschuss: %s</string>
+    <string name="system_cache">System-Cache</string>
+    <string name="downloader_files">Heruntergeladene Dateien</string>
+    <string name="large_files">Große Dateien</string>
+    <string name="obsolete_apk">Nutzlose APKs</string>
+
+    //Cap quyen
+
+    <string name="screen_brightness">Helligkeit</string>
+    <string name="auto">Automatisch</string>
+    <string name="start_at">Startzeit</string>
+    <string name="stop_at">Ende Zeit</string>
+    <string name="enabled">Aktivieren</string>
+    <string name="normal">Standard</string>
+
+    //Optimize
+    <string name="sm_edge_device_optimized">Super! Energieprobleme gelöst.</string>
+    <string name="ram_boost_title">Beschleun.</string>
+    <string name="sm_ram_detail">Verbessern Sie die Leistung, indem Sie durch das Anhalten von Hintergrund-Apps Arbeitsspeicher freigeben.</string>
+    <string name="op_boost">Steigern</string>
+    <string name="op_storage_des">Geben Sie Speicherplatz frei, indem Sie unnötige Daten, wie z. B. zwischengespeicherte Dateien sowie Rest- und Werbedateien, löschen.</string>
+    <string name="op_clean">Reinigen</string>
+    <string name="op_cool_down_tip">Senkt die Temperatur des Geräts, um Akkulaufzeit zu sparen</string>
+
+
+    //
+    <string name="bd_charge_duration">Dauer</string>
+    <string name="bd_charge_history">Ladeverlauf</string>
+    <string name="bd_charge_record_healthy">Optimierte Ladung</string>
+    <string name="bd_charge_record_normal">Normal</string>
+    <string name="bd_charge_record_overcharging">Überladen</string>
+    <string name="bd_charger_type">Ladegerät-Typ:</string>
+    <string name="go_since_the_last_full_charge">Seit der letzten vollen Aufladung:</string>
+    <string name="du_no_charger_record">Keine Datensätze</string>
+    <string name="go_last_3_days">LAST 3 DAYS CHARGE RECORD</string>
+    <string name="go_last_charge_record">Letzte Auflade Aufzeichnung</string>
+    <string name="go_charge_quantity">Auflade Anzahl:</string>
+    <string name="title_activity_charge_history">Ladeverlauf</string>
+
+    <string name="title_activity_setting">Einstellungen</string>
+    <string name="title_activity_fast_charge">Schnellaufladung</string>
+
+    //Setting
+    <string name="kill_app_screen_off">Auto Kill Apps</string>
+    <string name="kill_app_screen_off_des">Schließt ungenutze Hintergrund Apps bei gesperrtem Bildschirm</string>
+    <string name="app_white_list">App-Ignorieren-Liste</string>
+    <string name="app_white_list_des">Ignorieren-Liste für mehr Speicherplatz</string>
+    <string name="battery_title">Batterie</string>
+
+    //Fast charger
+    <string name="charging_completed">Laden abgeschlossen</string>
+    <string name="fast_charger_boosted">Schnellladung steigern</string>
+    <string name="auto_sync">Automatisch synchronisieren</string>
+    <string name="title_activity_white_list">App-Ignorieren-Liste</string>
+    <string name="remove">ENTFERNEN</string>
+    <string name="white_list_add">HINZUFÜGEN</string>
+    <string name="no_item">Leere</string>
+    <string name="notification_setting">Benachrichtigungston</string>
+    <string name="do_not_disturb">Nacht-Anrufschutz</string>
+    <string name="title_activity_do_not_disturb">Nacht-Anrufschutz</string>
+
+
+
+    //
+    <string name="phone_cool_reminder">Erinnerung an Abkühlung</string>
+    <string name="bg_power_use">Erinn. an Verb. im Hintergr.</string>
+    <string name="low_power_reminder">Alarm Low-Power</string>
+
+    //Noti
+    <string name="cool_down_title">CPU ist etwas heiß</string>
+    <string name="cool_down_title_2">Temperatur zu hoch</string>
+    <string name="cool_down_des">Hitzeursachen gefunden!</string>
+    <string name="cool_down_button">ABKÜHLEN</string>
+
+    <string name="low_battery">Akkustand zu niedrig!</string>
+    <string name="low_battery_des">Anwendungen im Hintergrund schließen kann Strom sparen</string>
+    <string name="optimize_noti">Optimieren</string>
+    <string name="boost_title">Gerät langsam</string>
+    <string name="boost_des_2">Das Gerät wird langsamer. Tippen, um zu beschleunigen</string>
+    <string name="boost_action">Beschl.</string>
+
+
+    <string name="battery_full_des">Laden fertig, bitte entfernen Sie den Stecker.</string>
+
+
+
+    //
+    <string name="ram_result">Beschleunigt</string>
+    <string name="boosting">Speicher beschl.</string>
+    <string name="result_cooler">Exzellent! Erfolgreich abgekühlt.</string>
+    <string name="cleaning_junk">Säubere Junk-Dateien…</string>
+    <string name="cleaned">Bereinigt: %s</string>
+
+    <string name="battery_exellent">Exzellent!</string>
+
+    <string name="phone_cool_nav">Handykühler</string>
+    <string name="phone_boost_nav">Beschleun</string>
+    <string name="junk_clean_nav">Bereinigung</string>
+
+    <string name="pc_auto_optimizing">Auto-Optimierung…</string>
+    <string name="pc_scanning">Scannen</string>
+    <string name="bd_power_issue">Verbrauchsproblem</string>
+    <string name="saving_now">Jetzt sparen</string>
+    <string name="setting_nav">Einstellungen</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="super_saving">Lang</string>
+    <string name="custom">Schlafen</string>
+    <string name="power_full">Akku ist voll</string>
+    <string name="auto_disable">Deaktivieren</string>
+    <string name="on_status">An</string>
+    <string name="off_status">Aus</string>
+    <string name="setting_permission_request_title">Allow write system settings</string>
+    <string name="setting_permission_request_summary" >You need turn on permission to use this funtion</string>
+    <string name="boost_title2">Wenig Speicher</string>
+    <string name="boost_des">Tippen zum Beschleunigen</string>
+    <string name="low_power_30">Niedriger Akkuladestand</string>
+    <string name="my_mode">Mein Modus</string>
+    <string name="toast_mode_title">Gewechselt zu</string>
+    <string name="charge_des">Überwachen Sie den Ladezustand des Akkus und die Überladung, um dies zu verhindern (kann Werbung enthalten)</string>
+    <string name="enable_fast_charging">Aktivieren Sie das Schnellladen</string>
+
+</resources>

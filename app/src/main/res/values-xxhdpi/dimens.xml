@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="imgCircle_size">180dp</dimen>
+
+    <dimen name="progress_percent2">19.5sp</dimen>
+    <dimen name="arc_suffix_text_size">17.5sp</dimen>
+    <dimen name="arc_title_time_left">13.5sp</dimen>
+    <dimen name="arc_battery_title">13.5sp</dimen>
+    <dimen name="imgUsb_size">25dp</dimen>
+
+    <dimen name="text_size">14sp</dimen>
+    <dimen name="text_size_title">15sp</dimen>
+    <dimen name="textsize_compo_ram_cpu_des">12sp</dimen>
+    <dimen name="textsize_ram_storage_total">12sp</dimen>
+    <dimen name="cirularsize">3dp</dimen>
+    <dimen name="btn_size">25dp</dimen>
+    <dimen name="size_status_wifi">54dp</dimen>
+
+    <dimen name="charge_buble">185dp</dimen>
+    <dimen name="charge_battery">110dp</dimen>
+    //lg
+
+    //optimize
+    <dimen name="Optimize_big_size">19sp</dimen>
+    <dimen name="optimize_result_size">14sp</dimen>
+    <dimen name="text_details_optimize">13sp</dimen>
+    <dimen name="img_mark_size">110.0dip</dimen>
+    //Clean
+
+    //speed
+
+    //Cleanmain
+    <dimen name="textview_header_clean">40sp</dimen>
+    <dimen name="width_icon">45dp</dimen>
+    <dimen name="tv_done_size">18dp</dimen>
+
+    //charge
+    <dimen name="text_size_hour">21sp</dimen>
+
+    <dimen name="size_ic_spash">80dp</dimen>
+    <dimen name="size_title_spash">22sp</dimen>
+    <dimen name="size_detail_spash">11sp</dimen>
+</resources>
