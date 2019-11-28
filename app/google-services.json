@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "431083907973",
+    "firebase_url": "https://alpine-scholar-167903.firebaseio.com",
+    "project_id": "alpine-scholar-167903",
+    "storage_bucket": "alpine-scholar-167903.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431083907973:android:a07795645a41c8e95c72ec",
+        "android_client_info": {
+          "package_name": "com.amt.batterysaver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431083907973-aas7eb21dh6tjb34hhkmti75f0or2vvg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtDL0mklic09ddP_ojtmL5xarQAeD9WQ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431083907973-aas7eb21dh6tjb34hhkmti75f0or2vvg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

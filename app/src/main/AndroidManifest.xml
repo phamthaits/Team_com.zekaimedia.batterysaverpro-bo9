@@ -69,14 +69,11 @@
             android:name="com.amt.batterysaver.activity.CleanResultActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
-
         <receiver android:name="com.amt.batterysaver.Receiver.AlarmReceiver">
             <intent-filter>
                 <action android:name="com.app.action.alarmmanager" />
             </intent-filter>
         </receiver>
-
-
         <service
             android:name="com.amt.batterysaver.service.BatteryService"
             android:exported="false">
