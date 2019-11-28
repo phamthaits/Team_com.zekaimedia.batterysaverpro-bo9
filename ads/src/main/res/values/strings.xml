@@ -26,8 +26,8 @@
     <string name="ads_fb_native" translatable="false">//</string>
 
     <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="admob_native" translatable="false">/6499/example/native</string>
-    <string name="admob_full" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+<!--    <string name="admob_native" translatable="false">/6499/example/native</string>-->
+<!--    <string name="admob_full" translatable="false">ca-app-pub-3940256099942544/1033173712</string>-->
     <string name="admob_banner" translatable="false">/6499/example/banner</string>
 
 </resources>

@@ -28,11 +28,13 @@ public class AdmobHelp {
     private AdCloseListener adCloseListener;
     private boolean isReloaded = false;
     private UnifiedNativeAd nativeAd;
+    public static boolean isInit=false;
 
     public static AdmobHelp getInstance() {
         if (instance == null) {
             instance = new AdmobHelp();
         }
+
         return instance;
     }
 
@@ -40,10 +42,13 @@ public class AdmobHelp {
 
     }
 
-    public void init(Context context) {
+    public void init(Context context, String admodFull, String admodNative) {
+        isInit=true;
+        VarAds.admob_full = admodFull;
+        VarAds.admob_native = admodNative;
         MobileAds.initialize(context, context.getString(R.string.admob_app_id));
         mPublisherInterstitialAd = new PublisherInterstitialAd(context);
-        mPublisherInterstitialAd.setAdUnitId(context.getString(R.string.admob_full));
+        mPublisherInterstitialAd.setAdUnitId(VarAds.admob_full);
         mPublisherInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
@@ -110,7 +115,7 @@ public class AdmobHelp {
         void onAdClosed();
     }
 
-    public  void loadBanner(final Activity mActivity) {
+    public void loadBanner(final Activity mActivity) {
         final ShimmerFrameLayout containerShimmer =
                 (ShimmerFrameLayout) mActivity.findViewById(R.id.shimmer_container);
         mActivity.findViewById(R.id.adView).setVisibility(View.GONE);
@@ -127,12 +132,12 @@ public class AdmobHelp {
                     containerShimmer.stopShimmer();
                     containerShimmer.setVisibility(View.GONE);
                 }
+
                 @Override
-                public void  onAdLoaded(){
+                public void onAdLoaded() {
                     containerShimmer.stopShimmer();
                     containerShimmer.setVisibility(View.GONE);
                     mActivity.findViewById(R.id.adView).setVisibility(View.VISIBLE);
-
                 }
             });
 
@@ -140,7 +145,8 @@ public class AdmobHelp {
         } catch (Exception e) {
         }
     }
-    public  void loadBannerFragment(final Activity mActivity,final View rootView) {
+
+    public void loadBannerFragment(final Activity mActivity, final View rootView) {
         final ShimmerFrameLayout containerShimmer =
                 (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         rootView.findViewById(R.id.adView).setVisibility(View.GONE);
@@ -157,8 +163,9 @@ public class AdmobHelp {
                     containerShimmer.stopShimmer();
                     containerShimmer.setVisibility(View.GONE);
                 }
+
                 @Override
-                public void  onAdLoaded(){
+                public void onAdLoaded() {
                     containerShimmer.stopShimmer();
                     containerShimmer.setVisibility(View.GONE);
                     rootView.findViewById(R.id.adView).setVisibility(View.VISIBLE);
@@ -166,11 +173,11 @@ public class AdmobHelp {
                 }
             });
 
-
         } catch (Exception e) {
         }
     }
-    public void loadNative(final Activity mActivity){
+
+    public void loadNative(final Activity mActivity) {
         final ShimmerFrameLayout containerShimmer =
                 (ShimmerFrameLayout) mActivity.findViewById(R.id.shimmer_container);
         containerShimmer.setVisibility(View.VISIBLE);
@@ -184,7 +191,7 @@ public class AdmobHelp {
                 .build();
 
 
-        AdLoader adLoader = new AdLoader.Builder(mActivity, mActivity.getString(R.string.admob_native))
+        AdLoader adLoader = new AdLoader.Builder(mActivity, VarAds.admob_native)
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                     @Override
                     public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
@@ -198,7 +205,7 @@ public class AdmobHelp {
                         nativeAd = unifiedNativeAd;
                         FrameLayout frameLayout =
                                 mActivity.findViewById(R.id.fl_adplaceholder);
-                        if(frameLayout!=null){
+                        if (frameLayout != null) {
                             frameLayout.setVisibility(View.VISIBLE);
                             UnifiedNativeAdView adView = (UnifiedNativeAdView) mActivity.getLayoutInflater()
                                     .inflate(R.layout.native_admob_ad, null);
@@ -222,7 +229,8 @@ public class AdmobHelp {
 
         adLoader.loadAd(new PublisherAdRequest.Builder().build());
     }
-    public void loadNativeFragment(final Activity mActivity,final View rootView){
+
+    public void loadNativeFragment(final Activity mActivity, final View rootView) {
         final ShimmerFrameLayout containerShimmer =
                 (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         containerShimmer.setVisibility(View.VISIBLE);
@@ -236,7 +244,7 @@ public class AdmobHelp {
                 .build();
 
 
-        AdLoader adLoader = new AdLoader.Builder(mActivity, mActivity.getString(R.string.admob_native))
+        AdLoader adLoader = new AdLoader.Builder(mActivity, VarAds.admob_native)
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                     @Override
                     public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
@@ -250,7 +258,7 @@ public class AdmobHelp {
                         nativeAd = unifiedNativeAd;
                         FrameLayout frameLayout =
                                 rootView.findViewById(R.id.fl_adplaceholder);
-                        if(frameLayout!=null){
+                        if (frameLayout != null) {
                             frameLayout.setVisibility(View.VISIBLE);
                             UnifiedNativeAdView adView = (UnifiedNativeAdView) mActivity.getLayoutInflater()
                                     .inflate(R.layout.native_admob_ad, null);
@@ -274,6 +282,7 @@ public class AdmobHelp {
 
         adLoader.loadAd(new PublisherAdRequest.Builder().build());
     }
+
     private void populateUnifiedNativeAdView(UnifiedNativeAd nativeAd, UnifiedNativeAdView adView) {
 
 
@@ -353,7 +362,8 @@ public class AdmobHelp {
         adView.setNativeAd(nativeAd);
 
     }
-    public void destroyNative(){
+
+    public void destroyNative() {
         if (nativeAd != null) {
             nativeAd.destroy();
         }
