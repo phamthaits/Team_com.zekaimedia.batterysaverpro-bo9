@@ -41,7 +41,6 @@ public class SplashActivity extends AppCompatActivity {
                                     try {
                                         String key = object.names().getString(i);
                                         switch (key) {
-
                                             case "admob_native":
                                                 SharePreferenceConstant.admob_native = object.getString(key);
                                                 break;

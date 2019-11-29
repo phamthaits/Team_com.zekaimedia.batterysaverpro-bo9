@@ -8,7 +8,6 @@ import android.os.Build;
 import androidx.core.internal.view.SupportMenu;
 import androidx.multidex.MultiDexApplication;
 
-import com.facebook.ads.AudienceNetworkAds;
 import com.amt.batterysaver.R;
 
 public class App  extends MultiDexApplication {
@@ -18,13 +17,6 @@ public class App  extends MultiDexApplication {
         if (Build.VERSION.SDK_INT >= 26) {
             createChanelID(this);
         }
-        AudienceNetworkAds.initialize(this);
-        if (AudienceNetworkAds.isInAdsProcess(this)) {
-
-
-            return;
-        }
-
     }
     @TargetApi(26)
     public static void createChanelID(Context mContext) {
