@@ -102,13 +102,12 @@ public class NotificationBattery extends NotificationCompat.Builder   {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pOptipimize = PendingIntent.getActivity(mContext, 0, iOptimize, 0);
 
-
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext);
         notificationBuilder.setSmallIcon(iconRes[lv]);
         notificationBuilder.setTicker(null);
         notificationBuilder.setOnlyAlertOnce(true);
-        notificationBuilder.setContentTitle("fff");
-        notificationBuilder.setContentText("fff");
+        notificationBuilder.setContentTitle("Chỗ này");
+        notificationBuilder.setContentText("Chưa biết ghi gì");
         notificationBuilder.setContentIntent(pendingIntent);
         notificationBuilder.setDefaults(0);
 
@@ -116,7 +115,6 @@ public class NotificationBattery extends NotificationCompat.Builder   {
         remoteViews.setOnClickPendingIntent(R.id.img_clean, pOptipimize);
         remoteViews.setTextViewText(R.id.tvBattery, lv + "%");
         //temperature
-
 
         remoteViews.setTextViewText(R.id.tvTemp, getTemp(temp));
         remoteViews.setTextViewText(R.id.tvHour,String.format("%02d", hourleft));
@@ -138,11 +136,7 @@ public class NotificationBattery extends NotificationCompat.Builder   {
                 remoteViews.setImageViewResource(R.id.img_battery,R.drawable.ic_battery_notification_normal);
             }
         }
-
             remoteViews.setImageViewResource(R.id.img_temp,R.drawable.ic_temperature_normal);
-
-
-
 
         if (Build.VERSION.SDK_INT >= 26) {
             notificationBuilder.setChannelId("notification_channel_id");

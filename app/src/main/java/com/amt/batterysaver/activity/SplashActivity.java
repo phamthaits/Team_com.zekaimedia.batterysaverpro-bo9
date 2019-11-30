@@ -61,6 +61,8 @@ public class SplashActivity extends AppCompatActivity {
                             Log.d("123", "Error getting documents.", task.getException());
                         }
                     });
+        } else {
+            AdmobHelp.getInstance().init(SplashActivity.this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
         }
 
         mHandler = new Handler();

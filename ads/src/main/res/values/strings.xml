@@ -1,6 +1,4 @@
 <resources>
-
-
     <string name="confirm_exit">Do you really want to exit?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
@@ -18,7 +16,7 @@
     <string name="install_app_ads">Install Now</string>
 
     <string name="Title_email" translatable="false">Battery saver feed back</string>
-    <string name="email_feedback" translatable="false">emailne@gmail.com</string>
+    <string name="email_feedback" translatable="false">phamthaits@gmail.com</string>
 
     // insert id ads
     <string name="ads_fb_full" translatable="false">//</string>
@@ -26,8 +24,4 @@
     <string name="ads_fb_native" translatable="false">//</string>
 
     <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
-<!--    <string name="admob_native" translatable="false">/6499/example/native</string>-->
-<!--    <string name="admob_full" translatable="false">ca-app-pub-3940256099942544/1033173712</string>-->
-<!--    <string name="admob_banner" translatable="false">/6499/example/banner</string>-->
-
 </resources>
