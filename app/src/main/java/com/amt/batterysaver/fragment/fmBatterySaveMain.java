@@ -67,29 +67,29 @@ import java.util.Calendar;
 
 import me.itangqi.waveloadingview.WaveLoadingView;
 
-public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
+public class fmBatterySaveMain extends Fragment implements View.OnClickListener {
 
-    private TextView tvTemperaturePin,tvVoltage,tvCapacity;
+    private TextView tvTemperaturePin, tvVoltage, tvCapacity;
     private WaveLoadingView waveLoadingView;
     private TextView tvPercentPin;
 
-    ImageView  imgUsb;
+    ImageView imgUsb;
     Button btnOptimize;
-    ImageView btnWifi,btnBluetooth, btnSound,btnScreenTime,btnRotate,btnBrightness,btnMobileData,btnSync,btnGPS,btnAirPlane;
+    ImageView btnWifi, btnBluetooth, btnSound, btnScreenTime, btnRotate, btnBrightness, btnMobileData, btnSync, btnGPS, btnAirPlane;
 
 
-
-    public static final int EXTDIR_REQUEST_CODE = 1110,MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE=300;
+    public static final int EXTDIR_REQUEST_CODE = 1110, MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 300;
     private AudioManager audioManager;
     private WifiManager wifiManager;
     private BluetoothAdapter bluetoothAdapter;
     private LocationManager locationManager;
     private boolean gps_enabled = false;
-    private boolean network_enabled = false;public int TYPE_WIFI = 1;
+    private boolean network_enabled = false;
+    public int TYPE_WIFI = 1;
     public int TYPE_MOBILE = 2;
     public int TYPE_NOT_CONNECTED = 0;
     boolean flagBattery = false;
-    private TextView tvPowerIssue,tvHour,tvMin;
+    private TextView tvPowerIssue, tvHour, tvMin;
     private View vPowerIssue;
     LinearLayout lrIssue;
     int ON_DO_NOT_DISTURB_CALLBACK_CODE = 4300;
@@ -99,13 +99,14 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
     TaskCountDoing mTaskCountDoing;
     RippleBackground rippleBackground;
     TextView tvFullCharge;
-    LinearLayout lrClean,lrCool,lrBoost,lrTimeLeft;
+    LinearLayout lrClean, lrCool, lrBoost, lrTimeLeft;
 
-    ProgressBar pbQuick,pbFull,pbTrickle;
-    ImageView imgQuick,imgFull,imgTrickle;
-    Shimmer shFast,shFull,shTrickle,shOptimize;
-    ShimmerTextView tvFast,tvFull,tvTrickle;
-    View v1,v2,v3,v4,v5;
+    ProgressBar pbQuick, pbFull, pbTrickle;
+    ImageView imgQuick, imgFull, imgTrickle;
+    Shimmer shFast, shFull, shTrickle, shOptimize;
+    ShimmerTextView tvFast, tvFull, tvTrickle;
+    View v1, v2, v3, v4, v5;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,7 +115,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.lrBoost:
                 SharePreferenceUtils.getInstance(getActivity()).setFlagAds(true);
                 startActivity(new Intent(getActivity(), BoostActivity.class));
@@ -131,10 +132,10 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
 
             case R.id.btnOptimize:
 
-                if(Utils.checkSystemWritePermission(getActivity())){
+                if (Utils.checkSystemWritePermission(getActivity())) {
                     SharePreferenceUtils.getInstance(getActivity()).setFlagAds(true);
                     startActivity(new Intent(getActivity(), BatterySaverActivity.class));
-                }else{
+                } else {
                     writePermission();
 
                 }
@@ -142,19 +143,19 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
                 break;
             case R.id.btnWifi:
 
-                if(Utils.checkSystemWritePermission(getActivity())){
+                if (Utils.checkSystemWritePermission(getActivity())) {
 
                     if (wifiManager.isWifiEnabled()) {
                         wifiManager.setWifiEnabled(false);
                     } else {
                         wifiManager.setWifiEnabled(true);
                     }
-                }else{
+                } else {
                     Utils.openAndroidPermissionsMenu(getActivity());
                 }
                 break;
             case R.id.btnBluetooth:
-                if(Utils.checkSystemWritePermission(getActivity())){
+                if (Utils.checkSystemWritePermission(getActivity())) {
 
                     if (bluetoothAdapter.isEnabled()) {
                         bluetoothAdapter.disable();
@@ -162,7 +163,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
                         bluetoothAdapter.enable();
                         Toast.makeText(getActivity(), getActivity().getString(R.string.bluetooth_is_enabling), Toast.LENGTH_SHORT).show();
                     }
-                }else{
+                } else {
                     Utils.openAndroidPermissionsMenu(getActivity());
                     startActivity(new Intent(getActivity(), PermissionActivity.class));
 
@@ -176,7 +177,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
 
                 break;
             case R.id.btnBrightness:
-                if(Utils.checkSystemWritePermission(getActivity())){
+                if (Utils.checkSystemWritePermission(getActivity())) {
 
                     try {
                         if (Settings.System.getInt(getActivity().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE) == 1) {
@@ -190,41 +191,40 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
                     } catch (Settings.SettingNotFoundException e) {
 
                     }
-                }else{
+                } else {
                     Utils.openAndroidPermissionsMenu(getActivity());
                 }
 
 
-
                 break;
             case R.id.btnRotate:
-                if(Utils.checkSystemWritePermission(getActivity())){
+                if (Utils.checkSystemWritePermission(getActivity())) {
 
                     if (isAutoRotateModeOn(getActivity())) {
                         Settings.System.putInt(getActivity().getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, 0);
                     } else {
                         Settings.System.putInt(getActivity().getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, 1);
                     }
-                }else{
+                } else {
                     Utils.openAndroidPermissionsMenu(getActivity());
                 }
 
 
                 break;
             case R.id.btnSync:
-                if(ContentResolver.getMasterSyncAutomatically()){
+                if (ContentResolver.getMasterSyncAutomatically()) {
                     ContentResolver.setMasterSyncAutomatically(false);
                     btnSync.setImageResource(R.drawable.ic_sync_false);
-                }else{
+                } else {
                     ContentResolver.setMasterSyncAutomatically(true);
                     btnSync.setImageResource(R.drawable.ic_sync_true);
                 }
                 break;
             case R.id.btnScreenTime:
-                if(Utils.checkSystemWritePermission(getActivity())){
+                if (Utils.checkSystemWritePermission(getActivity())) {
 
                     ScreenTimeOutImageAction();
-                }else{
+                } else {
                     Utils.openAndroidPermissionsMenu(getActivity());
                 }
 
@@ -293,6 +293,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         }
         return 0;
     }
+
     private void soundModeAction() {
         try {
             switch (audioManager.getRingerMode()) {
@@ -311,34 +312,37 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         } catch (Exception e) {
         }
     }
+
     private void requestMutePermissions() {
         try {
             if (Build.VERSION.SDK_INT < 23) {
                 soundModeAction();
-            } else if( Build.VERSION.SDK_INT >= 23 ) {
+            } else if (Build.VERSION.SDK_INT >= 23) {
                 this.requestForDoNotDisturbPermissionOrSetDoNotDisturbForApi23AndUp();
             }
-        } catch ( SecurityException e ) {
+        } catch (SecurityException e) {
 
         }
     }
+
     private void requestForDoNotDisturbPermissionOrSetDoNotDisturbForApi23AndUp() {
 
         NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
         // if user granted access else ask for permission
-        if ( notificationManager.isNotificationPolicyAccessGranted()) {
+        if (notificationManager.isNotificationPolicyAccessGranted()) {
             soundModeAction();
-        } else{
+        } else {
             // Open Setting screen to ask for permisssion
             Intent intent = new Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
-            startActivityForResult( intent, ON_DO_NOT_DISTURB_CALLBACK_CODE );
+            startActivityForResult(intent, ON_DO_NOT_DISTURB_CALLBACK_CODE);
         }
     }
-    public void ScreenTimeOutImageAction(){
-        int postion =0;
-        postion = getScreenTimeout()+1;
-        if(postion==7) postion = 0;
-        int timeout =15000;
+
+    public void ScreenTimeOutImageAction() {
+        int postion = 0;
+        postion = getScreenTimeout() + 1;
+        if (postion == 7) postion = 0;
+        int timeout = 15000;
 
         switch (postion) {
             case 0:
@@ -374,7 +378,9 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         Settings.System.putInt(getActivity().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, timeout);
 
     }
+
     CardView cvFastCharge;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -382,15 +388,15 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         intView(view);
         intData(view);
         intEvent();
-        AdmobHelp.getInstance().loadNativeFragment(getActivity(),view);
-        if(!Utils.checkShouldDoing(getActivity(),8)){
+        AdmobHelp.getInstance().loadNativeFragment(getActivity(), view);
+        if (!Utils.checkShouldDoing(getActivity(), 8)) {
             cvFastCharge.setVisibility(View.GONE);
 
-        }else{
-            if(SharePreferenceUtils.getInstance(getActivity()).getFsAutoRun()){
+        } else {
+            if (SharePreferenceUtils.getInstance(getActivity()).getFsAutoRun()) {
                 cvFastCharge.setVisibility(View.GONE);
 
-          }
+            }
 
         }
         view.findViewById(R.id.ivClose).setOnClickListener(new View.OnClickListener() {
@@ -409,28 +415,26 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         });
 
 
-
         return view;
     }
 
-    public void intView ( View view){
+    public void intView(View view) {
         cvFastCharge = view.findViewById(R.id.cvFastCharge);
-        v1 =(View)view.findViewById(R.id.view1);
-        v2 =(View)view.findViewById(R.id.view2);
-        v3 =(View)view.findViewById(R.id.view3);
-        v4 =(View)view.findViewById(R.id.view4);
+        v1 = (View) view.findViewById(R.id.view1);
+        v2 = (View) view.findViewById(R.id.view2);
+        v3 = (View) view.findViewById(R.id.view3);
+        v4 = (View) view.findViewById(R.id.view4);
 
-        tvFast = (ShimmerTextView)view.findViewById(R.id.tvFast);
-        tvFull = (ShimmerTextView)view.findViewById(R.id.tvFull);
-        tvTrickle = (ShimmerTextView)view.findViewById(R.id.tvTrickle);
+        tvFast = (ShimmerTextView) view.findViewById(R.id.tvFast);
+        tvFull = (ShimmerTextView) view.findViewById(R.id.tvFull);
+        tvTrickle = (ShimmerTextView) view.findViewById(R.id.tvTrickle);
 
-        pbFull = (ProgressBar)view.findViewById(R.id.pbFull);
-        pbQuick = (ProgressBar)view.findViewById(R.id.pbQuick);
-        pbTrickle = (ProgressBar)view.findViewById(R.id.pbTrickle);
-        imgQuick = (ImageView)view.findViewById(R.id.imgQuick);
-        imgFull = (ImageView)view.findViewById(R.id.imgFull);
-        imgTrickle = (ImageView)view.findViewById(R.id.imgTrickle);
-
+        pbFull = (ProgressBar) view.findViewById(R.id.pbFull);
+        pbQuick = (ProgressBar) view.findViewById(R.id.pbQuick);
+        pbTrickle = (ProgressBar) view.findViewById(R.id.pbTrickle);
+        imgQuick = (ImageView) view.findViewById(R.id.imgQuick);
+        imgFull = (ImageView) view.findViewById(R.id.imgFull);
+        imgTrickle = (ImageView) view.findViewById(R.id.imgTrickle);
 
 
         lrTimeLeft = view.findViewById(R.id.view_time_left);
@@ -472,16 +476,18 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         //
         tvPowerIssue = view.findViewById(R.id.tv_power_issue);
 
-        rippleBackground= view.findViewById(R.id.content);
+        rippleBackground = view.findViewById(R.id.content);
         lrBoost = view.findViewById(R.id.lrBoost);
         lrClean = view.findViewById(R.id.lrClean);
         lrCool = view.findViewById(R.id.lrCool);
 
 
     }
+
     WaveDrawable mWaveDrawable;
     private View mView;
-    public void intData(View v){
+
+    public void intData(View v) {
         shFast = new Shimmer();
         shFull = new Shimmer();
         shTrickle = new Shimmer();
@@ -497,7 +503,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
 
     }
 
-    public void intEvent(){
+    public void intEvent() {
         btnOptimize.setOnClickListener(this);
         btnWifi.setOnClickListener(this);
         btnBluetooth.setOnClickListener(this);
@@ -514,9 +520,9 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         lrCool.setOnClickListener(this);
 
 
-
     }
-    public void mRegisterReceiver(){
+
+    public void mRegisterReceiver() {
         IntentFilter filter = new IntentFilter();
         filter.addAction(BatteryService.ACTION_MAX_BATTERY_CHANGED_SEND);
         getActivity().registerReceiver(receiver, filter);
@@ -529,6 +535,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
 
 
     }
+
     public void writePermission() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -574,72 +581,73 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
                     info.minleft = time % 60;
 
                 }
-                if(Utils.getChargeFull(getActivity())){
+                if (Utils.getChargeFull(getActivity())) {
                     tvFullCharge.setText(getString(R.string.power_full));
                     tvFullCharge.setVisibility(View.VISIBLE);
                     lrTimeLeft.setVisibility(View.GONE);
 
-                }else{
+                } else {
                     tvFullCharge.setVisibility(View.GONE);
                     lrTimeLeft.setVisibility(View.VISIBLE);
                 }
-                if(flagBattery)
+                if (flagBattery)
                     updateStatus(info);
 
                 tvHour.setText(String.format("%02d", info.hourleft));
                 tvMin.setText(String.format("%02d", info.minleft));
-              //  tvTimeLeft.setText(Html.fromHtml(getString(R.string.time_left_pin, info.hourleft, info.minleft)));
+                //  tvTimeLeft.setText(Html.fromHtml(getString(R.string.time_left_pin, info.hourleft, info.minleft)));
 
 
             }
         }
     };
 
-    public void updateStatus(BatteryInfo info ){
+    public void updateStatus(BatteryInfo info) {
 
 
-        tvPercentPin.setText(info.level +"%  ");
-        if(0<=info.level&&info.level<=5){
-            waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(),R.color.battery_almost_die));
+        tvPercentPin.setText(info.level + "%  ");
+        if (0 <= info.level && info.level <= 5) {
+            waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.battery_almost_die));
             waveLoadingView.setProgressValue(info.level);
             return;
         }
-        if(5<info.level&&info.level<=15){
-            waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(),R.color.battery_bad));
+        if (5 < info.level && info.level <= 15) {
+            waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.battery_bad));
             waveLoadingView.setProgressValue(info.level);
             return;
         }
-        if(15<info.level&&info.level<=30){
-            waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(),R.color.battery_averange));
+        if (15 < info.level && info.level <= 30) {
+            waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.battery_averange));
             waveLoadingView.setProgressValue(info.level);
             return;
         }
-        if(30<info.level&&info.level<=60){
+        if (30 < info.level && info.level <= 60) {
             waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
             waveLoadingView.setProgressValue(info.level);
             return;
         }
-        if(60<info.level&&info.level<=100){
-            waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(),R.color.colorAccent));
+        if (60 < info.level && info.level <= 100) {
+            waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
             waveLoadingView.setProgressValue(info.level);
             return;
         }
         //
 
     }
-    public void updateCharge(boolean isCharge,BatteryInfo info){
+
+    public void updateCharge(boolean isCharge, BatteryInfo info) {
         Animation loadAnimation = AnimationUtils.loadAnimation(getActivity(), R.anim.blink_charge);
         imgUsb.startAnimation(loadAnimation);
         tvTemperaturePin.setText(getTemp(info.temperature));
-        tvVoltage.setText(getVol(info.voltage) +"V");
-        double temp = (info.level*getBatteryCapacity())/100;
-        tvCapacity.setText(temp +" mhA");
+        tvVoltage.setText(getVol(info.voltage) + "V");
+        double temp = (info.level * getBatteryCapacity()) / 100;
+        tvCapacity.setText(temp + " mhA");
         String[] string = intToArray(getActivity(), info.temperature);
 
-        if(isCharge){
+        if (isCharge) {
 
             imgUsb.setVisibility(View.VISIBLE);
-            if(info.level<=30){
+            if (info.level <= 30) {
                 pbQuick.setVisibility(View.VISIBLE);
                 pbFull.setVisibility(View.GONE);
                 pbTrickle.setVisibility(View.GONE);
@@ -654,7 +662,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
                 v4.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
 
 
-            } else if(30<info.level&&info.level<90){
+            } else if (30 < info.level && info.level < 90) {
                 shFull.start(tvFull);
                 shFast.cancel();
 
@@ -670,7 +678,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
                 v4.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
 
 
-            }else{
+            } else {
                 v1.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
                 v2.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
                 v3.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
@@ -686,7 +694,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
                 imgTrickle.setBackgroundResource(R.drawable.shape_process_green);
 
             }
-        }else{
+        } else {
             shFast.cancel();
             shTrickle.cancel();
             shFull.cancel();
@@ -714,12 +722,12 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
             return (r + this.getString(R.string.fahrenheit));
         } else {
 
-            String str = Double.toString(Math.ceil((i / 10f)*100)/100);
+            String str = Double.toString(Math.ceil((i / 10f) * 100) / 100);
             return (str + this.getString(R.string.celsius));
         }
     }
 
-    public double getVol(int i){
+    public double getVol(int i) {
         double voltage = Math.ceil((i / 1000f) * 100) / 100;
         if (voltage > 1000)
             return voltage / 1000f;
@@ -727,6 +735,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
             return voltage;
 
     }
+
     public double getBatteryCapacity() {
         Object mPowerProfile_ = null;
 
@@ -740,7 +749,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         }
 
         try {
-            return  (Double) Class
+            return (Double) Class
                     .forName(POWER_PROFILE_CLASS)
                     .getMethod("getAveragePower", java.lang.String.class)
                     .invoke(mPowerProfile_, "battery.capacity");
@@ -755,17 +764,17 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
 
     private String[] intToArray(Context context, int i) {
         String str = Double.toString(i / 10f);
-        if(str.length()>4)
+        if (str.length() > 4)
             str = str.substring(0, 4);
 
         if (true) {
             // do C
             String string = context.getString(R.string.celsius);
-            return new String[] { str, string };
+            return new String[]{str, string};
         } else {
             // do F
             String string = context.getString(R.string.fahrenheit);
-            return new String[] { str, string };
+            return new String[]{str, string};
         }
     }
 
@@ -773,66 +782,62 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
     @Override
     public void onResume() {
         super.onResume();
-            if(Build.VERSION.SDK_INT>=23&&SharePreferenceUtils.getInstance(getActivity()).getStatusPer()){
-                if(Settings.System.canWrite(getActivity())){
-                    SharePreferenceUtils.getInstance(getActivity()).setStatusPer(false);
-                    startActivity(new Intent(getActivity(), BatterySaverActivity.class));
-                }
+        if (Build.VERSION.SDK_INT >= 23 && SharePreferenceUtils.getInstance(getActivity()).getStatusPer()) {
+            if (Settings.System.canWrite(getActivity())) {
+                SharePreferenceUtils.getInstance(getActivity()).setStatusPer(false);
+                startActivity(new Intent(getActivity(), BatterySaverActivity.class));
             }
-            Intent intent = new Intent();
-            intent.setAction(BatteryService.ACTION_MAX_BATTERY_NEED_UPDATE);
-            getActivity().sendBroadcast(intent);
-            cancleUIUPdate();
+        }
+        Intent intent = new Intent();
+        intent.setAction(BatteryService.ACTION_MAX_BATTERY_NEED_UPDATE);
+        getActivity().sendBroadcast(intent);
+        cancleUIUPdate();
 
-            lrIssue.setVisibility(View.INVISIBLE);
-            tvPowerIssue.setText("");
-            btnOptimize.setText(getString(R.string.optimize));
-            mBatteryTask = new BatteryTask(getActivity(), tvPercentPin,waveLoadingView, new BatteryTask.OnTaskBatteryListener() {
+        lrIssue.setVisibility(View.INVISIBLE);
+        tvPowerIssue.setText("");
+        btnOptimize.setText(getString(R.string.optimize));
+        mBatteryTask = new BatteryTask(getActivity(), tvPercentPin, waveLoadingView, new BatteryTask.OnTaskBatteryListener() {
+            @Override
+            public void OnResult() {
+                flagBattery = true;
+
+            }
+        });
+        if (Utils.checkShouldDoing(getActivity(), 5)) {
+            vPowerIssue.setVisibility(View.VISIBLE);
+            tvPowerIssue.setTextColor(ContextCompat.getColor(getActivity(), R.color.red));
+            mTaskCount = new TaskCount(getActivity(), new TaskCount.OnTaskCountListener() {
                 @Override
-                public void OnResult() {
-                    flagBattery = true;
-
+                public void OnResult(int count) {
+                    if (count == 0) {
+                        lrIssue.setVisibility(View.INVISIBLE);
+                        btnOptimize.setText(getString(R.string.optimize));
+                    } else {
+                        lrIssue.setVisibility(View.VISIBLE);
+                        btnOptimize.setText(getString(R.string.fix_now));
+                        mTaskCountDoing = new TaskCountDoing(getActivity(), tvPowerIssue, count);
+                        mTaskCountDoing.execute();
+                        rippleBackground.startRippleAnimation();
+                    }
                 }
             });
-            if(Utils.checkShouldDoing(getActivity(),5)){
-                vPowerIssue.setVisibility(View.VISIBLE);
-                tvPowerIssue.setTextColor(ContextCompat.getColor(getActivity(), R.color.red));
-                mTaskCount = new TaskCount(getActivity(), new TaskCount.OnTaskCountListener() {
-                    @Override
-                    public void OnResult(int count) {
-                        if(count==0){
-                            lrIssue.setVisibility(View.INVISIBLE);
-                            btnOptimize.setText(getString(R.string.optimize));
-                        }else{
-                            lrIssue.setVisibility(View.VISIBLE);
-                            btnOptimize.setText(getString(R.string.fix_now));
-                            mTaskCountDoing = new TaskCountDoing(getActivity(),tvPowerIssue,count);
-                            mTaskCountDoing.execute();
-                            rippleBackground.startRippleAnimation();
-                        }
+            mTaskCount.execute();
+        } else {
+            lrIssue.setVisibility(View.VISIBLE);
+            vPowerIssue.setVisibility(View.GONE);
+            tvPowerIssue.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+            tvPowerIssue.setText(getString(R.string.battery_exellent));
+            btnOptimize.setText(getString(R.string.optimize));
+            rippleBackground.stopRippleAnimation();
+            // findViewById(R.id.layout_power_issue).setVisibility(View.INVISIBLE);
+        }
 
 
-                    }
-                });
-                mTaskCount.execute();
-            }else{
-                lrIssue.setVisibility(View.VISIBLE);
-                vPowerIssue.setVisibility(View.GONE);
-                tvPowerIssue.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
-                tvPowerIssue.setText(getString(R.string.battery_exellent));
-                btnOptimize.setText(getString(R.string.optimize));
-                rippleBackground.stopRippleAnimation();
-                // findViewById(R.id.layout_power_issue).setVisibility(View.INVISIBLE);
-            }
+        mBatteryTask.execute();
 
-
-            mBatteryTask.execute();
-
-            ResRecevie();
-
-
-
+        ResRecevie();
     }
+
     private void updateAutoRotateImage() {
         try {
 
@@ -846,6 +851,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         } catch (Exception e) {
         }
     }
+
     private ContentObserver rotateObserver = new ContentObserver(new Handler()) {
 
         @Override
@@ -864,7 +870,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         }
 
     };
-    public void ResRecevie(){
+
+    public void ResRecevie() {
         // wifi
         getActivity().registerReceiver(DeviceChangeReceiver, new IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION));
         getActivity().registerReceiver(DeviceChangeReceiver, new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED));
@@ -887,7 +894,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         updateSyncImage();
         updateScreenTimeOutImage();
     }
-    public void updateScreenTimeOutImage(){
+
+    public void updateScreenTimeOutImage() {
         int postion = getScreenTimeout();
 
         switch (postion) {
@@ -915,14 +923,16 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         }
 
     }
-    public void updateSyncImage(){
-        if(ContentResolver.getMasterSyncAutomatically()){
+
+    public void updateSyncImage() {
+        if (ContentResolver.getMasterSyncAutomatically()) {
             btnSync.setImageResource(R.drawable.ic_sync_true);
-        }else{
+        } else {
             btnSync.setImageResource(R.drawable.ic_sync_false);
         }
     }
-    public void updateWifi(){
+
+    public void updateWifi() {
         if (wifiManager.isWifiEnabled()) {
             btnWifi.setImageResource(R.drawable.ic_wifi_true);
 
@@ -931,12 +941,12 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         }
     }
 
-    public void updateBrightnessModeImage(){
+    public void updateBrightnessModeImage() {
         try {
-            if(Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.SCREEN_BRIGHTNESS_MODE) == 1){
+            if (Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.SCREEN_BRIGHTNESS_MODE) == 1) {
                 btnBrightness.setImageResource(R.drawable.ic_brightness_mode_auto);
-            }else{
+            } else {
                 btnBrightness.setImageResource(R.drawable.ic_brightness_mode__no_auto);
             }
 
@@ -963,16 +973,17 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         }
     }
 
-    public void updateBluetoothImage(){
-        if (bluetoothAdapter!=null&&bluetoothAdapter.isEnabled()) {
+    public void updateBluetoothImage() {
+        if (bluetoothAdapter != null && bluetoothAdapter.isEnabled()) {
             btnBluetooth.setImageResource(R.drawable.ic_bluetooth_true);
 
-        }else{
+        } else {
             btnBluetooth.setImageResource(R.drawable.ic_bluetooth_false);
 
         }
     }
-    public void soundModeStatus(){
+
+    public void soundModeStatus() {
         switch (audioManager.getRingerMode()) {
             case AudioManager.RINGER_MODE_NORMAL:
                 btnSound.setImageResource(R.drawable.ic_volume_normal);
@@ -991,7 +1002,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
                 break;
         }
     }
-    public void mobileDataImage(){
+
+    public void mobileDataImage() {
         try {
             int conn = getConnectivityStatus(getActivity());
             if (conn == TYPE_WIFI) {
@@ -1002,13 +1014,14 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
                 btnMobileData.setImageResource(R.drawable.ic_mobile_false);
             }
 
-        }catch (NullPointerException e) {
+        } catch (NullPointerException e) {
             btnMobileData.setImageResource(R.drawable.ic_mobile_false);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
+
     public int getConnectivityStatus(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -1022,10 +1035,11 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         }
         return TYPE_NOT_CONNECTED;
     }
+
     private BroadcastReceiver DeviceChangeReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context paramContext, Intent paramIntent) {
-            if (paramIntent.getAction().equals(WifiManager.WIFI_STATE_CHANGED_ACTION)||paramIntent.getAction().equals("android.net.conn.CONNECTIVITY_CHANGE")) {
+            if (paramIntent.getAction().equals(WifiManager.WIFI_STATE_CHANGED_ACTION) || paramIntent.getAction().equals("android.net.conn.CONNECTIVITY_CHANGE")) {
                 updateWifi();
                 mobileDataImage();
             }
@@ -1047,6 +1061,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
             }
         }
     };
+
     @SuppressLint("InlinedApi")
     private boolean isAirplaneModeOn(Context context) {
         try {
@@ -1059,6 +1074,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         }
         return false;
     }
+
     private void updateAirplaneImage() {
         try {
             if (isAirplaneModeOn(getActivity())) {
@@ -1070,7 +1086,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
             }
 
 
-
         } catch (Exception e) {
         }
     }
@@ -1080,6 +1095,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
         super.onDestroy();
         getActivity().unregisterReceiver(receiver);
     }
+
     @Override
     public void onPause() {
         super.onPause();
@@ -1088,6 +1104,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
 
 
     }
+
     public void cancleUIUPdate() {
         if (this.mBatteryTask != null && this.mBatteryTask.getStatus() == AsyncTask.Status.RUNNING) {
             this.mBatteryTask.cancel(true);
@@ -1106,7 +1123,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener{
 
     }
 
-    public void stopRes(){
+    public void stopRes() {
         try {
             getActivity().unregisterReceiver(DeviceChangeReceiver);
         } catch (Exception e) {

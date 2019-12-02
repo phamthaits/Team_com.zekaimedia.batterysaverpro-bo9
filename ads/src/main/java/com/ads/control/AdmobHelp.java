@@ -3,6 +3,9 @@ package com.ads.control;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -10,8 +13,6 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.VideoOptions;
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
@@ -114,67 +115,58 @@ public class AdmobHelp {
         void onAdClosed();
     }
 
-//    public void loadBanner(final Activity mActivity) {
-//        final ShimmerFrameLayout containerShimmer =
-//                (ShimmerFrameLayout) mActivity.findViewById(R.id.shimmer_container);
-//        mActivity.findViewById(R.id.adView).setVisibility(View.GONE);
-//        containerShimmer.setVisibility(View.VISIBLE);
-//        containerShimmer.startShimmer();
-//        try {
-//            AdView adView = mActivity.findViewById(R.id.adView);
-//            adView.loadAd(new AdRequest.Builder().build());
-//            adView.setAdListener(new AdListener() {
-//                @Override
-//                public void onAdFailedToLoad(int i) {
-//                    super.onAdFailedToLoad(i);
-//                    mActivity.findViewById(R.id.adView).setVisibility(View.GONE);
-//                    containerShimmer.stopShimmer();
-//                    containerShimmer.setVisibility(View.GONE);
-//                }
-//
-//                @Override
-//                public void onAdLoaded() {
-//                    containerShimmer.stopShimmer();
-//                    containerShimmer.setVisibility(View.GONE);
-//                    mActivity.findViewById(R.id.adView).setVisibility(View.VISIBLE);
-//                }
-//            });
-//
-//
-//        } catch (Exception e) {
-//        }
-//    }
-//
-//    public void loadBannerFragment(final Activity mActivity, final View rootView) {
-//        final ShimmerFrameLayout containerShimmer =
-//                (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
-//        rootView.findViewById(R.id.adView).setVisibility(View.GONE);
-//        containerShimmer.setVisibility(View.VISIBLE);
-//        containerShimmer.startShimmer();
-//        try {
-//            AdView adView = rootView.findViewById(R.id.adView);
-//            adView.loadAd(new AdRequest.Builder().build());
-//            adView.setAdListener(new AdListener() {
-//                @Override
-//                public void onAdFailedToLoad(int i) {
-//                    super.onAdFailedToLoad(i);
-//                    rootView.findViewById(R.id.adView).setVisibility(View.GONE);
-//                    containerShimmer.stopShimmer();
-//                    containerShimmer.setVisibility(View.GONE);
-//                }
-//
-//                @Override
-//                public void onAdLoaded() {
-//                    containerShimmer.stopShimmer();
-//                    containerShimmer.setVisibility(View.GONE);
-//                    rootView.findViewById(R.id.adView).setVisibility(View.VISIBLE);
-//
-//                }
-//            });
-//
-//        } catch (Exception e) {
-//        }
-//    }
+    private void setAnimation(Activity mActivity, UnifiedNativeAdView adView) {
+        Animation animation = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.move_up_button);
+        Animation animation2 = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.move_down_button);
+        Animation animation3 = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.delay_anim_button);
+        Button btnCallToAction = adView.findViewById(R.id.ad_call_to_action);
+        btnCallToAction.startAnimation(animation);
+
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                btnCallToAction.startAnimation(animation2);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+        });
+        btnCallToAction.startAnimation(animation);
+        animation2.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation1) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation1) {
+                btnCallToAction.startAnimation(animation3);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation1) {
+            }
+        });
+        animation3.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation1) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation1) {
+                btnCallToAction.startAnimation(animation);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation1) {
+            }
+        });
+    }
 
     public void loadNative(final Activity mActivity) {
 
@@ -185,7 +177,6 @@ public class AdmobHelp {
         NativeAdOptions adOptions = new NativeAdOptions.Builder()
                 .setVideoOptions(videoOptions)
                 .build();
-
 
         AdLoader adLoader = new AdLoader.Builder(mActivity, VarAds.admob_native)
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
@@ -206,15 +197,14 @@ public class AdmobHelp {
                             populateUnifiedNativeAdView(unifiedNativeAd, adView);
                             frameLayout.removeAllViews();
                             frameLayout.addView(adView);
+                            setAnimation(mActivity, adView);
                         }
-
                     }
                 })
                 .withAdListener(new AdListener() {
                     @Override
                     public void onAdFailedToLoad(int errorCode) {
                         // Handle the failure by logging, altering the UI, and so on.
-
                     }
                 })
                 .withNativeAdOptions(adOptions)
@@ -232,7 +222,6 @@ public class AdmobHelp {
                 .setVideoOptions(videoOptions)
                 .build();
 
-
         AdLoader adLoader = new AdLoader.Builder(mActivity, VarAds.admob_native)
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                     @Override
@@ -241,7 +230,6 @@ public class AdmobHelp {
                         if (nativeAd != null) {
                             nativeAd.destroy();
                         }
-
                         nativeAd = unifiedNativeAd;
                         FrameLayout frameLayout =
                                 rootView.findViewById(R.id.fl_adplaceholder);
@@ -252,8 +240,8 @@ public class AdmobHelp {
                             populateUnifiedNativeAdView(unifiedNativeAd, adView);
                             frameLayout.removeAllViews();
                             frameLayout.addView(adView);
+                            setAnimation(mActivity, adView);
                         }
-
                     }
                 })
                 .withAdListener(new AdListener() {
@@ -270,15 +258,14 @@ public class AdmobHelp {
 
     private void populateUnifiedNativeAdView(UnifiedNativeAd nativeAd, UnifiedNativeAdView adView) {
 
-
         MediaView mediaView = adView.findViewById(R.id.ad_media);
         adView.setMediaView(mediaView);
 
         // Set other ad assets.
         adView.setHeadlineView(adView.findViewById(R.id.ad_headline));
         adView.setBodyView(adView.findViewById(R.id.ad_body));
-        adView.setCallToActionView(adView.findViewById(R.id.ad_call_to_action));
-
+        Button btnCallToAction = adView.findViewById(R.id.ad_call_to_action);
+        adView.setCallToActionView(btnCallToAction);
         adView.setIconView(adView.findViewById(R.id.ad_app_icon));
         adView.setPriceView(adView.findViewById(R.id.ad_price));
         adView.setStarRatingView(adView.findViewById(R.id.ad_stars));

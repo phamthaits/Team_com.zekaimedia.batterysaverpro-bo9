@@ -128,7 +128,7 @@ public class fragment3 extends Fragment {
         int [] test = {70,-1,40,-1,-1,20,60,-1,-1,40,-1,-1,-1,-1,80,60,20,30,90,15,100,60,65,71};
         while(tempHour<=hourCur){
             level = HistoryPref.getLevel(getContext() , HistoryPref.getKeyFromTime(dateCur, tempHour));
-            //level = test[tempHour];
+            //level = move_up_button[tempHour];
             if(tempHour==0){
                 if(level!=-1){
 

@@ -104,8 +104,6 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
             BoostActivity.this.parentAds.animate().alpha(1.0f).start();
             Animation downtoup = AnimationUtils.loadAnimation(BoostActivity.this, R.anim.downtoup);
             parentAds.startAnimation(downtoup);
-
-
         }
 
         ((ImageView) findViewById(R.id.clean_done_iv_rocket)).setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
