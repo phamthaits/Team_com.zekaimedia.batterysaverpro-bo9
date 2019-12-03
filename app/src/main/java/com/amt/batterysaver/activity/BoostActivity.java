@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ads.control.AdmobHelp;
+import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.notification.NotificationDevice;
@@ -34,7 +35,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
 
     ImageView ivRocket;
     private Animation ivDoneAnim;
-    private TextView tvResult,tv_optimized_info;
+    private TextView tvResult, tv_optimized_info;
     private HoloCircularProgressBar mHoloCircularProgressBarCleanDone;
     private ObjectAnimator mProgressBarAnimatorCleanDone;
     private ImageView ivTick;
@@ -44,6 +45,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
     private long totalRam;
     private long useRam;
     private long useRam2;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
 
@@ -55,35 +57,39 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
 
         checkTask();
         AdmobHelp.getInstance().loadNative(BoostActivity.this);
-
-
+//        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
+//        if (!SharePreferenceUtils.getInstance(this).getFlagAds())
+        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
+        SharePreferenceUtils.getInstance(this).setFlagAds(true);
     }
-    public void checkTask(){
-        if(!Utils.checkShouldDoing(this,6)){
+
+    public void checkTask() {
+        if (!Utils.checkShouldDoing(this, 6)) {
             findViewById(R.id.cvBoost).setVisibility(View.GONE);
         }
-        if(!Utils.checkShouldDoing(this,7)){
+        if (!Utils.checkShouldDoing(this, 7)) {
             findViewById(R.id.cvCool).setVisibility(View.GONE);
 
         }
-        if(!Utils.checkShouldDoing(this,3)){
+        if (!Utils.checkShouldDoing(this, 3)) {
             findViewById(R.id.cvClean).setVisibility(View.GONE);
 
         }
-        if(!Utils.checkShouldDoing(this,8)){
+        if (!Utils.checkShouldDoing(this, 8)) {
             findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
 
-        }else{
-            if(SharePreferenceUtils.getInstance(this).getFsAutoRun())
+        } else {
+            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
                 findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
         }
 
     }
-    public void intView(){
+
+    public void intView() {
         rlScan = findViewById(R.id.rlScanning);
         parentAds = findViewById(R.id.fmResult);
         tv_optimized_info = findViewById(R.id.tv_optimized_info);
-        if(Utils.checkShouldDoing(this,6)){
+        if (Utils.checkShouldDoing(this, 6)) {
 
             this.tvResult = findViewById(R.id.tvOptimize);
 
@@ -97,7 +103,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
             this.ivDoneAnim.setAnimationListener(new C06741());
             intData();
 
-        }else{
+        } else {
             findViewById(R.id.rlScanning).setVisibility(View.GONE);
             BoostActivity.this.parentAds.setAlpha(0.0f);
             BoostActivity.this.parentAds.setVisibility(View.VISIBLE);
@@ -110,6 +116,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         ((ImageView) findViewById(R.id.clean_done_iv_tick)).setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
     }
+
     private long getAvaiableRam(Context context) {
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         ActivityManager activityManager = (ActivityManager)
@@ -119,7 +126,8 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         }
         return mi.availMem;
     }
-    public void intData(){
+
+    public void intData() {
         totalRam = Utils.getTotalRAM();
         long availableRam = getAvaiableRam(this);
         useRam = totalRam - availableRam;
@@ -128,13 +136,14 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
             public void OnResult() {
                 long availableRam = getAvaiableRam(BoostActivity.this);
                 useRam2 = totalRam - availableRam;
-                if(useRam2>0){
-                    tv_optimized_info.setText(BoostActivity.this.getString(R.string.ram_result)+" "+ Utils.formatSize(useRam - useRam2));
+                if (useRam2 > 0) {
+                    tv_optimized_info.setText(BoostActivity.this.getString(R.string.ram_result) + " " + Utils.formatSize(useRam - useRam2));
                 }
             }
         });
         mTaskBoost.execute();
     }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -176,12 +185,14 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         @Override
         public void onAnimationRepeat(Animation animation) {
         }
+
         @Override
         public void onAnimationStart(Animation animation) {
         }
 
         C06741() {
         }
+
         @Override
         public void onAnimationEnd(Animation animation) {
             Animation slideUp = AnimationUtils.loadAnimation(BoostActivity.this, R.anim.zoom_in);
@@ -245,16 +256,16 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         cancleUIUPdate();
         SharePreferenceUtils.getInstance(this).setFlagAds(false);
     }
+
     @Override
     public void onBackPressed() {
-        if(SharePreferenceUtils.getInstance(this).getFlagAds()){
+        if (SharePreferenceUtils.getInstance(this).getFlagAds()) {
             SharePreferenceUtils.getInstance(this).setFlagAds(false);
             AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
                 @Override
@@ -262,7 +273,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
                     finish();
                 }
             });
-        }else{
+        } else {
             finish();
         }
 

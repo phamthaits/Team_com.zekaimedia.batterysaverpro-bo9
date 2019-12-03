@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ads.control.AdmobHelp;
+import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.view.HoloCircularProgressBar;
@@ -41,6 +42,8 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         Utils.setLocate(this);
         setContentView(R.layout.activity_clean_result);
         AdmobHelp.getInstance().loadNative(this);
+        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
+        SharePreferenceUtils.getInstance(this).setFlagAds(true);
 
         rlScan = findViewById(R.id.rlScanning);
         parentAds = findViewById(R.id.fmResult);
@@ -166,8 +169,17 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
     }
     @Override
     public void onBackPressed() {
-        finish();
-
+        if(SharePreferenceUtils.getInstance(this).getFlagAds()){
+            SharePreferenceUtils.getInstance(this).setFlagAds(false);
+            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+                @Override
+                public void onAdClosed() {
+                    finish();
+                }
+            });
+        }else{
+            finish();
+        }
     }
 
     @Override

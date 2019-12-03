@@ -29,6 +29,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ads.control.AdmobHelp;
+import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.model.TaskInfo;
@@ -40,7 +41,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-
 
 
 public class CoolActivity extends AppCompatActivity implements View.OnClickListener {
@@ -55,7 +55,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
     private FrameLayout[] chargeBoostContainers = new FrameLayout[4];
     private PackageManager mPackageManager;
     ActivityManager mActivityManager;
-    ImageView rocketImage,rocketImageOut;
+    ImageView rocketImage, rocketImageOut;
 
     private TextView tvResult;
 
@@ -65,6 +65,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 
     private ViewGroup parentAds;
     private LinearLayout lrScan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,30 +75,33 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         intView();
         checkTask();
         AdmobHelp.getInstance().loadNative(CoolActivity.this);
-
+        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
+        SharePreferenceUtils.getInstance(this).setFlagAds(true);
 
     }
-    public void checkTask(){
-        if(!Utils.checkShouldDoing(this,6)){
+
+    public void checkTask() {
+        if (!Utils.checkShouldDoing(this, 6)) {
             findViewById(R.id.cvBoost).setVisibility(View.GONE);
         }
-        if(!Utils.checkShouldDoing(this,7)){
+        if (!Utils.checkShouldDoing(this, 7)) {
             findViewById(R.id.cvCool).setVisibility(View.GONE);
 
         }
-        if(!Utils.checkShouldDoing(this,3)){
+        if (!Utils.checkShouldDoing(this, 3)) {
             findViewById(R.id.cvClean).setVisibility(View.GONE);
 
         }
-        if(!Utils.checkShouldDoing(this,8)){
+        if (!Utils.checkShouldDoing(this, 8)) {
             findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
 
-        }else{
-            if(SharePreferenceUtils.getInstance(this).getFsAutoRun())
+        } else {
+            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
                 findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
         }
 
     }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -132,7 +136,8 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                 return;
         }
     }
-    public void intView(){
+
+    public void intView() {
         lrScan = findViewById(R.id.lrScan);
         parentAds = findViewById(R.id.fmResult);
         this.chargeBoostContainers[0] = findViewById(R.id.fm_scan_container_1);
@@ -144,7 +149,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         this.tvResult = findViewById(R.id.clean_up_done_tv_result);
         this.ivDone = findViewById(R.id.clean_done_iv_done);
         this.ivDoneAnim = AnimationUtils.loadAnimation(this, R.anim.ic_done_anim);
-        if(Utils.checkShouldDoing(this,7)){
+        if (Utils.checkShouldDoing(this, 7)) {
             int size = (int) getResources().getDimension(R.dimen.icon_size);
             this.layoutParams = new FrameLayout.LayoutParams(-2, -2);
             this.layoutParams.height = size;
@@ -161,7 +166,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
             animationRotate.setAnimationListener(new CoolActivity.anmRotate());
             this.ivDoneAnim.setAnimationListener(new CoolActivity.anmDone());
             findViewById(R.id.iv_bg_snow).startAnimation(AnimationUtils.loadAnimation(this, R.anim.snow_fall));
-        }else{
+        } else {
             findViewById(R.id.lrScan).setVisibility(View.GONE);
             this.parentAds.setAlpha(0.0f);
             this.parentAds.setVisibility(View.VISIBLE);
@@ -182,12 +187,14 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void onAnimationRepeat(Animation animation) {
         }
+
         @Override
         public void onAnimationStart(Animation animation) {
         }
 
         anmRotate() {
         }
+
         @Override
         public void onAnimationEnd(Animation animation) {
             CoolActivity.this.rocketImageOut.setImageResource(R.drawable.rocket_12);
@@ -197,9 +204,6 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 
             CoolActivity.this.tvResult.setText(CoolActivity.this.getResources().getString(R.string.done));
             CoolActivity.this.tvResult.startAnimation(CoolActivity.this.ivDoneAnim);
-
-
-
 
 
         }
@@ -218,12 +222,14 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private class LoadRunningTask extends AsyncTask<Void, Drawable, Void> {
-        int temp= 0;
+        int temp = 0;
+
         private LoadRunningTask() {
             mPackageManager = getPackageManager();
             mActivityManager = (ActivityManager) getSystemService(
                     Context.ACTIVITY_SERVICE);
         }
+
         @Override
         protected Void doInBackground(Void... voidArr) {
 
@@ -244,12 +250,12 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                         ApplicationInfo applicationInfo;
                         applicationInfo = mPackageManager.getApplicationInfo(packagename, 0);
                         if (applicationInfo == null) continue;
-                        if (!packagename.contains(getPackageName()) && applicationInfo != null&& Utils.isUserApp(applicationInfo)&&!Utils.checkLockedItem(CoolActivity.this, packagename)) {
+                        if (!packagename.contains(getPackageName()) && applicationInfo != null && Utils.isUserApp(applicationInfo) && !Utils.checkLockedItem(CoolActivity.this, packagename)) {
                             TaskInfo info = new TaskInfo(CoolActivity.this, applicationInfo);
                             mActivityManager.killBackgroundProcesses(info.getAppinfo().packageName);
                             Drawable d = getPackageManager().getApplicationIcon(info.getPackageName());
 
-                            if( d!=null){
+                            if (d != null) {
                                 publishProgress(d);
                             }
 
@@ -261,12 +267,12 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                                 e.printStackTrace();
                             }
                         }
-                    } catch (Exception e){
+                    } catch (Exception e) {
                         continue;
                     }
                 } while (true);
             } else {
-                if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
                     for (ActivityManager.RunningServiceInfo runningServiceInfo : am.getRunningServices(Integer.MAX_VALUE)) {
                         try {
                             if (mPackageManager == null) break;
@@ -275,11 +281,11 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                             ApplicationInfo applicationInfo;
                             applicationInfo = mPackageManager.getApplicationInfo(packageInfo.packageName, 0);
                             if (applicationInfo == null) continue;
-                            if (!packageInfo.packageName.contains(CoolActivity.this.getPackageName()) && applicationInfo != null &&Utils.isUserApp(applicationInfo)&&!Utils.checkLockedItem(CoolActivity.this, packageInfo.packageName)) {
+                            if (!packageInfo.packageName.contains(CoolActivity.this.getPackageName()) && applicationInfo != null && Utils.isUserApp(applicationInfo) && !Utils.checkLockedItem(CoolActivity.this, packageInfo.packageName)) {
                                 TaskInfo info = new TaskInfo(CoolActivity.this, applicationInfo);
                                 mActivityManager.killBackgroundProcesses(info.getAppinfo().packageName);
                                 Drawable d = CoolActivity.this.getPackageManager().getApplicationIcon(info.getPackageName());
-                                if( d!=null){
+                                if (d != null) {
                                     publishProgress(d);
                                 }
                                 try {
@@ -295,7 +301,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                             continue;
                         }
                     }
-                }else{
+                } else {
                     int flags = PackageManager.GET_ACTIVITIES
                             | PackageManager.GET_CONFIGURATIONS
                             | PackageManager.GET_DISABLED_COMPONENTS
@@ -314,13 +320,13 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                             applicationInfo = mPackageManager.getApplicationInfo(packageInfo.packageName, 0);
 
                             ServiceInfo[] services = packageInfo.services;
-                            if(services!=null){
-                                if(services.length>0){
-                                    if (!packageInfo.packageName.contains(CoolActivity.this.getPackageName()) && applicationInfo != null &&Utils.isUserApp(applicationInfo)&&!Utils.checkLockedItem(CoolActivity.this, packageInfo.packageName)) {
+                            if (services != null) {
+                                if (services.length > 0) {
+                                    if (!packageInfo.packageName.contains(CoolActivity.this.getPackageName()) && applicationInfo != null && Utils.isUserApp(applicationInfo) && !Utils.checkLockedItem(CoolActivity.this, packageInfo.packageName)) {
                                         TaskInfo info = new TaskInfo(CoolActivity.this, applicationInfo);
                                         mActivityManager.killBackgroundProcesses(info.getAppinfo().packageName);
                                         Drawable d = CoolActivity.this.getPackageManager().getApplicationIcon(info.getPackageName());
-                                        if( d!=null){
+                                        if (d != null) {
                                             publishProgress(d);
                                         }
                                         try {
@@ -348,9 +354,9 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
             }
 
 
-
             return null;
         }
+
         @Override
         protected void onProgressUpdate(Drawable... drawableArr) {
             Animation loadAnimation;
@@ -398,6 +404,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
             });
             super.onProgressUpdate(drawableArr);
         }
+
         @Override
         protected void onPostExecute(Void voidR) {
             super.onPostExecute(voidR);
@@ -407,19 +414,20 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
             publishProgress(drawable);
         }
     }
+
     class anmDone implements Animation.AnimationListener {
-
-
 
         @Override
         public void onAnimationRepeat(Animation animation) {
         }
+
         @Override
         public void onAnimationStart(Animation animation) {
         }
 
         anmDone() {
         }
+
         @Override
         public void onAnimationEnd(Animation animation) {
             Animation slideUp = AnimationUtils.loadAnimation(CoolActivity.this, R.anim.zoom_in);
@@ -433,14 +441,12 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
             parentAds.startAnimation(downtoup);
             SharePreferenceUtils.getInstance(CoolActivity.this).setCoolerTime(System.currentTimeMillis());
             SharePreferenceUtils.getInstance(CoolActivity.this).setCoolerTimeMain(System.currentTimeMillis());
-
-
         }
     }
 
     @Override
     public void onBackPressed() {
-        if(SharePreferenceUtils.getInstance(this).getFlagAds()){
+        if (SharePreferenceUtils.getInstance(this).getFlagAds()) {
             SharePreferenceUtils.getInstance(this).setFlagAds(false);
             AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
                 @Override
@@ -448,7 +454,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                     finish();
                 }
             });
-        }else{
+        } else {
             finish();
         }
 
