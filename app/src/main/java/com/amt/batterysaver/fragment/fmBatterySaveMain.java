@@ -382,8 +382,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     CardView cvFastCharge;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.content_home, container, false);
         intView(view);
         intData(view);

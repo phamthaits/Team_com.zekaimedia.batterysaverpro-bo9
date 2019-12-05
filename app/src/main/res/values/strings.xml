@@ -75,7 +75,6 @@
     <string name="op_clean">Clean</string>
     <string name="op_cool_down_tip">Cools down device temperature to save battey life</string>
 
-
     //
     <string name="bd_charge_duration">Charge duration</string>
     <string name="bd_charge_history">Charge History</string>
@@ -164,7 +163,7 @@
     <string name="pc_scanning">Scanning</string>
     <string name="cpugpuram" translatable="false">CPU,GPU,RAM</string>
     <string name="bd_power_issue">Power issue</string>
-    <string name="app_name" translatable="false">SAVE BATTERY</string>
+    <string name="app_name" translatable="false">Super Fast Charger</string>
     <string name="power_full">Power is full</string>
     <string name="auto_disable">Disable</string>
     <string name="on_status">ON</string>

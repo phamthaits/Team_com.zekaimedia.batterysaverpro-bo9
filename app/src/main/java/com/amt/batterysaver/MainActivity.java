@@ -2,6 +2,7 @@ package com.amt.batterysaver;
 
 import com.ads.control.Rate;
 import com.ads.control.funtion.UtilsApp;
+import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import androidx.fragment.app.Fragment;
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity  {
 
     @Override
     public void onBackPressed() {
-        Rate.Show(this,1);
+        Rate.Show(this,1,this, SharePreferenceConstant.admob_native,SharePreferenceConstant.admob_full);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

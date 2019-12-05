@@ -276,8 +276,5 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         } else {
             finish();
         }
-
     }
-
-
 }

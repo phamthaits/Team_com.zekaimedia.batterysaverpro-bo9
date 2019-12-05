@@ -75,9 +75,10 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         intView();
         checkTask();
         AdmobHelp.getInstance().loadNative(CoolActivity.this);
+//        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
+//        if (!SharePreferenceUtils.getInstance(this).getFlagAds())
         AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
         SharePreferenceUtils.getInstance(this).setFlagAds(true);
-
     }
 
     public void checkTask() {
@@ -180,7 +181,6 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         this.ivDone.setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
         this.rocketImageOut.setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
         this.rocketImage.setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
-
     }
 
     class anmRotate implements Animation.AnimationListener {
@@ -337,23 +337,15 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                                             e.printStackTrace();
                                         }
                                     }
-
                                 }
-
                             }
-
                             PermissionInfo[] permissions = packageInfo.permissions;
                         } catch (PackageManager.NameNotFoundException e) {
                             e.printStackTrace();
                         }
-
                     }
-
                 }
-
             }
-
-
             return null;
         }
 
@@ -457,7 +449,6 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             finish();
         }
-
     }
 
     @Override

@@ -2,6 +2,7 @@
 
     <dimen name="text_details">10sp</dimen>
     <dimen name="height_native_ads">330dip</dimen>
+    <dimen name="height_native_ads_rate">290dip</dimen>
     <dimen name="height_full_ads">300dip</dimen>
 
 </resources>

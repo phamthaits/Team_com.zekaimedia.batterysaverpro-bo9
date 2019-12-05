@@ -10,84 +10,95 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.TextView;
 
 import com.ads.control.funtion.UtilsApp;
 
 
+public class RateApp extends Dialog {
+    Context mContext;
+    String mEmail, mTitleEmail;
+    int mStyle = 0;
+    Activity mActivity;
+    String mamod_native;
+    String madmod_full;
 
-public class RateApp extends Dialog{
-        Context mContext;
-        String mEmail , mTitleEmail;
-        int mStyle = 0;
-        public RateApp(Context context, String email, String TitleEmail, int style){
-            super(context);
-            mContext = context;
-            mEmail = email;
-            mTitleEmail = TitleEmail;
-            mStyle = style;
+    public RateApp(Context context, String email, String TitleEmail, int style, Activity activity, String amod_native, String admod_full) {
+        super(context);
+        mActivity = activity;
+        mamod_native = amod_native;
+        madmod_full = admod_full;
+        mContext = context;
+        mEmail = email;
+        mTitleEmail = TitleEmail;
+        mStyle = style;
+    }
 
-        }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            requestWindowFeature(Window.FEATURE_NO_TITLE);
-            getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            if(mStyle==0){
-                setContentView(R.layout.dialog_rate_app);
-            }
-            if(mStyle==1){
-                setContentView(R.layout.dialog_rate_app);
-            }
-            if(mStyle==2){
-                setContentView(R.layout.dialog_rate_app);
-            }
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        if (mStyle == 0) {
             setContentView(R.layout.dialog_rate_app);
-            TextView btnRate = findViewById(R.id.btn_good);
-            TextView btn_not_good = findViewById(R.id.btn_not_good);
-            TextView btn_late = findViewById(R.id.btn_late);
-            btnRate.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putBoolean("Show_rate",true);
-                    editor.commit();
-                    UtilsApp.RateApp(mContext);
-                    UtilsApp.ShowToastLong(mContext,"Thanks for rate and review ^^ ");
-                    dismiss();
-                    ((Activity)(mContext)).finish();
-                }
-            });
-            btn_not_good.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putBoolean("Show_rate",true);
-                    editor.commit();
-                    showFeedBackDialog();
-                    dismiss();
-                }
-            });
-            btn_late.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    dismiss();
-                    ((Activity)(mContext)).finish();
-                }
-            });
-
-
-
         }
+        if (mStyle == 1) {
+            setContentView(R.layout.dialog_rate_app);
+        }
+        if (mStyle == 2) {
+            setContentView(R.layout.dialog_rate_app);
+        }
+//        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
+//        if (!SharePreferenceUtils.getInstance(this).getFlagAds())
+//        AdmobHelp.getInstance().init(mContext,madmod_full,mamod_native);
+        setContentView(R.layout.dialog_rate_app);
+
+        AdmobHelp.getInstance().loadNativeRate(mActivity,this.getWindow());
+        TextView btnRate = findViewById(R.id.btn_good);
+        TextView btn_not_good = findViewById(R.id.btn_not_good);
+        TextView btn_late = findViewById(R.id.btn_late);
+
+        btnRate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean("Show_rate", true);
+                editor.commit();
+                UtilsApp.RateApp(mContext);
+                UtilsApp.ShowToastLong(mContext, "Thanks for rate and review ^^ ");
+                dismiss();
+                ((Activity) (mContext)).finish();
+            }
+        });
+        btn_not_good.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean("Show_rate", true);
+                editor.commit();
+                showFeedBackDialog();
+                dismiss();
+            }
+        });
+        btn_late.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+                ((Activity) (mContext)).finish();
+            }
+        });
+    }
 
 
     private void showFeedBackDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(mContext,R.style.DialogTheme);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext, R.style.DialogTheme);
         builder.setTitle(mContext.getString(R.string.title_dialog_feed_back));
         builder.setMessage(mContext.getString(R.string.message_dialog_feed_back));
 
@@ -97,8 +108,8 @@ public class RateApp extends Dialog{
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-                        UtilsApp.SendFeedBack(mContext,mEmail,mTitleEmail);
-                        ((Activity)(mContext)).finish();
+                        UtilsApp.SendFeedBack(mContext, mEmail, mTitleEmail);
+                        ((Activity) (mContext)).finish();
                     }
                 });
 
@@ -107,7 +118,7 @@ public class RateApp extends Dialog{
                 new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        ((Activity)(mContext)).finish();
+                        ((Activity) (mContext)).finish();
                     }
                 });
 
@@ -117,12 +128,6 @@ public class RateApp extends Dialog{
         // display dialog
         dialog.show();
     }
-
-
-
-
-
-
 
 
 }

@@ -3,6 +3,7 @@ package com.ads.control;
 import android.app.Activity;
 import android.content.Context;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
@@ -212,6 +214,54 @@ public class AdmobHelp {
 
         adLoader.loadAd(new PublisherAdRequest.Builder().build());
     }
+
+    public void loadNativeRate(final Activity mActivity, Window  window) {
+
+        VideoOptions videoOptions = new VideoOptions.Builder()
+                .setStartMuted(false)
+                .build();
+
+        NativeAdOptions adOptions = new NativeAdOptions.Builder()
+                .setVideoOptions(videoOptions)
+                .build();
+
+        AdLoader adLoader = new AdLoader.Builder(mActivity, VarAds.admob_native)
+                .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
+                    @Override
+                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+                        // Show the ad.
+                        if (nativeAd != null) {
+                            nativeAd.destroy();
+                        }
+
+                        nativeAd = unifiedNativeAd;
+
+                        FrameLayout frameLayout = window.findViewById(R.id.fl_adplaceholderrate);
+                        if (frameLayout != null) {
+
+                            frameLayout.setVisibility(View.VISIBLE);
+                            UnifiedNativeAdView adView = (UnifiedNativeAdView) mActivity.getLayoutInflater()
+                                    .inflate(R.layout.native_admob_ad_rate, null);
+                            populateUnifiedNativeAdView(unifiedNativeAd, adView);
+                            frameLayout.removeAllViews();
+                            frameLayout.addView(adView);
+                            setAnimation(mActivity, adView);
+                            window.findViewById(R.id.ivAdsBig).setVisibility(View.GONE);
+                        }
+                    }
+                })
+                .withAdListener(new AdListener() {
+                    @Override
+                    public void onAdFailedToLoad(int errorCode) {
+                        // Handle the failure by logging, altering the UI, and so on.
+                    }
+                })
+                .withNativeAdOptions(adOptions)
+                .build();
+
+        adLoader.loadAd(new PublisherAdRequest.Builder().build());
+    }
+
 
     public void loadNativeFragment(final Activity mActivity, final View rootView) {
         VideoOptions videoOptions = new VideoOptions.Builder()

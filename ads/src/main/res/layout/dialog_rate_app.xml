@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@drawable/style_dialog_full">
+    android:background="@drawable/style_dialog_full"
+    android:orientation="vertical">
 
 
     <FrameLayout
@@ -12,30 +12,43 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bt_container">
+
+        <FrameLayout
+            android:id="@+id/fl_adplaceholderrate"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_native_ads_rate"
+            android:layout_marginLeft="5dip"
+            android:layout_marginTop="5dip"
+            android:layout_marginRight="5dip"
+            android:background="@drawable/bg_card_ads"
+            android:orientation="vertical"
+            android:paddingLeft="2dip"
+            android:paddingTop="2dip"
+            android:paddingRight="2dip"
+            android:paddingBottom="2dip"
+            android:visibility="gone" />
+
         <ImageView
-            android:background="#ffffff"
-            android:gravity="center"
             android:id="@+id/ivAdsBig"
             android:layout_width="fill_parent"
             android:layout_height="150dip"
-            android:src="@drawable/ic_nz_studio"
+            android:adjustViewBounds="true"
+            android:background="#ffffff"
+            android:gravity="center"
             android:scaleType="fitCenter"
-            android:adjustViewBounds="true"/>
+            android:src="@drawable/ic_nz_studio" />
     </FrameLayout>
 
-
-
-
     <TextView
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
         android:id="@+id/rd_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_light"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
         android:text="@string/rate_msg"
         android:textColor="@color/text_color"
-        android:fontFamily="@font/roboto_light"
         android:textSize="@dimen/text_details" />
 
     <LinearLayout
@@ -44,51 +57,54 @@
         android:layout_marginTop="5dip"
         android:layout_marginBottom="5dip"
         android:orientation="horizontal">
+
         <TextView
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
             android:id="@+id/btn_good"
             android:layout_width="0dp"
-            android:layout_weight="50"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="@dimen/text_details"
-            android:textColor="@color/text_color"
+            android:layout_weight="50"
+            android:background="@drawable/selector_button"
             android:fontFamily="@font/roboto_regular"
-            android:textAllCaps="true"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:text="@string/good_5_stars"
-            android:background="@drawable/selector_button"/>
+            android:textAllCaps="true"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_details" />
+
         <TextView
             android:id="@+id/btn_not_good"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
             android:layout_width="0dp"
-            android:layout_weight="50"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/text_details"
-            android:textColor="@color/text_color"
-            android:fontFamily="@font/roboto_regular"
             android:layout_gravity="center"
+            android:layout_weight="50"
+            android:background="@drawable/selector_button"
+            android:fontFamily="@font/roboto_regular"
             android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:text="@string/not_good"
             android:textAllCaps="true"
-            android:background="@drawable/selector_button"/>
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_details" />
+
         <TextView
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
             android:id="@+id/btn_late"
             android:layout_width="0dp"
-            android:layout_weight="50"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:textAllCaps="true"
-            android:textSize="@dimen/text_details"
-            android:textColor="@color/text_color"
+            android:layout_weight="50"
+            android:background="@drawable/selector_button"
             android:fontFamily="@font/roboto_regular"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:text="@string/remind_later"
-            android:background="@drawable/selector_button"/>
+            android:textAllCaps="true"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_details" />
 
     </LinearLayout>
 </LinearLayout>
