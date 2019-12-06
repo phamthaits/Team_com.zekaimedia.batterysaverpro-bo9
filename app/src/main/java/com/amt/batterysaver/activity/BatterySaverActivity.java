@@ -32,6 +32,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ads.control.AdmobHelp;
+import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.model.TaskInfo;
@@ -44,8 +45,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-
-
 public class BatterySaverActivity extends AppCompatActivity implements OnClickListener {
     private int curIndex = 0;
     private int[] arrGravity1 = new int[]{49, 19, 83};
@@ -57,17 +56,14 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     private FrameLayout[] chargeBoostContainers = new FrameLayout[4];
     private PackageManager mPackageManager;
     ActivityManager mActivityManager;
-    ImageView rocketImage,rocketImageOut;
-    private TextView tvResult,tvScan;
+    ImageView rocketImage, rocketImageOut;
+    private TextView tvResult, tvScan;
 
     private ImageView ivDone;
     private Animation ivDoneAnim;
-
-
-
-
     private ViewGroup parentAds;
     private LinearLayout lrScan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,9 +72,11 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
 
         intView();
         checkTask();
-        AdmobHelp.getInstance().loadNative(BatterySaverActivity.this);
-
+        AdmobHelp.getInstance().loadNative(this);
+        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
+//        SharePreferenceUtils.getInstance(this).setFlagAds(true);
     }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -114,7 +112,8 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
                 return;
         }
     }
-    public void intView(){
+
+    public void intView() {
         lrScan = findViewById(R.id.lrScan);
         parentAds = findViewById(R.id.fmResult);
         this.chargeBoostContainers[0] = findViewById(R.id.fm_scan_container_1);
@@ -126,7 +125,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         this.ivDone = findViewById(R.id.clean_done_iv_done);
         this.rocketImageOut = findViewById(R.id.ivDoneHoloCirular);
         this.rocketImage = findViewById(R.id.ivScan);
-        if(Utils.checkShouldDoing(this,5)){
+//        if (Utils.checkShouldDoing(this, 5)) {
             new LoadRunningTask().execute();
             int size = (int) getResources().getDimension(R.dimen.icon_size);
             this.layoutParams = new LayoutParams(-2, -2);
@@ -149,15 +148,14 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
             this.ivDoneAnim = AnimationUtils.loadAnimation(this, R.anim.ic_done_anim);
             animationRotate.setAnimationListener(new anmRotate());
             this.ivDoneAnim.setAnimationListener(new anmDone());
-        }else{
-            findViewById(R.id.lrScan).setVisibility(View.GONE);
-            BatterySaverActivity.this.parentAds.setAlpha(0.0f);
-            BatterySaverActivity.this.parentAds.setVisibility(View.VISIBLE);
-            BatterySaverActivity.this.parentAds.animate().alpha(1.0f).start();
-            Animation downtoup = AnimationUtils.loadAnimation(BatterySaverActivity.this, R.anim.downtoup);
-            parentAds.startAnimation(downtoup);
-
-        }
+//        } else {
+//            findViewById(R.id.lrScan).setVisibility(View.GONE);
+//            BatterySaverActivity.this.parentAds.setAlpha(0.0f);
+//            BatterySaverActivity.this.parentAds.setVisibility(View.VISIBLE);
+//            BatterySaverActivity.this.parentAds.animate().alpha(1.0f).start();
+//            Animation downtoup = AnimationUtils.loadAnimation(BatterySaverActivity.this, R.anim.downtoup);
+//            parentAds.startAnimation(downtoup);
+//        }
 
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), Mode.MULTIPLY);
         this.ivDone.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
@@ -170,12 +168,14 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         @Override
         public void onAnimationRepeat(Animation animation) {
         }
+
         @Override
         public void onAnimationStart(Animation animation) {
         }
 
         anmRotate() {
         }
+
         @Override
         public void onAnimationEnd(Animation animation) {
             tvScan.setVisibility(View.GONE);
@@ -185,11 +185,6 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
             BatterySaverActivity.this.ivDone.startAnimation(BatterySaverActivity.this.ivDoneAnim);
             BatterySaverActivity.this.tvResult.setText(BatterySaverActivity.this.getResources().getString(R.string.done));
             BatterySaverActivity.this.tvResult.startAnimation(BatterySaverActivity.this.ivDoneAnim);
-
-
-
-
-
         }
     }
 
@@ -206,12 +201,14 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     }
 
     private class LoadRunningTask extends AsyncTask<Void, TaskInfo, Void> {
-        int temp= 0;
+        int temp = 0;
+
         private LoadRunningTask() {
             mPackageManager = getPackageManager();
             mActivityManager = (ActivityManager) getSystemService(
                     Context.ACTIVITY_SERVICE);
         }
+
         @Override
         protected Void doInBackground(Void... voidArr) {
 
@@ -232,29 +229,22 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
                         ApplicationInfo applicationInfo;
                         applicationInfo = mPackageManager.getApplicationInfo(packagename, 0);
                         if (applicationInfo == null) continue;
-                        if (!packagename.contains(getPackageName()) && applicationInfo != null&&Utils.isUserApp(applicationInfo)&&!Utils.checkLockedItem(BatterySaverActivity.this, packagename)) {
+                        if (!packagename.contains(getPackageName()) && applicationInfo != null && Utils.isUserApp(applicationInfo) && !Utils.checkLockedItem(BatterySaverActivity.this, packagename)) {
                             TaskInfo info = new TaskInfo(BatterySaverActivity.this, applicationInfo);
                             mActivityManager.killBackgroundProcesses(info.getAppinfo().packageName);
-
-
-
                             publishProgress(info);
-
-
                             try {
-
                                 Thread.sleep(150);
-
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
-                    } catch (Exception e){
+                    } catch (Exception e) {
                         continue;
                     }
                 } while (true);
             } else {
-                if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
                     for (ActivityManager.RunningServiceInfo runningServiceInfo : am.getRunningServices(Integer.MAX_VALUE)) {
                         try {
                             if (mPackageManager == null) break;
@@ -263,7 +253,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
                             ApplicationInfo applicationInfo;
                             applicationInfo = mPackageManager.getApplicationInfo(packageInfo.packageName, 0);
                             if (applicationInfo == null) continue;
-                            if (!packageInfo.packageName.contains(BatterySaverActivity.this.getPackageName()) && applicationInfo != null &&Utils.isUserApp(applicationInfo)&&!Utils.checkLockedItem(BatterySaverActivity.this, packageInfo.packageName)) {
+                            if (!packageInfo.packageName.contains(BatterySaverActivity.this.getPackageName()) && applicationInfo != null && Utils.isUserApp(applicationInfo) && !Utils.checkLockedItem(BatterySaverActivity.this, packageInfo.packageName)) {
                                 TaskInfo info = new TaskInfo(BatterySaverActivity.this, applicationInfo);
                                 mActivityManager.killBackgroundProcesses(info.getAppinfo().packageName);
                                 Drawable d = BatterySaverActivity.this.getPackageManager().getApplicationIcon(info.getPackageName());
@@ -281,7 +271,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
                             continue;
                         }
                     }
-                }else{
+                } else {
                     int flags = PackageManager.GET_ACTIVITIES
                             | PackageManager.GET_CONFIGURATIONS
                             | PackageManager.GET_DISABLED_COMPONENTS
@@ -300,9 +290,9 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
                             applicationInfo = mPackageManager.getApplicationInfo(packageInfo.packageName, 0);
 
                             ServiceInfo[] services = packageInfo.services;
-                            if(services!=null){
-                                if(services.length>0){
-                                    if (!packageInfo.packageName.contains(BatterySaverActivity.this.getPackageName()) && applicationInfo != null &&Utils.isUserApp(applicationInfo)&&!Utils.checkLockedItem(BatterySaverActivity.this, packageInfo.packageName)) {
+                            if (services != null) {
+                                if (services.length > 0) {
+                                    if (!packageInfo.packageName.contains(BatterySaverActivity.this.getPackageName()) && applicationInfo != null && Utils.isUserApp(applicationInfo) && !Utils.checkLockedItem(BatterySaverActivity.this, packageInfo.packageName)) {
                                         TaskInfo info = new TaskInfo(BatterySaverActivity.this, applicationInfo);
                                         mActivityManager.killBackgroundProcesses(info.getAppinfo().packageName);
                                         publishProgress(info);
@@ -331,30 +321,26 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
             }
 
 
-
             return null;
         }
+
         @Override
         protected void onProgressUpdate(TaskInfo... values) {
-
             getImageApp(values[0]);
             super.onProgressUpdate(values);
         }
+
         @Override
         protected void onPostExecute(Void voidR) {
             super.onPostExecute(voidR);
         }
-
-
     }
 
-    public void getImageApp(TaskInfo info){
-        tvScan.setText(BatterySaverActivity.this.getString(R.string.pc_scanning)+": " +info.getTitle());
-
-        try
-        {
+    public void getImageApp(TaskInfo info) {
+        tvScan.setText(BatterySaverActivity.this.getString(R.string.pc_scanning) + ": " + info.getTitle());
+        try {
             Drawable d = BatterySaverActivity.this.getPackageManager().getApplicationIcon(info.getPackageName());
-            if( d!=null){
+            if (d != null) {
                 Animation loadAnimation;
                 int nextInt = new Random().nextInt((BatterySaverActivity.this.arrGravity1.length - 1) + 1) + 0;
                 StringBuilder stringBuilder = new StringBuilder();
@@ -400,9 +386,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
                 });
             }
 
-        }
-        catch (PackageManager.NameNotFoundException e)
-        {
+        } catch (PackageManager.NameNotFoundException e) {
             return;
         }
     }
@@ -410,70 +394,77 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     class anmDone implements AnimationListener {
 
 
-
         @Override
         public void onAnimationRepeat(Animation animation) {
         }
+
         @Override
         public void onAnimationStart(Animation animation) {
         }
 
         anmDone() {
         }
+
         @Override
         public void onAnimationEnd(Animation animation) {
-            Animation slideUp = AnimationUtils.loadAnimation(BatterySaverActivity.this, R.anim.zoom_in);
-            lrScan.startAnimation(slideUp);
-            BatterySaverActivity.this.lrScan.setVisibility(View.GONE);
-
-
-            BatterySaverActivity.this.parentAds.setAlpha(0.0f);
-            BatterySaverActivity.this.parentAds.setVisibility(View.VISIBLE);
-            BatterySaverActivity.this.parentAds.animate().alpha(1.0f).start();
-            Animation downtoup = AnimationUtils.loadAnimation(BatterySaverActivity.this, R.anim.downtoup);
-            parentAds.startAnimation(downtoup);
-            SharePreferenceUtils.getInstance(BatterySaverActivity.this).setOptimizeTime(System.currentTimeMillis());
-            SharePreferenceUtils.getInstance(BatterySaverActivity.this).setOptimizeTimeMain(System.currentTimeMillis());
-
+            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+                @Override
+                public void onAdClosed() {
+                    loadResult();
+                }
+            });
         }
     }
-    public void checkTask(){
-        if(!Utils.checkShouldDoing(this,6)){
+
+    public void checkTask() {
+        if (!Utils.checkShouldDoing(this, 6)) {
             findViewById(R.id.cvBoost).setVisibility(View.GONE);
         }
-        if(!Utils.checkShouldDoing(this,7)){
+        if (!Utils.checkShouldDoing(this, 7)) {
             findViewById(R.id.cvCool).setVisibility(View.GONE);
 
         }
-        if(!Utils.checkShouldDoing(this,3)){
+        if (!Utils.checkShouldDoing(this, 3)) {
             findViewById(R.id.cvClean).setVisibility(View.GONE);
 
         }
-        if(!Utils.checkShouldDoing(this,8)){
+        if (!Utils.checkShouldDoing(this, 8)) {
             findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
 
-        }else{
-            if(SharePreferenceUtils.getInstance(this).getFsAutoRun())
+        } else {
+            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
                 findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
         }
 
     }
 
+    private void loadResult() {
+        Animation slideUp = AnimationUtils.loadAnimation(BatterySaverActivity.this, R.anim.zoom_in);
+        lrScan.startAnimation(slideUp);
+        BatterySaverActivity.this.lrScan.setVisibility(View.GONE);
+
+        BatterySaverActivity.this.parentAds.setAlpha(0.0f);
+        BatterySaverActivity.this.parentAds.setVisibility(View.VISIBLE);
+        BatterySaverActivity.this.parentAds.animate().alpha(1.0f).start();
+        Animation downtoup = AnimationUtils.loadAnimation(BatterySaverActivity.this, R.anim.downtoup);
+        parentAds.startAnimation(downtoup);
+        SharePreferenceUtils.getInstance(BatterySaverActivity.this).setOptimizeTime(System.currentTimeMillis());
+        SharePreferenceUtils.getInstance(BatterySaverActivity.this).setOptimizeTimeMain(System.currentTimeMillis());
+    }
+
     @Override
     public void onBackPressed() {
-        if(SharePreferenceUtils.getInstance(this).getFlagAds()){
-            SharePreferenceUtils.getInstance(this).setFlagAds(false);
-            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-                @Override
-                public void onAdClosed() {
-                    finish();
-                }
-            });
-
-        }else{
-            finish();
-        }
-
+//        if(SharePreferenceUtils.getInstance(this).getFlagAds()){
+//            SharePreferenceUtils.getInstance(this).setFlagAds(false);
+//            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+//                @Override
+//                public void onAdClosed() {
+//                    finish();
+//                }
+//            });
+//        }else{
+        finish();
+//        }
     }
 
     @Override

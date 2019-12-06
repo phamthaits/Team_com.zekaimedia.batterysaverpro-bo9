@@ -24,7 +24,6 @@ public class AutoRebootReceiver extends BroadcastReceiver {
         ) {
             Intent intent2 = new Intent(context, BatteryService.class);
             ContextCompat.startForegroundService(context, intent2);
-
         }
     }
 }

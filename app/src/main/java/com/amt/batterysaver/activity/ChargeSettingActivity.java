@@ -18,12 +18,10 @@ import com.amt.batterysaver.R;
 
 public class ChargeSettingActivity extends AppCompatActivity implements View.OnClickListener{
 
-
     SwitchCompat swWifi,swAutoBrightness,swAutoRun,swBluetooth,swAutoSync;
     private TextView tvWifi,tvWifiDes,tvBluetooth,tvBluetoothDes,tvBrightness,tvBrightnessDes,tvSync,tvSyncDes,tvEnable;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
         setContentView(R.layout.activity_fast_charge);
@@ -34,7 +32,6 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
         intView();
         intEvent();
         intData();
-
     }
     private void showDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -92,9 +89,6 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
         findViewById(R.id.lrAutoBrightness).setOnClickListener(this);
         findViewById(R.id.lrAutoRun).setOnClickListener(this);
         findViewById(R.id.lrAutoSync).setOnClickListener(this);
-
-
-
     }
     private void setColorText(boolean isChecked) {
         if (isChecked) {
@@ -119,8 +113,6 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
                 tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
             }
 
-
-
             if(SharePreferenceUtils.getInstance(this).getFsBluetooth()){
                 swBluetooth.setChecked(true);
                 tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
@@ -131,8 +123,6 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
                 tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
             }
             tvBluetooth.setTextColor(ContextCompat.getColor(this, R.color.text_color));
-
-
 
             if(SharePreferenceUtils.getInstance(this).getFsAutoBrightness()){
                 tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
@@ -148,9 +138,6 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
                 tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
             }
             tvSync.setTextColor(ContextCompat.getColor(this, R.color.text_color));
-
-
-
         } else {
             tvEnable.setText(getString(R.string.auto_disable));
             tvEnable.setTextColor(ContextCompat.getColor(this, R.color.grey_500));

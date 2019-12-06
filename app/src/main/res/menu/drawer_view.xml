@@ -2,9 +2,29 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
+<!--    <View-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:background="#073C3C3C"-->
+<!--        android:layout_width="fill_parent"-->
+<!--        android:layout_height="1dip" />-->
+    <group android:checkableBehavior="single" android:id="@+id/test1">
+        <item
+            android:id="@+id/nav_junk_clean"
+            android:icon="@drawable/ic_clean_trash"
+            android:title="@string/junk_clean_nav" />
 
-    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_boost"
+            android:icon="@drawable/ic_memory_boost"
+            android:title="@string/phone_boost_nav" />
 
+        <item
+            android:id="@+id/nav_cool"
+            android:icon="@drawable/ic_temperature"
+            android:title="@string/phone_cool_nav" />
+    </group>
+    <group android:checkableBehavior="single" android:id="@+id/test2">
         <item
             android:id="@+id/nav_policy"
             android:icon="@drawable/ic_policy"
@@ -14,16 +34,15 @@
             android:id="@+id/nav_share"
             android:icon="@drawable/ic_share"
             android:title="@string/share_nav" />
+
         <item
             android:id="@+id/nav_send"
             android:icon="@drawable/ic_feed_back"
             android:title="@string/feedback_nav" />
 
+        <item
+            android:id="@+id/nav_more_app"
+            android:icon="@drawable/ic_more_app"
+            android:title="More App" />
     </group>
-
-
-
-
-
-
 </menu>

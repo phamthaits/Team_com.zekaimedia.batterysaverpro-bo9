@@ -57,10 +57,8 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
 
         checkTask();
         AdmobHelp.getInstance().loadNative(BoostActivity.this);
-//        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
-//        if (!SharePreferenceUtils.getInstance(this).getFlagAds())
         AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
-        SharePreferenceUtils.getInstance(this).setFlagAds(true);
+//        SharePreferenceUtils.getInstance(this).setFlagAds(true);
     }
 
     public void checkTask() {
@@ -89,29 +87,26 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         rlScan = findViewById(R.id.rlScanning);
         parentAds = findViewById(R.id.fmResult);
         tv_optimized_info = findViewById(R.id.tv_optimized_info);
-        if (Utils.checkShouldDoing(this, 6)) {
+//        if (Utils.checkShouldDoing(this, 6)) {
+        this.tvResult = findViewById(R.id.tvOptimize);
+        AnimationUtils.loadAnimation(this, R.anim.delay_anim);
+        this.ivRocket = findViewById(R.id.clean_done_iv_rocket);
+        this.mHoloCircularProgressBarCleanDone = findViewById(R.id.ivDoneHoloCirular);
+        animate(this.mHoloCircularProgressBarCleanDone, null, 1.0f, 3000);
+        this.mHoloCircularProgressBarCleanDone.setMarkerProgress(1.0f);
+        this.ivTick = findViewById(R.id.clean_done_iv_tick);
+        this.ivDoneAnim = AnimationUtils.loadAnimation(this, R.anim.ic_done_anim);
+        this.ivDoneAnim.setAnimationListener(new C06741());
+        intData();
 
-            this.tvResult = findViewById(R.id.tvOptimize);
-
-            AnimationUtils.loadAnimation(this, R.anim.delay_anim);
-            this.ivRocket = findViewById(R.id.clean_done_iv_rocket);
-            this.mHoloCircularProgressBarCleanDone = findViewById(R.id.ivDoneHoloCirular);
-            animate(this.mHoloCircularProgressBarCleanDone, null, 1.0f, 3000);
-            this.mHoloCircularProgressBarCleanDone.setMarkerProgress(1.0f);
-            this.ivTick = findViewById(R.id.clean_done_iv_tick);
-            this.ivDoneAnim = AnimationUtils.loadAnimation(this, R.anim.ic_done_anim);
-            this.ivDoneAnim.setAnimationListener(new C06741());
-            intData();
-
-        } else {
-            findViewById(R.id.rlScanning).setVisibility(View.GONE);
-            BoostActivity.this.parentAds.setAlpha(0.0f);
-            BoostActivity.this.parentAds.setVisibility(View.VISIBLE);
-            BoostActivity.this.parentAds.animate().alpha(1.0f).start();
-            Animation downtoup = AnimationUtils.loadAnimation(BoostActivity.this, R.anim.downtoup);
-            parentAds.startAnimation(downtoup);
-        }
-
+//        } else {
+//            findViewById(R.id.rlScanning).setVisibility(View.GONE);
+//            BoostActivity.this.parentAds.setAlpha(0.0f);
+//            BoostActivity.this.parentAds.setVisibility(View.VISIBLE);
+//            BoostActivity.this.parentAds.animate().alpha(1.0f).start();
+//            Animation downtoup = AnimationUtils.loadAnimation(BoostActivity.this, R.anim.downtoup);
+//            parentAds.startAnimation(downtoup);
+//        }
         ((ImageView) findViewById(R.id.clean_done_iv_rocket)).setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
         ((ImageView) findViewById(R.id.clean_done_iv_tick)).setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
@@ -147,20 +142,16 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-
             case R.id.lr_back:
                 finish();
                 return;
-
             case R.id.ivClose:
                 SharePreferenceUtils.getInstance(this).setHideChargeView(System.currentTimeMillis());
                 findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
                 return;
-
             case R.id.btnOk:
                 SharePreferenceUtils.getInstance(this).setFsAutoRun(true);
                 findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-
                 return;
             case R.id.rlBoost:
                 startActivity(new Intent(this, BoostActivity.class));
@@ -174,7 +165,6 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(this, CoolActivity.class));
                 finish();
                 return;
-
             default:
                 return;
         }
@@ -195,17 +185,12 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            Animation slideUp = AnimationUtils.loadAnimation(BoostActivity.this, R.anim.zoom_in);
-            rlScan.startAnimation(slideUp);
-            BoostActivity.this.rlScan.setVisibility(View.GONE);
-            BoostActivity.this.parentAds.setAlpha(0.0f);
-            BoostActivity.this.parentAds.setVisibility(View.VISIBLE);
-            BoostActivity.this.parentAds.animate().alpha(1.0f).start();
-            Animation downtoup = AnimationUtils.loadAnimation(BoostActivity.this, R.anim.downtoup);
-            parentAds.startAnimation(downtoup);
-            SharePreferenceUtils.getInstance(BoostActivity.this).setBoostTime(System.currentTimeMillis());
-            SharePreferenceUtils.getInstance(BoostActivity.this).setBoostTimeMain(System.currentTimeMillis());
-
+            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+                @Override
+                public void onAdClosed() {
+                    loadResult();
+                }
+            });
         }
     }
 
@@ -228,7 +213,6 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
                 BoostActivity.this.ivTick.setVisibility(View.VISIBLE);
                 tvResult.setText(getString(R.string.done));
                 BoostActivity.this.ivTick.startAnimation(BoostActivity.this.ivDoneAnim);
-
             }
         });
         if (animatorListener != null) {
@@ -252,9 +236,20 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
             this.mTaskBoost.cancel(true);
             this.mTaskBoost = null;
         }
-
     }
 
+    private void loadResult() {
+        Animation slideUp = AnimationUtils.loadAnimation(BoostActivity.this, R.anim.zoom_in);
+        rlScan.startAnimation(slideUp);
+        BoostActivity.this.rlScan.setVisibility(View.GONE);
+        BoostActivity.this.parentAds.setAlpha(0.0f);
+        BoostActivity.this.parentAds.setVisibility(View.VISIBLE);
+        BoostActivity.this.parentAds.animate().alpha(1.0f).start();
+        Animation downtoup = AnimationUtils.loadAnimation(BoostActivity.this, R.anim.downtoup);
+        parentAds.startAnimation(downtoup);
+        SharePreferenceUtils.getInstance(BoostActivity.this).setBoostTime(System.currentTimeMillis());
+        SharePreferenceUtils.getInstance(BoostActivity.this).setBoostTimeMain(System.currentTimeMillis());
+    }
 
     @Override
     protected void onDestroy() {
@@ -265,16 +260,16 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onBackPressed() {
-        if (SharePreferenceUtils.getInstance(this).getFlagAds()) {
-            SharePreferenceUtils.getInstance(this).setFlagAds(false);
-            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-                @Override
-                public void onAdClosed() {
-                    finish();
-                }
-            });
-        } else {
-            finish();
-        }
+//        if (SharePreferenceUtils.getInstance(this).getFlagAds()) {
+//            SharePreferenceUtils.getInstance(this).setFlagAds(false);
+//            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+//                @Override
+//                public void onAdClosed() {
+//                    finish();
+//                }
+//            });
+//        } else {
+        finish();
+//        }
     }
 }

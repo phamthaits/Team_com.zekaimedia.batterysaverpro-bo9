@@ -30,12 +30,13 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
 
     ImageView ivRocket;
     private Animation ivDoneAnim;
-    private TextView tvResult,tvCleaned;
+    private TextView tvResult, tvCleaned;
     private HoloCircularProgressBar mHoloCircularProgressBarCleanDone;
     private ObjectAnimator mProgressBarAnimatorCleanDone;
     private ImageView ivTick;
     RelativeLayout rlScan;
     FrameLayout parentAds;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +61,9 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         tvCleaned.setText(String.format(getString(R.string.cleaned),
                 Utils.formatSize(SharePreferenceUtils.getInstance(this).getTotalJunk())));
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
-
         checkTask();
     }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -88,20 +89,17 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
                 return;
         }
     }
-    public void checkTask(){
-        if(!Utils.checkShouldDoing(this,6)){
+
+    public void checkTask() {
+        if (!Utils.checkShouldDoing(this, 6)) {
             findViewById(R.id.cvBoost).setVisibility(View.GONE);
         }
-        if(!Utils.checkShouldDoing(this,7)){
+        if (!Utils.checkShouldDoing(this, 7)) {
             findViewById(R.id.cvCool).setVisibility(View.GONE);
-
         }
-        if(!Utils.checkShouldDoing(this,3)){
+        if (!Utils.checkShouldDoing(this, 3)) {
             findViewById(R.id.cvClean).setVisibility(View.GONE);
-
         }
-
-
     }
 
     class C06741 implements Animation.AnimationListener {
@@ -109,12 +107,14 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         @Override
         public void onAnimationRepeat(Animation animation) {
         }
+
         @Override
         public void onAnimationStart(Animation animation) {
         }
 
         C06741() {
         }
+
         @Override
         public void onAnimationEnd(Animation animation) {
             Animation slideUp = AnimationUtils.loadAnimation(CleanResultActivity.this, R.anim.zoom_in);
@@ -126,7 +126,6 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
             Animation downtoup = AnimationUtils.loadAnimation(CleanResultActivity.this, R.anim.downtoup);
             parentAds.startAnimation(downtoup);
             SharePreferenceUtils.getInstance(CleanResultActivity.this).setCleanTime(System.currentTimeMillis());
-
         }
     }
 
@@ -144,12 +143,17 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
             }
 
             public void onAnimationEnd(Animator animator) {
-                holoCircularProgressBar.setProgress(f);
-                CleanResultActivity.this.ivRocket.setVisibility(View.INVISIBLE);
-                CleanResultActivity.this.ivTick.setVisibility(View.VISIBLE);
-                tvResult.setText(getString(R.string.done));
-                CleanResultActivity.this.ivTick.startAnimation(CleanResultActivity.this.ivDoneAnim);
-
+                if (SharePreferenceUtils.getInstance(CleanResultActivity.this).getFlagAds()) {
+                    SharePreferenceUtils.getInstance(CleanResultActivity.this).setFlagAds(false);
+                    AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+                        @Override
+                        public void onAdClosed() {
+                            loadResult(holoCircularProgressBar, f);
+                        }
+                    });
+                } else {
+                    loadResult(holoCircularProgressBar, f);
+                }
             }
         });
         if (animatorListener != null) {
@@ -167,19 +171,29 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         holoCircularProgressBar.setMarkerProgress(f);
         this.mProgressBarAnimatorCleanDone.start();
     }
+
+    private void loadResult(HoloCircularProgressBar holoCircularProgressBar, float f) {
+        holoCircularProgressBar.setProgress(f);
+        CleanResultActivity.this.ivRocket.setVisibility(View.INVISIBLE);
+        CleanResultActivity.this.ivTick.setVisibility(View.VISIBLE);
+        tvResult.setText(getString(R.string.done));
+        CleanResultActivity.this.ivTick.startAnimation(CleanResultActivity.this.ivDoneAnim);
+    }
+
     @Override
     public void onBackPressed() {
-        if(SharePreferenceUtils.getInstance(this).getFlagAds()){
-            SharePreferenceUtils.getInstance(this).setFlagAds(false);
-            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-                @Override
-                public void onAdClosed() {
-                    finish();
-                }
-            });
-        }else{
-            finish();
-        }
+//        if(SharePreferenceUtils.getInstance(this).getFlagAds()){
+//            SharePreferenceUtils.getInstance(this).setFlagAds(false);
+//            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+//                @Override
+//                public void onAdClosed() {
+//                    finish();
+//                }
+//            });
+//        }else{
+//            finish();
+//        }
+        finish();
     }
 
     @Override

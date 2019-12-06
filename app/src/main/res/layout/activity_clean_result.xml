@@ -382,17 +382,12 @@
     </ScrollView>
     </FrameLayout>
 
-
-
-
     <RelativeLayout
         android:id="@+id/rlScanning"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
         android:gravity="center">
-
-
         <FrameLayout
             android:id="@+id/imgOutCircle"
             android:layout_gravity="center"
@@ -455,13 +450,7 @@
                 android:layout_marginTop="20.0dip"
                 android:text="@string/cleaning_junk"
                 android:textAllCaps="true" />
-
-
         </LinearLayout>
-
-
-
-
     </RelativeLayout>
 
 

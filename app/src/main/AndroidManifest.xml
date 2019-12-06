@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.amt.batterysaver">
-
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -83,10 +82,7 @@
             android:exported="false">
 
         </service>
-
-
         <receiver android:name="com.amt.batterysaver.Receiver.BatteryStatusReceiver"></receiver>
-
         <receiver
             android:name="com.amt.batterysaver.Receiver.AutoRebootReceiver"
             android:enabled="true"

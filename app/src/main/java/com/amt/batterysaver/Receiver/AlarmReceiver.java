@@ -29,14 +29,10 @@ public class AlarmReceiver extends BroadcastReceiver {
             if(extras != null && extras.getBoolean(AlarmUtils.ACTION_REPEAT_SERVICE, Boolean.FALSE)){
 
                 if(isMyServiceRunning(BatteryService.class,context)){
-
                 }else{
                     Intent intent2 = new Intent(context, BatteryService.class);
                     ContextCompat.startForegroundService(context, intent2 );
-
                 }
-
-
             }
 
             if(extras != null && extras.getBoolean(AlarmUtils.ACTION_CHECK_DEVICE_STATUS, Boolean.FALSE)){
@@ -51,9 +47,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                             NotificationDevice.showNotificationLowBattery(context);
                             Utils.intSound(context);
                             flag = true;
-
                         }
-
                     } else{
                         if(Utils.isScreenOn(context)){
                             int random = Utils.getRamdom(2);
@@ -71,7 +65,6 @@ public class AlarmReceiver extends BroadcastReceiver {
                                         NotificationDevice.showNotificationTemp(context);
                                         Utils.intSound(context);
                                         flag = true;
-
                                     }
                                     break ;
                                 case 2:
@@ -82,31 +75,17 @@ public class AlarmReceiver extends BroadcastReceiver {
                                             Utils.intSound(context);
                                             flag = true;
                                         }
-
                                     }
-
                                     break;
                             }
-
                         }
-
                     }
                     if(!flag){
                         AlarmUtils.setAlarm(context,AlarmUtils.ACTION_CHECK_DEVICE_STATUS,AlarmUtils.TIME_CHECK_DEVICE_STATUS);
                     }
                 }
-
-
             }
-
-
-
-
-
             wl.release();
-
-
-
         }
     }
 

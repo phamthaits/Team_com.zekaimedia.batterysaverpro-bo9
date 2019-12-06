@@ -3,6 +3,9 @@ package com.amt.batterysaver;
 import com.ads.control.Rate;
 import com.ads.control.funtion.UtilsApp;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
+import com.amt.batterysaver.activity.BoostActivity;
+import com.amt.batterysaver.activity.CleanActivity;
+import com.amt.batterysaver.activity.CoolActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import androidx.fragment.app.Fragment;
@@ -11,6 +14,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 
@@ -22,9 +27,6 @@ import com.amt.batterysaver.fragment.fmBatterySaveMain;
 import com.amt.batterysaver.fragment.fmChart;
 import com.amt.batterysaver.fragment.fmSetting;
 import com.amt.batterysaver.R;
-
-
-
 
 public class MainActivity extends AppCompatActivity  {
     private DrawerLayout mDrawerLayout;
@@ -42,7 +44,6 @@ public class MainActivity extends AppCompatActivity  {
                 this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setItemIconTintList(null);
@@ -63,24 +64,35 @@ public class MainActivity extends AppCompatActivity  {
                             case R.id.nav_send:
                                 UtilsApp.SendFeedBack(MainActivity.this,"email@gmail.com","MASTER BATTERY feedback");
                                 break;
+                            case R.id.nav_boost:
+//                                SharePreferenceUtils.getInstance(MainActivity.this).setFlagAds(true);
+                                startActivity(new Intent(MainActivity.this, BoostActivity.class));
+                                break;
+                            case R.id.nav_cool:
+//                                SharePreferenceUtils.getInstance(MainActivity.this).setFlagAds(true);
+                                startActivity(new Intent(MainActivity.this, CoolActivity.class));
+                                break;
+                            case R.id.nav_junk_clean:
+//                                SharePreferenceUtils.getInstance(MainActivity.this).setFlagAds(true);
+                                startActivity(new Intent(MainActivity.this, CleanActivity.class));
+                                break;
+                            case R.id.nav_more_app:
+                                String url = "https://play.google.com/store/apps/dev?id=4880329950393363615";
+                                Intent i = new Intent(Intent.ACTION_VIEW);
+                                i.setData(Uri.parse(url));
+                                startActivity(i);
+                                break;
                                 default:
                                     break;
-
                         }
-
                         mDrawerLayout.closeDrawers();
-
-
                         return true;
-
-
                     }
                 });
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setItemIconTintList(null);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFragment(new fmBatterySaveMain());
-
     }
 
     @Override
@@ -115,7 +127,6 @@ public class MainActivity extends AppCompatActivity  {
                     loadFragment(fragment);
                     toolbar.setTitle(getString(R.string.title_activity_setting));
                     return true;
-
             }
             return false;
         }

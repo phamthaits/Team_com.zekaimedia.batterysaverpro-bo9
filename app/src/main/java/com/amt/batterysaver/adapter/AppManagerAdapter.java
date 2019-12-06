@@ -6,13 +6,20 @@ import android.content.pm.PackageManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.amt.batterysaver.R;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.model.GroupItemAppManager;
 import com.amt.batterysaver.view.AnimatedExpandableListView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 
 import java.io.File;
 import java.util.List;
@@ -23,12 +30,12 @@ public class AppManagerAdapter extends AnimatedExpandableListView.AnimatedExpand
     private List<GroupItemAppManager> items;
     private OnClickItemListener mOnClickItemListener;
 
-    public AppManagerAdapter(Context context, List<GroupItemAppManager> items,
-                             OnClickItemListener onClickItemListener) {
+    public AppManagerAdapter(Context context, List<GroupItemAppManager> items, OnClickItemListener onClickItemListener) {
         inflater = LayoutInflater.from(context);
         this.items = items;
         mOnClickItemListener = onClickItemListener;
         mPackageManager = context.getPackageManager();
+
     }
 
     @Override
@@ -36,18 +43,20 @@ public class AppManagerAdapter extends AnimatedExpandableListView.AnimatedExpand
         return items.get(groupPosition).getItems().get(childPosition);
     }
 
+
     @Override
     public long getChildId(int groupPosition, int childPosition) {
         return childPosition;
     }
 
     @Override
-    public View getRealChildView(final int groupPosition, final int childPosition,
-                                 boolean isLastChild, View convertView, ViewGroup parent) {
+    public View getRealChildView(final int groupPosition, final int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         final ChildHolder holder;
+
         ApplicationInfo item = getChild(groupPosition, childPosition);
         if (convertView == null) {
             holder = new ChildHolder();
+
             convertView = inflater.inflate(R.layout.item_app_manager, parent, false);
             holder.tvName = convertView.findViewById(R.id.tvName);
             holder.tvName.setSelected(true);
@@ -117,10 +126,8 @@ public class AppManagerAdapter extends AnimatedExpandableListView.AnimatedExpand
         } else {
             holder = (GroupHolder) convertView.getTag();
         }
-
         holder.tvNameHeaderAppManager.setText(item.getTitle());
         holder.tvHeaderSizeAppManager.setText(String.valueOf(item.getTotal()));
-
         return convertView;
     }
 
@@ -131,7 +138,6 @@ public class AppManagerAdapter extends AnimatedExpandableListView.AnimatedExpand
 
     public interface OnClickItemListener {
         void onUninstallApp(int groupPosition, int childPosition);
-
         void onClickItem(int groupPosition, int childPosition);
     }
 

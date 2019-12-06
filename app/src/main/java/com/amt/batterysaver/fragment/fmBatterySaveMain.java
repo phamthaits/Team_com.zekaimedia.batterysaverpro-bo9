@@ -77,7 +77,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     Button btnOptimize;
     ImageView btnWifi, btnBluetooth, btnSound, btnScreenTime, btnRotate, btnBrightness, btnMobileData, btnSync, btnGPS, btnAirPlane;
 
-
     public static final int EXTDIR_REQUEST_CODE = 1110, MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 300;
     private AudioManager audioManager;
     private WifiManager wifiManager;
@@ -110,7 +109,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -123,23 +121,18 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
             case R.id.lrClean:
                 SharePreferenceUtils.getInstance(getActivity()).setFlagAds(true);
                 startActivity(new Intent(getActivity(), CleanActivity.class));
-
                 break;
             case R.id.lrCool:
                 SharePreferenceUtils.getInstance(getActivity()).setFlagAds(true);
                 startActivity(new Intent(getActivity(), CoolActivity.class));
                 break;
-
             case R.id.btnOptimize:
-
                 if (Utils.checkSystemWritePermission(getActivity())) {
                     SharePreferenceUtils.getInstance(getActivity()).setFlagAds(true);
                     startActivity(new Intent(getActivity(), BatterySaverActivity.class));
                 } else {
                     writePermission();
-
                 }
-
                 break;
             case R.id.btnWifi:
 
@@ -166,19 +159,13 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 } else {
                     Utils.openAndroidPermissionsMenu(getActivity());
                     startActivity(new Intent(getActivity(), PermissionActivity.class));
-
                 }
-
                 break;
             case R.id.btnSound:
-
                 requestMutePermissions();
-
-
                 break;
             case R.id.btnBrightness:
                 if (Utils.checkSystemWritePermission(getActivity())) {
-
                     try {
                         if (Settings.System.getInt(getActivity().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE) == 1) {
                             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE,
@@ -187,19 +174,14 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                             Settings.System.putInt(getActivity().getContentResolver(), Settings.System.SCREEN_BRIGHTNESS_MODE,
                                     Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC);
                         }
-
                     } catch (Settings.SettingNotFoundException e) {
-
                     }
                 } else {
                     Utils.openAndroidPermissionsMenu(getActivity());
                 }
-
-
                 break;
             case R.id.btnRotate:
                 if (Utils.checkSystemWritePermission(getActivity())) {
-
                     if (isAutoRotateModeOn(getActivity())) {
                         Settings.System.putInt(getActivity().getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, 0);
                     } else {
@@ -208,8 +190,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 } else {
                     Utils.openAndroidPermissionsMenu(getActivity());
                 }
-
-
                 break;
             case R.id.btnSync:
                 if (ContentResolver.getMasterSyncAutomatically()) {
@@ -227,7 +207,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 } else {
                     Utils.openAndroidPermissionsMenu(getActivity());
                 }
-
                 break;
 
             case R.id.btnGPS:
@@ -249,11 +228,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
             case R.id.btnChargeHistory:
                 startActivity(new Intent(getActivity(), ChargeActivity.class));
                 break;
-
-
             default:
                 break;
-
         }
     }
 
@@ -269,7 +245,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
             } catch (Settings.SettingNotFoundException e) {
                 e.printStackTrace();
             }
-
             switch (time) {
                 case 15000:
                     return 0;
@@ -920,7 +895,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 btnScreenTime.setImageResource(R.drawable.ic_time30m);
                 break;
         }
-
     }
 
     public void updateSyncImage() {
@@ -978,7 +952,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
 
         } else {
             btnBluetooth.setImageResource(R.drawable.ic_bluetooth_false);
-
         }
     }
 
@@ -990,13 +963,10 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 break;
             case AudioManager.RINGER_MODE_VIBRATE:
                 btnSound.setImageResource(R.drawable.ic_vibration);
-
                 break;
             case AudioManager.RINGER_MODE_SILENT:
                 btnSound.setImageResource(R.drawable.ic_volume_off);
-
                 break;
-
             default:
                 break;
         }
@@ -1081,9 +1051,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 btnAirPlane.setImageResource(R.drawable.ic_airplane_true);
             } else {
                 btnAirPlane.setImageResource(R.drawable.ic_airplane_false);
-
             }
-
 
         } catch (Exception e) {
         }
@@ -1100,8 +1068,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         super.onPause();
         cancleUIUPdate();
         stopRes();
-
-
     }
 
     public void cancleUIUPdate() {
@@ -1118,8 +1084,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
             this.mTaskCountDoing.cancel(true);
             this.mTaskCountDoing = null;
         }
-
-
     }
 
     public void stopRes() {
@@ -1131,7 +1095,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
             getActivity().getContentResolver().unregisterContentObserver(rotateObserver);
         } catch (Exception e) {
         }
-
         try {
             getActivity().getContentResolver().unregisterContentObserver(brightnessModeObserver);
         } catch (Exception e) {

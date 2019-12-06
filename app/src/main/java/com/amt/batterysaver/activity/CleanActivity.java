@@ -89,10 +89,7 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.fragment_clean);
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
         requestPerMission();
-
         NotificationDevice.cancle(this,NotificationDevice.ID_NOTIFICATTION_CLEAN_JUNK);
-
-
     }
 
     @Override
@@ -129,26 +126,25 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
             }
         }
     }
-    public void requestPermissionStorage() {
-        if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            // Should we show an explanation?
-            if (shouldShowRequestPermissionRationale(
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                // Explain to the user why we need to read the contacts
-            }
-
-            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
-
-            // MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE is an
-            // app-defined int constant that should be quite unique
-
-            return;
-        }
-
-    }
+//    public void requestPermissionStorage() {
+//        if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+//                != PackageManager.PERMISSION_GRANTED) {
+//
+//            // Should we show an explanation?
+//            if (shouldShowRequestPermissionRationale(
+//                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+//                // Explain to the user why we need to read the contacts
+//            }
+//
+//            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+//                    MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
+//
+//            // MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE is an
+//            // app-defined int constant that should be quite unique
+//
+//            return;
+//        }
+//    }
     public void intView(){
         mViewLoading = findViewById(R.id.viewLoading);
 
@@ -550,7 +546,6 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
             }
         });
         mScanApkFiles.execute();
-
     }
 
     private void getCacheFile() {
@@ -733,5 +728,4 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
             mScanLargeFiles = null;
         }
     }
-
 }

@@ -25,6 +25,7 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ads.control.AdmobHelp;
 import com.amt.batterysaver.activity.PermissionActivity;
 import com.amt.batterysaver.notification.NotificationDevice;
 import com.amt.batterysaver.Alarm.AlarmUtils;
@@ -63,6 +64,7 @@ public class Utils {
         final float scale = resources.getDisplayMetrics().scaledDensity;
         return sp * scale;
     }
+
     public static boolean checkLockedItem(Context context, String checkApp) {
         PreferAppList mPreferAppList = new PreferAppList();
         boolean check = false;
@@ -77,17 +79,20 @@ public class Utils {
         }
         return check;
     }
-    public static void fullPower(Context context){
-        if (SharePreferenceUtils.getInstance(context).getTime() == 0){
+
+    public static void fullPower(Context context) {
+        if (SharePreferenceUtils.getInstance(context).getTime() == 0) {
             SharePreferenceUtils.getInstance(context).setTime(System.currentTimeMillis());
-            if (Utils.checkDNDDoing(context)&&SharePreferenceUtils.getInstance(context).getChargeFullReminder()) {
+            if (Utils.checkDNDDoing(context) && SharePreferenceUtils.getInstance(context).getChargeFullReminder()) {
                 NotificationDevice.showNotificationBatteryFull(context);
                 Utils.intSound(context);
-
+                SharePreferenceConstant.is_full=true;
+                powerDisconnected(context);
             }
         }
     }
-    public static void intPowerConnected(Context context){
+
+    public static void intPowerConnected(Context context) {
         //Open activity sac nhanh
         if (SharePreferenceUtils.getInstance(context).getFsAutoRun() && !Utils.getChargeFull(context)) {
             Intent i = new Intent(context, ChargeActivity.class);
@@ -100,10 +105,8 @@ public class Utils {
         SharePreferenceUtils.getInstance(context).setLevelIn(Utils.getBatteryLevel(context));
         //Thoi gian bat dau sac
         SharePreferenceUtils.getInstance(context).setTimeIn(System.currentTimeMillis());
-
         // Thoi gian dau tien khi Pin day
         SharePreferenceUtils.getInstance(context).setTime(0);
-
     }
 
     public static boolean powerIsConnected(Context context) {
@@ -112,7 +115,7 @@ public class Utils {
         return plugged == BatteryManager.BATTERY_PLUGGED_AC || plugged == BatteryManager.BATTERY_PLUGGED_USB || plugged == BatteryManager.BATTERY_PLUGGED_WIRELESS;
     }
 
-    public static boolean isMyServiceRunning(Class<?> serviceClass,Context mContext) {
+    public static boolean isMyServiceRunning(Class<?> serviceClass, Context mContext) {
         ActivityManager manager = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE))
             if (serviceClass.getName().equals(service.service.getClassName())) {
@@ -121,7 +124,7 @@ public class Utils {
         return false;
     }
 
-    public static void powerDisconnected(Context context){
+    public static void powerDisconnected(Context context) {
         // Dem cac trang thai sac Pin
         if (Utils.getBatteryLevel(context) == 100) {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -148,7 +151,7 @@ public class Utils {
             SharePreferenceUtils.getInstance(context).setChargeNormal(count);
         }
         // Luu % Pin khi rut sac
-        SharePreferenceUtils.getInstance(context).setChargeQuantity(Utils.getBatteryLevel(context)-SharePreferenceUtils.getInstance(context).getLevelIn());
+        SharePreferenceUtils.getInstance(context).setChargeQuantity(Utils.getBatteryLevel(context) - SharePreferenceUtils.getInstance(context).getLevelIn());
 
         // Thoi gian sac Pin
         if (SharePreferenceUtils.getInstance(context).getTimeIn() != 0) {
@@ -158,12 +161,13 @@ public class Utils {
         SharePreferenceUtils.getInstance(context).setLevelIn(0);
         SharePreferenceUtils.getInstance(context).setTimeIn(0);
 
-        if(SharePreferenceUtils.getInstance(context).getFsAutoRun()){
+        if (SharePreferenceUtils.getInstance(context).getFsAutoRun()) {
             Intent i = new Intent(context, ChargeResultActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(i);
         }
     }
+
     public static String formatSize(long size) {
         if (size <= 0)
             return "";
@@ -198,6 +202,7 @@ public class Utils {
         int mask = ApplicationInfo.FLAG_SYSTEM | ApplicationInfo.FLAG_UPDATED_SYSTEM_APP;
         return (ai.flags & mask) == 0;
     }
+
     public static float getCpuTemp() {
         Process p;
         try {
@@ -233,6 +238,7 @@ public class Utils {
             return -1;
         }
     }
+
     public static long getTotalRAM() {
 
         RandomAccessFile reader = null;
@@ -257,15 +263,15 @@ public class Utils {
             // totRam = totRam / 1024;
 
 
-
         } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
             // Streams.close(reader);
         }
 
-        return (totRam*1024);
+        return (totRam * 1024);
     }
+
     public static long getAvaiableRam(Context context) {
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         ActivityManager activityManager = (ActivityManager)
@@ -354,9 +360,9 @@ public class Utils {
         //set wifi
         WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         if (wifiManager != null) {
-            if(batterySaver.isWifi()) {
+            if (batterySaver.isWifi()) {
 
-            }else{
+            } else {
                 wifiManager.setWifiEnabled(false);
             }
 
@@ -381,25 +387,25 @@ public class Utils {
             if (Build.VERSION.SDK_INT < 23) {
                 AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
                 am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
-            }else{
+            } else {
                 try {
                     AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
                     am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
 
-                }catch (Exception e) {
+                } catch (Exception e) {
                 }
             }
 
-        }else{
+        } else {
             if (Build.VERSION.SDK_INT < 23) {
                 AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
                 am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
-            }else{
+            } else {
                 try {
                     AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
                     am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
 
-                }catch (Exception e) {
+                } catch (Exception e) {
                 }
             }
 
@@ -418,23 +424,28 @@ public class Utils {
         setMobileDataEnabledMethod.setAccessible(true);
         setMobileDataEnabledMethod.invoke(connectivityManager, enabled);
     }
+
     public static boolean isAndroid26() {
         return Build.VERSION.SDK_INT >= 26;
     }
-    public static boolean checkTemp(Context mContext){
-        float cpu = Utils.getCpuTemp()/1000;
+
+    public static boolean checkTemp(Context mContext) {
+        float cpu = Utils.getCpuTemp() / 1000;
         return cpu >= 38;
 
     }
-    public void checkJunk(){
+
+    public void checkJunk() {
 
     }
-    public static boolean checkMemory(Context mContext){
+
+    public static boolean checkMemory(Context mContext) {
         long totalRam = getTotalRam();
         long availableRam = getAvaiableRam(mContext);
         long useRam = totalRam - availableRam;
         return useRam > 68;
     }
+
     public static boolean checkSystemWritePermission(Context mContext) {
         boolean retVal = true;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -442,6 +453,7 @@ public class Utils {
         }
         return retVal;
     }
+
     public static void openAndroidPermissionsMenu(Context mContext) {
         try {
 
@@ -449,10 +461,12 @@ public class Utils {
             mContext.startActivity(intent);
             mContext.startActivity(new Intent(mContext, PermissionActivity.class));
 
-        } catch (Exception e){}
+        } catch (Exception e) {
+        }
     }
-    public static boolean checkShouldDoing(Context mContext,int flag){
-        switch (flag){
+
+    public static boolean checkShouldDoing(Context mContext, int flag) {
+        switch (flag) {
             case 0:
                 return SharePreferenceUtils.getInstance(mContext).getOptimizeTime() + AlarmUtils.TIME_SHOULD_DOING_OPTIMIZE < System.currentTimeMillis();
             case 1:
@@ -482,7 +496,7 @@ public class Utils {
 
     }
 
-    public static boolean checkDNDDoing(Context mContext){
+    public static boolean checkDNDDoing(Context mContext) {
         SharePreferenceUtils sharePreferenceUtils = SharePreferenceUtils.getInstance(mContext);
         Calendar instance = Calendar.getInstance();
         boolean b = true;
@@ -502,9 +516,10 @@ public class Utils {
     public static boolean isScreenOn(Context mContext) {
         PowerManager powerManager = (PowerManager) mContext.getSystemService(POWER_SERVICE);
         boolean isScreenOn = powerManager.isScreenOn();
-        return  isScreenOn;
+        return isScreenOn;
     }
-    public static boolean getChargeStatus(Context context){
+
+    public static boolean getChargeStatus(Context context) {
         IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         Intent batteryStatus = context.registerReceiver(null, ifilter);
         int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
@@ -514,7 +529,8 @@ public class Utils {
 
 
     }
-    public static boolean getChargeFull(Context context){
+
+    public static boolean getChargeFull(Context context) {
         IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         Intent batteryStatus = context.registerReceiver(null, ifilter);
         int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
@@ -523,19 +539,21 @@ public class Utils {
         return isCharging;
 
     }
-    public static String getChargeType(Context context){
+
+    public static String getChargeType(Context context) {
         IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         Intent batteryStatus = context.registerReceiver(null, ifilter);
         int chargePlug = batteryStatus.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
         boolean usbCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_USB;
         boolean acCharge = chargePlug == BatteryManager.BATTERY_PLUGGED_AC;
-        if(usbCharge) return "USB";
-        if(acCharge) return "AC";
+        if (usbCharge) return "USB";
+        if (acCharge) return "AC";
         return "AC";
 
 
     }
-    public static int getTempleCpu(Context context){
+
+    public static int getTempleCpu(Context context) {
         IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         Intent batteryStatus = context.registerReceiver(null, ifilter);
         int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, -1);
@@ -544,6 +562,7 @@ public class Utils {
         return status;
 
     }
+
     public static int getBatteryLevel(Context context) {
         try {
             Intent intent = context.getApplicationContext().registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
@@ -558,7 +577,8 @@ public class Utils {
         }
         return 50;
     }
-    public static void setLocate(Context mContext){
+
+    public static void setLocate(Context mContext) {
         String language = SharePreferenceUtils.getInstance(mContext).getLanguage();
 
         if (SharePreferenceUtils.getInstance(mContext).getFirstRun()) {
@@ -612,7 +632,8 @@ public class Utils {
         res.updateConfiguration(conf, dm);
 
     }
-    public static  void setLocale(Context mContext,String lang) {
+
+    public static void setLocale(Context mContext, String lang) {
         Locale myLocale = new Locale(lang);
         Resources res = mContext.getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
@@ -621,13 +642,14 @@ public class Utils {
         res.updateConfiguration(conf, dm);
         SharePreferenceUtils.getInstance(mContext).saveLanguage(lang);
     }
-    public static int getRamdom(int numer){
+
+    public static int getRamdom(int numer) {
         Random rn = new Random();
         int answer = rn.nextInt(numer);
         return answer;
     }
 
-    public static void intSound(Context mContext){
+    public static void intSound(Context mContext) {
         try {
             Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             Ringtone r = RingtoneManager.getRingtone(mContext, notification);
@@ -636,21 +658,19 @@ public class Utils {
             e.printStackTrace();
         }
     }
-    public static void showToastMode(Context mContext,int poistion,String text){
-        if(poistion==0){
 
-            Toast.makeText(mContext,mContext.getString(R.string.toast_mode_title)+" "+mContext.getString(R.string.super_saving),Toast.LENGTH_LONG).show();
-        }else
-        if(poistion==1){
-            Toast.makeText(mContext,mContext.getString(R.string.toast_mode_title)+" "+mContext.getString(R.string.normal),Toast.LENGTH_LONG).show();
-        }else
-        if(poistion==2){
-            Toast.makeText(mContext,mContext.getString(R.string.toast_mode_title)+" "+mContext.getString(R.string.custom),Toast.LENGTH_LONG).show();
-        }else
-        if(poistion==3){
-            Toast.makeText(mContext,mContext.getString(R.string.toast_mode_title)+" "+mContext.getString(R.string.my_mode),Toast.LENGTH_LONG).show();
-        }else{
-            Toast.makeText(mContext,mContext.getString(R.string.toast_mode_title)+" "+text,Toast.LENGTH_LONG).show();
+    public static void showToastMode(Context mContext, int poistion, String text) {
+        if (poistion == 0) {
+
+            Toast.makeText(mContext, mContext.getString(R.string.toast_mode_title) + " " + mContext.getString(R.string.super_saving), Toast.LENGTH_LONG).show();
+        } else if (poistion == 1) {
+            Toast.makeText(mContext, mContext.getString(R.string.toast_mode_title) + " " + mContext.getString(R.string.normal), Toast.LENGTH_LONG).show();
+        } else if (poistion == 2) {
+            Toast.makeText(mContext, mContext.getString(R.string.toast_mode_title) + " " + mContext.getString(R.string.custom), Toast.LENGTH_LONG).show();
+        } else if (poistion == 3) {
+            Toast.makeText(mContext, mContext.getString(R.string.toast_mode_title) + " " + mContext.getString(R.string.my_mode), Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(mContext, mContext.getString(R.string.toast_mode_title) + " " + text, Toast.LENGTH_LONG).show();
         }
 
     }

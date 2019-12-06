@@ -18,18 +18,17 @@ import android.widget.TextView;
 
 import com.ads.control.AdmobHelp;
 import com.airbnb.lottie.LottieAnimationView;
+import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.R;
 import com.amt.batterysaver.task.TaskCharge;
 import com.amt.batterysaver.task.TaskChargeDetail;
 
+public class ChargeActivity extends AppCompatActivity implements View.OnClickListener {
 
-
-public class ChargeActivity extends AppCompatActivity implements View.OnClickListener{
-
-    TextView tvScan,tvChargeStatus,tvDone;
-    RelativeLayout rlScan,rlDone;
+    TextView tvScan, tvChargeStatus, tvDone;
+    RelativeLayout rlScan, rlDone;
     FrameLayout fmResult;
     TaskCharge mTaskCharge;
     TaskChargeDetail mTaskChargeDetail;
@@ -45,29 +44,27 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         intData();
         checkTask();
         AdmobHelp.getInstance().loadNative(ChargeActivity.this);
-
+        AdmobHelp.getInstance().init(ChargeActivity.this, SharePreferenceConstant.admob_full,SharePreferenceConstant.admob_native);
     }
-    public void checkTask(){
-        if(!Utils.checkShouldDoing(this,6)){
+
+    public void checkTask() {
+        if (!Utils.checkShouldDoing(this, 6)) {
             findViewById(R.id.cvBoost).setVisibility(View.GONE);
         }
-        if(!Utils.checkShouldDoing(this,7)){
+        if (!Utils.checkShouldDoing(this, 7)) {
             findViewById(R.id.cvCool).setVisibility(View.GONE);
-
         }
-        if(!Utils.checkShouldDoing(this,3)){
+        if (!Utils.checkShouldDoing(this, 3)) {
             findViewById(R.id.cvClean).setVisibility(View.GONE);
-
         }
-        if(!Utils.checkShouldDoing(this,8)){
+        if (!Utils.checkShouldDoing(this, 8)) {
             findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-
-        }else{
-            if(SharePreferenceUtils.getInstance(this).getFsAutoRun())
+        } else {
+            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
                 findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
         }
-
     }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -77,7 +74,7 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
                 return;
 
             case R.id.ivSetting:
-                startActivity(new Intent(this,ChargeSettingActivity.class));
+                startActivity(new Intent(this, ChargeSettingActivity.class));
 
                 return;
             case R.id.rlBoost:
@@ -92,12 +89,12 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(new Intent(this, CoolActivity.class));
                 finish();
                 return;
-
             default:
                 return;
         }
     }
-    public void intView(){
+
+    public void intView() {
         tvScan = findViewById(R.id.tvScan);
         tvChargeStatus = findViewById(R.id.tvScan);
         rlScan = findViewById(R.id.rlScanning);
@@ -107,7 +104,8 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
 
     }
-    public void intData(){
+
+    public void intData() {
         rlScan.setVisibility(View.VISIBLE);
         fmResult.setVisibility(View.GONE);
         rlDone.setVisibility(View.GONE);
@@ -124,27 +122,32 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
                         rlDone.startAnimation(zoom_out);
                         Runnable runnable = new Runnable() {
                             public void run() {
-                                Animation slideUp = AnimationUtils.loadAnimation(ChargeActivity.this, R.anim.zoom_in);
-                                rlDone.startAnimation(slideUp);
-                                rlDone.setVisibility(View.GONE);
-                                fmResult.setVisibility(View.VISIBLE);
-                                Animation downtoup = AnimationUtils.loadAnimation(ChargeActivity.this, R.anim.downtoup);
-                                fmResult.startAnimation(downtoup);
-                                flagExit = true;
-                                SharePreferenceUtils.getInstance(ChargeActivity.this).setOptimizeTime(System.currentTimeMillis());
-
-
+                                AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+                                    @Override
+                                    public void onAdClosed() {
+                                        loadResult();
+                                    }
+                                });
                             }
                         };
-                        new Handler().postDelayed(runnable, 2000 );
-
+                        new Handler().postDelayed(runnable, 2000);
                     }
                 });
                 mTaskChargeDetail.execute();
             }
         });
         mTaskCharge.execute();
+    }
 
+    private void loadResult() {
+        Animation slideUp = AnimationUtils.loadAnimation(ChargeActivity.this, R.anim.zoom_in);
+        rlDone.startAnimation(slideUp);
+        rlDone.setVisibility(View.GONE);
+        fmResult.setVisibility(View.VISIBLE);
+        Animation downtoup = AnimationUtils.loadAnimation(ChargeActivity.this, R.anim.downtoup);
+        fmResult.startAnimation(downtoup);
+        flagExit = true;
+        SharePreferenceUtils.getInstance(ChargeActivity.this).setOptimizeTime(System.currentTimeMillis());
     }
 
     public void cancleUIUPdate() {
@@ -158,12 +161,9 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         cancleUIUPdate();
     }
-
 }

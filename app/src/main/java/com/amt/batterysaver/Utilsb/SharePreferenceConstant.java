@@ -9,4 +9,5 @@ public class SharePreferenceConstant {
     public static final String LANGUAGE = "language";
     public static String admob_full = "";
     public static String admob_native = "";
+    public static boolean is_full = false;
 }

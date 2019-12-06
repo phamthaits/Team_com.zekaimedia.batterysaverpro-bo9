@@ -1,5 +1,6 @@
 package com.amt.batterysaver.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.ads.control.AdmobHelp;
 import com.github.mikephil.charting.charts.LineChart;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
@@ -31,7 +33,6 @@ public class fmSetting extends Fragment implements View.OnClickListener  {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     // Inflate the view for the fragment based on layout XML
@@ -42,10 +43,8 @@ public class fmSetting extends Fragment implements View.OnClickListener  {
         View view = inflater.inflate(R.layout.activity_setting, container, false);
         intView(view);
         intData();
-
-
-
-
+//        AdmobHelp.getInstance().loadBannerFragment(getActivity(),view);
+        AdmobHelp.getInstance().loadNativeFragment(getActivity(),view);
         return view;
     }
     public void intView(View v){

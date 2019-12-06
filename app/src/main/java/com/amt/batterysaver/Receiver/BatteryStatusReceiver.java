@@ -11,6 +11,7 @@ import androidx.core.app.NotificationCompat;
 import com.amt.batterysaver.BatteryMode.BatteryInfo;
 import com.amt.batterysaver.Utilsb.BatteryPref;
 import com.amt.batterysaver.Utilsb.HistoryPref;
+import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.notification.NotificationBattery;
@@ -98,6 +99,7 @@ public class BatteryStatusReceiver extends BroadcastReceiver {
             Utils.intPowerConnected(context);
 
         } else if (action.equals(Intent.ACTION_POWER_DISCONNECTED)) {
+            SharePreferenceConstant.is_full=false;
             Utils.powerDisconnected(context);
         }
         HistoryPref.putLevel(context, mBatteryInfo.level);

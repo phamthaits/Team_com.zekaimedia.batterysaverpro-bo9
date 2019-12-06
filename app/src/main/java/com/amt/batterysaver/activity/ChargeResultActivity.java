@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -17,7 +18,9 @@ import android.widget.TextView;
 
 import com.ads.control.AdmobHelp;
 import com.amt.batterysaver.BatteryMode.BatteryInfo;
+import com.amt.batterysaver.MainActivity;
 import com.amt.batterysaver.Utilsb.BatteryPref;
+import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.service.BatteryService;
@@ -31,38 +34,53 @@ import java.util.Calendar;
 import java.util.Date;
 
 
+public class ChargeResultActivity extends Activity implements View.OnClickListener {
 
-public class ChargeResultActivity extends Activity implements View.OnClickListener{
-
-    TextView tvTime,tvHour,tvMin,tvQuati,tvChargeTime,tvChargeType,tvPercent,tvDate,tvTimeLeftTitle,tvFormatTime,tvFullCharge;
+    TextView tvTime, tvHour, tvMin, tvQuati, tvChargeTime, tvChargeType, tvPercent, tvDate, tvTimeLeftTitle, tvFormatTime, tvFullCharge;
     LinearLayout lrTimeLeft;
     ProgressBar mProgressBar;
     ImageView ivCharge;
-    Shimmer shFast,shFull,shTrickle,shOptimize;
-    ShimmerTextView tvFast,tvFull,tvTrickle;
+    Shimmer shFast, shFull, shTrickle, shOptimize;
+    ShimmerTextView tvFast, tvFull, tvTrickle;
+    Handler mHandler;
+    Runnable r;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
-        overridePendingTransition(R.anim.slide_in_up,R.anim.slide_out_up);
+        overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
         setContentView(R.layout.activity_charge_dialog);
         intView();
         intData();
         intEvent();
 
         AdmobHelp.getInstance().loadNative(ChargeResultActivity.this);
-
-
-
-
+        if (SharePreferenceConstant.is_full) {
+            AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
+        }
+        mHandler = new Handler();
+        r = new Runnable() {
+            @Override
+            public void run() {
+                AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+                    @Override
+                    public void onAdClosed() {
+                        finish();
+                    }
+                });
+            }
+        };
+        mHandler.postDelayed(r, 4000);
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_down,R.anim.slide_out_down);
+        overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
     }
-    public String formatHourMinutune(long totaltime){
+
+    public String formatHourMinutune(long totaltime) {
         long seconds = (totaltime / 1000) % 60;
         long minutes = (totaltime / (1000 * 60)) % 60;
         long hours = totaltime / (1000 * 60 * 60);
@@ -75,7 +93,8 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
                 String.valueOf(minutes));
         return b.toString();
     }
-    public void intView(){
+
+    public void intView() {
         tvFullCharge = findViewById(R.id.tvFullCharge);
 
         lrTimeLeft = findViewById(R.id.view_time_left);
@@ -83,7 +102,7 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
         tvFull = findViewById(R.id.tvFull);
         tvTrickle = findViewById(R.id.tvTrick);
         tvFast = findViewById(R.id.tvFast);
-        tvFormatTime  = findViewById(R.id.tvFormatTime);
+        tvFormatTime = findViewById(R.id.tvFormatTime);
         tvTime = findViewById(R.id.tvTime);
         tvHour = findViewById(R.id.tvHour);
         tvMin = findViewById(R.id.tvMin);
@@ -94,52 +113,50 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
         tvDate = findViewById(R.id.tvDate);
         mProgressBar = findViewById(R.id.progressBattery);
         ivCharge = findViewById(R.id.ivCharge);
-
-
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.fmOff:
-                startActivity(new Intent(this,ChargeSettingActivity.class));
+                startActivity(new Intent(this, ChargeSettingActivity.class));
                 break;
             case R.id.fmClose:
                 finish();
                 break;
-                default:
-                    break;
+            default:
+                break;
         }
-
     }
 
-
-    public  void intData(){
+    public void intData() {
         shFast = new Shimmer();
         shFull = new Shimmer();
         shTrickle = new Shimmer();
 
-        tvFull.setText("> "+getString(R.string.full_charging));
-        tvTrickle.setText("> "+getString(R.string.trickle_charging));
+        tvFull.setText("> " + getString(R.string.full_charging));
+        tvTrickle.setText("> " + getString(R.string.trickle_charging));
         initTime();
         tvChargeType.setText(SharePreferenceUtils.getInstance(this).getChargeType());
         tvChargeTime.setText(formatHourMinutune(SharePreferenceUtils.getInstance(this).getTimeCharge()));
-        tvQuati.setText(SharePreferenceUtils.getInstance(this).getChargeQuantity() +"%");
+        tvQuati.setText(SharePreferenceUtils.getInstance(this).getChargeQuantity() + "%");
     }
-    public void intEvent(){
+
+    public void intEvent() {
 
     }
+
     BroadcastReceiver timeChangeReceiver = new BroadcastReceiver() {
 
         @Override
         public void onReceive(Context paramContext, Intent paramIntent) {
 
-            if (paramIntent.getAction().equals("android.intent.action.TIME_TICK") ) {
+            if (paramIntent.getAction().equals("android.intent.action.TIME_TICK")) {
                 initTime();
             }
-
         }
     };
+
     public void initTime() {
         Calendar mCalendar = Calendar.getInstance();
         Date date = new Date();
@@ -166,7 +183,6 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
         super.onStop();
 
         unregisterReceiver(this.timeChangeReceiver);
-
     }
 
     BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -193,67 +209,52 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
 
                     info.hourleft = time / 60;
                     info.minleft = time % 60;
-
-
                 } else {
                     int time = BatteryPref.initilaze(context).getTimeRemainning(context, info.level);
                     info.hourleft = time / 60;
                     info.minleft = time % 60;
-
                 }
-
                 updateStatus(info);
-
             }
         }
     };
 
-    public void updateStatus(BatteryInfo info ){
-        if(Utils.getChargeFull(this)){
+    public void updateStatus(BatteryInfo info) {
+        if (Utils.getChargeFull(this)) {
             tvFullCharge.setText(getString(R.string.power_full));
             tvFullCharge.setVisibility(View.VISIBLE);
             lrTimeLeft.setVisibility(View.GONE);
-
-        }else{
+        } else {
             tvFullCharge.setVisibility(View.GONE);
             lrTimeLeft.setVisibility(View.VISIBLE);
         }
-        tvPercent.setText(info.level +"%  ");
+        tvPercent.setText(info.level + "%  ");
         mProgressBar.setProgress(info.level);
         tvHour.setText(String.format("%02d", info.hourleft));
         tvMin.setText(String.format("%02d", info.minleft));
-
-
     }
-    public void updateCharge(boolean isCharge,BatteryInfo info){
 
-        double temp = (info.level*getBatteryCapacity())/100;
+    public void updateCharge(boolean isCharge, BatteryInfo info) {
 
+        double temp = (info.level * getBatteryCapacity()) / 100;
 
-        if(isCharge){
+        if (isCharge) {
             Animation loadAnimation = AnimationUtils.loadAnimation(this, R.anim.blink_charge);
             tvPercent.startAnimation(loadAnimation);
             ivCharge.startAnimation(loadAnimation);
             tvTimeLeftTitle.setText(getString(R.string.noti_battery_charging_timer_left));
             ivCharge.setVisibility(View.VISIBLE);
-            if(info.level<=30){
+            if (info.level <= 30) {
                 shFast.start(tvFast);
-
-
-
-            } else if(30<info.level&&info.level<90){
+            } else if (30 < info.level && info.level < 90) {
                 shFull.start(tvFull);
                 shFast.cancel();
-
-            }else{
-
+            } else {
                 shFast.cancel();
                 shFull.cancel();
                 shTrickle.start(tvTrickle);
-
-
             }
-        }else{
+        } else {
             tvPercent.clearAnimation();
             ivCharge.clearAnimation();
             tvTimeLeftTitle.setText(getString(R.string.time_left));
@@ -261,10 +262,7 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
             shFast.cancel();
             shTrickle.cancel();
             shFull.cancel();
-
         }
-
-
     }
 
     public String getTemp(int i) {
@@ -273,20 +271,19 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
             String r = String.valueOf(b);
             return (r + this.getString(R.string.fahrenheit));
         } else {
-
-            String str = Double.toString(Math.ceil((i / 10f)*100)/100);
+            String str = Double.toString(Math.ceil((i / 10f) * 100) / 100);
             return (str + this.getString(R.string.celsius));
         }
     }
 
-    public double getVol(int i){
+    public double getVol(int i) {
         double voltage = Math.ceil((i / 1000f) * 100) / 100;
         if (voltage > 1000)
             return voltage / 1000f;
         else
             return voltage;
-
     }
+
     public double getBatteryCapacity() {
         Object mPowerProfile_ = null;
 
@@ -300,7 +297,7 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
         }
 
         try {
-            return  (Double) Class
+            return (Double) Class
                     .forName(POWER_PROFILE_CLASS)
                     .getMethod("getAveragePower", java.lang.String.class)
                     .invoke(mPowerProfile_, "battery.capacity");
@@ -310,25 +307,24 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
             e.printStackTrace();
         }
         return 0;
-
     }
 
     private String[] intToArray(Context context, int i) {
         String str = Double.toString(i / 10f);
-        if(str.length()>4)
+        if (str.length() > 4)
             str = str.substring(0, 4);
-
         if (true) {
             // do C
             String string = context.getString(R.string.celsius);
-            return new String[] { str, string };
+            return new String[]{str, string};
         } else {
             // do F
             String string = context.getString(R.string.fahrenheit);
-            return new String[] { str, string };
+            return new String[]{str, string};
         }
     }
-    public void mRegisterReceiver(){
+
+    public void mRegisterReceiver() {
         IntentFilter filter = new IntentFilter();
         filter.addAction(BatteryService.ACTION_MAX_BATTERY_CHANGED_SEND);
         registerReceiver(receiver, filter);
@@ -345,6 +341,8 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
 
     @Override
     public void onDestroy() {
+        if (mHandler != null && r != null)
+            mHandler.removeCallbacks(r);
         super.onDestroy();
         unregisterReceiver(receiver);
     }

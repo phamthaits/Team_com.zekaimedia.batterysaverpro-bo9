@@ -9,12 +9,14 @@ import android.os.Looper;
 
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.Toolbar;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.ads.control.AdmobHelp;
 import com.amt.batterysaver.R;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.adapter.AppManagerAdapter;
@@ -54,14 +56,13 @@ public class fmAppManager extends Fragment {
     Runnable runnableLocal;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,                             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_app_manager, container, false);
-
         mProgressBarLoading = view.findViewById(R.id.progressBarLoading);
         mRecyclerView = view.findViewById(R.id.recyclerView);
         initAdapter();
         loadData();
+        AdmobHelp.getInstance().loadBannerFragment(getActivity(), view);
         return view;
     }
 
@@ -94,7 +95,6 @@ public class fmAppManager extends Fragment {
         });
         mRecyclerView.setAdapter(mAdapter);
     }
-
 
     private void loadData() {
         mProgressBarLoading.setVisibility(View.VISIBLE);
@@ -155,8 +155,8 @@ public class fmAppManager extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if(mHandlerLocal!=null)
-        mHandlerLocal.removeCallbacks(runnableLocal);
+        if (mHandlerLocal != null)
+            mHandlerLocal.removeCallbacks(runnableLocal);
     }
 
     @Override

@@ -329,8 +329,7 @@
                         android:id="@+id/ivCapacity"
                         android:layout_width="@dimen/_38sdp"
                         android:layout_height="@dimen/_38sdp"
-                        android:src="@drawable/ic_temperature"
-                        />
+                        android:src="@drawable/ic_temperature"                        />
                     
 
                     <TextView
@@ -371,6 +370,7 @@
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     layout="@layout/layout_enable_charge"/>
+
             </androidx.cardview.widget.CardView>
             <LinearLayout
                 android:layout_marginBottom="@dimen/screen_padding_5"

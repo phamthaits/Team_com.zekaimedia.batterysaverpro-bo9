@@ -15,6 +15,9 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.VideoOptions;
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
@@ -104,7 +107,6 @@ public class AdmobHelp {
             this.adCloseListener = adCloseListener;
             mPublisherInterstitialAd.show();
         } else {
-
             adCloseListener.onAdClosed();
         }
     }
@@ -215,7 +217,7 @@ public class AdmobHelp {
         adLoader.loadAd(new PublisherAdRequest.Builder().build());
     }
 
-    public void loadNativeRate(final Activity mActivity, Window  window) {
+    public void loadNativeRate(final Activity mActivity, Window window) {
 
         VideoOptions videoOptions = new VideoOptions.Builder()
                 .setStartMuted(false)
@@ -262,7 +264,6 @@ public class AdmobHelp {
         adLoader.loadAd(new PublisherAdRequest.Builder().build());
     }
 
-
     public void loadNativeFragment(final Activity mActivity, final View rootView) {
         VideoOptions videoOptions = new VideoOptions.Builder()
                 .setStartMuted(false)
@@ -304,6 +305,50 @@ public class AdmobHelp {
                 .build();
 
         adLoader.loadAd(new PublisherAdRequest.Builder().build());
+    }
+
+    public void loadBannerFragment(final Activity mActivity, final View rootView) {
+        rootView.findViewById(R.id.adView).setVisibility(View.GONE);
+        try {
+            AdView adView = rootView.findViewById(R.id.adView);
+//            adView.setAdSize(AdSize.SMART_BANNER);
+            adView.loadAd(new AdRequest.Builder().build());
+            adView.setAdListener(new AdListener() {
+                @Override
+                public void onAdFailedToLoad(int i) {
+                    super.onAdFailedToLoad(i);
+                    rootView.findViewById(R.id.adView).setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onAdLoaded() {
+                    rootView.findViewById(R.id.adView).setVisibility(View.VISIBLE);
+                }
+            });
+
+        } catch (Exception e) {
+        }
+    }
+
+    public void loadBanner(final Activity mActivity) {
+        mActivity.findViewById(R.id.adView).setVisibility(View.GONE);
+        try {
+            AdView adView = mActivity.findViewById(R.id.adView);
+            adView.loadAd(new AdRequest.Builder().build());
+            adView.setAdListener(new AdListener() {
+                @Override
+                public void onAdFailedToLoad(int i) {
+                    super.onAdFailedToLoad(i);
+                    mActivity.findViewById(R.id.adView).setVisibility(View.GONE);
+                }
+
+                @Override
+                public void onAdLoaded() {
+                    mActivity.findViewById(R.id.adView).setVisibility(View.VISIBLE);
+                }
+            });
+        } catch (Exception e) {
+        }
     }
 
     private void populateUnifiedNativeAdView(UnifiedNativeAd nativeAd, UnifiedNativeAdView adView) {

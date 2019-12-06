@@ -62,7 +62,6 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView ivDone;
     private Animation ivDoneAnim;
 
-
     private ViewGroup parentAds;
     private LinearLayout lrScan;
 
@@ -75,10 +74,8 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         intView();
         checkTask();
         AdmobHelp.getInstance().loadNative(CoolActivity.this);
-//        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
-//        if (!SharePreferenceUtils.getInstance(this).getFlagAds())
         AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
-        SharePreferenceUtils.getInstance(this).setFlagAds(true);
+//        SharePreferenceUtils.getInstance(this).setFlagAds(true);
     }
 
     public void checkTask() {
@@ -87,11 +84,9 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         }
         if (!Utils.checkShouldDoing(this, 7)) {
             findViewById(R.id.cvCool).setVisibility(View.GONE);
-
         }
         if (!Utils.checkShouldDoing(this, 3)) {
             findViewById(R.id.cvClean).setVisibility(View.GONE);
-
         }
         if (!Utils.checkShouldDoing(this, 8)) {
             findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
@@ -100,13 +95,11 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
             if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
                 findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
         }
-
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-
             case R.id.lr_back:
                 finish();
                 return;
@@ -132,7 +125,6 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, CoolActivity.class));
                 finish();
                 return;
-
             default:
                 return;
         }
@@ -150,31 +142,31 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         this.tvResult = findViewById(R.id.clean_up_done_tv_result);
         this.ivDone = findViewById(R.id.clean_done_iv_done);
         this.ivDoneAnim = AnimationUtils.loadAnimation(this, R.anim.ic_done_anim);
-        if (Utils.checkShouldDoing(this, 7)) {
-            int size = (int) getResources().getDimension(R.dimen.icon_size);
-            this.layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            this.layoutParams.height = size;
-            this.layoutParams.width = size;
-            this.layoutParams.gravity = 17;
-            Animation animationRotate = AnimationUtils.loadAnimation(this, R.anim.rote_charge_anim);
-            this.rocketImage.startAnimation(animationRotate);
-            animationRotate.start();
-            Animation loadAnimation = AnimationUtils.loadAnimation(this, R.anim.rote_charge_anim_out);
-            this.rocketImageOut.startAnimation(loadAnimation);
-            loadAnimation.start();
-            initRippleBackgound();
-            this.tvResult.setVisibility(View.VISIBLE);
-            animationRotate.setAnimationListener(new CoolActivity.anmRotate());
-            this.ivDoneAnim.setAnimationListener(new CoolActivity.anmDone());
-            findViewById(R.id.iv_bg_snow).startAnimation(AnimationUtils.loadAnimation(this, R.anim.snow_fall));
-        } else {
-            findViewById(R.id.lrScan).setVisibility(View.GONE);
-            this.parentAds.setAlpha(0.0f);
-            this.parentAds.setVisibility(View.VISIBLE);
-            this.parentAds.animate().alpha(1.0f).start();
-            Animation downtoup = AnimationUtils.loadAnimation(this, R.anim.downtoup);
-            parentAds.startAnimation(downtoup);
-        }
+//        if (Utils.checkShouldDoing(this, 7)) {
+        int size = (int) getResources().getDimension(R.dimen.icon_size);
+        this.layoutParams = new FrameLayout.LayoutParams(-2, -2);
+        this.layoutParams.height = size;
+        this.layoutParams.width = size;
+        this.layoutParams.gravity = 17;
+        Animation animationRotate = AnimationUtils.loadAnimation(this, R.anim.rote_charge_anim);
+        this.rocketImage.startAnimation(animationRotate);
+        animationRotate.start();
+        Animation loadAnimation = AnimationUtils.loadAnimation(this, R.anim.rote_charge_anim_out);
+        this.rocketImageOut.startAnimation(loadAnimation);
+        loadAnimation.start();
+        initRippleBackgound();
+        this.tvResult.setVisibility(View.VISIBLE);
+        animationRotate.setAnimationListener(new CoolActivity.anmRotate());
+        this.ivDoneAnim.setAnimationListener(new CoolActivity.anmDone());
+        findViewById(R.id.iv_bg_snow).startAnimation(AnimationUtils.loadAnimation(this, R.anim.snow_fall));
+//        } else {
+//            findViewById(R.id.lrScan).setVisibility(View.GONE);
+//            this.parentAds.setAlpha(0.0f);
+//            this.parentAds.setVisibility(View.VISIBLE);
+//            this.parentAds.animate().alpha(1.0f).start();
+//            Animation downtoup = AnimationUtils.loadAnimation(this, R.anim.downtoup);
+//            parentAds.startAnimation(downtoup);
+//        }
 
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
         ((ImageView) findViewById(R.id.iv_bg_snow)).setColorFilter(getResources().getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY);
@@ -190,6 +182,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void onAnimationStart(Animation animation) {
+
         }
 
         anmRotate() {
@@ -201,7 +194,6 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
             ((View) CoolActivity.this.rocketImage.getParent()).setVisibility(View.GONE);
             CoolActivity.this.ivDone.setVisibility(View.VISIBLE);
             CoolActivity.this.ivDone.startAnimation(CoolActivity.this.ivDoneAnim);
-
             CoolActivity.this.tvResult.setText(CoolActivity.this.getResources().getString(R.string.done));
             CoolActivity.this.tvResult.startAnimation(CoolActivity.this.ivDoneAnim);
 
@@ -289,9 +281,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                                     publishProgress(d);
                                 }
                                 try {
-
                                     Thread.sleep(150);
-
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
@@ -330,9 +320,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                                             publishProgress(d);
                                         }
                                         try {
-
                                             Thread.sleep(150);
-
                                         } catch (InterruptedException e) {
                                             e.printStackTrace();
                                         }
@@ -422,33 +410,49 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            Animation slideUp = AnimationUtils.loadAnimation(CoolActivity.this, R.anim.zoom_in);
-            lrScan.startAnimation(slideUp);
-            CoolActivity.this.lrScan.setVisibility(View.GONE);
-
-            CoolActivity.this.parentAds.setAlpha(0.0f);
-            CoolActivity.this.parentAds.setVisibility(View.VISIBLE);
-            CoolActivity.this.parentAds.animate().alpha(1.0f).start();
-            Animation downtoup = AnimationUtils.loadAnimation(CoolActivity.this, R.anim.downtoup);
-            parentAds.startAnimation(downtoup);
-            SharePreferenceUtils.getInstance(CoolActivity.this).setCoolerTime(System.currentTimeMillis());
-            SharePreferenceUtils.getInstance(CoolActivity.this).setCoolerTimeMain(System.currentTimeMillis());
+//            if (SharePreferenceUtils.getInstance(CoolActivity.this).getFlagAds()) {
+//                SharePreferenceUtils.getInstance(CoolActivity.this).setFlagAds(false);
+            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+                @Override
+                public void onAdClosed() {
+                    loadResult();
+                }
+            });
+//            } else {
+//                loadResult();
+//            }
         }
+    }
+
+    private void loadResult() {
+        Animation slideUp = AnimationUtils.loadAnimation(CoolActivity.this, R.anim.zoom_in);
+        lrScan.startAnimation(slideUp);
+        CoolActivity.this.lrScan.setVisibility(View.GONE);
+
+        CoolActivity.this.parentAds.setAlpha(0.0f);
+        CoolActivity.this.parentAds.setVisibility(View.VISIBLE);
+        CoolActivity.this.parentAds.animate().alpha(1.0f).start();
+        Animation downtoup = AnimationUtils.loadAnimation(CoolActivity.this, R.anim.downtoup);
+        parentAds.startAnimation(downtoup);
+        SharePreferenceUtils.getInstance(CoolActivity.this).setCoolerTime(System.currentTimeMillis());
+        SharePreferenceUtils.getInstance(CoolActivity.this).setCoolerTimeMain(System.currentTimeMillis());
     }
 
     @Override
     public void onBackPressed() {
-        if (SharePreferenceUtils.getInstance(this).getFlagAds()) {
-            SharePreferenceUtils.getInstance(this).setFlagAds(false);
-            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-                @Override
-                public void onAdClosed() {
-                    finish();
-                }
-            });
-        } else {
-            finish();
-        }
+//        if (SharePreferenceUtils.getInstance(this).getFlagAds()) {
+//            SharePreferenceUtils.getInstance(this).setFlagAds(false);
+//            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+//                @Override
+//                public void onAdClosed()
+//                {
+//                    finish();
+//                }
+//            });
+//        } else {
+//            finish();
+//        }
+        finish();
     }
 
     @Override
