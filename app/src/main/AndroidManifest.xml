@@ -71,6 +71,9 @@
         <activity
             android:name="com.amt.batterysaver.activity.CleanResultActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.amt.batterysaver.activity.FullChargeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver android:name="com.amt.batterysaver.Receiver.AlarmReceiver">
             <intent-filter>

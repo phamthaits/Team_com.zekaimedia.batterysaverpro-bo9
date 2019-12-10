@@ -41,9 +41,7 @@ public class fmChart extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
-
 
     TextView tvNormal, tvOver, tvHealthy, tvLastFull, tvChargeType, tvTimeCharge, tvQuantity, tvDate;
     private PieChart chart;

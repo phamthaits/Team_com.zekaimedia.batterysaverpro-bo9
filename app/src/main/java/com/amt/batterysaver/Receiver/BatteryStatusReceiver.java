@@ -37,7 +37,6 @@ public class BatteryStatusReceiver extends BroadcastReceiver {
             mBatteryInfo.technology = intent.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY);
 //            if(SharePreferenceUtils.getInstance(context).getLevelIn()==0){
 //                Utils.intPowerConnected(context);
-//
 //            }
 
             if (mBatteryInfo.status == BatteryManager.BATTERY_STATUS_FULL){
@@ -78,13 +77,11 @@ public class BatteryStatusReceiver extends BroadcastReceiver {
                 NotificationBattery.getInstance(mContext)
                         .updateNotify(mBatteryInfo.level, mBatteryInfo.temperature, mBatteryInfo.hourleft, mBatteryInfo.minleft, isCharging);
             }
-
         }
         else if (action.equals(BatteryService.ACTION_MAX_BATTERY_NEED_UPDATE)) {
             intent.setAction(BatteryService.ACTION_MAX_BATTERY_CHANGED_SEND);
             intent.putExtra(BatteryInfo.BATTERY_INFO_KEY, mBatteryInfo);
             mContext.sendBroadcast(intent);
-
         }
         else if (action.equals(NotificationBattery.UPDATE_NOTIFICATION_ENABLE)) {
 
@@ -93,19 +90,16 @@ public class BatteryStatusReceiver extends BroadcastReceiver {
                         mBatteryInfo.status == BatteryManager.BATTERY_STATUS_FULL;
                 NotificationBattery.getInstance(mContext).updateNotify(mBatteryInfo.level, mBatteryInfo.temperature, mBatteryInfo.hourleft, mBatteryInfo.minleft, isCharging);
             }
-
         }
         else if (action.equals(Intent.ACTION_POWER_CONNECTED)) {
             Utils.intPowerConnected(context);
 
         } else if (action.equals(Intent.ACTION_POWER_DISCONNECTED)) {
-            SharePreferenceConstant.is_full=false;
+            SharePreferenceConstant.full_battery_loaded=false;
             Utils.powerDisconnected(context);
         }
         HistoryPref.putLevel(context, mBatteryInfo.level);
-
     }
-
 
     public String formatHourMinutune(long totaltime) {
         long seconds = (totaltime / 1000) % 60;
@@ -138,7 +132,6 @@ public class BatteryStatusReceiver extends BroadcastReceiver {
         intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
         intentFilter.addAction(BatteryService.ACTION_MAX_BATTERY_NEED_UPDATE);
         intentFilter.addAction(NotificationBattery.UPDATE_NOTIFICATION_ENABLE);
-
         mContext.registerReceiver(this, intentFilter);
     }
 

@@ -15,8 +15,9 @@
     <string name="rate_app">Rate App</string>
     <string name="install_app_ads">Install Now</string>
 
-    <string name="Title_email" translatable="false">Battery saver feed back</string>
+    <string name="title_email" translatable="false">Battery saver feed back</string>
     <string name="email_feedback" translatable="false">phamthaits@gmail.com</string>
+    <string name="nav_more_app" translatable="false">https://play.google.com/store/apps/dev?id=4880329950393363615</string>
 
     // insert id ads
     <string name="ads_fb_full" translatable="false">//</string>

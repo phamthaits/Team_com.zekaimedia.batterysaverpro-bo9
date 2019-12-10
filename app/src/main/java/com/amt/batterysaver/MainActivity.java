@@ -8,6 +8,7 @@ import com.amt.batterysaver.activity.CleanActivity;
 import com.amt.batterysaver.activity.CoolActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -17,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.MenuItem;
@@ -28,10 +30,11 @@ import com.amt.batterysaver.fragment.fmChart;
 import com.amt.batterysaver.fragment.fmSetting;
 import com.amt.batterysaver.R;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     Toolbar toolbar;
     Fragment fragment;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +43,7 @@ public class MainActivity extends AppCompatActivity  {
         toolbar.setTitle(getString(R.string.app_name));
         setSupportActionBar(toolbar);
         mDrawerLayout = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -59,10 +61,10 @@ public class MainActivity extends AppCompatActivity  {
                                 UtilsApp.shareApp(MainActivity.this);
                                 break;
                             case R.id.nav_policy:
-                                UtilsApp.OpenBrower(MainActivity.this,getString(R.string.link_policy));
+                                UtilsApp.OpenBrower(MainActivity.this, getString(R.string.link_policy));
                                 break;
                             case R.id.nav_send:
-                                UtilsApp.SendFeedBack(MainActivity.this,"email@gmail.com","MASTER BATTERY feedback");
+                                UtilsApp.SendFeedBack(MainActivity.this, getString(R.string.email_feedback), getString(R.string.title_email));
                                 break;
                             case R.id.nav_boost:
 //                                SharePreferenceUtils.getInstance(MainActivity.this).setFlagAds(true);
@@ -77,13 +79,13 @@ public class MainActivity extends AppCompatActivity  {
                                 startActivity(new Intent(MainActivity.this, CleanActivity.class));
                                 break;
                             case R.id.nav_more_app:
-                                String url = "https://play.google.com/store/apps/dev?id=4880329950393363615";
+                                String url = getString(R.string.nav_more_app);
                                 Intent i = new Intent(Intent.ACTION_VIEW);
                                 i.setData(Uri.parse(url));
                                 startActivity(i);
                                 break;
-                                default:
-                                    break;
+                            default:
+                                break;
                         }
                         mDrawerLayout.closeDrawers();
                         return true;
@@ -97,15 +99,14 @@ public class MainActivity extends AppCompatActivity  {
 
     @Override
     public void onBackPressed() {
-        Rate.Show(this,1,this, SharePreferenceConstant.admob_native,SharePreferenceConstant.admob_full);
+        Rate.Show(this, 1, this, SharePreferenceConstant.admob_native, SharePreferenceConstant.admob_full);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
         @Override
-        public boolean onNavigationItemSelected( MenuItem item) {
-
+        public boolean onNavigationItemSelected(MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_shop:
                     fragment = new fmBatterySaveMain();
@@ -131,6 +132,7 @@ public class MainActivity extends AppCompatActivity  {
             return false;
         }
     };
+
     private void loadFragment(Fragment fragment) {
         // load fragment
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

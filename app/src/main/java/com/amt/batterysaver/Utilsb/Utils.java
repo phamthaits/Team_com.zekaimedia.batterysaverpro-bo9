@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ads.control.AdmobHelp;
+import com.amt.batterysaver.activity.FullChargeActivity;
 import com.amt.batterysaver.activity.PermissionActivity;
 import com.amt.batterysaver.notification.NotificationDevice;
 import com.amt.batterysaver.Alarm.AlarmUtils;
@@ -81,13 +82,21 @@ public class Utils {
     }
 
     public static void fullPower(Context context) {
-        if (SharePreferenceUtils.getInstance(context).getTime() == 0) {
+        long i = SharePreferenceUtils.getInstance(context).getTime();
+        if (i == 0) {
             SharePreferenceUtils.getInstance(context).setTime(System.currentTimeMillis());
-            if (Utils.checkDNDDoing(context) && SharePreferenceUtils.getInstance(context).getChargeFullReminder()) {
+            boolean doing = Utils.checkDNDDoing(context);
+            boolean reminer = SharePreferenceUtils.getInstance(context).getChargeFullReminder();
+            if (doing && reminer) {
                 NotificationDevice.showNotificationBatteryFull(context);
                 Utils.intSound(context);
-                SharePreferenceConstant.is_full=true;
-                powerDisconnected(context);
+                if(!SharePreferenceConstant.full_battery_loaded)
+                {
+                    SharePreferenceConstant.full_battery_loaded = true;
+                    Intent ii = new Intent(context, FullChargeActivity.class);
+                    ii.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(ii);
+                }
             }
         }
     }
@@ -177,7 +186,6 @@ public class Utils {
     }
 
     public static void setTextFromSize(long size, TextView tvNumber, TextView tvType) {
-
         if (size <= 0) {
             tvNumber.setText(String.valueOf(0.00));
             tvType.setText("MB");

@@ -33,7 +33,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-
 public class ChargeResultActivity extends Activity implements View.OnClickListener {
 
     TextView tvTime, tvHour, tvMin, tvQuati, tvChargeTime, tvChargeType, tvPercent, tvDate, tvTimeLeftTitle, tvFormatTime, tvFullCharge;
@@ -54,21 +53,11 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
         intView();
         intData();
         intEvent();
-
-        AdmobHelp.getInstance().loadNative(ChargeResultActivity.this);
-        if (SharePreferenceConstant.is_full) {
-            AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
-        }
         mHandler = new Handler();
         r = new Runnable() {
             @Override
             public void run() {
-                AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-                    @Override
-                    public void onAdClosed() {
-                        finish();
-                    }
-                });
+                AdmobHelp.getInstance().loadNative(ChargeResultActivity.this);
             }
         };
         mHandler.postDelayed(r, 4000);
@@ -96,7 +85,6 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
 
     public void intView() {
         tvFullCharge = findViewById(R.id.tvFullCharge);
-
         lrTimeLeft = findViewById(R.id.view_time_left);
         tvTimeLeftTitle = findViewById(R.id.tvTimeLeftTitle);
         tvFull = findViewById(R.id.tvFull);
@@ -286,7 +274,6 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
 
     public double getBatteryCapacity() {
         Object mPowerProfile_ = null;
-
         final String POWER_PROFILE_CLASS = "com.android.internal.os.PowerProfile";
 
         try {

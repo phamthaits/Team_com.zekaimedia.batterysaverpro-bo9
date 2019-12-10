@@ -2,12 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-<!--    <View-->
-<!--        android:layout_marginTop="10dp"-->
-<!--        android:layout_gravity="bottom"-->
-<!--        android:background="#073C3C3C"-->
-<!--        android:layout_width="fill_parent"-->
-<!--        android:layout_height="1dip" />-->
+
     <group android:checkableBehavior="single" android:id="@+id/test1">
         <item
             android:id="@+id/nav_junk_clean"
