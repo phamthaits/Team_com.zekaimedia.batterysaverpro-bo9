@@ -111,5 +111,18 @@
     <string name="toast_mode_title">Mudou para</string>
     <string name="charge_des">Monitore o status de carga da bateria e sobrecarregue a carga para evitar (pode conter anúncios)</string>
     <string name="enable_fast_charging">Ativar carregamento rápido</string>
+    <string name="app_name">Carregador super rápido</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="bluetooth_is_enabling">Bluetooth está ativado, por favor, espere ...</string>
+    <string name="moreapp_nav">Mais App</string>
+    <string name="no_junk">Nenhum arquivo de lixo encontrado</string>
+    <string name="privacy_policy">Política de privacidade</string>
+    <string name="seconds">%d segundos</string>
+    <string name="share_nav">Compartilhar app</string>
+    <string name="calculating">Cálculo...</string>
+    <string name="disable_fast_charging">Desativar o carregamento rápido</string>
+    <string name="disable_fast_charging_des">Você não poderá monitorar o status da carga da bateria. Claro que você quer desativar</string>
+    <string name="feedback_nav">Feedback</string>
+    <string name="general_title">Geral</string>
 
 </resources>

@@ -22,6 +22,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ads.control.AdmobHelp;
+import com.ads.control.TypeAds;
+import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
@@ -56,8 +58,11 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         NotificationDevice.cancle(this, NotificationDevice.ID_NOTIFICATTION_BOOST);
 
         checkTask();
-        AdmobHelp.getInstance().loadNative(BoostActivity.this);
-        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
+        AdmodRef.initInterstitialAd(this, TypeAds.admod_full_phoneboost);
+        AdmodRef.loadNative(this, TypeAds.admod_native_phoneboost);
+
+//        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
+//        AdmobHelp.getInstance().loadNative(BoostActivity.this);
 //        SharePreferenceUtils.getInstance(this).setFlagAds(true);
     }
 

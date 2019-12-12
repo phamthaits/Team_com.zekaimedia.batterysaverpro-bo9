@@ -113,4 +113,17 @@
     <string name="toast_mode_title">تم الانتقال إلى</string>
     <string name="charge_des">مراقبة حالة شحن البطارية وحمل الشحن الزائد لمنع (قد تحتوي على إعلانات)</string>
     <string name="enable_fast_charging">تمكين الشحن السريع</string>
+    <string name="app_name">شاحن فائق السرعة</string>
+    <string name="bluetooth" translatable="false">بلوتوث</string>
+    <string name="bluetooth_is_enabling" translatable="false">تم تمكين البلوتوث ، الرجاء الانتظار...</string>
+    <string name="moreapp_nav" translatable="false">المزيد من التطبيقات</string>
+    <string name="no_junk">لم يتم العثور علي ملف غير هام</string>
+    <string name="privacy_policy">سياسة الخصوصية</string>
+    <string name="seconds" translatable="false">%d ثانيه</string>
+    <string name="share_nav">مشاركه التطبيق</string>
+    <string name="calculating">حساب...</string>
+    <string name="disable_fast_charging">تعطيل الشحن السريع</string>
+    <string name="disable_fast_charging_des">لن تكون قادرا علي مراقبه حاله شحن البطارية. بالتاكيد تريد تعطيل</string>
+    <string name="feedback_nav">ردود الفعل</string>
+    <string name="general_title" translatable="false">العامه</string>
 </resources>

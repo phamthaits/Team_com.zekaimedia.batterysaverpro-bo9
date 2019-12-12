@@ -42,7 +42,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ads.control.AdmobHelp;
+import com.ads.control.TypeAds;
 import com.amt.batterysaver.BatteryMode.BatteryInfo;
+import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.BatteryPref;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
@@ -362,7 +364,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intView(view);
         intData(view);
         intEvent();
-        AdmobHelp.getInstance().loadNativeFragment(getActivity(), view);
+        AdmodRef.loadNativeFragment(getActivity(),view, TypeAds.admod_native_main);
+//        AdmobHelp.getInstance().loadNativeFragment(getActivity(), view);
         if (!Utils.checkShouldDoing(getActivity(), 8)) {
             cvFastCharge.setVisibility(View.GONE);
 

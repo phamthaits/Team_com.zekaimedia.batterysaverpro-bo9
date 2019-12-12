@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,26 +35,53 @@ public class AdmobHelp {
     private boolean isReloaded = false;
     private UnifiedNativeAd nativeAd;
     public static boolean isInit = false;
+//    private TypeAds typeAds;
 
     public static AdmobHelp getInstance() {
         if (instance == null) {
             instance = new AdmobHelp();
         }
-
         return instance;
     }
 
     private AdmobHelp() {
-
     }
 
-    public void init(Context context, String admodFull, String admodNative) {
+    public void init(Context context, TypeAds typeAds) {
         isInit = true;
-        VarAds.admob_full = admodFull;
-        VarAds.admob_native = admodNative;
         MobileAds.initialize(context, context.getString(R.string.admob_app_id));
         mPublisherInterstitialAd = new PublisherInterstitialAd(context);
-        mPublisherInterstitialAd.setAdUnitId(VarAds.admob_full);
+        String ads = "";
+        switch (typeAds) {
+            case admod_full_splash:
+                ads = AdmodAd.admod_full_splash;
+                break;
+            case admod_full_optimization:
+                ads = AdmodAd.admod_full_optimization;
+                break;
+            case admod_full_trashcleaner:
+                ads = AdmodAd.admod_full_trashcleaner;
+                break;
+            case admod_full_phoneboost:
+                ads = AdmodAd.admod_full_phoneboost;
+                break;
+            case admod_full_phonecooler:
+                ads = AdmodAd.admod_full_phonecooler;
+                break;
+            case admod_full_fullcharge:
+                ads = AdmodAd.admod_full_fullcharge;
+                break;
+            case admod_full_fastcharge:
+                ads = AdmodAd.admod_full_fastcharge;
+                break;
+                     case admod_banner_appmanager:
+                ads = AdmodAd.admod_banner_appmanager;
+                break;
+            case admod_banner_chargehistory:
+                ads = AdmodAd.admod_banner_chargehistory;
+                break;
+        }
+        mPublisherInterstitialAd.setAdUnitId(ads);
         mPublisherInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
@@ -172,7 +200,7 @@ public class AdmobHelp {
         });
     }
 
-    public void loadNative(final Activity mActivity) {
+    public void loadNative(final Activity mActivity, TypeAds typeAds) {
 
         VideoOptions videoOptions = new VideoOptions.Builder()
                 .setStartMuted(false)
@@ -182,7 +210,38 @@ public class AdmobHelp {
                 .setVideoOptions(videoOptions)
                 .build();
 
-        AdLoader adLoader = new AdLoader.Builder(mActivity, VarAds.admob_native)
+        String ads="";
+        switch (typeAds){
+            case admod_native_main:
+                ads = AdmodAd.admod_native_main;
+                break;
+            case admod_native_optimization:
+                ads = AdmodAd.admod_native_optimization;
+                break;
+            case admod_native_trashcleaner:
+                ads = AdmodAd.admod_native_trashcleaner;
+                break;
+            case admod_native_phoneboost:
+                ads = AdmodAd.admod_native_phoneboost;
+                break;
+            case admod_native_phonecooler:
+                ads = AdmodAd.admod_native_phonecooler;
+                break;
+            case admod_native_fullcharge:
+                ads = AdmodAd.admod_native_fullcharge;
+                break;
+            case admod_native_fastcharge:
+                ads = AdmodAd.admod_native_fastcharge;
+                break;
+            case admod_native_setting:
+                ads = AdmodAd.admod_native_setting;
+                break;
+            case admod_native_chargeresult:
+                ads = AdmodAd.admod_native_chargeresult;
+                break;
+        }
+
+        AdLoader adLoader = new AdLoader.Builder(mActivity,ads)
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                     @Override
                     public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
@@ -227,7 +286,7 @@ public class AdmobHelp {
                 .setVideoOptions(videoOptions)
                 .build();
 
-        AdLoader adLoader = new AdLoader.Builder(mActivity, VarAds.admob_native)
+        AdLoader adLoader = new AdLoader.Builder(mActivity, AdmodAd.admod_native_rate)
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                     @Override
                     public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
@@ -264,7 +323,7 @@ public class AdmobHelp {
         adLoader.loadAd(new PublisherAdRequest.Builder().build());
     }
 
-    public void loadNativeFragment(final Activity mActivity, final View rootView) {
+    public void loadNativeFragment(final Activity mActivity, final View rootView, TypeAds typeAds) {
         VideoOptions videoOptions = new VideoOptions.Builder()
                 .setStartMuted(false)
                 .build();
@@ -272,8 +331,34 @@ public class AdmobHelp {
         NativeAdOptions adOptions = new NativeAdOptions.Builder()
                 .setVideoOptions(videoOptions)
                 .build();
-
-        AdLoader adLoader = new AdLoader.Builder(mActivity, VarAds.admob_native)
+        String ads="";
+        switch (typeAds){
+            case admod_native_main:
+                ads = AdmodAd.admod_native_main;
+                break;
+            case admod_native_optimization:
+                ads = AdmodAd.admod_native_optimization;
+                break;
+            case admod_native_trashcleaner:
+                ads = AdmodAd.admod_native_trashcleaner;
+                break;
+            case admod_native_phoneboost:
+                ads = AdmodAd.admod_native_phoneboost;
+                break;
+            case admod_native_phonecooler:
+                ads = AdmodAd.admod_native_phonecooler;
+                break;
+            case admod_native_fullcharge:
+                ads = AdmodAd.admod_native_fullcharge;
+                break;
+            case admod_native_fastcharge:
+                ads = AdmodAd.admod_native_fastcharge;
+                break;
+            case admod_native_setting:
+                ads = AdmodAd.admod_native_setting;
+                break;
+        }
+        AdLoader adLoader = new AdLoader.Builder(mActivity, ads)
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                     @Override
                     public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
@@ -307,22 +392,32 @@ public class AdmobHelp {
         adLoader.loadAd(new PublisherAdRequest.Builder().build());
     }
 
-    public void loadBannerFragment(final Activity mActivity, final View rootView) {
-        rootView.findViewById(R.id.adView).setVisibility(View.GONE);
+    public void loadBannerFragment(final View rootView, TypeAds typeAds) {
+        String ads="";
         try {
-            AdView adView = rootView.findViewById(R.id.adView);
-//            adView.setAdSize(AdSize.SMART_BANNER);
+           View adContainer = rootView.findViewById(R.id.banner_container);
+            AdView adView=new AdView(rootView.getContext());
+            switch (typeAds){
+                case admod_banner_appmanager:
+                    ads = AdmodAd.admod_banner_appmanager;
+                    break;
+                case admod_banner_chargehistory:
+                    ads = AdmodAd.admod_banner_chargehistory;
+                    break;
+            }
+            adView.setAdSize(AdSize.SMART_BANNER);
+            adView.setAdUnitId(ads);
+            ((LinearLayout)adContainer).addView(adView);
             adView.loadAd(new AdRequest.Builder().build());
             adView.setAdListener(new AdListener() {
                 @Override
                 public void onAdFailedToLoad(int i) {
                     super.onAdFailedToLoad(i);
-                    rootView.findViewById(R.id.adView).setVisibility(View.GONE);
+                    adContainer.setVisibility(View.GONE);
                 }
-
                 @Override
                 public void onAdLoaded() {
-                    rootView.findViewById(R.id.adView).setVisibility(View.VISIBLE);
+                    adContainer.setVisibility(View.VISIBLE);
                 }
             });
 
@@ -330,28 +425,8 @@ public class AdmobHelp {
         }
     }
 
-    public void loadBanner(final Activity mActivity) {
-        mActivity.findViewById(R.id.adView).setVisibility(View.GONE);
-        try {
-            AdView adView = mActivity.findViewById(R.id.adView);
-            adView.loadAd(new AdRequest.Builder().build());
-            adView.setAdListener(new AdListener() {
-                @Override
-                public void onAdFailedToLoad(int i) {
-                    super.onAdFailedToLoad(i);
-                    mActivity.findViewById(R.id.adView).setVisibility(View.GONE);
-                }
-
-                @Override
-                public void onAdLoaded() {
-                    mActivity.findViewById(R.id.adView).setVisibility(View.VISIBLE);
-                }
-            });
-        } catch (Exception e) {
-        }
-    }
-
-    private void populateUnifiedNativeAdView(UnifiedNativeAd nativeAd, UnifiedNativeAdView adView) {
+    private void populateUnifiedNativeAdView(UnifiedNativeAd nativeAd, UnifiedNativeAdView
+            adView) {
 
         MediaView mediaView = adView.findViewById(R.id.ad_media);
         adView.setMediaView(mediaView);

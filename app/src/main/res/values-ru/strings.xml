@@ -112,4 +112,17 @@
     <string name="toast_mode_title">Переключено на</string>
     <string name="charge_des">Мониторинг состояния заряда аккумулятора и перегрузки заряда для предотвращения (может содержать рекламу)</string>
     <string name="enable_fast_charging">Включить быструю зарядку</string>
+    <string name="app_name">Супер Быстрый зарядное устройство</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="bluetooth_is_enabling">Bluetooth включен, пожалуйста, подождите ...</string>
+    <string name="moreapp_nav">Больше App</string>
+    <string name="no_junk">Ненайдено нежелательного файла</string>
+    <string name="privacy_policy">Конфиденциальности</string>
+    <string name="seconds">%d секунд</string>
+    <string name="share_nav">Поделиться приложением</string>
+    <string name="calculating">Расчета...</string>
+    <string name="disable_fast_charging">Отключить быструю зарядку</string>
+    <string name="disable_fast_charging_des">Вы не сможете контролировать состояние заряда батареи. Конечно, вы хотите отключить</string>
+    <string name="feedback_nav">Обратной связи</string>
+    <string name="general_title">Общие</string>
 </resources>

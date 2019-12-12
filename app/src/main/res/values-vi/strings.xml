@@ -93,7 +93,6 @@
     <string name="cool_down_title">CPU hơi nóng</string>
     <string name="cool_down_title_2">Nhiệt độ quá nóng</string>
     <string name="cool_down_des">Phát hiện ra thủ phạm làm nóng!</string>
-    <string name="cool_down_button">LÀM MÁT</string>
     <string name="low_battery">Pin quá yếu!</string>
     <string name="low_battery_des">Làm sạch các ứng dụng ngầm để tiết kiệm pin</string>
     <string name="optimize_noti">Tối ưu</string>
@@ -112,4 +111,18 @@
     <string name="toast_mode_title">Đã chuyển sang</string>
     <string name="charge_des">Theo dõi trạng thái sạc và sạc nhanh bằng cách dừng ứng dụng chạy nền khi kết nối nguồn. (may contain ads)</string>
     <string name="enable_fast_charging">Kích hoạt chế độ sạc nhanh</string>
+    <string name="cool_down_button">LÀM MÁT</string>
+    <string name="app_name" translatable="false">Bộ sạc siêu nhanh</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="bluetooth_is_enabling">Bluetooth đang kích hoạt, xin vui lòng chờ...</string>
+    <string name="moreapp_nav">Thêm Ứng Dụng</string>
+    <string name="no_junk">Không tìm thấy tệp rác</string>
+    <string name="privacy_policy">Chính sách bảo mật</string>
+    <string name="seconds">%d giây</string>
+    <string name="share_nav">Chia sẻ</string>
+    <string name="calculating">tính toán...</string>
+    <string name="disable_fast_charging">Vô hiệu tính năng sạc nhanh</string>
+    <string name="disable_fast_charging_des">Bạn sẽ không thể giám sát tình trạng sạc pin. Chắc chắn bạn muốn vô hiệu hóa</string>
+    <string name="feedback_nav">Phản hồi</string>
+    <string name="general_title">Chung</string>
 </resources>

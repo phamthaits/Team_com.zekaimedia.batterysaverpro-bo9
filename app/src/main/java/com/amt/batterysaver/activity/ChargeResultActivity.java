@@ -17,8 +17,10 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.ads.control.AdmobHelp;
+import com.ads.control.TypeAds;
 import com.amt.batterysaver.BatteryMode.BatteryInfo;
 import com.amt.batterysaver.MainActivity;
+import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.BatteryPref;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
@@ -57,10 +59,10 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
         r = new Runnable() {
             @Override
             public void run() {
-                AdmobHelp.getInstance().loadNative(ChargeResultActivity.this);
+                AdmodRef.loadNative(ChargeResultActivity.this, TypeAds.admod_native_chargeresult);
             }
         };
-        mHandler.postDelayed(r, 4000);
+        mHandler.postDelayed(r, 2000);
     }
 
     @Override

@@ -4,6 +4,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import com.ads.control.AdmobHelp;
+import com.ads.control.TypeAds;
+import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.fragment.app.Fragment;
@@ -60,7 +62,8 @@ public class fmChart extends Fragment {
         adapterViewPager = new ChartAdapter(getActivity().getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
         vpPager.setCurrentItem(2);
-        AdmobHelp.getInstance().loadBannerFragment(getActivity(),view);
+        AdmodRef.loadBannerFragment(view, TypeAds.admod_banner_chargehistory);
+//        AdmobHelp.getInstance().loadBannerFragment(getActivity(),view);
         return view;
     }
 

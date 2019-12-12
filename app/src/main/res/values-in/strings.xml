@@ -111,5 +111,18 @@
     <string name="toast_mode_title">Beralih ke</string>
     <string name="charge_des">Pantau status pengisian daya baterai dan kelebihan muatan untuk mencegah (Dapat berisi iklan)</string>
     <string name="enable_fast_charging">Aktifkan Pengisian Cepat</string>
+    <string name="app_name">Pengisi Daya Super Cepat</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="bluetooth_is_enabling">Bluetooth diaktifkan, harap tunggu ...</string>
+    <string name="moreapp_nav">Aplikasi Lainnya</string>
+    <string name="no_junk">Tidak ditemukan file sampah</string>
+    <string name="privacy_policy">Rahasia pribadi</string>
+    <string name="seconds">%d detik</string>
+    <string name="share_nav" translatable="false">Bagikan Aplikasi</string>
+    <string name="calculating" translatable="false">menghitung ...</string>
+    <string name="disable_fast_charging">Nonaktifkan Pengisian Cepat</string>
+    <string name="disable_fast_charging_des">Anda tidak akan dapat memantau status pengisian baterai. Tentu Anda ingin menonaktifkan</string>
+    <string name="feedback_nav">Umpan balik</string>
+    <string name="general_title">Umum</string>
 
 </resources>

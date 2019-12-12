@@ -18,20 +18,15 @@ import android.widget.TextView;
 
 import com.ads.control.funtion.UtilsApp;
 
-
 public class RateApp extends Dialog {
     Context mContext;
     String mEmail, mTitleEmail;
     int mStyle = 0;
     Activity mActivity;
-    String mamod_native;
-    String madmod_full;
 
-    public RateApp(Context context, String email, String TitleEmail, int style, Activity activity, String amod_native, String admod_full) {
+    public RateApp(Context context, String email, String TitleEmail, int style, Activity activity) {
         super(context);
         mActivity = activity;
-        mamod_native = amod_native;
-        madmod_full = admod_full;
         mContext = context;
         mEmail = email;
         mTitleEmail = TitleEmail;
@@ -53,9 +48,6 @@ public class RateApp extends Dialog {
         if (mStyle == 2) {
             setContentView(R.layout.dialog_rate_app);
         }
-//        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
-//        if (!SharePreferenceUtils.getInstance(this).getFlagAds())
-//        AdmobHelp.getInstance().init(mContext,madmod_full,mamod_native);
         setContentView(R.layout.dialog_rate_app);
 
         AdmobHelp.getInstance().loadNativeRate(mActivity,this.getWindow());

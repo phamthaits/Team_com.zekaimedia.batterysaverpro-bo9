@@ -112,4 +112,17 @@
     <string name="toast_mode_title">เปลี่ยนไปเป็น</string>
     <string name="charge_des">ตรวจสอบสถานะการชาร์จแบตเตอรี่และชาร์จไฟเกินเพื่อป้องกัน (อาจมีโฆษณา)</string>
     <string name="enable_fast_charging">เปิดใช้งานการชาร์จอย่างรวดเร็ว</string>
+    <string name="app_name">เครื่องชาร์จเร็วสุด</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="bluetooth_is_enabling">เปิดใช้งานบลูทูธโปรดรอสักครู่ ...</string>
+    <string name="moreapp_nav">แอปพลิเคชันเพิ่มเติม</string>
+    <string name="no_junk">ไม่พบแฟ้มขยะ</string>
+    <string name="privacy_policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="seconds">%d วินาที</string>
+    <string name="share_nav">แชร์แอป</string>
+    <string name="calculating">คำนวณ</string>
+    <string name="disable_fast_charging">ปิดใช้งานการชาร์จอย่างรวดเร็ว</string>
+    <string name="disable_fast_charging_des">คุณจะไม่สามารถตรวจสอบสถานะการชาร์จแบตเตอรี่ได้ แน่ใจว่าคุณต้องการปิดใช้งาน</string>
+    <string name="feedback_nav">คำ ติชม</string>
+    <string name="general_title">ทั่ว ไป</string>
 </resources>

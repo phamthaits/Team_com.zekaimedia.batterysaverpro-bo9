@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Rate.Show(this, 1, this, SharePreferenceConstant.admob_native, SharePreferenceConstant.admob_full);
+        Rate.Show(this, 1, this);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

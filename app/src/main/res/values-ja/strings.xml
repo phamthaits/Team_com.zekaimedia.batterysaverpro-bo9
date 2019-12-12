@@ -112,4 +112,17 @@
     <string name="toast_mode_title">切り替え:</string>
     <string name="charge_des">防止するためにバッテリーの充電状態と充電過負荷を監視する（広告を含む可能性があります）</string>
     <string name="enable_fast_charging">急速充電を有効にする</string>
+    <string name="app_name">超高速充電器</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="bluetooth_is_enabling">ブルートゥースが有効になっています。</string>
+    <string name="moreapp_nav">その他のアプリ</string>
+    <string name="no_junk">迷惑メール ファイルが見つかりません</string>
+    <string name="privacy_policy">プライバシーポリシー</string>
+    <string name="seconds">%d 秒</string>
+    <string name="share_nav">アプリの共有</string>
+    <string name="calculating">計算。。。</string>
+    <string name="disable_fast_charging">高速充電を無効にする</string>
+    <string name="disable_fast_charging_des">バッテリの充電状態を監視することはできません。無効にする必要があります</string>
+    <string name="feedback_nav">フィードバック</string>
+    <string name="general_title">一般</string>
 </resources>

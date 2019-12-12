@@ -16,13 +16,17 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ads.control.AdmobHelp;
+import com.ads.control.TypeAds;
 import com.airbnb.lottie.LottieAnimationView;
 import com.amt.batterysaver.R;
+import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.task.TaskCharge;
 import com.amt.batterysaver.task.TaskChargeDetail;
+
+import java.lang.reflect.Type;
 
 public class FullChargeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -39,11 +43,14 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
         Utils.setLocate(this);
         setContentView(R.layout.activity_charge_full);
         intView();
-        AdmobHelp.getInstance().init(FullChargeActivity.this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
+        AdmodRef.initInterstitialAd(FullChargeActivity.this, TypeAds.admod_full_fullcharge);
+//        AdmobHelp.getInstance().init(FullChargeActivity.this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
         r = new Runnable() {
             @Override
             public void run() {
-                AdmobHelp.getInstance().loadNative(FullChargeActivity.this);
+                AdmodRef.loadNative(FullChargeActivity.this, TypeAds.admod_native_fullcharge);
+//                AdmobHelp.getInstance().loadNative(FullChargeActivity.this);
+
             }
         };
         r1 = new Runnable() {
@@ -56,10 +63,10 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
                 });
             }
         };
-        mHandler=new Handler();
+        mHandler = new Handler();
         mHandler.postDelayed(r, 2000);
-        mHandler1=new Handler();
-        mHandler1.postDelayed(r1, 6000);
+        mHandler1 = new Handler();
+        mHandler1.postDelayed(r1, 5000);
         loadResult();
     }
 

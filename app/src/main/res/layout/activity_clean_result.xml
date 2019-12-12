@@ -118,22 +118,22 @@
                         android:layout_height="wrap_content"
                         layout="@layout/layout_ads_control">
                     </include>
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cvFastCharge"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8.0dip"
-                        android:layout_marginBottom="5.0dip"
-                        android:layout_marginRight="8.0dip"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="8.0dip"
-                        app:cardElevation="0.0dip">
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:id="@+id/cvFastCharge"-->
+<!--                        android:layout_width="fill_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="8.0dip"-->
+<!--                        android:layout_marginBottom="5.0dip"-->
+<!--                        android:layout_marginRight="8.0dip"-->
+<!--                        app:cardBackgroundColor="@color/white"-->
+<!--                        app:cardCornerRadius="8.0dip"-->
+<!--                        app:cardElevation="0.0dip">-->
 
-                        <include
-                            android:layout_height="wrap_content"
-                            android:layout_width="match_parent"
-                            layout="@layout/layout_enable_charge"/>
-                    </androidx.cardview.widget.CardView>
+<!--                        <include-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            layout="@layout/layout_enable_charge"/>-->
+<!--                    </androidx.cardview.widget.CardView>-->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cvBoost"
                         android:layout_width="fill_parent"

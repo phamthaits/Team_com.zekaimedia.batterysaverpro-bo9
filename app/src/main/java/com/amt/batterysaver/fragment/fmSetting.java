@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ads.control.AdmobHelp;
+import com.ads.control.TypeAds;
+import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.github.mikephil.charting.charts.LineChart;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
@@ -44,7 +46,8 @@ public class fmSetting extends Fragment implements View.OnClickListener  {
         intView(view);
         intData();
 //        AdmobHelp.getInstance().loadBannerFragment(getActivity(),view);
-        AdmobHelp.getInstance().loadNativeFragment(getActivity(),view);
+        AdmodRef.loadNativeFragment(getActivity(),view, TypeAds.admod_native_setting);
+//        AdmobHelp.getInstance().loadNativeFragment(getActivity(),view);
         return view;
     }
     public void intView(View v){

@@ -17,7 +17,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.ads.control.AdmobHelp;
+import com.ads.control.TypeAds;
 import com.amt.batterysaver.R;
+import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.adapter.AppManagerAdapter;
 import com.amt.batterysaver.adapter.ManagerConnect;
@@ -62,7 +64,8 @@ public class fmAppManager extends Fragment {
         mRecyclerView = view.findViewById(R.id.recyclerView);
         initAdapter();
         loadData();
-        AdmobHelp.getInstance().loadBannerFragment(getActivity(), view);
+        AdmodRef.loadBannerFragment(view, TypeAds.admod_banner_appmanager);
+//        AdmobHelp.getInstance().loadBannerFragment(getActivity(), view);
         return view;
     }
 

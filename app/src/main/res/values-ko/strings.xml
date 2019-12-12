@@ -112,4 +112,17 @@
     <string name="toast_mode_title">이(가) 다음으로 변경:</string>
     <string name="charge_des">배터리 충전 상태 및 충전 과부하를 모니터하여 방지하십시오 (광고가 포함될 수 있음).</string>
     <string name="enable_fast_charging">빠른 충전 사용</string>
+    <string name="app_name">초고속 충전기</string>
+    <string name="bluetooth">블루투스</string>
+    <string name="bluetooth_is_enabling">블루투스가 활성화되어 있습니다, 기다려주십시오 ...</string>
+    <string name="moreapp_nav">더 많은 앱</string>
+    <string name="no_junk">정크 파일을 찾을 수 없습니다.</string>
+    <string name="privacy_policy">개인정보 처리방침</string>
+    <string name="seconds">%d초</string>
+    <string name="share_nav">앱 공유</string>
+    <string name="calculating">계산...</string>
+    <string name="disable_fast_charging">빠른 충전 을 사용하지 않도록 설정</string>
+    <string name="disable_fast_charging_des">배터리 충전 상태를 모니터링할 수 없습니다. 사용 안 함</string>
+    <string name="feedback_nav">피드백</string>
+    <string name="general_title">일반</string>
 </resources>

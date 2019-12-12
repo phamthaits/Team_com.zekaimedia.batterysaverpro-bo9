@@ -35,13 +35,9 @@ public class DoNotDisturbActivity extends AppCompatActivity implements View.OnCl
         toolbar.setTitle(getString(R.string.title_activity_do_not_disturb));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
         intView();
         intEvent();
         intData();
-
-
     }
 
     @Override
@@ -51,8 +47,6 @@ public class DoNotDisturbActivity extends AppCompatActivity implements View.OnCl
             case android.R.id.home:
                 onBackPressed();
                 break;
-
-
             default:
                 break;
         }
@@ -127,13 +121,11 @@ public class DoNotDisturbActivity extends AppCompatActivity implements View.OnCl
         }
     }
 
-
     @Override
     public void onClick(View v) {
 
         switch (v.getId()) {
             case R.id.rlDND:
-
                 if(SharePreferenceUtils.getInstance(DoNotDisturbActivity.this).getDnd()){
                     setColorText(false);
                     tvEnable.setText(getString(R.string.auto_disable));
@@ -143,7 +135,6 @@ public class DoNotDisturbActivity extends AppCompatActivity implements View.OnCl
                     setColorText(true);
                     SharePreferenceUtils.getInstance(DoNotDisturbActivity.this).setDnd(true);
                 }
-
 
                 break;
             case R.id.rl_DND_start:
@@ -156,7 +147,6 @@ public class DoNotDisturbActivity extends AppCompatActivity implements View.OnCl
                         stringBuilder.append(":");
                         stringBuilder.append(String.format("%02d", Integer.valueOf(i2)));
                         tvDNDStartSecond.setText(stringBuilder.toString());
-
                     }
                 }, timeStart / 100, timeStart % 100, true);
                 timePickerDialog.setTitle(DoNotDisturbActivity.this.getString(R.string.start_at));
@@ -174,12 +164,10 @@ public class DoNotDisturbActivity extends AppCompatActivity implements View.OnCl
                         stringBuilder.append(":");
                         stringBuilder.append(String.format("%02d", Integer.valueOf(i2)));
                         tvDNDStopSecond.setText(stringBuilder.toString());
-
                     }
                 }, timeStop / 100, timeStop % 100, true);
                 timePickerDialog2.setTitle(DoNotDisturbActivity.this.getString(R.string.stop_at));
                 timePickerDialog2.show();
-
                 break;
             default:
                 break;

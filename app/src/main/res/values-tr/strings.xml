@@ -112,4 +112,17 @@
     <string name="toast_mode_title">Şuna geçiş yaptı:</string>
     <string name="charge_des">Akünün şarj durumunu ve aşırı şarjı önlemek için izleyin (Reklam içerebilir)</string>
     <string name="enable_fast_charging">Hızlı Şarjı Etkinleştir</string>
+    <string name="app_name" translatable="false">Süper Hızlı Şarj Cihazı</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="bluetooth_is_enabling">Bluetooth etkin, lütfen bekleyin ...</string>
+    <string name="moreapp_nav">Diğer Uygulama</string>
+    <string name="no_junk">Önemsiz dosya bulunamadı</string>
+    <string name="privacy_policy">Gizlilik Politikası</string>
+    <string name="seconds">%d saniye</string>
+    <string name="share_nav">Uygulamayı Paylaş</string>
+    <string name="calculating">Hesaplama...</string>
+    <string name="disable_fast_charging">Hızlı Şarjı Devre Dışı</string>
+    <string name="disable_fast_charging_des">Pil şarj durumunu izleyemeyeceksiniz. Elbette devre dışı kalmak istiyorsunuz</string>
+    <string name="feedback_nav">Geribildirim</string>
+    <string name="general_title">Genel</string>
 </resources>

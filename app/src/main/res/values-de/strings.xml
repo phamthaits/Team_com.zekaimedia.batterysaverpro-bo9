@@ -154,5 +154,18 @@
     <string name="toast_mode_title">Gewechselt zu</string>
     <string name="charge_des">Überwachen Sie den Ladezustand des Akkus und die Überladung, um dies zu verhindern (kann Werbung enthalten)</string>
     <string name="enable_fast_charging">Aktivieren Sie das Schnellladen</string>
+    <string name="app_name">Super Fast Charger</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="bluetooth_is_enabling">Bluetooth ist aktiviert, bitte warten...</string>
+    <string name="moreapp_nav" translatable="false">Mehr App</string>
+    <string name="no_junk">Keine Junk-Datei gefunden</string>
+    <string name="privacy_policy">Datenschutz</string>
+    <string name="seconds">%d Sekunden</string>
+    <string name="share_nav">Teilen App</string>
+    <string name="calculating">Berechnung...</string>
+    <string name="disable_fast_charging">Schnelles Laden deaktivieren</string>
+    <string name="disable_fast_charging_des">Sie können den Batterieladestatus nicht überwachen. Sicher, sie möchten deaktivieren</string>
+    <string name="feedback_nav">Feedback</string>
+    <string name="general_title">Allgemeine</string>
 
 </resources>

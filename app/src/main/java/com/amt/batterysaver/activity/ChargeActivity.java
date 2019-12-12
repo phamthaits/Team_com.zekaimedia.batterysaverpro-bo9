@@ -17,7 +17,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ads.control.AdmobHelp;
+import com.ads.control.TypeAds;
 import com.airbnb.lottie.LottieAnimationView;
+import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
@@ -43,8 +45,11 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         intView();
         intData();
         checkTask();
-        AdmobHelp.getInstance().loadNative(ChargeActivity.this);
-        AdmobHelp.getInstance().init(ChargeActivity.this, SharePreferenceConstant.admob_full,SharePreferenceConstant.admob_native);
+
+        AdmodRef.initInterstitialAd(this, TypeAds.admod_full_fastcharge);
+        AdmodRef.loadNative(this, TypeAds.admod_native_fastcharge);
+//        AdmobHelp.getInstance().loadNative(ChargeActivity.this);
+//        AdmobHelp.getInstance().init(ChargeActivity.this, SharePreferenceConstant.admob_full,SharePreferenceConstant.admob_native);
     }
 
     public void checkTask() {
@@ -102,7 +107,6 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         rlDone = findViewById(R.id.rlDone);
         imgDone = findViewById(R.id.imgDone);
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
-
     }
 
     public void intData() {

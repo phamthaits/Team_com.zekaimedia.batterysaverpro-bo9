@@ -30,7 +30,7 @@
     <string name="title_optimize">BATTERY OPTIMIZATION</string>
 
     <string name="minutes" translatable="false">%d minute(s)</string>
-    <string name="seconds" translatable="false">%d seconds</string>
+    <string name="seconds">%d seconds</string>
 
     <string name="uninstall">Uninstall</string>
     <string name="system_app">System App</string>
@@ -44,11 +44,10 @@
     <string name="pc_ram_free_able">Freeable</string>
     <string name="percent_none" translatable="false">%</string>
     <string name="total_found">Total found: %s</string>
-    <string name="no_junk" translatable="false">No junk file found</string>
+    <string name="no_junk">No junk file found</string>
     <string name="system_cache">System Cache</string>
     <string name="downloader_files">Downloaded Files</string>
     <string name="large_files">Large Files</string>
-    <string name="calculating" translatable="false">Calculating…</string>
     <string name="obsolete_apk">Useless APKs</string>
 
     //Cap quyen
@@ -58,7 +57,7 @@
     <string name="screen_brightness">Brightness</string>
     <string name="auto">Auto</string>
     <string name="wifi">Wi-Fi</string>
-    <string name="bluetooth" translatable="false">Bluetooth</string>
+    <string name="bluetooth">Bluetooth</string>
     <string name="start_at">Start time</string>
     <string name="stop_at">End time</string>
     <string name="enabled">Enable</string>
@@ -98,7 +97,7 @@
     <string name="app_white_list">App ignore list</string>
     <string name="app_white_list_des">Ignore list for memory boost</string>
     <string name="battery_title">BATTERY SAVER</string>
-    <string name="general_title" translatable="false">GENERAL</string>
+    <string name="general_title">General</string>
 
     //Fast charger
     <string name="charging_completed">Charging complete</string>
@@ -138,7 +137,7 @@
     <string name="battery_full_des">Charging finished. Please unplug the power.</string>
 
     //
-    <string name="bluetooth_is_enabling" translatable="false">Bluetooth is enabling, please wait...</string>
+    <string name="bluetooth_is_enabling">Bluetooth is enabled, please wait...</string>
 
 
     //
@@ -150,20 +149,21 @@
 
     <string name="battery_exellent">Great!</string>
 
-    //
     <string name="phone_cool_nav">Phone Cooler</string>
     <string name="phone_boost_nav">Phone Boost</string>
     <string name="junk_clean_nav">Trash Cleaner</string>
 
     <string name="setting_nav">Settings</string>
-    <string name="share_nav" translatable="false">Share App</string>
+    <string name="share_nav">Share App</string>
     <string name="feedback_nav" translatable="false">Feed Back</string>
+    <string name="moreapp_nav">More App</string>
+    <string name="privacy_policy">Privacy Policy</string>
 
     <string name="pc_auto_optimizing">Auto Optimizing</string>
     <string name="pc_scanning">Scanning</string>
     <string name="cpugpuram" translatable="false">CPU,GPU,RAM</string>
     <string name="bd_power_issue">Power issue</string>
-    <string name="app_name" translatable="false">Super Fast Charger</string>
+    <string name="app_name">Super Fast Charger</string>
     <string name="power_full">Power is full</string>
     <string name="auto_disable">Disable</string>
     <string name="on_status">ON</string>
@@ -174,7 +174,7 @@
     <string name="my_mode">My Mode</string>
     <string name="toast_mode_title">Has switched to</string>
     <string name="charge_des" >Monitor battery charge status and charge overload to prevent (May contain ads)</string>
-    <string name="disable_fast_charging_des" translatable="false">You will not be able monitor battery charge status. Sure you want to disable</string>
+    <string name="disable_fast_charging_des">You will not be able monitor battery charge status. Sure you want to disable</string>
     <string name="disable_fast_charging" translatable="false">Disable Fast Charging</string>
     <string name="enable_fast_charging">Enable Fast Charging</string>
 
@@ -184,4 +184,5 @@
     <string name="stringGray" translatable="false">#b2bec3</string>
 
     <string name="link_policy" translatable="false">https://policy.com</string>
+    <string name="calculating">calculating...</string>
 </resources>

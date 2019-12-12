@@ -29,6 +29,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ads.control.AdmobHelp;
+import com.ads.control.TypeAds;
+import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
@@ -73,8 +75,10 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         new CoolActivity.LoadRunningTask().execute();
         intView();
         checkTask();
-        AdmobHelp.getInstance().loadNative(CoolActivity.this);
-        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
+        AdmodRef.initInterstitialAd(this, TypeAds.admod_full_phonecooler);
+        AdmodRef.loadNative(this,TypeAds.admod_native_phonecooler);
+//        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
+//        AdmobHelp.getInstance().loadNative(CoolActivity.this);
 //        SharePreferenceUtils.getInstance(this).setFlagAds(true);
     }
 
