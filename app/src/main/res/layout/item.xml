@@ -29,7 +29,8 @@
                 android:id="@+id/viewIconFile"
                 android:layout_width="@dimen/width_icon"
                 android:layout_height="@dimen/width_icon"
-                android:background="@drawable/bg_icon_file">
+                >
+<!--                android:background="@drawable/bg_icon_file"-->
 
                 <ImageView
                     android:id="@+id/imgFileApk"

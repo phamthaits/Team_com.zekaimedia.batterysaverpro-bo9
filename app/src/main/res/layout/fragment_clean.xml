@@ -153,10 +153,10 @@
                     android:id="@+id/imgFileApk"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:background="@drawable/bg_icon_file"
                     android:contentDescription="@string/app_name"
                     android:padding="10dp"
                     android:src="@drawable/ic_android_white_24dp" />
+                <!--                    android:background="@drawable/bg_icon_file"-->
 
                 <TextView
                     android:layout_width="0dp"
@@ -186,10 +186,11 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:background="@drawable/bg_icon_file"
+
                     android:contentDescription="@string/app_name"
                     android:padding="10dp"
                     android:src="@drawable/ic_layers_white_24dp" />
+<!--                android:background="@drawable/bg_icon_file"-->
 
                 <TextView
                     android:layout_width="0dp"
@@ -219,10 +220,10 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:background="@drawable/bg_icon_file"
                     android:contentDescription="@string/app_name"
                     android:padding="10dp"
                     android:src="@drawable/ic_file_download_white_24dp" />
+<!--                android:background="@drawable/bg_icon_file"-->
 
                 <TextView
                     android:layout_width="0dp"
@@ -252,10 +253,10 @@
                 <ImageView
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:background="@drawable/bg_icon_file"
                     android:contentDescription="@string/app_name"
                     android:padding="10dp"
                     android:src="@drawable/ic_description_white_24dp" />
+<!--                android:background="@drawable/bg_icon_file"-->
 
                 <TextView
                     android:layout_width="0dp"
@@ -276,8 +277,6 @@
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
-
-
 
     <Button
         android:layout_gravity="center"

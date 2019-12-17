@@ -356,7 +356,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
 
     }
 
-    CardView cvFastCharge;
+//    CardView cvFastCharge;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -366,37 +366,33 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intEvent();
         AdmodRef.loadNativeFragment(getActivity(), view, TypeAds.admod_native_main);
 //        AdmobHelp.getInstance().loadNativeFragment(getActivity(), view);
-        if (!Utils.checkShouldDoing(getActivity(), 8)) {
-            cvFastCharge.setVisibility(View.GONE);
-
-        } else {
-            if (SharePreferenceUtils.getInstance(getActivity()).getFsAutoRun()) {
-                cvFastCharge.setVisibility(View.GONE);
-
-            }
-
-        }
-        view.findViewById(R.id.ivClose).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharePreferenceUtils.getInstance(getActivity()).setHideChargeView(System.currentTimeMillis());
-                cvFastCharge.setVisibility(View.GONE);
-            }
-        });
-        view.findViewById(R.id.btnOk).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharePreferenceUtils.getInstance(getActivity()).setFsAutoRun(true);
-                cvFastCharge.setVisibility(View.GONE);
-            }
-        });
-
-
+//        if (!Utils.checkShouldDoing(getActivity(), 8)) {
+//            cvFastCharge.setVisibility(View.GONE);
+//
+//        } else {
+//            if (SharePreferenceUtils.getInstance(getActivity()).getFsAutoRun()) {
+//                cvFastCharge.setVisibility(View.GONE);
+//            }
+//        }
+//        view.findViewById(R.id.ivClose).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                SharePreferenceUtils.getInstance(getActivity()).setHideChargeView(System.currentTimeMillis());
+//                cvFastCharge.setVisibility(View.GONE);
+//            }
+//        });
+//        view.findViewById(R.id.btnOk).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                SharePreferenceUtils.getInstance(getActivity()).setFsAutoRun(true);
+//                cvFastCharge.setVisibility(View.GONE);
+//            }
+//        });
         return view;
     }
 
     public void intView(View view) {
-        cvFastCharge = view.findViewById(R.id.cvFastCharge);
+//        cvFastCharge = view.findViewById(R.id.cvFastCharge);
         v1 = (View) view.findViewById(R.id.view1);
         v2 = (View) view.findViewById(R.id.view2);
         v3 = (View) view.findViewById(R.id.view3);

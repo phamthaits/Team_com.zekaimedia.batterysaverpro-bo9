@@ -86,16 +86,15 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
                 finish();
                 return;
 
-            case R.id.ivClose:
-                SharePreferenceUtils.getInstance(this).setHideChargeView(System.currentTimeMillis());
-                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-                return;
-
-            case R.id.btnOk:
-                SharePreferenceUtils.getInstance(this).setFsAutoRun(true);
-                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-
-                return;
+//            case R.id.ivClose:
+//                SharePreferenceUtils.getInstance(this).setHideChargeView(System.currentTimeMillis());
+//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
+//                return;
+//
+//            case R.id.btnOk:
+//                SharePreferenceUtils.getInstance(this).setFsAutoRun(true);
+//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
+//                return;
             case R.id.rlBoost:
                 startActivity(new Intent(BatterySaverActivity.this, BoostActivity.class));
                 finish();
@@ -429,13 +428,13 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
             findViewById(R.id.cvClean).setVisibility(View.GONE);
 
         }
-        if (!Utils.checkShouldDoing(this, 8)) {
-            findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-
-        } else {
-            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
-                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-        }
+//        if (!Utils.checkShouldDoing(this, 8)) {
+//            findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
+//
+//        } else {
+//            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
+//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
+//        }
 
     }
 

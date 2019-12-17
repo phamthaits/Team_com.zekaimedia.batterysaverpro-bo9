@@ -120,7 +120,7 @@
                             android:layout_gravity="center"
                             android:fontFamily="@font/roboto_regular"
                             android:text="100%"
-                            android:textColor="@color/text_second"
+                            android:textColor="@color/text_color"
                             android:textSize="@dimen/Optimize_big_size"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -237,7 +237,7 @@
                                     android:paddingEnd="8.0dip"
                                     android:text="@string/op_boost"
                                     android:textAllCaps="true"
-                                    android:textColor="@color/more_boost"
+                                    android:textColor="@color/more_clean"
                                     android:textSize="@dimen/text_details_optimize"
                                     android:typeface="sans" />
                             </LinearLayout>
@@ -269,7 +269,7 @@
                                 android:id="@+id/fm_header_clean"
                                 android:layout_width="72.0dip"
                                 android:layout_height="fill_parent"
-                                android:background="@drawable/more_boost_bg">
+                                android:background="@drawable/more_clean_bg">
 
                                 <ImageView
                                     android:layout_width="32.0dip"
@@ -355,15 +355,16 @@
                                 android:id="@+id/fl_cool"
                                 android:layout_width="72.0dip"
                                 android:layout_height="fill_parent"
-                                android:background="@drawable/more_share_bg">
+                                android:background="@drawable/more_clean_bg">
 
                                 <ImageView
                                     android:id="@+id/ivCool"
                                     android:layout_width="32.0dip"
                                     android:layout_height="32.0dip"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/ic_temperature_normal"
-                                    android:tint="@color/white" />
+                                    android:src="@drawable/ic_temperature"
+                                    />
+<!--                                android:tint="@color/white"-->
                             </FrameLayout>
 
                             <LinearLayout

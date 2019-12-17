@@ -2,13 +2,11 @@
 <resources>
     <color name="colorindicator">#ff3fb5cf</color>
     <color name="white_blur">#bf9c9c9c</color>
-
-
-    <color name="text_color">#ff666666</color>
-    <color name="color_ads">#ff3fb5cf</color>
+    <color name="text_color">#55626e</color>
+    <color name="color_ads">#43c63c</color>
     <color name="color_white">#ffffffff</color>
     <color name="color_gray_2_ads">#fff8f8f8</color>
     <color name="stocke_card">#252C2B2B</color>
-
     <color name="light_transparent">#16000000</color>
+    <color name="_bg">#ebeff1</color>
 </resources>

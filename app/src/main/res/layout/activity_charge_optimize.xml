@@ -40,7 +40,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/title_activity_fast_charge"
                 android:textAllCaps="true"
-                android:textColor="@color/text_second"
+                android:textColor="@color/text_color"
                 android:textSize="@dimen/text_size" />
 
         </LinearLayout>
@@ -124,22 +124,22 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"></include>
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cvFastCharge"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8.0dip"
-                        android:layout_marginTop="5.0dip"
-                        android:layout_marginRight="8.0dip"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="8.0dip"
-                        app:cardElevation="0.0dip">
+<!--                    <androidx.cardview.widget.CardView-->
+<!--                        android:id="@+id/cvFastCharge"-->
+<!--                        android:layout_width="fill_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="8.0dip"-->
+<!--                        android:layout_marginTop="5.0dip"-->
+<!--                        android:layout_marginRight="8.0dip"-->
+<!--                        app:cardBackgroundColor="@color/white"-->
+<!--                        app:cardCornerRadius="8.0dip"-->
+<!--                        app:cardElevation="0.0dip">-->
 
-                        <include
-                            layout="@layout/layout_enable_charge"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" />
-                    </androidx.cardview.widget.CardView>
+<!--                        <include-->
+<!--                            layout="@layout/layout_enable_charge"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content" />-->
+<!--                    </androidx.cardview.widget.CardView>-->
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cvBoost"
@@ -222,7 +222,7 @@
                                     android:paddingEnd="8.0dip"
                                     android:text="@string/op_boost"
                                     android:textAllCaps="true"
-                                    android:textColor="@color/more_boost"
+                                    android:textColor="@color/more_clean"
                                     android:textSize="@dimen/text_details_optimize"
                                     android:typeface="sans" />
                             </LinearLayout>
@@ -254,7 +254,7 @@
                                 android:id="@+id/fm_header_clean"
                                 android:layout_width="72.0dip"
                                 android:layout_height="fill_parent"
-                                android:background="@drawable/more_boost_bg">
+                                android:background="@drawable/more_clean_bg">
 
                                 <ImageView
                                     android:layout_width="32.0dip"
@@ -340,15 +340,16 @@
                                 android:id="@+id/fl_cool"
                                 android:layout_width="72.0dip"
                                 android:layout_height="fill_parent"
-                                android:background="@drawable/more_share_bg">
+                                android:background="@drawable/more_clean_bg">
 
                                 <ImageView
                                     android:id="@+id/ivCool"
                                     android:layout_width="32.0dip"
                                     android:layout_height="32.0dip"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/ic_temperature_normal"
-                                    android:tint="@color/white" />
+                                    android:src="@drawable/ic_temperature"
+                                    />
+                                <!--                                android:tint="@color/white"-->
                             </FrameLayout>
 
                             <LinearLayout

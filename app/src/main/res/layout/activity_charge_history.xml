@@ -89,7 +89,7 @@
                             android:layout_width="@dimen/img_chart_item_color_width"
                             android:layout_height="@dimen/img_chart_item_color_width"
                             android:layout_centerVertical="true"
-                            android:background="@drawable/shape_status_normal" />
+                            android:background="@drawable/shape_status_healthy" />
 
                         <TextView
                             android:id="@+id/tvHealthy"
@@ -127,7 +127,7 @@
                             android:layout_width="@dimen/img_chart_item_color_width"
                             android:layout_height="@dimen/img_chart_item_color_width"
                             android:layout_centerVertical="true"
-                            android:background="@drawable/status_healthy" />
+                            android:background="@drawable/shape_status_normal" />
 
                         <TextView
                             android:id="@+id/tvNormal"

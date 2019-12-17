@@ -17,7 +17,8 @@
             android:layout_gravity="center_vertical"
             android:layout_margin="8.0dip"
             android:contentDescription="@string/app_name"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_splash" />
+<!--        android:src="@mipmap/ic_launcher" />-->
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -180,8 +181,8 @@
                 android:layout_marginEnd="10.0dip"
                 android:padding="5dip"
                 android:src="@drawable/ic_memory_boost"
-                android:tint="@color/more_boost" />
-
+                />
+<!--            android:tint="@color/more_boost"-->
         </LinearLayout>
     </FrameLayout>
 </FrameLayout>

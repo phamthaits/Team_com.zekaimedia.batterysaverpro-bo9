@@ -29,8 +29,9 @@
                     android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_rocket_white"
-                    android:tint="@color/more_clean"
+
                     android:scaleType="centerInside" />
+<!--                android:tint="@color/more_clean"-->
             </FrameLayout>
 
             <LinearLayout

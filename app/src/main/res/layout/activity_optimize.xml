@@ -52,8 +52,8 @@
                 app:wlv_titleCenterStrokeWidth="3dp"
                 app:wlv_triangle_direction="north"
                 app:wlv_waveAmplitude="70"
-                app:wlv_waveColor="#ff3fb5cf"
-                app:wlv_wave_background_Color="#ff3c485b" />
+                app:wlv_waveColor="#43c63c"
+                app:wlv_wave_background_Color="#55626e" />
 
 
             <LinearLayout

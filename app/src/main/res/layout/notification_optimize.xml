@@ -29,7 +29,8 @@
                     android:layout_gravity="center"
                     android:src="@drawable/ic_sync_true"
                     android:scaleType="centerInside"
-                    android:tint="@color/colorAccent"/>
+                    />
+<!--                android:tint="@color/colorAccent"-->
             </FrameLayout>
 
             <LinearLayout

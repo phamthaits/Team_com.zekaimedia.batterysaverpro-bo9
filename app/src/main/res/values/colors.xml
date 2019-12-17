@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3FB5CF</color>
-    <color name="colorPrimaryDark">#3fb5cf</color>
-    <color name="colorAccent">#3fb5cf</color>
+    <color name="colorPrimary">#43c63c</color>
+    <color name="colorPrimaryDark">#43c63c</color>
+    <color name="colorAccent">#43c63c</color>
 
     <color name="text_color">#ff666666</color>
-    <color name="text_gray">#7d7d7d</color>
+    <color name="text_gray">#55626e</color>
     <color name="red">#FF1744</color>
     <color name="black">#000000</color>
     <color name="white">#ffffffff</color>
@@ -31,11 +31,11 @@
     <color name="point_chart">#ff3fb5cf</color>
 
     //device status
-    <color name="ram">#27ae60</color>
-    <color name="storage">#e67e22</color>
-    <color name="temperature">#3498db</color>
-    <color name="opacity_button">#0D000000</color>
-    <color name="grey_500">#9E9E9E</color>r
+    <color name="ram">#43c63c</color>
+    <color name="storage">#fd3d39</color>
+    <color name="temperature">#2572d3</color>
+    <color name="opacity_button">#55626e</color>
+    <color name="grey_500">#6e7f89</color>r
     <color name="grey_700">#616161</color>
 
     //clean
@@ -52,12 +52,12 @@
 
     <color name="tv_charge_count_color">#ff45527a</color>
     <color name="color_black_6">#ffacacac</color>
-    <color name="color_normal">#ff55b2dd</color>
+    <color name="color_normal">#43c63c</color>
     <color name="color_text_title_item_setting">#881f4060</color>
     <color name="color_divider">#222c2c2c</color>
     <color name="color_text_item_setting">#ff19334d</color>
-    <color name="color_over">#ffe95e57</color>
-    <color name="color_healthy">#57cc57</color>
+    <color name="color_over">#fd3d39</color>
+    <color name="color_healthy">#2572d3</color>
 
     <color name="list_selector_pressed_dark">#55eeeeff</color>
 
@@ -68,14 +68,14 @@
     <color name="divider">#55aaaaaa</color>
     <color name="main_dark_color">#ffeeeeee</color>
     <color name="dark_ripple_sub">#ffcccccc</color>
-    <color name="more_clean">#69F0AE</color>
+    <color name="more_clean">#43c63c</color>
     <color name="more_clean_bg">#B9F6CA</color>
     <color name="gray">#ff99a0b6</color>
     <color name="dark_background_sub">#ffffffff</color>
-    <color name="more_boost">#ff7bc144</color>
-    <color name="more_share">#ff3fbcf6</color>
+    <color name="more_boost">#e2fce0</color>
+    <color name="more_share">#43c63c</color>
     <color name="dark_icon_color">#ff212121</color>
-    <color name="progress_color">#ff3fb5cf</color>
+    <color name="progress_color">#43c63c</color>
     <color name="color_complete_bg">#151ca0ea</color>
 
     <color name="color_text_progress_charge_dim">#ff777777</color>

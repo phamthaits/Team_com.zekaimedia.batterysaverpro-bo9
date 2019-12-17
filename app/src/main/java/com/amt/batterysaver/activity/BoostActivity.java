@@ -78,13 +78,13 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
             findViewById(R.id.cvClean).setVisibility(View.GONE);
 
         }
-        if (!Utils.checkShouldDoing(this, 8)) {
-            findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-
-        } else {
-            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
-                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-        }
+//        if (!Utils.checkShouldDoing(this, 8)) {
+//            findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
+//
+//        } else {
+//            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
+//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
+//        }
 
     }
 
@@ -150,14 +150,14 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
             case R.id.lr_back:
                 finish();
                 return;
-            case R.id.ivClose:
-                SharePreferenceUtils.getInstance(this).setHideChargeView(System.currentTimeMillis());
-                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-                return;
-            case R.id.btnOk:
-                SharePreferenceUtils.getInstance(this).setFsAutoRun(true);
-                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-                return;
+//            case R.id.ivClose:
+//                SharePreferenceUtils.getInstance(this).setHideChargeView(System.currentTimeMillis());
+//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
+//                return;
+//            case R.id.btnOk:
+//                SharePreferenceUtils.getInstance(this).setFsAutoRun(true);
+//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
+//                return;
             case R.id.rlBoost:
                 startActivity(new Intent(this, BoostActivity.class));
                 finish();

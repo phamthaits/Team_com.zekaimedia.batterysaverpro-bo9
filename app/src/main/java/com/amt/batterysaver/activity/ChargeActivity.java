@@ -62,12 +62,12 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         if (!Utils.checkShouldDoing(this, 3)) {
             findViewById(R.id.cvClean).setVisibility(View.GONE);
         }
-        if (!Utils.checkShouldDoing(this, 8)) {
-            findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-        } else {
-            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
-                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-        }
+//        if (!Utils.checkShouldDoing(this, 8)) {
+//            findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
+//        } else {
+//            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
+//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
+//        }
     }
 
     @Override

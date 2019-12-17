@@ -306,7 +306,7 @@
                             android:lines="2"
                             android:maxLines="1"
                             android:text="@string/go_charge_quantity"
-                            android:textColor="@color/grey_500"
+                            android:textColor="@color/text_color"
                             android:textSize="@dimen/textsize_compo_ram_cpu_des" />
 
 

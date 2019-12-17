@@ -92,13 +92,13 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         if (!Utils.checkShouldDoing(this, 3)) {
             findViewById(R.id.cvClean).setVisibility(View.GONE);
         }
-        if (!Utils.checkShouldDoing(this, 8)) {
-            findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-
-        } else {
-            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
-                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-        }
+//        if (!Utils.checkShouldDoing(this, 8)) {
+//            findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
+//
+//        } else {
+//            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
+//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
+//        }
     }
 
     @Override
@@ -107,16 +107,16 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.lr_back:
                 finish();
                 return;
-            case R.id.ivClose:
-                SharePreferenceUtils.getInstance(this).setHideChargeView(System.currentTimeMillis());
-                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-                return;
-
-            case R.id.btnOk:
-                SharePreferenceUtils.getInstance(this).setFsAutoRun(true);
-                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-
-                return;
+//            case R.id.ivClose:
+//                SharePreferenceUtils.getInstance(this).setHideChargeView(System.currentTimeMillis());
+//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
+//                return;
+//
+//            case R.id.btnOk:
+//                SharePreferenceUtils.getInstance(this).setFsAutoRun(true);
+//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
+//
+//                return;
             case R.id.rlBoost:
                 startActivity(new Intent(this, BoostActivity.class));
                 finish();
