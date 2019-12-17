@@ -125,4 +125,5 @@
     <string name="disable_fast_charging_des">Вы не сможете контролировать состояние заряда батареи. Конечно, вы хотите отключить</string>
     <string name="feedback_nav">Обратной связи</string>
     <string name="general_title">Общие</string>
+    <string name="battery_level">Уровень заряда батареи</string>
 </resources>

@@ -157,7 +157,7 @@
     <string name="app_name">Super Fast Charger</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="bluetooth_is_enabling">Bluetooth ist aktiviert, bitte warten...</string>
-    <string name="moreapp_nav" translatable="false">Mehr App</string>
+    <string name="moreapp_nav" >Mehr App</string>
     <string name="no_junk">Keine Junk-Datei gefunden</string>
     <string name="privacy_policy">Datenschutz</string>
     <string name="seconds">%d Sekunden</string>
@@ -167,5 +167,6 @@
     <string name="disable_fast_charging_des">Sie können den Batterieladestatus nicht überwachen. Sicher, sie möchten deaktivieren</string>
     <string name="feedback_nav">Feedback</string>
     <string name="general_title">Allgemeine</string>
+    <string name="battery_level">Batteriestand</string>
 
 </resources>

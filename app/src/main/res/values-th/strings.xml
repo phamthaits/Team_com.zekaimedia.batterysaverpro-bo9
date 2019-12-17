@@ -125,4 +125,5 @@
     <string name="disable_fast_charging_des">คุณจะไม่สามารถตรวจสอบสถานะการชาร์จแบตเตอรี่ได้ แน่ใจว่าคุณต้องการปิดใช้งาน</string>
     <string name="feedback_nav">คำ ติชม</string>
     <string name="general_title">ทั่ว ไป</string>
+    <string name="battery_level">ระดับแบตเตอรี่</string>
 </resources>

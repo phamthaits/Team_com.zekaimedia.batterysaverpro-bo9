@@ -118,11 +118,12 @@
     <string name="no_junk">Tidak ditemukan file sampah</string>
     <string name="privacy_policy">Rahasia pribadi</string>
     <string name="seconds">%d detik</string>
-    <string name="share_nav" translatable="false">Bagikan Aplikasi</string>
-    <string name="calculating" translatable="false">menghitung ...</string>
+    <string name="share_nav" >Bagikan Aplikasi</string>
+    <string name="calculating" >menghitung ...</string>
     <string name="disable_fast_charging">Nonaktifkan Pengisian Cepat</string>
     <string name="disable_fast_charging_des">Anda tidak akan dapat memantau status pengisian baterai. Tentu Anda ingin menonaktifkan</string>
     <string name="feedback_nav">Umpan balik</string>
     <string name="general_title">Umum</string>
+    <string name="battery_level">Tingkat Baterai</string>
 
 </resources>

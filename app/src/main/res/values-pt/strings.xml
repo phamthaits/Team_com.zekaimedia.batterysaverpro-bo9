@@ -124,5 +124,6 @@
     <string name="disable_fast_charging_des">Você não poderá monitorar o status da carga da bateria. Claro que você quer desativar</string>
     <string name="feedback_nav">Feedback</string>
     <string name="general_title">Geral</string>
+    <string name="battery_level">Nível da bateria</string>
 
 </resources>

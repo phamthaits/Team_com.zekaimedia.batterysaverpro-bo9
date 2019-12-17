@@ -5,7 +5,12 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ShortcutInfo;
+import android.content.pm.ShortcutManager;
+import android.graphics.drawable.Icon;
+import android.net.Uri;
 import android.os.Build;
+
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 
@@ -18,9 +23,11 @@ import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.activity.BoostActivity;
 
-public class NotificationBattery extends NotificationCompat.Builder   {
+import java.util.Arrays;
+
+public class NotificationBattery extends NotificationCompat.Builder {
     public static final int NOTIFYCATION_BATTERY_ID = 1000;
-    public static final String UPDATE_NOTIFICATION_ENABLE = "update_notification_enable" ;
+    public static final String UPDATE_NOTIFICATION_ENABLE = "update_notification_enable";
     private int[] iconRes = {
             R.drawable.ic_p0, R.drawable.ic_p1,
             R.drawable.ic_p2, R.drawable.ic_p3,
@@ -89,27 +96,20 @@ public class NotificationBattery extends NotificationCompat.Builder   {
 
     public static NotificationBattery getInstance(Context context) {
         if (notifycationBattery == null)
-            notifycationBattery = new NotificationBattery(context,"notification_channel_id");
+            notifycationBattery = new NotificationBattery(context, "notification_channel_id");
         return notifycationBattery;
     }
 
     public void updateNotify(int lv, int temp, int hourleft, int minleft, boolean ischarging) {
         Intent intent = new Intent(mContext, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setAction("LOCATION_SHORTCUT");
         PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, intent, 0);
 
         Intent iOptimize = new Intent(mContext, BoostActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        iOptimize.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        iOptimize.setAction("LOCATION_SHORTCUT");
         PendingIntent pOptipimize = PendingIntent.getActivity(mContext, 0, iOptimize, 0);
-
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext);
-        notificationBuilder.setSmallIcon(iconRes[lv]);
-        notificationBuilder.setTicker(null);
-        notificationBuilder.setOnlyAlertOnce(true);
-        notificationBuilder.setContentTitle("Chỗ này");
-        notificationBuilder.setContentText("Chưa biết ghi gì");
-        notificationBuilder.setContentIntent(pendingIntent);
-        notificationBuilder.setDefaults(0);
 
         RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.custom_notification);
         remoteViews.setOnClickPendingIntent(R.id.img_clean, pOptipimize);
@@ -117,49 +117,94 @@ public class NotificationBattery extends NotificationCompat.Builder   {
         //temperature
 
         remoteViews.setTextViewText(R.id.tvTemp, getTemp(temp));
-        remoteViews.setTextViewText(R.id.tvHour,String.format("%02d", hourleft));
-        remoteViews.setTextViewText(R.id.tvMin,String.format("%02d", minleft));
+        remoteViews.setTextViewText(R.id.tvHour, String.format("%02d", hourleft));
+        remoteViews.setTextViewText(R.id.tvMin, String.format("%02d", minleft));
         remoteViews.setTextViewText(R.id.tv_status, getStatusTime(ischarging));
-        if(ischarging){
-            if(Utils.getChargeFull(mContext)){
+        if (ischarging) {
+            if (Utils.getChargeFull(mContext)) {
                 remoteViews.setViewVisibility(R.id.view_time_left, View.GONE);
                 remoteViews.setViewVisibility(R.id.tvFullCharge, View.VISIBLE);
                 remoteViews.setTextViewText(R.id.tvFullCharge, mContext.getString(R.string.power_full));
             }
-            remoteViews.setImageViewResource(R.id.img_battery,R.drawable.ic_battery_notification_charge);
-        }else{
+            remoteViews.setImageViewResource(R.id.img_battery, R.drawable.ic_battery_notification_charge);
+        } else {
             remoteViews.setViewVisibility(R.id.view_time_left, View.VISIBLE);
             remoteViews.setViewVisibility(R.id.tvFullCharge, View.GONE);
-            if(lv<20){
-                remoteViews.setImageViewResource(R.id.img_battery,R.drawable.ic_battery_notification_low);
-            }else{
-                remoteViews.setImageViewResource(R.id.img_battery,R.drawable.ic_battery_notification_normal);
+            if (lv < 20) {
+                remoteViews.setImageViewResource(R.id.img_battery, R.drawable.ic_battery_notification_low);
+            } else {
+                remoteViews.setImageViewResource(R.id.img_battery, R.drawable.ic_battery_notification_normal);
             }
         }
-            remoteViews.setImageViewResource(R.id.img_temp,R.drawable.ic_temperature_normal);
+        remoteViews.setImageViewResource(R.id.img_temp, R.drawable.ic_temperature_normal);
 
-        if (Build.VERSION.SDK_INT >= 26) {
-            notificationBuilder.setChannelId("notification_channel_id");
+        ShortcutManager shortcutManager;
+//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+        if (android.os.Build.VERSION.SDK_INT >= 25) {
+            shortcutManager = mContext.getSystemService(ShortcutManager.class);
+            ShortcutInfo shortcut_main, shortcut_junk_clean, shortcut_boost, shortcut_cool;
+            if (android.os.Build.VERSION.SDK_INT >= 25) {
+//                shortcut_main = new ShortcutInfo.Builder(mContext, "shortcut_main")
+////                        .setShortLabel(mContext.getString(R.string.app_name))
+////                        .setLongLabel(mContext.getString(R.string.app_name))
+////                        .setIcon(Icon.createWithResource(mContext, R.mipmap.ic_launcher))
+////                        .setIntent(intent)
+////                        .build();
+
+                shortcut_junk_clean = new ShortcutInfo.Builder(mContext, "shortcut_junk_clean")
+                        .setShortLabel(mContext.getString(R.string.junk_clean_nav))
+                        .setLongLabel(mContext.getString(R.string.junk_clean_nav))
+                        .setIcon(Icon.createWithResource(mContext, R.drawable.ic_clean_trash))
+                        .setIntent(iOptimize)
+                        .build();
+                shortcut_boost = new ShortcutInfo.Builder(mContext, "shortcut_boost")
+                        .setShortLabel(mContext.getString(R.string.phone_boost_nav))
+                        .setLongLabel(mContext.getString(R.string.phone_boost_nav))
+                        .setIcon(Icon.createWithResource(mContext, R.drawable.ic_memory_boost))
+                        .setIntent(iOptimize)
+                        .build();
+                shortcut_cool = new ShortcutInfo.Builder(mContext, "shortcut_cool")
+                        .setShortLabel(mContext.getString(R.string.phone_cool_nav))
+                        .setLongLabel(mContext.getString(R.string.phone_cool_nav))
+                        .setIcon(Icon.createWithResource(mContext, R.drawable.ic_temperature))
+                        .setIntent(iOptimize)
+                        .build();
+                shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut_junk_clean, shortcut_boost, shortcut_cool));
+//                shortcutManager.addDynamicShortcuts(Arrays.asList());
+            }
         }
 
+//            if (android.os.Build.VERSION.SDK_INT < 25) {
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "NOTIFYCATION_BATTERY_ID");
+//        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext);
+        notificationBuilder.setSmallIcon(iconRes[lv]);
+        notificationBuilder.setTicker(null);
+        notificationBuilder.setOnlyAlertOnce(true);
+        notificationBuilder.setContentTitle(mContext.getString(R.string.battery_level));
+        notificationBuilder.setContentText(null);
+        notificationBuilder.setContentIntent(pendingIntent);
+        notificationBuilder.setDefaults(0);
+//                    if (Build.VERSION.SDK_INT >= 23) {
+        notificationBuilder.setChannelId("notification_channel_id");
+//        }
         notificationBuilder.setCustomContentView(remoteViews);
         Notification notification = notificationBuilder.build();
-
         this.notificationManager.notify(NOTIFYCATION_BATTERY_ID, notification);
+//            }
     }
 
-    private String getStatusTime(boolean isCharging){
+    private String getStatusTime(boolean isCharging) {
         StringBuilder stringBuilder = new StringBuilder();
-        if(isCharging){
+        if (isCharging) {
             stringBuilder.append(mContext.getResources().getString(R.string.noti_battery_charging_timer_left));
-        }else{
+        } else {
             stringBuilder.append(mContext.getResources().getString(R.string.time_left));
         }
 
         return stringBuilder.toString();
     }
 
-    private String convertTime(int hour,int min){
+    private String convertTime(int hour, int min) {
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(" ");
@@ -170,6 +215,7 @@ public class NotificationBattery extends NotificationCompat.Builder   {
 
         return stringBuilder.toString();
     }
+
     public String getTemp(int i) {
         if (!SharePreferenceUtils.getInstance(mContext).getTempFormat()) {
             double b = Math.ceil(((i / 10f) * 9 / 5 + 32) * 100) / 100;
@@ -177,15 +223,16 @@ public class NotificationBattery extends NotificationCompat.Builder   {
             return (r + mContext.getString(R.string.fahrenheit));
         } else {
 
-            String str = Double.toString(Math.ceil((i / 10f)*100)/100);
+            String str = Double.toString(Math.ceil((i / 10f) * 100) / 100);
             return (str + mContext.getString(R.string.celsius));
         }
     }
-    public String getTempF(){
+
+    public String getTempF() {
         return null;
     }
 
-    public void cancel(){
+    public void cancel() {
         notificationManager.cancel(NOTIFYCATION_BATTERY_ID);
     }
 

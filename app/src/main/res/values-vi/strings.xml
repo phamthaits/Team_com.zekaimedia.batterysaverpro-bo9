@@ -112,7 +112,7 @@
     <string name="charge_des">Theo dõi trạng thái sạc và sạc nhanh bằng cách dừng ứng dụng chạy nền khi kết nối nguồn. (may contain ads)</string>
     <string name="enable_fast_charging">Kích hoạt chế độ sạc nhanh</string>
     <string name="cool_down_button">LÀM MÁT</string>
-    <string name="app_name" translatable="false">Bộ sạc siêu nhanh</string>
+    <string name="app_name" >Bộ sạc siêu nhanh</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="bluetooth_is_enabling">Bluetooth đang kích hoạt, xin vui lòng chờ...</string>
     <string name="moreapp_nav">Thêm Ứng Dụng</string>
@@ -125,4 +125,5 @@
     <string name="disable_fast_charging_des">Bạn sẽ không thể giám sát tình trạng sạc pin. Chắc chắn bạn muốn vô hiệu hóa</string>
     <string name="feedback_nav">Phản hồi</string>
     <string name="general_title">Chung</string>
+    <string name="battery_level">Mức Pin</string>
 </resources>

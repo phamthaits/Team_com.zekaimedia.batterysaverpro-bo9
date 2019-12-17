@@ -75,9 +75,9 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private WaveLoadingView waveLoadingView;
     private TextView tvPercentPin;
 
-    ImageView imgUsb;
-    Button btnOptimize;
-    ImageView btnWifi, btnBluetooth, btnSound, btnScreenTime, btnRotate, btnBrightness, btnMobileData, btnSync, btnGPS, btnAirPlane;
+    private ImageView imgUsb;
+    private Button btnOptimize;
+    private ImageView btnWifi, btnBluetooth, btnSound, btnScreenTime, btnRotate, btnBrightness, btnMobileData, btnSync, btnGPS, btnAirPlane;
 
     public static final int EXTDIR_REQUEST_CODE = 1110, MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 300;
     private AudioManager audioManager;
@@ -95,18 +95,18 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     LinearLayout lrIssue;
     int ON_DO_NOT_DISTURB_CALLBACK_CODE = 4300;
     public static final int WRITE_PERMISSION_REQUEST = 5000;
-    BatteryTask mBatteryTask;
-    TaskCount mTaskCount;
-    TaskCountDoing mTaskCountDoing;
-    RippleBackground rippleBackground;
-    TextView tvFullCharge;
-    LinearLayout lrClean, lrCool, lrBoost, lrTimeLeft;
+    private BatteryTask mBatteryTask;
+    private TaskCount mTaskCount;
+    private TaskCountDoing mTaskCountDoing;
+    private RippleBackground rippleBackground;
+    private TextView tvFullCharge;
+    private LinearLayout lrClean, lrCool, lrBoost, lrTimeLeft;
 
-    ProgressBar pbQuick, pbFull, pbTrickle;
-    ImageView imgQuick, imgFull, imgTrickle;
-    Shimmer shFast, shFull, shTrickle, shOptimize;
-    ShimmerTextView tvFast, tvFull, tvTrickle;
-    View v1, v2, v3, v4, v5;
+    private ProgressBar pbQuick, pbFull, pbTrickle;
+    private ImageView imgQuick, imgFull, imgTrickle;
+    private Shimmer shFast, shFull, shTrickle, shOptimize;
+    private ShimmerTextView tvFast, tvFull, tvTrickle;
+    private View v1, v2, v3, v4, v5;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -364,7 +364,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intView(view);
         intData(view);
         intEvent();
-        AdmodRef.loadNativeFragment(getActivity(),view, TypeAds.admod_native_main);
+        AdmodRef.loadNativeFragment(getActivity(), view, TypeAds.admod_native_main);
 //        AdmobHelp.getInstance().loadNativeFragment(getActivity(), view);
         if (!Utils.checkShouldDoing(getActivity(), 8)) {
             cvFastCharge.setVisibility(View.GONE);

@@ -155,7 +155,7 @@
 
     <string name="setting_nav">Settings</string>
     <string name="share_nav">Share App</string>
-    <string name="feedback_nav" translatable="false">Feed Back</string>
+    <string name="feedback_nav">Feed Back</string>
     <string name="moreapp_nav">More App</string>
     <string name="privacy_policy">Privacy Policy</string>
 
@@ -175,7 +175,7 @@
     <string name="toast_mode_title">Has switched to</string>
     <string name="charge_des" >Monitor battery charge status and charge overload to prevent (May contain ads)</string>
     <string name="disable_fast_charging_des">You will not be able monitor battery charge status. Sure you want to disable</string>
-    <string name="disable_fast_charging" translatable="false">Disable Fast Charging</string>
+    <string name="disable_fast_charging">Disable Fast Charging</string>
     <string name="enable_fast_charging">Enable Fast Charging</string>
 
     <color name="main_darker_color">#ffffffff</color>
@@ -185,4 +185,5 @@
 
     <string name="link_policy" translatable="false">https://policy.com</string>
     <string name="calculating">calculating...</string>
+    <string name="battery_level">Battery Level</string>
 </resources>

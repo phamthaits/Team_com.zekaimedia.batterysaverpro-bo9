@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:orientation="vertical">
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="#f2f2f2"
-        >
+        android:orientation="vertical">
+
         <include
             android:id="@+id/news_title"
-            android:layout_centerHorizontal="true"
+            layout="@layout/activity_optimize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            layout="@layout/activity_optimize"
-            android:layout_marginBottom="@dimen/screen_padding_5"
+            android:layout_centerHorizontal="true"
             android:layout_marginLeft="@dimen/screen_padding_5"
-            android:layout_marginRight="@dimen/screen_padding_5"
             android:layout_marginTop="@dimen/screen_padding_5"
-           />
+            android:layout_marginRight="@dimen/screen_padding_5"
+            android:layout_marginBottom="@dimen/screen_padding_5" />
+
         <LinearLayout
 
             android:layout_width="fill_parent"
@@ -30,36 +31,41 @@
 
 
             <LinearLayout
-                android:layout_marginBottom="@dimen/screen_padding_5"
-                android:layout_marginLeft="@dimen/screen_padding_5"
-                android:layout_marginRight="@dimen/screen_padding_5"
-                android:background="@drawable/bg_rounded"
-                android:gravity="center"
-                android:orientation="horizontal"
                 android:id="@+id/ll_btn_charging_tip"
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/progress_charging_height">
+                android:layout_height="@dimen/progress_charging_height"
+                android:layout_marginLeft="@dimen/screen_padding_5"
+                android:layout_marginRight="@dimen/screen_padding_5"
+                android:layout_marginBottom="@dimen/screen_padding_5"
+                android:background="@drawable/bg_rounded"
+                android:gravity="center"
+                android:orientation="horizontal">
+
                 <RelativeLayout
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginTop="4.0dip"
-                    android:layout_weight="1.0">
+                    android:layout_weight="1.0"
+                    android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="2.0dip"
                         android:layout_marginTop="@dimen/progress_trickle_charging_margin_top">
+
                         <View
                             android:layout_width="fill_parent"
                             android:layout_height="@dimen/progress_hight"
                             android:layout_weight="1.0" />
-                        <View android:id="@+id/view1"
-                            android:background="@color/colorAccent"
+
+                        <View
+                            android:id="@+id/view1"
                             android:layout_width="fill_parent"
                             android:layout_height="@dimen/progress_hight"
                             android:layout_marginLeft="@dimen/progress_trickle_charging_margin"
-                            android:layout_weight="1.0" />
+                            android:layout_weight="1.0"
+                            android:background="@color/colorAccent" />
                     </LinearLayout>
 
                     <FrameLayout
@@ -68,50 +74,57 @@
                         android:layout_width="@dimen/progress_trickle_charging_width"
                         android:layout_height="@dimen/progress_trickle_charging_width"
                         android:layout_centerHorizontal="true">
+
                         <FrameLayout
-                            android:orientation="horizontal"
                             android:layout_width="@dimen/progress_trickle_charging_width"
                             android:layout_height="@dimen/progress_trickle_charging_width"
-                            android:layout_centerHorizontal="true">
+                            android:layout_centerHorizontal="true"
+                            android:orientation="horizontal">
+
                             <ProgressBar
 
-                                android:gravity="center"
-                                android:layout_gravity="center"
                                 android:id="@+id/pbQuick"
+                                style="?android:attr/progressBarStyleLarge"
                                 android:layout_width="@dimen/progress_trickle_charging_width"
                                 android:layout_height="@dimen/progress_trickle_charging_width"
-                                android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan"
-                                style="?android:attr/progressBarStyleLarge" />
-                            <ImageView android:id="@+id/imgQuick"
-                                android:gravity="center"
                                 android:layout_gravity="center"
-                                android:background="@drawable/icon_shape_progress_cyan"
+                                android:gravity="center"
+                                android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan" />
+
+                            <ImageView
+                                android:id="@+id/imgQuick"
                                 android:layout_width="@dimen/progress_trickle_charging_width_image"
                                 android:layout_height="@dimen/progress_trickle_charging_width_image"
+                                android:layout_gravity="center"
+                                android:background="@drawable/icon_shape_progress_cyan"
+                                android:gravity="center"
                                 android:src="@drawable/ic_quick_charging_end" />
                         </FrameLayout>
                     </FrameLayout>
+
                     <com.romainpiel.shimmer.ShimmerTextView
-                        android:text="@string/fast_charging"
+                        android:id="@+id/tvFast"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:reflectionColor="#f00"
                         android:layout_below="@+id/fl_quick_chaging"
                         android:layout_centerHorizontal="true"
-                        android:textSize="@dimen/textsize_ram_storage_total"
                         android:fontFamily="@font/roboto_regular"
+                        android:paddingTop="3.0dip"
+                        android:text="@string/fast_charging"
                         android:textColor="@color/color_text_progress_charge_dim"
-                        android:id="@+id/tvFast"
-                        android:paddingTop="3.0dip"/>
+                        android:textSize="@dimen/textsize_ram_storage_total"
+                        app:reflectionColor="#f00" />
 
                 </RelativeLayout>
+
                 <RelativeLayout
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginTop="4.0dip"
-                    android:layout_weight="1.0">
+                    android:layout_weight="1.0"
+                    android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="2.0dip"
@@ -124,75 +137,88 @@
                             android:layout_marginRight="@dimen/progress_trickle_charging_margin"
                             android:layout_weight="1.0"
                             android:background="@color/colorAccent" />
-                        <View android:id="@+id/view3"
-                            android:background="@color/color_progress_charge_dim"
+
+                        <View
+                            android:id="@+id/view3"
                             android:layout_width="fill_parent"
                             android:layout_height="@dimen/progress_hight"
                             android:layout_marginLeft="@dimen/progress_trickle_charging_margin"
-                            android:layout_weight="1.0" />
+                            android:layout_weight="1.0"
+                            android:background="@color/color_progress_charge_dim" />
                     </LinearLayout>
+
                     <FrameLayout
                         android:id="@+id/fl_full_charging"
 
                         android:layout_width="@dimen/progress_trickle_charging_width"
                         android:layout_height="@dimen/progress_trickle_charging_width"
                         android:layout_centerHorizontal="true">
+
                         <FrameLayout
-                            android:orientation="horizontal"
                             android:layout_width="@dimen/progress_trickle_charging_width"
                             android:layout_height="@dimen/progress_trickle_charging_width"
-                            android:layout_centerHorizontal="true">
+                            android:layout_centerHorizontal="true"
+                            android:orientation="horizontal">
+
                             <ProgressBar
 
-                                android:gravity="center"
-                                android:layout_gravity="center"
                                 android:id="@+id/pbFull"
+                                style="?android:attr/progressBarStyleLarge"
                                 android:layout_width="@dimen/progress_trickle_charging_width"
                                 android:layout_height="@dimen/progress_trickle_charging_width"
-                                android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan"
-                                style="?android:attr/progressBarStyleLarge" />
-                            <ImageView android:id="@+id/imgFull"
-                                android:gravity="center"
                                 android:layout_gravity="center"
-                                android:background="@drawable/icon_shape_progress_cyan"
+                                android:gravity="center"
+                                android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan" />
+
+                            <ImageView
+                                android:id="@+id/imgFull"
                                 android:layout_width="@dimen/progress_trickle_charging_width_image"
                                 android:layout_height="@dimen/progress_trickle_charging_width_image"
+                                android:layout_gravity="center"
+                                android:background="@drawable/icon_shape_progress_cyan"
+                                android:gravity="center"
                                 android:src="@drawable/ic_full_charging_end" />
                         </FrameLayout>
                     </FrameLayout>
 
                     <com.romainpiel.shimmer.ShimmerTextView
+                        android:id="@+id/tvFull"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:reflectionColor="#00ccff"
                         android:layout_below="@+id/fl_full_charging"
                         android:layout_centerHorizontal="true"
-                        android:textSize="@dimen/textsize_ram_storage_total"
                         android:fontFamily="@font/roboto_regular"
-                        android:textColor="@color/color_text_progress_charge_dim"
-                        android:id="@+id/tvFull"
+                        android:paddingTop="3.0dip"
                         android:text="@string/full_charging"
-                        android:paddingTop="3.0dip"/>
+                        android:textColor="@color/color_text_progress_charge_dim"
+                        android:textSize="@dimen/textsize_ram_storage_total"
+                        app:reflectionColor="#00ccff" />
 
                 </RelativeLayout>
+
                 <RelativeLayout
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginTop="4.0dip"
-                    android:layout_weight="1.0">
+                    android:layout_weight="1.0"
+                    android:orientation="vertical">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="2.0dip"
                         android:layout_marginTop="@dimen/progress_trickle_charging_margin_top">
-                        <View android:id="@+id/view4"
-                            android:background="@color/color_progress_charge_dim"
+
+                        <View
+                            android:id="@+id/view4"
                             android:layout_width="fill_parent"
                             android:layout_height="@dimen/progress_hight"
                             android:layout_marginRight="@dimen/progress_trickle_charging_margin"
-                            android:layout_weight="1.0" />
-                        <View android:layout_width="fill_parent"
+                            android:layout_weight="1.0"
+                            android:background="@color/color_progress_charge_dim" />
+
+                        <View
+                            android:layout_width="fill_parent"
                             android:layout_height="@dimen/progress_hight"
                             android:layout_weight="1.0" />
                     </LinearLayout>
@@ -203,109 +229,116 @@
                         android:layout_width="@dimen/progress_trickle_charging_width"
                         android:layout_height="@dimen/progress_trickle_charging_width"
                         android:layout_centerHorizontal="true">
+
                         <FrameLayout
-                            android:orientation="horizontal"
                             android:layout_width="@dimen/progress_trickle_charging_width"
                             android:layout_height="@dimen/progress_trickle_charging_width"
-                            android:layout_centerHorizontal="true">
+                            android:layout_centerHorizontal="true"
+                            android:orientation="horizontal">
+
                             <ProgressBar
 
-                                android:gravity="center"
-                                android:layout_gravity="center"
                                 android:id="@+id/pbTrickle"
+                                style="?android:attr/progressBarStyleLarge"
                                 android:layout_width="@dimen/progress_trickle_charging_width"
                                 android:layout_height="@dimen/progress_trickle_charging_width"
-                                android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan"
-                                style="?android:attr/progressBarStyleLarge" />
-                            <ImageView android:id="@+id/imgTrickle"
-                                android:gravity="center"
                                 android:layout_gravity="center"
-                                android:background="@drawable/shape_process_green"
+                                android:gravity="center"
+                                android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan" />
+
+                            <ImageView
+                                android:id="@+id/imgTrickle"
                                 android:layout_width="@dimen/progress_trickle_charging_width_image"
                                 android:layout_height="@dimen/progress_trickle_charging_width_image"
+                                android:layout_gravity="center"
+                                android:background="@drawable/shape_process_green"
+                                android:gravity="center"
                                 android:src="@drawable/ic_trickle_charging_end" />
                         </FrameLayout>
                     </FrameLayout>
+
                     <com.romainpiel.shimmer.ShimmerTextView
+                        android:id="@+id/tvTrickle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:reflectionColor="@color/colorAccent"
                         android:layout_below="@+id/fl_trickle_charging"
                         android:layout_centerHorizontal="true"
-                        android:textSize="@dimen/textsize_ram_storage_total"
                         android:fontFamily="@font/roboto_regular"
-                        android:textColor="@color/color_text_progress_charge_dim"
-                        android:id="@+id/tvTrickle"
+                        android:paddingTop="3.0dip"
                         android:text="@string/trickle_charging"
-                        android:paddingTop="3.0dip"/>
+                        android:textColor="@color/color_text_progress_charge_dim"
+                        android:textSize="@dimen/textsize_ram_storage_total"
+                        app:reflectionColor="@color/colorAccent" />
 
                 </RelativeLayout>
             </LinearLayout>
+
             <LinearLayout
 
-                android:layout_marginBottom="@dimen/screen_padding_5"
-                android:layout_marginStart="@dimen/screen_padding_5"
-                android:layout_marginEnd="@dimen/screen_padding_5"
-                
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/screen_padding_5"
+
+                android:layout_marginEnd="@dimen/screen_padding_5"
+                android:layout_marginBottom="@dimen/screen_padding_5"
                 android:gravity="center">
 
                 <LinearLayout
                     android:id="@+id/lrClean"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:background="@drawable/bg_rounded"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/screen_padding_5"
                     android:layout_weight="1"
+                    android:background="@drawable/bg_rounded"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
                     <ImageView
                         android:id="@+id/ivVoltage"
                         android:layout_width="@dimen/_38sdp"
                         android:layout_height="@dimen/_38sdp"
                         android:tint="@color/more_clean"
-                        android:src="@drawable/ic_clean_trash"
-                        />
+                        android:src="@drawable/ic_clean_trash" />
+
 
                     <TextView
-                        android:maxLines="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:maxLines="1"
                         android:singleLine="true"
                         android:text="@string/junk_clean_nav"
-                        android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/grey_400"
                         android:textSize="@dimen/textsize_compo_ram_cpu_des" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/lrBoost"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:background="@drawable/bg_rounded"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
                     android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:orientation="vertical">
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_rounded"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
 
                     <ImageView
-                        android:tint="#FF80AB"
                         android:id="@+id/ivTemperaturePin"
                         android:layout_width="@dimen/_38sdp"
                         android:layout_height="@dimen/_38sdp"
                         android:src="@drawable/ic_memory_boost"
-                        />
+                        android:tint="#FF80AB" />
 
                     <TextView
-                        android:maxLines="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_regular"
+                        android:maxLines="1"
                         android:singleLine="true"
                         android:text="@string/phone_boost_nav"
                         android:textColor="@color/grey_400"
@@ -314,31 +347,31 @@
                 </LinearLayout>
 
 
-
                 <LinearLayout
                     android:id="@+id/lrCool"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:background="@drawable/bg_rounded"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/bg_rounded"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
                     <ImageView
                         android:id="@+id/ivCapacity"
                         android:layout_width="@dimen/_38sdp"
                         android:layout_height="@dimen/_38sdp"
-                        android:src="@drawable/ic_temperature"                        />
-                    
+                        android:src="@drawable/ic_temperature" />
+
 
                     <TextView
-                        android:maxLines="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
+                        android:maxLines="1"
                         android:singleLine="true"
                         android:text="@string/phone_cool_nav"
-                        android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/grey_400"
                         android:textSize="@dimen/textsize_compo_ram_cpu_des" />
 
@@ -348,40 +381,41 @@
 
 
             <include
-                android:layout_marginBottom="@dimen/screen_padding_5"
-                android:layout_marginStart="@dimen/screen_padding_5"
-                android:layout_marginEnd="@dimen/screen_padding_5"
+                layout="@layout/layout_ads_control"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                layout="@layout/layout_ads_control">
-            </include>
+                android:layout_marginStart="@dimen/screen_padding_5"
+                android:layout_marginEnd="@dimen/screen_padding_5"
+                android:layout_marginBottom="@dimen/screen_padding_5"></include>
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvFastCharge"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8.0dip"
-                android:layout_marginBottom="5.0dip"
                 android:layout_marginRight="8.0dip"
+                android:layout_marginBottom="5.0dip"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="8.0dip"
                 app:cardElevation="0.0dip">
 
                 <include
-                    android:layout_height="wrap_content"
+                    layout="@layout/layout_enable_charge"
                     android:layout_width="match_parent"
-                    layout="@layout/layout_enable_charge"/>
+                    android:layout_height="wrap_content" />
 
             </androidx.cardview.widget.CardView>
+
             <LinearLayout
-                android:layout_marginBottom="@dimen/screen_padding_5"
-                android:layout_marginStart="@dimen/screen_padding_5"
-                android:layout_marginEnd="@dimen/screen_padding_5"
-                android:background="@drawable/bg_rounded"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/screen_padding_5"
+                android:layout_marginEnd="@dimen/screen_padding_5"
+                android:layout_marginBottom="@dimen/screen_padding_5"
+                android:background="@drawable/bg_rounded"
                 android:gravity="center"
-                android:paddingBottom="@dimen/margin_between_progress"
-                android:paddingTop="@dimen/margin_between_progress">
+                android:paddingTop="@dimen/margin_between_progress"
+                android:paddingBottom="@dimen/margin_between_progress">
 
 
                 <LinearLayout
@@ -396,10 +430,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_regular"
+                        android:text="40 C"
                         android:textColor="@color/temperature"
                         android:textSize="@dimen/text_size"
-                        android:textStyle="bold"
-                        android:text="40 C" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -424,17 +458,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_regular"
+                        android:text="30 V"
                         android:textColor="@color/storage"
                         android:textSize="@dimen/text_size"
-                        android:textStyle="bold"
-                        android:text="30 V" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
                         android:singleLine="true"
                         android:text="@string/voltage"
-                        android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/grey_400"
                         android:textSize="@dimen/textsize_compo_ram_cpu_des" />
 
@@ -452,17 +486,17 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_regular"
+                        android:text="2500 mA"
                         android:textColor="@color/ram"
                         android:textSize="@dimen/text_size"
-                        android:textStyle="bold"
-                        android:text="2500 mA"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_regular"
                         android:singleLine="true"
                         android:text="@string/capacity"
-                        android:fontFamily="@font/roboto_regular"
                         android:textColor="@color/grey_400"
                         android:textSize="@dimen/textsize_compo_ram_cpu_des" />
 
@@ -473,14 +507,14 @@
 
             <LinearLayout
 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/screen_padding_5"
                 android:layout_marginEnd="@dimen/screen_padding_5"
                 android:background="@drawable/bg_rounded"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/margin_between_progress"
-                android:paddingTop="@dimen/margin_between_progress">
+                android:paddingTop="@dimen/margin_between_progress"
+                android:paddingBottom="@dimen/margin_between_progress">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -657,11 +691,9 @@
             </LinearLayout>
 
 
-
         </LinearLayout>
 
     </LinearLayout>
-
 
 
 </ScrollView>
