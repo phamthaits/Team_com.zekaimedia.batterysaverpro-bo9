@@ -7,8 +7,8 @@ android {
         applicationId "com.amt.batterysaver"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 10
-        versionName "1.0"
+        versionCode 11
+        versionName '11.0'
         testInstrumentationRunner "androidx.move_up_button.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -33,6 +33,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
+
     implementation 'com.skyfishjy.ripplebackground:library:1.0.1'
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'androidx.appcompat:appcompat:1.1.0'

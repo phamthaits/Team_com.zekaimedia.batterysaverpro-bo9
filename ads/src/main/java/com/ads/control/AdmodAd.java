@@ -19,10 +19,10 @@ public class AdmodAd {
 
     public static String admod_native_fullcharge = "";
     public static String admod_native_fastcharge = "";
-    public static String admod_native_rate = "";
+//    public static String admod_native_rate = "";
 
     public static String admod_native_setting = "";
     public static String admod_banner_appmanager = "";
     public static String admod_banner_chargehistory = "";
-    public static String admod_native_chargeresult="";
+//    public static String admod_native_chargeresult="";
 }

@@ -81,14 +81,20 @@
                     android:layout_height="wrap_content"
                     android:background="#ffffffff">
 
-                    <com.airbnb.lottie.LottieAnimationView
+                    <ImageView
                         android:id="@+id/img_done"
+                        android:layout_width="@dimen/img_mark_size"
+                        android:layout_height="@dimen/img_mark_size"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_optimize" />
+
+                    <com.airbnb.lottie.LottieAnimationView
                         android:layout_width="@dimen/img_mark_size"
                         android:layout_height="@dimen/img_mark_size"
                         android:layout_centerHorizontal="true"
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true"
-                        app:lottie_rawRes="@raw/star_charge" />
+                        app:lottie_rawRes="@raw/confetti_blast" />
 
                     <TextView
                         android:id="@+id/tv_optimized_info"
@@ -124,22 +130,22 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"></include>
 
-<!--                    <androidx.cardview.widget.CardView-->
-<!--                        android:id="@+id/cvFastCharge"-->
-<!--                        android:layout_width="fill_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginLeft="8.0dip"-->
-<!--                        android:layout_marginTop="5.0dip"-->
-<!--                        android:layout_marginRight="8.0dip"-->
-<!--                        app:cardBackgroundColor="@color/white"-->
-<!--                        app:cardCornerRadius="8.0dip"-->
-<!--                        app:cardElevation="0.0dip">-->
+                    <!--                    <androidx.cardview.widget.CardView-->
+                    <!--                        android:id="@+id/cvFastCharge"-->
+                    <!--                        android:layout_width="fill_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginLeft="8.0dip"-->
+                    <!--                        android:layout_marginTop="5.0dip"-->
+                    <!--                        android:layout_marginRight="8.0dip"-->
+                    <!--                        app:cardBackgroundColor="@color/white"-->
+                    <!--                        app:cardCornerRadius="8.0dip"-->
+                    <!--                        app:cardElevation="0.0dip">-->
 
-<!--                        <include-->
-<!--                            layout="@layout/layout_enable_charge"-->
-<!--                            android:layout_width="match_parent"-->
-<!--                            android:layout_height="wrap_content" />-->
-<!--                    </androidx.cardview.widget.CardView>-->
+                    <!--                        <include-->
+                    <!--                            layout="@layout/layout_enable_charge"-->
+                    <!--                            android:layout_width="match_parent"-->
+                    <!--                            android:layout_height="wrap_content" />-->
+                    <!--                    </androidx.cardview.widget.CardView>-->
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cvBoost"
@@ -347,8 +353,7 @@
                                     android:layout_width="32.0dip"
                                     android:layout_height="32.0dip"
                                     android:layout_gravity="center"
-                                    android:src="@drawable/ic_temperature"
-                                    />
+                                    android:src="@drawable/ic_temperature" />
                                 <!--                                android:tint="@color/white"-->
                             </FrameLayout>
 
@@ -411,52 +416,95 @@
             </LinearLayout>
         </ScrollView>
     </FrameLayout>
+
     <RelativeLayout
         android:id="@+id/rlScanning"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:gravity="center">
-        <FrameLayout
-            android:id="@+id/imgOutCircle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true">
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
 
-            <RelativeLayout
+        <com.skyfishjy.library.RippleBackground
+            android:id="@+id/charge_boost_ripple_background"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:rb_color="#2222aaff"
+            app:rb_duration="1200"
+            app:rb_radius="56.0dip"
+            app:rb_rippleAmount="2"
+            app:rb_scale="2.5">
+
+            <FrameLayout
+                android:id="@+id/imgOutCircle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+                <RelativeLayout
+                    android:layout_width="280.0dip"
+                    android:layout_height="280.0dip"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:padding="44.0dip">
+
+                    <ImageView
+                        android:id="@+id/ivScan"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_fan" />
+
+                    <ImageView
+                        android:id="@+id/ic_fan_white"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_fan_white"
+                        android:tint="#ff3c485b" />
+
+                </RelativeLayout>
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlDone"
+                android:layout_width="280.0dip"
+                android:layout_height="280.0dip"
                 android:layout_centerInParent="true"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="44.0dip">
 
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/animation_view"
-                    android:layout_width="@dimen/charge_buble"
-                    android:layout_height="@dimen/charge_buble"
+
+                <ImageView
+                    android:id="@+id/ivDoneHoloCirular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_centerInParent="true"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/ripple" />
+                    android:alpha="0.6"
+                    android:padding="15dp"
+                    android:visibility="visible" />
 
-                <com.airbnb.lottie.LottieAnimationView
-                    android:id="@+id/loBattery"
-                    android:layout_width="@dimen/charge_battery"
-                    android:layout_height="@dimen/charge_battery"
+                <ImageView
+                    android:id="@+id/clean_done_iv_done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_centerInParent="true"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/battery_blue" />
-
-
+                    android:layout_gravity="center"
+                    android:layout_margin="40.0dip"
+                    android:background="@drawable/circle_bg_done"
+                    android:padding="15dp"
+                    android:src="@drawable/ic_complete_tick"
+                    android:visibility="visible" />
             </RelativeLayout>
-        </FrameLayout>
 
+        </com.skyfishjy.library.RippleBackground>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imgOutCircle"
+            android:layout_below="@+id/charge_boost_ripple_background"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
             android:orientation="vertical">
 
             <TextView
@@ -484,36 +532,7 @@
                 android:textColor="@color/text_value"
                 android:textSize="@dimen/text_details_optimize" />
         </LinearLayout>
-
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/rlDone"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/imgDone"
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:layout_centerInParent="true"
-            android:padding="15dp"
-            app:lottie_rawRes="@raw/success_blue" />
-
-        <TextView
-            android:id="@+id/tvCooled"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/imgDone"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:fontFamily="@font/roboto_regular"
-            android:text="@string/done"
-            android:textAllCaps="true"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/tv_done_size"
-            android:textStyle="normal" />
-
-    </RelativeLayout>
 </LinearLayout>

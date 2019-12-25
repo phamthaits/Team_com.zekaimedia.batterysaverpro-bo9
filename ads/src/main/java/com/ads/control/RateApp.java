@@ -50,7 +50,7 @@ public class RateApp extends Dialog {
         }
         setContentView(R.layout.dialog_rate_app);
 
-        AdmobHelp.getInstance().loadNativeRate(mActivity,this.getWindow());
+//        AdmobHelp.getInstance().loadNativeRate(mActivity,this.getWindow());
         TextView btnRate = findViewById(R.id.btn_good);
         TextView btn_not_good = findViewById(R.id.btn_not_good);
         TextView btn_late = findViewById(R.id.btn_late);

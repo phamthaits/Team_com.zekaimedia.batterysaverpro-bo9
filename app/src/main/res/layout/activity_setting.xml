@@ -85,8 +85,8 @@
 
                     <ImageView
                         style="@style/imageStyle"
-                        android:src="@drawable/ic_setting_white_list"
-                        android:tint="#536DFE" />
+                        android:src="@drawable/ic_setting_white_list" />
+                    <!--                    android:tint="#536DFE"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -124,8 +124,8 @@
 
                     <ImageView
                         style="@style/imageStyle"
-                        android:src="@drawable/ic_charge_full_reminder"
-                        android:tint="#7C4DFF" />
+                        android:src="@drawable/ic_setting_fastcharge" />
+                    <!--                    android:tint="#7C4DFF"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -137,7 +137,6 @@
                         <TextView
                             style="@style/rowSwitchStyle"
                             android:text="@string/fast_charging" />
-
 
                     </LinearLayout>
 
@@ -226,8 +225,8 @@
 
                     <ImageView
                         style="@style/imageStyle"
-                        android:src="@drawable/ic_moon"
-                        android:tint="#FF4081" />
+                        android:src="@drawable/ic_moon" />
+                    <!--                    android:tint="#FF4081"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -300,8 +299,8 @@
 
                     <ImageView
                         style="@style/imageStyle"
-                        android:src="@drawable/ic_temperature_normal"
-                        android:tint="@color/colorAccent" />
+                        android:src="@drawable/ic_temperature_normal" />
+                    <!--                    android:tint="@color/colorAccent"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -333,8 +332,8 @@
 
                     <ImageView
                         style="@style/imageStyle"
-                        android:src="@drawable/ic_battery_low"
-                        android:tint="#FF5252" />
+                        android:src="@drawable/ic_battery_low" />
+                    <!--                    android:tint="#FF5252"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -364,10 +363,8 @@
 
                     <ImageView
                         style="@style/imageStyle"
-                        android:src="@drawable/ic_charge_full_reminder"
-                        android:tint="#536DFE"
-
-                        />
+                        android:src="@drawable/ic_charge_full_reminder" />
+                    <!--                    android:tint="#536DFE"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -417,8 +414,8 @@
 
                     <ImageView
                         style="@style/imageStyle"
-                        android:src="@drawable/ic_temperature_normal"
-                        android:tint="#FF5252" />
+                        android:src="@drawable/ic_temperature_normal" />
+                    <!--                    android:tint="#FF5252"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -452,8 +449,8 @@
 
                     <ImageView
                         style="@style/imageStyle"
-                        android:src="@drawable/ic_langue"
-                        android:tint="#536DFE" />
+                        android:src="@drawable/ic_langue" />
+                    <!--                    android:tint="#536DFE"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"

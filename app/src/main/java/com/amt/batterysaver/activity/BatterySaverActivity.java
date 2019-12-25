@@ -34,7 +34,6 @@ import android.widget.TextView;
 import com.ads.control.AdmobHelp;
 import com.ads.control.TypeAds;
 import com.amt.batterysaver.Utilsb.AdmodRef;
-import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.model.TaskInfo;
@@ -70,11 +69,11 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
-        setContentView(R.layout.test);
+        setContentView(R.layout.activity_do_optimize);
 
         intView();
         checkTask();
-        AdmodRef.initInterstitialAd(this,TypeAds.admod_full_optimization);
+        AdmodRef.initInterstitialAd(this, TypeAds.admod_full_optimization);
         AdmodRef.loadNative(this, TypeAds.admod_native_optimization);
     }
 
@@ -126,28 +125,27 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         this.rocketImageOut = findViewById(R.id.ivDoneHoloCirular);
         this.rocketImage = findViewById(R.id.ivScan);
 //        if (Utils.checkShouldDoing(this, 5)) {
-            new LoadRunningTask().execute();
-            int size = (int) getResources().getDimension(R.dimen.icon_size);
-            this.layoutParams = new LayoutParams(-2, -2);
-            this.layoutParams.height = size;
-            this.layoutParams.width = size;
-            this.layoutParams.gravity = 17;
+        new LoadRunningTask().execute();
+        int size = (int) getResources().getDimension(R.dimen.icon_size);
+        this.layoutParams = new LayoutParams(-2, -2);
+        this.layoutParams.height = size;
+        this.layoutParams.width = size;
+        this.layoutParams.gravity = 17;
 
-            Animation animationRotate = AnimationUtils.loadAnimation(this, R.anim.rote_charge_anim);
+        Animation animationRotate = AnimationUtils.loadAnimation(this, R.anim.rote_charge_anim);
 
-            this.rocketImage.startAnimation(animationRotate);
-            animationRotate.start();
+        this.rocketImage.startAnimation(animationRotate);
+        animationRotate.start();
 
-            Animation loadAnimation = AnimationUtils.loadAnimation(this, R.anim.rote_charge_anim_out);
+        Animation loadAnimation = AnimationUtils.loadAnimation(this, R.anim.rote_charge_anim_out);
+        this.rocketImageOut.startAnimation(loadAnimation);
+        loadAnimation.start();
+        initRippleBackgound();
+        this.tvResult.setVisibility(View.VISIBLE);
 
-            this.rocketImageOut.startAnimation(loadAnimation);
-            loadAnimation.start();
-            initRippleBackgound();
-            this.tvResult.setVisibility(View.VISIBLE);
-
-            this.ivDoneAnim = AnimationUtils.loadAnimation(this, R.anim.ic_done_anim);
-            animationRotate.setAnimationListener(new anmRotate());
-            this.ivDoneAnim.setAnimationListener(new anmDone());
+        this.ivDoneAnim = AnimationUtils.loadAnimation(this, R.anim.ic_done_anim);
+        animationRotate.setAnimationListener(new anmRotate());
+        this.ivDoneAnim.setAnimationListener(new anmDone());
 //        } else {
 //            findViewById(R.id.lrScan).setVisibility(View.GONE);
 //            BatterySaverActivity.this.parentAds.setAlpha(0.0f);
@@ -401,7 +399,6 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         @Override
         public void onAnimationStart(Animation animation) {
         }
-
         anmDone() {
         }
 
@@ -410,6 +407,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
             AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
                 @Override
                 public void onAdClosed() {
+
                     loadResult();
                 }
             });

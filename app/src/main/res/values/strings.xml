@@ -183,7 +183,7 @@
     <string name="stringGreen" translatable="false">#ff3fb5cf</string>
     <string name="stringGray" translatable="false">#b2bec3</string>
 
-    <string name="link_policy" translatable="false">https://policy.com</string>
+    <string name="link_policy" translatable="false">https://sites.google.com/view/amtteam/</string>
     <string name="calculating">calculating...</string>
     <string name="battery_level">Battery Level</string>
 </resources>

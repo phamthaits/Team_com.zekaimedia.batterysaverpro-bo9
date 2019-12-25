@@ -17,7 +17,7 @@ public enum TypeAds {
     admod_native_fastcharge,
     admod_native_rate,
     admod_native_setting,
-    admod_native_chargeresult,
+//    admod_native_chargeresult,
     admod_banner_appmanager,
     admod_banner_chargehistory,
 }

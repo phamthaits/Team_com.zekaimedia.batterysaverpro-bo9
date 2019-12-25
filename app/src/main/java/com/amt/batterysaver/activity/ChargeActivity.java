@@ -1,5 +1,7 @@
 package com.amt.batterysaver.activity;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
@@ -9,6 +11,7 @@ import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
@@ -19,6 +22,7 @@ import android.widget.TextView;
 import com.ads.control.AdmobHelp;
 import com.ads.control.TypeAds;
 import com.airbnb.lottie.LottieAnimationView;
+import com.amt.batterysaver.MainActivity;
 import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
@@ -26,16 +30,24 @@ import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.R;
 import com.amt.batterysaver.task.TaskCharge;
 import com.amt.batterysaver.task.TaskChargeDetail;
+import com.skyfishjy.library.RippleBackground;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class ChargeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView tvScan, tvChargeStatus, tvDone;
-    RelativeLayout rlScan, rlDone;
-    FrameLayout fmResult;
+    TextView tvScan, tvChargeStatus, tvOptimize;
+    RelativeLayout  rlDone;
+    FrameLayout fmResult, imgOutCircle;
     TaskCharge mTaskCharge;
     TaskChargeDetail mTaskChargeDetail;
-    LottieAnimationView imgDone;
     Boolean flagExit = false;
+    ImageView rocketImage, rocketImageOut, ic_fan_white;
+
+    private ImageView ivDone;
+    Handler mHandler, mHandler1;
+    Runnable r, r1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,18 +111,59 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    private Animation animationRotate;
+
     public void intView() {
+        this.rocketImageOut = findViewById(R.id.ivDoneHoloCirular);
+        this.ivDone = findViewById(R.id.clean_done_iv_done);
         tvScan = findViewById(R.id.tvScan);
         tvChargeStatus = findViewById(R.id.tvScan);
-        rlScan = findViewById(R.id.rlScanning);
+//        rlScan = findViewById(R.id.rlScanning);
         fmResult = findViewById(R.id.fmResult);
         rlDone = findViewById(R.id.rlDone);
-        imgDone = findViewById(R.id.imgDone);
+        rocketImage = findViewById(R.id.ivScan);
+        imgOutCircle = findViewById(R.id.imgOutCircle);
+        tvOptimize = findViewById(R.id.tvOptimize);
+        ic_fan_white = findViewById(R.id.ic_fan_white);
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
+        this.ivDone.setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
+        this.rocketImageOut.setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
+        this.rocketImage.setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
+
+        initRippleBackgound();
+
+        animationRotate = AnimationUtils.loadAnimation(this, R.anim.rote_charge_anim_infi);
+        rocketImage.startAnimation(animationRotate);
+//        animationRotate.start();
+
+        Animation loadAnimation = AnimationUtils.loadAnimation(this, R.anim.rote_charge_anim_out);
+        this.rocketImageOut.startAnimation(loadAnimation);
+//        loadAnimation.start();
+
+        mHandler = new Handler();
+        r = new Runnable() {
+            @Override
+            public void run() {
+                AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+                    @Override
+                    public void onAdClosed() {
+                    }
+                });
+            }
+        };
+        mHandler1 = new Handler();
+        r1 = new Runnable() {
+            @Override
+            public void run() {
+                loadResult();
+            }
+        };
     }
 
+    private Animation ivDoneAnim;
+
     public void intData() {
-        rlScan.setVisibility(View.VISIBLE);
+//        rlScan.setVisibility(View.VISIBLE);
         fmResult.setVisibility(View.GONE);
         rlDone.setVisibility(View.GONE);
         mTaskCharge = new TaskCharge(this, tvScan, new TaskCharge.OnTaskListListener() {
@@ -119,28 +172,45 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
                 mTaskChargeDetail = new TaskChargeDetail(ChargeActivity.this, tvScan, new TaskChargeDetail.OnTaskBoostListener() {
                     @Override
                     public void OnResult() {
-                        rlScan.setVisibility(View.GONE);
-                        imgDone.playAnimation();
+//                        rocketImage.animate().cancel();
+//                        animationRotate.cancel();
+                        rocketImage.clearAnimation();
+
+//                        rlScan.setVisibility(View.GONE);
+//                        imgDone.playAnimation();
+                        tvOptimize.setText(getString(R.string.done));
+
+                        rocketImage.setVisibility(View.GONE);
+                        tvScan.setVisibility(View.GONE);
                         rlDone.setVisibility(View.VISIBLE);
+                        ic_fan_white.setVisibility(View.GONE);
+
+                        ivDone.setVisibility(View.VISIBLE);
+                        ivDoneAnim = AnimationUtils.loadAnimation(ChargeActivity.this, R.anim.ic_done_anim);
+                        ivDone.startAnimation(ivDoneAnim);
+                        rocketImageOut.setImageResource(R.drawable.rocket_12);
+
                         Animation zoom_out = AnimationUtils.loadAnimation(ChargeActivity.this, R.anim.zoom_out);
                         rlDone.startAnimation(zoom_out);
-                        Runnable runnable = new Runnable() {
-                            public void run() {
-                                AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-                                    @Override
-                                    public void onAdClosed() {
-                                        loadResult();
-                                    }
-                                });
-                            }
-                        };
-                        new Handler().postDelayed(runnable, 2000);
+                        mHandler1.postDelayed(r1, 2000);
                     }
                 });
                 mTaskChargeDetail.execute();
             }
         });
         mTaskCharge.execute();
+    }
+
+    private void initRippleBackgound() {
+        ((RippleBackground) findViewById(R.id.charge_boost_ripple_background)).startRippleAnimation();
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.setDuration(400);
+        animatorSet.setInterpolator(new AccelerateDecelerateInterpolator());
+        Collection arrayList = new ArrayList();
+        arrayList.add(ObjectAnimator.ofFloat(this.rocketImageOut, "ScaleX", 0.0f, 1.2f, 1.0f));
+        arrayList.add(ObjectAnimator.ofFloat(this.rocketImageOut, "ScaleY", 0.0f, 1.2f, 1.0f));
+        animatorSet.playTogether(arrayList);
+        animatorSet.start();
     }
 
     private void loadResult() {
@@ -152,6 +222,7 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         fmResult.startAnimation(downtoup);
         flagExit = true;
         SharePreferenceUtils.getInstance(ChargeActivity.this).setOptimizeTime(System.currentTimeMillis());
+        mHandler.postDelayed(r, 2000);
     }
 
     public void cancleUIUPdate() {
@@ -167,6 +238,10 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     protected void onDestroy() {
+        if (mHandler != null && r != null)
+            mHandler.removeCallbacks(r);
+        if (mHandler1 != null && r1 != null)
+            mHandler1.removeCallbacks(r1);
         super.onDestroy();
         cancleUIUPdate();
     }

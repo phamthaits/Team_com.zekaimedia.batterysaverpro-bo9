@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "431083907973",
-    "firebase_url": "https://alpine-scholar-167903.firebaseio.com",
-    "project_id": "alpine-scholar-167903",
-    "storage_bucket": "alpine-scholar-167903.appspot.com"
+    "project_number": "1048177060057",
+    "firebase_url": "https://batterysaver-3da95.firebaseio.com",
+    "project_id": "batterysaver-3da95",
+    "storage_bucket": "batterysaver-3da95.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:431083907973:android:a07795645a41c8e95c72ec",
+        "mobilesdk_app_id": "1:1048177060057:android:acea1c8497d82c6cbeb6c8",
         "android_client_info": {
           "package_name": "com.amt.batterysaver"
         }
       },
       "oauth_client": [
         {
-          "client_id": "431083907973-aas7eb21dh6tjb34hhkmti75f0or2vvg.apps.googleusercontent.com",
+          "client_id": "1048177060057-7nmta925137a6tjiss9bb84eqn35gpma.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDtDL0mklic09ddP_ojtmL5xarQAeD9WQ0"
+          "current_key": "AIzaSyC43JXrhnZmM-ipsN5JGYgsFevZr6bI7B4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "431083907973-aas7eb21dh6tjb34hhkmti75f0or2vvg.apps.googleusercontent.com",
+              "client_id": "1048177060057-7nmta925137a6tjiss9bb84eqn35gpma.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
+
 import androidx.core.app.NotificationCompat;
 
 import com.amt.batterysaver.BatteryMode.BatteryInfo;
@@ -39,12 +40,12 @@ public class BatteryStatusReceiver extends BroadcastReceiver {
 //                Utils.intPowerConnected(context);
 //            }
 
-            if (mBatteryInfo.status == BatteryManager.BATTERY_STATUS_FULL){
-                Utils.intSound(context);
-                if (Utils.checkDNDDoing(context)) {
-                    Utils.fullPower(context);
-                }
-            }
+//            if (mBatteryInfo.status == BatteryManager.BATTERY_STATUS_FULL) {
+//                Utils.intSound(context);
+//                if () {
+//                Utils.fullPower(context);
+//                }
+//            }
             //charging
             mBatteryInfo.status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
             //Day pin
@@ -73,29 +74,25 @@ public class BatteryStatusReceiver extends BroadcastReceiver {
             intent.setAction(BatteryService.ACTION_MAX_BATTERY_CHANGED_SEND);
             intent.putExtra(BatteryInfo.BATTERY_INFO_KEY, mBatteryInfo);
             mContext.sendBroadcast(intent);
-            if(SharePreferenceUtils.getInstance(mContext).getNotification()){
-                NotificationBattery.getInstance(mContext)
-                        .updateNotify(mBatteryInfo.level, mBatteryInfo.temperature, mBatteryInfo.hourleft, mBatteryInfo.minleft, isCharging);
+            if (SharePreferenceUtils.getInstance(mContext).getNotification()) {
+                NotificationBattery.getInstance(mContext).updateNotify(mBatteryInfo.level, mBatteryInfo.temperature, mBatteryInfo.hourleft, mBatteryInfo.minleft, isCharging);
             }
-        }
-        else if (action.equals(BatteryService.ACTION_MAX_BATTERY_NEED_UPDATE)) {
+        } else if (action.equals(BatteryService.ACTION_MAX_BATTERY_NEED_UPDATE)) {
             intent.setAction(BatteryService.ACTION_MAX_BATTERY_CHANGED_SEND);
             intent.putExtra(BatteryInfo.BATTERY_INFO_KEY, mBatteryInfo);
             mContext.sendBroadcast(intent);
-        }
-        else if (action.equals(NotificationBattery.UPDATE_NOTIFICATION_ENABLE)) {
+        } else if (action.equals(NotificationBattery.UPDATE_NOTIFICATION_ENABLE)) {
 
-            if(SharePreferenceUtils.getInstance(mContext).getNotification()){
+            if (SharePreferenceUtils.getInstance(mContext).getNotification()) {
                 boolean isCharging = mBatteryInfo.status == BatteryManager.BATTERY_STATUS_CHARGING ||
                         mBatteryInfo.status == BatteryManager.BATTERY_STATUS_FULL;
                 NotificationBattery.getInstance(mContext).updateNotify(mBatteryInfo.level, mBatteryInfo.temperature, mBatteryInfo.hourleft, mBatteryInfo.minleft, isCharging);
             }
-        }
-        else if (action.equals(Intent.ACTION_POWER_CONNECTED)) {
+        } else if (action.equals(Intent.ACTION_POWER_CONNECTED)) {
             Utils.intPowerConnected(context);
 
         } else if (action.equals(Intent.ACTION_POWER_DISCONNECTED)) {
-            SharePreferenceConstant.full_battery_loaded=false;
+            SharePreferenceConstant.full_battery_loaded = false;
             Utils.powerDisconnected(context);
         }
         HistoryPref.putLevel(context, mBatteryInfo.level);

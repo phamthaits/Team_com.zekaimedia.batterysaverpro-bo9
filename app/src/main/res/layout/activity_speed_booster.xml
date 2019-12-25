@@ -69,14 +69,28 @@
                     android:layout_height="wrap_content"
                     android:background="#ffffffff">
 
-                    <com.airbnb.lottie.LottieAnimationView
+                    <!--                    <com.airbnb.lottie.LottieAnimationView-->
+                    <!--                        android:id="@+id/img_done"-->
+                    <!--                        android:layout_width="@dimen/img_mark_size"-->
+                    <!--                        android:layout_height="@dimen/img_mark_size"-->
+                    <!--                        android:layout_centerHorizontal="true"-->
+                    <!--                        app:lottie_autoPlay="true"-->
+                    <!--                        app:lottie_loop="true"-->
+                    <!--                        app:lottie_rawRes="@raw/boost" />-->
+                    <ImageView
                         android:id="@+id/img_done"
+                        android:layout_width="@dimen/img_mark_size"
+                        android:layout_height="@dimen/img_mark_size"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_memory_boost" />
+
+                    <com.airbnb.lottie.LottieAnimationView
                         android:layout_width="@dimen/img_mark_size"
                         android:layout_height="@dimen/img_mark_size"
                         android:layout_centerHorizontal="true"
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true"
-                        app:lottie_rawRes="@raw/boost" />
+                        app:lottie_rawRes="@raw/confetti_blast" />
 
                     <TextView
                         android:id="@+id/tv_optimized_info"
@@ -439,18 +453,6 @@
                     app:progress_color="@color/progress_color"
                     app:stroke_width="4dp" />
 
-                <ImageView
-                    android:id="@+id/clean_done_iv_rocket"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:layout_gravity="center"
-                    android:layout_margin="32dp"
-                    android:padding="28dp"
-                    android:src="@drawable/ic_memory_boost"
-                    android:visibility="visible" />
                 <!--                android:tint="@color/colorAccent"-->
                 <ImageView
                     android:id="@+id/clean_done_iv_tick"
@@ -465,6 +467,18 @@
                     android:padding="28dp"
                     android:src="@drawable/ic_complete_tick"
                     android:visibility="invisible" />
+                <ImageView
+                    android:id="@+id/clean_done_iv_rocket"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center"
+                    android:layout_margin="32dp"
+                    android:padding="28dp"
+                    android:src="@drawable/ic_memory_boost"
+                    android:visibility="visible" />
             </FrameLayout>
         </FrameLayout>
 

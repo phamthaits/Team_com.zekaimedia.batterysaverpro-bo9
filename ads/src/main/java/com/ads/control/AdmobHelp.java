@@ -74,7 +74,7 @@ public class AdmobHelp {
             case admod_full_fastcharge:
                 ads = AdmodAd.admod_full_fastcharge;
                 break;
-                     case admod_banner_appmanager:
+            case admod_banner_appmanager:
                 ads = AdmodAd.admod_banner_appmanager;
                 break;
             case admod_banner_chargehistory:
@@ -152,7 +152,7 @@ public class AdmobHelp {
         Animation animation2 = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.move_down_button);
         Animation animation3 = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.delay_anim_button);
         Button btnCallToAction = adView.findViewById(R.id.ad_call_to_action);
-        btnCallToAction.startAnimation(animation);
+//        btnCallToAction.startAnimation(animation);
 
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -210,8 +210,8 @@ public class AdmobHelp {
                 .setVideoOptions(videoOptions)
                 .build();
 
-        String ads="";
-        switch (typeAds){
+        String ads = "";
+        switch (typeAds) {
             case admod_native_main:
                 ads = AdmodAd.admod_native_main;
                 break;
@@ -236,12 +236,12 @@ public class AdmobHelp {
             case admod_native_setting:
                 ads = AdmodAd.admod_native_setting;
                 break;
-            case admod_native_chargeresult:
-                ads = AdmodAd.admod_native_chargeresult;
-                break;
+//            case admod_native_chargeresult:
+//                ads = AdmodAd.admod_native_chargeresult;
+//                break;
         }
 
-        AdLoader adLoader = new AdLoader.Builder(mActivity,ads)
+        AdLoader adLoader = new AdLoader.Builder(mActivity, ads)
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                     @Override
                     public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
@@ -276,52 +276,52 @@ public class AdmobHelp {
         adLoader.loadAd(new PublisherAdRequest.Builder().build());
     }
 
-    public void loadNativeRate(final Activity mActivity, Window window) {
-
-        VideoOptions videoOptions = new VideoOptions.Builder()
-                .setStartMuted(false)
-                .build();
-
-        NativeAdOptions adOptions = new NativeAdOptions.Builder()
-                .setVideoOptions(videoOptions)
-                .build();
-
-        AdLoader adLoader = new AdLoader.Builder(mActivity, AdmodAd.admod_native_rate)
-                .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
-                    @Override
-                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
-                        // Show the ad.
-                        if (nativeAd != null) {
-                            nativeAd.destroy();
-                        }
-
-                        nativeAd = unifiedNativeAd;
-
-                        FrameLayout frameLayout = window.findViewById(R.id.fl_adplaceholderrate);
-                        if (frameLayout != null) {
-
-                            frameLayout.setVisibility(View.VISIBLE);
-                            UnifiedNativeAdView adView = (UnifiedNativeAdView) mActivity.getLayoutInflater()
-                                    .inflate(R.layout.native_admob_ad_rate, null);
-                            populateUnifiedNativeAdView(unifiedNativeAd, adView);
-                            frameLayout.removeAllViews();
-                            frameLayout.addView(adView);
-                            setAnimation(mActivity, adView);
-                            window.findViewById(R.id.ivAdsBig).setVisibility(View.GONE);
-                        }
-                    }
-                })
-                .withAdListener(new AdListener() {
-                    @Override
-                    public void onAdFailedToLoad(int errorCode) {
-                        // Handle the failure by logging, altering the UI, and so on.
-                    }
-                })
-                .withNativeAdOptions(adOptions)
-                .build();
-
-        adLoader.loadAd(new PublisherAdRequest.Builder().build());
-    }
+//    public void loadNativeRate(final Activity mActivity, Window window) {
+//
+//        VideoOptions videoOptions = new VideoOptions.Builder()
+//                .setStartMuted(false)
+//                .build();
+//
+//        NativeAdOptions adOptions = new NativeAdOptions.Builder()
+//                .setVideoOptions(videoOptions)
+//                .build();
+//
+//        AdLoader adLoader = new AdLoader.Builder(mActivity, AdmodAd.admod_native_rate)
+//                .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
+//                    @Override
+//                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+//                        // Show the ad.
+//                        if (nativeAd != null) {
+//                            nativeAd.destroy();
+//                        }
+//
+//                        nativeAd = unifiedNativeAd;
+//
+//                        FrameLayout frameLayout = window.findViewById(R.id.fl_adplaceholderrate);
+//                        if (frameLayout != null) {
+//
+//                            frameLayout.setVisibility(View.VISIBLE);
+//                            UnifiedNativeAdView adView = (UnifiedNativeAdView) mActivity.getLayoutInflater()
+//                                    .inflate(R.layout.native_admob_ad_rate, null);
+//                            populateUnifiedNativeAdView(unifiedNativeAd, adView);
+//                            frameLayout.removeAllViews();
+//                            frameLayout.addView(adView);
+//                            setAnimation(mActivity, adView);
+//                            window.findViewById(R.id.ivAdsBig).setVisibility(View.GONE);
+//                        }
+//                    }
+//                })
+//                .withAdListener(new AdListener() {
+//                    @Override
+//                    public void onAdFailedToLoad(int errorCode) {
+//                        // Handle the failure by logging, altering the UI, and so on.
+//                    }
+//                })
+//                .withNativeAdOptions(adOptions)
+//                .build();
+//
+//        adLoader.loadAd(new PublisherAdRequest.Builder().build());
+//    }
 
     public void loadNativeFragment(final Activity mActivity, final View rootView, TypeAds typeAds) {
         VideoOptions videoOptions = new VideoOptions.Builder()
@@ -331,8 +331,8 @@ public class AdmobHelp {
         NativeAdOptions adOptions = new NativeAdOptions.Builder()
                 .setVideoOptions(videoOptions)
                 .build();
-        String ads="";
-        switch (typeAds){
+        String ads = "";
+        switch (typeAds) {
             case admod_native_main:
                 ads = AdmodAd.admod_native_main;
                 break;
@@ -393,11 +393,11 @@ public class AdmobHelp {
     }
 
     public void loadBannerFragment(final View rootView, TypeAds typeAds) {
-        String ads="";
+        String ads = "";
         try {
-           View adContainer = rootView.findViewById(R.id.banner_container);
-            AdView adView=new AdView(rootView.getContext());
-            switch (typeAds){
+            View adContainer = rootView.findViewById(R.id.banner_container);
+            AdView adView = new AdView(rootView.getContext());
+            switch (typeAds) {
                 case admod_banner_appmanager:
                     ads = AdmodAd.admod_banner_appmanager;
                     break;
@@ -407,7 +407,7 @@ public class AdmobHelp {
             }
             adView.setAdSize(AdSize.SMART_BANNER);
             adView.setAdUnitId(ads);
-            ((LinearLayout)adContainer).addView(adView);
+            ((LinearLayout) adContainer).addView(adView);
             adView.loadAd(new AdRequest.Builder().build());
             adView.setAdListener(new AdListener() {
                 @Override
@@ -415,6 +415,7 @@ public class AdmobHelp {
                     super.onAdFailedToLoad(i);
                     adContainer.setVisibility(View.GONE);
                 }
+
                 @Override
                 public void onAdLoaded() {
                     adContainer.setVisibility(View.VISIBLE);

@@ -13,20 +13,20 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/bt_container">
 
-        <FrameLayout
-            android:id="@+id/fl_adplaceholderrate"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height_native_ads_rate"
-            android:layout_marginLeft="5dip"
-            android:layout_marginTop="5dip"
-            android:layout_marginRight="5dip"
-            android:background="@drawable/bg_card_ads"
-            android:orientation="vertical"
-            android:paddingLeft="2dip"
-            android:paddingTop="2dip"
-            android:paddingRight="2dip"
-            android:paddingBottom="2dip"
-            android:visibility="gone" />
+<!--        <FrameLayout-->
+<!--            android:id="@+id/fl_adplaceholderrate"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/height_native_ads_rate"-->
+<!--            android:layout_marginLeft="5dip"-->
+<!--            android:layout_marginTop="5dip"-->
+<!--            android:layout_marginRight="5dip"-->
+<!--            android:background="@drawable/bg_card_ads"-->
+<!--            android:orientation="vertical"-->
+<!--            android:paddingLeft="2dip"-->
+<!--            android:paddingTop="2dip"-->
+<!--            android:paddingRight="2dip"-->
+<!--            android:paddingBottom="2dip"-->
+<!--            android:visibility="gone" />-->
 
         <ImageView
             android:id="@+id/ivAdsBig"

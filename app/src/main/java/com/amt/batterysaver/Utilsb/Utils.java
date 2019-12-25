@@ -82,21 +82,21 @@ public class Utils {
     }
 
     public static void fullPower(Context context) {
+//        Utils.checkDNDDoing(context)
         long i = SharePreferenceUtils.getInstance(context).getTime();
         if (i == 0) {
             SharePreferenceUtils.getInstance(context).setTime(System.currentTimeMillis());
             boolean doing = Utils.checkDNDDoing(context);
             boolean reminer = SharePreferenceUtils.getInstance(context).getChargeFullReminder();
+            if (!SharePreferenceConstant.full_battery_loaded) {
+                SharePreferenceConstant.full_battery_loaded = true;
+                Intent ii = new Intent(context, FullChargeActivity.class);
+                ii.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(ii);
+            }
             if (doing && reminer) {
                 NotificationDevice.showNotificationBatteryFull(context);
                 Utils.intSound(context);
-                if(!SharePreferenceConstant.full_battery_loaded)
-                {
-                    SharePreferenceConstant.full_battery_loaded = true;
-                    Intent ii = new Intent(context, FullChargeActivity.class);
-                    ii.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(ii);
-                }
             }
         }
     }
@@ -218,6 +218,7 @@ public class Utils {
             p.waitFor();
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
             String line = reader.readLine();
+            Log.i("cpu Temp",line+"\t");
             return Float.parseFloat(line);
         } catch (Exception e) {
             e.printStackTrace();
@@ -440,7 +441,6 @@ public class Utils {
     public static boolean checkTemp(Context mContext) {
         float cpu = Utils.getCpuTemp() / 1000;
         return cpu >= 38;
-
     }
 
     public void checkJunk() {
@@ -534,8 +534,6 @@ public class Utils {
         boolean isCharging = status == BatteryManager.BATTERY_STATUS_CHARGING || status == BatteryManager.BATTERY_STATUS_FULL;
 
         return isCharging;
-
-
     }
 
     public static boolean getChargeFull(Context context) {
@@ -543,9 +541,7 @@ public class Utils {
         Intent batteryStatus = context.registerReceiver(null, ifilter);
         int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
         boolean isCharging = status == BatteryManager.BATTERY_STATUS_FULL;
-
         return isCharging;
-
     }
 
     public static String getChargeType(Context context) {
@@ -557,18 +553,13 @@ public class Utils {
         if (usbCharge) return "USB";
         if (acCharge) return "AC";
         return "AC";
-
-
     }
 
     public static int getTempleCpu(Context context) {
         IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         Intent batteryStatus = context.registerReceiver(null, ifilter);
         int status = batteryStatus.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, -1);
-
-
         return status;
-
     }
 
     public static int getBatteryLevel(Context context) {
@@ -631,14 +622,12 @@ public class Utils {
                 SharePreferenceUtils.getInstance(mContext).saveLanguage(language);
             }
         }
-
         Locale myLocale = new Locale(language);
         Resources res = mContext.getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
-
     }
 
     public static void setLocale(Context mContext, String lang) {
@@ -662,6 +651,7 @@ public class Utils {
             Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             Ringtone r = RingtoneManager.getRingtone(mContext, notification);
             r.play();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -680,7 +670,5 @@ public class Utils {
         } else {
             Toast.makeText(mContext, mContext.getString(R.string.toast_mode_title) + " " + text, Toast.LENGTH_LONG).show();
         }
-
     }
-
 }
