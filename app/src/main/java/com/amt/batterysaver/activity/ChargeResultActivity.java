@@ -59,7 +59,7 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
         r = new Runnable() {
             @Override
             public void run() {
-//                AdmodRef.loadNative(ChargeResultActivity.this, TypeAds.admod_native_chargeresult);
+                AdmodRef.loadNative(ChargeResultActivity.this, TypeAds.admod_native_chargeresult);
             }
         };
         mHandler.postDelayed(r, 2000);

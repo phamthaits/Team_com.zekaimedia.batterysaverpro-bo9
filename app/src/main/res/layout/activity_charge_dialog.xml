@@ -459,12 +459,11 @@
 
         </androidx.cardview.widget.CardView>
 
-        <!--        <include-->
-        <!--            layout="@layout/layout_ads_control"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="5dip"></include>-->
-
+                <include
+                    layout="@layout/layout_ads_control"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dip"></include>
 
     </LinearLayout>
 </RelativeLayout>
