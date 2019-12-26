@@ -8,7 +8,7 @@ public class AdmodAd {
     public static String admod_full_phoneboost = "";
     public static String admod_full_phonecooler = "";
 
-    public static String admod_full_fullcharge = "";
+//    public static String admod_full_fullcharge = "";
     public static String admod_full_fastcharge = "";
 
     public static String admod_native_main = "";
@@ -17,11 +17,11 @@ public class AdmodAd {
     public static String admod_native_phoneboost = "";
     public static String admod_native_phonecooler = "";
 
-    public static String admod_native_fullcharge = "";
+//    public static String admod_native_fullcharge = "";
     public static String admod_native_fastcharge = "";
 
     public static String admod_native_setting = "";
     public static String admod_banner_appmanager = "";
     public static String admod_banner_chargehistory = "";
-    public static String admod_native_chargeresult="";
+//    public static String admod_native_chargeresult="";
 }

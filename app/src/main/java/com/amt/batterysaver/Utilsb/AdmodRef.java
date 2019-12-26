@@ -51,9 +51,9 @@ public class AdmodRef {
                                             case "admod_full_phonecooler":
                                                 AdmodAd.admod_full_phonecooler = object.getString(key);
                                                 break;
-                                            case "admod_full_fullcharge":
-                                                AdmodAd.admod_full_fullcharge = object.getString(key);
-                                                break;
+//                                            case "admod_full_fullcharge":
+//                                                AdmodAd.admod_full_fullcharge = object.getString(key);
+//                                                break;
                                             case "admod_full_fastcharge":
                                                 AdmodAd.admod_full_fastcharge = object.getString(key);
                                                 break;
@@ -72,18 +72,18 @@ public class AdmodRef {
                                             case "admod_native_phonecooler":
                                                 AdmodAd.admod_native_phonecooler = object.getString(key);
                                                 break;
-                                            case "admod_native_fullcharge":
-                                                AdmodAd.admod_native_fullcharge = object.getString(key);
-                                                break;
+//                                            case "admod_native_fullcharge":
+//                                                AdmodAd.admod_native_fullcharge = object.getString(key);
+//                                                break;
                                             case "admod_native_fastcharge":
                                                 AdmodAd.admod_native_fastcharge = object.getString(key);
                                                 break;
                                             case "admod_native_setting":
                                                 AdmodAd.admod_native_setting = object.getString(key);
                                                 break;
-                                            case "admod_native_chargeresult":
-                                                AdmodAd.admod_native_chargeresult = object.getString(key);
-                                                break;
+//                                            case "admod_native_chargeresult":
+//                                                AdmodAd.admod_native_chargeresult = object.getString(key);
+//                                                break;
                                             case "admod_banner_appmanager":
                                                 AdmodAd.admod_banner_appmanager = object.getString(key);
                                                 break;

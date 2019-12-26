@@ -2,7 +2,6 @@ package com.amt.batterysaver.activity;
 
 import android.content.Intent;
 import android.graphics.PorterDuff;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -10,21 +9,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ads.control.AdmobHelp;
-import com.ads.control.TypeAds;
-import com.airbnb.lottie.LottieAnimationView;
 import com.amt.batterysaver.R;
-import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
-import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
-import com.amt.batterysaver.task.TaskCharge;
-import com.amt.batterysaver.task.TaskChargeDetail;
 
 import java.lang.reflect.Type;
 
@@ -43,30 +33,28 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
         Utils.setLocate(this);
         setContentView(R.layout.activity_charge_full);
         intView();
-        AdmodRef.initInterstitialAd(FullChargeActivity.this, TypeAds.admod_full_fullcharge);
+//        AdmodRef.initInterstitialAd(FullChargeActivity.this, TypeAds.admod_full_fullcharge);
 //        AdmobHelp.getInstance().init(FullChargeActivity.this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
-        r = new Runnable() {
-            @Override
-            public void run() {
-                AdmodRef.loadNative(FullChargeActivity.this, TypeAds.admod_native_fullcharge);
-//                AdmobHelp.getInstance().loadNative(FullChargeActivity.this);
-
-            }
-        };
-        r1 = new Runnable() {
-            @Override
-            public void run() {
-                AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-                    @Override
-                    public void onAdClosed() {
-                    }
-                });
-            }
-        };
-        mHandler = new Handler();
-        mHandler.postDelayed(r, 2000);
-        mHandler1 = new Handler();
-        mHandler1.postDelayed(r1, 5000);
+//        r = new Runnable() {
+//            @Override
+//            public void run() {
+//                AdmodRef.loadNative(FullChargeActivity.this, TypeAds.admod_native_fullcharge);
+//            }
+//        };
+//        r1 = new Runnable() {
+//            @Override
+//            public void run() {
+//                AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+//                    @Override
+//                    public void onAdClosed() {
+//                    }
+//                });
+//            }
+//        };
+//        mHandler = new Handler();
+//        mHandler.postDelayed(r, 2000);
+//        mHandler1 = new Handler();
+//        mHandler1.postDelayed(r1, 5000);
         loadResult();
     }
 
@@ -107,11 +95,11 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
         fmResult.startAnimation(downtoup);
         flagExit = true;
         SharePreferenceConstant.full_battery_loaded = true;
-        AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-            @Override
-            public void onAdClosed() {
-            }
-        });
+//        AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+//            @Override
+//            public void onAdClosed() {
+//            }
+//        });
     }
 
     @Override

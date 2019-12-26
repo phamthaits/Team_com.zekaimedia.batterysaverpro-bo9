@@ -55,14 +55,14 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
         intView();
         intData();
         intEvent();
-        mHandler = new Handler();
-        r = new Runnable() {
-            @Override
-            public void run() {
-                AdmodRef.loadNative(ChargeResultActivity.this, TypeAds.admod_native_chargeresult);
-            }
-        };
-        mHandler.postDelayed(r, 2000);
+//        mHandler = new Handler();
+//        r = new Runnable() {
+//            @Override
+//            public void run() {
+//                AdmodRef.loadNative(ChargeResultActivity.this, TypeAds.admod_native_chargeresult);
+//            }
+//        };
+//        mHandler.postDelayed(r, 2000);
     }
 
     @Override

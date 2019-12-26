@@ -68,9 +68,9 @@ public class AdmobHelp {
             case admod_full_phonecooler:
                 ads = AdmodAd.admod_full_phonecooler;
                 break;
-            case admod_full_fullcharge:
-                ads = AdmodAd.admod_full_fullcharge;
-                break;
+//            case admod_full_fullcharge:
+//                ads = AdmodAd.admod_full_fullcharge;
+//                break;
             case admod_full_fastcharge:
                 ads = AdmodAd.admod_full_fastcharge;
                 break;
@@ -227,18 +227,18 @@ public class AdmobHelp {
             case admod_native_phonecooler:
                 ads = AdmodAd.admod_native_phonecooler;
                 break;
-            case admod_native_fullcharge:
-                ads = AdmodAd.admod_native_fullcharge;
-                break;
+//            case admod_native_fullcharge:
+//                ads = AdmodAd.admod_native_fullcharge;
+//                break;
             case admod_native_fastcharge:
                 ads = AdmodAd.admod_native_fastcharge;
                 break;
             case admod_native_setting:
                 ads = AdmodAd.admod_native_setting;
                 break;
-            case admod_native_chargeresult:
-                ads = AdmodAd.admod_native_chargeresult;
-                break;
+//            case admod_native_chargeresult:
+//                ads = AdmodAd.admod_native_chargeresult;
+//                break;
         }
 
         AdLoader adLoader = new AdLoader.Builder(mActivity, ads)
@@ -301,9 +301,9 @@ public class AdmobHelp {
             case admod_native_phonecooler:
                 ads = AdmodAd.admod_native_phonecooler;
                 break;
-            case admod_native_fullcharge:
-                ads = AdmodAd.admod_native_fullcharge;
-                break;
+//            case admod_native_fullcharge:
+//                ads = AdmodAd.admod_native_fullcharge;
+//                break;
             case admod_native_fastcharge:
                 ads = AdmodAd.admod_native_fastcharge;
                 break;
