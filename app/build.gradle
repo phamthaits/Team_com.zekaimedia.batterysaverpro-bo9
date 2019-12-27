@@ -7,8 +7,8 @@ android {
         applicationId "com.amt.batterysaver"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 11
-        versionName '11.0'
+        versionCode 13
+        versionName '13.0'
         testInstrumentationRunner "androidx.move_up_button.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }

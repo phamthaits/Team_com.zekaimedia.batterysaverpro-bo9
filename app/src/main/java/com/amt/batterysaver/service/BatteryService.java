@@ -119,8 +119,6 @@ public class BatteryService  extends Service
             e.printStackTrace();
         }
             AlarmUtils.setAlarm(this,AlarmUtils.ACTION_REPEAT_SERVICE,AlarmUtils.TIME_REPREAT_SERVICE);
-
-
     }
 
 

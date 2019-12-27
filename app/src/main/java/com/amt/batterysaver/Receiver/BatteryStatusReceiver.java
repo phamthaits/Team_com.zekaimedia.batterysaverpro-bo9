@@ -5,7 +5,11 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.BatteryManager;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
@@ -25,6 +29,7 @@ public class BatteryStatusReceiver extends BroadcastReceiver {
     Context mContext = null;
     NotificationManager mNotificationManager;
     NotificationCompat.Builder mBuilder;
+//    private WifiManager wifiManager;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -95,6 +100,11 @@ public class BatteryStatusReceiver extends BroadcastReceiver {
             SharePreferenceConstant.full_battery_loaded = false;
             Utils.powerDisconnected(context);
         }
+//        else {
+//            if (intent.getAction().equals(WifiManager.WIFI_STATE_CHANGED_ACTION) || intent.getAction().equals("android.net.conn.CONNECTIVITY_CHANGE")) {
+//                Utils.wifiBooster(context,wifiManager);
+//            }
+//        }
         HistoryPref.putLevel(context, mBatteryInfo.level);
     }
 
@@ -120,6 +130,7 @@ public class BatteryStatusReceiver extends BroadcastReceiver {
 
     public final void OnCreate(Context context) {
         mContext = context.getApplicationContext();
+//        wifiManager = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_SCREEN_OFF);
         intentFilter.addAction(Intent.ACTION_SCREEN_ON);
@@ -129,6 +140,9 @@ public class BatteryStatusReceiver extends BroadcastReceiver {
         intentFilter.addAction(Intent.ACTION_BATTERY_CHANGED);
         intentFilter.addAction(BatteryService.ACTION_MAX_BATTERY_NEED_UPDATE);
         intentFilter.addAction(NotificationBattery.UPDATE_NOTIFICATION_ENABLE);
+//        intentFilter.addAction(WifiManager.WIFI_STATE_CHANGED_ACTION);
+//        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+//        getActivity().registerReceiver(DeviceChangeReceiver, new IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION));
         mContext.registerReceiver(this, intentFilter);
     }
 

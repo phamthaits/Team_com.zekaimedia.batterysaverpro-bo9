@@ -5,7 +5,6 @@
     <string name="title_activity_language">LAUNGUAGE</string>
     <string name="language_name">English</string>
 
-
     <string name="fix_now">FIX NOW</string>
     <string name="optimize">OPTIMIZE</string>
 
@@ -186,4 +185,5 @@
     <string name="link_policy" translatable="false">https://sites.google.com/view/amtteam/</string>
     <string name="calculating">calculating...</string>
     <string name="battery_level">Battery Level</string>
+
 </resources>

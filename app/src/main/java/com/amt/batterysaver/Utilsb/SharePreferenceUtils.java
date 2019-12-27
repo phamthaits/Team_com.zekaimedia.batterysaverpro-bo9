@@ -13,12 +13,10 @@ import java.util.ArrayList;
 public class SharePreferenceUtils {
     private static SharePreferenceUtils instance;
 
-    private Context mContext;
     private SharedPreferences.Editor editor;
     private SharedPreferences pre;
 
     private SharePreferenceUtils(Context context) {
-        this.mContext = context;
         this.pre = context.getSharedPreferences(SharePreferenceConstant.KEY_DATA, Context.MODE_MULTI_PROCESS);
         this.editor = this.pre.edit();
     }
@@ -170,7 +168,6 @@ public class SharePreferenceUtils {
         editor.commit();
     }
 
-
     public boolean getKillApp() {
         return this.pre.getBoolean("KillApp", true);
     }
@@ -188,6 +185,16 @@ public class SharePreferenceUtils {
         editor.putBoolean("WifiStatus", i);
         editor.commit();
     }
+
+    public String getWifiName() {
+        return this.pre.getString("WifiName", "");
+    }
+
+    public void setWifiName(String i) {
+        editor.putString("WifiName", i);
+        editor.commit();
+    }
+
 
     public boolean getAutoBrightness() {
         return this.pre.getBoolean("AutoBrightness", true);

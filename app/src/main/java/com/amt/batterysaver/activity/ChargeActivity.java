@@ -58,10 +58,8 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         intData();
         checkTask();
 
-        AdmodRef.initInterstitialAd(this, TypeAds.admod_full_fastcharge);
-        AdmodRef.loadNative(this, TypeAds.admod_native_fastcharge);
-//        AdmobHelp.getInstance().loadNative(ChargeActivity.this);
-//        AdmobHelp.getInstance().init(ChargeActivity.this, SharePreferenceConstant.admob_full,SharePreferenceConstant.admob_native);
+//        AdmodRef.initInterstitialAd(this, TypeAds.admod_full_fastcharge);
+//        AdmodRef.loadNative(this, TypeAds.admod_native_fastcharge);
     }
 
     public void checkTask() {

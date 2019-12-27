@@ -15,6 +15,7 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.Uri;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.BatteryManager;
 import android.os.Build;
@@ -28,6 +29,7 @@ import android.widget.Toast;
 import com.ads.control.AdmobHelp;
 import com.amt.batterysaver.activity.FullChargeActivity;
 import com.amt.batterysaver.activity.PermissionActivity;
+import com.amt.batterysaver.activity.WifiActivity;
 import com.amt.batterysaver.notification.NotificationDevice;
 import com.amt.batterysaver.Alarm.AlarmUtils;
 import com.amt.batterysaver.R;
@@ -133,6 +135,22 @@ public class Utils {
         return false;
     }
 
+    public static void wifiBooster(Context context, WifiManager wifiManager) {
+        SharePreferenceUtils pre = SharePreferenceUtils.getInstance(context);
+
+        WifiInfo info = wifiManager.getConnectionInfo();
+        if (info.getSupplicantState().name().equals("COMPLETED")) {
+            if (!pre.getWifiStatus()) {
+                pre.setWifiStatus(true);
+                Intent i = new Intent(context, WifiActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(i);
+            }
+        } else {
+            pre.setWifiStatus(false);
+        }
+    }
+
     public static void powerDisconnected(Context context) {
         // Dem cac trang thai sac Pin
         if (Utils.getBatteryLevel(context) == 100) {
@@ -218,7 +236,7 @@ public class Utils {
             p.waitFor();
             BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
             String line = reader.readLine();
-            Log.i("cpu Temp",line+"\t");
+            Log.i("cpu Temp", line + "\t");
             return Float.parseFloat(line);
         } catch (Exception e) {
             e.printStackTrace();

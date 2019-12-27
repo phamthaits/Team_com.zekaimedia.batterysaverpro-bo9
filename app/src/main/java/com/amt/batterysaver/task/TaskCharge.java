@@ -33,8 +33,7 @@ public class TaskCharge extends AsyncTask<Void, TaskInfo, ArrayList<TaskInfo>> {
         mOnTaskListListener = onTaskListListener;
         mPackageManager = context.getPackageManager();
         this.titleApp = titleApp;
-        mActivityManager = (ActivityManager) context.getSystemService(
-                Context.ACTIVITY_SERVICE);
+        mActivityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
     }
 
     @Override
@@ -61,24 +60,23 @@ public class TaskCharge extends AsyncTask<Void, TaskInfo, ArrayList<TaskInfo>> {
                     ApplicationInfo applicationInfo;
                     applicationInfo = mPackageManager.getApplicationInfo(packagename, 0);
                     if (applicationInfo == null) continue;
-                    if (!packagename.contains(mContext.getPackageName()) && applicationInfo != null&& Utils.isUserApp(applicationInfo)&&!Utils.checkLockedItem(mContext, packagename)) {
+                    if (!packagename.contains(mContext.getPackageName()) && applicationInfo != null && Utils.isUserApp(applicationInfo) && !Utils.checkLockedItem(mContext, packagename)) {
                         TaskInfo info = new TaskInfo(mContext, applicationInfo);
                         mActivityManager.killBackgroundProcesses(info.getAppinfo().packageName);
                         publishProgress(info);
                         try {
 
                             Thread.sleep(150);
-
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                     }
-                } catch (Exception e){
+                } catch (Exception e) {
                     continue;
                 }
             } while (true);
         } else {
-            if(Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
                 for (ActivityManager.RunningServiceInfo runningServiceInfo : am.getRunningServices(Integer.MAX_VALUE)) {
                     try {
                         if (mPackageManager == null) break;
@@ -87,24 +85,21 @@ public class TaskCharge extends AsyncTask<Void, TaskInfo, ArrayList<TaskInfo>> {
                         ApplicationInfo applicationInfo;
                         applicationInfo = mPackageManager.getApplicationInfo(packageInfo.packageName, 0);
                         if (applicationInfo == null) continue;
-                        if (!packageInfo.packageName.contains(mContext.getPackageName()) && applicationInfo != null &&Utils.isUserApp(applicationInfo)&&!Utils.checkLockedItem(mContext, packageInfo.packageName)) {
+                        if (!packageInfo.packageName.contains(mContext.getPackageName()) && applicationInfo != null && Utils.isUserApp(applicationInfo) && !Utils.checkLockedItem(mContext, packageInfo.packageName)) {
                             TaskInfo info = new TaskInfo(mContext, applicationInfo);
                             mActivityManager.killBackgroundProcesses(info.getAppinfo().packageName);
                             publishProgress(info);
                             try {
-
                                 Thread.sleep(150);
-
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-
                         }
                     } catch (Exception e) {
                         continue;
                     }
                 }
-            }else{
+            } else {
                 int flags = PackageManager.GET_ACTIVITIES
                         | PackageManager.GET_CONFIGURATIONS
                         | PackageManager.GET_DISABLED_COMPONENTS
@@ -114,54 +109,42 @@ public class TaskCharge extends AsyncTask<Void, TaskInfo, ArrayList<TaskInfo>> {
                         | PackageManager.GET_RECEIVERS | PackageManager.GET_SERVICES
                         | PackageManager.GET_SIGNATURES;
                 PackageManager packageManager = mContext.getPackageManager();
-                List<PackageInfo> installedPackages = packageManager
-                        .getInstalledPackages(flags);
+                List<PackageInfo> installedPackages = packageManager.getInstalledPackages(flags);
                 for (PackageInfo packageInfo : installedPackages) {
                     if (mPackageManager == null) break;
                     try {
                         ApplicationInfo applicationInfo;
                         applicationInfo = mPackageManager.getApplicationInfo(packageInfo.packageName, 0);
-
                         ServiceInfo[] services = packageInfo.services;
-                        if(services!=null){
-                            if(services.length>0){
-                                if (!packageInfo.packageName.contains(mContext.getPackageName()) && applicationInfo != null &&Utils.isUserApp(applicationInfo)&&!Utils.checkLockedItem(mContext, packageInfo.packageName)) {
+                        if (services != null) {
+                            if (services.length > 0) {
+                                if (!packageInfo.packageName.contains(mContext.getPackageName()) && applicationInfo != null && Utils.isUserApp(applicationInfo) && !Utils.checkLockedItem(mContext, packageInfo.packageName)) {
                                     TaskInfo info = new TaskInfo(mContext, applicationInfo);
                                     mActivityManager.killBackgroundProcesses(info.getAppinfo().packageName);
                                     publishProgress(info);
                                     try {
-
                                         Thread.sleep(150);
-
                                     } catch (InterruptedException e) {
                                         e.printStackTrace();
                                     }
                                 }
-
                             }
-
                         }
 
                         PermissionInfo[] permissions = packageInfo.permissions;
                     } catch (PackageManager.NameNotFoundException e) {
                         e.printStackTrace();
                     }
-
                 }
-
             }
-
         }
-
-
-
         return null;
     }
+
     @Override
     protected void onProgressUpdate(TaskInfo... values) {
         super.onProgressUpdate(values);
         getImageApp(values[0]);
-
     }
 
     @Override
@@ -175,13 +158,8 @@ public class TaskCharge extends AsyncTask<Void, TaskInfo, ArrayList<TaskInfo>> {
     public interface OnTaskListListener {
         void OnResult();
     }
-    public void getImageApp(TaskInfo info){
-        titleApp.setText(mContext.getString(R.string.pc_scanning)+": " +info.getTitle());
 
+    public void getImageApp(TaskInfo info) {
+        titleApp.setText(mContext.getString(R.string.pc_scanning) + ": " + info.getTitle());
     }
-
-
-
-
 }
-

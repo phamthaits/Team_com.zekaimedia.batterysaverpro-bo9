@@ -33,9 +33,7 @@ public class TaskChargeDetail extends AsyncTask<Void, Integer, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
-
         for (int j = 0; j < 100; j++) {
-
             publishProgress(j);
             try {
                 if(j<=40){
@@ -43,15 +41,10 @@ public class TaskChargeDetail extends AsyncTask<Void, Integer, Void> {
                 } else  {
                     Thread.sleep(30);
                 }
-
-
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-
-
-
         return null;
     }
 

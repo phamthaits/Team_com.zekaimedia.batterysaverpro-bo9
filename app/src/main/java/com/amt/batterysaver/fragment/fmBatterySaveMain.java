@@ -16,6 +16,7 @@ import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.BatteryManager;
@@ -306,12 +307,14 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
 
         NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
         // if user granted access else ask for permission
-        if (notificationManager.isNotificationPolicyAccessGranted()) {
-            soundModeAction();
-        } else {
-            // Open Setting screen to ask for permisssion
-            Intent intent = new Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
-            startActivityForResult(intent, ON_DO_NOT_DISTURB_CALLBACK_CODE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (notificationManager.isNotificationPolicyAccessGranted()) {
+                soundModeAction();
+            } else {
+                // Open Setting screen to ask for permisssion
+                Intent intent = new Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+                startActivityForResult(intent, ON_DO_NOT_DISTURB_CALLBACK_CODE);
+            }
         }
     }
 
@@ -409,7 +412,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         imgFull = (ImageView) view.findViewById(R.id.imgFull);
         imgTrickle = (ImageView) view.findViewById(R.id.imgTrickle);
 
-
         lrTimeLeft = view.findViewById(R.id.view_time_left);
         tvFullCharge = view.findViewById(R.id.tvFullCharge);
         vPowerIssue = view.findViewById(R.id.vPowerIssue);
@@ -491,8 +493,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         lrBoost.setOnClickListener(this);
         lrClean.setOnClickListener(this);
         lrCool.setOnClickListener(this);
-
-
     }
 
     public void mRegisterReceiver() {
@@ -505,8 +505,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         Animation rotation = AnimationUtils.loadAnimation(getActivity(), animation);
         rotation.setFillAfter(true);
         imageView.startAnimation(rotation);
-
-
     }
 
     public void writePermission() {
@@ -684,8 +682,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
             imgUsb.clearAnimation();
             imgUsb.setVisibility(View.GONE);
         }
-
-
     }
 
     public String getTemp(int i) {
@@ -857,7 +853,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         getActivity().getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS_MODE), true, brightnessModeObserver);
 
-
         updateWifi();
         updateBluetoothImage();
         soundModeStatus();
@@ -905,9 +900,9 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     }
 
     public void updateWifi() {
+
         if (wifiManager.isWifiEnabled()) {
             btnWifi.setImageResource(R.drawable.ic_wifi_true);
-
         } else {
             btnWifi.setImageResource(R.drawable.ic_wifi_false);
         }
@@ -921,12 +916,9 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
             } else {
                 btnBrightness.setImageResource(R.drawable.ic_brightness_mode__no_auto);
             }
-
         } catch (Settings.SettingNotFoundException e) {
-
         }
     }
-
 
     private void updateLocationImage() {
         try {
@@ -937,9 +929,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
 
             } else {
                 btnGPS.setImageResource(R.drawable.ic_gps_true);
-
             }
-
 
         } catch (Exception e) {
         }
@@ -948,7 +938,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     public void updateBluetoothImage() {
         if (bluetoothAdapter != null && bluetoothAdapter.isEnabled()) {
             btnBluetooth.setImageResource(R.drawable.ic_bluetooth_true);
-
         } else {
             btnBluetooth.setImageResource(R.drawable.ic_bluetooth_false);
         }
@@ -958,7 +947,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         switch (audioManager.getRingerMode()) {
             case AudioManager.RINGER_MODE_NORMAL:
                 btnSound.setImageResource(R.drawable.ic_volume_normal);
-
                 break;
             case AudioManager.RINGER_MODE_VIBRATE:
                 btnSound.setImageResource(R.drawable.ic_vibration);
