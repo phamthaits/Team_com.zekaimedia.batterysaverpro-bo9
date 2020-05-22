@@ -38,6 +38,8 @@ public class SplashActivity extends AppCompatActivity {
                 AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
                     @Override
                     public void onAdClosed() {
+
+
                         startActivity(new Intent(SplashActivity.this, MainActivity.class));
                         finish();
                     }
