@@ -42,8 +42,8 @@
     <dimen name="img_mark_size">110.0dip</dimen>
 
     //main
-    <dimen name="imgCircle_size">190dp</dimen>
-    <dimen name="ripple_size">220dp</dimen>
+    <dimen name="imgCircle_size">150dp</dimen>
+    <dimen name="ripple_size">200dp</dimen>
     <dimen name="progress_percent2">20sp</dimen>
     <dimen name="arc_suffix_text_size">18sp</dimen>
     <dimen name="arc_title_time_left">12sp</dimen>

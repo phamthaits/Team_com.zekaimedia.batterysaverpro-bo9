@@ -12,7 +12,11 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.ads.control.AdmobHelp;
+import com.ads.control.AdmodAd;
+import com.ads.control.TypeAds;
 import com.amt.batterysaver.R;
+import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.Utils;
 
@@ -26,6 +30,7 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
     Runnable r;
     Handler mHandler1;
     Runnable r1;
+//    Boolean isLoadAds = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +38,11 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
         Utils.setLocate(this);
         setContentView(R.layout.activity_charge_full);
         intView();
-//        AdmodRef.initInterstitialAd(FullChargeActivity.this, TypeAds.admod_full_fullcharge);
-//        AdmobHelp.getInstance().init(FullChargeActivity.this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
+
+//        isLoadAds = !AdmodAd.admod_native_fullcharge.equals("");
+//        if (isLoadAds)
+//            AdmodRef.initInterstitialAd(FullChargeActivity.this, TypeAds.admod_full_fullcharge);
+//
 //        r = new Runnable() {
 //            @Override
 //            public void run() {
@@ -52,9 +60,11 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
 //            }
 //        };
 //        mHandler = new Handler();
-//        mHandler.postDelayed(r, 2000);
 //        mHandler1 = new Handler();
-//        mHandler1.postDelayed(r1, 5000);
+//        if (isLoadAds) {
+//            mHandler.postDelayed(r, 2000);
+//            mHandler1.postDelayed(r1, 5000);
+//        }
         loadResult();
     }
 

@@ -71,9 +71,9 @@ public class AdmobHelp {
 //            case admod_full_fullcharge:
 //                ads = AdmodAd.admod_full_fullcharge;
 //                break;
-            case admod_full_fastcharge:
-                ads = AdmodAd.admod_full_fastcharge;
-                break;
+//            case admod_full_fastcharge:
+//                ads = AdmodAd.admod_full_fastcharge;
+//                break;
             case admod_banner_appmanager:
                 ads = AdmodAd.admod_banner_appmanager;
                 break;
@@ -230,9 +230,9 @@ public class AdmobHelp {
 //            case admod_native_fullcharge:
 //                ads = AdmodAd.admod_native_fullcharge;
 //                break;
-            case admod_native_fastcharge:
-                ads = AdmodAd.admod_native_fastcharge;
-                break;
+//            case admod_native_fastcharge:
+//                ads = AdmodAd.admod_native_fastcharge;
+//                break;
             case admod_native_setting:
                 ads = AdmodAd.admod_native_setting;
                 break;

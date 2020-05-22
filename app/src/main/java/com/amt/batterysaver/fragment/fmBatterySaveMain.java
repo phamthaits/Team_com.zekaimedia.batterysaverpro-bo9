@@ -39,6 +39,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -93,7 +94,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     boolean flagBattery = false;
     private TextView tvPowerIssue, tvHour, tvMin;
     private View vPowerIssue;
-    LinearLayout lrIssue;
+    RelativeLayout lrIssue;
     int ON_DO_NOT_DISTURB_CALLBACK_CODE = 4300;
     public static final int WRITE_PERMISSION_REQUEST = 5000;
     private BatteryTask mBatteryTask;
@@ -455,8 +456,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         lrBoost = view.findViewById(R.id.lrBoost);
         lrClean = view.findViewById(R.id.lrClean);
         lrCool = view.findViewById(R.id.lrCool);
-
-
     }
 
     WaveDrawable mWaveDrawable;
@@ -558,7 +557,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                     lrTimeLeft.setVisibility(View.GONE);
 
                 } else {
-                    tvFullCharge.setVisibility(View.GONE);
+                    tvFullCharge.setText("");
+//                    tvFullCharge.setVisibility(View.GONE);
                     lrTimeLeft.setVisibility(View.VISIBLE);
                 }
                 if (flagBattery)

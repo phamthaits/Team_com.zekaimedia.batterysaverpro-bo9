@@ -9,14 +9,144 @@
         android:id="@+id/rlScanning"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:gravity="center">
 
         <RelativeLayout
-            android:id="@+id/rlRound"
+            android:id="@+id/tv2"
             android:layout_width="match_parent"
+            android:layout_height="@dimen/imgCircle_size"
+            android:layout_alignBottom="@+id/rlRound"
+            android:layout_toStartOf="@+id/rlRound"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
+                android:singleLine="true"
+                android:text="@string/time_left"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/text_color"
+                android:textSize="@dimen/arc_title_time_left" />
+
+            <TextView
+                android:id="@+id/tvFullCharge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv1"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/text_color"
+                android:textSize="18dip"
+                android:textStyle="normal"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:id="@+id/view_time_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv1"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvHour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="00"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_hour" />
+
+                <TextView
+                    android:id="@+id/tv_time_h_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginStart="2.0dip"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="h"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/arc_suffix_text_size" />
+
+                <TextView
+                    android:id="@+id/tvMin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginStart="2.0dip"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="00"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size_hour" />
+
+                <TextView
+                    android:id="@+id/tv_time_m_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:layout_marginStart="2.0dip"
+                    android:fontFamily="@font/roboto_regular"
+                    android:text="m"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/arc_suffix_text_size" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_power_issue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvFullCharge"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="5dp"
+                android:visibility="invisible">
+
+                <View
+                    android:id="@+id/vPowerIssue"
+                    android:layout_width="@dimen/imgUsb_size"
+                    android:layout_height="@dimen/imgUsb_size"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="3.0dip" />
+
+                <TextView
+                    android:id="@+id/tv_power_issue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5.0dip"
+                    android:layout_toRightOf="@+id/vPowerIssue"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text_size" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnOptimize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/layout_power_issue"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/btn_rounded"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center"
+                android:paddingStart="@dimen/btn_size"
+                android:paddingEnd="@dimen/btn_size"
+                android:text="OPTIMIZE"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlRound"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
             android:gravity="center">
 
             <com.skyfishjy.library.RippleBackground
@@ -54,15 +184,12 @@
                 app:wlv_waveAmplitude="70"
                 app:wlv_waveColor="#43c63c"
                 app:wlv_wave_background_Color="#55626e" />
-
-
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:gravity="center"
                 android:orientation="vertical">
-
                 <TextView
                     android:id="@+id/tvPercentPin"
                     android:layout_width="wrap_content"
@@ -74,79 +201,6 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/progress_percent2"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_light"
-                    android:singleLine="true"
-                    android:text="@string/time_left"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/arc_title_time_left" />
-
-                <LinearLayout
-                    android:id="@+id/view_time_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/tvHour"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|center"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="00"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_hour" />
-
-                    <TextView
-                        android:id="@+id/tv_time_h_unit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|center"
-                        android:layout_marginStart="2.0dip"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="h"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/arc_suffix_text_size" />
-
-                    <TextView
-                        android:id="@+id/tvMin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|center"
-                        android:layout_marginStart="2.0dip"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="00"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_hour" />
-
-                    <TextView
-                        android:id="@+id/tv_time_m_unit"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom|center"
-                        android:layout_marginStart="2.0dip"
-                        android:fontFamily="@font/roboto_regular"
-                        android:text="m"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/arc_suffix_text_size" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/tvFullCharge"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
-                    android:textColor="@color/white"
-                    android:textSize="18dip"
-                    android:textStyle="normal"
-                    android:visibility="gone" />
-
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -156,7 +210,6 @@
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textSize="@dimen/arc_battery_title" />
-
                 <ImageView
                     android:id="@+id/imgUsb"
                     android:layout_width="@dimen/imgUsb_size"
@@ -164,58 +217,6 @@
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/baseline_usb_white_48" />
             </LinearLayout>
-
         </RelativeLayout>
-
-
-        <LinearLayout
-            android:id="@+id/layout_power_issue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/rlRound"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="15dp"
-            android:visibility="invisible">
-
-            <View
-                android:id="@+id/vPowerIssue"
-                android:layout_width="@dimen/imgUsb_size"
-                android:layout_height="@dimen/imgUsb_size"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="3.0dip" />
-
-            <TextView
-                android:id="@+id/tv_power_issue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="5.0dip"
-                android:textColor="@color/red"
-                android:textSize="@dimen/text_size" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnOptimize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/layout_power_issue"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/btn_rounded"
-            android:fontFamily="@font/roboto_regular"
-            android:gravity="center"
-            android:paddingStart="@dimen/btn_size"
-            android:paddingEnd="@dimen/btn_size"
-            android:text="OPTIMIZE"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_size" />
-
-
-    </RelativeLayout>
-
-
+            </RelativeLayout>
 </RelativeLayout>

@@ -66,7 +66,7 @@ public class TaskCharge extends AsyncTask<Void, TaskInfo, ArrayList<TaskInfo>> {
                         publishProgress(info);
                         try {
 
-                            Thread.sleep(150);
+                            Thread.sleep(100);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -90,7 +90,7 @@ public class TaskCharge extends AsyncTask<Void, TaskInfo, ArrayList<TaskInfo>> {
                             mActivityManager.killBackgroundProcesses(info.getAppinfo().packageName);
                             publishProgress(info);
                             try {
-                                Thread.sleep(150);
+                                Thread.sleep(100);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
@@ -123,7 +123,7 @@ public class TaskCharge extends AsyncTask<Void, TaskInfo, ArrayList<TaskInfo>> {
                                     mActivityManager.killBackgroundProcesses(info.getAppinfo().packageName);
                                     publishProgress(info);
                                     try {
-                                        Thread.sleep(150);
+                                        Thread.sleep(100);
                                     } catch (InterruptedException e) {
                                         e.printStackTrace();
                                     }

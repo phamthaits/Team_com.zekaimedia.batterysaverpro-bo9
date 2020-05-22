@@ -37,9 +37,9 @@ public class TaskChargeDetail extends AsyncTask<Void, Integer, Void> {
             publishProgress(j);
             try {
                 if(j<=40){
-                    Thread.sleep(50);
+                    Thread.sleep(40);
                 } else  {
-                    Thread.sleep(30);
+                    Thread.sleep(25);
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();

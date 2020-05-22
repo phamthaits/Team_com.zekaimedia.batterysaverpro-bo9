@@ -6,8 +6,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 3
-        versionName '3.0'
+        versionCode 9
+        versionName '9'
     }
 
     buildTypes {
@@ -37,7 +37,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.annotation:annotation:1.1.0'
-    implementation 'com.google.android.gms:play-services-ads:18.3.0'
+    implementation 'com.google.android.gms:play-services-ads:19.0.0'
     implementation 'com.google.android.gms:play-services-measurement:17.1.0'
     implementation 'com.google.android.gms:play-services-measurement-sdk:17.1.0'
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="imgCircle_size">160dp</dimen>
+    <dimen name="imgCircle_size">140dp</dimen>
 
     <dimen name="progress_percent2">14sp</dimen>
     <dimen name="arc_suffix_text_size">12sp</dimen>

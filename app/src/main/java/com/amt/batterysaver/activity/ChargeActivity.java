@@ -19,7 +19,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+//import com.ads.control.AdmobHelp;
 import com.ads.control.AdmobHelp;
+import com.ads.control.AdmodAd;
 import com.ads.control.TypeAds;
 import com.airbnb.lottie.LottieAnimationView;
 import com.amt.batterysaver.MainActivity;
@@ -38,7 +40,7 @@ import java.util.Collection;
 public class ChargeActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView tvScan, tvChargeStatus, tvOptimize;
-    RelativeLayout  rlDone;
+    RelativeLayout rlDone;
     FrameLayout fmResult, imgOutCircle;
     TaskCharge mTaskCharge;
     TaskChargeDetail mTaskChargeDetail;
@@ -48,6 +50,7 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
     private ImageView ivDone;
     Handler mHandler, mHandler1;
     Runnable r, r1;
+//    Boolean isLoadAds = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +60,12 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         intView();
         intData();
         checkTask();
-
-//        AdmodRef.initInterstitialAd(this, TypeAds.admod_full_fastcharge);
-//        AdmodRef.loadNative(this, TypeAds.admod_native_fastcharge);
+//        isLoadAds = !AdmodAd.admod_native_fastcharge.equals("");
+//
+//        if (isLoadAds) {
+//            AdmodRef.initInterstitialAd(this, TypeAds.admod_full_fastcharge);
+//            AdmodRef.loadNative(this, TypeAds.admod_native_fastcharge);
+//        }
     }
 
     public void checkTask() {
@@ -220,7 +226,8 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         fmResult.startAnimation(downtoup);
         flagExit = true;
         SharePreferenceUtils.getInstance(ChargeActivity.this).setOptimizeTime(System.currentTimeMillis());
-        mHandler.postDelayed(r, 2000);
+//        if (isLoadAds)
+//            mHandler.postDelayed(r, 2000);
     }
 
     public void cancleUIUPdate() {

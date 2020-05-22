@@ -58,7 +58,7 @@ public class fmAppManager extends Fragment {
     Runnable runnableLocal;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_app_manager, container, false);
         mProgressBarLoading = view.findViewById(R.id.progressBarLoading);
         mRecyclerView = view.findViewById(R.id.recyclerView);
@@ -89,9 +89,7 @@ public class fmAppManager extends Fragment {
                     Intent intent = new Intent();
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent.setAction(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                    intent.setData(Uri.parse("package:"
-                            + mGroupItems.get(groupPosition).getItems().get(childPosition).packageName));
-
+                    intent.setData(Uri.parse("package:" + mGroupItems.get(groupPosition).getItems().get(childPosition).packageName));
                     startActivity(intent);
                 }
             }

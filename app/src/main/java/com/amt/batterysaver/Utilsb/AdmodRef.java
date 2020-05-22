@@ -2,6 +2,7 @@ package com.amt.batterysaver.Utilsb;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
@@ -51,9 +52,9 @@ public class AdmodRef {
                                             case "admod_full_phonecooler":
                                                 AdmodAd.admod_full_phonecooler = object.getString(key);
                                                 break;
-//                                            case "admod_full_fullcharge":
-//                                                AdmodAd.admod_full_fullcharge = object.getString(key);
-//                                                break;
+                                            case "admod_full_fullcharge":
+                                                AdmodAd.admod_full_fullcharge = object.getString(key);
+                                                break;
                                             case "admod_full_fastcharge":
                                                 AdmodAd.admod_full_fastcharge = object.getString(key);
                                                 break;
@@ -72,18 +73,18 @@ public class AdmodRef {
                                             case "admod_native_phonecooler":
                                                 AdmodAd.admod_native_phonecooler = object.getString(key);
                                                 break;
-//                                            case "admod_native_fullcharge":
-//                                                AdmodAd.admod_native_fullcharge = object.getString(key);
-//                                                break;
+                                            case "admod_native_fullcharge":
+                                                AdmodAd.admod_native_fullcharge = object.getString(key);
+                                                break;
                                             case "admod_native_fastcharge":
                                                 AdmodAd.admod_native_fastcharge = object.getString(key);
                                                 break;
                                             case "admod_native_setting":
                                                 AdmodAd.admod_native_setting = object.getString(key);
                                                 break;
-//                                            case "admod_native_chargeresult":
-//                                                AdmodAd.admod_native_chargeresult = object.getString(key);
-//                                                break;
+                                            case "admod_native_chargeresult":
+                                                AdmodAd.admod_native_chargeresult = object.getString(key);
+                                                break;
                                             case "admod_banner_appmanager":
                                                 AdmodAd.admod_banner_appmanager = object.getString(key);
                                                 break;
@@ -91,11 +92,10 @@ public class AdmodRef {
                                                 AdmodAd.admod_banner_chargehistory = object.getString(key);
                                                 break;
                                         }
-                                        loadAds();
-                                        Log.d("123", "key = " + key + ":" + object.getString(key));
+                                        Log.d("ads", "key = " + key + ":" + object.getString(key));
                                         AdmodAd.isInit = true;
                                     } catch (JSONException e) {
-                                        Log.d("123", "Lỗi");
+                                        Log.d("ads", "Lỗi");
                                         e.printStackTrace();
                                     }
                                 }
@@ -105,9 +105,8 @@ public class AdmodRef {
                             Log.d("123", "Error getting documents.", task.getException());
                         }
                     });
-        } else {
-            loadAds();
         }
+        loadAds();
     }
 
     private static void loadAds() {
@@ -139,10 +138,12 @@ public class AdmodRef {
         _activity = activity;
         _typeAds = typeAds;
         _locationAds = LocationAds.loadNative;
+        _context = activity.getApplicationContext();
         getAdmodFromFireBase();
     }
 
     public static void loadBannerFragment(View rootView, TypeAds typeAds) {
+        _context = rootView.getContext();
         _rootView = rootView;
         _typeAds = typeAds;
         _locationAds = LocationAds.loadBannerFragment;
@@ -152,6 +153,7 @@ public class AdmodRef {
     public static void loadNativeFragment(Activity activity, View rootView, TypeAds typeAds) {
         _activity = activity;
         _rootView = rootView;
+        _context = rootView.getContext();
         _typeAds = typeAds;
         _locationAds = LocationAds.loadNativeFragment;
         getAdmodFromFireBase();

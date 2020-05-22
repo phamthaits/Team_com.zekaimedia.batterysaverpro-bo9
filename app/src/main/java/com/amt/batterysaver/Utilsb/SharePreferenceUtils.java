@@ -4,11 +4,15 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 
+import com.ads.control.AdmodAd;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class SharePreferenceUtils {
     private static SharePreferenceUtils instance;
@@ -62,7 +66,6 @@ public class SharePreferenceUtils {
         String string = this.pre.getString(SharePreferenceConstant.KEY_APPS_LIST, null);
         return string != null ? (ArrayList) new Gson().fromJson(string, type) : arrayList;
     }
-
 
     public long getTimeIn() {
         return this.pre.getLong("TimeIn", 0);
@@ -141,6 +144,30 @@ public class SharePreferenceUtils {
         editor.commit();
     }
 
+    public AdmodAd getAdmod() {
+        String s = this.pre.getString("Admod", null);
+        if (s == null) {
+            return null;
+        }
+        Gson gson = new Gson();
+        AdmodAd ad = gson.fromJson(s, AdmodAd.class);
+        return ad;
+    }
+
+    public void setAdmod(AdmodAd admob) {
+        Gson gson = new Gson();
+        editor.putString("Admod", gson.toJson(admob));
+        editor.commit();
+    }
+
+    public void setDayGetAdmod() {
+        editor.putLong("dayGetAdmod", System.currentTimeMillis());
+    }
+
+    public Long getDayGetAdmod() {
+        return this.pre.getLong("dayGetAdmod", 0);
+    }
+
     public long getLevelIn() {
         return this.pre.getLong("LevelIn", 0);
     }
@@ -167,6 +194,7 @@ public class SharePreferenceUtils {
         editor.putLong("ChargeQuantity", i);
         editor.commit();
     }
+
 
     public boolean getKillApp() {
         return this.pre.getBoolean("KillApp", true);
