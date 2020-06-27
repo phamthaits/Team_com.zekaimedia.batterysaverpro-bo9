@@ -72,7 +72,7 @@ public class TaskScreenOff extends AsyncTask<Void, TaskInfo, ArrayList<TaskInfo>
                     ApplicationInfo applicationInfo;
                     applicationInfo = mPackageManager.getApplicationInfo(packagename, 0);
                     if (applicationInfo == null) continue;
-                    if (!packagename.contains(mContext.getPackageName()) && applicationInfo != null&&Utils.isUserApp(applicationInfo)&&!Utils.checkLockedItem(mContext, packagename)) {
+                    if (!packagename.contains(mContext.getPackageName()) && Utils.isUserApp(applicationInfo) && !Utils.checkLockedItem(mContext, packagename)) {
                         TaskInfo info = new TaskInfo(mContext, applicationInfo);
                         mActivityManager.killBackgroundProcesses(info.getAppinfo().packageName);
                         publishProgress(info);

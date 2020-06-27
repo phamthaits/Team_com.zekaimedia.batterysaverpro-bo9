@@ -2,6 +2,9 @@ package com.ads.control;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
@@ -27,6 +30,11 @@ import com.google.android.gms.ads.formats.MediaView;
 import com.google.android.gms.ads.formats.NativeAdOptions;
 import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.google.android.gms.ads.formats.UnifiedNativeAdView;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class AdmobHelp {
     private static AdmobHelp instance;
@@ -345,10 +353,10 @@ public class AdmobHelp {
         adLoader.loadAd(new PublisherAdRequest.Builder().build());
     }
 
-    public void loadBannerFragment(final View rootView, TypeAds typeAds) {
+    public void loadBannerFragment(final View rootView, TypeAds typeAds, Activity activity) {
         String ads = "";
         try {
-            View adContainer = rootView.findViewById(R.id.banner_container);
+            FrameLayout frameLayout = rootView.findViewById(R.id.fl_adplaceholder);
             AdView adView = new AdView(rootView.getContext());
             switch (typeAds) {
                 case admod_banner_appmanager:
@@ -358,20 +366,22 @@ public class AdmobHelp {
                     ads = AdmodAd.admod_banner_chargehistory;
                     break;
             }
-            adView.setAdSize(AdSize.SMART_BANNER);
+            AdSize adSize = getAdSize(activity);
+            adView.setAdSize(adSize);
+
             adView.setAdUnitId(ads);
-            ((LinearLayout) adContainer).addView(adView);
+            frameLayout.addView(adView);
             adView.loadAd(new AdRequest.Builder().build());
             adView.setAdListener(new AdListener() {
                 @Override
                 public void onAdFailedToLoad(int i) {
                     super.onAdFailedToLoad(i);
-                    adContainer.setVisibility(View.GONE);
+                    frameLayout.setVisibility(View.GONE);
                 }
 
                 @Override
                 public void onAdLoaded() {
-                    adContainer.setVisibility(View.VISIBLE);
+                    frameLayout.setVisibility(View.VISIBLE);
                 }
             });
 
@@ -379,8 +389,7 @@ public class AdmobHelp {
         }
     }
 
-    private void populateUnifiedNativeAdView(UnifiedNativeAd nativeAd, UnifiedNativeAdView
-            adView) {
+    private void populateUnifiedNativeAdView(UnifiedNativeAd nativeAd, UnifiedNativeAdView adView) {
 
         MediaView mediaView = adView.findViewById(R.id.ad_media);
         adView.setMediaView(mediaView);
@@ -462,6 +471,103 @@ public class AdmobHelp {
     public void destroyNative() {
         if (nativeAd != null) {
             nativeAd.destroy();
+        }
+    }
+    private AdSize getAdSize(Activity activity) {
+        // Step 2 - Determine the screen width (less decorations) to use for the ad width.
+        Display display = activity.getWindowManager().getDefaultDisplay();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        display.getMetrics(outMetrics);
+
+        float widthPixels = outMetrics.widthPixels;
+        float density = outMetrics.density;
+
+        int adWidth = (int) (widthPixels / density);
+
+        // Step 3 - Get adaptive ad size and return for setting on the ad view.
+        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(activity, adWidth);
+    }
+    public static void getAdmodFromFireBase() {
+        if (!AdmodAd.isInit) {
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("AdTest")
+                    .get()
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                JSONObject object = new JSONObject(document.getData());
+                                for (int i = 0; i < object.names().length(); i++) {
+                                    try {
+                                        String key = object.names().getString(i);
+                                        switch (key) {
+                                            case "admod_full_splash":
+                                                AdmodAd.admod_full_splash = object.getString(key);
+                                                break;
+                                            case "admod_full_optimization":
+                                                AdmodAd.admod_full_optimization = object.getString(key);
+                                                break;
+                                            case "admod_full_trashcleaner":
+                                                AdmodAd.admod_full_trashcleaner = object.getString(key);
+                                                break;
+                                            case "admod_full_phoneboost":
+                                                AdmodAd.admod_full_phoneboost = object.getString(key);
+                                                break;
+                                            case "admod_full_phonecooler":
+                                                AdmodAd.admod_full_phonecooler = object.getString(key);
+                                                break;
+                                            case "admod_full_fullcharge":
+                                                AdmodAd.admod_full_fullcharge = object.getString(key);
+                                                break;
+                                            case "admod_full_fastcharge":
+                                                AdmodAd.admod_full_fastcharge = object.getString(key);
+                                                break;
+                                            case "admod_native_main":
+                                                AdmodAd.admod_native_main = object.getString(key);
+                                                break;
+                                            case "admod_native_optimization":
+                                                AdmodAd.admod_native_optimization = object.getString(key);
+                                                break;
+                                            case "admod_native_trashcleaner":
+                                                AdmodAd.admod_native_trashcleaner = object.getString(key);
+                                                break;
+                                            case "admod_native_phoneboost":
+                                                AdmodAd.admod_native_phoneboost = object.getString(key);
+                                                break;
+                                            case "admod_native_phonecooler":
+                                                AdmodAd.admod_native_phonecooler = object.getString(key);
+                                                break;
+                                            case "admod_native_fullcharge":
+                                                AdmodAd.admod_native_fullcharge = object.getString(key);
+                                                break;
+                                            case "admod_native_fastcharge":
+                                                AdmodAd.admod_native_fastcharge = object.getString(key);
+                                                break;
+                                            case "admod_native_setting":
+                                                AdmodAd.admod_native_setting = object.getString(key);
+                                                break;
+                                            case "admod_native_chargeresult":
+                                                AdmodAd.admod_native_chargeresult = object.getString(key);
+                                                break;
+                                            case "admod_banner_appmanager":
+                                                AdmodAd.admod_banner_appmanager = object.getString(key);
+                                                break;
+                                            case "admod_banner_chargehistory":
+                                                AdmodAd.admod_banner_chargehistory = object.getString(key);
+                                                break;
+                                        }
+                                        Log.d("ads", "key = " + key + ":" + object.getString(key));
+                                        AdmodAd.isInit = true;
+                                    } catch (JSONException e) {
+                                        Log.d("ads", "Lỗi");
+                                        e.printStackTrace();
+                                    }
+                                }
+                                Log.d("123", document.getId() + " => " + document.getData());
+                            }
+                        } else {
+                            Log.d("123", "Error getting documents.", task.getException());
+                        }
+                    });
         }
     }
 }

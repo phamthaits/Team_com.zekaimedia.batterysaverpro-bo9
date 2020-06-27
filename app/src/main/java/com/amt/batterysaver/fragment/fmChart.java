@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import com.ads.control.AdmobHelp;
 import com.ads.control.TypeAds;
-import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.fragment.app.Fragment;
@@ -54,7 +53,7 @@ public class fmChart extends Fragment {
     private TabLayout indicator;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_charge_history, container, false);
         intView(view);
         intEvent(view);
@@ -62,7 +61,7 @@ public class fmChart extends Fragment {
         adapterViewPager = new ChartAdapter(getActivity().getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
         vpPager.setCurrentItem(2);
-        AdmodRef.loadBannerFragment(view, TypeAds.admod_banner_chargehistory);
+        AdmobHelp.getInstance().loadBannerFragment(view, TypeAds.admod_banner_chargehistory, getActivity());
 //        AdmobHelp.getInstance().loadBannerFragment(getActivity(),view);
         return view;
     }

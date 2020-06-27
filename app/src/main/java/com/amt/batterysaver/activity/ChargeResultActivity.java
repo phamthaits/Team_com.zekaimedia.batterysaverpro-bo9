@@ -16,14 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.ads.control.AdmobHelp;
-import com.ads.control.AdmodAd;
-import com.ads.control.TypeAds;
 import com.amt.batterysaver.BatteryMode.BatteryInfo;
-import com.amt.batterysaver.MainActivity;
-import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.BatteryPref;
-import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.service.BatteryService;

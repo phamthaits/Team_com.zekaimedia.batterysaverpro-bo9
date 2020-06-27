@@ -89,7 +89,6 @@
         <service
             android:name="com.amt.batterysaver.service.BatteryService"
             android:exported="false">
-
         </service>
 
         <receiver android:name="com.amt.batterysaver.Receiver.BatteryStatusReceiver"></receiver>

@@ -20,8 +20,6 @@ import android.widget.TextView;
 
 import com.ads.control.AdmobHelp;
 import com.ads.control.TypeAds;
-import com.amt.batterysaver.Utilsb.AdmodRef;
-import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.view.HoloCircularProgressBar;
@@ -45,8 +43,8 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         Utils.setLocate(this);
         setContentView(R.layout.activity_clean_result);
 
-        AdmodRef.initInterstitialAd(this, TypeAds.admod_full_trashcleaner);
-        AdmodRef.loadNative(this,TypeAds.admod_native_trashcleaner);
+        AdmobHelp.getInstance().init(this, TypeAds.admod_full_trashcleaner);
+        AdmobHelp.getInstance().loadNative(this,TypeAds.admod_native_trashcleaner);
 //        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
 //        AdmobHelp.getInstance().loadNative(this);
         SharePreferenceUtils.getInstance(this).setFlagAds(true);

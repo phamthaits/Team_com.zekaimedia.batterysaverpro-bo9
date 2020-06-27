@@ -12,15 +12,9 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ads.control.AdmobHelp;
-import com.ads.control.AdmodAd;
-import com.ads.control.TypeAds;
 import com.amt.batterysaver.R;
-import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.Utils;
-
-import java.lang.reflect.Type;
 
 public class FullChargeActivity extends AppCompatActivity implements View.OnClickListener {
 

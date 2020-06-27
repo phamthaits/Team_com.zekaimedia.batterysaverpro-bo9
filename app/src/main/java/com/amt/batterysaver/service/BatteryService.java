@@ -41,11 +41,6 @@ public class BatteryService  extends Service
         BatteryStatusReceiver mBatteryStatusReceiver;
         TaskScreenOff mTaskScreenOff ;
 
-
-
-
-
-
         @Override
         public void onCreate() {
         super.onCreate();
@@ -121,7 +116,6 @@ public class BatteryService  extends Service
             AlarmUtils.setAlarm(this,AlarmUtils.ACTION_REPEAT_SERVICE,AlarmUtils.TIME_REPREAT_SERVICE);
     }
 
-
         @Override
         public IBinder onBind(Intent intent) {
         return null;
@@ -133,7 +127,6 @@ public class BatteryService  extends Service
         private BroadcastReceiver mReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(final Context context, Intent intent) {
-
                 if(intent.getAction().equals(Intent.ACTION_SCREEN_OFF)){
                     if(SharePreferenceUtils.getInstance(context).getKillApp()){
                         mTaskScreenOff = new TaskScreenOff(context);

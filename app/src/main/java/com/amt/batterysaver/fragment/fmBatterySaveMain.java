@@ -16,7 +16,6 @@ import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.BatteryManager;
@@ -25,7 +24,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.core.content.ContextCompat;
 
@@ -46,7 +44,6 @@ import android.widget.Toast;
 import com.ads.control.AdmobHelp;
 import com.ads.control.TypeAds;
 import com.amt.batterysaver.BatteryMode.BatteryInfo;
-import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.BatteryPref;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
@@ -368,7 +365,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intView(view);
         intData(view);
         intEvent();
-        AdmodRef.loadNativeFragment(getActivity(), view, TypeAds.admod_native_main);
+        AdmobHelp.getInstance().loadNativeFragment(getActivity(), view, TypeAds.admod_native_main);
 //        AdmobHelp.getInstance().loadNativeFragment(getActivity(), view);
 //        if (!Utils.checkShouldDoing(getActivity(), 8)) {
 //            cvFastCharge.setVisibility(View.GONE);

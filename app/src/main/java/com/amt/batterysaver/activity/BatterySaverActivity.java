@@ -33,7 +33,6 @@ import android.widget.TextView;
 
 import com.ads.control.AdmobHelp;
 import com.ads.control.TypeAds;
-import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.model.TaskInfo;
@@ -73,8 +72,8 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
 
         intView();
         checkTask();
-        AdmodRef.initInterstitialAd(this, TypeAds.admod_full_optimization);
-        AdmodRef.loadNative(this, TypeAds.admod_native_optimization);
+        AdmobHelp.getInstance().init(this, TypeAds.admod_full_optimization);
+        AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_optimization);
     }
 
     @Override
@@ -399,6 +398,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         @Override
         public void onAnimationStart(Animation animation) {
         }
+
         anmDone() {
         }
 

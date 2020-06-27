@@ -1,6 +1,5 @@
 package com.amt.batterysaver.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 
 import com.ads.control.AdmobHelp;
 import com.ads.control.TypeAds;
-import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.github.mikephil.charting.charts.LineChart;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
@@ -46,7 +44,7 @@ public class fmSetting extends Fragment implements View.OnClickListener  {
         intView(view);
         intData();
 //        AdmobHelp.getInstance().loadBannerFragment(getActivity(),view);
-        AdmodRef.loadNativeFragment(getActivity(),view, TypeAds.admod_native_setting);
+        AdmobHelp.getInstance().loadNativeFragment(getActivity(),view, TypeAds.admod_native_setting);
 //        AdmobHelp.getInstance().loadNativeFragment(getActivity(),view);
         return view;
     }

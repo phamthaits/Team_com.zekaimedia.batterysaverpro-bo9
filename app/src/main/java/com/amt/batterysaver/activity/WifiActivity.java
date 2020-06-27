@@ -21,12 +21,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ads.control.AdmobHelp;
-import com.ads.control.TypeAds;
 import com.amt.batterysaver.R;
-import com.amt.batterysaver.Utilsb.AdmodRef;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
-import com.amt.batterysaver.task.TaskChargeDetail;
 import com.amt.batterysaver.task.TaskWifiBooster;
 import com.amt.batterysaver.task.TaskWifiDetail;
 import com.skyfishjy.library.RippleBackground;
