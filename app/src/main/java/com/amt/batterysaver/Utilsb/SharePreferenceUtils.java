@@ -4,15 +4,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 
-import com.ads.control.AdmodAd;
+import com.ads.control.AdControl;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class SharePreferenceUtils {
     private static SharePreferenceUtils instance;
@@ -144,17 +141,17 @@ public class SharePreferenceUtils {
         editor.commit();
     }
 
-    public AdmodAd getAdmod() {
+    public AdControl getAdmod() {
         String s = this.pre.getString("Admod", null);
         if (s == null) {
             return null;
         }
         Gson gson = new Gson();
-        AdmodAd ad = gson.fromJson(s, AdmodAd.class);
+        AdControl ad = gson.fromJson(s, AdControl.class);
         return ad;
     }
 
-    public void setAdmod(AdmodAd admob) {
+    public void setAdmod(AdControl admob) {
         Gson gson = new Gson();
         editor.putString("Admod", gson.toJson(admob));
         editor.commit();

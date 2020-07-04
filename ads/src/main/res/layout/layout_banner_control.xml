@@ -5,11 +5,11 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/banner_container"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="vertical" />-->
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/banner_container"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:orientation="vertical" />-->
 
     <FrameLayout
         android:id="@+id/fl_adplaceholder"
@@ -18,4 +18,6 @@
         android:layout_gravity="center"
         android:orientation="vertical"
         android:visibility="gone" />
+
+    <include layout="@layout/load_banner" />
 </LinearLayout>

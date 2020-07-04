@@ -16,7 +16,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.ads.control.AdControl;
 import com.ads.control.AdmobHelp;
+import com.ads.control.FBHelp;
 import com.ads.control.TypeAds;
 import com.amt.batterysaver.R;
 import com.amt.batterysaver.Utilsb.Utils;
@@ -63,8 +65,14 @@ public class fmAppManager extends Fragment {
         mRecyclerView = view.findViewById(R.id.recyclerView);
         initAdapter();
         loadData();
-        AdmobHelp.getInstance().loadBannerFragment(view, TypeAds.admod_banner_appmanager, getActivity());
-//        AdmobHelp.getInstance().loadBannerFragment(getActivity(), view);
+        switch (AdControl.adControl) {
+            case Admob:
+                AdmobHelp.getInstance().loadBannerFragment(view, TypeAds.admod_banner_appmanager, getActivity());
+                break;
+            case Facebook:
+                FBHelp.getInstance().loadBannerFragment(getActivity(), view);
+                break;
+        }
         return view;
     }
 
@@ -157,6 +165,7 @@ public class fmAppManager extends Fragment {
         super.onDestroy();
         if (mHandlerLocal != null)
             mHandlerLocal.removeCallbacks(runnableLocal);
+        FBHelp.getInstance().destroyBanner();
     }
 
     @Override

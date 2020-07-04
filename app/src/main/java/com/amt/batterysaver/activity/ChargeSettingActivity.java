@@ -160,8 +160,6 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
             swAutoSync.setChecked(false);
             tvBluetoothDes.setText(R.string.off_status);
             tvWifiDes.setText(R.string.off_status);
-
-
         }
     }
     public void intData(){

@@ -2,6 +2,7 @@ package com.amt.batterysaver;
 
 import com.ads.control.Rate;
 import com.ads.control.funtion.UtilsApp;
+import com.amt.batterysaver.activity.BaseActivity;
 import com.amt.batterysaver.activity.BoostActivity;
 import com.amt.batterysaver.activity.CleanActivity;
 import com.amt.batterysaver.activity.CoolActivity;
@@ -31,7 +32,7 @@ import com.amt.batterysaver.fragment.fmSetting;
 
 import android.preference.PreferenceManager;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private DrawerLayout mDrawerLayout;
     Toolbar toolbar;
     Fragment fragment;

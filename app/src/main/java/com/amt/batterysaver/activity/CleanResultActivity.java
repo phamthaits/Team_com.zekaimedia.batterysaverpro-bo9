@@ -18,7 +18,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.ads.control.AdControl;
 import com.ads.control.AdmobHelp;
+import com.ads.control.FBHelp;
 import com.ads.control.TypeAds;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
@@ -43,8 +45,16 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         Utils.setLocate(this);
         setContentView(R.layout.activity_clean_result);
 
-        AdmobHelp.getInstance().init(this, TypeAds.admod_full_trashcleaner);
-        AdmobHelp.getInstance().loadNative(this,TypeAds.admod_native_trashcleaner);
+//        AdmobHelp.getInstance().init(this, TypeAds.admod_full_trashcleaner);
+        switch (AdControl.adControl) {
+            case Admob:
+                AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_trashcleaner);
+                break;
+            case Facebook:
+                FBHelp.getInstance().loadNative(this);
+                break;
+        }
+
 //        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
 //        AdmobHelp.getInstance().loadNative(this);
         SharePreferenceUtils.getInstance(this).setFlagAds(true);
@@ -146,17 +156,26 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
             }
 
             public void onAnimationEnd(Animator animator) {
-                if (SharePreferenceUtils.getInstance(CleanResultActivity.this).getFlagAds()) {
-                    SharePreferenceUtils.getInstance(CleanResultActivity.this).setFlagAds(false);
-                    AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-                        @Override
-                        public void onAdClosed() {
-                            loadResult(holoCircularProgressBar, f);
-                        }
-                    });
-                } else {
-                    loadResult(holoCircularProgressBar, f);
+//                if (SharePreferenceUtils.getInstance(CleanResultActivity.this).getFlagAds()) {
+//                    SharePreferenceUtils.getInstance(CleanResultActivity.this).setFlagAds(false);
+                AdControl.AdCloseListener adCloseListener = new AdControl.AdCloseListener() {
+                    @Override
+                    public void onAdClosed() {
+                        loadResult(holoCircularProgressBar, f);
+                    }
+                };
+                switch (AdControl.adControl) {
+                    case Admob:
+                        AdmobHelp.getInstance().loadInterstitialAd(getBaseContext(), TypeAds.admod_full_trashcleaner, adCloseListener, null);
+                        break;
+                    case Facebook:
+                        FBHelp.getInstance().loadInterstitialAd(getBaseContext(), TypeAds.admod_full_trashcleaner, adCloseListener, null);
+                        break;
                 }
+//                    AdmobHelp.getInstance().loadInterstitialAd(getBaseContext(), TypeAds.admod_full_trashcleaner, adCloseListener, null);
+//                } else {
+//                    loadResult(holoCircularProgressBar, f);
+//                }
             }
         });
         if (animatorListener != null) {

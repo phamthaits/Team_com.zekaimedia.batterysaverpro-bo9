@@ -1,75 +1,97 @@
 package com.amt.batterysaver.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Handler;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.util.Log;
 
 import com.ads.control.AdmobHelp;
-import com.ads.control.AdmodAd;
+import com.ads.control.AdControl;
+import com.ads.control.FBHelp;
+import com.ads.control.TypeAds;
+import com.ads.control.funtion.JSONParser;
 import com.amt.batterysaver.MainActivity;
 import com.amt.batterysaver.R;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
+import com.ads.control.AdControl.AdCloseListener;
+import com.ads.control.AdControl.AdLoadedListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private InterstitialAd mInterstitialAd;
-    Handler mHandler = new Handler();
-    Runnable r;
+    Handler mHandlerActivity = new Handler();
+    Handler mHandlerfirebase = new Handler();
+    Runnable rActivity, rFirebase;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spash_screen);
-        AdmobHelp.getAdmodFromFireBase();
-        MobileAds.initialize(this, getString(R.string.admob_app_id));
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(AdmodAd.admod_full_splash);
-
-        r = new Runnable() {
+        AdControl.getAdControlFromFireBase();
+       new AdControl.ReadConfigAsyncTask().execute();
+        rActivity = new Runnable() {
             @Override
             public void run() {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 finish();
             }
         };
-        mHandler.postDelayed(r, 7000);
-
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mInterstitialAd.setAdListener(new AdListener() {
+        mHandlerActivity.postDelayed(rActivity, 7000);
+        AdLoadedListener adLoadedListener = () -> {
+            if (mHandlerActivity != null && rActivity != null)
+                mHandlerActivity.removeCallbacks(rActivity);
+        };
+        Context context = this;
+        rFirebase = new Runnable() {
             @Override
-            public void onAdLoaded() {
-                // Code to be executed when an ad finishes loading.
-//                startActivity(new Intent(SplashActivity.this, BoosterMainDialog.class));
-//                finish();
-                if (mHandler != null && r != null)
-                    mHandler.removeCallbacks(r);
-                if (!isFinishing())
-                    mInterstitialAd.show();
+            public void run() {
+                AdCloseListener adCloseListener = () -> {
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    finish();
+                };
+                switch (AdControl.adControl) {
+                    case Admob:
+                        AdmobHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_splash, adCloseListener, adLoadedListener);
+                        break;
+                    case Facebook:
+                        FBHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_splash, adCloseListener, adLoadedListener);
+                        break;
+                }
             }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                // Code to be executed when an ad request fails.
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                finish();
-            }
-
-            @Override
-            public void onAdClosed() {
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                finish();
-            }
-        });
-        mInterstitialAd.loadAd(adRequest);
+        };
+        mHandlerfirebase.postDelayed(rFirebase, 3000);
     }
 
     @Override
     protected void onDestroy() {
-        if (mHandler != null && r != null)
-            mHandler.removeCallbacks(r);
+        if (mHandlerfirebase != null && rFirebase != null)
+            mHandlerfirebase.removeCallbacks(rFirebase);
+        if (mHandlerActivity != null && rActivity != null)
+            mHandlerActivity.removeCallbacks(rActivity);
         super.onDestroy();
     }
+
+    @Override
+    public void finish() {
+
+        super.finish();
+    }
+
 }
+

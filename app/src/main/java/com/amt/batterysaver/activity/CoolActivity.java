@@ -28,7 +28,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ads.control.AdControl;
 import com.ads.control.AdmobHelp;
+import com.ads.control.FBHelp;
 import com.ads.control.TypeAds;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
@@ -64,6 +66,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 
     private ViewGroup parentAds;
     private LinearLayout lrScan;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +75,17 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         Utils.setLocate(this);
         new CoolActivity.LoadRunningTask().execute();
         intView();
-        checkTask();
-        AdmobHelp.getInstance().init(this, TypeAds.admod_full_phonecooler);
-        AdmobHelp.getInstance().loadNative(this,TypeAds.admod_native_phonecooler);
+//        checkTask();
+//        AdmobHelp.getInstance().init(this, TypeAds.admod_full_phonecooler);
+        switch (AdControl.adControl) {
+            case Admob:
+                AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_phonecooler);
+                break;
+            case Facebook:
+                FBHelp.getInstance().loadNative(this);
+                break;
+        }
+        context = this;
 //        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
 //        AdmobHelp.getInstance().loadNative(CoolActivity.this);
 //        SharePreferenceUtils.getInstance(this).setFlagAds(true);
@@ -198,8 +209,6 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
             CoolActivity.this.ivDone.startAnimation(CoolActivity.this.ivDoneAnim);
             CoolActivity.this.tvResult.setText(CoolActivity.this.getResources().getString(R.string.done));
             CoolActivity.this.tvResult.startAnimation(CoolActivity.this.ivDoneAnim);
-
-
         }
     }
 
@@ -248,15 +257,11 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                             TaskInfo info = new TaskInfo(CoolActivity.this, applicationInfo);
                             mActivityManager.killBackgroundProcesses(info.getAppinfo().packageName);
                             Drawable d = getPackageManager().getApplicationIcon(info.getPackageName());
-
                             if (d != null) {
                                 publishProgress(d);
                             }
-
                             try {
-
                                 Thread.sleep(150);
-
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
@@ -287,7 +292,6 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
-
                             }
                         } catch (Exception e) {
                             continue;
@@ -303,8 +307,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                             | PackageManager.GET_RECEIVERS | PackageManager.GET_SERVICES
                             | PackageManager.GET_SIGNATURES;
                     PackageManager packageManager = CoolActivity.this.getPackageManager();
-                    List<PackageInfo> installedPackages = packageManager
-                            .getInstalledPackages(flags);
+                    List<PackageInfo> installedPackages = packageManager.getInstalledPackages(flags);
                     for (PackageInfo packageInfo : installedPackages) {
                         if (mPackageManager == null) break;
                         try {
@@ -414,12 +417,28 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         public void onAnimationEnd(Animation animation) {
 //            if (SharePreferenceUtils.getInstance(CoolActivity.this).getFlagAds()) {
 //                SharePreferenceUtils.getInstance(CoolActivity.this).setFlagAds(false);
-            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+//                    AdmobHelp.getInstance().loadInterstitialAd   (this, TypeAds.admod_full_phonecooler,);
+
+            AdControl.AdCloseListener adCloseListener = new AdControl.AdCloseListener() {
                 @Override
                 public void onAdClosed() {
                     loadResult();
                 }
-            });
+            };
+            switch (AdControl.adControl) {
+                case Facebook:
+                    FBHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_phonecooler, adCloseListener, null);
+                    break;
+                case Admob:
+                    AdmobHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_phonecooler, adCloseListener, null);
+                    break;
+            }
+//            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+//                @Override
+//                public void onAdClosed() {
+//                    loadResult();
+//                }
+//            });
 //            } else {
 //                loadResult();
 //            }

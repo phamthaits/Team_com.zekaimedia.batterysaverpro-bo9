@@ -26,8 +26,6 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ads.control.AdmobHelp;
-import com.ads.control.AdmodAd;
 import com.amt.batterysaver.activity.FullChargeActivity;
 import com.amt.batterysaver.activity.PermissionActivity;
 import com.amt.batterysaver.activity.WifiActivity;

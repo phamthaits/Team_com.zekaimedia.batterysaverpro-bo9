@@ -16,6 +16,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.ads.control.AdControl;
+import com.ads.control.AdmobHelp;
+import com.ads.control.FBHelp;
+import com.ads.control.TypeAds;
 import com.amt.batterysaver.BatteryMode.BatteryInfo;
 import com.amt.batterysaver.Utilsb.BatteryPref;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
@@ -40,7 +44,6 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
     ShimmerTextView tvFast, tvFull, tvTrickle;
     Handler mHandler;
     Runnable r;
-//    Boolean isLoadAds = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,16 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
         intView();
         intData();
         intEvent();
+        if (AdControl.isLoadAds) {
+            switch (AdControl.adControl) {
+                case Admob:
+                    AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_chargeresult);
+                    break;
+                case Facebook:
+                    FBHelp.getInstance().loadNative(this);
+                    break;
+            }
+        }
 //        isLoadAds = !AdmodAd.admod_native_chargeresult.equals("");
 //        mHandler = new Handler();
 //        r = new Runnable() {

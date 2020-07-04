@@ -2,6 +2,7 @@ package com.amt.batterysaver.activity;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
@@ -20,7 +21,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 //import com.ads.control.AdmobHelp;
+import com.ads.control.AdControl;
 import com.ads.control.AdmobHelp;
+import com.ads.control.FBHelp;
+import com.ads.control.TypeAds;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.R;
@@ -42,9 +46,8 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
     ImageView rocketImage, rocketImageOut, ic_fan_white;
 
     private ImageView ivDone;
-    Handler mHandler, mHandler1;
-    Runnable r, r1;
-//    Boolean isLoadAds = false;
+
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +56,18 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_charge_optimize);
         intView();
         intData();
-        checkTask();
-//        isLoadAds = !AdmodAd.admod_native_fastcharge.equals("");
-//
-//        if (isLoadAds) {
-//            AdmodRef.initInterstitialAd(this, TypeAds.admod_full_fastcharge);
-//            AdmodRef.loadNative(this, TypeAds.admod_native_fastcharge);
-//        }
+        context = this;
+//        checkTask();
+        if (AdControl.isLoadAds) {
+            switch (AdControl.adControl) {
+                case Admob:
+                    AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_fastcharge);
+                    break;
+                case Facebook:
+                    FBHelp.getInstance().loadNative(this);
+                    break;
+            }
+        }
     }
 
     public void checkTask() {
@@ -138,24 +146,6 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         this.rocketImageOut.startAnimation(loadAnimation);
 //        loadAnimation.start();
 
-        mHandler = new Handler();
-        r = new Runnable() {
-            @Override
-            public void run() {
-                AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-                    @Override
-                    public void onAdClosed() {
-                    }
-                });
-            }
-        };
-        mHandler1 = new Handler();
-        r1 = new Runnable() {
-            @Override
-            public void run() {
-                loadResult();
-            }
-        };
     }
 
     private Animation ivDoneAnim;
@@ -190,7 +180,22 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
 
                         Animation zoom_out = AnimationUtils.loadAnimation(ChargeActivity.this, R.anim.zoom_out);
                         rlDone.startAnimation(zoom_out);
-                        mHandler1.postDelayed(r1, 2000);
+                        AdControl.AdCloseListener adCloseListener = new AdControl.AdCloseListener() {
+                            @Override
+                            public void onAdClosed() {
+                                loadResult();
+                            }
+                        };
+                        if (AdControl.isLoadAds) {
+                            switch (AdControl.adControl) {
+                                case Facebook:
+                                    FBHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_fastcharge, adCloseListener, null);
+                                    break;
+                                case Admob:
+                                    AdmobHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_fastcharge, adCloseListener, null);
+                                    break;
+                            }
+                        } else loadResult();
                     }
                 });
                 mTaskChargeDetail.execute();
@@ -220,8 +225,7 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         fmResult.startAnimation(downtoup);
         flagExit = true;
         SharePreferenceUtils.getInstance(ChargeActivity.this).setOptimizeTime(System.currentTimeMillis());
-//        if (isLoadAds)
-//            mHandler.postDelayed(r, 2000);
+
     }
 
     public void cancleUIUPdate() {
@@ -237,10 +241,6 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     protected void onDestroy() {
-        if (mHandler != null && r != null)
-            mHandler.removeCallbacks(r);
-        if (mHandler1 != null && r1 != null)
-            mHandler1.removeCallbacks(r1);
         super.onDestroy();
         cancleUIUPdate();
     }

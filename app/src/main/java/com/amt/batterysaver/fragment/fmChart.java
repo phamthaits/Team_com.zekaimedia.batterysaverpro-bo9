@@ -3,7 +3,9 @@ package com.amt.batterysaver.fragment;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import com.ads.control.AdControl;
 import com.ads.control.AdmobHelp;
+import com.ads.control.FBHelp;
 import com.ads.control.TypeAds;
 import com.google.android.material.tabs.TabLayout;
 
@@ -61,7 +63,14 @@ public class fmChart extends Fragment {
         adapterViewPager = new ChartAdapter(getActivity().getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
         vpPager.setCurrentItem(2);
-        AdmobHelp.getInstance().loadBannerFragment(view, TypeAds.admod_banner_chargehistory, getActivity());
+        switch (AdControl.adControl) {
+            case Facebook:
+                FBHelp.getInstance().loadBannerFragment(getActivity(), view);
+                break;
+            case Admob:
+                AdmobHelp.getInstance().loadBannerFragment(view, TypeAds.admod_banner_chargehistory, getActivity());
+                break;
+        }
 //        AdmobHelp.getInstance().loadBannerFragment(getActivity(),view);
         return view;
     }
@@ -79,9 +88,7 @@ public class fmChart extends Fragment {
         tvDate = v.findViewById(R.id.tvDate);
         vpPager = v.findViewById(R.id.viewPager);
         indicator = v.findViewById(R.id.indicator);
-
         indicator.setupWithViewPager(vpPager, true);
-
     }
 
     public void intEvent(View v) {
@@ -329,4 +336,8 @@ public class fmChart extends Fragment {
         }
     }
 
+    public void onDestroy() {
+        super.onDestroy();
+        FBHelp.getInstance().destroyBanner();
+    }
 }

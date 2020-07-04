@@ -21,7 +21,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.ads.control.AdControl;
 import com.ads.control.AdmobHelp;
+import com.ads.control.FBHelp;
 import com.ads.control.TypeAds;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
@@ -45,6 +47,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
     private long totalRam;
     private long useRam;
     private long useRam2;
+    private Context context;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -55,10 +58,17 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         intView();
         NotificationDevice.cancle(this, NotificationDevice.ID_NOTIFICATTION_BOOST);
 
-        checkTask();
-        AdmobHelp.getInstance().init(this, TypeAds.admod_full_phoneboost);
-        AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_phoneboost);
-
+//        checkTask();
+//        AdmobHelp.getInstance().init(this, TypeAds.admod_full_phoneboost);
+        switch (AdControl.adControl) {
+            case Facebook:
+                FBHelp.getInstance().loadNative(this);
+                break;
+            case Admob:
+                AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_phoneboost);
+                break;
+        }
+        context = this;
 //        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
 //        AdmobHelp.getInstance().loadNative(BoostActivity.this);
 //        SharePreferenceUtils.getInstance(this).setFlagAds(true);
@@ -188,12 +198,19 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+            AdControl.AdCloseListener adCloseListener = new AdControl.AdCloseListener() {
                 @Override
                 public void onAdClosed() {
                     loadResult();
                 }
-            });
+            };
+            switch (AdControl.adControl) {
+                case Admob:
+                    AdmobHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_phoneboost, adCloseListener, null);
+                case Facebook:
+                    FBHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_phoneboost, adCloseListener, null);
+            }
+
         }
     }
 

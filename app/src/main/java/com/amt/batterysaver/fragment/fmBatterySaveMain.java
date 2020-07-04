@@ -41,13 +41,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ads.control.AdControl;
 import com.ads.control.AdmobHelp;
+import com.ads.control.FBHelp;
 import com.ads.control.TypeAds;
 import com.amt.batterysaver.BatteryMode.BatteryInfo;
 import com.amt.batterysaver.Utilsb.BatteryPref;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
+import com.amt.batterysaver.activity.BaseActivity;
 import com.amt.batterysaver.activity.ChargeActivity;
+import com.amt.batterysaver.activity.ChargeSettingActivity;
 import com.amt.batterysaver.activity.CleanActivity;
 import com.amt.batterysaver.activity.PermissionActivity;
 import com.amt.batterysaver.service.BatteryService;
@@ -65,6 +69,7 @@ import com.amt.batterysaver.view.WaveDrawable;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+import java.util.concurrent.Callable;
 
 import me.itangqi.waveloadingview.WaveLoadingView;
 
@@ -365,7 +370,14 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intView(view);
         intData(view);
         intEvent();
-        AdmobHelp.getInstance().loadNativeFragment(getActivity(), view, TypeAds.admod_native_main);
+        switch (AdControl.adControl) {
+            case Facebook:
+                FBHelp.getInstance().loadNativeFrament(getActivity(), view);
+                break;
+            case Admob:
+                AdmobHelp.getInstance().loadNativeFragment(getActivity(), view, TypeAds.admod_native_main);
+                break;
+        }
 //        AdmobHelp.getInstance().loadNativeFragment(getActivity(), view);
 //        if (!Utils.checkShouldDoing(getActivity(), 8)) {
 //            cvFastCharge.setVisibility(View.GONE);
@@ -470,8 +482,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         ContextCompat.startForegroundService(getActivity(), intent2);
         mRegisterReceiver();
         String currentDate = DateFormat.getDateInstance().format(Calendar.getInstance().getTime());
-
-
     }
 
     public void intEvent() {
@@ -504,14 +514,30 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     }
 
     public void writePermission() {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!Settings.System.canWrite(getActivity())) {
-                SharePreferenceUtils.getInstance(getActivity()).setStatusPer(true);
-                Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + getActivity().getPackageName()));
-                startActivityForResult(intent, WRITE_PERMISSION_REQUEST);
-                startActivity(new Intent(getActivity(), PermissionActivity.class));
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            try {
+                ((BaseActivity) getActivity()).checkdrawPermission(new Callable<Void>() {
+                    @Override
+                    public Void call() throws Exception {
+                        if (Utils.checkSystemWritePermission(fmBatterySaveMain.this.getActivity())) {
+                            fmBatterySaveMain.this.startActivity(new Intent(fmBatterySaveMain.this.getActivity(), fmBatterySaveMain.this.getActivity().getClass()));
+                        } else {
+                            Utils.openAndroidPermissionsMenu(fmBatterySaveMain.this.getActivity());
+                        }
+                        return null;
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (!Settings.System.canWrite(getActivity())) {
+                    SharePreferenceUtils.getInstance(getActivity()).setStatusPer(true);
+                    Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + getActivity().getPackageName()));
+                    startActivityForResult(intent, WRITE_PERMISSION_REQUEST);
+                    startActivity(new Intent(getActivity(), PermissionActivity.class));
+                }
             }
         }
     }

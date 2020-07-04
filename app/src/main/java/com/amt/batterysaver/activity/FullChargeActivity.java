@@ -12,9 +12,14 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.ads.control.AdControl;
+import com.ads.control.AdmobHelp;
+import com.ads.control.FBHelp;
+import com.ads.control.TypeAds;
 import com.amt.batterysaver.R;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.Utils;
+import com.facebook.ads.Ad;
 
 public class FullChargeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,7 +29,6 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
     Runnable r;
     Handler mHandler1;
     Runnable r1;
-//    Boolean isLoadAds = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,32 +37,16 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_charge_full);
         intView();
 
-//        isLoadAds = !AdmodAd.admod_native_fullcharge.equals("");
-//        if (isLoadAds)
-//            AdmodRef.initInterstitialAd(FullChargeActivity.this, TypeAds.admod_full_fullcharge);
-//
-//        r = new Runnable() {
-//            @Override
-//            public void run() {
-//                AdmodRef.loadNative(FullChargeActivity.this, TypeAds.admod_native_fullcharge);
-//            }
-//        };
-//        r1 = new Runnable() {
-//            @Override
-//            public void run() {
-//                AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-//                    @Override
-//                    public void onAdClosed() {
-//                    }
-//                });
-//            }
-//        };
-//        mHandler = new Handler();
-//        mHandler1 = new Handler();
-//        if (isLoadAds) {
-//            mHandler.postDelayed(r, 2000);
-//            mHandler1.postDelayed(r1, 5000);
-//        }
+        if (AdControl.isLoadAds) {
+            switch (AdControl.adControl) {
+                case Admob:
+                    AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_fullcharge);
+                    break;
+                case Facebook:
+                    FBHelp.getInstance().loadNative(this);
+                    break;
+            }
+        }
         loadResult();
     }
 
@@ -99,11 +87,23 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
         fmResult.startAnimation(downtoup);
         flagExit = true;
         SharePreferenceConstant.full_battery_loaded = true;
-//        AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-//            @Override
-//            public void onAdClosed() {
-//            }
-//        });
+        AdControl.AdCloseListener adCloseListener = new AdControl.AdCloseListener() {
+            @Override
+            public void onAdClosed() {
+
+            }
+        };
+        if (AdControl.isLoadAds) {
+            switch (AdControl.adControl) {
+                case Facebook:
+                    FBHelp.getInstance().loadInterstitialAd(this, TypeAds.admod_full_fullcharge, adCloseListener, null);
+                    break;
+                case Admob:
+                    AdmobHelp.getInstance().loadInterstitialAd(this, TypeAds.admod_full_fullcharge, adCloseListener, null);
+                    break;
+            }
+
+        }
     }
 
     @Override

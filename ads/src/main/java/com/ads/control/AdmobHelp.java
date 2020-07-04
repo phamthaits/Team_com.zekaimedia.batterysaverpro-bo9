@@ -6,16 +6,13 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
 import android.view.View;
-import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
@@ -32,6 +29,8 @@ import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.google.android.gms.ads.formats.UnifiedNativeAdView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.ads.control.AdControl.AdCloseListener;
+import com.ads.control.AdControl.AdLoadedListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -55,45 +54,49 @@ public class AdmobHelp {
     private AdmobHelp() {
     }
 
-    public void init(Context context, TypeAds typeAds) {
+    public void loadInterstitialAd(Context context, TypeAds typeAds, AdCloseListener adCloseListener, AdLoadedListener adLoadedListener) {
         isInit = true;
         MobileAds.initialize(context, context.getString(R.string.admob_app_id));
         mPublisherInterstitialAd = new PublisherInterstitialAd(context);
         String ads = "";
         switch (typeAds) {
             case admod_full_splash:
-                ads = AdmodAd.admod_full_splash;
+                ads = AdControl.admod_full_splash;
                 break;
             case admod_full_optimization:
-                ads = AdmodAd.admod_full_optimization;
+                ads = AdControl.admod_full_optimization;
                 break;
             case admod_full_trashcleaner:
-                ads = AdmodAd.admod_full_trashcleaner;
+                ads = AdControl.admod_full_trashcleaner;
                 break;
             case admod_full_phoneboost:
-                ads = AdmodAd.admod_full_phoneboost;
+                ads = AdControl.admod_full_phoneboost;
                 break;
             case admod_full_phonecooler:
-                ads = AdmodAd.admod_full_phonecooler;
+                ads = AdControl.admod_full_phonecooler;
                 break;
-//            case admod_full_fullcharge:
-//                ads = AdmodAd.admod_full_fullcharge;
-//                break;
-//            case admod_full_fastcharge:
-//                ads = AdmodAd.admod_full_fastcharge;
-//                break;
+            case admod_full_fullcharge:
+                ads = AdControl.admod_full_fullcharge;
+                break;
+            case admod_full_fastcharge:
+                ads = AdControl.admod_full_fastcharge;
+                break;
             case admod_banner_appmanager:
-                ads = AdmodAd.admod_banner_appmanager;
+                ads = AdControl.admod_banner_appmanager;
                 break;
             case admod_banner_chargehistory:
-                ads = AdmodAd.admod_banner_chargehistory;
+                ads = AdControl.admod_banner_chargehistory;
                 break;
         }
         mPublisherInterstitialAd.setAdUnitId(ads);
         mPublisherInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdLoaded() {
+                if (adLoadedListener != null) {
+                    adLoadedListener.onAdLoaded();
+                }
                 // Code to be executed when an ad finishes loading.
+                showInterstitialAd(adCloseListener);
             }
 
             @Override
@@ -102,6 +105,9 @@ public class AdmobHelp {
                 if (isReloaded == false) {
                     isReloaded = true;
                     loadInterstitialAd();
+                } else {
+                    if (adCloseListener != null)
+                        adCloseListener.onAdClosed();
                 }
             }
 
@@ -138,7 +144,7 @@ public class AdmobHelp {
         }
     }
 
-    public void showInterstitialAd(AdCloseListener adCloseListener) {
+    private void showInterstitialAd(AdCloseListener adCloseListener) {
         if (canShowInterstitialAd()) {
             this.adCloseListener = adCloseListener;
             mPublisherInterstitialAd.show();
@@ -151,9 +157,7 @@ public class AdmobHelp {
         return mPublisherInterstitialAd != null && mPublisherInterstitialAd.isLoaded();
     }
 
-    public interface AdCloseListener {
-        void onAdClosed();
-    }
+
 
     private void setAnimation(Activity mActivity, UnifiedNativeAdView adView) {
         Animation animation = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.move_up_button);
@@ -221,32 +225,32 @@ public class AdmobHelp {
         String ads = "";
         switch (typeAds) {
             case admod_native_main:
-                ads = AdmodAd.admod_native_main;
+                ads = AdControl.admod_native_main;
                 break;
             case admod_native_optimization:
-                ads = AdmodAd.admod_native_optimization;
+                ads = AdControl.admod_native_optimization;
                 break;
             case admod_native_trashcleaner:
-                ads = AdmodAd.admod_native_trashcleaner;
+                ads = AdControl.admod_native_trashcleaner;
                 break;
             case admod_native_phoneboost:
-                ads = AdmodAd.admod_native_phoneboost;
+                ads = AdControl.admod_native_phoneboost;
                 break;
             case admod_native_phonecooler:
-                ads = AdmodAd.admod_native_phonecooler;
+                ads = AdControl.admod_native_phonecooler;
                 break;
-//            case admod_native_fullcharge:
-//                ads = AdmodAd.admod_native_fullcharge;
-//                break;
-//            case admod_native_fastcharge:
-//                ads = AdmodAd.admod_native_fastcharge;
-//                break;
+            case admod_native_fullcharge:
+                ads = AdControl.admod_native_fullcharge;
+                break;
+            case admod_native_fastcharge:
+                ads = AdControl.admod_native_fastcharge;
+                break;
             case admod_native_setting:
-                ads = AdmodAd.admod_native_setting;
+                ads = AdControl.admod_native_setting;
                 break;
-//            case admod_native_chargeresult:
-//                ads = AdmodAd.admod_native_chargeresult;
-//                break;
+            case admod_native_chargeresult:
+                ads = AdControl.admod_native_chargeresult;
+                break;
         }
 
         AdLoader adLoader = new AdLoader.Builder(mActivity, ads)
@@ -295,52 +299,51 @@ public class AdmobHelp {
         String ads = "";
         switch (typeAds) {
             case admod_native_main:
-                ads = AdmodAd.admod_native_main;
+                ads = AdControl.admod_native_main;
                 break;
             case admod_native_optimization:
-                ads = AdmodAd.admod_native_optimization;
+                ads = AdControl.admod_native_optimization;
                 break;
             case admod_native_trashcleaner:
-                ads = AdmodAd.admod_native_trashcleaner;
+                ads = AdControl.admod_native_trashcleaner;
                 break;
             case admod_native_phoneboost:
-                ads = AdmodAd.admod_native_phoneboost;
+                ads = AdControl.admod_native_phoneboost;
                 break;
             case admod_native_phonecooler:
-                ads = AdmodAd.admod_native_phonecooler;
+                ads = AdControl.admod_native_phonecooler;
                 break;
-//            case admod_native_fullcharge:
-//                ads = AdmodAd.admod_native_fullcharge;
-//                break;
+            case admod_native_fullcharge:
+                ads = AdControl.admod_native_fullcharge;
+                break;
             case admod_native_fastcharge:
-                ads = AdmodAd.admod_native_fastcharge;
+                ads = AdControl.admod_native_fastcharge;
                 break;
             case admod_native_setting:
-                ads = AdmodAd.admod_native_setting;
+                ads = AdControl.admod_native_setting;
                 break;
         }
-        AdLoader adLoader = new AdLoader.Builder(mActivity, ads)
-                .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
-                    @Override
-                    public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
-                        // Show the ad.
-                        if (nativeAd != null) {
-                            nativeAd.destroy();
-                        }
-                        nativeAd = unifiedNativeAd;
-                        FrameLayout frameLayout =
-                                rootView.findViewById(R.id.fl_adplaceholder);
-                        if (frameLayout != null) {
-                            frameLayout.setVisibility(View.VISIBLE);
-                            UnifiedNativeAdView adView = (UnifiedNativeAdView) mActivity.getLayoutInflater()
-                                    .inflate(R.layout.native_admob_ad, null);
-                            populateUnifiedNativeAdView(unifiedNativeAd, adView);
-                            frameLayout.removeAllViews();
-                            frameLayout.addView(adView);
-                            setAnimation(mActivity, adView);
-                        }
-                    }
-                })
+        AdLoader adLoader = new AdLoader.Builder(mActivity, ads).forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
+            @Override
+            public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+                // Show the ad.
+                if (nativeAd != null) {
+                    nativeAd.destroy();
+                }
+                nativeAd = unifiedNativeAd;
+                FrameLayout frameLayout =
+                        rootView.findViewById(R.id.fl_adplaceholder);
+                if (frameLayout != null) {
+                    frameLayout.setVisibility(View.VISIBLE);
+                    UnifiedNativeAdView adView = (UnifiedNativeAdView) mActivity.getLayoutInflater()
+                            .inflate(R.layout.native_admob_ad, null);
+                    populateUnifiedNativeAdView(unifiedNativeAd, adView);
+                    frameLayout.removeAllViews();
+                    frameLayout.addView(adView);
+                    setAnimation(mActivity, adView);
+                }
+            }
+        })
                 .withAdListener(new AdListener() {
                     @Override
                     public void onAdFailedToLoad(int errorCode) {
@@ -360,10 +363,10 @@ public class AdmobHelp {
             AdView adView = new AdView(rootView.getContext());
             switch (typeAds) {
                 case admod_banner_appmanager:
-                    ads = AdmodAd.admod_banner_appmanager;
+                    ads = AdControl.admod_banner_appmanager;
                     break;
                 case admod_banner_chargehistory:
-                    ads = AdmodAd.admod_banner_chargehistory;
+                    ads = AdControl.admod_banner_chargehistory;
                     break;
             }
             AdSize adSize = getAdSize(activity);
@@ -473,6 +476,7 @@ public class AdmobHelp {
             nativeAd.destroy();
         }
     }
+
     private AdSize getAdSize(Activity activity) {
         // Step 2 - Determine the screen width (less decorations) to use for the ad width.
         Display display = activity.getWindowManager().getDefaultDisplay();
@@ -486,88 +490,5 @@ public class AdmobHelp {
 
         // Step 3 - Get adaptive ad size and return for setting on the ad view.
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(activity, adWidth);
-    }
-    public static void getAdmodFromFireBase() {
-        if (!AdmodAd.isInit) {
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            db.collection("AdTest")
-                    .get()
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                JSONObject object = new JSONObject(document.getData());
-                                for (int i = 0; i < object.names().length(); i++) {
-                                    try {
-                                        String key = object.names().getString(i);
-                                        switch (key) {
-                                            case "admod_full_splash":
-                                                AdmodAd.admod_full_splash = object.getString(key);
-                                                break;
-                                            case "admod_full_optimization":
-                                                AdmodAd.admod_full_optimization = object.getString(key);
-                                                break;
-                                            case "admod_full_trashcleaner":
-                                                AdmodAd.admod_full_trashcleaner = object.getString(key);
-                                                break;
-                                            case "admod_full_phoneboost":
-                                                AdmodAd.admod_full_phoneboost = object.getString(key);
-                                                break;
-                                            case "admod_full_phonecooler":
-                                                AdmodAd.admod_full_phonecooler = object.getString(key);
-                                                break;
-                                            case "admod_full_fullcharge":
-                                                AdmodAd.admod_full_fullcharge = object.getString(key);
-                                                break;
-                                            case "admod_full_fastcharge":
-                                                AdmodAd.admod_full_fastcharge = object.getString(key);
-                                                break;
-                                            case "admod_native_main":
-                                                AdmodAd.admod_native_main = object.getString(key);
-                                                break;
-                                            case "admod_native_optimization":
-                                                AdmodAd.admod_native_optimization = object.getString(key);
-                                                break;
-                                            case "admod_native_trashcleaner":
-                                                AdmodAd.admod_native_trashcleaner = object.getString(key);
-                                                break;
-                                            case "admod_native_phoneboost":
-                                                AdmodAd.admod_native_phoneboost = object.getString(key);
-                                                break;
-                                            case "admod_native_phonecooler":
-                                                AdmodAd.admod_native_phonecooler = object.getString(key);
-                                                break;
-                                            case "admod_native_fullcharge":
-                                                AdmodAd.admod_native_fullcharge = object.getString(key);
-                                                break;
-                                            case "admod_native_fastcharge":
-                                                AdmodAd.admod_native_fastcharge = object.getString(key);
-                                                break;
-                                            case "admod_native_setting":
-                                                AdmodAd.admod_native_setting = object.getString(key);
-                                                break;
-                                            case "admod_native_chargeresult":
-                                                AdmodAd.admod_native_chargeresult = object.getString(key);
-                                                break;
-                                            case "admod_banner_appmanager":
-                                                AdmodAd.admod_banner_appmanager = object.getString(key);
-                                                break;
-                                            case "admod_banner_chargehistory":
-                                                AdmodAd.admod_banner_chargehistory = object.getString(key);
-                                                break;
-                                        }
-                                        Log.d("ads", "key = " + key + ":" + object.getString(key));
-                                        AdmodAd.isInit = true;
-                                    } catch (JSONException e) {
-                                        Log.d("ads", "Lỗi");
-                                        e.printStackTrace();
-                                    }
-                                }
-                                Log.d("123", document.getId() + " => " + document.getData());
-                            }
-                        } else {
-                            Log.d("123", "Error getting documents.", task.getException());
-                        }
-                    });
-        }
     }
 }

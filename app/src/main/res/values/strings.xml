@@ -140,7 +140,7 @@
 
 
     //
-    <string name="ram_result">Boosted1</string>
+    <string name="ram_result">Boosted</string>
     <string name="boosting">Boosting Memory</string>
     <string name="result_cooler">Excellent! Successfully cooled down.</string>
     <string name="cleaning_junk">Cleaning junk files</string>

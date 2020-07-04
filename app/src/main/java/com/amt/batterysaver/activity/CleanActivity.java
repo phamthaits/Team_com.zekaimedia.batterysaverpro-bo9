@@ -109,8 +109,6 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
                 && ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
-
-
         }else{
             intView();
         }
@@ -177,8 +175,6 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
         } else {
             mAdapter.notifyDataSetChanged();
         }
-
-
     }
 
     @Override
@@ -188,8 +184,6 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
             case android.R.id.home:
                 onBackPressed();
                 break;
-
-
             default:
                 break;
         }
@@ -200,9 +194,7 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
 
         if(flagExit){
             super.onBackPressed();
-
         }
-
     }
 
     private class TaskScan extends AsyncTask<Void, Integer, List<ChildItem>> {
@@ -216,7 +208,7 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
             try {
                 mGetPackageSizeInfoMethod = CleanActivity.this.getPackageManager().getClass().getMethod(
                         "getPackageSizeInfo", String.class, IPackageStatsObserver.class);
-                
+
             } catch (NoSuchMethodException e) {
                 e.printStackTrace();
             }

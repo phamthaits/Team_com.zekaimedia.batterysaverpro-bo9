@@ -140,11 +140,11 @@ public class WifiActivity extends AppCompatActivity implements View.OnClickListe
         r = new Runnable() {
             @Override
             public void run() {
-                AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-                    @Override
-                    public void onAdClosed() {
-                    }
-                });
+//                AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+//                    @Override
+//                    public void onAdClosed() {
+//                    }
+//                });
             }
         };
         mHandler1 = new Handler();

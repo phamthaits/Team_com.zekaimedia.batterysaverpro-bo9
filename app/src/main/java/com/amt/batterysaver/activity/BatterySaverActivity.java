@@ -31,7 +31,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ads.control.AdControl;
 import com.ads.control.AdmobHelp;
+import com.ads.control.FBHelp;
 import com.ads.control.TypeAds;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
@@ -44,6 +46,9 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+
+import com.ads.control.AdControl.AdCloseListener;
+import com.ads.control.AdControl.AdLoadedListener;
 
 public class BatterySaverActivity extends AppCompatActivity implements OnClickListener {
     private int curIndex = 0;
@@ -71,9 +76,14 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         setContentView(R.layout.activity_do_optimize);
 
         intView();
-        checkTask();
-        AdmobHelp.getInstance().init(this, TypeAds.admod_full_optimization);
-        AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_optimization);
+//        checkTask();
+        switch (AdControl.adControl) {
+            case Facebook:
+                FBHelp.getInstance().loadNative(this);
+                break;
+            case Admob:
+                AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_optimization);
+        }
     }
 
     @Override
@@ -256,13 +266,10 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
                                 Drawable d = BatterySaverActivity.this.getPackageManager().getApplicationIcon(info.getPackageName());
                                 publishProgress(info);
                                 try {
-
                                     Thread.sleep(150);
-
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
-
                             }
                         } catch (Exception e) {
                             continue;
@@ -294,30 +301,20 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
                                         mActivityManager.killBackgroundProcesses(info.getAppinfo().packageName);
                                         publishProgress(info);
                                         try {
-
                                             Thread.sleep(150);
-
                                         } catch (InterruptedException e) {
                                             e.printStackTrace();
                                         }
                                     }
-
                                 }
-
                             }
-
                             PermissionInfo[] permissions = packageInfo.permissions;
                         } catch (PackageManager.NameNotFoundException e) {
                             e.printStackTrace();
                         }
-
                     }
-
                 }
-
             }
-
-
             return null;
         }
 
@@ -373,10 +370,8 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
                 loadAnimation.setAnimationListener(new AnimationListener() {
                     public void onAnimationRepeat(Animation animation) {
                     }
-
                     public void onAnimationStart(Animation animation) {
                     }
-
                     public void onAnimationEnd(Animation animation) {
                         imageView.setVisibility(View.GONE);
                     }
@@ -389,8 +384,6 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     }
 
     class anmDone implements AnimationListener {
-
-
         @Override
         public void onAnimationRepeat(Animation animation) {
         }
@@ -404,13 +397,20 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
+            AdCloseListener adCloseListener = new AdCloseListener() {
                 @Override
                 public void onAdClosed() {
-
                     loadResult();
                 }
-            });
+            };
+            switch (AdControl.adControl) {
+                case Admob:
+                    AdmobHelp.getInstance().loadInterstitialAd(getBaseContext(), TypeAds.admod_full_optimization, adCloseListener, null);
+                    break;
+                case Facebook:
+                    FBHelp.getInstance().loadInterstitialAd(getBaseContext(), TypeAds.admod_full_optimization, adCloseListener, null);
+                    break;
+            }
         }
     }
 
