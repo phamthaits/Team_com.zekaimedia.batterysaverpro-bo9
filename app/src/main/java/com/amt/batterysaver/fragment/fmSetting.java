@@ -38,23 +38,24 @@ public class fmSetting extends Fragment implements View.OnClickListener {
     SwitchCompat swKillApp, swLowBattery, swBatteryFull, swCoolDown, swBoost, swTemp, swEnableNotification;
     TextView tvTempertureDes, tvLanguageDes, tvDNDDes;
     Boolean flag = false;
+    AdControl adControl;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        adControl = AdControl.getInstance(this.getContext());
     }
 
     // Inflate the view for the fragment based on layout XML
     LineChart chart;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_setting, container, false);
         intView(view);
         intData();
 //        AdmobHelp.getInstance().loadBannerFragment(getActivity(),view);
-        switch (AdControl.adControl) {
+        switch (adControl.adcontrolType()) {
             case Admob:
                 AdmobHelp.getInstance().loadNativeFragment(getActivity(), view, TypeAds.admod_native_setting);
                 break;
@@ -115,7 +116,7 @@ public class fmSetting extends Fragment implements View.OnClickListener {
                 break;
             case R.id.lrFastCharge:
                 try {
-                    ((BaseActivity)getActivity()).checkdrawPermission(() -> {
+                    ((BaseActivity) getActivity()).checkdrawPermission(() -> {
                         if (Utils.checkSystemWritePermission(getActivity())) {
                             startActivity(new Intent(getActivity(), ChargeSettingActivity.class));
                         } else {

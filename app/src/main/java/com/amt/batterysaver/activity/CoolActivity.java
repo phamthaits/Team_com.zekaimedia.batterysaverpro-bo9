@@ -67,6 +67,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
     private ViewGroup parentAds;
     private LinearLayout lrScan;
     private Context context;
+    private AdControl adControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,9 +76,10 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         Utils.setLocate(this);
         new CoolActivity.LoadRunningTask().execute();
         intView();
+        adControl=AdControl.getInstance(this);
 //        checkTask();
 //        AdmobHelp.getInstance().init(this, TypeAds.admod_full_phonecooler);
-        switch (AdControl.adControl) {
+        switch (adControl.adcontrolType()) {
             case Admob:
                 AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_phonecooler);
                 break;
@@ -425,9 +427,9 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                     loadResult();
                 }
             };
-            switch (AdControl.adControl) {
+            switch (adControl.adcontrolType()) {
                 case Facebook:
-                    FBHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_phonecooler, adCloseListener, null);
+                    FBHelp.getInstance().loadInterstitialAd(context, adCloseListener, null);
                     break;
                 case Admob:
                     AdmobHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_phonecooler, adCloseListener, null);

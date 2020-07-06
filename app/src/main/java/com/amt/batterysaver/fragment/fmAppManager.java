@@ -35,11 +35,6 @@ import static android.app.Activity.RESULT_OK;
 
 public class fmAppManager extends Fragment {
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     private static final int UNINSTALL_REQUEST_CODE = 1;
 
@@ -57,6 +52,13 @@ public class fmAppManager extends Fragment {
     private int mChildPosition;
     private AnimatedExpandableListView mRecyclerView;
     Runnable runnableLocal;
+    private AdControl adControl;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        adControl = AdControl.getInstance(getContext());
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -65,7 +67,7 @@ public class fmAppManager extends Fragment {
         mRecyclerView = view.findViewById(R.id.recyclerView);
         initAdapter();
         loadData();
-        switch (AdControl.adControl) {
+        switch (adControl.adcontrolType()) {
             case Admob:
                 AdmobHelp.getInstance().loadBannerFragment(view, TypeAds.admod_banner_appmanager, getActivity());
                 break;
@@ -165,7 +167,6 @@ public class fmAppManager extends Fragment {
         super.onDestroy();
         if (mHandlerLocal != null)
             mHandlerLocal.removeCallbacks(runnableLocal);
-        FBHelp.getInstance().destroyBanner();
     }
 
     @Override

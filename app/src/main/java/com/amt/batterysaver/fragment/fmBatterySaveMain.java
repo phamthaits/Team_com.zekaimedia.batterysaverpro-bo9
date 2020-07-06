@@ -56,6 +56,7 @@ import com.amt.batterysaver.activity.CleanActivity;
 import com.amt.batterysaver.activity.PermissionActivity;
 import com.amt.batterysaver.service.BatteryService;
 import com.amt.batterysaver.task.TaskCountDoing;
+import com.facebook.ads.Ad;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 import com.skyfishjy.library.RippleBackground;
@@ -111,10 +112,12 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private Shimmer shFast, shFull, shTrickle, shOptimize;
     private ShimmerTextView tvFast, tvFull, tvTrickle;
     private View v1, v2, v3, v4, v5;
+    private AdControl adControl;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        adControl = AdControl.getInstance(this.getContext());
     }
 
     @Override
@@ -370,7 +373,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intView(view);
         intData(view);
         intEvent();
-        switch (AdControl.adControl) {
+        switch (adControl.adcontrolType()) {
             case Facebook:
                 FBHelp.getInstance().loadNativeFrament(getActivity(), view);
                 break;

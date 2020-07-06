@@ -25,6 +25,7 @@ import com.amt.batterysaver.Utilsb.BatteryPref;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.service.BatteryService;
+import com.facebook.ads.Ad;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 import com.amt.batterysaver.R;
@@ -44,6 +45,7 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
     ShimmerTextView tvFast, tvFull, tvTrickle;
     Handler mHandler;
     Runnable r;
+    AdControl adControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +56,9 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
         intView();
         intData();
         intEvent();
-        if (AdControl.isLoadAds) {
-            switch (AdControl.adControl) {
+        adControl = AdControl.getInstance(this);
+        if (adControl.isLoadAds()) {
+            switch (adControl.adcontrolType()) {
                 case Admob:
                     AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_chargeresult);
                     break;

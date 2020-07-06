@@ -1,5 +1,7 @@
 package com.ads.control;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -11,42 +13,297 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class AdControl {
-    public static boolean isInit = false;
-    public static AdcontrolType adControl = AdcontrolType.Admob;
-    public static String admod_full_splash = "";
-    public static String admod_full_optimization = "";
-    public static String admod_full_trashcleaner = "";
-    public static String admod_full_phoneboost = "";
-    public static String admod_full_phonecooler = "";
-    public static String admod_full_fastcharge = "";
-    public static String admod_full_fullcharge = "";
+    private static AdControl instance;
+    private SharedPreferences.Editor editor;
+    private SharedPreferences pre;
 
-    public static String admod_native_main = "";
-    public static String admod_native_optimization = "";
-    public static String admod_native_trashcleaner = "";
-    public static String admod_native_phoneboost = "";
-    public static String admod_native_phonecooler = "";
-    public static String admod_native_fastcharge = "";
-    public static String admod_native_setting = "";
-    public static String admod_native_fullcharge = "";
-    public static String admod_native_chargeresult = "";
+    private AdControl(Context context) {
+        this.pre = context.getSharedPreferences("app_data", Context.MODE_MULTI_PROCESS);
+        this.editor = this.pre.edit();
+    }
 
-    public static String admod_banner_appmanager = "";
-    public static String admod_banner_chargehistory = "";
-    public static boolean isLoadAds = true;
-    public static String fb_full_splash = "285555782814454_286166426086723";
-    public static String fb_native = "285555782814454_285575599479139";
-    public static String fb_banner = "285555782814454_286166796086686";
+    public static AdControl getInstance(Context context) {
+        if (instance == null) {
+            instance = new AdControl(context);
+        }
+        return instance;
+    }
+
+    //    public static boolean isInit = false;
+    public boolean isInit() {
+        return this.pre.getBoolean("isInit", false);
+    }
+
+    public void isInit(boolean value) {
+        editor.putBoolean("isInit", value);
+        editor.commit();
+    }
+
+    //    public static AdcontrolType adControl = AdcontrolType.Admob;
+    public AdcontrolType adcontrolType() {
+        return AdcontrolType.toMyEnum(this.pre.getString("adcontrolType", AdcontrolType.Admob.toString()));
+    }
+
+    public void adcontrolType(AdcontrolType value) {
+        editor.putString("adcontrolType", value.toString());
+        editor.commit();
+    }
+    //    public static String admod_full_splash = "";
+
+    public String admod_full_splash() {
+        return this.pre.getString("admod_full_splash", "");
+    }
+
+    public void admod_full_splash(String value) {
+        editor.putString("admod_full_splash", value);
+        editor.commit();
+    }
+    //    public static String admod_full_optimization = "";
+
+    public String admod_full_optimization() {
+        return this.pre.getString("admod_full_optimization", "");
+    }
+
+    public void admod_full_optimization(String value) {
+        editor.putString("admod_full_optimization", value);
+        editor.commit();
+    }
+    //    public static String admod_full_trashcleaner = "";
+
+    public String admod_full_trashcleaner() {
+        return this.pre.getString("admod_full_trashcleaner", "");
+    }
+
+    public void admod_full_trashcleaner(String value) {
+        editor.putString("admod_full_trashcleaner", value);
+        editor.commit();
+    }
+
+    //    public static String admod_full_phoneboost = "";
+    public String admod_full_phoneboost() {
+        return this.pre.getString("admod_full_phoneboost", "");
+    }
+
+    public void admod_full_phoneboost(String value) {
+        editor.putString("admod_full_phoneboost", value);
+        editor.commit();
+    }
+
+    //    public static String admod_full_phonecooler = "";
+    public String admod_full_phonecooler() {
+        return this.pre.getString("admod_full_phonecooler", "");
+    }
+
+    public void admod_full_phonecooler(String value) {
+        editor.putString("admod_full_phonecooler", value);
+        editor.commit();
+    }
+
+    //    public static String admod_full_fastcharge = "";
+    public String admod_full_fastcharge() {
+        return this.pre.getString("admod_full_fastcharge", "");
+    }
+
+    public void admod_full_fastcharge(String value) {
+        editor.putString("admod_full_fastcharge", value);
+        editor.commit();
+    }
+
+    //    public static String admod_full_fullcharge = "";
+    public String admod_full_fullcharge() {
+        return this.pre.getString("admod_full_fullcharge", "");
+    }
+
+    public void admod_full_fullcharge(String value) {
+        editor.putString("admod_full_fullcharge", value);
+        editor.commit();
+    }
+
+    //Calendar.getInstance().getTime()
+    public int old_date() {
+        return this.pre.getInt("old_date", -1);
+    }
+
+    public void old_date(int value) {
+        if (value == -1) {
+            value = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        }
+        editor.putInt("old_date", value);
+        editor.commit();
+    }
+
+    //    public static String admod_native_main = "";
+    public String admod_native_main() {
+        return this.pre.getString("admod_native_main", "");
+    }
+
+    public void admod_native_main(String value) {
+        editor.putString("admod_native_main", value);
+        editor.commit();
+    }
+
+    //    public static String admod_native_optimization = "";
+    public String admod_native_optimization() {
+        return this.pre.getString("admod_native_optimization", "");
+    }
+
+    public void admod_native_optimization(String value) {
+        editor.putString("admod_native_optimization", value);
+        editor.commit();
+    }
+
+    //    public static String admod_native_trashcleaner = "";
+    public String admod_native_trashcleaner() {
+        return this.pre.getString("admod_native_trashcleaner", "");
+    }
+
+    public void admod_native_trashcleaner(String value) {
+        editor.putString("admod_native_trashcleaner", value);
+        editor.commit();
+    }
+
+    //    public static String admod_native_phoneboost = "";
+    public String admod_native_phoneboost() {
+        return this.pre.getString("admod_native_phoneboost", "");
+    }
+
+    public void admod_native_phoneboost(String value) {
+        editor.putString("admod_native_phoneboost", value);
+        editor.commit();
+    }
+
+    //    public static String admod_native_phonecooler = "";
+    public String admod_native_phonecooler() {
+        return this.pre.getString("admod_native_phonecooler", "");
+    }
+
+    public void admod_native_phonecooler(String value) {
+        editor.putString("admod_native_phonecooler", value);
+        editor.commit();
+    }
+
+    //    public static String admod_native_fastcharge = "";
+    public String admod_native_fastcharge() {
+        return this.pre.getString("admod_native_fastcharge", "");
+    }
+
+    public void admod_native_fastcharge(String value) {
+        editor.putString("admod_native_fastcharge", value);
+        editor.commit();
+    }
+
+    //    public static String admod_native_setting = "";
+    public String admod_native_setting() {
+        return this.pre.getString("admod_native_setting", "");
+    }
+
+    public void admod_native_setting(String value) {
+        editor.putString("admod_native_setting", value);
+        editor.commit();
+    }
+
+    //    public static String admod_native_fullcharge = "";
+    public String admod_native_fullcharge() {
+        return this.pre.getString("admod_native_fullcharge", "");
+    }
+
+    public void admod_native_fullcharge(String value) {
+        editor.putString("admod_native_fullcharge", value);
+        editor.commit();
+    }
+
+    //    public static String admod_native_chargeresult = "";
+    public String admod_native_chargeresult() {
+        return this.pre.getString("admod_native_chargeresult", "");
+    }
+
+    public void admod_native_chargeresult(String value) {
+        editor.putString("admod_native_chargeresult", value);
+        editor.commit();
+    }
+
+    //    public static String admod_banner_appmanager = "";
+    public String admod_banner_appmanager() {
+        return this.pre.getString("admod_banner_appmanager", "");
+    }
+
+    public void admod_banner_appmanager(String value) {
+        editor.putString("admod_banner_appmanager", value);
+        editor.commit();
+    }
+
+    //    public static String admod_banner_chargehistory = "";
+    public String admod_banner_chargehistory() {
+        return this.pre.getString("admod_banner_chargehistory", "");
+    }
+
+    public void admod_banner_chargehistory(String value) {
+        editor.putString("admod_banner_chargehistory", value);
+        editor.commit();
+    }
+
+    //    public static boolean isLoadAds = true;
+    public boolean isLoadAds() {
+        return this.pre.getBoolean("isLoadAds", false);
+    }
+
+    public void isLoadAds(boolean value) {
+        editor.putBoolean("isLoadAds", value);
+        editor.commit();
+    }
+
+    //    public static String fb_full = "285555782814454_286166426086723";
+    public String fb_full() {
+        return this.pre.getString("fb_full", "");
+    }
+
+    public void fb_full(String value) {
+        editor.putString("fb_full", value);
+        editor.commit();
+    }
+
+    //    public static String fb_native = "285555782814454_285575599479139";
+    public String fb_native() {
+        return this.pre.getString("fb_native", "");
+    }
+
+    public void fb_native(String value) {
+        editor.putString("fb_native", value);
+        editor.commit();
+    }
+
+    //    public static String fb_banner = "285555782814454_286166796086686";
+    public String fb_banner() {
+        return this.pre.getString("fb_banner", "");
+    }
+
+    public void fb_banner(String value) {
+        editor.putString("fb_banner", value);
+        editor.commit();
+    }
 
     public enum AdcontrolType {
         Admob,
         Facebook,
-        Mix
+        Mix;
+
+        public static AdcontrolType toMyEnum(String myEnumString) {
+            try {
+                return valueOf(myEnumString);
+            } catch (Exception ex) {
+                // For error cases
+                return Admob;
+            }
+        }
     }
 
-    public static void getAdControlFromFireBase() {
-        if (!AdControl.isInit) {
+    public void getAdControlFromFireBase() {
+//        if (!instance.isInit()) {
+        if (instance.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH)) {
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             db.collection("AdTest")
                     .get()
@@ -61,67 +318,68 @@ public class AdControl {
                                             case "adControl":
                                                 String adc = object.getString(key);
                                                 if (adc.equals("admob"))
-                                                    AdControl.adControl = AdcontrolType.Admob;
+                                                    instance.adcontrolType(AdcontrolType.Admob);
                                                 else if (adc.equals("fb"))
-                                                    AdControl.adControl = AdcontrolType.Facebook;
+                                                    instance.adcontrolType(AdcontrolType.Facebook);
                                                 break;
                                             case "admod_full_splash":
-                                                AdControl.admod_full_splash = object.getString(key);
+                                                instance.admod_full_splash(object.getString(key));
                                                 break;
                                             case "admod_full_optimization":
-                                                AdControl.admod_full_optimization = object.getString(key);
+                                                instance.admod_full_optimization(object.getString(key));
                                                 break;
                                             case "admod_full_trashcleaner":
-                                                AdControl.admod_full_trashcleaner = object.getString(key);
+                                                instance.admod_full_trashcleaner(object.getString(key));
                                                 break;
                                             case "admod_full_phoneboost":
-                                                AdControl.admod_full_phoneboost = object.getString(key);
+                                                instance.admod_full_phoneboost(object.getString(key));
                                                 break;
                                             case "admod_full_phonecooler":
-                                                AdControl.admod_full_phonecooler = object.getString(key);
+                                                instance.admod_full_phonecooler(object.getString(key));
                                                 break;
                                             case "admod_full_fullcharge":
-                                                AdControl.admod_full_fullcharge = object.getString(key);
+                                                instance.admod_full_fullcharge(object.getString(key));
                                                 break;
                                             case "admod_full_fastcharge":
-                                                AdControl.admod_full_fastcharge = object.getString(key);
+                                                instance.admod_full_fastcharge(object.getString(key));
                                                 break;
                                             case "admod_native_main":
-                                                AdControl.admod_native_main = object.getString(key);
+                                                instance.admod_native_main(object.getString(key));
                                                 break;
                                             case "admod_native_optimization":
-                                                AdControl.admod_native_optimization = object.getString(key);
+                                                instance.admod_native_optimization(object.getString(key));
                                                 break;
                                             case "admod_native_trashcleaner":
-                                                AdControl.admod_native_trashcleaner = object.getString(key);
+                                                instance.admod_native_trashcleaner(object.getString(key));
                                                 break;
                                             case "admod_native_phoneboost":
-                                                AdControl.admod_native_phoneboost = object.getString(key);
+                                                instance.admod_native_phoneboost(object.getString(key));
                                                 break;
                                             case "admod_native_phonecooler":
-                                                AdControl.admod_native_phonecooler = object.getString(key);
+                                                instance.admod_native_phonecooler(object.getString(key));
                                                 break;
                                             case "admod_native_fullcharge":
-                                                AdControl.admod_native_fullcharge = object.getString(key);
+                                                instance.admod_native_fullcharge(object.getString(key));
                                                 break;
                                             case "admod_native_fastcharge":
-                                                AdControl.admod_native_fastcharge = object.getString(key);
+                                                instance.admod_native_fastcharge(object.getString(key));
                                                 break;
                                             case "admod_native_setting":
-                                                AdControl.admod_native_setting = object.getString(key);
+                                                instance.admod_native_setting(object.getString(key));
                                                 break;
                                             case "admod_native_chargeresult":
-                                                AdControl.admod_native_chargeresult = object.getString(key);
+                                                instance.admod_native_chargeresult(object.getString(key));
                                                 break;
                                             case "admod_banner_appmanager":
-                                                AdControl.admod_banner_appmanager = object.getString(key);
+                                                instance.admod_banner_appmanager(object.getString(key));
                                                 break;
                                             case "admod_banner_chargehistory":
-                                                AdControl.admod_banner_chargehistory = object.getString(key);
+                                                instance.admod_banner_chargehistory(object.getString(key));
                                                 break;
                                         }
                                         Log.d("ads", "key = " + key + ":" + object.getString(key));
-                                        AdControl.isInit = true;
+                                        instance.isInit(true);
+                                        instance.old_date(-1);
                                     } catch (JSONException e) {
                                         Log.d("ads", "Lỗi");
                                         e.printStackTrace();
@@ -135,6 +393,7 @@ public class AdControl {
                     });
         }
     }
+
     public static class ReadConfigAsyncTask extends AsyncTask {
         @Override
         protected Object doInBackground(Object[] objects) {
@@ -142,7 +401,7 @@ public class AdControl {
             try {
                 JSONObject o = JSONParser.getJSONFromUrl(configUrl);
                 if (o != null) {
-                    AdControl.isLoadAds= o.getBoolean("isShow");
+                    instance.isLoadAds(o.getBoolean("isShow"));
                     Log.v("JobManager", o.toString());
                 }
             } catch (JSONException e) {
@@ -151,6 +410,7 @@ public class AdControl {
             return null;
         }
     }
+
     public interface AdCloseListener {
         void onAdClosed();
     }
@@ -158,4 +418,4 @@ public class AdControl {
     public interface AdLoadedListener {
         void onAdLoaded();
     }
-    }
+}

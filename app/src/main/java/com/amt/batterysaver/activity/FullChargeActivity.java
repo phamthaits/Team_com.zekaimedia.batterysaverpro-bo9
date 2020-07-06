@@ -29,6 +29,7 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
     Runnable r;
     Handler mHandler1;
     Runnable r1;
+    private AdControl adControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +37,9 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
         Utils.setLocate(this);
         setContentView(R.layout.activity_charge_full);
         intView();
-
-        if (AdControl.isLoadAds) {
-            switch (AdControl.adControl) {
+        adControl = AdControl.getInstance(this);
+        if (adControl.isLoadAds()) {
+            switch (adControl.adcontrolType()) {
                 case Admob:
                     AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_fullcharge);
                     break;
@@ -93,16 +94,15 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
 
             }
         };
-        if (AdControl.isLoadAds) {
-            switch (AdControl.adControl) {
+        if (adControl.isLoadAds()) {
+            switch (adControl.adcontrolType()) {
                 case Facebook:
-                    FBHelp.getInstance().loadInterstitialAd(this, TypeAds.admod_full_fullcharge, adCloseListener, null);
+                    FBHelp.getInstance().loadInterstitialAd(this, adCloseListener, null);
                     break;
                 case Admob:
                     AdmobHelp.getInstance().loadInterstitialAd(this, TypeAds.admod_full_fullcharge, adCloseListener, null);
                     break;
             }
-
         }
     }
 

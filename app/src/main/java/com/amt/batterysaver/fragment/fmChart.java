@@ -53,6 +53,7 @@ public class fmChart extends Fragment {
     private ViewPager vpPager;
     ChartAdapter adapterViewPager;
     private TabLayout indicator;
+    private AdControl adControl;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -60,10 +61,11 @@ public class fmChart extends Fragment {
         intView(view);
         intEvent(view);
         intData();
+        adControl = AdControl.getInstance(getContext());
         adapterViewPager = new ChartAdapter(getActivity().getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
         vpPager.setCurrentItem(2);
-        switch (AdControl.adControl) {
+        switch (adControl.adcontrolType()) {
             case Facebook:
                 FBHelp.getInstance().loadBannerFragment(getActivity(), view);
                 break;
@@ -338,6 +340,5 @@ public class fmChart extends Fragment {
 
     public void onDestroy() {
         super.onDestroy();
-        FBHelp.getInstance().destroyBanner();
     }
 }

@@ -38,15 +38,16 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
     private ImageView ivTick;
     RelativeLayout rlScan;
     FrameLayout parentAds;
+    private AdControl adControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
         setContentView(R.layout.activity_clean_result);
-
+        adControl=AdControl.getInstance(this);
 //        AdmobHelp.getInstance().init(this, TypeAds.admod_full_trashcleaner);
-        switch (AdControl.adControl) {
+        switch (adControl.adcontrolType()) {
             case Admob:
                 AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_trashcleaner);
                 break;
@@ -164,12 +165,12 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
                         loadResult(holoCircularProgressBar, f);
                     }
                 };
-                switch (AdControl.adControl) {
+                switch (adControl.adcontrolType()) {
                     case Admob:
                         AdmobHelp.getInstance().loadInterstitialAd(getBaseContext(), TypeAds.admod_full_trashcleaner, adCloseListener, null);
                         break;
                     case Facebook:
-                        FBHelp.getInstance().loadInterstitialAd(getBaseContext(), TypeAds.admod_full_trashcleaner, adCloseListener, null);
+                        FBHelp.getInstance().loadInterstitialAd(getBaseContext(),  adCloseListener, null);
                         break;
                 }
 //                    AdmobHelp.getInstance().loadInterstitialAd(getBaseContext(), TypeAds.admod_full_trashcleaner, adCloseListener, null);

@@ -38,6 +38,7 @@ import com.ads.control.TypeAds;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.model.TaskInfo;
+import com.facebook.ads.Ad;
 import com.skyfishjy.library.RippleBackground;
 import com.amt.batterysaver.R;
 
@@ -68,16 +69,17 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     private Animation ivDoneAnim;
     private ViewGroup parentAds;
     private LinearLayout lrScan;
+    private AdControl adControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
         setContentView(R.layout.activity_do_optimize);
-
+        adControl = AdControl.getInstance(this);
         intView();
 //        checkTask();
-        switch (AdControl.adControl) {
+        switch (adControl.adcontrolType()) {
             case Facebook:
                 FBHelp.getInstance().loadNative(this);
                 break;
@@ -370,8 +372,10 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
                 loadAnimation.setAnimationListener(new AnimationListener() {
                     public void onAnimationRepeat(Animation animation) {
                     }
+
                     public void onAnimationStart(Animation animation) {
                     }
+
                     public void onAnimationEnd(Animation animation) {
                         imageView.setVisibility(View.GONE);
                     }
@@ -403,12 +407,12 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
                     loadResult();
                 }
             };
-            switch (AdControl.adControl) {
+            switch (adControl.adcontrolType()) {
                 case Admob:
                     AdmobHelp.getInstance().loadInterstitialAd(getBaseContext(), TypeAds.admod_full_optimization, adCloseListener, null);
                     break;
                 case Facebook:
-                    FBHelp.getInstance().loadInterstitialAd(getBaseContext(), TypeAds.admod_full_optimization, adCloseListener, null);
+                    FBHelp.getInstance().loadInterstitialAd(getBaseContext(),adCloseListener, null);
                     break;
             }
         }

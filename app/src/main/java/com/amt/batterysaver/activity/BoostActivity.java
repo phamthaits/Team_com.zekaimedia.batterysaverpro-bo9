@@ -48,6 +48,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
     private long useRam;
     private long useRam2;
     private Context context;
+    private AdControl adControl;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -56,11 +57,13 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         Utils.setLocate(this);
         setContentView(R.layout.activity_speed_booster);
         intView();
-        NotificationDevice.cancle(this, NotificationDevice.ID_NOTIFICATTION_BOOST);
+        context = this;
 
+        NotificationDevice.cancle(context, NotificationDevice.ID_NOTIFICATTION_BOOST);
+        adControl = AdControl.getInstance(context);
 //        checkTask();
 //        AdmobHelp.getInstance().init(this, TypeAds.admod_full_phoneboost);
-        switch (AdControl.adControl) {
+        switch (adControl.adcontrolType()) {
             case Facebook:
                 FBHelp.getInstance().loadNative(this);
                 break;
@@ -68,7 +71,6 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
                 AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_phoneboost);
                 break;
         }
-        context = this;
 //        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
 //        AdmobHelp.getInstance().loadNative(BoostActivity.this);
 //        SharePreferenceUtils.getInstance(this).setFlagAds(true);
@@ -204,11 +206,11 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
                     loadResult();
                 }
             };
-            switch (AdControl.adControl) {
+            switch (adControl.adcontrolType()) {
                 case Admob:
                     AdmobHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_phoneboost, adCloseListener, null);
                 case Facebook:
-                    FBHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_phoneboost, adCloseListener, null);
+                    FBHelp.getInstance().loadInterstitialAd(context, adCloseListener, null);
             }
 
         }

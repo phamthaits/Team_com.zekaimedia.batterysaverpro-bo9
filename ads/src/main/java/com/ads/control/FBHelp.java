@@ -42,13 +42,16 @@ public class FBHelp {
     private NativeAdLayout nativeAdLayout;
     private LinearLayout adView;
     private NativeAd nativeAd;
+    private AdControl adControl;
 
     public static FBHelp getInstance() {
         if (instance == null) {
             AdSettings.addTestDevice("5c6ae55f-0478-4732-aea7-a0efdc6e8329");
             AdSettings.addTestDevice("3fe8bad1-85c6-4028-9759-b652e1d17d34");
             AdSettings.addTestDevice("94d0cd8f-a8a2-4ec4-98ec-ad322be69210");
+            AdSettings.addTestDevice("18f5fb03-53f1-4c3f-aa08-5236cc646190");
             instance = new FBHelp();
+
         }
         return instance;
     }
@@ -57,8 +60,10 @@ public class FBHelp {
 
     }
 
-    public void loadInterstitialAd(Context context, TypeAds typeAds, AdCloseListener adCloseListener, AdLoadedListener adLoadedListener) {
-        interstitialAd = new InterstitialAd(context, AdControl.fb_full_splash);
+    public void loadInterstitialAd(Context context, AdCloseListener adCloseListener, AdLoadedListener adLoadedListener) {
+        adControl = AdControl.getInstance(context);
+        destroyFullScreen();
+        interstitialAd = new InterstitialAd(context, adControl.fb_full());
         interstitialAd.setAdListener(new InterstitialAdListener() {
             @Override
             public void onInterstitialDisplayed(Ad ad) {
@@ -85,7 +90,6 @@ public class FBHelp {
                     if (adCloseListener != null)
                         adCloseListener.onAdClosed();
                 }
-
             }
 
             @Override
@@ -117,14 +121,14 @@ public class FBHelp {
         interstitialAd.loadAd();
     }
 
-    public void destroyFullScreen() {
+    private void destroyFullScreen() {
         if (interstitialAd != null) {
             interstitialAd.destroy();
         }
     }
 
 
-    public void showInterstitialAd(AdCloseListener adCloseListener) {
+    private void showInterstitialAd(AdCloseListener adCloseListener) {
         if (canShowInterstitialAd()) {
             this.adCloseListener = adCloseListener;
             interstitialAd.show();
@@ -154,12 +158,12 @@ public class FBHelp {
 //    }
 
     public void loadBanner(final Activity mActivity) {
-        final ShimmerFrameLayout containerShimmer =
-                (ShimmerFrameLayout) mActivity.findViewById(R.id.shimmer_container);
+        adControl = AdControl.getInstance(mActivity.getBaseContext());
+        final ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) mActivity.findViewById(R.id.shimmer_container);
 
         containerShimmer.setVisibility(View.VISIBLE);
         containerShimmer.startShimmer();
-        fbAdView = new AdView(mActivity, AdControl.fb_banner, AdSize.BANNER_HEIGHT_50);
+        fbAdView = new AdView(mActivity, adControl.fb_banner(), AdSize.BANNER_HEIGHT_50);
 
         // Find the Ad Container
         FrameLayout adContainer = (FrameLayout) mActivity.findViewById(R.id.fl_adplaceholder);
@@ -201,11 +205,12 @@ public class FBHelp {
     }
 
     public void loadBannerFragment(final Activity mActivity, final View rootView) {
-        final ShimmerFrameLayout containerShimmer =
-                (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
+        destroyBanner();
+        adControl = AdControl.getInstance(mActivity.getBaseContext());
+        final ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         containerShimmer.setVisibility(View.VISIBLE);
         containerShimmer.startShimmer();
-        fbAdView = new AdView(mActivity, AdControl.fb_banner, AdSize.BANNER_HEIGHT_50);
+        fbAdView = new AdView(mActivity, adControl.fb_banner(), AdSize.BANNER_HEIGHT_50);
 
         // Find the Ad Container
         FrameLayout adContainer = rootView.findViewById(R.id.fl_adplaceholder);
@@ -246,21 +251,19 @@ public class FBHelp {
         fbAdView.loadAd();
     }
 
-    public void destroyBanner() {
+    private void destroyBanner() {
         if (fbAdView != null) {
             fbAdView.destroy();
         }
     }
 
-
     public void loadNativeFrament(final Activity mActivity, final View rootView) {
         final ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
-        final FrameLayout frameLayout =
-                rootView.findViewById(R.id.native_ad_container);
+        final FrameLayout frameLayout = rootView.findViewById(R.id.native_ad_container);
         containerShimmer.setVisibility(View.VISIBLE);
         containerShimmer.startShimmer();
-
-        nativeAd = new NativeAd(mActivity, AdControl.fb_native);
+        adControl = AdControl.getInstance(mActivity.getBaseContext());
+        nativeAd = new NativeAd(mActivity, adControl.fb_native());
 
         nativeAd.setAdListener(new NativeAdListener() {
             @Override
@@ -318,8 +321,8 @@ public class FBHelp {
     }
 
     public void loadNative(final Activity mActivity) {
-        nativeAd = new NativeAd(mActivity, AdControl.fb_native);
-
+        adControl = AdControl.getInstance(mActivity.getBaseContext());
+        nativeAd = new NativeAd(mActivity, adControl.fb_native());
         nativeAd.setAdListener(new NativeAdListener() {
             @Override
             public void onMediaDownloaded(Ad ad) {

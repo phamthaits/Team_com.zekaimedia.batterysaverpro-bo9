@@ -17,34 +17,25 @@ import com.ads.control.TypeAds;
 import com.ads.control.funtion.JSONParser;
 import com.amt.batterysaver.MainActivity;
 import com.amt.batterysaver.R;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 import com.ads.control.AdControl.AdCloseListener;
 import com.ads.control.AdControl.AdLoadedListener;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class SplashActivity extends AppCompatActivity {
 
     Handler mHandlerActivity = new Handler();
     Handler mHandlerfirebase = new Handler();
     Runnable rActivity, rFirebase;
+    AdControl adControl;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spash_screen);
-        AdControl.getAdControlFromFireBase();
-       new AdControl.ReadConfigAsyncTask().execute();
+        adControl = AdControl.getInstance(this);
+        adControl.getAdControlFromFireBase();
+        new AdControl.ReadConfigAsyncTask().execute();
+
         rActivity = new Runnable() {
             @Override
             public void run() {
@@ -52,7 +43,8 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         };
-        mHandlerActivity.postDelayed(rActivity, 7000);
+        mHandlerActivity.postDelayed(rActivity, adControl.isInit() ? 5000 : 8000);
+        Log.v("ads",adControl.isInit()+"");
         AdLoadedListener adLoadedListener = () -> {
             if (mHandlerActivity != null && rActivity != null)
                 mHandlerActivity.removeCallbacks(rActivity);
@@ -65,17 +57,17 @@ public class SplashActivity extends AppCompatActivity {
                     startActivity(new Intent(SplashActivity.this, MainActivity.class));
                     finish();
                 };
-                switch (AdControl.adControl) {
+                switch (adControl.adcontrolType()) {
                     case Admob:
                         AdmobHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_splash, adCloseListener, adLoadedListener);
                         break;
                     case Facebook:
-                        FBHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_splash, adCloseListener, adLoadedListener);
+                        FBHelp.getInstance().loadInterstitialAd(context, adCloseListener, adLoadedListener);
                         break;
                 }
             }
         };
-        mHandlerfirebase.postDelayed(rFirebase, 3000);
+        mHandlerfirebase.postDelayed(rFirebase, adControl.isInit() ? 1000 : 4000);
     }
 
     @Override
@@ -89,9 +81,7 @@ public class SplashActivity extends AppCompatActivity {
 
     @Override
     public void finish() {
-
         super.finish();
     }
-
 }
 
