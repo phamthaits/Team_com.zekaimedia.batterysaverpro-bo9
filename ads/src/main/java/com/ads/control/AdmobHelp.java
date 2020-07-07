@@ -3,7 +3,6 @@ package com.ads.control;
 import android.app.Activity;
 import android.content.Context;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.animation.Animation;
@@ -27,19 +26,12 @@ import com.google.android.gms.ads.formats.MediaView;
 import com.google.android.gms.ads.formats.NativeAdOptions;
 import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.google.android.gms.ads.formats.UnifiedNativeAdView;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.ads.control.AdControl.AdCloseListener;
-import com.ads.control.AdControl.AdLoadedListener;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.ads.control.AdControlHelp.AdCloseListener;
+import com.ads.control.AdControlHelp.AdLoadedListener;
 
 public class AdmobHelp {
     private static AdmobHelp instance;
     PublisherInterstitialAd mPublisherInterstitialAd;
-    private AdCloseListener adCloseListener;
-    private boolean isReloaded = false;
     private UnifiedNativeAd nativeAd;
     private AdControl adControl;
 
@@ -50,7 +42,7 @@ public class AdmobHelp {
         return instance;
     }
 
-    private AdmobHelp() {
+    public AdmobHelp() {
     }
 
     public void loadInterstitialAd(Context context, TypeAds typeAds, AdCloseListener adCloseListener, AdLoadedListener adLoadedListener) {
@@ -101,13 +93,13 @@ public class AdmobHelp {
             @Override
             public void onAdFailedToLoad(int errorCode) {
                 // Code to be executed when an ad request fails.
-                if (isReloaded == false) {
-                    isReloaded = true;
-                    loadInterstitialAd();
-                } else {
-                    if (adCloseListener != null)
-                        adCloseListener.onAdClosed();
-                }
+//                if (isReloaded == false) {
+//                    isReloaded = true;
+//                    loadInterstitialAd();
+//                } else {
+                if (adCloseListener != null)
+                    adCloseListener.onAdClosed();
+//                }
             }
 
             @Override
@@ -145,7 +137,7 @@ public class AdmobHelp {
 
     private void showInterstitialAd(AdCloseListener adCloseListener) {
         if (canShowInterstitialAd()) {
-            this.adCloseListener = adCloseListener;
+//            finalAdCloseListener = adCloseListener;
             mPublisherInterstitialAd.show();
         } else {
             adCloseListener.onAdClosed();
@@ -267,7 +259,7 @@ public class AdmobHelp {
                         if (frameLayout != null) {
                             frameLayout.setVisibility(View.VISIBLE);
                             UnifiedNativeAdView adView = (UnifiedNativeAdView) mActivity.getLayoutInflater()
-                                    .inflate(R.layout.native_admob_ad, null);
+                                    .inflate(R.layout.native_admob_ad_unit, null);
                             populateUnifiedNativeAdView(unifiedNativeAd, adView);
                             frameLayout.removeAllViews();
                             frameLayout.addView(adView);
@@ -289,7 +281,7 @@ public class AdmobHelp {
 
     public void loadNativeFragment(final Activity mActivity, final View rootView, TypeAds typeAds) {
         destroyNative();
-        adControl=AdControl.getInstance(mActivity.getBaseContext());
+        adControl = AdControl.getInstance(mActivity.getBaseContext());
         VideoOptions videoOptions = new VideoOptions.Builder()
                 .setStartMuted(false)
                 .build();
@@ -337,7 +329,7 @@ public class AdmobHelp {
                 if (frameLayout != null) {
                     frameLayout.setVisibility(View.VISIBLE);
                     UnifiedNativeAdView adView = (UnifiedNativeAdView) mActivity.getLayoutInflater()
-                            .inflate(R.layout.native_admob_ad, null);
+                            .inflate(R.layout.native_admob_ad_unit, null);
                     populateUnifiedNativeAdView(unifiedNativeAd, adView);
                     frameLayout.removeAllViews();
                     frameLayout.addView(adView);
@@ -358,7 +350,7 @@ public class AdmobHelp {
     }
 
     public void loadBannerFragment(final View rootView, TypeAds typeAds, Activity activity) {
-        adControl=AdControl.getInstance(activity.getBaseContext());
+        adControl = AdControl.getInstance(activity.getBaseContext());
         String ads = "";
         try {
             FrameLayout frameLayout = rootView.findViewById(R.id.fl_adplaceholder);

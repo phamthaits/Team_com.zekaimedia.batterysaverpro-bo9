@@ -117,7 +117,7 @@
                     </FrameLayout>
                 </RelativeLayout>
                 <include
-                    layout="@layout/layout_ads_control"
+                    layout="@layout/native_ads_control"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dip"></include>

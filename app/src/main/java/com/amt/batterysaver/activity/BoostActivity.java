@@ -31,6 +31,8 @@ import com.amt.batterysaver.notification.NotificationDevice;
 import com.amt.batterysaver.task.TaskBoost;
 import com.amt.batterysaver.view.HoloCircularProgressBar;
 import com.amt.batterysaver.R;
+import com.ads.control.AdControlHelp.AdCloseListener;
+import com.ads.control.AdControlHelp.AdLoadedListener;
 
 
 public class BoostActivity extends AppCompatActivity implements View.OnClickListener {
@@ -200,7 +202,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            AdControl.AdCloseListener adCloseListener = new AdControl.AdCloseListener() {
+            AdCloseListener adCloseListener = new AdCloseListener() {
                 @Override
                 public void onAdClosed() {
                     loadResult();

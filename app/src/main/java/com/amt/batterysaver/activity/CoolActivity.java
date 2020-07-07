@@ -43,7 +43,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-
+import com.ads.control.AdControlHelp.AdCloseListener;
+import com.ads.control.AdControlHelp.AdLoadedListener;
 
 public class CoolActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -421,7 +422,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 //                SharePreferenceUtils.getInstance(CoolActivity.this).setFlagAds(false);
 //                    AdmobHelp.getInstance().loadInterstitialAd   (this, TypeAds.admod_full_phonecooler,);
 
-            AdControl.AdCloseListener adCloseListener = new AdControl.AdCloseListener() {
+            AdCloseListener adCloseListener = new AdCloseListener() {
                 @Override
                 public void onAdClosed() {
                     loadResult();

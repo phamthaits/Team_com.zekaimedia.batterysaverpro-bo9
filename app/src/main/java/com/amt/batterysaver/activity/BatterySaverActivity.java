@@ -32,6 +32,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ads.control.AdControl;
+import com.ads.control.AdControlHelp;
 import com.ads.control.AdmobHelp;
 import com.ads.control.FBHelp;
 import com.ads.control.TypeAds;
@@ -48,8 +49,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import com.ads.control.AdControl.AdCloseListener;
-import com.ads.control.AdControl.AdLoadedListener;
+import com.ads.control.AdControlHelp.AdCloseListener;
+import com.ads.control.AdControlHelp.AdLoadedListener;
 
 public class BatterySaverActivity extends AppCompatActivity implements OnClickListener {
     private int curIndex = 0;

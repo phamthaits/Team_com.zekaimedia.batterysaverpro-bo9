@@ -32,5 +32,5 @@
         android:paddingRight="2dip"
         android:paddingBottom="2dip"
         android:visibility="gone" />
-    <include layout="@layout/load_fb_adx" />
+    <include layout="@layout/load_native" />
 </LinearLayout>

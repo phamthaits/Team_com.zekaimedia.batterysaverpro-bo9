@@ -19,7 +19,9 @@ import com.ads.control.TypeAds;
 import com.amt.batterysaver.R;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.Utils;
-import com.facebook.ads.Ad;
+
+import com.ads.control.AdControlHelp.AdCloseListener;
+import com.ads.control.AdControlHelp.AdLoadedListener;
 
 public class FullChargeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -88,7 +90,7 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
         fmResult.startAnimation(downtoup);
         flagExit = true;
         SharePreferenceConstant.full_battery_loaded = true;
-        AdControl.AdCloseListener adCloseListener = new AdControl.AdCloseListener() {
+        AdCloseListener adCloseListener = new AdCloseListener() {
             @Override
             public void onAdClosed() {
 

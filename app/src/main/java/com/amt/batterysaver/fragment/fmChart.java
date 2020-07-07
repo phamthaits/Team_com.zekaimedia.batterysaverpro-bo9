@@ -67,13 +67,12 @@ public class fmChart extends Fragment {
         vpPager.setCurrentItem(2);
         switch (adControl.adcontrolType()) {
             case Facebook:
-                FBHelp.getInstance().loadBannerFragment(getActivity(), view);
+                FBHelp.getInstance().loadNativeBannerFragment(view, getActivity());
                 break;
             case Admob:
                 AdmobHelp.getInstance().loadBannerFragment(view, TypeAds.admod_banner_chargehistory, getActivity());
                 break;
         }
-//        AdmobHelp.getInstance().loadBannerFragment(getActivity(),view);
         return view;
     }
 

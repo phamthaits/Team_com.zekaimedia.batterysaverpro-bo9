@@ -21,7 +21,7 @@ public class AdControl {
     private SharedPreferences.Editor editor;
     private SharedPreferences pre;
 
-    private AdControl(Context context) {
+    public AdControl(Context context) {
         this.pre = context.getSharedPreferences("app_data", Context.MODE_MULTI_PROCESS);
         this.editor = this.pre.edit();
     }
@@ -299,123 +299,5 @@ public class AdControl {
                 return Admob;
             }
         }
-    }
-
-    public void getAdControlFromFireBase() {
-//        if (!instance.isInit()) {
-        if (instance.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH)) {
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            db.collection("AdTest")
-                    .get()
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                JSONObject object = new JSONObject(document.getData());
-                                for (int i = 0; i < object.names().length(); i++) {
-                                    try {
-                                        String key = object.names().getString(i);
-                                        switch (key) {
-                                            case "adControl":
-                                                String adc = object.getString(key);
-                                                if (adc.equals("admob"))
-                                                    instance.adcontrolType(AdcontrolType.Admob);
-                                                else if (adc.equals("fb"))
-                                                    instance.adcontrolType(AdcontrolType.Facebook);
-                                                break;
-                                            case "admod_full_splash":
-                                                instance.admod_full_splash(object.getString(key));
-                                                break;
-                                            case "admod_full_optimization":
-                                                instance.admod_full_optimization(object.getString(key));
-                                                break;
-                                            case "admod_full_trashcleaner":
-                                                instance.admod_full_trashcleaner(object.getString(key));
-                                                break;
-                                            case "admod_full_phoneboost":
-                                                instance.admod_full_phoneboost(object.getString(key));
-                                                break;
-                                            case "admod_full_phonecooler":
-                                                instance.admod_full_phonecooler(object.getString(key));
-                                                break;
-                                            case "admod_full_fullcharge":
-                                                instance.admod_full_fullcharge(object.getString(key));
-                                                break;
-                                            case "admod_full_fastcharge":
-                                                instance.admod_full_fastcharge(object.getString(key));
-                                                break;
-                                            case "admod_native_main":
-                                                instance.admod_native_main(object.getString(key));
-                                                break;
-                                            case "admod_native_optimization":
-                                                instance.admod_native_optimization(object.getString(key));
-                                                break;
-                                            case "admod_native_trashcleaner":
-                                                instance.admod_native_trashcleaner(object.getString(key));
-                                                break;
-                                            case "admod_native_phoneboost":
-                                                instance.admod_native_phoneboost(object.getString(key));
-                                                break;
-                                            case "admod_native_phonecooler":
-                                                instance.admod_native_phonecooler(object.getString(key));
-                                                break;
-                                            case "admod_native_fullcharge":
-                                                instance.admod_native_fullcharge(object.getString(key));
-                                                break;
-                                            case "admod_native_fastcharge":
-                                                instance.admod_native_fastcharge(object.getString(key));
-                                                break;
-                                            case "admod_native_setting":
-                                                instance.admod_native_setting(object.getString(key));
-                                                break;
-                                            case "admod_native_chargeresult":
-                                                instance.admod_native_chargeresult(object.getString(key));
-                                                break;
-                                            case "admod_banner_appmanager":
-                                                instance.admod_banner_appmanager(object.getString(key));
-                                                break;
-                                            case "admod_banner_chargehistory":
-                                                instance.admod_banner_chargehistory(object.getString(key));
-                                                break;
-                                        }
-                                        Log.d("ads", "key = " + key + ":" + object.getString(key));
-                                        instance.isInit(true);
-                                        instance.old_date(-1);
-                                    } catch (JSONException e) {
-                                        Log.d("ads", "Lỗi");
-                                        e.printStackTrace();
-                                    }
-                                }
-                                Log.d("123", document.getId() + " => " + document.getData());
-                            }
-                        } else {
-                            Log.d("123", "Error getting documents.", task.getException());
-                        }
-                    });
-        }
-    }
-
-    public static class ReadConfigAsyncTask extends AsyncTask {
-        @Override
-        protected Object doInBackground(Object[] objects) {
-            String configUrl = "https://www.dropbox.com/s/2grklnd4svp62dz/com.amt.batterysaver.json?dl=1";
-            try {
-                JSONObject o = JSONParser.getJSONFromUrl(configUrl);
-                if (o != null) {
-                    instance.isLoadAds(o.getBoolean("isShow"));
-                    Log.v("JobManager", o.toString());
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-    }
-
-    public interface AdCloseListener {
-        void onAdClosed();
-    }
-
-    public interface AdLoadedListener {
-        void onAdLoaded();
     }
 }

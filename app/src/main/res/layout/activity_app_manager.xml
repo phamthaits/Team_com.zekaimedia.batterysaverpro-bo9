@@ -10,24 +10,23 @@
         android:layout_height="match_parent"
         android:background="@color/background_list">
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/test"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent">-->
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/test"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent">-->
 
         <include
             android:id="@+id/banner"
-            layout="@layout/layout_banner_control"
+            layout="@layout/banner_ads_control"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/recyclerView"
             app:layout_constraintEnd_toStartOf="@+id/recyclerView"
             app:layout_constraintStart_toEndOf="@+id/recyclerView"
             app:layout_constraintTop_toTopOf="parent"></include>
-<!--        </LinearLayout>-->
 
         <com.amt.batterysaver.view.AnimatedExpandableListView
             android:id="@+id/recyclerView"

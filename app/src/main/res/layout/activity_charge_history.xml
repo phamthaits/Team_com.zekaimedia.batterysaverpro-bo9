@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/banner"
-        layout="@layout/layout_banner_control"
+        layout="@layout/banner_ads_control"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></include>
 

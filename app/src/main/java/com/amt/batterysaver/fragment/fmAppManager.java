@@ -13,8 +13,12 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.ads.control.AdControl;
 import com.ads.control.AdmobHelp;
@@ -27,6 +31,15 @@ import com.amt.batterysaver.adapter.ManagerConnect;
 import com.amt.batterysaver.model.AppManager;
 import com.amt.batterysaver.model.GroupItemAppManager;
 import com.amt.batterysaver.view.AnimatedExpandableListView;
+import com.facebook.ads.Ad;
+import com.facebook.ads.AdError;
+import com.facebook.ads.AdIconView;
+import com.facebook.ads.AdOptionsView;
+import com.facebook.ads.AdView;
+import com.facebook.ads.AudienceNetworkAds;
+import com.facebook.ads.NativeAdLayout;
+import com.facebook.ads.NativeAdListener;
+import com.facebook.ads.NativeBannerAd;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,10 +47,7 @@ import java.util.List;
 import static android.app.Activity.RESULT_OK;
 
 public class fmAppManager extends Fragment {
-
-
     private static final int UNINSTALL_REQUEST_CODE = 1;
-
     protected ProgressBar mProgressBarLoading;
 
     private Handler mHandlerLocal = new Handler(Looper.getMainLooper());
@@ -57,8 +67,9 @@ public class fmAppManager extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        adControl = AdControl.getInstance(getContext());
+
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -67,12 +78,14 @@ public class fmAppManager extends Fragment {
         mRecyclerView = view.findViewById(R.id.recyclerView);
         initAdapter();
         loadData();
+
+        adControl = AdControl.getInstance(getContext());
         switch (adControl.adcontrolType()) {
             case Admob:
                 AdmobHelp.getInstance().loadBannerFragment(view, TypeAds.admod_banner_appmanager, getActivity());
                 break;
             case Facebook:
-                FBHelp.getInstance().loadBannerFragment(getActivity(), view);
+                FBHelp.getInstance().loadNativeBannerFragment(view, getActivity());
                 break;
         }
         return view;

@@ -27,6 +27,8 @@ import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.view.HoloCircularProgressBar;
 import com.amt.batterysaver.R;
 
+import com.ads.control.AdControlHelp.AdCloseListener;
+import com.ads.control.AdControlHelp.AdLoadedListener;
 
 public class CleanResultActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -159,7 +161,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
             public void onAnimationEnd(Animator animator) {
 //                if (SharePreferenceUtils.getInstance(CleanResultActivity.this).getFlagAds()) {
 //                    SharePreferenceUtils.getInstance(CleanResultActivity.this).setFlagAds(false);
-                AdControl.AdCloseListener adCloseListener = new AdControl.AdCloseListener() {
+                AdCloseListener adCloseListener = new AdCloseListener() {
                     @Override
                     public void onAdClosed() {
                         loadResult(holoCircularProgressBar, f);

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.ads.control.AdControlHelp;
 import com.ads.control.AdmobHelp;
 import com.ads.control.AdControl;
 import com.ads.control.FBHelp;
@@ -17,8 +18,8 @@ import com.ads.control.TypeAds;
 import com.ads.control.funtion.JSONParser;
 import com.amt.batterysaver.MainActivity;
 import com.amt.batterysaver.R;
-import com.ads.control.AdControl.AdCloseListener;
-import com.ads.control.AdControl.AdLoadedListener;
+import com.ads.control.AdControlHelp.AdCloseListener;
+import com.ads.control.AdControlHelp.AdLoadedListener;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -26,15 +27,17 @@ public class SplashActivity extends AppCompatActivity {
     Handler mHandlerfirebase = new Handler();
     Runnable rActivity, rFirebase;
     AdControl adControl;
-
+    AdControlHelp adControlHelp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spash_screen);
         adControl = AdControl.getInstance(this);
-        adControl.getAdControlFromFireBase();
-        new AdControl.ReadConfigAsyncTask().execute();
+        adControlHelp = AdControlHelp.getInstance(this);
+        if (adControlHelp.is_reload_firebase())
+            adControlHelp.getAdControlFromFireBase();
+        new AdControlHelp.ReadConfigAsyncTask().execute();
 
         rActivity = new Runnable() {
             @Override
@@ -43,8 +46,8 @@ public class SplashActivity extends AppCompatActivity {
                 finish();
             }
         };
-        mHandlerActivity.postDelayed(rActivity, adControl.isInit() ? 5000 : 8000);
-        Log.v("ads",adControl.isInit()+"");
+        mHandlerActivity.postDelayed(rActivity, !adControlHelp.is_reload_firebase() ? 5000 : 8000);
+        Log.v("ads", adControl.isInit() + "");
         AdLoadedListener adLoadedListener = () -> {
             if (mHandlerActivity != null && rActivity != null)
                 mHandlerActivity.removeCallbacks(rActivity);
@@ -67,7 +70,7 @@ public class SplashActivity extends AppCompatActivity {
                 }
             }
         };
-        mHandlerfirebase.postDelayed(rFirebase, adControl.isInit() ? 1000 : 4000);
+        mHandlerfirebase.postDelayed(rFirebase, !adControlHelp.is_reload_firebase() ? 1000 : 4000);
     }
 
     @Override
@@ -83,5 +86,6 @@ public class SplashActivity extends AppCompatActivity {
     public void finish() {
         super.finish();
     }
+
 }
 

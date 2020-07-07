@@ -35,6 +35,9 @@ import com.skyfishjy.library.RippleBackground;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import com.ads.control.AdControlHelp.AdCloseListener;
+import com.ads.control.AdControlHelp.AdLoadedListener;
+
 public class ChargeActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView tvScan, tvChargeStatus, tvOptimize;
@@ -181,7 +184,7 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
 
                         Animation zoom_out = AnimationUtils.loadAnimation(ChargeActivity.this, R.anim.zoom_out);
                         rlDone.startAnimation(zoom_out);
-                        AdControl.AdCloseListener adCloseListener = new AdControl.AdCloseListener() {
+                        AdCloseListener adCloseListener = new AdCloseListener() {
                             @Override
                             public void onAdClosed() {
                                 loadResult();
