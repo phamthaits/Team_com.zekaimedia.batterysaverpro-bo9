@@ -56,17 +56,17 @@ public class ChargeResultActivity extends Activity implements View.OnClickListen
         intView();
         intData();
         intEvent();
-        adControl = AdControl.getInstance(this);
-        if (adControl.isLoadAds()) {
-            switch (adControl.adcontrolType()) {
-                case Admob:
-                    AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_chargeresult);
-                    break;
-                case Facebook:
-                    FBHelp.getInstance().loadNative(this);
-                    break;
-            }
-        }
+//        adControl = AdControl.getInstance(this);
+//        if (adControl.isLoadAds()) {
+//            switch (adControl.adcontrolType()) {
+//                case Admob:
+//                    AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_chargeresult);
+//                    break;
+//                case Facebook:
+//                    FBHelp.getInstance().loadNative(this);
+//                    break;
+//            }
+//        }
 //        isLoadAds = !AdmodAd.admod_native_chargeresult.equals("");
 //        mHandler = new Handler();
 //        r = new Runnable() {

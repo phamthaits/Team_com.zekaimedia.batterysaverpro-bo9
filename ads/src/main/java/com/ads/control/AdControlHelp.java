@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.ads.control.funtion.JSONParser;
+import com.ads.control.funtion.UtilsApp;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -21,7 +22,6 @@ public class AdControlHelp {
     public static AdControlHelp getInstance(Context context) {
         if (instance == null) {
             instance = new AdControlHelp(context);
-
         }
         return instance;
     }
@@ -38,7 +38,7 @@ public class AdControlHelp {
     public void getAdControlFromFireBase() {
         AdControl adControl = AdControl.getInstance(context);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("AdTest")
+        db.collection("Ad")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -54,6 +54,9 @@ public class AdControlHelp {
                                                 adControl.adcontrolType(AdControl.AdcontrolType.Admob);
                                             else if (adc.equals("fb"))
                                                 adControl.adcontrolType(AdControl.AdcontrolType.Facebook);
+                                            else {
+                                                adControl.adcontrolType(UtilsApp.getRandomBoolean() ? AdControl.AdcontrolType.Admob : AdControl.AdcontrolType.Facebook);
+                                            }
                                             break;
                                         case "admod_full_splash":
                                             adControl.admod_full_splash(object.getString(key));
@@ -70,12 +73,12 @@ public class AdControlHelp {
                                         case "admod_full_phonecooler":
                                             adControl.admod_full_phonecooler(object.getString(key));
                                             break;
-                                        case "admod_full_fullcharge":
-                                            adControl.admod_full_fullcharge(object.getString(key));
-                                            break;
-                                        case "admod_full_fastcharge":
-                                            adControl.admod_full_fastcharge(object.getString(key));
-                                            break;
+//                                        case "admod_full_fullcharge":
+//                                            adControl.admod_full_fullcharge(object.getString(key));
+//                                            break;
+//                                        case "admod_full_fastcharge":
+//                                            adControl.admod_full_fastcharge(object.getString(key));
+//                                            break;
                                         case "admod_native_main":
                                             adControl.admod_native_main(object.getString(key));
                                             break;
@@ -91,18 +94,18 @@ public class AdControlHelp {
                                         case "admod_native_phonecooler":
                                             adControl.admod_native_phonecooler(object.getString(key));
                                             break;
-                                        case "admod_native_fullcharge":
-                                            adControl.admod_native_fullcharge(object.getString(key));
-                                            break;
-                                        case "admod_native_fastcharge":
-                                            adControl.admod_native_fastcharge(object.getString(key));
-                                            break;
+//                                        case "admod_native_fullcharge":
+//                                            adControl.admod_native_fullcharge(object.getString(key));
+//                                            break;
+//                                        case "admod_native_fastcharge":
+//                                            adControl.admod_native_fastcharge(object.getString(key));
+//                                            break;
                                         case "admod_native_setting":
                                             adControl.admod_native_setting(object.getString(key));
                                             break;
-                                        case "admod_native_chargeresult":
-                                            adControl.admod_native_chargeresult(object.getString(key));
-                                            break;
+//                                        case "admod_native_chargeresult":
+//                                            adControl.admod_native_chargeresult(object.getString(key));
+//                                            break;
                                         case "admod_banner_appmanager":
                                             adControl.admod_banner_appmanager(object.getString(key));
                                             break;
@@ -135,22 +138,22 @@ public class AdControlHelp {
                 });
     }
 
-    public static class ReadConfigAsyncTask extends AsyncTask {
-        @Override
-        protected Object doInBackground(Object[] objects) {
-            String configUrl = "https://www.dropbox.com/s/2grklnd4svp62dz/com.amt.batterysaver.json?dl=1";
-            try {
-                JSONObject o = JSONParser.getJSONFromUrl(configUrl);
-                if (o != null) {
-                    adControl.isLoadAds(o.getBoolean("isShow"));
-                    Log.v("JobManager", o.toString());
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-    }
+//    public static class ReadConfigAsyncTask extends AsyncTask {
+//        @Override
+//        protected Object doInBackground(Object[] objects) {
+//            String configUrl = "https://www.dropbox.com/s/2grklnd4svp62dz/com.amt.batterysaver.json?dl=1";
+//            try {
+//                JSONObject o = JSONParser.getJSONFromUrl(configUrl);
+//                if (o != null) {
+//                    adControl.isLoadAds(o.getBoolean("isShow"));
+//                    Log.v("JobManager", o.toString());
+//                }
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//            return null;
+//        }
+//    }
 
     public interface AdCloseListener {
         void onAdClosed();

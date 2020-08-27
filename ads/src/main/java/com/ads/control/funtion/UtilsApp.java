@@ -14,6 +14,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Locale;
+import java.util.Random;
 
 public class UtilsApp {
     public static void ShowToastShort(Context mContext, String mtext) {
@@ -132,9 +133,9 @@ public class UtilsApp {
             String[] text = temp[1].split(",,");
             return text[0];
         }
-
-
     }
-
-
+    public static boolean getRandomBoolean() {
+        Random random = new Random();
+        return random.nextBoolean();
+    }
 }

@@ -66,12 +66,12 @@ public class AdmobHelp {
             case admod_full_phonecooler:
                 ads = adControl.admod_full_phonecooler();
                 break;
-            case admod_full_fullcharge:
-                ads = adControl.admod_full_fullcharge();
-                break;
-            case admod_full_fastcharge:
-                ads = adControl.admod_full_fastcharge();
-                break;
+//            case admod_full_fullcharge:
+//                ads = adControl.admod_full_fullcharge();
+//                break;
+//            case admod_full_fastcharge:
+//                ads = adControl.admod_full_fastcharge();
+//                break;
             case admod_banner_appmanager:
                 ads = adControl.admod_banner_appmanager();
                 break;
@@ -230,18 +230,18 @@ public class AdmobHelp {
             case admod_native_phonecooler:
                 ads = adControl.admod_native_phonecooler();
                 break;
-            case admod_native_fullcharge:
-                ads = adControl.admod_native_fullcharge();
-                break;
-            case admod_native_fastcharge:
-                ads = adControl.admod_native_fastcharge();
-                break;
+//            case admod_native_fullcharge:
+//                ads = adControl.admod_native_fullcharge();
+//                break;
+//            case admod_native_fastcharge:
+//                ads = adControl.admod_native_fastcharge();
+//                break;
             case admod_native_setting:
                 ads = adControl.admod_native_setting();
                 break;
-            case admod_native_chargeresult:
-                ads = adControl.admod_native_chargeresult();
-                break;
+//            case admod_native_chargeresult:
+//                ads = adControl.admod_native_chargeresult();
+//                break;
         }
 
         AdLoader adLoader = new AdLoader.Builder(mActivity, ads)
@@ -306,12 +306,12 @@ public class AdmobHelp {
             case admod_native_phonecooler:
                 ads = adControl.admod_native_phonecooler();
                 break;
-            case admod_native_fullcharge:
-                ads = adControl.admod_native_fullcharge();
-                break;
-            case admod_native_fastcharge:
-                ads = adControl.admod_native_fastcharge();
-                break;
+//            case admod_native_fullcharge:
+//                ads = adControl.admod_native_fullcharge();
+//                break;
+//            case admod_native_fastcharge:
+//                ads = adControl.admod_native_fastcharge();
+//                break;
             case admod_native_setting:
                 ads = adControl.admod_native_setting();
                 break;

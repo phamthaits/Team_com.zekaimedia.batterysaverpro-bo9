@@ -26,7 +26,7 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.amt.batterysaver.activity.FullChargeActivity;
+//import com.amt.batterysaver.activity.FullChargeActivity;
 import com.amt.batterysaver.activity.PermissionActivity;
 import com.amt.batterysaver.activity.WifiActivity;
 import com.amt.batterysaver.notification.NotificationDevice;
@@ -91,9 +91,9 @@ public class Utils {
             boolean reminer = SharePreferenceUtils.getInstance(context).getChargeFullReminder();
             if (!SharePreferenceConstant.full_battery_loaded) {
                 SharePreferenceConstant.full_battery_loaded = true;
-                Intent ii = new Intent(context, FullChargeActivity.class);
-                ii.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(ii);
+//                Intent ii = new Intent(context, FullChargeActivity.class);
+//                ii.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                context.startActivity(ii);
             }
             if (doing && reminer) {
                 NotificationDevice.showNotificationBatteryFull(context);

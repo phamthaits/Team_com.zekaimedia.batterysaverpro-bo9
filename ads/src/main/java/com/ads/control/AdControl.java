@@ -104,24 +104,24 @@ public class AdControl {
     }
 
     //    public static String admod_full_fastcharge = "";
-    public String admod_full_fastcharge() {
-        return this.pre.getString("admod_full_fastcharge", "");
-    }
+//    public String admod_full_fastcharge() {
+//        return this.pre.getString("admod_full_fastcharge", "");
+//    }
 
-    public void admod_full_fastcharge(String value) {
-        editor.putString("admod_full_fastcharge", value);
-        editor.commit();
-    }
+//    public void admod_full_fastcharge(String value) {
+//        editor.putString("admod_full_fastcharge", value);
+//        editor.commit();
+//    }
 
     //    public static String admod_full_fullcharge = "";
-    public String admod_full_fullcharge() {
-        return this.pre.getString("admod_full_fullcharge", "");
-    }
+//    public String admod_full_fullcharge() {
+//        return this.pre.getString("admod_full_fullcharge", "");
+//    }
 
-    public void admod_full_fullcharge(String value) {
-        editor.putString("admod_full_fullcharge", value);
-        editor.commit();
-    }
+//    public void admod_full_fullcharge(String value) {
+//        editor.putString("admod_full_fullcharge", value);
+//        editor.commit();
+//    }
 
     //Calendar.getInstance().getTime()
     public int old_date() {
@@ -187,14 +187,14 @@ public class AdControl {
     }
 
     //    public static String admod_native_fastcharge = "";
-    public String admod_native_fastcharge() {
-        return this.pre.getString("admod_native_fastcharge", "");
-    }
+//    public String admod_native_fastcharge() {
+//        return this.pre.getString("admod_native_fastcharge", "");
+//    }
 
-    public void admod_native_fastcharge(String value) {
-        editor.putString("admod_native_fastcharge", value);
-        editor.commit();
-    }
+//    public void admod_native_fastcharge(String value) {
+//        editor.putString("admod_native_fastcharge", value);
+//        editor.commit();
+//    }
 
     //    public static String admod_native_setting = "";
     public String admod_native_setting() {
@@ -207,24 +207,24 @@ public class AdControl {
     }
 
     //    public static String admod_native_fullcharge = "";
-    public String admod_native_fullcharge() {
-        return this.pre.getString("admod_native_fullcharge", "");
-    }
+//    public String admod_native_fullcharge() {
+//        return this.pre.getString("admod_native_fullcharge", "");
+//    }
 
-    public void admod_native_fullcharge(String value) {
-        editor.putString("admod_native_fullcharge", value);
-        editor.commit();
-    }
+//    public void admod_native_fullcharge(String value) {
+//        editor.putString("admod_native_fullcharge", value);
+//        editor.commit();
+//    }
 
     //    public static String admod_native_chargeresult = "";
-    public String admod_native_chargeresult() {
-        return this.pre.getString("admod_native_chargeresult", "");
-    }
-
-    public void admod_native_chargeresult(String value) {
-        editor.putString("admod_native_chargeresult", value);
-        editor.commit();
-    }
+//    public String admod_native_chargeresult() {
+//        return this.pre.getString("admod_native_chargeresult", "");
+//    }
+//
+//    public void admod_native_chargeresult(String value) {
+//        editor.putString("admod_native_chargeresult", value);
+//        editor.commit();
+//    }
 
     //    public static String admod_banner_appmanager = "";
     public String admod_banner_appmanager() {
@@ -247,14 +247,14 @@ public class AdControl {
     }
 
     //    public static boolean isLoadAds = true;
-    public boolean isLoadAds() {
-        return this.pre.getBoolean("isLoadAds", false);
-    }
+//    public boolean isLoadAds() {
+//        return this.pre.getBoolean("isLoadAds", false);
+//    }
 
-    public void isLoadAds(boolean value) {
-        editor.putBoolean("isLoadAds", value);
-        editor.commit();
-    }
+//    public void isLoadAds(boolean value) {
+//        editor.putBoolean("isLoadAds", value);
+//        editor.commit();
+//    }
 
     //    public static String fb_full = "285555782814454_286166426086723";
     public String fb_full() {

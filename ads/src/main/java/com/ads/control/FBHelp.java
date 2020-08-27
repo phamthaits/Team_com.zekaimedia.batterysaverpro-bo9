@@ -5,6 +5,8 @@ import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -30,6 +32,7 @@ import com.facebook.ads.NativeBannerAd;
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.ads.control.AdControlHelp.AdCloseListener;
 import com.ads.control.AdControlHelp.AdLoadedListener;
+import com.google.android.gms.ads.formats.UnifiedNativeAdView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,13 +51,9 @@ public class FBHelp {
 
     public static FBHelp getInstance() {
         if (instance == null) {
-            AdSettings.addTestDevice("8b0c27e6-7060-4f8f-b620-14cbe4367da7");
             instance = new FBHelp();
         }
         return instance;
-    }
-
-    private FBHelp() {
     }
 
     public void loadInterstitialAd(Context context, AdCloseListener adCloseListener, AdLoadedListener adLoadedListener) {
@@ -264,6 +263,7 @@ public class FBHelp {
                         return;
                     }
                     inflateAd(nativeAd, mActivity);
+                    setAnimation(mActivity, adView);
                 }
                 Log.d(TAG, "Native ad is loaded and ready to be displayed!");
             }
@@ -342,6 +342,59 @@ public class FBHelp {
 
         // Request an ad
         nativeAd.loadAd();
+    }
+
+    private void setAnimation(Activity mActivity, LinearLayout adView) {
+        Animation animation = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.move_up_button);
+        Animation animation2 = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.move_down_button);
+        Animation animation3 = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.delay_anim_button);
+        Button btnCallToAction = adView.findViewById(R.id.native_ad_call_to_action);
+//        btnCallToAction.startAnimation(animation);
+
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                btnCallToAction.startAnimation(animation2);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+        });
+        btnCallToAction.startAnimation(animation);
+        animation2.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation1) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation1) {
+                btnCallToAction.startAnimation(animation3);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation1) {
+            }
+        });
+        animation3.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation1) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation1) {
+                btnCallToAction.startAnimation(animation);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation1) {
+            }
+        });
     }
 
     public void loadNativeBannerFragment(View rootView, Activity mActivity) {

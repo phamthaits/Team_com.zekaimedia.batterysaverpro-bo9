@@ -15,7 +15,6 @@ import com.ads.control.AdmobHelp;
 import com.ads.control.AdControl;
 import com.ads.control.FBHelp;
 import com.ads.control.TypeAds;
-import com.ads.control.funtion.JSONParser;
 import com.amt.batterysaver.MainActivity;
 import com.amt.batterysaver.R;
 import com.ads.control.AdControlHelp.AdCloseListener;
@@ -37,7 +36,7 @@ public class SplashActivity extends AppCompatActivity {
         adControlHelp = AdControlHelp.getInstance(this);
         if (adControlHelp.is_reload_firebase())
             adControlHelp.getAdControlFromFireBase();
-        new AdControlHelp.ReadConfigAsyncTask().execute();
+//        new AdControlHelp.ReadConfigAsyncTask().execute();
 
         rActivity = new Runnable() {
             @Override

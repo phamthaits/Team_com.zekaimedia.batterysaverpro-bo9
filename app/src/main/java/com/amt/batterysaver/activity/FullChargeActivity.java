@@ -39,17 +39,17 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
         Utils.setLocate(this);
         setContentView(R.layout.activity_charge_full);
         intView();
-        adControl = AdControl.getInstance(this);
-        if (adControl.isLoadAds()) {
-            switch (adControl.adcontrolType()) {
-                case Admob:
-                    AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_fullcharge);
-                    break;
-                case Facebook:
-                    FBHelp.getInstance().loadNative(this);
-                    break;
-            }
-        }
+//        adControl = AdControl.getInstance(this);
+//        if (adControl.isLoadAds()) {
+//            switch (adControl.adcontrolType()) {
+//                case Admob:
+//                    AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_fullcharge);
+//                    break;
+//                case Facebook:
+//                    FBHelp.getInstance().loadNative(this);
+//                    break;
+//            }
+//        }
         loadResult();
     }
 
@@ -90,22 +90,22 @@ public class FullChargeActivity extends AppCompatActivity implements View.OnClic
         fmResult.startAnimation(downtoup);
         flagExit = true;
         SharePreferenceConstant.full_battery_loaded = true;
-        AdCloseListener adCloseListener = new AdCloseListener() {
-            @Override
-            public void onAdClosed() {
-
-            }
-        };
-        if (adControl.isLoadAds()) {
-            switch (adControl.adcontrolType()) {
-                case Facebook:
-                    FBHelp.getInstance().loadInterstitialAd(this, adCloseListener, null);
-                    break;
-                case Admob:
-                    AdmobHelp.getInstance().loadInterstitialAd(this, TypeAds.admod_full_fullcharge, adCloseListener, null);
-                    break;
-            }
-        }
+//        AdCloseListener adCloseListener = new AdCloseListener() {
+//            @Override
+//            public void onAdClosed() {
+//
+//            }
+//        };
+//        if (adControl.isLoadAds()) {
+//            switch (adControl.adcontrolType()) {
+//                case Facebook:
+//                    FBHelp.getInstance().loadInterstitialAd(this, adCloseListener, null);
+//                    break;
+//                case Admob:
+//                    AdmobHelp.getInstance().loadInterstitialAd(this, TypeAds.admod_full_fullcharge, adCloseListener, null);
+//                    break;
+//            }
+//        }
     }
 
     @Override

@@ -6,8 +6,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 9
-        versionName '9'
+        versionCode 13
+        versionName '13'
     }
 
     buildTypes {
@@ -21,7 +21,6 @@ android {
         targetCompatibility = 1.8
     }
     buildToolsVersion = '30.0.0'
-
 }
 repositories {
     maven { url 'https://jitpack.io' }
@@ -38,9 +37,9 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'com.google.android.gms:play-services-ads:19.2.0'
-    implementation 'com.google.android.gms:play-services-measurement:17.4.3'
-    implementation 'com.google.android.gms:play-services-measurement-sdk:17.4.3'
-    implementation 'com.google.firebase:firebase-firestore:21.4.3'
-    implementation 'com.facebook.android:audience-network-sdk:5.9.1'
+    implementation 'com.google.android.gms:play-services-measurement:17.4.4'
+    implementation 'com.google.android.gms:play-services-measurement-sdk:17.4.4'
+    implementation 'com.google.firebase:firebase-firestore:21.5.0'
+    implementation 'com.facebook.android:audience-network-sdk:5.10.0'
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 }

@@ -62,16 +62,16 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         context = this;
         adControl = AdControl.getInstance(context);
 //        checkTask();
-        if (adControl.isLoadAds()) {
-            switch (adControl.adcontrolType()) {
-                case Admob:
-                    AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_fastcharge);
-                    break;
-                case Facebook:
-                    FBHelp.getInstance().loadNative(this);
-                    break;
-            }
-        }
+//        if (adControl.isLoadAds()) {
+//            switch (adControl.adcontrolType()) {
+//                case Admob:
+//                    AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_fastcharge);
+//                    break;
+//                case Facebook:
+//                    FBHelp.getInstance().loadNative(this);
+//                    break;
+//            }
+//        }
     }
 
     public void checkTask() {
@@ -184,22 +184,23 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
 
                         Animation zoom_out = AnimationUtils.loadAnimation(ChargeActivity.this, R.anim.zoom_out);
                         rlDone.startAnimation(zoom_out);
-                        AdCloseListener adCloseListener = new AdCloseListener() {
-                            @Override
-                            public void onAdClosed() {
-                                loadResult();
-                            }
-                        };
-                        if (adControl.isLoadAds()) {
-                            switch (adControl.adcontrolType()) {
-                                case Facebook:
-                                    FBHelp.getInstance().loadInterstitialAd(context, adCloseListener, null);
-                                    break;
-                                case Admob:
-                                    AdmobHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_fastcharge, adCloseListener, null);
-                                    break;
-                            }
-                        } else loadResult();
+//                        AdCloseListener adCloseListener = new AdCloseListener() {
+//                            @Override
+//                            public void onAdClosed() {
+//                                loadResult();
+//                            }
+//                        };
+//                        if (adControl.isLoadAds()) {
+//                            switch (adControl.adcontrolType()) {
+//                                case Facebook:
+//                                    FBHelp.getInstance().loadInterstitialAd(context, adCloseListener, null);
+//                                    break;
+//                                case Admob:
+//                                    AdmobHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_fastcharge, adCloseListener, null);
+//                                    break;
+//                            }
+//                        } else
+                            loadResult();
                     }
                 });
                 mTaskChargeDetail.execute();
