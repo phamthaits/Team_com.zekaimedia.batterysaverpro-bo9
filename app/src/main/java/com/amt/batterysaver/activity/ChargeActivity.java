@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,9 +21,6 @@ import android.widget.TextView;
 
 //import com.ads.control.AdmobHelp;
 import com.ads.control.AdControl;
-import com.ads.control.AdmobHelp;
-import com.ads.control.FBHelp;
-import com.ads.control.TypeAds;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.R;
@@ -34,9 +30,6 @@ import com.skyfishjy.library.RippleBackground;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
-import com.ads.control.AdControlHelp.AdCloseListener;
-import com.ads.control.AdControlHelp.AdLoadedListener;
 
 public class ChargeActivity extends AppCompatActivity implements View.OnClickListener {
 

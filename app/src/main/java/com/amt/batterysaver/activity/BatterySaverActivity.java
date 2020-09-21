@@ -32,14 +32,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ads.control.AdControl;
-import com.ads.control.AdControlHelp;
 import com.ads.control.AdmobHelp;
-import com.ads.control.FBHelp;
-import com.ads.control.TypeAds;
+import com.ads.control.AdmobHelp.AdCloseListener;
+import com.ads.control.AdmobHelp.AdLoadedListener;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.model.TaskInfo;
-import com.facebook.ads.Ad;
 import com.skyfishjy.library.RippleBackground;
 import com.amt.batterysaver.R;
 
@@ -48,9 +46,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-
-import com.ads.control.AdControlHelp.AdCloseListener;
-import com.ads.control.AdControlHelp.AdLoadedListener;
 
 public class BatterySaverActivity extends AppCompatActivity implements OnClickListener {
     private int curIndex = 0;
@@ -71,23 +66,29 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     private ViewGroup parentAds;
     private LinearLayout lrScan;
     private AdControl adControl;
+    private Context context;
+    private AdmobHelp admobHelp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Utils.setLocate(this);
+        context = this;
+        Utils.setLocate(context);
         setContentView(R.layout.activity_do_optimize);
         adControl = AdControl.getInstance(this);
+        admobHelp = AdmobHelp.getInstance(context);
         intView();
 //        checkTask();
-        switch (adControl.adcontrolType()) {
-            case Facebook:
-                FBHelp.getInstance().loadNative(this);
-                break;
-            case Admob:
-                AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_optimization);
-        }
+        admobHelp.loadNative(this, adControl.admob_native());
+        admobHelp.loadInterstitialAd(adCloseListener, null, adControl.admob_full(), false);
     }
+
+    private AdCloseListener adCloseListener = new AdCloseListener() {
+        @Override
+        public void onAdClosed() {
+            loadResult();
+        }
+    };
 
     @Override
     public void onClick(View view) {
@@ -402,20 +403,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            AdCloseListener adCloseListener = new AdCloseListener() {
-                @Override
-                public void onAdClosed() {
-                    loadResult();
-                }
-            };
-            switch (adControl.adcontrolType()) {
-                case Admob:
-                    AdmobHelp.getInstance().loadInterstitialAd(getBaseContext(), TypeAds.admod_full_optimization, adCloseListener, null);
-                    break;
-                case Facebook:
-                    FBHelp.getInstance().loadInterstitialAd(getBaseContext(),adCloseListener, null);
-                    break;
-            }
+            admobHelp.showInterstitialAd(adCloseListener);
         }
     }
 

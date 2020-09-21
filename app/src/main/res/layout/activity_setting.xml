@@ -116,41 +116,39 @@
                         android:src="@drawable/ic_next_page" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/lrFastCharge"
-                    style="@style/Ripple"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content">
+                <!--                <LinearLayout-->
+                <!--                    android:id="@+id/lrFastCharge"-->
+                <!--                    style="@style/Ripple"-->
+                <!--                    android:layout_width="fill_parent"-->
+                <!--                    android:layout_height="wrap_content">-->
 
-                    <ImageView
-                        style="@style/imageStyle"
-                        android:src="@drawable/ic_setting_fastcharge" />
-                    <!--                    android:tint="#7C4DFF"-->
+                <!--                    <ImageView-->
+                <!--                        style="@style/imageStyle"-->
+                <!--                        android:src="@drawable/ic_setting_fastcharge" />-->
+                <!--                    &lt;!&ndash;                    android:tint="#7C4DFF"&ndash;&gt;-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                <!--                    <LinearLayout-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="fill_parent"-->
+                <!--                        android:layout_weight="1"-->
+                <!--                        android:gravity="center"-->
+                <!--                        android:orientation="vertical">-->
 
-                        <TextView
-                            style="@style/rowSwitchStyle"
-                            android:text="@string/fast_charging" />
+                <!--                        <TextView-->
+                <!--                            style="@style/rowSwitchStyle"-->
+                <!--                            android:text="@string/fast_charging" />-->
 
-                    </LinearLayout>
-
-
-                    <ImageView
-                        android:layout_width="@dimen/checkbox_size"
-                        android:layout_height="@dimen/checkbox_size"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="10dp"
-                        android:padding="@dimen/checkbox_padding"
-                        android:src="@drawable/ic_next_page" />
-                </LinearLayout>
+                <!--                    </LinearLayout>-->
 
 
+                <!--                    <ImageView-->
+                <!--                        android:layout_width="@dimen/checkbox_size"-->
+                <!--                        android:layout_height="@dimen/checkbox_size"-->
+                <!--                        android:layout_gravity="center"-->
+                <!--                        android:layout_marginRight="10dp"-->
+                <!--                        android:padding="@dimen/checkbox_padding"-->
+                <!--                        android:src="@drawable/ic_next_page" />-->
+                <!--                </LinearLayout>-->
             </LinearLayout>
 
             <include
@@ -193,7 +191,7 @@
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_rocket_white"
-                        android:tint="@color/more_clean" />
+                        app:tint="@color/more_clean" />
 
                     <LinearLayout
                         android:layout_width="0dp"

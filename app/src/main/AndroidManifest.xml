@@ -54,7 +54,7 @@
         <!--            android:name="com.google.android.gms.ads.AD_MANAGER_APP"-->
         <!--            android:value="true"/>-->
 
-        <activity android:name="com.amt.batterysaver.activity.ChargeSettingActivity"></activity>
+<!--        <activity android:name="com.amt.batterysaver.activity.ChargeSettingActivity"></activity>-->
         <activity
             android:name="com.amt.batterysaver.activity.DoNotDisturbActivity"
             android:label="@string/title_activity_do_not_disturb"
@@ -68,10 +68,10 @@
             android:name="com.amt.batterysaver.activity.WhiteListActivity"
             android:label="@string/title_activity_white_list"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
-        <activity
-            android:name="com.amt.batterysaver.activity.ChargeResultActivity"
-            android:launchMode="singleInstance"
-            android:theme="@style/DialogActivity" />
+        <!--        <activity-->
+        <!--            android:name="com.amt.batterysaver.activity.ChargeResultActivity"-->
+        <!--            android:launchMode="singleInstance"-->
+        <!--            android:theme="@style/DialogActivity" />-->
         <activity
             android:name="com.amt.batterysaver.activity.CleanResultActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -81,6 +81,45 @@
         <!--        <activity-->
         <!--            android:name="com.amt.batterysaver.activity.WifiActivity"-->
         <!--            android:theme="@style/AppTheme.NoActionBar" />-->
+        <activity
+            android:name="com.amt.batterysaver.MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <!--        <activity-->
+        <!--            android:name="com.amt.batterysaver.activity.ChargeActivity"-->
+        <!--            android:launchMode="singleInstance"-->
+        <!--            android:theme="@style/AppTheme.NoActionBar" />-->
+        <activity
+            android:name="com.amt.batterysaver.activity.CleanActivity"
+            android:exported="true"
+            android:label="@string/junk_clean_nav"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name="com.amt.batterysaver.activity.BatterySaverActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.amt.batterysaver.activity.BoostActivity"
+            android:exported="true"
+            android:label="@string/phone_boost_nav"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.amt.batterysaver.activity.CoolActivity"
+            android:exported="true"
+            android:label="@string/phone_cool_nav"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.amt.batterysaver.activity.PermissionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.amt.batterysaver.activity.SplashActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme_AppCompat_Light_NoActionBar_FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <receiver android:name="com.amt.batterysaver.Receiver.AlarmReceiver">
             <intent-filter>
@@ -118,44 +157,6 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name="com.amt.batterysaver.MainActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name="com.amt.batterysaver.activity.ChargeActivity"
-            android:launchMode="singleInstance"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.amt.batterysaver.activity.CleanActivity"
-            android:exported="true"
-            android:label="@string/junk_clean_nav"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name="com.amt.batterysaver.activity.BatterySaverActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.amt.batterysaver.activity.BoostActivity"
-            android:exported="true"
-            android:label="@string/phone_boost_nav"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.amt.batterysaver.activity.CoolActivity"
-            android:exported="true"
-            android:label="@string/phone_cool_nav"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.amt.batterysaver.activity.PermissionActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.amt.batterysaver.activity.SplashActivity"
-            android:launchMode="singleInstance"
-            android:theme="@style/Theme_AppCompat_Light_NoActionBar_FullScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
     </application>
 </manifest>

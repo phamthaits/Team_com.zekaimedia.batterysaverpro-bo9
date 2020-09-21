@@ -13,15 +13,9 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ads.control.AdControl;
-import com.ads.control.AdmobHelp;
-import com.ads.control.FBHelp;
-import com.ads.control.TypeAds;
 import com.amt.batterysaver.R;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.Utils;
-
-import com.ads.control.AdControlHelp.AdCloseListener;
-import com.ads.control.AdControlHelp.AdLoadedListener;
 
 public class FullChargeActivity extends AppCompatActivity implements View.OnClickListener {
 

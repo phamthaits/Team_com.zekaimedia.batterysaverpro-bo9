@@ -1,5 +1,6 @@
 package com.amt.batterysaver.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -9,13 +10,10 @@ import androidx.appcompat.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import com.ads.control.AdControl;
 import com.ads.control.AdmobHelp;
-import com.ads.control.FBHelp;
-import com.ads.control.TypeAds;
 import com.amt.batterysaver.activity.BaseActivity;
 import com.github.mikephil.charting.charts.LineChart;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
@@ -29,8 +27,6 @@ import com.amt.batterysaver.MainActivity;
 import com.amt.batterysaver.R;
 import com.amt.batterysaver.activity.ChargeSettingActivity;
 
-import java.util.concurrent.Callable;
-
 import static android.app.Activity.RESULT_OK;
 
 public class fmSetting extends Fragment implements View.OnClickListener {
@@ -38,12 +34,16 @@ public class fmSetting extends Fragment implements View.OnClickListener {
     SwitchCompat swKillApp, swLowBattery, swBatteryFull, swCoolDown, swBoost, swTemp, swEnableNotification;
     TextView tvTempertureDes, tvLanguageDes, tvDNDDes;
     Boolean flag = false;
-    AdControl adControl;
+    private AdControl adControl;
+    private AdmobHelp admobHelp;
+    private Context context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        adControl = AdControl.getInstance(this.getContext());
+        context = getContext();
+        adControl = AdControl.getInstance(context);
+        admobHelp = AdmobHelp.getInstance(context);
     }
 
     // Inflate the view for the fragment based on layout XML
@@ -55,21 +55,14 @@ public class fmSetting extends Fragment implements View.OnClickListener {
         intView(view);
         intData();
 //        AdmobHelp.getInstance().loadBannerFragment(getActivity(),view);
-        switch (adControl.adcontrolType()) {
-            case Admob:
-                AdmobHelp.getInstance().loadNativeFragment(getActivity(), view, TypeAds.admod_native_setting);
-                break;
-            case Facebook:
-                FBHelp.getInstance().loadNativeFrament(getActivity(), view);
-                break;
-        }
+        admobHelp.loadNativeFragment(getActivity(), view, adControl.admob_native());
 //        AdmobHelp.getInstance().loadNativeFragment(getActivity(),view);
         return view;
     }
 
     public void intView(View v) {
         v.findViewById(R.id.lrEnableNotification).setOnClickListener(this);
-        v.findViewById(R.id.lrFastCharge).setOnClickListener(this);
+//        v.findViewById(R.id.lrFastCharge).setOnClickListener(this);
         v.findViewById(R.id.lrKillApp).setOnClickListener(this);
         v.findViewById(R.id.lrIngoreList).setOnClickListener(this);
         v.findViewById(R.id.lrTemperture).setOnClickListener(this);
@@ -114,20 +107,20 @@ public class fmSetting extends Fragment implements View.OnClickListener {
 
                 getActivity().sendBroadcast(intent);
                 break;
-            case R.id.lrFastCharge:
-                try {
-                    ((BaseActivity) getActivity()).checkdrawPermission(() -> {
-                        if (Utils.checkSystemWritePermission(getActivity())) {
-                            startActivity(new Intent(getActivity(), ChargeSettingActivity.class));
-                        } else {
-                            Utils.openAndroidPermissionsMenu(getActivity());
-                        }
-                        return null;
-                    });
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                break;
+//            case R.id.lrFastCharge:
+//                try {
+//                    ((BaseActivity) getActivity()).checkdrawPermission(() -> {
+//                        if (Utils.checkSystemWritePermission(getActivity())) {
+//                            startActivity(new Intent(getActivity(), ChargeSettingActivity.class));
+//                        } else {
+//                            Utils.openAndroidPermissionsMenu(getActivity());
+//                        }
+//                        return null;
+//                    });
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//                break;
 
             case R.id.lrKillApp:
                 if (SharePreferenceUtils.getInstance(getActivity()).getKillApp()) {

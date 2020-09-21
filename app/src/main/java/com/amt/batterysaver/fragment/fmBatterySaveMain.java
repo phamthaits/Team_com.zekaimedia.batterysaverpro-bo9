@@ -43,20 +43,16 @@ import android.widget.Toast;
 
 import com.ads.control.AdControl;
 import com.ads.control.AdmobHelp;
-import com.ads.control.FBHelp;
-import com.ads.control.TypeAds;
 import com.amt.batterysaver.BatteryMode.BatteryInfo;
 import com.amt.batterysaver.Utilsb.BatteryPref;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.activity.BaseActivity;
 import com.amt.batterysaver.activity.ChargeActivity;
-import com.amt.batterysaver.activity.ChargeSettingActivity;
 import com.amt.batterysaver.activity.CleanActivity;
 import com.amt.batterysaver.activity.PermissionActivity;
 import com.amt.batterysaver.service.BatteryService;
 import com.amt.batterysaver.task.TaskCountDoing;
-import com.facebook.ads.Ad;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 import com.skyfishjy.library.RippleBackground;
@@ -113,11 +109,15 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private ShimmerTextView tvFast, tvFull, tvTrickle;
     private View v1, v2, v3, v4, v5;
     private AdControl adControl;
+    private AdmobHelp admobHelp;
+    private Context context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        adControl = AdControl.getInstance(this.getContext());
+        context = getContext();
+        adControl = AdControl.getInstance(context);
+        admobHelp = AdmobHelp.getInstance(context);
     }
 
     @Override
@@ -373,14 +373,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intView(view);
         intData(view);
         intEvent();
-        switch (adControl.adcontrolType()) {
-            case Facebook:
-                FBHelp.getInstance().loadNativeFrament(getActivity(), view);
-                break;
-            case Admob:
-                AdmobHelp.getInstance().loadNativeFragment(getActivity(), view, TypeAds.admod_native_main);
-                break;
-        }
+        admobHelp.loadNativeFragment(getActivity(), view, adControl.admob_native());
 //        AdmobHelp.getInstance().loadNativeFragment(getActivity(), view);
 //        if (!Utils.checkShouldDoing(getActivity(), 8)) {
 //            cvFastCharge.setVisibility(View.GONE);

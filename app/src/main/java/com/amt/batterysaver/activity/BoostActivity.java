@@ -23,17 +23,14 @@ import android.widget.TextView;
 
 import com.ads.control.AdControl;
 import com.ads.control.AdmobHelp;
-import com.ads.control.FBHelp;
-import com.ads.control.TypeAds;
+import com.ads.control.AdmobHelp.AdLoadedListener;
+import com.ads.control.AdmobHelp.AdCloseListener;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.notification.NotificationDevice;
 import com.amt.batterysaver.task.TaskBoost;
 import com.amt.batterysaver.view.HoloCircularProgressBar;
 import com.amt.batterysaver.R;
-import com.ads.control.AdControlHelp.AdCloseListener;
-import com.ads.control.AdControlHelp.AdLoadedListener;
-
 
 public class BoostActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -51,6 +48,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
     private long useRam2;
     private Context context;
     private AdControl adControl;
+    private AdmobHelp admobHelp;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -60,23 +58,19 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_speed_booster);
         intView();
         context = this;
-
+        admobHelp = AdmobHelp.getInstance(context);
         NotificationDevice.cancle(context, NotificationDevice.ID_NOTIFICATTION_BOOST);
         adControl = AdControl.getInstance(context);
-//        checkTask();
-//        AdmobHelp.getInstance().init(this, TypeAds.admod_full_phoneboost);
-        switch (adControl.adcontrolType()) {
-            case Facebook:
-                FBHelp.getInstance().loadNative(this);
-                break;
-            case Admob:
-                AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_phoneboost);
-                break;
-        }
-//        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
-//        AdmobHelp.getInstance().loadNative(BoostActivity.this);
-//        SharePreferenceUtils.getInstance(this).setFlagAds(true);
+        admobHelp.loadNative(this, adControl.admob_native());
+        admobHelp.loadInterstitialAd(adCloseListener, null, adControl.admob_full(), false);
     }
+
+    AdCloseListener adCloseListener = new AdCloseListener() {
+        @Override
+        public void onAdClosed() {
+            loadResult();
+        }
+    };
 
     public void checkTask() {
         if (!Utils.checkShouldDoing(this, 6)) {
@@ -113,7 +107,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         this.mHoloCircularProgressBarCleanDone.setMarkerProgress(1.0f);
         this.ivTick = findViewById(R.id.clean_done_iv_tick);
         this.ivDoneAnim = AnimationUtils.loadAnimation(this, R.anim.ic_done_anim);
-        this.ivDoneAnim.setAnimationListener(new C06741());
+        this.ivDoneAnim.setAnimationListener(new CustomAnimationListener());
         intData();
 
 //        } else {
@@ -187,7 +181,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    class C06741 implements Animation.AnimationListener {
+    class CustomAnimationListener implements Animation.AnimationListener {
 
         @Override
         public void onAnimationRepeat(Animation animation) {
@@ -197,24 +191,12 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         public void onAnimationStart(Animation animation) {
         }
 
-        C06741() {
+        CustomAnimationListener() {
         }
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            AdCloseListener adCloseListener = new AdCloseListener() {
-                @Override
-                public void onAdClosed() {
-                    loadResult();
-                }
-            };
-            switch (adControl.adcontrolType()) {
-                case Admob:
-                    AdmobHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_phoneboost, adCloseListener, null);
-                case Facebook:
-                    FBHelp.getInstance().loadInterstitialAd(context, adCloseListener, null);
-            }
-
+            admobHelp.showInterstitialAd(adCloseListener);
         }
     }
 

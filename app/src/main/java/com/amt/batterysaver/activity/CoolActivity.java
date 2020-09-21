@@ -30,8 +30,7 @@ import android.widget.TextView;
 
 import com.ads.control.AdControl;
 import com.ads.control.AdmobHelp;
-import com.ads.control.FBHelp;
-import com.ads.control.TypeAds;
+import com.ads.control.AdmobHelp.AdCloseListener;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.model.TaskInfo;
@@ -43,8 +42,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import com.ads.control.AdControlHelp.AdCloseListener;
-import com.ads.control.AdControlHelp.AdLoadedListener;
 
 public class CoolActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -69,6 +66,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout lrScan;
     private Context context;
     private AdControl adControl;
+    private AdmobHelp admobHelp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,22 +75,21 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         Utils.setLocate(this);
         new CoolActivity.LoadRunningTask().execute();
         intView();
-        adControl=AdControl.getInstance(this);
-//        checkTask();
-//        AdmobHelp.getInstance().init(this, TypeAds.admod_full_phonecooler);
-        switch (adControl.adcontrolType()) {
-            case Admob:
-                AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_phonecooler);
-                break;
-            case Facebook:
-                FBHelp.getInstance().loadNative(this);
-                break;
-        }
         context = this;
-//        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
-//        AdmobHelp.getInstance().loadNative(CoolActivity.this);
+        adControl = AdControl.getInstance(context);
+//        checkTask();
+        admobHelp = AdmobHelp.getInstance(context);
+        admobHelp.loadNative(this, adControl.admob_native());
+        admobHelp.loadInterstitialAd(adCloseListener, null, adControl.admob_full(), false);
 //        SharePreferenceUtils.getInstance(this).setFlagAds(true);
     }
+
+    private AdCloseListener adCloseListener = new AdCloseListener() {
+        @Override
+        public void onAdClosed() {
+            loadResult();
+        }
+    };
 
     public void checkTask() {
         if (!Utils.checkShouldDoing(this, 6)) {
@@ -422,20 +419,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 //                SharePreferenceUtils.getInstance(CoolActivity.this).setFlagAds(false);
 //                    AdmobHelp.getInstance().loadInterstitialAd   (this, TypeAds.admod_full_phonecooler,);
 
-            AdCloseListener adCloseListener = new AdCloseListener() {
-                @Override
-                public void onAdClosed() {
-                    loadResult();
-                }
-            };
-            switch (adControl.adcontrolType()) {
-                case Facebook:
-                    FBHelp.getInstance().loadInterstitialAd(context, adCloseListener, null);
-                    break;
-                case Admob:
-                    AdmobHelp.getInstance().loadInterstitialAd(context, TypeAds.admod_full_phonecooler, adCloseListener, null);
-                    break;
-            }
+            admobHelp.showInterstitialAd(adCloseListener);
 //            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
 //                @Override
 //                public void onAdClosed() {

@@ -3,6 +3,7 @@ package com.amt.batterysaver.activity;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -20,15 +21,11 @@ import android.widget.TextView;
 
 import com.ads.control.AdControl;
 import com.ads.control.AdmobHelp;
-import com.ads.control.FBHelp;
-import com.ads.control.TypeAds;
+import com.ads.control.AdmobHelp.AdCloseListener;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.view.HoloCircularProgressBar;
 import com.amt.batterysaver.R;
-
-import com.ads.control.AdControlHelp.AdCloseListener;
-import com.ads.control.AdControlHelp.AdLoadedListener;
 
 public class CleanResultActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -41,22 +38,17 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
     RelativeLayout rlScan;
     FrameLayout parentAds;
     private AdControl adControl;
+    private AdmobHelp admobHelp;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
+        context = this;
+        admobHelp = AdmobHelp.getInstance(context);
         setContentView(R.layout.activity_clean_result);
-        adControl=AdControl.getInstance(this);
-//        AdmobHelp.getInstance().init(this, TypeAds.admod_full_trashcleaner);
-        switch (adControl.adcontrolType()) {
-            case Admob:
-                AdmobHelp.getInstance().loadNative(this, TypeAds.admod_native_trashcleaner);
-                break;
-            case Facebook:
-                FBHelp.getInstance().loadNative(this);
-                break;
-        }
+        adControl = AdControl.getInstance(this);
 
 //        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
 //        AdmobHelp.getInstance().loadNative(this);
@@ -148,6 +140,13 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
     private void animate(final HoloCircularProgressBar holoCircularProgressBar, Animator.AnimatorListener animatorListener, final float f, int i) {
         this.mProgressBarAnimatorCleanDone = ObjectAnimator.ofFloat(holoCircularProgressBar, NotificationCompat.CATEGORY_PROGRESS, 0.0f, f);
         this.mProgressBarAnimatorCleanDone.setDuration((long) i);
+        AdCloseListener adCloseListener = new AdCloseListener() {
+            @Override
+            public void onAdClosed() {
+                loadResult(holoCircularProgressBar, f);
+            }
+        };
+        admobHelp.loadInterstitialAd(adCloseListener, null, adControl.admob_full(), false);
         this.mProgressBarAnimatorCleanDone.addListener(new Animator.AnimatorListener() {
             public void onAnimationCancel(Animator animator) {
             }
@@ -161,24 +160,8 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
             public void onAnimationEnd(Animator animator) {
 //                if (SharePreferenceUtils.getInstance(CleanResultActivity.this).getFlagAds()) {
 //                    SharePreferenceUtils.getInstance(CleanResultActivity.this).setFlagAds(false);
-                AdCloseListener adCloseListener = new AdCloseListener() {
-                    @Override
-                    public void onAdClosed() {
-                        loadResult(holoCircularProgressBar, f);
-                    }
-                };
-                switch (adControl.adcontrolType()) {
-                    case Admob:
-                        AdmobHelp.getInstance().loadInterstitialAd(getBaseContext(), TypeAds.admod_full_trashcleaner, adCloseListener, null);
-                        break;
-                    case Facebook:
-                        FBHelp.getInstance().loadInterstitialAd(getBaseContext(),  adCloseListener, null);
-                        break;
-                }
-//                    AdmobHelp.getInstance().loadInterstitialAd(getBaseContext(), TypeAds.admod_full_trashcleaner, adCloseListener, null);
-//                } else {
-//                    loadResult(holoCircularProgressBar, f);
-//                }
+
+                admobHelp.showInterstitialAd(adCloseListener);
             }
         });
         if (animatorListener != null) {

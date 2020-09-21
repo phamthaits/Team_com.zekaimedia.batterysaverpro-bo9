@@ -4,22 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <com.facebook.ads.NativeAdLayout
-        android:id="@+id/native_ad_container"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_native_ads"
-        android:layout_marginLeft="5dip"
-        android:layout_marginTop="5dip"
-        android:layout_marginRight="5dip"
-        android:background="@drawable/bg_card_ads"
-        android:orientation="vertical"
-        android:paddingLeft="2dip"
-        android:paddingTop="2dip"
-        android:paddingRight="2dip"
-        android:paddingBottom="2dip"
-        android:visibility="gone" />
+
     <FrameLayout
-        android:id="@+id/fl_adplaceholder"
+        android:id="@+id/admob_adplaceholder"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_native_ads"
         android:layout_marginLeft="5dip"
