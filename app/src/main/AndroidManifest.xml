@@ -29,6 +29,7 @@
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="com.android.vending.BILLING" />
     <!--    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
     <!--    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
 
@@ -55,6 +56,7 @@
         <!--            android:value="true"/>-->
 
 <!--        <activity android:name="com.amt.batterysaver.activity.ChargeSettingActivity"></activity>-->
+        <activity android:name=".activity.RemoveAdsActivity"></activity>
         <activity
             android:name="com.amt.batterysaver.activity.DoNotDisturbActivity"
             android:label="@string/title_activity_do_not_disturb"
@@ -113,7 +115,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.amt.batterysaver.activity.SplashActivity"
-            android:launchMode="singleInstance"
             android:theme="@style/Theme_AppCompat_Light_NoActionBar_FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

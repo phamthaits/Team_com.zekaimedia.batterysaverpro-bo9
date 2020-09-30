@@ -51,7 +51,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         adControl = AdControl.getInstance(this);
 
 //        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
-//        AdmobHelp.getInstance().loadNative(this);
+        admobHelp.loadNative(this, adControl.admob_native());
         SharePreferenceUtils.getInstance(this).setFlagAds(true);
 
         rlScan = findViewById(R.id.rlScanning);

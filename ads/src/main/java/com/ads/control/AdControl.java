@@ -68,11 +68,11 @@ public class AdControl {
     }
 
     public Boolean remove_ads() {
-        return this.pre.getBoolean("remove_ads", false);
+        return this.pre.getBoolean("bg_remove_ads", false);
     }
 
     public void remove_ads(Boolean value) {
-        editor.putBoolean("remove_ads", value);
+        editor.putBoolean("bg_remove_ads", value);
         editor.commit();
     }
 }

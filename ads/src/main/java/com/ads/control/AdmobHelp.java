@@ -20,6 +20,7 @@ import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.VideoOptions;
 import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
@@ -34,12 +35,15 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 public class AdmobHelp {
     private static AdmobHelp instance;
     private PublisherInterstitialAd mPublisherInterstitialAd;//Full
     private static boolean isReloaded = false;
     private static Context context;
     private static AdControl adControl;
+    public boolean isStillShowAds = true;
 
     public static AdmobHelp getInstance(Context value) {
         isReloaded = false;
@@ -64,6 +68,7 @@ public class AdmobHelp {
 
     public void loadInterstitialAd(AdCloseListener adCloseListener, AdLoadedListener adLoadedListener, String ads, boolean showWhenLoaded) {
         Log.v("ads", "Call ads");
+        isStillShowAds = true;
         if (adControl.remove_ads()) {
             if (showWhenLoaded)
                 adCloseListener.onAdClosed();
@@ -77,14 +82,15 @@ public class AdmobHelp {
                 if (adLoadedListener != null) {
                     adLoadedListener.onAdLoaded();
                 }
-                if (showWhenLoaded)
+                if (showWhenLoaded && isStillShowAds) {
                     showInterstitialAd(adCloseListener);
+                }
             }
 
             @Override
-            public void onAdFailedToLoad(int errorCode) {
+            public void onAdFailedToLoad(LoadAdError adError) {
                 Log.v("ads", "ads Fail");
-                if (showWhenLoaded) {
+                if (showWhenLoaded && isStillShowAds) {
                     if (adCloseListener != null)
                         adCloseListener.onAdClosed();
                 } else {
@@ -106,23 +112,25 @@ public class AdmobHelp {
             }
         };
         if (canShowInterstitialAd()) {
+            mPublisherInterstitialAd.setAdListener(adListener);
             if (showWhenLoaded) {
                 Log.v("ads", "showWhenLoaded Call show ads");
                 showInterstitialAd(adCloseListener);
-            } else {
-                mPublisherInterstitialAd.setAdListener(adListener);
             }
-            return;
+        } else {
+            MobileAds.initialize(context);
+            mPublisherInterstitialAd = new PublisherInterstitialAd(context);
+            mPublisherInterstitialAd.setAdUnitId(ads);
+            mPublisherInterstitialAd.setAdListener(adListener);
+            loadInterstitialAd();
         }
-
-        MobileAds.initialize(context);
-        mPublisherInterstitialAd = new PublisherInterstitialAd(context);
-        mPublisherInterstitialAd.setAdUnitId(ads);
-        mPublisherInterstitialAd.setAdListener(adListener);
-        loadInterstitialAd();
     }
 
     public void showInterstitialAd(AdCloseListener adCloseListener) {
+        if (adControl.remove_ads()) {
+            adCloseListener.onAdClosed();
+            return;
+        }
         Log.v("ads", "Ads Call show ads");
         if (canShowInterstitialAd()) {
             mPublisherInterstitialAd.show();
@@ -205,7 +213,7 @@ public class AdmobHelp {
                             populateUnifiedNativeAdView(unifiedNativeAd, adView);
                             frameLayout.removeAllViews();
                             frameLayout.addView(adView);
-//                            setAnimation(mActivity, adView);
+                            setAnimation(mActivity, adView);
                         }
                     }
                 })
@@ -269,19 +277,20 @@ public class AdmobHelp {
     }
 
     public boolean is_reload_firebase() {
-           return true;
-//        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
+        if (adControl.remove_ads())
+            return false;
+//        return true;
+        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
     }
 
-    public void getAdControlFromFireBase() {
-        Log.v("ads","Load Firebase");
+    public void getAdControlFromFireBase(FireBaseListener fireBaseListener) {
+        Log.v("ads", "Load Firebase");
         AdControl adControl = AdControl.getInstance(context);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("AdTest")
+        db.collection("Ad2")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             Log.d("ads", document.getId() + " => " + document.getData());
                             JSONObject object = new JSONObject(document.getData());
@@ -309,9 +318,11 @@ public class AdmobHelp {
                             }
                             Log.d("ads", document.getId() + " => " + document.getData());
                         }
+
                     } else {
                         Log.d("ads", "Error getting documents.", task.getException());
                     }
+                    fireBaseListener.addOnCompleteListener();
                 });
     }
 
@@ -481,6 +492,11 @@ public class AdmobHelp {
     public interface AdLoadedListener {
         void onAdLoaded();
     }
+
+    public interface FireBaseListener {
+        void addOnCompleteListener();
+    }
+
 
 //    public void destroyNative() {
 //        if (nativeAd != null) {
