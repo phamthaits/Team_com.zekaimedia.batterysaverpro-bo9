@@ -36,7 +36,11 @@ public class RemoveAdsActivity extends AppCompatActivity {
         Button bntBuyNow = findViewById(R.id.bntBuyNow);
         bntBuyNow.setOnClickListener(view -> removeAdsHelp.Purchase_ads(activity));
     }
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (!RemoveAdsHelp.bp.handleActivityResult(requestCode, resultCode, data))
+            super.onActivityResult(requestCode, resultCode, data);
+    }
     @Override
     public void onBackPressed() {
         finish();

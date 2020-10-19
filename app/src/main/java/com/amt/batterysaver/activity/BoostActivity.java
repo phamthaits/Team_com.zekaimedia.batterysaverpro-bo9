@@ -21,10 +21,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.ads.control.AdControl;
-import com.ads.control.AdmobHelp;
-import com.ads.control.AdmobHelp.AdLoadedListener;
-import com.ads.control.AdmobHelp.AdCloseListener;
+import com.ads.control.AdControlHelp;
+import com.ads.control.AdControlHelp.AdCloseListener;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.notification.NotificationDevice;
@@ -47,8 +45,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
     private long useRam;
     private long useRam2;
     private Context context;
-    private AdControl adControl;
-    private AdmobHelp admobHelp;
+    private AdControlHelp adControlHelp;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -58,11 +55,10 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_speed_booster);
         intView();
         context = this;
-        admobHelp = AdmobHelp.getInstance(context);
+        adControlHelp = AdControlHelp.getInstance(context);
         NotificationDevice.cancle(context, NotificationDevice.ID_NOTIFICATTION_BOOST);
-        adControl = AdControl.getInstance(context);
-        admobHelp.loadNative(this, adControl.admob_native());
-        admobHelp.loadInterstitialAd(adCloseListener, null, adControl.admob_full(), false);
+        adControlHelp.loadNative(this);
+        adControlHelp.loadInterstitialAd(adCloseListener, null, false);
     }
 
     AdCloseListener adCloseListener = new AdCloseListener() {
@@ -196,7 +192,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            admobHelp.showInterstitialAd(adCloseListener);
+            adControlHelp.showInterstitialAd(adCloseListener);
         }
     }
 
@@ -266,16 +262,6 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onBackPressed() {
-//        if (SharePreferenceUtils.getInstance(this).getFlagAds()) {
-//            SharePreferenceUtils.getInstance(this).setFlagAds(false);
-//            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-//                @Override
-//                public void onAdClosed() {
-//                    finish();
-//                }
-//            });
-//        } else {
         finish();
-//        }
     }
 }

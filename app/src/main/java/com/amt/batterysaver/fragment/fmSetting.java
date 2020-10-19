@@ -12,20 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.ads.control.AdControl;
-import com.ads.control.AdmobHelp;
-import com.amt.batterysaver.activity.BaseActivity;
-import com.github.mikephil.charting.charts.LineChart;
+import com.ads.control.AdControlHelp;
 import com.amt.batterysaver.Utilsb.SharePreferenceConstant;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
-import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.activity.DoNotDisturbActivity;
 import com.amt.batterysaver.activity.LanguageActivity;
 import com.amt.batterysaver.activity.WhiteListActivity;
 import com.amt.batterysaver.notification.NotificationBattery;
 import com.amt.batterysaver.MainActivity;
 import com.amt.batterysaver.R;
-import com.amt.batterysaver.activity.ChargeSettingActivity;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -34,29 +29,22 @@ public class fmSetting extends Fragment implements View.OnClickListener {
     SwitchCompat swKillApp, swLowBattery, swBatteryFull, swCoolDown, swBoost, swTemp, swEnableNotification;
     TextView tvTempertureDes, tvLanguageDes, tvDNDDes;
     Boolean flag = false;
-    private AdControl adControl;
-    private AdmobHelp admobHelp;
+    private AdControlHelp adControlHelp;
     private Context context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getContext();
-        adControl = AdControl.getInstance(context);
-        admobHelp = AdmobHelp.getInstance(context);
+        adControlHelp = AdControlHelp.getInstance(context);
     }
-
-    // Inflate the view for the fragment based on layout XML
-    LineChart chart;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_setting, container, false);
         intView(view);
         intData();
-//        AdmobHelp.getInstance().loadBannerFragment(getActivity(),view);
-        admobHelp.loadNativeFragment(getActivity(), view, adControl.admob_native());
-//        AdmobHelp.getInstance().loadNativeFragment(getActivity(),view);
+        adControlHelp.loadNativeFragment(getActivity(), view);
         return view;
     }
 

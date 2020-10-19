@@ -32,9 +32,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.ads.control.AdControl;
-import com.ads.control.AdmobHelp;
-import com.ads.control.AdmobHelp.AdCloseListener;
-import com.ads.control.AdmobHelp.AdLoadedListener;
+import com.ads.control.AdControlHelp;
+import com.ads.control.AdControlHelp.AdCloseListener;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.model.TaskInfo;
@@ -65,9 +64,8 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     private Animation ivDoneAnim;
     private ViewGroup parentAds;
     private LinearLayout lrScan;
-    private AdControl adControl;
     private Context context;
-    private AdmobHelp admobHelp;
+    private AdControlHelp adControlHelp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,12 +73,11 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         context = this;
         Utils.setLocate(context);
         setContentView(R.layout.activity_do_optimize);
-        adControl = AdControl.getInstance(this);
-        admobHelp = AdmobHelp.getInstance(context);
+        adControlHelp = AdControlHelp.getInstance(context);
         intView();
 //        checkTask();
-        admobHelp.loadNative(this, adControl.admob_native());
-        admobHelp.loadInterstitialAd(adCloseListener, null, adControl.admob_full(), false);
+        adControlHelp.loadNative(this);
+        adControlHelp.loadInterstitialAd(adCloseListener, null, false);
     }
 
     private AdCloseListener adCloseListener = new AdCloseListener() {
@@ -403,7 +400,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            admobHelp.showInterstitialAd(adCloseListener);
+            adControlHelp.showInterstitialAd(adCloseListener);
         }
     }
 
@@ -445,17 +442,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
 
     @Override
     public void onBackPressed() {
-//        if(SharePreferenceUtils.getInstance(this).getFlagAds()){
-//            SharePreferenceUtils.getInstance(this).setFlagAds(false);
-//            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-//                @Override
-//                public void onAdClosed() {
-//                    finish();
-//                }
-//            });
-//        }else{
         finish();
-//        }
     }
 
     @Override

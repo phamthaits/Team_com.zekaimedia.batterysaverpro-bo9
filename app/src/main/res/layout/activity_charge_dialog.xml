@@ -98,7 +98,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:src="@drawable/ic_setting_fast_charge"
-                            android:tint="@color/colorAccent" />
+                            app:tint="@color/colorAccent" />
                     </FrameLayout>
 
                     <FrameLayout
@@ -113,11 +113,11 @@
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:src="@drawable/ic_close_turn_off"
-                            android:tint="@color/colorAccent" />
+                            app:tint="@color/colorAccent" />
                     </FrameLayout>
                 </RelativeLayout>
                 <include
-                    layout="@layout/native_ads_control"
+                    layout="@layout/control_native_ads"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dip"></include>
@@ -181,7 +181,7 @@
                             android:layout_height="28.0dip"
                             android:layout_gravity="center_vertical"
                             android:src="@drawable/ic_charging"
-                            android:tint="@color/text_color" />
+                            app:tint="@color/text_color" />
 
                         <TextView
                             android:id="@+id/tvPercent"

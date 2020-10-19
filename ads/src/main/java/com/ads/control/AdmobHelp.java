@@ -29,13 +29,8 @@ import com.google.android.gms.ads.formats.MediaView;
 import com.google.android.gms.ads.formats.NativeAdOptions;
 import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.google.android.gms.ads.formats.UnifiedNativeAdView;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.Calendar;
+import com.ads.control.AdControlHelp.AdCloseListener;
+import com.ads.control.AdControlHelp.AdLoadedListener;
 
 public class AdmobHelp {
     private static AdmobHelp instance;
@@ -43,7 +38,6 @@ public class AdmobHelp {
     private static boolean isReloaded = false;
     private static Context context;
     private static AdControl adControl;
-    public boolean isStillShowAds = true;
 
     public static AdmobHelp getInstance(Context value) {
         isReloaded = false;
@@ -68,7 +62,7 @@ public class AdmobHelp {
 
     public void loadInterstitialAd(AdCloseListener adCloseListener, AdLoadedListener adLoadedListener, String ads, boolean showWhenLoaded) {
         Log.v("ads", "Call ads");
-        isStillShowAds = true;
+        adControl.isStillShowAds = true;
         if (adControl.remove_ads()) {
             if (showWhenLoaded)
                 adCloseListener.onAdClosed();
@@ -82,7 +76,7 @@ public class AdmobHelp {
                 if (adLoadedListener != null) {
                     adLoadedListener.onAdLoaded();
                 }
-                if (showWhenLoaded && isStillShowAds) {
+                if (showWhenLoaded && adControl.isStillShowAds) {
                     showInterstitialAd(adCloseListener);
                 }
             }
@@ -90,7 +84,7 @@ public class AdmobHelp {
             @Override
             public void onAdFailedToLoad(LoadAdError adError) {
                 Log.v("ads", "ads Fail");
-                if (showWhenLoaded && isStillShowAds) {
+                if (showWhenLoaded && adControl.isStillShowAds) {
                     if (adCloseListener != null)
                         adCloseListener.onAdClosed();
                 } else {
@@ -160,8 +154,8 @@ public class AdmobHelp {
         adView_Banner.loadAd(new AdRequest.Builder().build());
         adView_Banner.setAdListener(new AdListener() {
             @Override
-            public void onAdFailedToLoad(int i) {
-                super.onAdFailedToLoad(i);
+            public void onAdFailedToLoad(LoadAdError loadAdError) {
+                super.onAdFailedToLoad(loadAdError);
                 containerShimmer.stopShimmer();
                 containerShimmer.setVisibility(View.GONE);
                 frameLayout.setVisibility(View.GONE);
@@ -198,18 +192,12 @@ public class AdmobHelp {
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                     @Override
                     public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
-                        // Show the ad.
-//                        if (nativeAd != null) {
-//                            nativeAd.destroy();
-//                        }
-
-//                        nativeAd = unifiedNativeAd;
                         containerShimmer.stopShimmer();
                         containerShimmer.setVisibility(View.GONE);
                         if (frameLayout != null) {
                             frameLayout.setVisibility(View.VISIBLE);
                             UnifiedNativeAdView adView = (UnifiedNativeAdView) mActivity.getLayoutInflater()
-                                    .inflate(R.layout.native_admob_ad_unit, null);
+                                    .inflate(R.layout.item_admob_native_ad, null);
                             populateUnifiedNativeAdView(unifiedNativeAd, adView);
                             frameLayout.removeAllViews();
                             frameLayout.addView(adView);
@@ -255,7 +243,7 @@ public class AdmobHelp {
                 if (frameLayout != null) {
                     frameLayout.setVisibility(View.VISIBLE);
                     UnifiedNativeAdView adView = (UnifiedNativeAdView) mActivity.getLayoutInflater()
-                            .inflate(R.layout.native_admob_ad_unit, null);
+                            .inflate(R.layout.item_admob_native_ad, null);
                     populateUnifiedNativeAdView(unifiedNativeAd, adView);
                     frameLayout.removeAllViews();
                     frameLayout.addView(adView);
@@ -276,57 +264,7 @@ public class AdmobHelp {
         adLoader.loadAd(new PublisherAdRequest.Builder().build());
     }
 
-    public boolean is_reload_firebase() {
-        if (adControl.remove_ads())
-            return false;
-//        return true;
-        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
-    }
-
-    public void getAdControlFromFireBase(FireBaseListener fireBaseListener) {
-        Log.v("ads", "Load Firebase");
-        AdControl adControl = AdControl.getInstance(context);
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("Ad2")
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                            Log.d("ads", document.getId() + " => " + document.getData());
-                            JSONObject object = new JSONObject(document.getData());
-                            for (int i = 0; i < object.names().length(); i++) {
-                                try {
-                                    String key = object.names().getString(i);
-                                    switch (key) {
-                                        case "admob_full":
-                                            adControl.admob_full(object.getString(key));
-                                            break;
-                                        case "admob_native":
-                                            adControl.admob_native(object.getString(key));
-                                            break;
-                                        case "admob_banner":
-                                            adControl.admob_banner(object.getString(key));
-                                            break;
-                                    }
-                                    Log.d("ads", "key = " + key + ":" + object.getString(key));
-                                    adControl.isInit(true);
-                                    adControl.old_date(-1);
-                                } catch (JSONException e) {
-                                    Log.d("ads", "Lỗi");
-                                    e.printStackTrace();
-                                }
-                            }
-                            Log.d("ads", document.getId() + " => " + document.getData());
-                        }
-
-                    } else {
-                        Log.d("ads", "Error getting documents.", task.getException());
-                    }
-                    fireBaseListener.addOnCompleteListener();
-                });
-    }
-
-    private void loadInterstitialAd() {
+        private void loadInterstitialAd() {
         Log.v("ads", "ads get Request");
         if (mPublisherInterstitialAd != null && !mPublisherInterstitialAd.isLoading() && !mPublisherInterstitialAd.isLoaded()) {
             PublisherAdRequest adRequest = new PublisherAdRequest.Builder().build();
@@ -483,14 +421,6 @@ public class AdmobHelp {
             public void onAnimationRepeat(Animation animation1) {
             }
         });
-    }
-
-    public interface AdCloseListener {
-        void onAdClosed();
-    }
-
-    public interface AdLoadedListener {
-        void onAdLoaded();
     }
 
     public interface FireBaseListener {

@@ -7,7 +7,7 @@
 
     <include
         android:id="@+id/banner"
-        layout="@layout/banner_ads_control"
+        layout="@layout/control_banner_ads"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></include>
 
@@ -60,7 +60,7 @@
                         android:layout_height="@dimen/img_charge_icon_width"
                         android:layout_below="@+id/tvCount"
                         android:layout_centerHorizontal="true"
-                        android:tint="@color/color_black_6"
+                        app:tint="@color/color_black_6"
                         app:srcCompat="@drawable/ic_power" />
 
                     <ImageView

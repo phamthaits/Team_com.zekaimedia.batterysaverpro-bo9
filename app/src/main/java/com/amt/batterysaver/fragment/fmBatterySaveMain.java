@@ -41,14 +41,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ads.control.AdControl;
-import com.ads.control.AdmobHelp;
+import com.ads.control.AdControlHelp;
 import com.amt.batterysaver.BatteryMode.BatteryInfo;
 import com.amt.batterysaver.Utilsb.BatteryPref;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.activity.BaseActivity;
-import com.amt.batterysaver.activity.ChargeActivity;
 import com.amt.batterysaver.activity.CleanActivity;
 import com.amt.batterysaver.activity.PermissionActivity;
 import com.amt.batterysaver.service.BatteryService;
@@ -108,16 +106,14 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private Shimmer shFast, shFull, shTrickle, shOptimize;
     private ShimmerTextView tvFast, tvFull, tvTrickle;
     private View v1, v2, v3, v4, v5;
-    private AdControl adControl;
-    private AdmobHelp admobHelp;
+    private AdControlHelp adControlHelp;
     private Context context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getContext();
-        adControl = AdControl.getInstance(context);
-        admobHelp = AdmobHelp.getInstance(context);
+        adControlHelp = AdControlHelp.getInstance(context);
     }
 
     @Override
@@ -234,9 +230,9 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 startActivity(airplaneIntent);
                 break;
 
-            case R.id.btnChargeHistory:
-                startActivity(new Intent(getActivity(), ChargeActivity.class));
-                break;
+//            case R.id.btnChargeHistory:
+//                startActivity(new Intent(getActivity(), ChargeActivity.class));
+//                break;
             default:
                 break;
         }
@@ -373,7 +369,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intView(view);
         intData(view);
         intEvent();
-        admobHelp.loadNativeFragment(getActivity(), view, adControl.admob_native());
+        adControlHelp.loadNativeFragment(getActivity(), view);
 //        AdmobHelp.getInstance().loadNativeFragment(getActivity(), view);
 //        if (!Utils.checkShouldDoing(getActivity(), 8)) {
 //            cvFastCharge.setVisibility(View.GONE);

@@ -19,9 +19,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.ads.control.AdControl;
-import com.ads.control.AdmobHelp;
-import com.ads.control.AdmobHelp.AdCloseListener;
+import com.ads.control.AdControlHelp;
+import com.ads.control.AdControlHelp.AdCloseListener;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.view.HoloCircularProgressBar;
@@ -37,8 +36,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
     private ImageView ivTick;
     RelativeLayout rlScan;
     FrameLayout parentAds;
-    private AdControl adControl;
-    private AdmobHelp admobHelp;
+    private AdControlHelp adControlHelp;
     private Context context;
 
     @Override
@@ -46,12 +44,10 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
         context = this;
-        admobHelp = AdmobHelp.getInstance(context);
+        adControlHelp = AdControlHelp.getInstance(context);
         setContentView(R.layout.activity_clean_result);
-        adControl = AdControl.getInstance(this);
 
-//        AdmobHelp.getInstance().init(this, SharePreferenceConstant.admob_full, SharePreferenceConstant.admob_native);
-        admobHelp.loadNative(this, adControl.admob_native());
+        adControlHelp.loadNative(this);
         SharePreferenceUtils.getInstance(this).setFlagAds(true);
 
         rlScan = findViewById(R.id.rlScanning);
@@ -146,7 +142,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
                 loadResult(holoCircularProgressBar, f);
             }
         };
-        admobHelp.loadInterstitialAd(adCloseListener, null, adControl.admob_full(), false);
+        adControlHelp.loadInterstitialAd(adCloseListener, null, false);
         this.mProgressBarAnimatorCleanDone.addListener(new Animator.AnimatorListener() {
             public void onAnimationCancel(Animator animator) {
             }
@@ -158,10 +154,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
             }
 
             public void onAnimationEnd(Animator animator) {
-//                if (SharePreferenceUtils.getInstance(CleanResultActivity.this).getFlagAds()) {
-//                    SharePreferenceUtils.getInstance(CleanResultActivity.this).setFlagAds(false);
-
-                admobHelp.showInterstitialAd(adCloseListener);
+                adControlHelp.showInterstitialAd(adCloseListener);
             }
         });
         if (animatorListener != null) {

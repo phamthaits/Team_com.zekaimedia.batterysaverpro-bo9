@@ -44,14 +44,14 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16.0dip"
             android:text="13/12/2018" />
-        <ImageView
-            android:id="@+id/btnChargeHistory"
-            android:layout_width="@dimen/checkbox_size"
-            android:layout_height="@dimen/checkbox_size"
-            android:layout_gravity="center"
-            android:layout_marginEnd="10dp"
-            android:padding="@dimen/checkbox_padding"
-            android:src="@drawable/ic_next_page" />
+<!--        <ImageView-->
+<!--            android:id="@+id/btnChargeHistory"-->
+<!--            android:layout_width="@dimen/checkbox_size"-->
+<!--            android:layout_height="@dimen/checkbox_size"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginEnd="10dp"-->
+<!--            android:padding="@dimen/checkbox_padding"-->
+<!--            android:src="@drawable/ic_next_page" />-->
     </LinearLayout>
 
     <LinearLayout

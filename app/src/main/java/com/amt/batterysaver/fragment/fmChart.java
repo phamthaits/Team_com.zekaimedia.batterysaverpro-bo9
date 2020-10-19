@@ -4,8 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import com.ads.control.AdControl;
-import com.ads.control.AdmobHelp;
+import com.ads.control.AdControlHelp;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.fragment.app.Fragment;
@@ -52,9 +51,8 @@ public class fmChart extends Fragment {
     private ViewPager vpPager;
     ChartAdapter adapterViewPager;
     private TabLayout indicator;
-    private AdControl adControl;
+    private AdControlHelp adControlHelp;
     private Context context;
-    private AdmobHelp admobHelp;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -63,14 +61,13 @@ public class fmChart extends Fragment {
         intEvent(view);
         intData();
         context = getContext();
-        adControl = AdControl.getInstance(context);
-        admobHelp = AdmobHelp.getInstance(context);
+        adControlHelp = AdControlHelp.getInstance(context);
 
         adapterViewPager = new ChartAdapter(getActivity().getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
         vpPager.setCurrentItem(2);
 
-        admobHelp.loadBannerFragment(getActivity(), view, adControl.admob_banner());
+        adControlHelp.loadBannerFragment(getActivity(), view);
         return view;
     }
 

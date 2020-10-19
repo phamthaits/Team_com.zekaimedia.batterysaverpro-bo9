@@ -20,7 +20,7 @@
 
         <include
             android:id="@+id/banner"
-            layout="@layout/banner_ads_control"
+            layout="@layout/control_banner_ads"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/recyclerView"

@@ -6,8 +6,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 15
-        versionName '15'
+        versionCode 1
+        versionName '1'
     }
 
     buildTypes {
@@ -19,6 +19,8 @@ android {
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     buildToolsVersion = '30.0.2'
 }
@@ -31,15 +33,18 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.annotation:annotation:1.1.0'
     implementation 'com.google.android.gms:play-services-ads:19.4.0'
-    implementation 'com.google.android.gms:play-services-measurement:17.5.0'
-    implementation 'com.google.android.gms:play-services-measurement-sdk:17.5.0'
-    implementation 'com.google.firebase:firebase-firestore:21.6.0'
+    implementation 'com.google.android.gms:play-services-measurement:17.6.0'
+    implementation 'com.google.android.gms:play-services-measurement-sdk:17.6.0'
+    implementation 'com.google.firebase:firebase-firestore:21.7.1'
+    implementation 'com.facebook.android:audience-network-sdk:6.1.0'
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
-
+    implementation 'com.startapp:inapp-sdk:4.6.3'
+    implementation 'com.google.android.gms:play-services-ads-identifier'
+    implementation 'com.google.android.gms:play-services-base'
 }

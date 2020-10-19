@@ -16,8 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import com.ads.control.AdControl;
-import com.ads.control.AdmobHelp;
+import com.ads.control.AdControlHelp;
 import com.amt.batterysaver.R;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.adapter.AppManagerAdapter;
@@ -47,8 +46,7 @@ public class fmAppManager extends Fragment {
     private int mChildPosition;
     private AnimatedExpandableListView mRecyclerView;
     Runnable runnableLocal;
-    private AdControl adControl;
-    private AdmobHelp admobHelp;
+    private AdControlHelp adControlHelp;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,9 +62,8 @@ public class fmAppManager extends Fragment {
         mRecyclerView = view.findViewById(R.id.recyclerView);
         initAdapter();
         loadData();
-        adControl = AdControl.getInstance(getContext());
-        admobHelp = AdmobHelp.getInstance(getContext());
-        admobHelp.loadBannerFragment(getActivity(), view, adControl.admob_banner());
+        adControlHelp = AdControlHelp.getInstance(getContext());
+        adControlHelp.loadBannerFragment(getActivity(), view);
         return view;
     }
 

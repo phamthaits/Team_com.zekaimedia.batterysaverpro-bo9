@@ -13,7 +13,6 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission
         android:name="android.permission.WRITE_SETTINGS"
@@ -30,8 +29,8 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="com.android.vending.BILLING" />
-    <!--    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
-    <!--    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name="com.amt.batterysaver.App"
@@ -51,11 +50,6 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id" />
 
-        <!--        <meta-data-->
-        <!--            android:name="com.google.android.gms.ads.AD_MANAGER_APP"-->
-        <!--            android:value="true"/>-->
-
-<!--        <activity android:name="com.amt.batterysaver.activity.ChargeSettingActivity"></activity>-->
         <activity android:name=".activity.RemoveAdsActivity"></activity>
         <activity
             android:name="com.amt.batterysaver.activity.DoNotDisturbActivity"
@@ -70,28 +64,17 @@
             android:name="com.amt.batterysaver.activity.WhiteListActivity"
             android:label="@string/title_activity_white_list"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
-        <!--        <activity-->
-        <!--            android:name="com.amt.batterysaver.activity.ChargeResultActivity"-->
-        <!--            android:launchMode="singleInstance"-->
-        <!--            android:theme="@style/DialogActivity" />-->
+
         <activity
             android:name="com.amt.batterysaver.activity.CleanResultActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!--        <activity-->
-        <!--            android:name="com.amt.batterysaver.activity.FullChargeActivity"-->
-        <!--            android:theme="@style/AppTheme.NoActionBar" />-->
-        <!--        <activity-->
-        <!--            android:name="com.amt.batterysaver.activity.WifiActivity"-->
-        <!--            android:theme="@style/AppTheme.NoActionBar" />-->
+
         <activity
             android:name="com.amt.batterysaver.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <!--        <activity-->
-        <!--            android:name="com.amt.batterysaver.activity.ChargeActivity"-->
-        <!--            android:launchMode="singleInstance"-->
-        <!--            android:theme="@style/AppTheme.NoActionBar" />-->
+
         <activity
             android:name="com.amt.batterysaver.activity.CleanActivity"
             android:exported="true"
@@ -121,7 +104,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <receiver android:name="com.amt.batterysaver.Receiver.AlarmReceiver">
             <intent-filter>
                 <action android:name="com.app.action.alarmmanager" />
@@ -157,7 +139,5 @@
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
             </intent-filter>
         </receiver>
-
-
     </application>
 </manifest>

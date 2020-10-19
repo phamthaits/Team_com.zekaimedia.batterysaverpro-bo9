@@ -116,7 +116,7 @@
                         android:layout_height="fill_parent"
                         android:layout_gravity="center"
                         android:src="@drawable/ic_fan_white"
-                        android:tint="#ff3c485b" />
+                        app:tint="#ff3c485b" />
                 </FrameLayout>
 
                 <LinearLayout
@@ -268,7 +268,7 @@
                     android:orientation="vertical">
 
                     <include
-                        layout="@layout/native_ads_control"
+                        layout="@layout/control_native_ads"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         ></include>

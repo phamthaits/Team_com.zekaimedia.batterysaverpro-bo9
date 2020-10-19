@@ -15,7 +15,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.appcompat.widget.Toolbar;
 
 import android.view.MenuItem;
 import android.view.View;
@@ -45,11 +44,7 @@ import java.util.concurrent.CountDownLatch;
 
 public class CleanActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Toolbar mTopToolbar;
-
     public  Boolean flagExit = false;
-
-    private static final String TAG = "hahahahaha";
     private AnimatedExpandableListView mRecyclerView;
     private TextView mTvTotalCache;
     private TextView mTvType;
@@ -80,7 +75,7 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
     private ScanLargeFiles mScanLargeFiles;
 
 
-    public static final int EXTDIR_REQUEST_CODE = 1110,MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE=300;
+    public static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE=300;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -99,7 +94,6 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
             case R.id.lr_back:
                 finish();
                 return;
-
             default:
                 return;
         }

@@ -28,9 +28,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ads.control.AdControl;
-import com.ads.control.AdmobHelp;
-import com.ads.control.AdmobHelp.AdCloseListener;
+import com.ads.control.AdControlHelp;
+import com.ads.control.AdControlHelp.AdCloseListener;
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
 import com.amt.batterysaver.Utilsb.Utils;
 import com.amt.batterysaver.model.TaskInfo;
@@ -65,8 +64,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
     private ViewGroup parentAds;
     private LinearLayout lrScan;
     private Context context;
-    private AdControl adControl;
-    private AdmobHelp admobHelp;
+    private AdControlHelp adControlHelp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,11 +74,10 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         new CoolActivity.LoadRunningTask().execute();
         intView();
         context = this;
-        adControl = AdControl.getInstance(context);
 //        checkTask();
-        admobHelp = AdmobHelp.getInstance(context);
-        admobHelp.loadNative(this, adControl.admob_native());
-        admobHelp.loadInterstitialAd(adCloseListener, null, adControl.admob_full(), false);
+        adControlHelp=AdControlHelp.getInstance(context);
+        adControlHelp.loadNative(this);
+        adControlHelp.loadInterstitialAd(adCloseListener, null, false);
 //        SharePreferenceUtils.getInstance(this).setFlagAds(true);
     }
 
@@ -419,7 +416,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 //                SharePreferenceUtils.getInstance(CoolActivity.this).setFlagAds(false);
 //                    AdmobHelp.getInstance().loadInterstitialAd   (this, TypeAds.admod_full_phonecooler,);
 
-            admobHelp.showInterstitialAd(adCloseListener);
+            adControlHelp.showInterstitialAd(adCloseListener);
 //            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
 //                @Override
 //                public void onAdClosed() {

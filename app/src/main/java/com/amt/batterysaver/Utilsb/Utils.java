@@ -15,7 +15,6 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.ConnectivityManager;
 import android.net.Uri;
-import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.BatteryManager;
 import android.os.Build;
@@ -26,15 +25,11 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//import com.amt.batterysaver.activity.FullChargeActivity;
 import com.amt.batterysaver.activity.PermissionActivity;
-import com.amt.batterysaver.activity.WifiActivity;
 import com.amt.batterysaver.notification.NotificationDevice;
 import com.amt.batterysaver.Alarm.AlarmUtils;
 import com.amt.batterysaver.R;
 import com.amt.batterysaver.model.DeviceStatus;
-import com.amt.batterysaver.activity.ChargeActivity;
-import com.amt.batterysaver.activity.ChargeResultActivity;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -104,11 +99,11 @@ public class Utils {
 
     public static void intPowerConnected(Context context) {
         //Open activity sac nhanh
-        if (SharePreferenceUtils.getInstance(context).getFsAutoRun() && !Utils.getChargeFull(context)) {
-            Intent i = new Intent(context, ChargeActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(i);
-        }
+//        if (SharePreferenceUtils.getInstance(context).getFsAutoRun() && !Utils.getChargeFull(context)) {
+//            Intent i = new Intent(context, ChargeActivity.class);
+//            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            context.startActivity(i);
+//        }
         //Loai sac
         SharePreferenceUtils.getInstance(context).setChargeType(Utils.getChargeType(context));
         //Pin vao
@@ -132,22 +127,6 @@ public class Utils {
                 return true;
             }
         return false;
-    }
-
-    public static void wifiBooster(Context context, WifiManager wifiManager) {
-        SharePreferenceUtils pre = SharePreferenceUtils.getInstance(context);
-
-        WifiInfo info = wifiManager.getConnectionInfo();
-        if (info.getSupplicantState().name().equals("COMPLETED")) {
-            if (!pre.getWifiStatus()) {
-                pre.setWifiStatus(true);
-                Intent i = new Intent(context, WifiActivity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(i);
-            }
-        } else {
-            pre.setWifiStatus(false);
-        }
     }
 
     public static void powerDisconnected(Context context) {
@@ -186,12 +165,12 @@ public class Utils {
         }
         SharePreferenceUtils.getInstance(context).setLevelIn(0);
         SharePreferenceUtils.getInstance(context).setTimeIn(0);
-
-        if (SharePreferenceUtils.getInstance(context).getFsAutoRun()) {
-            Intent i = new Intent(context, ChargeResultActivity.class);
-            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            context.startActivity(i);
-        }
+//Rút sạc
+//        if (SharePreferenceUtils.getInstance(context).getFsAutoRun()) {
+//            Intent i = new Intent(context, ChargeResultActivity.class);
+//            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            context.startActivity(i);
+//        }
     }
 
     public static String formatSize(long size) {

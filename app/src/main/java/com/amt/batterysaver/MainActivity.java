@@ -25,6 +25,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.amt.batterysaver.Utilsb.SharePreferenceUtils;
@@ -177,6 +178,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
+        Log.v("Thaidaica","Đã gọi show");
         Rate.Show(this, 1, this);
     }
 
@@ -223,6 +225,9 @@ public class MainActivity extends BaseActivity {
         SharePreferenceUtils.getInstance(this).setFlagAds(false);
         super.onDestroy();
     }
-
+    @Override
+    public void finish() {
+        super.finish();
+    }
 }
 

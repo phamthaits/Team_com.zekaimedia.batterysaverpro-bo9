@@ -9,12 +9,12 @@ import com.ads.control.AdControl;
 import com.anjlab.android.iab.v3.BillingProcessor;
 import com.anjlab.android.iab.v3.TransactionDetails;
 
-public class RemoveAdsHelp  {
+public class RemoveAdsHelp {
 
-    private static String Code_InApp = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiOuydQZF//vYUY4kB4m1+PGANRR6dN6cqjEjXDh+qiCGU+GbavDDjOPeZzxX/8Uld4wGsqPdA0MwyehCofZeWuQz81pk+2k8TaDVdfvvJ100HcqtkTXk24uIM49gBWcj3KslCNT0S7egbbnnlQ+BSV2OnqdlDDynm5e/Mr+reb9WaHWr44UiIVQ59T8mf4W5SHp4mBJDjY2cH+IbW0NMlq4bTrJc69XlFLqAzdTERaiuGY43brpGSMCbpS8EzGtypTgbjgkm3ogptGtqlrM9VnSC3nVhmenoY4eiNnccxfxI/TDgu5CriOc/VkEFswQwD8AlllAbRgBQT/k8GPcpfQIDAQAB";  //đã check
+    private static String Code_InApp = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiOuydQZF//vYUY4kB4m1+PGANRR6dN6cqjEjXDh+qiCGU+GbavDDjOPeZzxX/8Uld4wGsqPdA0MwyehCofZeWuQz81pk+2k8TaDVdfvvJ100HcqtkTXk24uIM49gBWcj3KslCNT0S7egbbnnlQ+BSV2OnqdlDDynm5e/Mr+reb9WaHWr44UiIVQ59T8mf4W5SHp4mBJDjY2cH+IbW0NMlq4bTrJc69XlFLqAzdTERaiuGY43brpGSMCbpS8EzGtypTgbjgkm3ogptGtqlrM9VnSC3nVhmenoY4eiNnccxfxI/TDgu5CriOc/VkEFswQwD8AlllAbRgBQT/k8GPcpfQIDAQAB";
     private static String Code_ProductId = "com.amt.batterysaver.removeads";
     private static String merchantID = "5794897387132212509";
-    private static BillingProcessor bp;
+    public static BillingProcessor bp;
     private static AdControl adControl;
     private static RemoveAdsHelp instance;
     private static Context context;
@@ -24,19 +24,7 @@ public class RemoveAdsHelp  {
         void Purchased();
     }
 
-    public static RemoveAdsHelp getInstance(Context value, PurchasedListener purchasedListener) {
-        Log.v(RemoveAdsActivity.TagPurchase, "Get getInstance");
-        if (instance == null) {
-            instance = new RemoveAdsHelp();
-        }
-        context = value;
-        adControl = AdControl.getInstance(context);
-        RemoveAdsHelp.purchasedListener = purchasedListener;
-        bp = new BillingProcessor(context, Code_InApp, merchantID, handler);
-        return instance;
-    }
-
-    private static BillingProcessor.IBillingHandler handler = new BillingProcessor.IBillingHandler() {
+    private static BillingProcessor.IBillingHandler iBillingHandler = new BillingProcessor.IBillingHandler() {
         @Override
         public void onProductPurchased(String productId, TransactionDetails details) {
             adControl.remove_ads(true);
@@ -63,6 +51,19 @@ public class RemoveAdsHelp  {
             Log.v(RemoveAdsActivity.TagPurchase, adControl.remove_ads() + "");
         }
     };
+
+    public static RemoveAdsHelp getInstance(Context value, PurchasedListener purchasedListener) {
+        Log.v(RemoveAdsActivity.TagPurchase, "Get getInstance");
+        if (instance == null) {
+            instance = new RemoveAdsHelp();
+        }
+        context = value;
+        adControl = AdControl.getInstance(context);
+        RemoveAdsHelp.purchasedListener = purchasedListener;
+        bp = new BillingProcessor(context, Code_InApp, merchantID, iBillingHandler);
+        return instance;
+    }
+
     public void Purchase_ads(Activity activity) {
         Log.v(RemoveAdsActivity.TagPurchase, "Purchase_ads");
         try {

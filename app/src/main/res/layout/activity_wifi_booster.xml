@@ -87,7 +87,7 @@
                         android:layout_height="@dimen/img_mark_size"
                         android:layout_centerHorizontal="true"
                         android:src="@drawable/ic_wifi_booster"
-                        android:tint="#43c63c"/>
+                        app:tint="#43c63c"/>
 
                     <com.airbnb.lottie.LottieAnimationView
                         android:layout_width="@dimen/img_mark_size"
@@ -126,7 +126,7 @@
 
 
                     <include
-                        layout="@layout/native_ads_control"
+                        layout="@layout/control_native_ads"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                        ></include>
@@ -463,7 +463,7 @@
                         android:layout_height="fill_parent"
                         android:layout_gravity="center"
                         android:src="@drawable/ic_fan_white"
-                        android:tint="#ff3c485b" />
+                        app:tint="#ff3c485b" />
 
                 </RelativeLayout>
             </FrameLayout>
