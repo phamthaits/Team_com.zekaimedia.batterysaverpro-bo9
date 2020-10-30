@@ -142,7 +142,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
                 loadResult(holoCircularProgressBar, f);
             }
         };
-        adControlHelp.loadInterstitialAd(adCloseListener, null, false);
+        adControlHelp.loadInterstitialAd(this,adCloseListener, null, false);
         this.mProgressBarAnimatorCleanDone.addListener(new Animator.AnimatorListener() {
             public void onAnimationCancel(Animator animator) {
             }

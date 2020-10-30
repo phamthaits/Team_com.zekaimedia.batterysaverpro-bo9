@@ -147,16 +147,16 @@ public class FBHelp {
             }
         };
         if (canShowInterstitialAd()) {
+            interstitialAd.buildLoadAdConfig().withAdListener(interstitialAdListener).build();
+            if (adLoadedListener != null) adLoadedListener.onAdLoaded();
             if (showWhenLoaded) {
                 showInterstitialAd(adCloseListener);
-            } else {
-                interstitialAd.buildLoadAdConfig().withAdListener(interstitialAdListener).build();
             }
-            return;
+        } else {
+            interstitialAd = new InterstitialAd(context, ads);
+            interstitialAd.buildLoadAdConfig().withAdListener(interstitialAdListener).build();
+            loadInterstitialAd();
         }
-        interstitialAd = new InterstitialAd(context, ads);
-        interstitialAd.buildLoadAdConfig().withAdListener(interstitialAdListener).build();
-        loadInterstitialAd();
     }
 
     private void loadInterstitialAd() {
@@ -239,10 +239,10 @@ public class FBHelp {
         fbAdView.loadAd();
     }
 
-    private void setAnimation(Activity mActivity, LinearLayout adView) {
-        Animation animation = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.move_up_button);
-        Animation animation2 = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.move_down_button);
-        Animation animation3 = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.delay_anim_button);
+    private void setAnimation(LinearLayout adView) {
+        Animation animation = AnimationUtils.loadAnimation(context, R.anim.move_up_button);
+        Animation animation2 = AnimationUtils.loadAnimation(context, R.anim.move_down_button);
+        Animation animation3 = AnimationUtils.loadAnimation(context, R.anim.delay_anim_button);
         Button btnCallToAction = adView.findViewById(R.id.native_ad_call_to_action);
 //        btnCallToAction.startAnimation(animation);
 
@@ -418,7 +418,7 @@ public class FBHelp {
         LayoutInflater inflater = LayoutInflater.from(mActivity);
         // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
         LinearLayout adView = (LinearLayout) inflater.inflate(R.layout.item_fb_native_ad, nativeAdLayout, false);
-        setAnimation(mActivity, adView);
+        setAnimation(adView);
         nativeAdLayout.removeAllViews();
         nativeAdLayout.addView(adView);
 

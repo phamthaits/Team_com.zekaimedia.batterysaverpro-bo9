@@ -50,13 +50,11 @@
             android:background="?android:attr/windowBackground"
             app:itemBackground="@color/white"
             android:foreground="?attr/selectableItemBackground"
-            app:itemIconTint="@color/colorAccent"
             app:itemTextColor="@color/grey_500"
             app:menu="@menu/navigation"
             app:itemTextAppearanceActive="@style/BottomNavigationViewTextStyle"
             app:itemTextAppearanceInactive="@style/BottomNavigationViewTextStyle"/>
-
     </RelativeLayout>
 
-
+    <!--            app:itemIconTint="@color/colorAccent"-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -39,8 +39,7 @@ public class StartAppHelp {
         adControl = AdControl.getInstance(context);
 //        StartAppSDK.setTestAdsEnabled(true);
         StartAppSDK.init(context, "209309969", false);
-        startAppAd = new StartAppAd(context);
-               return instance;
+        return instance;
     }
 
     private static StartAppAd startAppAd;
@@ -56,12 +55,7 @@ public class StartAppHelp {
 
     public void loadInterstitialAd(AdCloseListener adCloseListener, AdLoadedListener adLoadedListener, boolean showWhenLoaded) {
         adControl.isStillShowAds = true;
-        if (adControl.remove_ads()) {
-            if (showWhenLoaded)
-                adCloseListener.onAdClosed();
-            return;
-        }
-        startAppAd.loadAd(new AdEventListener() {
+        AdEventListener adEventListener = new AdEventListener() {
             @Override
             public void onReceiveAd(com.startapp.sdk.adsbase.Ad ad) {
                 if (adLoadedListener != null) {
@@ -79,15 +73,17 @@ public class StartAppHelp {
                         adCloseListener.onAdClosed();
                 }
             }
-        });
+        };
+        startAppAd = new StartAppAd(context);
+        startAppAd.loadAd(adEventListener);
     }
+
+//    private boolean canShowInterstitialAd() {
+//        return (startAppAd != null && startAppAd.isReady());
+//    }
 
     public void showInterstitialAd(AdCloseListener adCloseListener) {
         Log.v("ads", "Đã gọi Show");
-        if (adControl.remove_ads()) {
-            adCloseListener.onAdClosed();
-            return;
-        }
         startAppAd.showAd(new AdDisplayListener() {
             @Override
             public void adHidden(Ad ad) {
@@ -95,7 +91,7 @@ public class StartAppHelp {
                 if (adCloseListener != null) {
                     adCloseListener.onAdClosed();
                 }
-                startAppAd.loadAd(adEventListenerEmpty);
+//                startAppAd.loadAd(adEventListenerEmpty);
             }
 
             @Override
@@ -117,9 +113,6 @@ public class StartAppHelp {
     }
 
     public void loadBannerFragment(final Activity mActivity, final View rootView) {
-        if (adControl.remove_ads()) {
-            return;
-        }
         ShimmerFrameLayout containerShimmer = rootView.findViewById(R.id.shimmer_container);
         containerShimmer.setVisibility(View.VISIBLE);
         containerShimmer.startShimmer();
@@ -154,9 +147,6 @@ public class StartAppHelp {
     }
 
     public void loadNative(final Activity mActivity) {
-        if (adControl.remove_ads()) {
-            return;
-        }
         FrameLayout frameLayout = mActivity.findViewById(R.id.startapp_adplaceholder);
         frameLayout.setVisibility(View.GONE);
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) mActivity.findViewById(R.id.shimmer_container);
@@ -194,9 +184,6 @@ public class StartAppHelp {
     }
 
     public void loadNativeFragment(final Activity mActivity, final View rootView) {
-        if (adControl.remove_ads()) {
-            return;
-        }
         FrameLayout frameLayout = rootView.findViewById(R.id.startapp_adplaceholder);
         frameLayout.setVisibility(View.GONE);
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);

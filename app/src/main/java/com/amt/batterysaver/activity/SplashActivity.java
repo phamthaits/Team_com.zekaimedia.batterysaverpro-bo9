@@ -54,7 +54,7 @@ public class SplashActivity extends AppCompatActivity {
         };
         handler.postDelayed(runnable, 8000);
         FireBaseListener fireBaseListener = () -> {
-            adControlHelp.loadInterstitialAd(adCloseListener, adLoadedListener, true);
+            adControlHelp.loadInterstitialAd(this,adCloseListener, adLoadedListener, true);
         };
         if (adControlHelp.is_reload_firebase()) {
             Log.v("ads", "reload Firebase: True");

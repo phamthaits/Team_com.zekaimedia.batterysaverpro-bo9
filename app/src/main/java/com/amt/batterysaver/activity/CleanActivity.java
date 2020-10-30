@@ -74,7 +74,6 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
     private ScanDownLoadFiles mScanDownLoadFiles;
     private ScanLargeFiles mScanLargeFiles;
 
-
     public static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE=300;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +85,7 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
         requestPerMission();
         NotificationDevice.cancle(this,NotificationDevice.ID_NOTIFICATTION_CLEAN_JUNK);
     }
+
 
     @Override
     public void onClick(View view) {

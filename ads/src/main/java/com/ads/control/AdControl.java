@@ -98,8 +98,36 @@ public class AdControl {
         editor.commit();
     }
 
+    public String mopub_full() {
+        return this.pre.getString("mopub_full", "");
+    }
+
+    public void mopub_full(String value) {
+        editor.putString("mopub_full", value);
+        editor.commit();
+    }
+
+    public String mopub_native() {
+        return this.pre.getString("mopub_native", "");
+    }
+
+    public void mopub_native(String value) {
+        editor.putString("mopub_native", value);
+        editor.commit();
+    }
+
+    public String mopub_banner() {
+        return this.pre.getString("mopub_banner", "");
+    }
+
+    public void mopub_banner(String value) {
+        editor.putString("mopub_banner", value);
+        editor.commit();
+    }
+
     public Boolean remove_ads() {
-        return this.pre.getBoolean("remove_ads", false);
+        return false;
+//        return this.pre.getBoolean("remove_ads", false);
     }
 
     public void remove_ads(Boolean value) {
@@ -134,6 +162,15 @@ public class AdControl {
         editor.commit();
     }
 
+    public int rate_mopub() {
+        return this.pre.getInt("rate_startapp", 0);
+    }
+
+    public void rate_mopub(int value) {
+        editor.putInt("rate_mopub", value);
+        editor.commit();
+    }
+
     public AdcontrolType adcontrolType() {
         return AdcontrolType.toMyEnum(this.pre.getString("adcontrolType", AdcontrolType.Admob.toString()));
     }
@@ -146,7 +183,8 @@ public class AdControl {
     public enum AdcontrolType {
         Admob,
         Facebook,
-        StartApp;
+        StartApp,
+        Mopub;
 
         public static AdcontrolType toMyEnum(String myEnumString) {
             try {
@@ -161,7 +199,9 @@ public class AdControl {
             if (rate <= instance.rate_admob()) instance.adcontrolType(Admob);
             else if (rate <= instance.rate_fb() + instance.rate_admob())
                 instance.adcontrolType(Facebook);
-            else instance.adcontrolType(StartApp);
+            else if (rate <= instance.rate_fb() + instance.rate_admob() + instance.rate_startapp())
+                instance.adcontrolType(StartApp);
+            else instance.adcontrolType(Mopub);
         }
     }
 
@@ -169,5 +209,6 @@ public class AdControl {
         Random r = new Random();
         return r.nextInt((max - min) + 1) + min;
     }
+
     public boolean isStillShowAds = true;
 }

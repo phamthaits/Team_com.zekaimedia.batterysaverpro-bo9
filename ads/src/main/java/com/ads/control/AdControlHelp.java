@@ -23,6 +23,7 @@ public class AdControlHelp {
     private static AdmobHelp admobHelp;
     private static FBHelp fbHelp;
     private static StartAppHelp startAppHelp;
+    private static MopubHelp mopubHelp;
 
     public static AdControlHelp getInstance(Context value) {
         context = value;
@@ -40,8 +41,8 @@ public class AdControlHelp {
     public boolean is_reload_firebase() {
         if (adControl.remove_ads())
             return false;
-//        return true;
-        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
+        return true;
+//        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
     }
 
     private AdControlHelp() {
@@ -52,7 +53,7 @@ public class AdControlHelp {
         Log.v("ads", "Load Firebase");
         AdControl adControl = AdControl.getInstance(context);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("Ad28")
+        db.collection("Ad31")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -72,6 +73,9 @@ public class AdControlHelp {
                                         case "rate_startapp":
                                             adControl.rate_startapp(object.getInt(key));
                                             break;
+                                        case "rate_mopub":
+                                            adControl.rate_mopub(object.getInt(key));
+                                            break;
                                         case "admob_full":
                                             adControl.admob_full(object.getString(key));
                                             break;
@@ -89,6 +93,15 @@ public class AdControlHelp {
                                             break;
                                         case "fb_native":
                                             adControl.fb_native(object.getString(key));
+                                            break;
+                                        case "mopub_full":
+                                            adControl.mopub_full(object.getString(key));
+                                            break;
+                                        case "mopub_banner":
+                                            adControl.mopub_banner(object.getString(key));
+                                            break;
+                                        case "mopub_native":
+                                            adControl.mopub_native(object.getString(key));
                                             break;
                                     }
                                     Log.d("ads", "key = " + key + ":" + object.getString(key));
@@ -132,6 +145,9 @@ public class AdControlHelp {
             case StartApp:
                 startAppHelp.loadNative(mActivity);
                 break;
+            case Mopub:
+                mopubHelp.loadNative(mActivity, adControl.mopub_native());
+                break;
         }
     }
 
@@ -149,6 +165,9 @@ public class AdControlHelp {
                 break;
             case StartApp:
                 startAppHelp.loadNativeFragment(mActivity, view);
+                break;
+            case Mopub:
+                mopubHelp.loadNativeFragment(view, adControl.mopub_native());
                 break;
         }
     }
@@ -168,12 +187,14 @@ public class AdControlHelp {
             case StartApp:
                 startAppHelp.loadBannerFragment(mActivity, view);
                 break;
+            case Mopub:
+                mopubHelp.loadBannerFragment(view, adControl.mopub_banner());
+                break;
         }
     }
 
 
-
-    public void loadInterstitialAd(AdCloseListener adCloseListener, AdLoadedListener adLoadedListener, boolean showWhenLoaded) {
+    public void loadInterstitialAd(Activity activity, AdCloseListener adCloseListener, AdLoadedListener adLoadedListener, boolean showWhenLoaded) {
         Log.v("ads", "Call ads");
         if (adControl.remove_ads()) {
             if (showWhenLoaded)
@@ -190,6 +211,9 @@ public class AdControlHelp {
                 break;
             case StartApp:
                 startAppHelp.loadInterstitialAd(adCloseListener, adLoadedListener, showWhenLoaded);
+                break;
+            case Mopub:
+                mopubHelp.loadInterstitialAd(activity, adCloseListener, adLoadedListener, adControl.mopub_full(), showWhenLoaded);
                 break;
         }
     }
@@ -210,8 +234,11 @@ public class AdControlHelp {
             case StartApp:
                 startAppHelp.showInterstitialAd(adCloseListener);
                 break;
+            case Mopub:
+                mopubHelp.showInterstitialAd(adCloseListener);
         }
     }
+
     private void loadNetworkHelp() {
         switch (adControl.adcontrolType()) {
             case Admob:
@@ -221,7 +248,10 @@ public class AdControlHelp {
                 fbHelp = FBHelp.getInstance(context);
                 break;
             case StartApp:
-                         startAppHelp = StartAppHelp.getInstance(context);
+                startAppHelp = StartAppHelp.getInstance(context);
+                break;
+            case Mopub:
+                mopubHelp = MopubHelp.getInstance(context);
                 break;
         }
     }

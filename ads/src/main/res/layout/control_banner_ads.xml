@@ -9,7 +9,8 @@
         android:id="@+id/fb_adplaceholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:visibility="gone" />
 
     <FrameLayout
         android:id="@+id/admob_adplaceholder"
@@ -18,6 +19,7 @@
         android:layout_gravity="center"
         android:orientation="vertical"
         android:visibility="gone" />
+
     <FrameLayout
         android:id="@+id/statapp_adplaceholder"
         android:layout_width="match_parent"
@@ -26,5 +28,10 @@
         android:orientation="vertical"
         android:visibility="gone" />
 
+    <FrameLayout
+        android:id="@+id/mopub_adplaceholder"
+        android:layout_width='320dp'
+        android:layout_height='50dp'
+        android:visibility="gone" />
     <include layout="@layout/load_banner" />
 </LinearLayout>

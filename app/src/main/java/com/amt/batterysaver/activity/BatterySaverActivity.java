@@ -77,7 +77,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         intView();
 //        checkTask();
         adControlHelp.loadNative(this);
-        adControlHelp.loadInterstitialAd(adCloseListener, null, false);
+        adControlHelp.loadInterstitialAd(this,adCloseListener, null, false);
     }
 
     private AdCloseListener adCloseListener = new AdCloseListener() {
