@@ -126,8 +126,8 @@ public class AdControl {
     }
 
     public Boolean remove_ads() {
-        return false;
-//        return this.pre.getBoolean("remove_ads", false);
+//        return false;
+        return this.pre.getBoolean("remove_ads", false);
     }
 
     public void remove_ads(Boolean value) {

@@ -11,12 +11,15 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.LinearInterpolator;
+
+import androidx.core.content.res.ResourcesCompat;
 
 import com.amt.batterysaver.R;
 
@@ -52,7 +55,7 @@ public class RotateLoading extends View {
 
     private float speedOfArc;
 
-    private Bitmap mBitmapComplete;
+    //    private Bitmap mBitmapComplete;
     private int widthView;
     private int heightView;
 
@@ -99,8 +102,8 @@ public class RotateLoading extends View {
         mPaintComplete.setStyle(Paint.Style.FILL);
         mPaintComplete.setStrokeWidth(45);
         mPaintComplete.setTextAlign(Paint.Align.CENTER);
-
-        mBitmapComplete = BitmapFactory.decodeResource(getResources(), R.drawable.ic_check);
+//        mBitmapComplete = ((BitmapDrawable) ResourcesCompat.getDrawable(context.getResources(), R.drawable.ic_check, null)).getBitmap();
+//        mBitmapComplete = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_check);
     }
 
     @Override
@@ -138,8 +141,8 @@ public class RotateLoading extends View {
         super.onDraw(canvas);
 
         if (!isStart) {
-            canvas.drawBitmap(mBitmapComplete, widthView / 2 - mBitmapComplete.getWidth() / 2
-                    , heightView / 2 - mBitmapComplete.getHeight() / 2, mPaintComplete);
+//            canvas.drawBitmap(mBitmapComplete, widthView / 2 - mBitmapComplete.getWidth() / 2
+//                    , heightView / 2 - mBitmapComplete.getHeight() / 2, mPaintComplete);
             return;
         }
 

@@ -41,8 +41,8 @@ public class AdControlHelp {
     public boolean is_reload_firebase() {
         if (adControl.remove_ads())
             return false;
-        return true;
-//        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
+//        return true;
+        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
     }
 
     private AdControlHelp() {
@@ -236,6 +236,7 @@ public class AdControlHelp {
                 break;
             case Mopub:
                 mopubHelp.showInterstitialAd(adCloseListener);
+                break;
         }
     }
 

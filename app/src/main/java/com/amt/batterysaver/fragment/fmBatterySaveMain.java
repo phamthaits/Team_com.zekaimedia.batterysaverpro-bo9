@@ -125,7 +125,14 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 break;
             case R.id.lrClean:
                 SharePreferenceUtils.getInstance(getActivity()).setFlagAds(true);
-                startActivity(new Intent(getActivity(), CleanActivity.class));
+                try {
+                    ((BaseActivity)getActivity()).askPermissionUsageSetting(() -> {
+                        startActivity(new Intent(getActivity(), CleanActivity.class));
+                        return null;
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 break;
             case R.id.lrCool:
                 SharePreferenceUtils.getInstance(getActivity()).setFlagAds(true);

@@ -1,11 +1,15 @@
 package com.amt.batterysaver.activity;
 
 import android.Manifest;
+import android.app.usage.StorageStats;
+import android.app.usage.StorageStatsManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageStatsObserver;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageStats;
+import android.content.pm.ResolveInfo;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -214,35 +218,47 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
 
         @Override
         protected List<ChildItem> doInBackground(Void... params) {
-            final List<ApplicationInfo> packages = CleanActivity.this.getPackageManager().getInstalledApplications(
-                    PackageManager.GET_META_DATA);
-            final CountDownLatch countDownLatch = new CountDownLatch(packages.size());
-            final List<ChildItem> apps = new ArrayList<>();
+            Method mGetPackageSizeInfoMethod = null;
             try {
-                for (ApplicationInfo pkg : packages) {
-                    mGetPackageSizeInfoMethod.invoke(CleanActivity.this.getPackageManager(), pkg.packageName,
-                            new IPackageStatsObserver.Stub() {
-
-                                @Override
-                                public void onGetStatsCompleted(PackageStats pStats,
-                                                                boolean succeeded) {
-                                    synchronized (apps) {
-                                        addPackage(apps, pStats);
-                                    }
-                                    synchronized (countDownLatch) {
-                                        countDownLatch.countDown();
-                                    }
-                                }
-                            }
-                    );
-                }
-
-                countDownLatch.await();
-            } catch (InvocationTargetException | InterruptedException | IllegalAccessException e) {
+                mGetPackageSizeInfoMethod = getPackageManager().getClass().getMethod(
+                        "getPackageSizeInfo", String.class, IPackageStatsObserver.class);
+            } catch (NoSuchMethodException e) {
                 e.printStackTrace();
             }
+            Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+            mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+            List<ResolveInfo> pkgAppsList = getPackageManager().queryIntentActivities(mainIntent, 0);
+            final List<ChildItem> apps = new ArrayList<>();
+            for (final ResolveInfo pkg : pkgAppsList) {
+                if (Build.VERSION.SDK_INT > Build.VERSION_CODES.O) {
+                    StorageStatsManager storageStatsManager = (StorageStatsManager) getSystemService(Context.STORAGE_STATS_SERVICE);
+                    try {
+                        ApplicationInfo mApplicationInfo = getPackageManager().getApplicationInfo(pkg.activityInfo.packageName, 0);
+                        StorageStats storageStats = storageStatsManager.queryStatsForUid(mApplicationInfo.storageUuid, mApplicationInfo.uid);
+                        long cacheSize = storageStats.getCacheBytes();
+                        addPackage(apps, cacheSize, pkg.activityInfo.packageName);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    try {
+                        mGetPackageSizeInfoMethod.invoke(getPackageManager(), pkg.activityInfo.packageName,
+                                new IPackageStatsObserver.Stub() {
+                                    @Override
+                                    public void onGetStatsCompleted(PackageStats pStats,
+                                                                    boolean succeeded) {
+                                        long cacheSize = pStats.cacheSize;
+                                        addPackage(apps, cacheSize, pkg.activityInfo.packageName);
+                                    }
+                                }
+                        );
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return apps;
 
-            return new ArrayList<>(apps);
         }
 
         @Override
@@ -252,26 +268,21 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
             }
         }
 
-        private void addPackage(List<ChildItem> apps, PackageStats pStats) {
-            long cacheSize = pStats.cacheSize;
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                cacheSize += pStats.externalCacheSize;
-            }
+        private void addPackage(List<ChildItem> apps, long cacheSize, String pgkName) {
             try {
-                PackageManager packageManager = CleanActivity.this.getPackageManager();
-                ApplicationInfo info = packageManager.getApplicationInfo(pStats.packageName,
-                        PackageManager.GET_META_DATA);
-                if (cacheSize > 1024 * 12) {
+                PackageManager packageManager = getPackageManager();
+                ApplicationInfo info = packageManager.getApplicationInfo(pgkName, PackageManager.GET_META_DATA);
+                if (cacheSize > 1024 * 100) {
                     mTotalSize += cacheSize;
-                    apps.add(new ChildItem(pStats.packageName,
+                    apps.add(new ChildItem(pgkName,
                             packageManager.getApplicationLabel(info).toString(),
-                            packageManager.getApplicationIcon(pStats.packageName),
+                            info.loadIcon(packageManager),
                             cacheSize, ChildItem.TYPE_CACHE, null, true));
                 }
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
+
         }
     }
 
@@ -636,13 +647,13 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
 
     private void updateAdapter() {
         if (mGroupItems.size() != 0) {
-            for (int i = 0; i < mGroupItems.size(); i++) {
-                if (mRecyclerView.isGroupExpanded(i)) {
-                    mRecyclerView.collapseGroupWithAnimation(i);
-                } else {
-                    mRecyclerView.expandGroupWithAnimation(i);
-                }
-            }
+//            for (int i = 0; i < mGroupItems.size(); i++) {
+//                if (mRecyclerView.isGroupExpanded(i)) {
+//                    mRecyclerView.collapseGroupWithAnimation(i);
+//                } else {
+//                    mRecyclerView.expandGroupWithAnimation(i);
+//                }
+//            }
             mRecyclerView.setVisibility(View.VISIBLE);
             mTvNoJunk.setVisibility(View.GONE);
             mBtnCleanUp.setVisibility(View.VISIBLE);

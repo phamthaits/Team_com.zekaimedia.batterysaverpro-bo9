@@ -23,6 +23,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     buildToolsVersion = '30.0.2'
+    ndkVersion '21.3.6528147'
 }
 repositories {
     jcenter()
@@ -48,7 +49,5 @@ dependencies {
     implementation 'com.startapp:inapp-sdk:4.6.3'
     implementation 'com.google.android.gms:play-services-ads-identifier'
     implementation 'com.google.android.gms:play-services-base'
-    implementation('com.mopub:mopub-sdk:5.14.0@aar') {
-        transitive = true
-    }
+    implementation 'com.mopub:mopub-sdk:5.14.0'
 }

@@ -8,13 +8,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.formats.UnifiedNativeAdView;
 import com.mopub.common.MoPub;
 import com.mopub.common.SdkConfiguration;
 import com.mopub.common.SdkInitializationListener;
@@ -166,7 +163,6 @@ public class MopubHelp {
     public void loadBannerFragment(View rootView, String ads) {
         FrameLayout frameLayout = rootView.findViewById(R.id.mopub_adplaceholder);
         frameLayout.setVisibility(View.GONE);
-        frameLayout.removeAllViews();
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         containerShimmer.setVisibility(View.VISIBLE);
         containerShimmer.startShimmer();
@@ -175,9 +171,7 @@ public class MopubHelp {
         MoPub.initializeSdk(context, configBuilder.build(), new SdkInitializationListener() {
             @Override
             public void onInitializationFinished() {
-                MoPubView moPubView = new MoPubView(context);
-                frameLayout.addView(moPubView);
-                moPubView.setAdSize(MoPubView.MoPubAdSize.MATCH_VIEW);
+                MoPubView moPubView  =  rootView.findViewById(R.id.adview);
                 moPubView.setAdUnitId(ads);
                 moPubView.setBannerAdListener(new MoPubView.BannerAdListener() {
                     @Override

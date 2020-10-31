@@ -30,8 +30,16 @@
 
     <FrameLayout
         android:id="@+id/mopub_adplaceholder"
-        android:layout_width='320dp'
-        android:layout_height='50dp'
-        android:visibility="gone" />
+        android:layout_width='match_parent'
+        android:layout_height='wrap_content'
+        android:visibility="gone">
+
+        <com.mopub.mobileads.MoPubView
+            android:id="@+id/adview"
+            android:layout_width="match_parent"
+            android:layout_height='50dp'
+            app:moPubAdSize='height_50'></com.mopub.mobileads.MoPubView>
+    </FrameLayout>
+
     <include layout="@layout/load_banner" />
 </LinearLayout>
