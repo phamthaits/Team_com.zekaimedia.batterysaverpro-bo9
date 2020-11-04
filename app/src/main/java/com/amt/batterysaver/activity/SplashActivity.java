@@ -33,7 +33,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_spash_screen);
+        setContentView(R.layout.activity_splash_screen);
         adControl = AdControl.getInstance(this);
         adControlHelp = AdControlHelp.getInstance(this);
         RemoveAdsHelp.getInstance(this, null);
