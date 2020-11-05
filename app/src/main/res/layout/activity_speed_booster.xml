@@ -350,7 +350,7 @@
                                     android:layout_height="32.0dip"
                                     android:layout_gravity="center"
                                     android:src="@drawable/ic_temperature" />
-                                <!--                                android:tint="@color/white"-->
+                                <!--                                app:tint="@color/white"-->
                             </FrameLayout>
 
                             <LinearLayout
@@ -438,7 +438,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true">
 
-                <com.amt.batterysaver.view.HoloCircularProgressBar
+                <app.tahachi.batterydoctor.view.HoloCircularProgressBar
                     android:id="@+id/ivDoneHoloCirular"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -453,7 +453,7 @@
                     app:progress_color="@color/progress_color"
                     app:stroke_width="4dp" />
 
-                <!--                android:tint="@color/colorAccent"-->
+                <!--                app:tint="@color/colorAccent"-->
                 <ImageView
                     android:id="@+id/clean_done_iv_tick"
                     android:layout_width="match_parent"

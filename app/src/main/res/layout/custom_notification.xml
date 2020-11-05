@@ -2,6 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/notification_background"
     android:gravity="center">
 
@@ -119,7 +120,7 @@
                     android:layout_height="18.0dip"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_battery_notification_normal"
-                    android:tint="@color/colorAccent" />
+                    app:tint="@color/colorAccent" />
 
                 <TextView
                     android:id="@+id/tvBattery"
@@ -145,7 +146,7 @@
                     android:layout_height="18.0dip"
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/ic_temperature_normal"
-                    android:tint="@color/colorAccent" />
+                    app:tint="@color/colorAccent" />
 
                 <TextView
                     android:id="@+id/tvTemp"
@@ -182,7 +183,7 @@
                 android:padding="5dip"
                 android:src="@drawable/ic_memory_boost"
                 />
-<!--            android:tint="@color/more_boost"-->
+<!--            app:tint="@color/more_boost"-->
         </LinearLayout>
     </FrameLayout>
 </FrameLayout>

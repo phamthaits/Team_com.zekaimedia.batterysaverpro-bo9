@@ -363,7 +363,7 @@
                                     android:layout_height="32.0dip"
                                     android:layout_gravity="center"
                                     android:src="@drawable/ic_temperature" />
-                                <!--                                android:tint="@color/white"-->
+                                <!--                                app:tint="@color/white"-->
                             </FrameLayout>
 
                             <LinearLayout

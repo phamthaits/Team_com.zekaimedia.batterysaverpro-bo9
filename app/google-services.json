@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "1048177060057",
-    "firebase_url": "https://batterysaver-3da95.firebaseio.com",
-    "project_id": "batterysaver-3da95",
-    "storage_bucket": "batterysaver-3da95.appspot.com"
+    "project_number": "658146804620",
+    "firebase_url": "https://super-battery-doctor.firebaseio.com",
+    "project_id": "super-battery-doctor",
+    "storage_bucket": "super-battery-doctor.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1048177060057:android:acea1c8497d82c6cbeb6c8",
+        "mobilesdk_app_id": "1:658146804620:android:284d372993c2c03ce3cca9",
         "android_client_info": {
-          "package_name": "com.amt.batterysaver"
+          "package_name": "app.tahachi.batterydoctor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1048177060057-73o85a7ghvv6jp4dgfm6eo3jpp4kge6j.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.amt.batterysaver",
-            "certificate_hash": "a1efde6ec86aee33e499bdc0e5b47ec67864660a"
-          }
-        },
-        {
-          "client_id": "1048177060057-7nmta925137a6tjiss9bb84eqn35gpma.apps.googleusercontent.com",
+          "client_id": "658146804620-l99b9laj2qesqml55cfllv4b7vte4ltf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC43JXrhnZmM-ipsN5JGYgsFevZr6bI7B4"
+          "current_key": "AIzaSyCeJzdcnnfZwQVVZ1AKGp839AGl7MLqIME"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1048177060057-7nmta925137a6tjiss9bb84eqn35gpma.apps.googleusercontent.com",
+              "client_id": "658146804620-l99b9laj2qesqml55cfllv4b7vte4ltf.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -31,7 +31,7 @@
                     android:src="@drawable/ic_rocket_white"
 
                     android:scaleType="centerInside" />
-<!--                android:tint="@color/more_clean"-->
+<!--                app:tint="@color/more_clean"-->
             </FrameLayout>
 
             <LinearLayout

@@ -300,7 +300,7 @@
                         android:layout_width="@dimen/_38sdp"
                         android:layout_height="@dimen/_38sdp"
                         android:src="@drawable/ic_clean_trash" />
-                    <!--                    android:tint="@color/more_clean"-->
+                    <!--                    app:tint="@color/more_clean"-->
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -331,7 +331,7 @@
                         android:layout_width="@dimen/_38sdp"
                         android:layout_height="@dimen/_38sdp"
                         android:src="@drawable/ic_memory_boost" />
-                    <!--                    android:tint="#FF80AB"-->
+                    <!--                    app:tint="#FF80AB"-->
 
                     <TextView
                         android:layout_width="wrap_content"

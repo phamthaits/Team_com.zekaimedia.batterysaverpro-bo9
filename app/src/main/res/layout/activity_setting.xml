@@ -51,7 +51,7 @@
                         style="@style/imageStyle"
                         android:src="@drawable/ic_rocket_red" />
                     <!--                    android:src="@drawable/ic_rocket_white"-->
-                    <!--                    android:tint="#FF5252" />-->
+                    <!--                    app:tint="#FF5252" />-->
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -86,7 +86,7 @@
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_setting_white_list" />
-                    <!--                    android:tint="#536DFE"-->
+                    <!--                    app:tint="#536DFE"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -125,7 +125,7 @@
                 <!--                    <ImageView-->
                 <!--                        style="@style/imageStyle"-->
                 <!--                        android:src="@drawable/ic_setting_fastcharge" />-->
-                <!--                    &lt;!&ndash;                    android:tint="#7C4DFF"&ndash;&gt;-->
+                <!--                    &lt;!&ndash;                    app:tint="#7C4DFF"&ndash;&gt;-->
 
                 <!--                    <LinearLayout-->
                 <!--                        android:layout_width="match_parent"-->
@@ -223,7 +223,7 @@
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_moon" />
-                    <!--                    android:tint="#FF4081"-->
+                    <!--                    app:tint="#FF4081"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -265,7 +265,7 @@
                         style="@style/imageStyle"
                         android:src="@drawable/ic_rocket_yellow" />
                     <!--                    android:src="@drawable/ic_rocket_white"-->
-                    <!--                    android:tint="#FFD740" />-->
+                    <!--                    app:tint="#FFD740" />-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -297,7 +297,7 @@
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_temperature_normal" />
-                    <!--                    android:tint="@color/colorAccent"-->
+                    <!--                    app:tint="@color/colorAccent"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -330,7 +330,7 @@
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_battery_low" />
-                    <!--                    android:tint="#FF5252"-->
+                    <!--                    app:tint="#FF5252"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -361,7 +361,7 @@
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_charge_full_reminder" />
-                    <!--                    android:tint="#536DFE"-->
+                    <!--                    app:tint="#536DFE"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -412,7 +412,7 @@
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_temperature_normal" />
-                    <!--                    android:tint="#FF5252"-->
+                    <!--                    app:tint="#FF5252"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -447,7 +447,7 @@
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_langue" />
-                    <!--                    android:tint="#536DFE"-->
+                    <!--                    app:tint="#536DFE"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"

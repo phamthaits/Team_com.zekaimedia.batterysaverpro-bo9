@@ -28,7 +28,7 @@
             app:layout_constraintStart_toEndOf="@+id/recyclerView"
             app:layout_constraintTop_toTopOf="parent"></include>
 
-        <com.amt.batterysaver.view.AnimatedExpandableListView
+        <app.tahachi.batterydoctor.view.AnimatedExpandableListView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -42,7 +42,7 @@
             app:layout_constraintTop_toBottomOf="@+id/banner"
             app:layout_constraintVertical_bias="1.0">
 
-        </com.amt.batterysaver.view.AnimatedExpandableListView>
+        </app.tahachi.batterydoctor.view.AnimatedExpandableListView>
 
         <include
             layout="@layout/loading"

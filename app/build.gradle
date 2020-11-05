@@ -4,7 +4,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "com.amt.batterysaver"
+        applicationId 'app.tahachi.batterydoctor'
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1

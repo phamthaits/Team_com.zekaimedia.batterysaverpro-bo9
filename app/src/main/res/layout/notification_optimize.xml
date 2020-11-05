@@ -30,7 +30,7 @@
                     android:src="@drawable/ic_sync_true"
                     android:scaleType="centerInside"
                     />
-<!--                android:tint="@color/colorAccent"-->
+<!--                app:tint="@color/colorAccent"-->
             </FrameLayout>
 
             <LinearLayout

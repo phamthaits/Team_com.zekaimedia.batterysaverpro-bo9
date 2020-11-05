@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_remove_ads_all"
-    tools:context="com.amt.batterysaver.activity.RemoveAdsActivity">
+    tools:context="app.tahachi.batterydoctor.activity.RemoveAdsActivity">
 
     <TextView
         android:id="@+id/tv_remove_ads"
