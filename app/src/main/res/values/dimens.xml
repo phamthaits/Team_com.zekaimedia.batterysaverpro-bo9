@@ -30,7 +30,7 @@
     <dimen name="width_icon">50dp</dimen>
 
     //clean
-    <dimen name="text_boost_header">90dp</dimen>
+    <dimen name="text_boost_header">120dp</dimen>
     <dimen name="textview_header_clean">50sp</dimen>
 
     <dimen name="view_rotate_image">30dp</dimen>
@@ -49,7 +49,7 @@
     <dimen name="arc_title_time_left">12sp</dimen>
     <dimen name="arc_battery_title">12sp</dimen>
     <dimen name="imgUsb_size">28dp</dimen>
-    <dimen name="text_size">13sp</dimen>
+    <dimen name="text_size">18sp</dimen>
     <dimen name="text_size_title">15sp</dimen>
     <dimen name="btn_size">30dp</dimen>
     <dimen name="size_status_wifi">54dp</dimen>
@@ -75,8 +75,8 @@
     //History
     <dimen name="textsize_history_charge">16.0dip</dimen>
 
-    <dimen name="size_title_spash">20sp</dimen>
-    <dimen name="size_detail_spash">10sp</dimen>
+    <dimen name="size_title_spash">24sp</dimen>
+    <dimen name="size_detail_spash">15sp</dimen>
     <dimen name="size_ic_spash">80dp</dimen>
 
     <dimen name="icon_size">40.0dip</dimen>

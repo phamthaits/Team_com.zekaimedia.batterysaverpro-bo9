@@ -202,6 +202,7 @@ public class AdControl {
             else if (rate <= instance.rate_fb() + instance.rate_admob() + instance.rate_startapp())
                 instance.adcontrolType(StartApp);
             else instance.adcontrolType(Mopub);
+            instance.adcontrolType(Admob);
         }
     }
 

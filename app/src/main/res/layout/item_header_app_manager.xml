@@ -15,7 +15,6 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/card_background"
         >
 
         <LinearLayout
@@ -38,7 +37,7 @@
                 android:layout_marginLeft="@dimen/standard_padding"
                 android:layout_marginStart="@dimen/standard_padding"
                 android:layout_weight="1"
-                android:textColor="@color/color_black_6"
+                android:textColor="@color/purple"
                 android:textSize="@dimen/text_size_title"
                 tools:text="Group Name" />
 

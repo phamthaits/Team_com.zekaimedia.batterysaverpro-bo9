@@ -93,7 +93,7 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
     private void setColorText(boolean isChecked) {
         if (isChecked) {
             tvEnable.setText(getString(R.string.enabled));
-            tvEnable.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+            tvEnable.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
             swAutoRun.setChecked(isChecked);
             findViewById(R.id.lrWifi).setEnabled(true);
             findViewById(R.id.lrBluetooth).setEnabled(true);
@@ -104,7 +104,7 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
             tvWifi.setTextColor(ContextCompat.getColor(this, R.color.text_color));
             if(SharePreferenceUtils.getInstance(this).getFsWifi()){
                 swWifi.setChecked(true);
-                tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+                tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
                 tvWifiDes.setText(getString(R.string.on_status));
 
             }else{
@@ -115,7 +115,7 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
 
             if(SharePreferenceUtils.getInstance(this).getFsBluetooth()){
                 swBluetooth.setChecked(true);
-                tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+                tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
                 tvBluetoothDes.setText(getString(R.string.on_status));
             }else{
                 swBluetooth.setChecked(false);
@@ -125,7 +125,7 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
             tvBluetooth.setTextColor(ContextCompat.getColor(this, R.color.text_color));
 
             if(SharePreferenceUtils.getInstance(this).getFsAutoBrightness()){
-                tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+                tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
             }else{
                 tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
             }
@@ -133,7 +133,7 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
 
 
             if(SharePreferenceUtils.getInstance(this).getFsAutoSync()){
-                tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+                tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
             }else{
                 tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
             }
@@ -203,7 +203,7 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
                     swWifi.setChecked(false);
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsWifi(false);
                 }else{
-                    tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+                    tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
                     tvWifiDes.setText(R.string.on_status);
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsWifi(true);
                     swWifi.setChecked(true);
@@ -217,7 +217,7 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
                     tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsBluetooth(false);
                 }else{
-                    tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+                    tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
                     tvBluetoothDes.setText(R.string.on_status);
                     swBluetooth.setChecked(true);
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsBluetooth(true);
@@ -230,7 +230,7 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
                     swAutoBrightness.setChecked(false);
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoBrightness(false);
                 }else{
-                    tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+                    tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
                     swAutoBrightness.setChecked(true);
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoBrightness(true);
                 }
@@ -255,7 +255,7 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoSync(false);
 
                 }else{
-                    tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+                    tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
                     swAutoSync.setChecked(true);
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoSync(true);
 

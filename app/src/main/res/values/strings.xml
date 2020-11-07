@@ -36,7 +36,19 @@
     <string name="user_app">User App</string>
     <string name="app_manager">APP MANAGER</string>
 
-    //Cooler
+    //Trash Cleaner
+    <string name="clean_description" translatable="false">Clean unnecessary files to save
+        spaces</string>
+    <string name="trash_clean" translatable="false">Clean</string>
+
+    //Phone Boost
+    <string name="boost_description" translatable="false">Phone is slow? Too many apps
+        running in background</string>
+    <string name="phone_boost" translatable="false">Boost</string>
+    //Phone Cooler
+    <string name="cool_description" translatable="false">Phone is hot? Cool down your phone
+    now to extend phone life</string>
+    <string name="phone_cooler" translatable="false">Cool</string>
     <string name="done">DONE</string>
 
     //junk
@@ -162,7 +174,7 @@
     <string name="pc_scanning">Scanning</string>
     <string name="cpugpuram" translatable="false">CPU,GPU,RAM</string>
     <string name="bd_power_issue">Power issue</string>
-    <string name="app_name">Super Fast Charger</string>
+    <string name="app_name">Super Fast Doctor &amp; Fast Charger</string>
     <string name="power_full">Power is full</string>
     <string name="auto_disable">Disable</string>
     <string name="on_status">ON</string>
@@ -179,8 +191,8 @@
 
     <color name="main_darker_color">#ffffffff</color>
 
-    <string name="stringGreen" translatable="false">#ff3fb5cf</string>
-    <string name="stringGray" translatable="false">#b2bec3</string>
+    <string name="stringGreen" translatable="false">#7777DC</string>
+    <string name="stringGray" translatable="false">#7777DC</string>
 
     <string name="link_policy" translatable="false">https://sites.google.com/view/amtteam/</string>
     <string name="calculating">calculating...</string>

@@ -38,7 +38,7 @@
                 android:marqueeRepeatLimit="marquee_forever"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:fontFamily="@font/roboto_regular"
+                android:fontFamily="@font/phenomena_regular"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/text_size_title"
                 tools:text="Person Name" />
@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:fontFamily="@font/roboto_light"
+                android:fontFamily="@font/phenomena_light"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/text_size"
                 tools:text="Person Name" />
@@ -63,7 +63,7 @@
             android:text="@string/uninstall"
             android:textAllCaps="false"
             android:textSize="@dimen/text_size"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="@font/phenomena_regular"
             android:textColor="@color/text_color" />
 
         <ImageView

@@ -8,7 +8,7 @@
     <dimen name="arc_battery_title">23.5sp</dimen>
     <dimen name="imgUsb_size">35dp</dimen>
 
-    <dimen name="text_size">24sp</dimen>
+    <dimen name="text_size">29sp</dimen>
     <dimen name="textsize_compo_ram_cpu_des">22sp</dimen>
     <dimen name="textsize_ram_storage_total">22sp</dimen>
     <dimen name="cirularsize">5dp</dimen>
@@ -37,7 +37,7 @@
     //charge
 
     <dimen name="size_ic_spash">90dp</dimen>
-    <dimen name="size_title_spash">19sp</dimen>
-    <dimen name="size_detail_spash">11sp</dimen>
+    <dimen name="size_title_spash">23sp</dimen>
+    <dimen name="size_detail_spash">16sp</dimen>
 
 </resources>

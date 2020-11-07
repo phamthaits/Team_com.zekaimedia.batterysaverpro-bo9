@@ -30,7 +30,7 @@
                 android:textColor="@color/white" 
                 android:layout_width="wrap_content" 
                 android:layout_height="fill_parent"
-                android:fontFamily="@font/roboto_regular"
+                android:fontFamily="@font/phenomena_regular"
                 android:text="@string/app_name" />
 
         </LinearLayout>
@@ -50,7 +50,7 @@
                 android:layout_width="0.0dip" 
                 android:layout_height="wrap_content" 
                 android:text="@string/setting_permission_request_title"
-                android:fontFamily="@font/roboto_regular"
+                android:fontFamily="@font/phenomena_regular"
                 android:layout_weight="1.0" />
             <FrameLayout 
                 android:layout_width="100.0dip" 
@@ -85,7 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/text_gray"
-                android:fontFamily="@font/roboto_light"
+                android:fontFamily="@font/phenomena_light"
                 android:text="@string/setting_permission_request_summary" />
         </LinearLayout>
 
@@ -99,7 +99,7 @@
             android:layout_width="fill_parent"
             android:layout_height="36.0dip"
             android:layout_marginTop="16.0dip"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="@font/phenomena_regular"
 
             android:text="OK" />
     </LinearLayout>

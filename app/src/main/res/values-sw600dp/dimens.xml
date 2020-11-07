@@ -11,12 +11,13 @@
     <dimen name="arc_battery_title">23.5sp</dimen>
     <dimen name="imgUsb_size">35dp</dimen>
 
-    <dimen name="text_size">24sp</dimen>
+    <dimen name="text_size">29sp</dimen>
     <dimen name="textsize_compo_ram_cpu_des">22sp</dimen>
     <dimen name="textsize_ram_storage_total">22sp</dimen>
     <dimen name="cirularsize">5dp</dimen>
     <dimen name="btn_size">45dp</dimen>
     <dimen name="size_status_wifi">84dp</dimen>
+    <dimen name="textview_header_clean">65sp</dimen>
 
     <dimen name="text_size_hour">21sp</dimen>
     <dimen name="power_issue_width_height">18dip</dimen>

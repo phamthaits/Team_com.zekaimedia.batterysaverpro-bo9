@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rounded">
+
+    <RelativeLayout
+        android:id="@+id/lrCool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <RelativeLayout
+            android:id="@+id/icon_cool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_icon_phone_cooler"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/ivCapacity"
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_margin="@dimen/_20sdp"
+                android:src="@drawable/ic_noti_temp_white" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/text_cool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/icon_cool"
+            android:layout_alignBottom="@+id/icon_cool"
+            android:layout_toEndOf="@+id/icon_cool">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_10sdp">
+                <TextView
+                    android:id="@+id/tvCool"
+                    android:gravity="left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/phenomena_medium"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@string/phone_cool_nav"
+                    android:textColor="@color/phone_cooler"
+                    android:textSize="@dimen/text_size" />
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvCool"
+                    android:text="@string/cool_description"
+                    android:fontFamily="@font/phenomena_regular"
+                    android:textColor="@color/description"
+                    android:textSize="@dimen/textsize_compo_ram_cpu_des"
+                    android:textStyle="normal" />
+                <TextView
+                    android:id="@+id/tvFullCharge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvDescription"
+                    android:text="@string/phone_cooler"
+                    android:gravity="bottom|right"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="@font/phenomena_medium"
+                    android:textColor="@color/phone_cooler"
+                    android:padding="0dp"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="normal" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -17,18 +17,18 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/imgCircle_size"
             android:layout_alignBottom="@+id/rlRound"
-            android:layout_toStartOf="@+id/rlRound"
+            android:layout_toEndOf="@+id/rlRound"
             android:gravity="center">
             <TextView
                 android:id="@+id/tv1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_light"
+                android:fontFamily="@font/phenomena_light"
                 android:singleLine="true"
                 android:text="@string/time_left"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textColor="@color/text_color"
+                android:textColor="@color/purple"
                 android:textSize="@dimen/arc_title_time_left" />
 
             <TextView
@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv1"
-                android:fontFamily="@font/roboto_regular"
+                android:fontFamily="@font/phenomena_regular"
                 android:textColor="@color/text_color"
                 android:textSize="18dip"
                 android:textStyle="normal"
@@ -55,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
-                    android:fontFamily="@font/roboto_regular"
+                    android:fontFamily="@font/phenomena_regular"
                     android:text="00"
                     android:textColor="@color/text_color"
                     android:textSize="@dimen/text_size_hour" />
@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:layout_marginStart="2.0dip"
-                    android:fontFamily="@font/roboto_regular"
+                    android:fontFamily="@font/phenomena_regular"
                     android:text="h"
                     android:textColor="@color/text_color"
                     android:textSize="@dimen/arc_suffix_text_size" />
@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:layout_marginStart="2.0dip"
-                    android:fontFamily="@font/roboto_regular"
+                    android:fontFamily="@font/phenomena_regular"
                     android:text="00"
                     android:textColor="@color/text_color"
                     android:textSize="@dimen/text_size_hour" />
@@ -88,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:layout_marginStart="2.0dip"
-                    android:fontFamily="@font/roboto_regular"
+                    android:fontFamily="@font/phenomena_regular"
                     android:text="m"
                     android:textColor="@color/text_color"
                     android:textSize="@dimen/arc_suffix_text_size" />
@@ -118,7 +118,8 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="5.0dip"
                     android:layout_toRightOf="@+id/vPowerIssue"
-                    android:textColor="@color/red"
+                    android:textColor="@color/orange"
+                    android:fontFamily="@font/phenomena_regular"
                     android:textSize="@dimen/text_size" />
             </RelativeLayout>
 
@@ -130,7 +131,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_rounded"
-                android:fontFamily="@font/roboto_regular"
+                android:fontFamily="@font/phenomena_regular"
                 android:gravity="center"
                 android:paddingStart="@dimen/btn_size"
                 android:paddingEnd="@dimen/btn_size"
@@ -144,9 +145,9 @@
             android:id="@+id/rlRound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
             android:gravity="center">
 
             <com.skyfishjy.library.RippleBackground
@@ -171,8 +172,8 @@
                 android:layout_width="@dimen/imgCircle_size"
                 android:layout_height="@dimen/imgCircle_size"
                 android:layout_centerInParent="true"
-                app:wlv_borderColor="#f2f2f2"
-                app:wlv_borderWidth="7dp"
+                app:wlv_borderColor="#212123"
+                app:wlv_borderWidth="4dp"
                 app:wlv_progressValue="0"
                 app:wlv_round_rectangle="true"
                 app:wlv_shapeType="circle"
@@ -182,8 +183,8 @@
                 app:wlv_titleCenterStrokeWidth="3dp"
                 app:wlv_triangle_direction="north"
                 app:wlv_waveAmplitude="70"
-                app:wlv_waveColor="#43c63c"
-                app:wlv_wave_background_Color="#55626e" />
+                app:wlv_waveColor="#212123"
+                app:wlv_wave_background_Color="#212123" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -194,7 +195,7 @@
                     android:id="@+id/tvPercentPin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_regular"
+                    android:fontFamily="@font/phenomena_regular"
                     android:singleLine="true"
                     android:text="20%"
                     android:textAllCaps="true"
@@ -204,7 +205,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_light"
+                    android:fontFamily="@font/phenomena_light"
                     android:singleLine="true"
                     android:text="@string/battery"
                     android:textAllCaps="true"
@@ -218,5 +219,5 @@
                     android:src="@drawable/baseline_usb_white_48" />
             </LinearLayout>
         </RelativeLayout>
-            </RelativeLayout>
+    </RelativeLayout>
 </RelativeLayout>

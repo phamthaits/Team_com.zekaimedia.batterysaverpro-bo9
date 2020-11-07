@@ -99,7 +99,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private TaskCountDoing mTaskCountDoing;
     private RippleBackground rippleBackground;
     private TextView tvFullCharge;
-    private LinearLayout lrClean, lrCool, lrBoost, lrTimeLeft;
+    private LinearLayout lrTimeLeft;
+    private RelativeLayout lrClean, lrBoost, lrCool;
 
     private ProgressBar pbQuick, pbFull, pbTrickle;
     private ImageView imgQuick, imgFull, imgTrickle;
@@ -473,7 +474,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         shFast = new Shimmer();
         shFull = new Shimmer();
         shTrickle = new Shimmer();
-        mWaveDrawable = new WaveDrawable(getResources().getColor(R.color.red), getResources().getDimensionPixelSize(R.dimen.power_issue_width_height) / 2, 0.2f);
+        mWaveDrawable = new WaveDrawable(getResources().getColor(R.color.orange),
+                getResources().getDimensionPixelSize(R.dimen.power_issue_width_height) / 2, 0.2f);
         vPowerIssue.setBackgroundDrawable(mWaveDrawable);
         mWaveDrawable.setWaveInterpolator(new LinearInterpolator());
         mWaveDrawable.startAnimation();
@@ -796,7 +798,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         });
         if (Utils.checkShouldDoing(getActivity(), 5)) {
             vPowerIssue.setVisibility(View.VISIBLE);
-            tvPowerIssue.setTextColor(ContextCompat.getColor(getActivity(), R.color.red));
+            tvPowerIssue.setTextColor(ContextCompat.getColor(getActivity(), R.color.orange));
             mTaskCount = new TaskCount(getActivity(), new TaskCount.OnTaskCountListener() {
                 @Override
                 public void OnResult(int count) {

@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16.0dip"
-                android:fontFamily="@font/roboto_regular"
+                android:fontFamily="@font/phenomena_regular"
                 android:text ="@string/bd_charge_history"
                 android:gravity="center"
                 android:layout_gravity="center"
@@ -36,7 +36,7 @@
         <TextView
             android:textSize="@dimen/text_size"
             android:textColor="@color/text_gray"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="@font/phenomena_regular"
             android:gravity="center"
             android:layout_gravity="center"
             android:id="@+id/tvDate"

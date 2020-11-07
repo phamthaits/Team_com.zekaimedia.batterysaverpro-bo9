@@ -2,8 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#f2f2f2">
+    android:layout_height="fill_parent">
 
     <include
         android:id="@+id/banner"
@@ -48,7 +47,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/phenomena_regular"
                         android:includeFontPadding="false"
                         android:text="0"
                         android:textColor="@color/tv_charge_count_color"
@@ -97,7 +96,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
-                            android:fontFamily="@font/roboto_regular"
+                            android:fontFamily="@font/phenomena_regular"
                             android:text="0"
                             android:textColor="@color/color_normal"
                             android:textSize="@dimen/textsize_history_charge" />
@@ -110,7 +109,7 @@
                             android:layout_margin="8.0dip"
                             android:layout_toStartOf="@+id/tvHealthy"
                             android:layout_toEndOf="@+id/imgHealthy"
-                            android:fontFamily="@font/roboto_regular"
+                            android:fontFamily="@font/phenomena_regular"
                             android:text="@string/bd_charge_record_healthy"
                             android:textColor="@color/text_color"
                             android:textSize="@dimen/text_size" />
@@ -135,7 +134,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
-                            android:fontFamily="@font/roboto_regular"
+                            android:fontFamily="@font/phenomena_regular"
                             android:text="0"
                             android:textColor="@color/color_normal"
                             android:textSize="@dimen/textsize_history_charge" />
@@ -148,7 +147,7 @@
                             android:layout_margin="8.0dip"
                             android:layout_toStartOf="@+id/tvNormal"
                             android:layout_toEndOf="@+id/imgNorml"
-                            android:fontFamily="@font/roboto_regular"
+                            android:fontFamily="@font/phenomena_regular"
                             android:text="@string/bd_charge_record_normal"
                             android:textColor="@color/text_color"
                             android:textSize="@dimen/text_size" />
@@ -173,7 +172,7 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
-                            android:fontFamily="@font/roboto_regular"
+                            android:fontFamily="@font/phenomena_regular"
                             android:text="0"
                             android:textColor="@color/color_normal"
                             android:textSize="@dimen/textsize_history_charge" />
@@ -186,7 +185,7 @@
                             android:layout_margin="8.0dip"
                             android:layout_toStartOf="@+id/tvOver"
                             android:layout_toEndOf="@+id/imgOver"
-                            android:fontFamily="@font/roboto_regular"
+                            android:fontFamily="@font/phenomena_regular"
                             android:text="@string/bd_charge_record_overcharging"
                             android:textColor="@color/text_color"
                             android:textSize="@dimen/text_size" />
@@ -219,7 +218,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/setting_item_margin_left"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/phenomena_regular"
                         android:text="@string/go_last_charge_record"
                         android:textAllCaps="true"
                         android:textColor="@color/progress_color"
@@ -248,7 +247,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/phenomena_regular"
                         android:text="@string/go_since_the_last_full_charge"
                         android:textColor="@color/text_color"
                         android:textSize="@dimen/text_size" />
@@ -259,7 +258,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="@dimen/margin_text_value_record"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/phenomena_regular"
                         android:text="@string/du_no_charger_record"
                         android:textColor="@color/color_normal"
                         android:textSize="@dimen/text_size" />
@@ -278,7 +277,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/phenomena_regular"
                         android:text="@string/bd_charger_type"
                         android:textColor="@color/text_color"
                         android:textSize="@dimen/text_size" />
@@ -307,7 +306,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/phenomena_regular"
                         android:text="@string/bd_charge_duration"
                         android:textColor="@color/text_color"
                         android:textSize="@dimen/text_size" />
@@ -318,7 +317,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="@dimen/margin_text_value_record"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/phenomena_regular"
                         android:text="@string/du_no_charger_record"
                         android:textColor="@color/color_normal"
                         android:textSize="@dimen/text_size" />
@@ -337,7 +336,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/phenomena_regular"
                         android:text="@string/go_charge_quantity"
                         android:textColor="@color/text_color"
                         android:textSize="@dimen/text_size" />
@@ -348,7 +347,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="@dimen/margin_text_value_record"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/phenomena_regular"
                         android:text="@string/du_no_charger_record"
                         android:textColor="@color/color_normal"
                         android:textSize="@dimen/text_size" />
@@ -380,7 +379,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/setting_item_margin_left"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/phenomena_regular"
                         android:text="@string/go_last_3_days"
                         android:textAllCaps="true"
                         android:textColor="@color/progress_color"

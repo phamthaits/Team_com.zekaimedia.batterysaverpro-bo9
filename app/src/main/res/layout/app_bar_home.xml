@@ -9,7 +9,7 @@
         android:layout_height="match_parent">
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:background="@color/white"
+            android:background="@color/colorPrimary"
             app:titleTextColor="@color/text_second"
             app:subtitleTextColor="@color/text_second"
             android:layout_width="fill_parent"
@@ -39,7 +39,6 @@
             android:layout_below="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/navigation"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -55,6 +54,5 @@
             app:itemTextAppearanceActive="@style/BottomNavigationViewTextStyle"
             app:itemTextAppearanceInactive="@style/BottomNavigationViewTextStyle"/>
     </RelativeLayout>
-
     <!--            app:itemIconTint="@color/colorAccent"-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

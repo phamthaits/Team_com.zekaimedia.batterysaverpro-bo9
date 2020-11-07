@@ -2,7 +2,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -96,7 +95,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
-                        android:fontFamily="@font/roboto_regular"
+                        android:fontFamily="@font/phenomena_regular"
                         android:text="@string/op_clean"
                         android:textAllCaps="true"
 
@@ -187,7 +186,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/roboto_regular"
+                                    android:fontFamily="@font/phenomena_regular"
                                     android:text="@string/ram_boost_title"
                                     android:textAllCaps="true"
                                     android:textColor="@color/text_color"
@@ -200,7 +199,7 @@
                                     android:layout_above="@+id/tvBoost3"
                                     android:layout_below="@+id/tvBoost1"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/roboto_regular"
+                                    android:fontFamily="@font/phenomena_regular"
                                     android:text="@string/sm_ram_detail"
                                     android:textColor="@color/grey_500"
                                     android:textSize="@dimen/text_details_optimize" />
@@ -213,7 +212,7 @@
                                     android:layout_marginBottom="8.0dip"
                                     android:background="@drawable/button_dialog_selector"
                                     android:clickable="true"
-                                    android:fontFamily="@font/roboto_regular"
+                                    android:fontFamily="@font/phenomena_regular"
                                     android:gravity="center"
                                     android:minWidth="64.0dip"
                                     android:paddingStart="8.0dip"
@@ -273,7 +272,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/roboto_regular"
+                                    android:fontFamily="@font/phenomena_regular"
                                     android:text="@string/junk_clean_nav"
                                     android:textAllCaps="true"
                                     android:textColor="@color/text_color"
@@ -286,7 +285,7 @@
                                     android:layout_above="@+id/tv_jc_3"
                                     android:layout_below="@+id/tv_jc_1"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/roboto_regular"
+                                    android:fontFamily="@font/phenomena_regular"
                                     android:text="@string/op_storage_des"
                                     android:textColor="@color/grey_500"
                                     android:textSize="@dimen/text_details_optimize" />
@@ -298,7 +297,7 @@
                                     android:layout_gravity="end"
                                     android:layout_marginBottom="8.0dip"
                                     android:background="@drawable/button_dialog_selector"
-                                    android:fontFamily="@font/roboto_regular"
+                                    android:fontFamily="@font/phenomena_regular"
                                     android:gravity="center"
                                     android:minWidth="64.0dip"
                                     android:paddingStart="8.0dip"
@@ -361,7 +360,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/roboto_regular"
+                                    android:fontFamily="@font/phenomena_regular"
                                     android:text="@string/phone_cool_nav"
                                     android:textAllCaps="true"
                                     android:textColor="@color/text_color"
@@ -374,7 +373,7 @@
                                     android:layout_above="@+id/tvCool3"
                                     android:layout_below="@+id/tvCool1"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/roboto_regular"
+                                    android:fontFamily="@font/phenomena_regular"
                                     android:text="@string/op_cool_down_tip"
                                     android:textColor="@color/grey_500"
                                     android:textSize="@dimen/text_details_optimize" />
@@ -386,7 +385,7 @@
                                     android:layout_gravity="end"
                                     android:layout_marginBottom="8.0dip"
                                     android:background="@drawable/button_dialog_selector"
-                                    android:fontFamily="@font/roboto_regular"
+                                    android:fontFamily="@font/phenomena_regular"
                                     android:gravity="center"
                                     android:minWidth="64.0dip"
                                     android:paddingStart="8.0dip"
@@ -412,7 +411,6 @@
         android:id="@+id/rlScanning"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
         android:gravity="center">
 
         <FrameLayout
@@ -476,7 +474,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20.0dip"
-                android:fontFamily="@font/roboto_regular"
+                android:fontFamily="@font/phenomena_regular"
                 android:text="@string/cleaning_junk"
                 android:textAllCaps="true"
                 android:textColor="@color/more_clean"

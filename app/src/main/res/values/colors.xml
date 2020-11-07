@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#43c63c</color>
-    <color name="colorPrimaryDark">#43c63c</color>
-    <color name="colorAccent">#43c63c</color>
+    <color name="colorPrimary">#29292C</color>
+    <color name="colorPrimaryDark">#1C1C1F</color>
+    <color name="colorAccent">#749D30</color>
+    <color name="windowBackground">#1C1C1F</color>
 
-    <color name="text_color">#ff666666</color>
+    <color name="text_color">#FFFFFF</color>
+    <color name="purple">#7777DC</color>
     <color name="text_gray">#55626e</color>
-    <color name="red">#FF1744</color>
+    <color name="orange">#FF7217</color>
     <color name="black">#000000</color>
     <color name="white">#ffffffff</color>
     <color name="black_alpha_40">#66000000</color>
     <color name="black_alpha_70">#b3000000</color>
-
     <color name="color_white">#ffffff</color>
 
+    // Main
+    <color name="description">#9B9AAA</color>
 
-    //
+    // Trash Cleaner
+    <color name="trash_cleanner">#54D184</color>
+
+    //Phone Boost
+    <color name="phone_boost">#DB7A66</color>
+
+    //Phone Cooler
+    <color name="phone_cooler">#47A1EB</color>
+
 
     <color name="progress_background">#40bab9b9</color>
 
@@ -31,9 +42,9 @@
     <color name="point_chart">#ff3fb5cf</color>
 
     //device status
-    <color name="ram">#43c63c</color>
-    <color name="storage">#fd3d39</color>
-    <color name="temperature">#2572d3</color>
+    <color name="ram">#759C31</color>
+    <color name="storage">#FC2922</color>
+    <color name="temperature">#DFBE85</color>
     <color name="opacity_button">#55626e</color>
     <color name="grey_500">#6e7f89</color>r
     <color name="grey_700">#616161</color>
@@ -58,17 +69,18 @@
     <color name="color_text_item_setting">#ff19334d</color>
     <color name="color_over">#fd3d39</color>
     <color name="color_healthy">#2572d3</color>
+    <color name="dark_grayish_blue">#353539</color>
 
     <color name="list_selector_pressed_dark">#55eeeeff</color>
 
     <color name="phoneboost_top_color_blue">#ff2a91cd</color>
-    <color name="text_second">#ff666666</color>
+    <color name="text_second">#7777DC</color>
 
     <color name="text_value">#ff999999</color>
     <color name="divider">#55aaaaaa</color>
     <color name="main_dark_color">#ffeeeeee</color>
     <color name="dark_ripple_sub">#ffcccccc</color>
-    <color name="more_clean">#43c63c</color>
+    <color name="more_clean">#54D184</color>
     <color name="more_clean_bg">#B9F6CA</color>
     <color name="gray">#ff99a0b6</color>
     <color name="dark_background_sub">#ffffffff</color>
@@ -78,7 +90,7 @@
     <color name="progress_color">#43c63c</color>
     <color name="color_complete_bg">#151ca0ea</color>
 
-    <color name="color_text_progress_charge_dim">#ff777777</color>
+    <color name="color_text_progress_charge_dim">#9B9AAA</color>
     <color name="progress_bg">#553fb5cf</color>
-    <color name="color_progress_charge_dim">#ff3c485b</color>
+    <color name="color_progress_charge_dim">#7777DC</color>
 </resources>

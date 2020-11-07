@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#ffefefef"
->
+    android:background="@color/windowBackground"
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,9 +19,8 @@
             android:layout_width="fill_parent"
             android:layout_height="?actionBarSize"
             app:layout_collapseMode="pin"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="@font/phenomena_regular"
             android:theme="@style/ToolbarThemeGreen"
-            android:background="@color/white"
             app:titleTextAppearance="@style/textsizetoolbar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     </LinearLayout>
@@ -104,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:layout_gravity="center"
-                android:fontFamily="@font/roboto_regular"
+                android:fontFamily="@font/phenomena_regular"
                 android:text="22:00"
                 android:layout_marginEnd="10dp"
                 android:textSize="@dimen/text_details" />
@@ -140,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:layout_gravity="center"
-                android:fontFamily="@font/roboto_regular"
+                android:fontFamily="@font/phenomena_regular"
                 android:text="08:00"
                 android:layout_marginEnd="10dp"
                 android:textSize="@dimen/text_details" />

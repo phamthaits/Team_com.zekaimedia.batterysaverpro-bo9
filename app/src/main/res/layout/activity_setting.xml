@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffefefef"
+    android:background="@color/windowBackground"
     android:orientation="vertical">
 
     <ScrollView
@@ -34,7 +34,7 @@
                     <TextView
                         android:id="@+id/title2"
                         style="@style/tvTitleStyle"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/phenomena_medium"
                         android:text="@string/battery_title" />
                 </LinearLayout>
 
@@ -173,7 +173,7 @@
 
                     <TextView
                         style="@style/tvTitleStyle"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/phenomena_medium"
                         android:text="@string/notification_setting" />
 
                 </LinearLayout>
@@ -399,7 +399,7 @@
 
                     <TextView
                         style="@style/tvTitleStyle"
-                        android:fontFamily="@font/roboto_medium"
+                        android:fontFamily="@font/phenomena_medium"
                         android:text="@string/general_title" />
                 </LinearLayout>
 

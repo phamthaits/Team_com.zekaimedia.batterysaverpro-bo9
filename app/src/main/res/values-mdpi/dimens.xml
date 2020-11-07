@@ -7,7 +7,7 @@
     <dimen name="arc_title_time_left">7.5sp</dimen>
     <dimen name="arc_battery_title">8sp</dimen>
     <dimen name="imgUsb_size">18dp</dimen>
-    <dimen name="text_size">10sp</dimen>
+    <dimen name="text_size">15sp</dimen>
     <dimen name="text_size_title">11sp</dimen>
     <dimen name="textsize_compo_ram_cpu_des">7sp</dimen>
     <dimen name="textsize_ram_storage_total">7sp</dimen>
@@ -32,8 +32,8 @@
     <dimen name="tv_done_size">12dp</dimen>
 
 
-    <dimen name="size_title_spash">18sp</dimen>
-    <dimen name="size_detail_spash">8.5sp</dimen>
+    <dimen name="size_title_spash">22sp</dimen>
+    <dimen name="size_detail_spash">13.5sp</dimen>
     <dimen name="size_ic_spash">60dp</dimen>
 
     <dimen name="text_size_hour">17sp</dimen>

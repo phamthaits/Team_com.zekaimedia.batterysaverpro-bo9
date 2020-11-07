@@ -14,7 +14,7 @@
             <size
                 android:height="@dimen/btn_size"/>
             <solid
-                android:color="#54B94E"/>
+                android:color="#749D30"/>
         </shape>
     </item>
     <item>
@@ -29,7 +29,7 @@
             <size
                 android:height="@dimen/btn_size"/>
             <solid
-                android:color="#43c63c"/>
+                android:color="#749D30"/>
         </shape>
     </item>
 </selector>
