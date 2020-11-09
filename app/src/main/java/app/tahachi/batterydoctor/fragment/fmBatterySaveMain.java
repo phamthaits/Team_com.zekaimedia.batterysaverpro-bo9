@@ -51,9 +51,11 @@ import app.tahachi.batterydoctor.activity.CleanActivity;
 import app.tahachi.batterydoctor.activity.PermissionActivity;
 import app.tahachi.batterydoctor.service.BatteryService;
 import app.tahachi.batterydoctor.task.TaskCountDoing;
+
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 import com.skyfishjy.library.RippleBackground;
+
 import app.tahachi.batterydoctor.R;
 import app.tahachi.batterydoctor.task.BatteryTask;
 import app.tahachi.batterydoctor.task.TaskCount;
@@ -127,7 +129,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
             case R.id.lrClean:
                 SharePreferenceUtils.getInstance(getActivity()).setFlagAds(true);
                 try {
-                    ((BaseActivity)getActivity()).askPermissionUsageSetting(() -> {
+                    ((BaseActivity) getActivity()).askPermissionUsageSetting(() -> {
                         startActivity(new Intent(getActivity(), CleanActivity.class));
                         return null;
                     });
@@ -377,7 +379,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intView(view);
         intData(view);
         intEvent();
-        adControlHelp.loadNativeFragment(getActivity(), view);
+        adControlHelp.loadNativeFragment(getActivity(), view.findViewById(R.id.native_ads_control_holder));
+        adControlHelp.loadNativeFragment(getActivity(), view.findViewById(R.id.native_ads_control_holder2));
 //        AdmobHelp.getInstance().loadNativeFragment(getActivity(), view);
 //        if (!Utils.checkShouldDoing(getActivity(), 8)) {
 //            cvFastCharge.setVisibility(View.GONE);

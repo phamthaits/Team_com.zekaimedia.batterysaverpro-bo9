@@ -12,14 +12,16 @@
         android:orientation="vertical">
 
         // Native ADS
+
         <include
+            android:id="@+id/native_ads_control_holder"
             layout="@layout/control_native_ads"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/screen_padding_5"
             android:layout_marginTop="@dimen/screen_padding_5"
             android:layout_marginRight="@dimen/screen_padding_5"
-            android:layout_marginBottom="@dimen/screen_padding_5"/>
+            android:layout_marginBottom="@dimen/screen_padding_5" />
         // End Native ADS
 
         <include
@@ -48,10 +50,12 @@
                 android:background="@drawable/bg_rounded"
                 android:gravity="center"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_between_progress">
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -59,14 +63,17 @@
                         android:layout_marginTop="4.0dip"
                         android:layout_weight="1.0"
                         android:orientation="vertical">
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="2.0dip"
                             android:layout_marginTop="@dimen/progress_trickle_charging_margin_top">
+
                             <View
                                 android:layout_width="fill_parent"
                                 android:layout_height="@dimen/progress_hight"
                                 android:layout_weight="1.0" />
+
                             <View
                                 android:id="@+id/view1"
                                 android:layout_width="fill_parent"
@@ -75,16 +82,19 @@
                                 android:layout_weight="1.0"
                                 android:background="@color/purple" />
                         </LinearLayout>
+
                         <FrameLayout
                             android:id="@+id/fl_quick_chaging"
                             android:layout_width="@dimen/progress_trickle_charging_width"
                             android:layout_height="@dimen/progress_trickle_charging_width"
                             android:layout_centerHorizontal="true">
+
                             <FrameLayout
                                 android:layout_width="@dimen/progress_trickle_charging_width"
                                 android:layout_height="@dimen/progress_trickle_charging_width"
                                 android:layout_centerHorizontal="true"
                                 android:orientation="horizontal">
+
                                 <ProgressBar
                                     android:id="@+id/pbQuick"
                                     style="?android:attr/progressBarStyleLarge"
@@ -93,6 +103,7 @@
                                     android:layout_gravity="center"
                                     android:gravity="center"
                                     android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan" />
+
                                 <ImageView
                                     android:id="@+id/imgQuick"
                                     android:layout_width="@dimen/progress_trickle_charging_width_image"
@@ -103,6 +114,7 @@
                                     android:src="@drawable/ic_quick_charging_end" />
                             </FrameLayout>
                         </FrameLayout>
+
                         <com.romainpiel.shimmer.ShimmerTextView
                             android:id="@+id/tvFast"
                             android:layout_width="wrap_content"
@@ -125,10 +137,12 @@
                         android:layout_marginTop="4.0dip"
                         android:layout_weight="1.0"
                         android:orientation="vertical">
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="2.0dip"
                             android:layout_marginTop="@dimen/progress_trickle_charging_margin_top">
+
                             <View
                                 android:id="@+id/view2"
                                 android:layout_width="fill_parent"
@@ -136,6 +150,7 @@
                                 android:layout_marginRight="@dimen/progress_trickle_charging_margin"
                                 android:layout_weight="1.0"
                                 android:background="@color/purple" />
+
                             <View
                                 android:id="@+id/view3"
                                 android:layout_width="fill_parent"
@@ -144,16 +159,19 @@
                                 android:layout_weight="1.0"
                                 android:background="@color/color_progress_charge_dim" />
                         </LinearLayout>
+
                         <FrameLayout
                             android:id="@+id/fl_full_charging"
                             android:layout_width="@dimen/progress_trickle_charging_width"
                             android:layout_height="@dimen/progress_trickle_charging_width"
                             android:layout_centerHorizontal="true">
+
                             <FrameLayout
                                 android:layout_width="@dimen/progress_trickle_charging_width"
                                 android:layout_height="@dimen/progress_trickle_charging_width"
                                 android:layout_centerHorizontal="true"
                                 android:orientation="horizontal">
+
                                 <ProgressBar
                                     android:id="@+id/pbFull"
                                     style="?android:attr/progressBarStyleLarge"
@@ -162,6 +180,7 @@
                                     android:layout_gravity="center"
                                     android:gravity="center"
                                     android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan" />
+
                                 <ImageView
                                     android:id="@+id/imgFull"
                                     android:layout_width="@dimen/progress_trickle_charging_width_image"
@@ -262,13 +281,16 @@
                             app:reflectionColor="@color/purple" />
                     </RelativeLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_between_progress">
+
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
+
                         <View
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/progress_hight"
@@ -278,12 +300,14 @@
                             android:background="@color/dark_grayish_blue" />
                     </RelativeLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:layout_marginTop="@dimen/margin_between_progress"
-                    android:layout_marginBottom="@dimen/margin_between_progress">
+                    android:layout_marginBottom="@dimen/margin_between_progress"
+                    android:gravity="center">
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -317,6 +341,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/tvVoltage"
                             android:layout_width="wrap_content"
@@ -326,6 +351,7 @@
                             android:textColor="@color/storage"
                             android:textSize="@dimen/text_size"
                             android:textStyle="bold" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -342,6 +368,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <TextView
                             android:id="@+id/tvCapacity"
                             android:layout_width="wrap_content"
@@ -351,6 +378,7 @@
                             android:textColor="@color/ram"
                             android:textSize="@dimen/text_size"
                             android:textStyle="bold" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -364,6 +392,7 @@
             </LinearLayout>
 
             //Trash Cleaner
+
             <include
                 android:id="@+id/trash_cleaner"
                 layout="@layout/trash_cleaner"
@@ -377,6 +406,7 @@
                 android:paddingBottom="@dimen/margin_between_progress" />
 
             //Phone Boost
+
             <include
                 android:id="@+id/phone_boost"
                 layout="@layout/phone_boost"
@@ -390,6 +420,7 @@
                 android:paddingBottom="@dimen/margin_between_progress" />
 
             //Phone Cooler
+
             <include
                 android:id="@+id/phone_cooler"
                 layout="@layout/phone_cooler"
@@ -402,28 +433,18 @@
                 android:paddingTop="@dimen/margin_between_progress"
                 android:paddingBottom="@dimen/margin_between_progress" />
 
-            //Charge History
+            // Native ADS
 
-
-            <!--            <androidx.cardview.widget.CardView-->
-            <!--                android:id="@+id/cvFastCharge"-->
-            <!--                android:layout_width="fill_parent"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginLeft="8.0dip"-->
-            <!--                android:layout_marginRight="8.0dip"-->
-            <!--                android:layout_marginBottom="5.0dip"-->
-            <!--                app:cardBackgroundColor="@color/white"-->
-            <!--                app:cardCornerRadius="8.0dip"-->
-            <!--                app:cardElevation="0.0dip">-->
-
-            <!--                <include-->
-            <!--                    layout="@layout/layout_enable_charge"-->
-            <!--                    android:layout_width="match_parent"-->
-            <!--                    android:layout_height="wrap_content" />-->
-
-            <!--            </androidx.cardview.widget.CardView>-->
-
-
+            <include
+                android:id="@+id/native_ads_control_holder2"
+                layout="@layout/control_native_ads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/screen_padding_5"
+                android:layout_marginTop="@dimen/screen_padding_5"
+                android:layout_marginRight="@dimen/screen_padding_5"
+                android:layout_marginBottom="@dimen/screen_padding_5" />
+            // End Native ADS
 
             <LinearLayout
 
