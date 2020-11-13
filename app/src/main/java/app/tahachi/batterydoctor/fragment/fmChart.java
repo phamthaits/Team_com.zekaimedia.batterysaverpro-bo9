@@ -141,9 +141,9 @@ public class fmChart extends Fragment {
         chart.setUsePercentValues(false);
         chart.getDescription().setEnabled(false);
         chart.setDrawHoleEnabled(true);
-        chart.setHoleColor(Color.WHITE);
+        chart.setHoleColor(Color.TRANSPARENT);
 
-        chart.setTransparentCircleColor(Color.WHITE);
+        chart.setTransparentCircleColor(Color.TRANSPARENT);
         chart.setTransparentCircleAlpha(110);
 
         chart.setHoleRadius(58f);

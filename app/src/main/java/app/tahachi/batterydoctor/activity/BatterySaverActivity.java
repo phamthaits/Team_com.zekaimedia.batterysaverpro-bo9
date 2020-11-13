@@ -164,8 +164,8 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
 //            parentAds.startAnimation(downtoup);
 //        }
 
-        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), Mode.MULTIPLY);
-        this.ivDone.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
+        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), Mode.MULTIPLY);
+        this.ivDone.setColorFilter(getResources().getColor(R.color.color_white), Mode.MULTIPLY);
         this.rocketImageOut.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
         this.rocketImage.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
 

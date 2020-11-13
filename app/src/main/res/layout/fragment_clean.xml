@@ -8,7 +8,8 @@
         android:id="@+id/activity_battery_actionbar"
         android:fitsSystemWindows="true"
         android:layout_width="fill_parent"
-        android:layout_height="48.0dip"
+        android:layout_height="?actionBarSize"
+        android:gravity="center|left"
         android:layout_alignParentTop="true"
         android:background="@color/colorPrimary">
         <LinearLayout
@@ -29,14 +30,14 @@
                     android:src="@drawable/ic_navigate_before_white_48dp" />
             </FrameLayout>
             <TextView
-                android:textSize="16.0sp"
+                android:textSize="@dimen/text_size_title"
                 android:textColor="@color/trash_cleanner"
                 android:gravity="center_vertical"
                 android:id="@+id/activity_charge_tv_title_1"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
                 android:text="@string/junk_clean_nav"
-                android:fontFamily="sans" />
+                android:fontFamily="@font/barlowcondensed_medium" />
 
         </LinearLayout>
     </RelativeLayout>
@@ -47,6 +48,7 @@
         android:background="@color/colorPrimary"
         android:gravity="center"
         android:paddingLeft="@dimen/_38sdp"
+        android:paddingRight="@dimen/_38sdp"
         android:orientation="horizontal">
         <LinearLayout
             android:layout_width="wrap_content"
@@ -57,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/temperature"
                 android:textSize="@dimen/textview_header_clean"
-                android:fontFamily="@font/phenomena_medium"
+                android:fontFamily="@font/barlowcondensed_medium"
                 tools:text="75" />
 
             <LinearLayout
@@ -73,8 +75,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:textColor="@color/temperature"
-                    android:textSize="@dimen/text_size"
-                    android:fontFamily="@font/phenomena_medium"
+                    android:textSize="@dimen/text_size_title"
+                    android:fontFamily="@font/barlowcondensed_medium"
                     tools:text="@string/percent_none" />
 
                 <TextView
@@ -83,8 +85,8 @@
                     android:gravity="center_vertical"
                     android:text="@string/pc_ram_free_able"
                     android:textColor="@color/temperature"
-                    android:textSize="@dimen/text_size"
-                    android:fontFamily="@font/phenomena_medium" />
+                    android:textSize="@dimen/text_size_title"
+                    android:fontFamily="@font/barlowcondensed_medium" />
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -114,8 +116,8 @@
         android:padding="10dp"
         android:singleLine="true"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/text_size"
-        android:fontFamily="@font/phenomena_medium"
+        android:textSize="@dimen/text_size_title"
+        android:fontFamily="@font/barlowcondensed_medium"
         tools:text="@string/total_found" />
     <View
         android:layout_gravity="bottom"
@@ -178,7 +180,7 @@
                     android:layout_weight="1"
                     android:text="@string/obsolete_apk"
                     android:textSize="@dimen/text_size_title"
-                    android:fontFamily="@font/phenomena_regular"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:textColor="@color/description" />
 
                 <app.tahachi.batterydoctor.view.RotateLoading
@@ -212,7 +214,7 @@
                     android:layout_weight="1"
                     android:text="@string/system_cache"
                     android:textSize="@dimen/text_size_title"
-                    android:fontFamily="@font/phenomena_regular"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:textColor="@color/description" />
 
                 <app.tahachi.batterydoctor.view.RotateLoading
@@ -245,7 +247,7 @@
                     android:layout_weight="1"
                     android:text="@string/downloader_files"
                     android:textSize="@dimen/text_size_title"
-                    android:fontFamily="@font/phenomena_regular"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:textColor="@color/description" />
 
                 <app.tahachi.batterydoctor.view.RotateLoading
@@ -278,7 +280,7 @@
                     android:layout_weight="1"
                     android:text="@string/large_files"
                     android:textSize="@dimen/text_size_title"
-                    android:fontFamily="@font/phenomena_regular"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:textColor="@color/description" />
 
                 <app.tahachi.batterydoctor.view.RotateLoading
@@ -296,13 +298,13 @@
         android:id="@+id/btnCleanUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingEnd="30dip"
-        android:paddingStart="30dip"
+        android:paddingEnd="120dip"
+        android:paddingStart="120dip"
         android:background="@drawable/bg_btn"
         android:text="@string/op_clean"
         android:textAllCaps="true"
-        android:textSize="@dimen/text_size"
-        android:fontFamily="@font/phenomena_regular"
+        android:textSize="@dimen/text_size_title"
+        android:fontFamily="@font/barlowcondensed_medium"
         android:textColor="@color/white"
         android:layout_marginBottom="10dip"/>
 </LinearLayout>

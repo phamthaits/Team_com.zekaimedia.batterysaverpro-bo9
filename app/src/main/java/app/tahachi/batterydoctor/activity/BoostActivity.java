@@ -115,8 +115,8 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
 //            parentAds.startAnimation(downtoup);
 //        }
 //        ((ImageView) findViewById(R.id.clean_done_iv_rocket)).setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
-        ((ImageView) findViewById(R.id.clean_done_iv_tick)).setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
-        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
+        ((ImageView) findViewById(R.id.clean_done_iv_tick)).setColorFilter(getResources().getColor(R.color.color_white), PorterDuff.Mode.MULTIPLY);
+        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
     }
 
     private long getAvaiableRam(Context context) {

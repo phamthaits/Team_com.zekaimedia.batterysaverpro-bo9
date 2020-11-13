@@ -8,7 +8,7 @@
         android:id="@+id/banner"
         layout="@layout/control_banner_ads"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></include>
+        android:layout_height="wrap_content"/>
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -38,7 +38,6 @@
 
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/chartPie"
-
                         android:layout_width="@dimen/chart_battery_charge_count_width"
                         android:layout_height="@dimen/chart_battery_charge_count_width" />
 
@@ -47,10 +46,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:fontFamily="@font/phenomena_regular"
+                        android:fontFamily="@font/barlowcondensed_regular"
                         android:includeFontPadding="false"
                         android:text="0"
-                        android:textColor="@color/tv_charge_count_color"
+                        android:textColor="@color/white"
                         android:textSize="@dimen/text_size_value_status" />
 
                     <ImageView
@@ -96,9 +95,9 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
-                            android:fontFamily="@font/phenomena_regular"
+                            android:fontFamily="@font/barlowcondensed_regular"
                             android:text="0"
-                            android:textColor="@color/color_normal"
+                            android:textColor="@color/description"
                             android:textSize="@dimen/textsize_history_charge" />
 
                         <TextView
@@ -109,9 +108,9 @@
                             android:layout_margin="8.0dip"
                             android:layout_toStartOf="@+id/tvHealthy"
                             android:layout_toEndOf="@+id/imgHealthy"
-                            android:fontFamily="@font/phenomena_regular"
+                            android:fontFamily="@font/barlowcondensed_regular"
                             android:text="@string/bd_charge_record_healthy"
-                            android:textColor="@color/text_color"
+                            android:textColor="@color/description"
                             android:textSize="@dimen/text_size" />
                     </RelativeLayout>
 
@@ -134,9 +133,9 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
-                            android:fontFamily="@font/phenomena_regular"
+                            android:fontFamily="@font/barlowcondensed_regular"
                             android:text="0"
-                            android:textColor="@color/color_normal"
+                            android:textColor="@color/description"
                             android:textSize="@dimen/textsize_history_charge" />
 
                         <TextView
@@ -147,9 +146,9 @@
                             android:layout_margin="8.0dip"
                             android:layout_toStartOf="@+id/tvNormal"
                             android:layout_toEndOf="@+id/imgNorml"
-                            android:fontFamily="@font/phenomena_regular"
+                            android:fontFamily="@font/barlowcondensed_regular"
                             android:text="@string/bd_charge_record_normal"
-                            android:textColor="@color/text_color"
+                            android:textColor="@color/description"
                             android:textSize="@dimen/text_size" />
                     </RelativeLayout>
 
@@ -172,9 +171,9 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
-                            android:fontFamily="@font/phenomena_regular"
+                            android:fontFamily="@font/barlowcondensed_regular"
                             android:text="0"
-                            android:textColor="@color/color_normal"
+                            android:textColor="@color/description"
                             android:textSize="@dimen/textsize_history_charge" />
 
                         <TextView
@@ -185,9 +184,9 @@
                             android:layout_margin="8.0dip"
                             android:layout_toStartOf="@+id/tvOver"
                             android:layout_toEndOf="@+id/imgOver"
-                            android:fontFamily="@font/phenomena_regular"
+                            android:fontFamily="@font/barlowcondensed_regular"
                             android:text="@string/bd_charge_record_overcharging"
-                            android:textColor="@color/text_color"
+                            android:textColor="@color/description"
                             android:textSize="@dimen/text_size" />
                     </RelativeLayout>
                 </RelativeLayout>
@@ -218,11 +217,10 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/setting_item_margin_left"
-                        android:fontFamily="@font/phenomena_regular"
+                        android:fontFamily="@font/barlowcondensed_regular"
                         android:text="@string/go_last_charge_record"
                         android:textAllCaps="true"
-                        android:textColor="@color/progress_color"
-
+                        android:textColor="@color/purple"
                         android:textSize="@dimen/text_size_title" />
 
                     <View
@@ -247,9 +245,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:fontFamily="@font/phenomena_regular"
+                        android:fontFamily="@font/barlowcondensed_regular"
                         android:text="@string/go_since_the_last_full_charge"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/description"
                         android:textSize="@dimen/text_size" />
 
                     <TextView
@@ -258,9 +256,9 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="@dimen/margin_text_value_record"
-                        android:fontFamily="@font/phenomena_regular"
+                        android:fontFamily="@font/barlowcondensed_regular"
                         android:text="@string/du_no_charger_record"
-                        android:textColor="@color/color_normal"
+                        android:textColor="@color/description"
                         android:textSize="@dimen/text_size" />
                 </RelativeLayout>
 
@@ -277,9 +275,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:fontFamily="@font/phenomena_regular"
+                        android:fontFamily="@font/barlowcondensed_regular"
                         android:text="@string/bd_charger_type"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/description"
                         android:textSize="@dimen/text_size" />
 
                     <TextView
@@ -289,7 +287,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:text="@string/du_no_charger_record"
-                        android:textColor="@color/color_normal"
+                        android:textColor="@color/description"
                         android:textSize="@dimen/text_size" />
                 </RelativeLayout>
 
@@ -306,9 +304,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:fontFamily="@font/phenomena_regular"
+                        android:fontFamily="@font/barlowcondensed_regular"
                         android:text="@string/bd_charge_duration"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/description"
                         android:textSize="@dimen/text_size" />
 
                     <TextView
@@ -317,9 +315,9 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="@dimen/margin_text_value_record"
-                        android:fontFamily="@font/phenomena_regular"
+                        android:fontFamily="@font/barlowcondensed_regular"
                         android:text="@string/du_no_charger_record"
-                        android:textColor="@color/color_normal"
+                        android:textColor="@color/description"
                         android:textSize="@dimen/text_size" />
                 </RelativeLayout>
 
@@ -336,9 +334,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-                        android:fontFamily="@font/phenomena_regular"
+                        android:fontFamily="@font/barlowcondensed_regular"
                         android:text="@string/go_charge_quantity"
-                        android:textColor="@color/text_color"
+                        android:textColor="@color/description"
                         android:textSize="@dimen/text_size" />
 
                     <TextView
@@ -347,9 +345,9 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="@dimen/margin_text_value_record"
-                        android:fontFamily="@font/phenomena_regular"
+                        android:fontFamily="@font/barlowcondensed_regular"
                         android:text="@string/du_no_charger_record"
-                        android:textColor="@color/color_normal"
+                        android:textColor="@color/description"
                         android:textSize="@dimen/text_size" />
                 </RelativeLayout>
 
@@ -379,10 +377,10 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/setting_item_margin_left"
-                        android:fontFamily="@font/phenomena_regular"
+                        android:fontFamily="@font/barlowcondensed_regular"
                         android:text="@string/go_last_3_days"
                         android:textAllCaps="true"
-                        android:textColor="@color/progress_color"
+                        android:textColor="@color/purple"
                         android:textSize="@dimen/text_size_title" />
 
                     <View

@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/card_background"
     android:layout_marginTop="10dp"
     android:orientation="vertical">
 
@@ -11,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingBottom="10dp"
-
+        android:background="@drawable/bg_rounded"
+        android:padding="@dimen/_8sdp"
         android:orientation="horizontal">
 
         <ImageView
@@ -38,8 +37,8 @@
                 android:marqueeRepeatLimit="marquee_forever"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:fontFamily="@font/phenomena_regular"
-                android:textColor="@color/text_color"
+                android:fontFamily="@font/barlowcondensed_regular"
+                android:textColor="@color/purple"
                 android:textSize="@dimen/text_size_title"
                 tools:text="Person Name" />
 
@@ -48,8 +47,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:fontFamily="@font/phenomena_light"
-                android:textColor="@color/text_color"
+                android:fontFamily="@font/barlowcondensed_light"
+                android:textColor="@color/description"
                 android:textSize="@dimen/text_size"
                 tools:text="Person Name" />
         </LinearLayout>
@@ -62,13 +61,13 @@
             android:padding="7dp"
             android:text="@string/uninstall"
             android:textAllCaps="false"
-            android:textSize="@dimen/text_size"
-            android:fontFamily="@font/phenomena_regular"
+            android:textSize="@dimen/text_size_title"
+            android:fontFamily="@font/barlowcondensed_regular"
             android:textColor="@color/text_color" />
 
         <ImageView
             android:id="@+id/switchCompatLock"
-            android:padding="10dp"
+            android:padding="8dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_info"

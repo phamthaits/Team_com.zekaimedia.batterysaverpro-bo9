@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="3dp"
     android:background="@android:color/transparent"
     android:orientation="vertical">
@@ -15,6 +16,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_rounded"
         android:padding="5dp">
 
         <LinearLayout
@@ -47,8 +49,8 @@
                 android:layout_marginStart="@dimen/standard_padding"
                 android:layout_weight="1"
                 android:textColor="@color/purple"
-                android:textSize="@dimen/text_size"
-                android:fontFamily="@font/phenomena_regular"
+                android:textSize="@dimen/text_size_title"
+                android:fontFamily="@font/barlowcondensed_regular"
                 tools:text="Group Name" />
 
             <TextView
@@ -61,7 +63,7 @@
                 android:paddingEnd="15dp"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size_title"
-                android:fontFamily="@font/phenomena_regular"
+                android:fontFamily="@font/barlowcondensed_regular"
                 tools:text="74 MB" />
 
             <CheckBox
@@ -69,7 +71,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginStart="5dp" />
+                android:layout_marginStart="5dp"
+                />
 
         </LinearLayout>
     </FrameLayout>

@@ -7,9 +7,9 @@
     <dimen name="arc_title_time_left">8sp</dimen>
     <dimen name="arc_battery_title">8sp</dimen>
     <dimen name="imgUsb_size">21dp</dimen>
-    <dimen name="text_size">16sp</dimen>
-    <dimen name="text_size_title">13sp</dimen>
-    <dimen name="textsize_compo_ram_cpu_des">9.0sp</dimen>
+    <dimen name="text_size">13sp</dimen>
+    <dimen name="text_size_title">16sp</dimen>
+    <dimen name="textsize_compo_ram_cpu_des">7.0sp</dimen>
     <dimen name="textsize_ram_storage_total">9.0sp</dimen>
     <dimen name="cirularsize">3dp</dimen>
     <dimen name="btn_size">20dp</dimen>
@@ -35,7 +35,7 @@
 
 
 
-    <dimen name="size_title_spash">23sp</dimen>
+    <dimen name="size_title_spash">31sp</dimen>
     <dimen name="size_detail_spash">13.5sp</dimen>
     <dimen name="size_ic_spash">65dp</dimen>
 </resources>

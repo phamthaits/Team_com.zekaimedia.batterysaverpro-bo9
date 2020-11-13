@@ -56,6 +56,8 @@ import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 import com.skyfishjy.library.RippleBackground;
 
+import org.androidannotations.annotations.ViewById;
+
 import app.tahachi.batterydoctor.R;
 import app.tahachi.batterydoctor.task.BatteryTask;
 import app.tahachi.batterydoctor.task.TaskCount;
@@ -379,31 +381,9 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intView(view);
         intData(view);
         intEvent();
-        adControlHelp.loadNativeFragment(getActivity(), view.findViewById(R.id.native_ads_control_holder));
-        adControlHelp.loadNativeFragment(getActivity(), view.findViewById(R.id.native_ads_control_holder2));
-//        AdmobHelp.getInstance().loadNativeFragment(getActivity(), view);
-//        if (!Utils.checkShouldDoing(getActivity(), 8)) {
-//            cvFastCharge.setVisibility(View.GONE);
-//
-//        } else {
-//            if (SharePreferenceUtils.getInstance(getActivity()).getFsAutoRun()) {
-//                cvFastCharge.setVisibility(View.GONE);
-//            }
-//        }
-//        view.findViewById(R.id.ivClose).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                SharePreferenceUtils.getInstance(getActivity()).setHideChargeView(System.currentTimeMillis());
-//                cvFastCharge.setVisibility(View.GONE);
-//            }
-//        });
-//        view.findViewById(R.id.btnOk).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                SharePreferenceUtils.getInstance(getActivity()).setFsAutoRun(true);
-//                cvFastCharge.setVisibility(View.GONE);
-//            }
-//        });
+        adControlHelp.loadNativeFragment(getActivity(),view.findViewById(R.id.native_ads_control_holder));
+        adControlHelp.loadBannerFragment(getActivity(), view.findViewById(R.id.banner));
+//        adControlHelp.loadNativeFragment(getActivity(), view.findViewById(R.id.native_ads_control_holder2));
         return view;
     }
 
@@ -620,12 +600,12 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
             return;
         }
         if (30 < info.level && info.level <= 60) {
-            waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+            waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.battery_good));
             waveLoadingView.setProgressValue(info.level);
             return;
         }
         if (60 < info.level && info.level <= 100) {
-            waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+            waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.battery_good));
             waveLoadingView.setProgressValue(info.level);
             return;
         }
@@ -821,7 +801,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         } else {
             lrIssue.setVisibility(View.VISIBLE);
             vPowerIssue.setVisibility(View.GONE);
-            tvPowerIssue.setTextColor(ContextCompat.getColor(getActivity(), R.color.colorAccent));
+            tvPowerIssue.setTextColor(ContextCompat.getColor(getActivity(), R.color.battery_good));
             tvPowerIssue.setText(getString(R.string.battery_exellent));
             btnOptimize.setText(getString(R.string.optimize));
             rippleBackground.stopRippleAnimation();

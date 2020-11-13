@@ -6,11 +6,11 @@
         <shape
             android:shape="rectangle">
             <corners
-                android:bottomLeftRadius="70dp"
-                android:radius="70dp"
-                android:topRightRadius="70dp"
-                android:topLeftRadius="70dp"
-                android:bottomRightRadius="70dp"/>
+                android:bottomLeftRadius="10dp"
+                android:radius="10dp"
+                android:topRightRadius="10dp"
+                android:topLeftRadius="10dp"
+                android:bottomRightRadius="10dp"/>
             <size
                 android:height="@dimen/btn_size"/>
             <solid
@@ -21,11 +21,11 @@
         <shape
             android:shape="rectangle">
             <corners
-                android:bottomLeftRadius="70dp"
-                android:radius="70dp"
-                android:topRightRadius="70dp"
-                android:topLeftRadius="70dp"
-                android:bottomRightRadius="70dp"/>
+                android:bottomLeftRadius="10dp"
+                android:radius="10dp"
+                android:topRightRadius="10dp"
+                android:topLeftRadius="10dp"
+                android:bottomRightRadius="10dp"/>
             <size
                 android:height="@dimen/btn_size"/>
             <solid

@@ -23,7 +23,7 @@
                 android:id="@+id/tv1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/phenomena_light"
+                android:fontFamily="@font/barlowcondensed_light"
                 android:singleLine="true"
                 android:text="@string/time_left"
                 android:textAlignment="center"
@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv1"
-                android:fontFamily="@font/phenomena_regular"
+                android:fontFamily="@font/barlowcondensed_regular"
                 android:textColor="@color/text_color"
                 android:textSize="18dip"
                 android:textStyle="normal"
@@ -55,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
-                    android:fontFamily="@font/phenomena_regular"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:text="00"
                     android:textColor="@color/text_color"
                     android:textSize="@dimen/text_size_hour" />
@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:layout_marginStart="2.0dip"
-                    android:fontFamily="@font/phenomena_regular"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:text="h"
                     android:textColor="@color/text_color"
                     android:textSize="@dimen/arc_suffix_text_size" />
@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:layout_marginStart="2.0dip"
-                    android:fontFamily="@font/phenomena_regular"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:text="00"
                     android:textColor="@color/text_color"
                     android:textSize="@dimen/text_size_hour" />
@@ -88,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:layout_marginStart="2.0dip"
-                    android:fontFamily="@font/phenomena_regular"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:text="m"
                     android:textColor="@color/text_color"
                     android:textSize="@dimen/arc_suffix_text_size" />
@@ -119,7 +119,7 @@
                     android:layout_marginStart="5.0dip"
                     android:layout_toRightOf="@+id/vPowerIssue"
                     android:textColor="@color/orange"
-                    android:fontFamily="@font/phenomena_regular"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:textSize="@dimen/text_size" />
             </RelativeLayout>
 
@@ -131,13 +131,13 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/btn_rounded"
-                android:fontFamily="@font/phenomena_regular"
+                android:fontFamily="@font/barlowcondensed_regular"
                 android:gravity="center"
                 android:paddingStart="@dimen/btn_size"
                 android:paddingEnd="@dimen/btn_size"
                 android:text="OPTIMIZE"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_size" />
+                android:textSize="@dimen/text_size_title" />
 
         </RelativeLayout>
 
@@ -195,7 +195,7 @@
                     android:id="@+id/tvPercentPin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/phenomena_regular"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:singleLine="true"
                     android:text="20%"
                     android:textAllCaps="true"
@@ -205,7 +205,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/phenomena_light"
+                    android:fontFamily="@font/barlowcondensed_light"
                     android:singleLine="true"
                     android:text="@string/battery"
                     android:textAllCaps="true"

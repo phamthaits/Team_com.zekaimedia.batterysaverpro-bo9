@@ -41,7 +41,7 @@
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
                         android:maxLines="2"
-                        android:fontFamily="@font/phenomena_medium"
+                        android:fontFamily="@font/barlowcondensed_medium"
                         android:textColor="@color/headline_color"
                         android:textSize="18sp" />
 
@@ -57,7 +57,7 @@
                             android:gravity="bottom"
                             android:lines="1"
                             android:textColor="@color/advertiser_color"
-                            android:fontFamily="@font/phenomena_medium"
+                            android:fontFamily="@font/barlowcondensed_medium"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
@@ -68,7 +68,7 @@
                             android:layout_marginLeft="5dip"
                             android:layout_marginRight="5dip"
                             android:textColor="@color/advertiser_color"
-                            android:fontFamily="@font/phenomena_medium"
+                            android:fontFamily="@font/barlowcondensed_medium"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
@@ -87,7 +87,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dip"
                             android:textColor="@color/advertiser_color"
-                            android:fontFamily="@font/phenomena_medium"
+                            android:fontFamily="@font/barlowcondensed_medium"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -100,15 +100,13 @@
                 android:layout_marginLeft="30dip"
                 android:layout_marginRight="30dip"
                 android:textColor="@color/body_color"
-                android:fontFamily="@font/phenomena_regular"
+                android:fontFamily="@font/barlowcondensed_regular"
                 android:maxLines="3"
                 android:textSize="12sp" />
 
             <com.google.android.gms.ads.formats.MediaView
                 android:id="@+id/ad_media"
                 android:layout_width="match_parent"
-                android:layout_marginLeft="80px"
-                android:layout_marginRight="80px"
                 android:layout_height="0dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dip"
@@ -126,7 +124,7 @@
                 android:gravity="center"
                 android:textColor="@color/color_white"
                 android:textSize="22sp"
-                android:fontFamily="@font/phenomena_medium"
+                android:fontFamily="@font/barlowcondensed_medium"
                 android:textStyle="bold" />
         </LinearLayout>
 

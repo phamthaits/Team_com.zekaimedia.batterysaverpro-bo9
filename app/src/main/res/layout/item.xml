@@ -15,7 +15,7 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/card_background">
+        android:background="@drawable/bg_rounded">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,9 +64,9 @@
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_size"
-                    android:fontFamily="@font/phenomena_regular"
+                    android:textColor="@color/purple"
+                    android:textSize="@dimen/text_size_title"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     tools:text="Person Name" />
 
                 <TextView
@@ -74,9 +74,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:singleLine="true"
-                    android:textColor="@color/grey_500"
+                    android:textColor="@color/description"
                     android:textSize="@dimen/text_size"
-                    android:fontFamily="@font/phenomena_light"
+                    android:fontFamily="@font/barlowcondensed_light"
                     tools:text="Person Name" />
             </LinearLayout>
 

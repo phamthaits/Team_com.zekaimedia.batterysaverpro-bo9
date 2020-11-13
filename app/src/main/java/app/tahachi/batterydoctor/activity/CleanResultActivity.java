@@ -63,8 +63,8 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         this.ivDoneAnim.setAnimationListener(new CleanResultActivity.C06741());
         tvCleaned.setText(String.format(getString(R.string.cleaned),
                 Utils.formatSize(SharePreferenceUtils.getInstance(this).getTotalJunk())));
-        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
-        checkTask();
+        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
+     /*   checkTask();*/
     }
 
     @Override
@@ -93,7 +93,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-    public void checkTask() {
+   /* public void checkTask() {
         if (!Utils.checkShouldDoing(this, 6)) {
             findViewById(R.id.cvBoost).setVisibility(View.GONE);
         }
@@ -103,7 +103,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         if (!Utils.checkShouldDoing(this, 3)) {
             findViewById(R.id.cvClean).setVisibility(View.GONE);
         }
-    }
+    }*/
 
     class C06741 implements Animation.AnimationListener {
 

@@ -19,7 +19,7 @@
             android:layout_width="fill_parent"
             android:layout_height="?actionBarSize"
             app:layout_collapseMode="pin"
-            android:fontFamily="@font/phenomena_regular"
+            android:fontFamily="@font/barlowcondensed_regular"
             android:theme="@style/ToolbarThemeGreen"
             app:titleTextAppearance="@style/textsizetoolbar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />

@@ -102,22 +102,22 @@ public class DoNotDisturbActivity extends AppCompatActivity implements View.OnCl
     }
     private void setColorText(boolean isChecked) {
         if (isChecked) {
-            tvEnable.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
+            tvEnable.setTextColor(ContextCompat.getColor(this, R.color.subsection));
             swDND.setChecked(isChecked);
             rlDNDStart.setEnabled(true);
-            tvDNDStartSecond.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
-            tvDNDStopSecond.setTextColor(ContextCompat.getColor(this, R.color.colorAccent));
-            tvDNDStart.setTextColor(ContextCompat.getColor(this, R.color.text_color));
-            tvDNDStop.setTextColor(ContextCompat.getColor(this, R.color.text_color));
+            tvDNDStartSecond.setTextColor(ContextCompat.getColor(this, R.color.subsection));
+            tvDNDStopSecond.setTextColor(ContextCompat.getColor(this, R.color.subsection));
+            tvDNDStart.setTextColor(ContextCompat.getColor(this, R.color.purple));
+            tvDNDStop.setTextColor(ContextCompat.getColor(this, R.color.purple));
 
         } else {
-            tvEnable.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
+            tvEnable.setTextColor(ContextCompat.getColor(this, R.color.description));
             swDND.setChecked(isChecked);
             rlDNDStart.setEnabled(false);
-            tvDNDStartSecond.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
-            tvDNDStopSecond.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
-            tvDNDStart.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
-            tvDNDStop.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
+            tvDNDStartSecond.setTextColor(ContextCompat.getColor(this, R.color.description));
+            tvDNDStopSecond.setTextColor(ContextCompat.getColor(this, R.color.description));
+            tvDNDStart.setTextColor(ContextCompat.getColor(this, R.color.description));
+            tvDNDStop.setTextColor(ContextCompat.getColor(this, R.color.description));
         }
     }
 

@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#29292C</color>
     <color name="colorPrimaryDark">#1C1C1F</color>
-    <color name="colorAccent">#749D30</color>
+    <color name="colorAccent">#7777DC</color>
     <color name="windowBackground">#1C1C1F</color>
 
     <color name="text_color">#FFFFFF</color>
@@ -17,6 +17,7 @@
 
     // Main
     <color name="description">#9B9AAA</color>
+    <color name="text_activity">#DEBE86</color>
 
     // Trash Cleaner
     <color name="trash_cleanner">#54D184</color>
@@ -27,8 +28,25 @@
     //Phone Cooler
     <color name="phone_cooler">#47A1EB</color>
 
+    //Charge History
+    <color name="charge_history">#DEBE86</color>
 
-    <color name="progress_background">#40bab9b9</color>
+    //App Manager
+    <color name="app_manager">#AACA45</color>
+
+    //Settings
+    <color name="settings">#A36CEF</color>
+
+    //Remove Ads
+    <color name="remove_ads">#EBD8B6</color>
+
+    //Subsection
+    <color name="subsection">#DEBE87</color>
+
+    //Checkbox
+    <color name="clean_checkbox">#54D18E</color>
+
+    <color name="progress_background">#313135</color>
 
     //
     <color name="grey_400">#b1b1b1</color>
@@ -38,18 +56,18 @@
     <color name="battery_almost_die">#ff800000</color>
     <color name="battery_averange">#ffff8000</color>
     <color name="battery_bad">#ffff0000</color>
+    <color name="battery_good">#749D30</color>
 
-    <color name="point_chart">#ff3fb5cf</color>
+    <color name="point_chart">#9B9AAA</color>
 
     //device status
     <color name="ram">#759C31</color>
     <color name="storage">#FC2922</color>
     <color name="temperature">#DFBE85</color>
-    <color name="opacity_button">#55626e</color>
-    <color name="grey_500">#6e7f89</color>r
+    <color name="opacity_button">#D18440</color>
+    <color name="click_button">#29292C</color>
+    <color name="grey_500">#6e7f89</color>
     <color name="grey_700">#616161</color>
-
-    //clean
 
     //mode
     <color name="background_list">#F5F5F5</color>
@@ -63,12 +81,12 @@
 
     <color name="tv_charge_count_color">#ff45527a</color>
     <color name="color_black_6">#ffacacac</color>
-    <color name="color_normal">#43c63c</color>
-    <color name="color_text_title_item_setting">#881f4060</color>
+    <color name="color_normal">#81AF35</color>
+    <color name="color_text_title_item_setting">#9B9AAA</color>
     <color name="color_divider">#222c2c2c</color>
-    <color name="color_text_item_setting">#ff19334d</color>
-    <color name="color_over">#fd3d39</color>
-    <color name="color_healthy">#2572d3</color>
+    <color name="color_text_item_setting">#9B9AAA</color>
+    <color name="color_over">#DA406D</color>
+    <color name="color_healthy">#5454D1</color>
     <color name="dark_grayish_blue">#353539</color>
 
     <color name="list_selector_pressed_dark">#55eeeeff</color>
@@ -87,8 +105,8 @@
     <color name="more_boost">#e2fce0</color>
     <color name="more_share">#43c63c</color>
     <color name="dark_icon_color">#ff212121</color>
-    <color name="progress_color">#43c63c</color>
-    <color name="color_complete_bg">#151ca0ea</color>
+    <color name="progress_color">#8482C9</color>
+    <color name="color_complete_bg">#524BA8</color>
 
     <color name="color_text_progress_charge_dim">#9B9AAA</color>
     <color name="progress_bg">#553fb5cf</color>

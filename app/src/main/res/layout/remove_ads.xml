@@ -1,0 +1,76 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rounded">
+
+    <RelativeLayout
+        android:id="@+id/lrRemove"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center">
+        <RelativeLayout
+            android:id="@+id/icon_remove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_icon_remove_ads"
+            android:layout_alignParentLeft="true"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/ivRemove"
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_38sdp"
+                android:layout_margin="@dimen/_20sdp"
+                android:src="@drawable/ic_ads" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/text_remove"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignTop="@+id/icon_remove"
+            android:layout_alignBottom="@+id/icon_remove"
+            android:layout_toEndOf="@+id/icon_remove">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_10sdp">
+                <TextView
+                    android:id="@+id/tvRemove"
+                    android:gravity="left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/barlowcondensed_medium"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@string/name_remove_ads"
+                    android:textColor="@color/remove_ads"
+                    android:textSize="@dimen/text_size_title" />
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_below="@+id/tvRemove"
+                    android:text="@string/manager_description"
+                    android:fontFamily="@font/barlowcondensed_regular"
+                    android:textColor="@color/description"
+                    android:textSize="@dimen/textsize_compo_ram_cpu_des"
+                    android:textStyle="normal" />
+                <TextView
+                    android:id="@+id/tvFullCharge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/remove_ads"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/barlowcondensed_medium"
+                    android:textColor="@color/remove_ads"
+                    android:padding="0dp"
+                    android:textSize="@dimen/text_size_title"
+                    android:textStyle="normal" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

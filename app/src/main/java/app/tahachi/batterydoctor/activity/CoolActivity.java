@@ -177,9 +177,9 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 //            parentAds.startAnimation(downtoup);
 //        }
 
-        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
-        ((ImageView) findViewById(R.id.iv_bg_snow)).setColorFilter(getResources().getColor(R.color.colorAccent), PorterDuff.Mode.MULTIPLY);
-        this.ivDone.setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
+        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
+        ((ImageView) findViewById(R.id.iv_bg_snow)).setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
+        this.ivDone.setColorFilter(getResources().getColor(R.color.color_white), PorterDuff.Mode.MULTIPLY);
         this.rocketImageOut.setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
         this.rocketImage.setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
     }

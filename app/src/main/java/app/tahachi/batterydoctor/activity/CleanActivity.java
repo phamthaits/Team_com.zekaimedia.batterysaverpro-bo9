@@ -84,7 +84,7 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
         setContentView(R.layout.fragment_clean);
-        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
+        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
         requestPerMission();
         NotificationDevice.cancle(this,NotificationDevice.ID_NOTIFICATTION_CLEAN_JUNK);
     }

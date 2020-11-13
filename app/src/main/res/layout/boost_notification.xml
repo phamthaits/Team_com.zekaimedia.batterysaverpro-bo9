@@ -8,7 +8,7 @@
         android:id="@+id/btnClick"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="#fafafa">
+        android:background="#29292C">
 
         <LinearLayout
             android:id="@+id/notification_layout_main_container"
@@ -48,7 +48,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/boost_title"
-                    android:fontFamily="@font/phenomena_regular"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:textColor="@color/colorAccent"
                     android:textSize="16sp" />
 
@@ -60,7 +60,7 @@
                     android:ellipsize="marquee"
                     android:singleLine="true"
                     android:text="@string/boost_action"
-                    android:fontFamily="@font/phenomena_light"
+                    android:fontFamily="@font/barlowcondensed_light"
                     android:textColor="@color/grey_700"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -89,7 +89,7 @@
                 android:paddingTop="9dp"
                 android:text="Boost"
                 android:textAllCaps="true"
-                android:fontFamily="@font/phenomena_regular"
+                android:fontFamily="@font/barlowcondensed_regular"
                 android:textColor="@android:color/white"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -118,7 +118,7 @@
                 android:text="@string/op_boost"
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
-                android:fontFamily="@font/phenomena_regular"
+                android:fontFamily="@font/barlowcondensed_regular"
                 android:textSize="13sp"
                 android:textStyle="bold" />
         </FrameLayout>

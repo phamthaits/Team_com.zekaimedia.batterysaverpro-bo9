@@ -84,12 +84,12 @@ import me.itangqi.waveloadingview.WaveLoadingView;
                 return;
             }
             if(30<level&&level<=60){
-                mWaveLoadingView.setWaveColor(ContextCompat.getColor(mContext, R.color.colorAccent));
+                mWaveLoadingView.setWaveColor(ContextCompat.getColor(mContext, R.color.battery_good));
                 mWaveLoadingView.setProgressValue(level);
                 return;
             }
             if(60<level&&level<=100){
-                mWaveLoadingView.setWaveColor(ContextCompat.getColor(mContext,R.color.colorAccent));
+                mWaveLoadingView.setWaveColor(ContextCompat.getColor(mContext,R.color.battery_good));
                 mWaveLoadingView.setProgressValue(level);
                 return;
             }

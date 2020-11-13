@@ -7,8 +7,8 @@
 
     <RelativeLayout
         android:id="@+id/lrBoost"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:gravity="center">
         <RelativeLayout
             android:id="@+id/icon_boost"
@@ -28,8 +28,8 @@
 
         <RelativeLayout
             android:id="@+id/text_boost"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:layout_alignTop="@+id/icon_boost"
             android:layout_alignBottom="@+id/icon_boost"
             android:layout_toEndOf="@+id/icon_boost">
@@ -42,34 +42,33 @@
                     android:gravity="left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/phenomena_medium"
+                    android:fontFamily="@font/barlowcondensed_medium"
                     android:maxLines="1"
                     android:singleLine="true"
                     android:text="@string/phone_boost_nav"
                     android:textColor="@color/phone_boost"
-                    android:textSize="@dimen/text_size" />
+                    android:textSize="@dimen/text_size_title" />
                 <TextView
                     android:id="@+id/tvDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
                     android:layout_below="@+id/tvBoost"
                     android:text="@string/boost_description"
-                    android:fontFamily="@font/phenomena_regular"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:textColor="@color/description"
                     android:textSize="@dimen/textsize_compo_ram_cpu_des"
                     android:textStyle="normal" />
                 <TextView
                     android:id="@+id/tvFullCharge"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/tvDescription"
                     android:text="@string/phone_boost"
-                    android:gravity="bottom|right"
                     android:layout_alignParentBottom="true"
-                    android:fontFamily="@font/phenomena_medium"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="@font/barlowcondensed_medium"
                     android:textColor="@color/phone_boost"
                     android:padding="0dp"
-                    android:textSize="@dimen/text_size"
+                    android:textSize="@dimen/text_size_title"
                     android:textStyle="normal" />
             </RelativeLayout>
         </RelativeLayout>

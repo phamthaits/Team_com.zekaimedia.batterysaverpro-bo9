@@ -175,13 +175,13 @@ public class fragment2 extends Fragment {
 
             set2 = new LineDataSet(valuesBattery2,"");
             set2.setFillAlpha(100);
-            set2.setColor(0xFF3fb5cf);
+            set2.setColor(0xFF9B9AAA);
             set2.setLineWidth(1);
             //Xoa gia tri ngay diem
             set2.setDrawValues(false);
             set2.setCircleColor(ContextCompat.getColor(getContext(), R.color.point_chart));
             set2.setDrawFilled(true);
-            set2.setFillColor(0xFFbff782);
+            set2.setFillColor(0xFF9B9AAA);
             set2.setFillFormatter(new IFillFormatter() {
                 @Override
                 public float getFillLinePosition(ILineDataSet dataSet, LineDataProvider dataProvider) {
@@ -210,7 +210,7 @@ public class fragment2 extends Fragment {
             String [] values2 = new String[]{"","","","","","","","","","","","","","","","","","","","","20%","","","","","","","","","","","","","","","","","","","","40%","","","","","","","","","","","","","","","","","","","","60%","","","","","","","","","","","","","","","","","","","","80%","","","","","","","","","","","","","","","","","","","","100%"};
 
             XAxis xAxis = chart.getXAxis();
-            xAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.text_gray));
+            xAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.description));
             xAxis.setAxisMaximum(24);
             xAxis.setAxisMinimum(0);
             xAxis.setLabelCount(6);
@@ -218,7 +218,7 @@ public class fragment2 extends Fragment {
             xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
             YAxis yAxis = chart.getAxisLeft();
-            yAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.text_gray));
+            yAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.description));
             yAxis.setAxisMaximum(100);
             yAxis.setAxisMinimum(0);
             yAxis.setLabelCount(6);

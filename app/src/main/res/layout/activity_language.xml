@@ -14,12 +14,13 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            app:titleTextColor="@color/text_color"
-            app:subtitleTextColor="@color/text_color"
+            app:titleTextColor="@color/subsection"
+            app:subtitleTextColor="@color/subsection"
             android:layout_width="fill_parent"
             android:layout_height="?actionBarSize"
+            android:layout_gravity="center"
             app:layout_collapseMode="pin"
-            android:fontFamily="@font/phenomena_regular"
+            android:fontFamily="@font/barlowcondensed_medium"
             android:theme="@style/ToolbarThemeGreen"
             app:titleTextAppearance="@style/textsizetoolbar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
@@ -46,7 +47,7 @@
                     android:layout_marginLeft="@dimen/setting_item_margin_left"
                     android:text="Deutsch"
                     android:layout_centerVertical="true"
-                    android:fontFamily="sec-roboto-condensed"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:layout_marginStart="@dimen/setting_item_margin_left" />
                 <ImageView
                     android:id="@+id/imgDe"
@@ -58,7 +59,8 @@
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="16.0dip"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"/>
+                    android:src="@drawable/ic_check"
+                    app:tint="#9B9AAA"/>
             </RelativeLayout>
             <View
                 android:background="@color/color_divider"
@@ -81,7 +83,7 @@
                     android:layout_marginLeft="@dimen/setting_item_margin_left"
                     android:text="English"
                     android:layout_centerVertical="true"
-                    android:fontFamily="sec-roboto-condensed"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:layout_marginStart="@dimen/setting_item_margin_left" />
                 <ImageView
                     android:id="@+id/imgEn"
@@ -116,7 +118,7 @@
                     android:layout_marginLeft="@dimen/setting_item_margin_left"
                     android:text="Español"
                     android:layout_centerVertical="true"
-                    android:fontFamily="sec-roboto-condensed"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:layout_marginStart="@dimen/setting_item_margin_left" />
                 <ImageView
                     android:id="@+id/imgEs"
@@ -151,7 +153,7 @@
                     android:layout_marginLeft="@dimen/setting_item_margin_left"
                     android:text="Français"
                     android:layout_centerVertical="true"
-                    android:fontFamily="sec-roboto-condensed"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:layout_marginStart="@dimen/setting_item_margin_left" />
                 <ImageView
                     android:id="@+id/imgFr"
@@ -187,7 +189,7 @@
                     android:layout_marginLeft="@dimen/setting_item_margin_left"
                     android:text="Indonesia"
                     android:layout_centerVertical="true"
-                    android:fontFamily="sec-roboto-condensed"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:layout_marginStart="@dimen/setting_item_margin_left" />
                 <ImageView
                     android:id="@+id/imgIndo"
@@ -222,7 +224,7 @@
                     android:layout_marginLeft="@dimen/setting_item_margin_left"
                     android:text="Italiano"
                     android:layout_centerVertical="true"
-                    android:fontFamily="sec-roboto-condensed"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:layout_marginStart="@dimen/setting_item_margin_left" />
                 <ImageView
                     android:id="@+id/imgIt"
@@ -257,7 +259,7 @@
                     android:layout_marginLeft="@dimen/setting_item_margin_left"
                     android:text="Português"
                     android:layout_centerVertical="true"
-                    android:fontFamily="sec-roboto-condensed"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:layout_marginStart="@dimen/setting_item_margin_left" />
                 <ImageView
                     android:id="@+id/imgPt"
@@ -292,7 +294,7 @@
                     android:layout_marginLeft="@dimen/setting_item_margin_left"
                     android:text="Pусский"
                     android:layout_centerVertical="true"
-                    android:fontFamily="sec-roboto-condensed"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:layout_marginStart="@dimen/setting_item_margin_left" />
                 <ImageView
                     android:id="@+id/imgRu"
@@ -327,7 +329,7 @@
                     android:layout_marginLeft="@dimen/setting_item_margin_left"
                     android:text="Türkçe"
                     android:layout_centerVertical="true"
-                    android:fontFamily="sec-roboto-condensed"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:layout_marginStart="@dimen/setting_item_margin_left" />
                 <ImageView
                     android:id="@+id/imgTr"
@@ -362,7 +364,7 @@
                     android:layout_marginLeft="@dimen/setting_item_margin_left"
                     android:text="العربية"
                     android:layout_centerVertical="true"
-                    android:fontFamily="sec-roboto-condensed"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:layout_marginStart="@dimen/setting_item_margin_left" />
                 <ImageView
                     android:id="@+id/imgAr"
@@ -397,7 +399,7 @@
                     android:layout_marginLeft="@dimen/setting_item_margin_left"
                     android:text="ไทย"
                     android:layout_centerVertical="true"
-                    android:fontFamily="sec-roboto-condensed"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:layout_marginStart="@dimen/setting_item_margin_left" />
                 <ImageView
                     android:id="@+id/imgTh"
@@ -432,7 +434,7 @@
                     android:layout_marginLeft="@dimen/setting_item_margin_left"
                     android:text="Tiếng Việt"
                     android:layout_centerVertical="true"
-                    android:fontFamily="sec-roboto-condensed"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:layout_marginStart="@dimen/setting_item_margin_left" />
                 <ImageView
                     android:id="@+id/imgVietNam"
@@ -467,7 +469,7 @@
                     android:layout_marginLeft="@dimen/setting_item_margin_left"
                     android:text="日本語"
                     android:layout_centerVertical="true"
-                    android:fontFamily="sec-roboto-condensed"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:layout_marginStart="@dimen/setting_item_margin_left" />
                 <ImageView
                     android:id="@+id/imgJa"
@@ -502,7 +504,7 @@
                     android:layout_marginLeft="@dimen/setting_item_margin_left"
                     android:text="한국어"
                     android:layout_centerVertical="true"
-                    android:fontFamily="sec-roboto-condensed"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:layout_marginStart="@dimen/setting_item_margin_left" />
                 <ImageView
                     android:id="@+id/imgKo"

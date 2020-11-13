@@ -33,7 +33,7 @@
             android:layout_width="fill_parent"
             android:layout_height="150dip"
             android:adjustViewBounds="true"
-            android:background="#ffffff"
+            android:background="@drawable/style_dialog_full"
             android:gravity="center"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_nz_studio" />
@@ -43,12 +43,12 @@
         android:id="@+id/rd_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto_light"
+        android:fontFamily="@font/barlowcondensed_light"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:text="@string/rate_msg"
-        android:textColor="@color/text_color"
+        android:textColor="@color/text_color_dialog"
         android:textSize="@dimen/text_details" />
 
     <LinearLayout
@@ -65,13 +65,13 @@
             android:layout_gravity="center"
             android:layout_weight="50"
             android:background="@drawable/selector_button"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="@font/barlowcondensed_regular"
             android:gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="@string/good_5_stars"
             android:textAllCaps="true"
-            android:textColor="@color/text_color"
+            android:textColor="@color/text_color_dialog"
             android:textSize="@dimen/text_details" />
 
         <TextView
@@ -81,13 +81,13 @@
             android:layout_gravity="center"
             android:layout_weight="50"
             android:background="@drawable/selector_button"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="@font/barlowcondensed_regular"
             android:gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="@string/not_good"
             android:textAllCaps="true"
-            android:textColor="@color/text_color"
+            android:textColor="@color/text_color_dialog"
             android:textSize="@dimen/text_details" />
 
         <TextView
@@ -97,13 +97,13 @@
             android:layout_gravity="center"
             android:layout_weight="50"
             android:background="@drawable/selector_button"
-            android:fontFamily="@font/roboto_regular"
+            android:fontFamily="@font/barlowcondensed_regular"
             android:gravity="center"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="@string/remind_later"
             android:textAllCaps="true"
-            android:textColor="@color/text_color"
+            android:textColor="@color/text_color_dialog"
             android:textSize="@dimen/text_details" />
 
     </LinearLayout>

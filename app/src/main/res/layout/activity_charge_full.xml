@@ -35,7 +35,7 @@
                 android:id="@+id/activity_charge_tv_title_1"
                 android:layout_width="wrap_content"
                 android:layout_height="fill_parent"
-                android:fontFamily="sans"
+                android:fontFamily="@font/barlowcondensed_medium"
                 android:gravity="center_vertical"
                 android:text="@string/power_full"
                 android:textAllCaps="true"
@@ -116,7 +116,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:layout_gravity="center"
-                            android:fontFamily="@font/phenomena_regular"
+                            android:fontFamily="@font/barlowcondensed_regular"
                             android:text="100%"
                             android:textColor="@color/text_color"
                             android:textSize="@dimen/Optimize_big_size"
@@ -131,14 +131,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/phenomena_regular"
+                    android:fontFamily="@font/barlowcondensed_regular"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:text="@string/power_full"
                     android:textColor="@color/text_color"
                     android:textSize="18dip" />
 
-                <View
+                <!--<View
                     android:layout_width="fill_parent"
                     android:layout_height="1.0dip"
                     android:background="@color/divider" />
@@ -202,7 +202,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/phenomena_regular"
+                                    android:fontFamily="@font/barlowcondensed_regular"
                                     android:text="@string/ram_boost_title"
                                     android:textAllCaps="true"
                                     android:textColor="@color/text_color"
@@ -215,7 +215,7 @@
                                     android:layout_above="@+id/tvBoost3"
                                     android:layout_below="@+id/tvBoost1"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/phenomena_regular"
+                                    android:fontFamily="@font/barlowcondensed_regular"
                                     android:text="@string/sm_ram_detail"
                                     android:textColor="@color/grey_500"
                                     android:textSize="@dimen/text_details_optimize" />
@@ -228,7 +228,7 @@
                                     android:layout_marginBottom="8.0dip"
                                     android:background="@drawable/button_dialog_selector"
                                     android:clickable="true"
-                                    android:fontFamily="@font/phenomena_regular"
+                                    android:fontFamily="@font/barlowcondensed_regular"
                                     android:gravity="center"
                                     android:minWidth="64.0dip"
                                     android:paddingStart="8.0dip"
@@ -289,7 +289,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/phenomena_regular"
+                                    android:fontFamily="@font/barlowcondensed_regular"
                                     android:text="@string/junk_clean_nav"
                                     android:textAllCaps="true"
                                     android:textColor="@color/text_color"
@@ -302,7 +302,7 @@
                                     android:layout_above="@+id/tv_jc_3"
                                     android:layout_below="@+id/tv_jc_1"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/phenomena_regular"
+                                    android:fontFamily="@font/barlowcondensed_regular"
                                     android:text="@string/op_storage_des"
                                     android:textColor="@color/grey_500"
                                     android:textSize="@dimen/text_details_optimize" />
@@ -314,7 +314,7 @@
                                     android:layout_gravity="end"
                                     android:layout_marginBottom="8.0dip"
                                     android:background="@drawable/button_dialog_selector"
-                                    android:fontFamily="@font/phenomena_regular"
+                                    android:fontFamily="@font/barlowcondensed_regular"
                                     android:gravity="center"
                                     android:minWidth="64.0dip"
                                     android:paddingStart="8.0dip"
@@ -361,7 +361,7 @@
                                     android:layout_height="32.0dip"
                                     android:layout_gravity="center"
                                     android:src="@drawable/ic_temperature" />
-                                <!--                                app:tint="@color/white"-->
+                                &lt;!&ndash;                                app:tint="@color/white"&ndash;&gt;
                             </FrameLayout>
 
                             <LinearLayout
@@ -377,7 +377,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/phenomena_regular"
+                                    android:fontFamily="@font/barlowcondensed_regular"
                                     android:text="@string/phone_cool_nav"
                                     android:textAllCaps="true"
                                     android:textColor="@color/text_color"
@@ -390,7 +390,7 @@
                                     android:layout_above="@+id/tvCool3"
                                     android:layout_below="@+id/tvCool1"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/phenomena_regular"
+                                    android:fontFamily="@font/barlowcondensed_regular"
                                     android:text="@string/op_cool_down_tip"
                                     android:textColor="@color/grey_500"
                                     android:textSize="@dimen/text_details_optimize" />
@@ -402,7 +402,7 @@
                                     android:layout_gravity="end"
                                     android:layout_marginBottom="8.0dip"
                                     android:background="@drawable/button_dialog_selector"
-                                    android:fontFamily="@font/phenomena_regular"
+                                    android:fontFamily="@font/barlowcondensed_regular"
                                     android:gravity="center"
                                     android:minWidth="64.0dip"
                                     android:paddingStart="8.0dip"
@@ -418,7 +418,7 @@
 
                     </androidx.cardview.widget.CardView>
 
-                </LinearLayout>
+                </LinearLayout>-->
 
             </LinearLayout>
         </ScrollView>

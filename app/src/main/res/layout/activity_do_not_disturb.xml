@@ -14,15 +14,15 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            app:titleTextColor="@color/text_color"
-            app:subtitleTextColor="@color/text_color"
             android:layout_width="fill_parent"
             android:layout_height="?actionBarSize"
-            app:layout_collapseMode="pin"
-            android:fontFamily="@font/phenomena_regular"
+            android:fontFamily="@font/barlowcondensed_regular"
             android:theme="@style/ToolbarThemeGreen"
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:subtitleTextColor="@color/subsection"
             app:titleTextAppearance="@style/textsizetoolbar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:titleTextColor="@color/subsection" />
     </LinearLayout>
 
     <LinearLayout
@@ -82,7 +82,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="fill_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:layout_gravity="center"
-                android:fontFamily="@font/phenomena_regular"
+                android:fontFamily="@font/barlowcondensed_regular"
                 android:text="22:00"
                 android:layout_marginEnd="10dp"
                 android:textSize="@dimen/text_details" />
@@ -120,7 +120,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="fill_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -138,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:layout_gravity="center"
-                android:fontFamily="@font/phenomena_regular"
+                android:fontFamily="@font/barlowcondensed_regular"
                 android:text="08:00"
                 android:layout_marginEnd="10dp"
                 android:textSize="@dimen/text_details" />

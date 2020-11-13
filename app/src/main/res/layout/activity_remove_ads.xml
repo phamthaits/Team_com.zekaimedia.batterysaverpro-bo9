@@ -14,16 +14,16 @@
         android:gravity="center"
         android:text="REMOVE ADS"
         android:textColor="#fff"
-        android:textSize="22sp"
+        android:textSize="@dimen/_15sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/bntBackHome"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_15sdp"
+        android:layout_margin="15dp"
         android:background="@drawable/ic_previous"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -61,6 +61,7 @@
         android:paddingBottom="15dp"
         android:text="Buy Now!"
         android:textColor="@android:color/background_light"
+        android:fontFamily="@font/barlowcondensed_medium"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

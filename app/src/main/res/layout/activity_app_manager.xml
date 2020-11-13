@@ -26,7 +26,7 @@
             app:layout_constraintBottom_toTopOf="@+id/recyclerView"
             app:layout_constraintEnd_toStartOf="@+id/recyclerView"
             app:layout_constraintStart_toEndOf="@+id/recyclerView"
-            app:layout_constraintTop_toTopOf="parent"></include>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <app.tahachi.batterydoctor.view.AnimatedExpandableListView
             android:id="@+id/recyclerView"

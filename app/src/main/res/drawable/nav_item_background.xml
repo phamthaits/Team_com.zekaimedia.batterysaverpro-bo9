@@ -4,5 +4,5 @@
     <item android:state_checked="true" android:drawable="@color/color_complete_bg" />
     <item android:state_focused="true" android:drawable="@color/color_complete_bg" />
     <item android:state_activated="true" android:drawable="@color/color_complete_bg" />
-    <item android:drawable="@color/white" />
+    <item android:drawable="@color/windowBackground" />
 </selector>

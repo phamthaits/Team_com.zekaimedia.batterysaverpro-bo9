@@ -49,14 +49,14 @@
     <dimen name="arc_title_time_left">12sp</dimen>
     <dimen name="arc_battery_title">12sp</dimen>
     <dimen name="imgUsb_size">28dp</dimen>
-    <dimen name="text_size">18sp</dimen>
-    <dimen name="text_size_title">15sp</dimen>
+    <dimen name="text_size">15sp</dimen>
+    <dimen name="text_size_title">18sp</dimen>
     <dimen name="btn_size">30dp</dimen>
     <dimen name="size_status_wifi">54dp</dimen>
     <dimen name="text_details_optimize">12sp</dimen>
 
 
-    <dimen name="textsize_compo_ram_cpu_des">12.0sp</dimen>
+    <dimen name="textsize_compo_ram_cpu_des">10.0sp</dimen>
     <dimen name="textsize_ram_storage_total">11.0sp</dimen>
 
     <dimen name="cirularsize">5dp</dimen>
@@ -65,7 +65,7 @@
     <dimen name="chart_battery_charge_count_margin">16.0dip</dimen>
     <dimen name="text_size_value_status">24.0dip</dimen>
     <dimen name="img_charge_icon_width">20.0dip</dimen>
-    <dimen name="img_chart_item_color_width">8.0dip</dimen>
+    <dimen name="img_chart_item_color_width">@dimen/_15sdp</dimen>
 
     <dimen name="margin_text_value_record">10.0dip</dimen>
     <dimen name="setting_item_height">56.0dip</dimen>
@@ -75,7 +75,7 @@
     //History
     <dimen name="textsize_history_charge">16.0dip</dimen>
 
-    <dimen name="size_title_spash">24sp</dimen>
+    <dimen name="size_title_spash">32sp</dimen>
     <dimen name="size_detail_spash">15sp</dimen>
     <dimen name="size_ic_spash">80dp</dimen>
 
