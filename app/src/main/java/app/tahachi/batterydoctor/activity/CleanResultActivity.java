@@ -8,10 +8,14 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
@@ -20,8 +24,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import app.ads.control.AdControlHelp;
+import app.tahachi.batterydoctor.MainActivity;
+import app.tahachi.batterydoctor.Utilsb.SharePreferenceConstant;
 import app.tahachi.batterydoctor.Utilsb.SharePreferenceUtils;
 import app.tahachi.batterydoctor.Utilsb.Utils;
+import app.tahachi.batterydoctor.notification.NotificationBattery;
 import app.tahachi.batterydoctor.view.HoloCircularProgressBar;
 import app.tahachi.batterydoctor.R;
 
@@ -75,15 +82,15 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
                 finish();
                 return;
 
-            case R.id.rlBoost:
+            case R.id.lrBoost:
                 startActivity(new Intent(this, BoostActivity.class));
                 finish();
                 return;
-            case R.id.rlClean:
+            case R.id.lrClean:
                 startActivity(new Intent(this, CleanActivity.class));
                 finish();
                 return;
-            case R.id.rlCool:
+            case R.id.lrCool:
                 startActivity(new Intent(this, CoolActivity.class));
                 finish();
                 return;
@@ -182,17 +189,6 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onBackPressed() {
-//        if(SharePreferenceUtils.getInstance(this).getFlagAds()){
-//            SharePreferenceUtils.getInstance(this).setFlagAds(false);
-//            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
-//                @Override
-//                public void onAdClosed() {
-//                    finish();
-//                }
-//            });
-//        }else{
-//            finish();
-//        }
         finish();
     }
 
@@ -201,4 +197,5 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         SharePreferenceUtils.getInstance(this).setFlagAds(false);
         super.onDestroy();
     }
+
 }

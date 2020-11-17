@@ -1,12 +1,15 @@
-package app.tahachi.batterydoctor.fragment;
+package app.tahachi.batterydoctor.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import app.ads.control.AdControlHelp;
 import com.google.android.material.tabs.TabLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
@@ -28,9 +31,13 @@ import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.MPPointF;
 import com.github.mikephil.charting.utils.ViewPortHandler;
+
+import app.tahachi.batterydoctor.MainActivity;
 import app.tahachi.batterydoctor.R;
+import app.tahachi.batterydoctor.Utilsb.SharePreferenceConstant;
 import app.tahachi.batterydoctor.Utilsb.SharePreferenceUtils;
 import app.tahachi.batterydoctor.adapter.ChartAdapter;
+import app.tahachi.batterydoctor.notification.NotificationBattery;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -38,10 +45,21 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 
-public class fmChart extends Fragment {
+public class ChartActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        intView();
+        intEvent();
+        intData();
+        context = this;
+        adControlHelp = AdControlHelp.getInstance(context);
+
+        adapterViewPager = new ChartAdapter(this.getSupportFragmentManager());
+        vpPager.setAdapter(adapterViewPager);
+        vpPager.setCurrentItem(2);
+
+//        adControlHelp.loadBannerFragment(this, view);
     }
 
     TextView tvNormal, tvOver, tvHealthy, tvLastFull, tvChargeType, tvTimeCharge, tvQuantity, tvDate;
@@ -54,48 +72,29 @@ public class fmChart extends Fragment {
     private AdControlHelp adControlHelp;
     private Context context;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_charge_history, container, false);
-        intView(view);
-        intEvent(view);
-        intData();
-        context = getContext();
-        adControlHelp = AdControlHelp.getInstance(context);
 
-        adapterViewPager = new ChartAdapter(getActivity().getSupportFragmentManager());
-        vpPager.setAdapter(adapterViewPager);
-        vpPager.setCurrentItem(2);
 
-        adControlHelp.loadBannerFragment(getActivity(), view);
-        return view;
-    }
-
-    public void intView(View v) {
-        tvNormal = v.findViewById(R.id.tvNormal);
-        tvOver = v.findViewById(R.id.tvOver);
-        tvHealthy = v.findViewById(R.id.tvHealthy);
-        tvLastFull = v.findViewById(R.id.tvLastFull);
-        tvChargeType = v.findViewById(R.id.tvChargeType);
-        tvTimeCharge = v.findViewById(R.id.tvTimeCharge);
-        tvQuantity = v.findViewById(R.id.tvQuantity);
-        tvCount = v.findViewById(R.id.tvCount);
-        imgColor = v.findViewById(R.id.imgColor);
-        tvDate = v.findViewById(R.id.tvDate);
-        vpPager = v.findViewById(R.id.viewPager);
-        indicator = v.findViewById(R.id.indicator);
+    public void intView() {
+        tvNormal = findViewById(R.id.tvNormal);
+        tvOver = findViewById(R.id.tvOver);
+        tvHealthy = findViewById(R.id.tvHealthy);
+        tvLastFull = findViewById(R.id.tvLastFull);
+        tvChargeType = findViewById(R.id.tvChargeType);
+        tvTimeCharge = findViewById(R.id.tvTimeCharge);
+        tvQuantity = findViewById(R.id.tvQuantity);
+        tvCount = findViewById(R.id.tvCount);
+        imgColor = findViewById(R.id.imgColor);
+        tvDate = findViewById(R.id.tvDate);
+        vpPager = findViewById(R.id.viewPager);
+        indicator = findViewById(R.id.indicator);
         indicator.setupWithViewPager(vpPager, true);
     }
 
-    public void intEvent(View v) {
-
-
-        intChart(v);
+    public void intEvent() {
+        intChart();
         chart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
             @Override
             public void onValueSelected(Entry e, Highlight h) {
-
-
                 if (e == null)
                     return;
                 Log.i("VAL SELECTED",
@@ -109,17 +108,16 @@ public class fmChart extends Fragment {
             public void onNothingSelected() {
 
                 imgColor.setVisibility(View.INVISIBLE);
-                tvCount.setText(String.valueOf(SharePreferenceUtils.getInstance(getActivity()).getChargeNormal()));
+                tvCount.setText(String.valueOf(SharePreferenceUtils.getInstance(context).getChargeNormal()));
             }
         });
         viewPagerListenItem();
     }
 
     public void setPercent(float i) {
-
-        float normal = (float) SharePreferenceUtils.getInstance(getActivity()).getChargeNormal();
-        float healthy = (float) SharePreferenceUtils.getInstance(getActivity()).getChargeHealthy();
-        float over = (float) SharePreferenceUtils.getInstance(getActivity()).getChargeOver();
+        float normal = (float) SharePreferenceUtils.getInstance(context).getChargeNormal();
+        float healthy = (float) SharePreferenceUtils.getInstance(context).getChargeHealthy();
+        float over = (float) SharePreferenceUtils.getInstance(context).getChargeOver();
         float sum = normal + healthy + over;
         if (i == 0) {
             imgColor.setBackgroundResource(R.drawable.shape_status_normal);
@@ -131,13 +129,11 @@ public class fmChart extends Fragment {
             tvCount.setText(Math.round((over / sum) * 100) + "%");
             imgColor.setBackgroundResource(R.drawable.shape_status_over);
         }
-
-
     }
 
-    public void intChart(View v) {
+    public void intChart() {
         //      tfLight = Typeface.createFromAsset(getAssets(), "OpenSans-Light.ttf");
-        chart = v.findViewById(R.id.chartPie);
+        chart =findViewById(R.id.chartPie);
         chart.setUsePercentValues(false);
         chart.getDescription().setEnabled(false);
         chart.setDrawHoleEnabled(true);
@@ -207,22 +203,22 @@ public class fmChart extends Fragment {
     public void intData() {
 
 
-        if (SharePreferenceUtils.getInstance(getActivity()).getChargeNormal() != 0) {
-            tvNormal.setText(String.valueOf(SharePreferenceUtils.getInstance(getActivity()).getChargeNormal()));
+        if (SharePreferenceUtils.getInstance(context).getChargeNormal() != 0) {
+            tvNormal.setText(String.valueOf(SharePreferenceUtils.getInstance(context).getChargeNormal()));
         }
-        if (SharePreferenceUtils.getInstance(getActivity()).getChargeOver() != 0) {
-            tvOver.setText(String.valueOf(SharePreferenceUtils.getInstance(getActivity()).getChargeOver()));
+        if (SharePreferenceUtils.getInstance(context).getChargeOver() != 0) {
+            tvOver.setText(String.valueOf(SharePreferenceUtils.getInstance(context).getChargeOver()));
         }
-        if (SharePreferenceUtils.getInstance(getActivity()).getChargeHealthy() != 0) {
-            tvHealthy.setText(String.valueOf(SharePreferenceUtils.getInstance(getActivity()).getChargeHealthy()));
+        if (SharePreferenceUtils.getInstance(context).getChargeHealthy() != 0) {
+            tvHealthy.setText(String.valueOf(SharePreferenceUtils.getInstance(context).getChargeHealthy()));
 
         }
-        if (SharePreferenceUtils.getInstance(getActivity()).getChargeFull() != null) {
-            tvLastFull.setText(SharePreferenceUtils.getInstance(getActivity()).getChargeFull());
+        if (SharePreferenceUtils.getInstance(context).getChargeFull() != null) {
+            tvLastFull.setText(SharePreferenceUtils.getInstance(context).getChargeFull());
         }
-        tvChargeType.setText(SharePreferenceUtils.getInstance(getActivity()).getChargeType());
-        tvTimeCharge.setText(formatHourMinutune(SharePreferenceUtils.getInstance(getActivity()).getTimeCharge()));
-        tvQuantity.setText(SharePreferenceUtils.getInstance(getActivity()).getChargeQuantity() + "%");
+        tvChargeType.setText(SharePreferenceUtils.getInstance(context).getChargeType());
+        tvTimeCharge.setText(formatHourMinutune(SharePreferenceUtils.getInstance(context).getTimeCharge()));
+        tvQuantity.setText(SharePreferenceUtils.getInstance(context).getChargeQuantity() + "%");
 
 
         setData();
@@ -244,11 +240,11 @@ public class fmChart extends Fragment {
 
     private void setData() {
         ArrayList<PieEntry> entries = new ArrayList<>();
-        float b = (float) Math.round(SharePreferenceUtils.getInstance(getActivity()).getChargeNormal()) / 40;
+        float b = (float) Math.round(SharePreferenceUtils.getInstance(context).getChargeNormal()) / 40;
 
-        float normal = (float) SharePreferenceUtils.getInstance(getActivity()).getChargeNormal();
-        float healthy = (float) SharePreferenceUtils.getInstance(getActivity()).getChargeHealthy();
-        float over = (float) SharePreferenceUtils.getInstance(getActivity()).getChargeOver();
+        float normal = (float) SharePreferenceUtils.getInstance(context).getChargeNormal();
+        float healthy = (float) SharePreferenceUtils.getInstance(context).getChargeHealthy();
+        float over = (float) SharePreferenceUtils.getInstance(context).getChargeOver();
         float max = normal;
         if (normal == 0 && healthy == 0 && over == 0) {
             entries.add(new PieEntry(40, 0));
@@ -293,9 +289,9 @@ public class fmChart extends Fragment {
         //add colors to dataset
         ArrayList<Integer> colors = new ArrayList<>();
 
-        colors.add(ContextCompat.getColor(getActivity(), R.color.color_normal));
-        colors.add(ContextCompat.getColor(getActivity(), R.color.color_healthy));
-        colors.add(ContextCompat.getColor(getActivity(), R.color.color_over));
+        colors.add(ContextCompat.getColor(context, R.color.color_normal));
+        colors.add(ContextCompat.getColor(context, R.color.color_healthy));
+        colors.add(ContextCompat.getColor(context, R.color.color_over));
 
 
         dataSet.setColors(colors);

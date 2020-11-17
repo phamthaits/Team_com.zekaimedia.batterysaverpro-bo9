@@ -6,6 +6,8 @@
     android:background="@drawable/bg_rounded">
 
     <RelativeLayout
+        android:onClick="onClick"
+        android:clickable="true"
         android:id="@+id/lrBoost"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

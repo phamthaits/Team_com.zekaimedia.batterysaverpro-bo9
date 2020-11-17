@@ -130,9 +130,9 @@ public class AdControl {
     }
 
     public Boolean remove_ads() {
-        if (isTest) return false;
-//        return true;
-        return this.pre.getBoolean("remove_ads", false);
+//        if (isTest) return false;
+        return true;
+//        return this.pre.getBoolean("remove_ads", false);
     }
 
     public void remove_ads(Boolean value) {

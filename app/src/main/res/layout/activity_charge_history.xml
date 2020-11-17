@@ -394,7 +394,6 @@
                 </RelativeLayout>
 
                 <include
-                    android:id="@+id/news_title"
                     layout="@layout/fragment_history_battery"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

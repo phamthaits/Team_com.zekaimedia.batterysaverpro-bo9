@@ -1,5 +1,6 @@
-package app.tahachi.batterydoctor.fragment;
+package app.tahachi.batterydoctor.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.net.Uri;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.Toolbar;
 
@@ -30,7 +32,7 @@ import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 
-public class fmAppManager extends Fragment {
+public class AppManagerActivity extends AppCompatActivity {
     private static final int UNINSTALL_REQUEST_CODE = 1;
     protected ProgressBar mProgressBarLoading;
 
@@ -47,28 +49,22 @@ public class fmAppManager extends Fragment {
     private AnimatedExpandableListView mRecyclerView;
     Runnable runnableLocal;
     private AdControlHelp adControlHelp;
+    private Context context;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-    }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_app_manager, container, false);
-        mProgressBarLoading = view.findViewById(R.id.progressBarLoading);
-        mRecyclerView = view.findViewById(R.id.recyclerView);
+        context = this;
+        mProgressBarLoading = findViewById(R.id.progressBarLoading);
+        mRecyclerView = findViewById(R.id.recyclerView);
         initAdapter();
         loadData();
-        adControlHelp = AdControlHelp.getInstance(getContext());
-        adControlHelp.loadBannerFragment(getActivity(), view);
-        return view;
+        adControlHelp = AdControlHelp.getInstance(context);
+//        adControlHelp.loadBannerFragment(getActivity(), view);
     }
 
     private void initAdapter() {
-        mAdapter = new AppManagerAdapter(getActivity(), mGroupItems, new AppManagerAdapter.OnClickItemListener() {
+        mAdapter = new AppManagerAdapter(context, mGroupItems, new AppManagerAdapter.OnClickItemListener() {
             @Override
             public void onUninstallApp(int groupPosition, int childPosition) {
                 mGroupPosition = groupPosition;
@@ -98,7 +94,7 @@ public class fmAppManager extends Fragment {
     private void loadData() {
         mProgressBarLoading.setVisibility(View.VISIBLE);
         ManagerConnect managerConnect = new ManagerConnect();
-        managerConnect.getListManager(getActivity(), new ManagerConnect.OnManagerConnectListener() {
+        managerConnect.getListManager(context, new ManagerConnect.OnManagerConnectListener() {
             @Override
             public void OnResultManager(final List<ApplicationInfo> result) {
                 runnableLocal = new Runnable() {
@@ -108,12 +104,12 @@ public class fmAppManager extends Fragment {
                         if (result.size() != 0) {
                             //set app user
                             GroupItemAppManager groupItemAppManagerUser = new GroupItemAppManager();
-                            groupItemAppManagerUser.setTitle(getActivity().getString(R.string.user_app));
+                            groupItemAppManagerUser.setTitle(getString(R.string.user_app));
                             groupItemAppManagerUser.setType(GroupItemAppManager.TYPE_USER_APPS);
                             int countUser = 0;
                             List<ApplicationInfo> applicationInfosUser = new ArrayList<>();
                             for (ApplicationInfo applicationInfo : result) {
-                                if (!applicationInfo.packageName.equals(getActivity().getPackageName())
+                                if (!applicationInfo.packageName.equals(getPackageName())
                                 ) {
                                     countUser++;
                                     applicationInfosUser.add(applicationInfo);

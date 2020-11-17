@@ -18,6 +18,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
@@ -32,7 +33,9 @@ import app.ads.control.AdControlHelp;
 import app.tahachi.batterydoctor.Utilsb.SharePreferenceUtils;
 import app.tahachi.batterydoctor.Utilsb.Utils;
 import app.tahachi.batterydoctor.model.TaskInfo;
+
 import com.skyfishjy.library.RippleBackground;
+
 import app.tahachi.batterydoctor.R;
 
 import java.util.ArrayList;
@@ -74,7 +77,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         intView();
         context = this;
 //        checkTask();
-        adControlHelp=AdControlHelp.getInstance(context);
+        adControlHelp = AdControlHelp.getInstance(context);
         adControlHelp.loadNative(this);
         adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
 //        SharePreferenceUtils.getInstance(this).setFlagAds(true);
@@ -87,16 +90,16 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         }
     };
 
-    public void checkTask() {
-        if (!Utils.checkShouldDoing(this, 6)) {
-            findViewById(R.id.cvBoost).setVisibility(View.GONE);
-        }
-        if (!Utils.checkShouldDoing(this, 7)) {
-            findViewById(R.id.cvCool).setVisibility(View.GONE);
-        }
-        if (!Utils.checkShouldDoing(this, 3)) {
-            findViewById(R.id.cvClean).setVisibility(View.GONE);
-        }
+//    public void checkTask() {
+//        if (!Utils.checkShouldDoing(this, 6)) {
+//            findViewById(R.id.cvBoost).setVisibility(View.GONE);
+//        }
+//        if (!Utils.checkShouldDoing(this, 7)) {
+//            findViewById(R.id.cvCool).setVisibility(View.GONE);
+//        }
+//        if (!Utils.checkShouldDoing(this, 3)) {
+//            findViewById(R.id.cvClean).setVisibility(View.GONE);
+//        }
 //        if (!Utils.checkShouldDoing(this, 8)) {
 //            findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
 //
@@ -104,33 +107,24 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 //            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
 //                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
 //        }
-    }
+//    }
 
     @Override
     public void onClick(View view) {
+        Log.v("Thaidaica", view.getId() + "");
         switch (view.getId()) {
             case R.id.lr_back:
                 finish();
                 return;
-//            case R.id.ivClose:
-//                SharePreferenceUtils.getInstance(this).setHideChargeView(System.currentTimeMillis());
-//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-//                return;
-//
-//            case R.id.btnOk:
-//                SharePreferenceUtils.getInstance(this).setFsAutoRun(true);
-//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-//
-//                return;
-            case R.id.rlBoost:
+            case R.id.lrBoost:
                 startActivity(new Intent(this, BoostActivity.class));
                 finish();
                 return;
-            case R.id.rlClean:
+            case R.id.lrClean:
                 startActivity(new Intent(this, CleanActivity.class));
                 finish();
                 return;
-            case R.id.rlCool:
+            case R.id.lrCool:
                 startActivity(new Intent(this, CoolActivity.class));
                 finish();
                 return;

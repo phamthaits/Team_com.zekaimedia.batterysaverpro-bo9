@@ -68,28 +68,6 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         }
     };
 
-    public void checkTask() {
-        if (!Utils.checkShouldDoing(this, 6)) {
-            findViewById(R.id.cvBoost).setVisibility(View.GONE);
-        }
-        if (!Utils.checkShouldDoing(this, 7)) {
-            findViewById(R.id.cvCool).setVisibility(View.GONE);
-
-        }
-        if (!Utils.checkShouldDoing(this, 3)) {
-            findViewById(R.id.cvClean).setVisibility(View.GONE);
-
-        }
-//        if (!Utils.checkShouldDoing(this, 8)) {
-//            findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-//
-//        } else {
-//            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
-//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-//        }
-
-    }
-
     public void intView() {
         rlScan = findViewById(R.id.rlScanning);
         parentAds = findViewById(R.id.fmResult);
@@ -105,16 +83,6 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         this.ivDoneAnim = AnimationUtils.loadAnimation(this, R.anim.ic_done_anim);
         this.ivDoneAnim.setAnimationListener(new CustomAnimationListener());
         intData();
-
-//        } else {
-//            findViewById(R.id.rlScanning).setVisibility(View.GONE);
-//            BoostActivity.this.parentAds.setAlpha(0.0f);
-//            BoostActivity.this.parentAds.setVisibility(View.VISIBLE);
-//            BoostActivity.this.parentAds.animate().alpha(1.0f).start();
-//            Animation downtoup = AnimationUtils.loadAnimation(BoostActivity.this, R.anim.downtoup);
-//            parentAds.startAnimation(downtoup);
-//        }
-//        ((ImageView) findViewById(R.id.clean_done_iv_rocket)).setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
         ((ImageView) findViewById(R.id.clean_done_iv_tick)).setColorFilter(getResources().getColor(R.color.color_white), PorterDuff.Mode.MULTIPLY);
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
     }
@@ -152,23 +120,15 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
             case R.id.lr_back:
                 finish();
                 return;
-//            case R.id.ivClose:
-//                SharePreferenceUtils.getInstance(this).setHideChargeView(System.currentTimeMillis());
-//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-//                return;
-//            case R.id.btnOk:
-//                SharePreferenceUtils.getInstance(this).setFsAutoRun(true);
-//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-//                return;
-            case R.id.rlBoost:
+            case R.id.lrBoost:
                 startActivity(new Intent(this, BoostActivity.class));
                 finish();
                 return;
-            case R.id.rlClean:
+            case R.id.lrClean:
                 startActivity(new Intent(this, CleanActivity.class));
                 finish();
                 return;
-            case R.id.rlCool:
+            case R.id.lrCool:
                 startActivity(new Intent(this, CoolActivity.class));
                 finish();
                 return;

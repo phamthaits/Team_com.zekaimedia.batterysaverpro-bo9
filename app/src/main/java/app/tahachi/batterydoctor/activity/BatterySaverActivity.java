@@ -74,7 +74,6 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         setContentView(R.layout.activity_do_optimize);
         adControlHelp = AdControlHelp.getInstance(context);
         intView();
-//        checkTask();
         adControlHelp.loadNative(this);
         adControlHelp.loadInterstitialAd(this,adCloseListener, null, false);
     }
@@ -93,29 +92,18 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
             case R.id.lr_back:
                 finish();
                 return;
-
-//            case R.id.ivClose:
-//                SharePreferenceUtils.getInstance(this).setHideChargeView(System.currentTimeMillis());
-//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-//                return;
-//
-//            case R.id.btnOk:
-//                SharePreferenceUtils.getInstance(this).setFsAutoRun(true);
-//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-//                return;
-            case R.id.rlBoost:
+            case R.id.lrBoost:
                 startActivity(new Intent(BatterySaverActivity.this, BoostActivity.class));
                 finish();
                 return;
-            case R.id.rlClean:
+            case R.id.lrClean:
                 startActivity(new Intent(BatterySaverActivity.this, CleanActivity.class));
                 finish();
                 return;
-            case R.id.rlCool:
+            case R.id.lrCool:
                 startActivity(new Intent(BatterySaverActivity.this, CoolActivity.class));
                 finish();
                 return;
-
             default:
                 return;
         }
@@ -155,20 +143,10 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         this.ivDoneAnim = AnimationUtils.loadAnimation(this, R.anim.ic_done_anim);
         animationRotate.setAnimationListener(new anmRotate());
         this.ivDoneAnim.setAnimationListener(new anmDone());
-//        } else {
-//            findViewById(R.id.lrScan).setVisibility(View.GONE);
-//            BatterySaverActivity.this.parentAds.setAlpha(0.0f);
-//            BatterySaverActivity.this.parentAds.setVisibility(View.VISIBLE);
-//            BatterySaverActivity.this.parentAds.animate().alpha(1.0f).start();
-//            Animation downtoup = AnimationUtils.loadAnimation(BatterySaverActivity.this, R.anim.downtoup);
-//            parentAds.startAnimation(downtoup);
-//        }
-
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), Mode.MULTIPLY);
         this.ivDone.setColorFilter(getResources().getColor(R.color.color_white), Mode.MULTIPLY);
         this.rocketImageOut.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
         this.rocketImage.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
-
     }
 
     class anmRotate implements AnimationListener {
@@ -403,18 +381,18 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         }
     }
 
-    public void checkTask() {
-        if (!Utils.checkShouldDoing(this, 6)) {
-            findViewById(R.id.cvBoost).setVisibility(View.GONE);
-        }
-        if (!Utils.checkShouldDoing(this, 7)) {
-            findViewById(R.id.cvCool).setVisibility(View.GONE);
-
-        }
-        if (!Utils.checkShouldDoing(this, 3)) {
-            findViewById(R.id.cvClean).setVisibility(View.GONE);
-
-        }
+//    public void checkTask() {
+//        if (!Utils.checkShouldDoing(this, 6)) {
+//            findViewById(R.id.cvBoost).setVisibility(View.GONE);
+//        }
+//        if (!Utils.checkShouldDoing(this, 7)) {
+//            findViewById(R.id.cvCool).setVisibility(View.GONE);
+//
+//        }
+//        if (!Utils.checkShouldDoing(this, 3)) {
+//            findViewById(R.id.cvClean).setVisibility(View.GONE);
+//
+//        }
 //        if (!Utils.checkShouldDoing(this, 8)) {
 //            findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
 //
@@ -423,7 +401,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
 //                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
 //        }
 
-    }
+//    }
 
     private void loadResult() {
         Animation slideUp = AnimationUtils.loadAnimation(BatterySaverActivity.this, R.anim.zoom_in);

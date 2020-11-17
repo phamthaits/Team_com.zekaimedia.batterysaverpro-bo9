@@ -4,14 +4,12 @@ import app.ads.control.AdControl;
 import app.ads.control.Rate;
 import app.ads.control.funtion.UtilsApp;
 
-import app.tahachi.batterydoctor.R;
-
 import app.tahachi.batterydoctor.activity.BaseActivity;
 import app.tahachi.batterydoctor.activity.BoostActivity;
 import app.tahachi.batterydoctor.activity.CleanActivity;
 import app.tahachi.batterydoctor.activity.CoolActivity;
 import app.tahachi.batterydoctor.activity.RemoveAdsActivity;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.fragment.app.Fragment;
@@ -31,10 +29,7 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import app.tahachi.batterydoctor.Utilsb.SharePreferenceUtils;
-import app.tahachi.batterydoctor.fragment.fmAppManager;
 import app.tahachi.batterydoctor.fragment.fmBatterySaveMain;
-import app.tahachi.batterydoctor.fragment.fmChart;
-import app.tahachi.batterydoctor.fragment.fmSetting;
 
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -172,9 +167,9 @@ public class MainActivity extends BaseActivity {
                     }
                 });
         addShourcut();
-        BottomNavigationView navigation = findViewById(R.id.navigation);
-        navigation.setItemIconTintList(null);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+//        BottomNavigationView navigation = findViewById(R.id.navigation);
+//        navigation.setItemIconTintList(null);
+//        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFragment(new fmBatterySaveMain());
     }
 
@@ -184,36 +179,35 @@ public class MainActivity extends BaseActivity {
         Rate.Show(this, 1, this);
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_shop:
-                    fragment = new fmBatterySaveMain();
-                    loadFragment(fragment);
-                    toolbar.setTitle(getString(R.string.app_name));
-                    return true;
-                case R.id.navigation_gifts:
-                    fragment = new fmChart();
-                    loadFragment(fragment);
-                    toolbar.setTitle(getString(R.string.title_activity_charge_history));
-                    return true;
-                case R.id.navigation_app:
-                    fragment = new fmAppManager();
-                    loadFragment(fragment);
-                    toolbar.setTitle(getString(R.string.app_manager));
-                    return true;
-                case R.id.navigation_cart:
-                    fragment = new fmSetting();
-                    loadFragment(fragment);
-                    toolbar.setTitle(getString(R.string.title_activity_setting));
-                    return true;
-            }
-            return false;
-        }
-    };
+//    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+//            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+//        @Override
+//        public boolean onNavigationItemSelected(MenuItem item) {
+//            switch (item.getItemId()) {
+//                case R.id.navigation_shop:
+//                    fragment = new fmBatterySaveMain();
+//                    loadFragment(fragment);
+//                    toolbar.setTitle(getString(R.string.app_name));
+//                    return true;
+//                case R.id.navigation_gifts:
+//                    fragment = new ChartActivity();
+//                    loadFragment(fragment);
+//                    toolbar.setTitle(getString(R.string.title_activity_charge_history));
+//                    return true;
+//                case R.id.navigation_app:
+//                    fragment = new AppManagerActivity();
+//                    loadFragment(fragment);
+//                    toolbar.setTitle(getString(R.string.app_manager));
+//                    return true;
+//                case R.id.navigation_cart:
+//                    fragment = new fmSetting();
+//                    loadFragment(fragment);
+//                    toolbar.setTitle(getString(R.string.title_activity_setting));
+//                    return true;
+//            }
+//            return false;
+//        }
+//    };
 
     private void loadFragment(Fragment fragment) {
         // load fragment

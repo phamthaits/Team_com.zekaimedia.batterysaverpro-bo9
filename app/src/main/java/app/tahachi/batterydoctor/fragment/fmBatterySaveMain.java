@@ -49,6 +49,7 @@ import app.tahachi.batterydoctor.Utilsb.Utils;
 import app.tahachi.batterydoctor.activity.BaseActivity;
 import app.tahachi.batterydoctor.activity.CleanActivity;
 import app.tahachi.batterydoctor.activity.PermissionActivity;
+import app.tahachi.batterydoctor.activity.SettingActivity;
 import app.tahachi.batterydoctor.service.BatteryService;
 import app.tahachi.batterydoctor.task.TaskCountDoing;
 
@@ -104,7 +105,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private RippleBackground rippleBackground;
     private TextView tvFullCharge;
     private LinearLayout lrTimeLeft;
-    private RelativeLayout lrClean, lrBoost, lrCool;
+    private RelativeLayout lrClean, lrBoost, lrCool, lrSettings;
 
     private ProgressBar pbQuick, pbFull, pbTrickle;
     private ImageView imgQuick, imgFull, imgTrickle;
@@ -119,6 +120,24 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         context = getContext();
         adControlHelp = AdControlHelp.getInstance(context);
+    }
+
+    public void intEvent() {
+        lrBoost.setOnClickListener(this);
+        lrClean.setOnClickListener(this);
+        lrCool.setOnClickListener(this);
+        lrSettings.setOnClickListener(this);
+        btnOptimize.setOnClickListener(this);
+        btnWifi.setOnClickListener(this);
+        btnBluetooth.setOnClickListener(this);
+        btnSound.setOnClickListener(this);
+        btnScreenTime.setOnClickListener(this);
+        btnRotate.setOnClickListener(this);
+        btnBrightness.setOnClickListener(this);
+        btnMobileData.setOnClickListener(this);
+        btnSync.setOnClickListener(this);
+        btnGPS.setOnClickListener(this);
+        btnAirPlane.setOnClickListener(this);
     }
 
     @Override
@@ -150,6 +169,9 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 } else {
                     writePermission();
                 }
+                break;
+            case R.id.lrSettings:
+                startActivity(new Intent(getActivity(), SettingActivity.class));
                 break;
             case R.id.btnWifi:
 
@@ -241,10 +263,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 airplaneIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(airplaneIntent);
                 break;
-
-//            case R.id.btnChargeHistory:
-//                startActivity(new Intent(getActivity(), ChargeActivity.class));
-//                break;
             default:
                 break;
         }
@@ -381,7 +399,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intView(view);
         intData(view);
         intEvent();
-        adControlHelp.loadNativeFragment(getActivity(),view.findViewById(R.id.native_ads_control_holder));
+        adControlHelp.loadNativeFragment(getActivity(), view.findViewById(R.id.native_ads_control_holder));
         adControlHelp.loadBannerFragment(getActivity(), view.findViewById(R.id.banner));
 //        adControlHelp.loadNativeFragment(getActivity(), view.findViewById(R.id.native_ads_control_holder2));
         return view;
@@ -448,41 +466,22 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         lrBoost = view.findViewById(R.id.lrBoost);
         lrClean = view.findViewById(R.id.lrClean);
         lrCool = view.findViewById(R.id.lrCool);
+        lrSettings = view.findViewById(R.id.lrSettings);
     }
 
     WaveDrawable mWaveDrawable;
-    private View mView;
 
     public void intData(View v) {
         shFast = new Shimmer();
         shFull = new Shimmer();
         shTrickle = new Shimmer();
-        mWaveDrawable = new WaveDrawable(getResources().getColor(R.color.orange),
-                getResources().getDimensionPixelSize(R.dimen.power_issue_width_height) / 2, 0.2f);
+        mWaveDrawable = new WaveDrawable(getResources().getColor(R.color.orange), getResources().getDimensionPixelSize(R.dimen.power_issue_width_height) / 2, 0.2f);
         vPowerIssue.setBackgroundDrawable(mWaveDrawable);
         mWaveDrawable.setWaveInterpolator(new LinearInterpolator());
         mWaveDrawable.startAnimation();
         Intent intent2 = new Intent(getActivity(), BatteryService.class);
         ContextCompat.startForegroundService(getActivity(), intent2);
         mRegisterReceiver();
-        String currentDate = DateFormat.getDateInstance().format(Calendar.getInstance().getTime());
-    }
-
-    public void intEvent() {
-        btnOptimize.setOnClickListener(this);
-        btnWifi.setOnClickListener(this);
-        btnBluetooth.setOnClickListener(this);
-        btnSound.setOnClickListener(this);
-        btnScreenTime.setOnClickListener(this);
-        btnRotate.setOnClickListener(this);
-        btnBrightness.setOnClickListener(this);
-        btnMobileData.setOnClickListener(this);
-        btnSync.setOnClickListener(this);
-        btnGPS.setOnClickListener(this);
-        btnAirPlane.setOnClickListener(this);
-        lrBoost.setOnClickListener(this);
-        lrClean.setOnClickListener(this);
-        lrCool.setOnClickListener(this);
     }
 
     public void mRegisterReceiver() {
