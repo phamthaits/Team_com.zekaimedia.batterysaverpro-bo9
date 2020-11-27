@@ -7,6 +7,48 @@
     android:background="@color/windowBackground"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:id="@+id/activity_battery_actionbar"
+        android:layout_width="fill_parent"
+        android:layout_height="?actionBarSize"
+        android:gravity="center|left"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/lr_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:paddingEnd="8.0dip">
+
+            <FrameLayout
+                android:layout_width="48.0dip"
+                android:layout_height="48.0dip"
+                android:layout_centerVertical="true">
+
+                <ImageView
+                    android:id="@+id/iv_arrow"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="8.0dip"
+                    android:src="@drawable/ic_navigate_before_white_48dp" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/activity_charge_tv_title_1"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:fontFamily="@font/barlowcondensed_medium"
+                android:gravity="center_vertical"
+                android:text="@string/title_activity_setting"
+                android:textColor="@color/subsection"
+                android:textSize="@dimen/text_size_title" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent">
@@ -496,7 +538,6 @@
 
             <!--Trash Cleaner-->
             <include
-                android:id="@+id/trash_cleaner"
                 layout="@layout/trash_cleaner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -556,19 +597,6 @@
                 android:layout_marginStart="@dimen/screen_padding_5"
                 android:layout_marginTop="@dimen/screen_padding_5"
                 android:layout_marginEnd="@dimen/screen_padding_5"
-                android:paddingTop="@dimen/margin_between_progress"
-                android:paddingBottom="@dimen/margin_between_progress" />
-
-            <!--Settings-->
-            <include
-                android:id="@+id/settings"
-                layout="@layout/settings"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="@dimen/screen_padding_5"
-                android:layout_marginEnd="@dimen/screen_padding_5"
-                android:layout_marginTop="@dimen/screen_padding_5"
                 android:paddingTop="@dimen/margin_between_progress"
                 android:paddingBottom="@dimen/margin_between_progress" />
 

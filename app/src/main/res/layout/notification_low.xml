@@ -48,7 +48,7 @@
                     android:singleLine="true"
                     android:text="@string/low_battery"
                     android:fontFamily="@font/barlowcondensed_regular"
-                    android:textColor="@color/orange"
+                    android:textColor="@color/notification_1"
                     android:textSize="@dimen/text_size_title" />
 
                 <TextView

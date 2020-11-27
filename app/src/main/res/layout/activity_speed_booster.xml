@@ -128,22 +128,8 @@
                     android:layout_marginTop="@dimen/screen_padding_5"
                     android:layout_marginRight="@dimen/screen_padding_5"/>
 
-                <!--Phone Boost-->
+                <!--Trash Cleaner-->
                 <include
-                    android:id="@+id/phone_boost"
-                    layout="@layout/phone_boost"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:paddingTop="@dimen/margin_between_progress"
-                    android:paddingBottom="@dimen/margin_between_progress" />
-
-                //Trash Cleaner
-                <include
-                    android:id="@+id/trash_cleaner"
                     layout="@layout/trash_cleaner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -154,9 +140,8 @@
                     android:paddingTop="@dimen/margin_between_progress"
                     android:paddingBottom="@dimen/margin_between_progress" />
 
-                //Phone Cooler
+                <!--Phone Cooler-->
                 <include
-                    android:id="@+id/phone_cooler"
                     layout="@layout/phone_cooler"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -167,9 +152,44 @@
                     android:paddingTop="@dimen/margin_between_progress"
                     android:paddingBottom="@dimen/margin_between_progress" />
 
-                //Remove Ads
+                <!--Charge History-->
                 <include
-                    android:id="@+id/remove_ads"
+                    layout="@layout/charge_history"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/screen_padding_5"
+                    android:layout_marginEnd="@dimen/screen_padding_5"
+                    android:layout_marginTop="@dimen/screen_padding_5"
+                    android:paddingTop="@dimen/margin_between_progress"
+                    android:paddingBottom="@dimen/margin_between_progress" />
+
+                <!--App Manager-->
+                <include
+                    layout="@layout/app_manager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/screen_padding_5"
+                    android:layout_marginTop="@dimen/screen_padding_5"
+                    android:layout_marginEnd="@dimen/screen_padding_5"
+                    android:paddingTop="@dimen/margin_between_progress"
+                    android:paddingBottom="@dimen/margin_between_progress" />
+
+                <!--Settings-->
+                <include
+                    layout="@layout/settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/screen_padding_5"
+                    android:layout_marginEnd="@dimen/screen_padding_5"
+                    android:layout_marginTop="@dimen/screen_padding_5"
+                    android:paddingTop="@dimen/margin_between_progress"
+                    android:paddingBottom="@dimen/margin_between_progress" />
+
+                <!--Remove Ads-->
+                <include
                     layout="@layout/remove_ads"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

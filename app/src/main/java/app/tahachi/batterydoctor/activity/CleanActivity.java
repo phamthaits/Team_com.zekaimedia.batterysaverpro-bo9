@@ -93,7 +93,6 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-
             case R.id.lr_back:
                 finish();
                 return;

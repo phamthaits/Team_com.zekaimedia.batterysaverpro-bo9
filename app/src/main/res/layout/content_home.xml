@@ -480,6 +480,7 @@
                 android:layout_marginTop="@dimen/screen_padding_5"
                 android:paddingTop="@dimen/margin_between_progress"
                 android:paddingBottom="@dimen/margin_between_progress" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

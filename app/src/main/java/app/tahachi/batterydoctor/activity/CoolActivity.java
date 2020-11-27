@@ -116,16 +116,24 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.lr_back:
                 finish();
                 return;
-            case R.id.lrBoost:
-                startActivity(new Intent(this, BoostActivity.class));
-                finish();
-                return;
             case R.id.lrClean:
                 startActivity(new Intent(this, CleanActivity.class));
                 finish();
                 return;
-            case R.id.lrCool:
-                startActivity(new Intent(this, CoolActivity.class));
+            case R.id.lrBoost:
+                startActivity(new Intent(this, BoostActivity.class));
+                finish();
+                return;
+            case R.id.lrHistory:
+                startActivity(new Intent(this, ChartActivity.class));
+                finish();
+                return;
+            case R.id.lrManager:
+                startActivity(new Intent(this, AppManagerActivity.class));
+                finish();
+                return;
+            case R.id.lrSettings:
+                startActivity(new Intent(this, SettingActivity.class));
                 finish();
                 return;
             default:

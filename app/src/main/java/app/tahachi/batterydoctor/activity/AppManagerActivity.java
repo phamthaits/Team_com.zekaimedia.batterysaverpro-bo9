@@ -51,9 +51,21 @@ public class AppManagerActivity extends AppCompatActivity {
     private AdControlHelp adControlHelp;
     private Context context;
 
+    public void onClick(View view) {
+        switch (view.getId()) {
+
+            case R.id.lr_back:
+                finish();
+                return;
+            default:
+                return;
+        }
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_app_manager);
         context = this;
         mProgressBarLoading = findViewById(R.id.progressBarLoading);
         mRecyclerView = findViewById(R.id.recyclerView);

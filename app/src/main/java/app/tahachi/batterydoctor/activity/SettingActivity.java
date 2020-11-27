@@ -67,6 +67,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         tvDNDDes = findViewById(R.id.tvDNDDes);
     }
 
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -108,7 +109,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 }
 
                 break;
-            case R.id.lrBoost:
+            /*case R.id.lrBoost:
                 if (SharePreferenceUtils.getInstance(activity).getBoostReminder()) {
                     SharePreferenceUtils.getInstance(activity).setBoostRemindert(false);
                     swBoost.setChecked(false);
@@ -116,12 +117,9 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                     SharePreferenceUtils.getInstance(activity).setBoostRemindert(true);
                     swBoost.setChecked(true);
                 }
-
-                break;
+                break;*/
             case R.id.lrDnd:
                 startActivity(new Intent(activity, DoNotDisturbActivity.class));
-
-
                 break;
             case R.id.lrBatteryFull:
                 if (SharePreferenceUtils.getInstance(activity).getChargeFullReminder()) {
@@ -163,8 +161,30 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.lrLanguage:
                 SharePreferenceUtils.getInstance(activity).saveLanguageChange(false);
                 startActivityForResult(new Intent(activity, LanguageActivity.class), SharePreferenceConstant.LANGUAGE_REQUEST);
-
                 break;
+            case R.id.lrClean:
+                startActivity(new Intent(activity, CleanActivity.class));
+                finish();
+                return;
+            case R.id.lrCool:
+                startActivity(new Intent(activity, CoolActivity.class));
+                finish();
+                return;
+            case R.id.lrBoost:
+                startActivity(new Intent(activity, BoostActivity.class));
+                finish();
+                return;
+            case R.id.lrHistory:
+                startActivity(new Intent(activity, ChartActivity.class));
+                finish();
+                return;
+            case R.id.lrManager:
+                startActivity(new Intent(activity, AppManagerActivity.class));
+                finish();
+                return;
+            case R.id.lr_back:
+                finish();
+                return;
             default:
                 break;
         }

@@ -46,10 +46,13 @@ import app.tahachi.batterydoctor.BatteryMode.BatteryInfo;
 import app.tahachi.batterydoctor.Utilsb.BatteryPref;
 import app.tahachi.batterydoctor.Utilsb.SharePreferenceUtils;
 import app.tahachi.batterydoctor.Utilsb.Utils;
+import app.tahachi.batterydoctor.activity.AppManagerActivity;
 import app.tahachi.batterydoctor.activity.BaseActivity;
+import app.tahachi.batterydoctor.activity.ChartActivity;
 import app.tahachi.batterydoctor.activity.CleanActivity;
 import app.tahachi.batterydoctor.activity.PermissionActivity;
 import app.tahachi.batterydoctor.activity.SettingActivity;
+import app.tahachi.batterydoctor.model.AppManager;
 import app.tahachi.batterydoctor.service.BatteryService;
 import app.tahachi.batterydoctor.task.TaskCountDoing;
 
@@ -105,7 +108,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private RippleBackground rippleBackground;
     private TextView tvFullCharge;
     private LinearLayout lrTimeLeft;
-    private RelativeLayout lrClean, lrBoost, lrCool, lrSettings;
+    private RelativeLayout lrClean, lrBoost, lrCool, lrSettings, lrHistory, lrManager;
 
     private ProgressBar pbQuick, pbFull, pbTrickle;
     private ImageView imgQuick, imgFull, imgTrickle;
@@ -138,6 +141,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         btnSync.setOnClickListener(this);
         btnGPS.setOnClickListener(this);
         btnAirPlane.setOnClickListener(this);
+        lrHistory.setOnClickListener(this);
+        lrManager.setOnClickListener(this);
     }
 
     @Override
@@ -173,6 +178,13 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
             case R.id.lrSettings:
                 startActivity(new Intent(getActivity(), SettingActivity.class));
                 break;
+            case R.id.lrHistory:
+                startActivity(new Intent(getActivity(), ChartActivity.class));
+                break;
+            case R.id.lrManager:
+                startActivity(new Intent(getActivity(), AppManagerActivity.class));
+                break;
+
             case R.id.btnWifi:
 
                 if (Utils.checkSystemWritePermission(getActivity())) {
@@ -467,6 +479,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         lrClean = view.findViewById(R.id.lrClean);
         lrCool = view.findViewById(R.id.lrCool);
         lrSettings = view.findViewById(R.id.lrSettings);
+        lrHistory = view.findViewById(R.id.lrHistory);
+        lrManager= view.findViewById(R.id.lrManager);
     }
 
     WaveDrawable mWaveDrawable;

@@ -30,22 +30,17 @@
     now to extend phone life</string>
     <string name="phone_cooler" translatable="false">Cool</string>
     //Charge History
-    <string name="history_description" translatable="false">Phone is slow? Too many apps
-        running in background</string>
+    <string name="history_description" translatable="false">Manage All Charging</string>
     <string name="charge_history" translatable="false">Charge</string>
     //App Manager
-    <string name="manager_description" translatable="false">Phone is hot? Cool down your phone
-    now to extend phone life</string>
+    <string name="manager_description" translatable="false">Manage your apps like uninstall, backup...</string>
     <string name="manager" translatable="false">Manage</string>
     //Settings
-    <string name="settings_description" translatable="false">Phone is hot? Cool down your phone
-    now to extend phone life</string>
+    <string name="settings_description" translatable="false">Manage All Setting</string>
     <string name="settings" translatable="false">Manage</string>
     //Remove Ads
-    <string name="remove_description" translatable="false">Phone is hot? Cool down your phone
-    now to extend phone life</string>
+    <string name="remove_description" translatable="false">Annoying Ads? Remove Ads For Life Time</string>
     <string name="remove_ads" translatable="false">Remove</string>
-
 
 
     //
@@ -198,7 +193,7 @@
     <string name="pc_scanning">Scanning</string>
     <string name="cpugpuram" translatable="false">CPU,GPU,RAM</string>
     <string name="bd_power_issue">Power issue</string>
-    <string name="app_name">Super Fast Doctor &amp; Fast Charger</string>
+    <string name="app_name">Super Fast Doctor</string>
     <string name="power_full">Power is full</string>
     <string name="auto_disable">Disable</string>
     <string name="on_status">ON</string>

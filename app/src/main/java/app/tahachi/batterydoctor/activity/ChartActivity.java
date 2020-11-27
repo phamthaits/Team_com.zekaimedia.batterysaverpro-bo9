@@ -1,5 +1,6 @@
 package app.tahachi.batterydoctor.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -45,10 +46,24 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 
-public class ChartActivity extends AppCompatActivity {
+public class ChartActivity extends AppCompatActivity  {
+
+
+    public void onClick(View view) {
+        switch (view.getId()) {
+
+            case R.id.lr_back:
+                finish();
+                return;
+            default:
+                return;
+        }
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_charge_history);
         intView();
         intEvent();
         intData();
@@ -289,9 +304,9 @@ public class ChartActivity extends AppCompatActivity {
         //add colors to dataset
         ArrayList<Integer> colors = new ArrayList<>();
 
-        colors.add(ContextCompat.getColor(context, R.color.color_normal));
-        colors.add(ContextCompat.getColor(context, R.color.color_healthy));
-        colors.add(ContextCompat.getColor(context, R.color.color_over));
+        colors.add(ContextCompat.getColor(this, R.color.color_normal));
+        colors.add(ContextCompat.getColor(this, R.color.color_healthy));
+        colors.add(ContextCompat.getColor(this, R.color.color_over));
 
 
         dataSet.setColors(colors);

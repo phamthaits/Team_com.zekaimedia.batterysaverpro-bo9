@@ -48,6 +48,10 @@
 
     <color name="progress_background">#313135</color>
 
+    //Notification
+    <color name="notification_1">#DB7A67</color>
+    <color name="notification_2">#749D30</color>
+
     //
     <color name="grey_400">#b1b1b1</color>
 
