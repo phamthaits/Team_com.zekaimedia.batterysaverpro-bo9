@@ -140,7 +140,7 @@ public class AdmobHelp {
         return mPublisherInterstitialAd != null && mPublisherInterstitialAd.isLoaded();
     }
 
-    public void loadBannerFragment(Activity activity, final View rootView, String ads) {
+    public void loadBanner(Activity activity, final View rootView, String ads) {
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         containerShimmer.setVisibility(View.VISIBLE);
         containerShimmer.startShimmer();
@@ -173,59 +173,7 @@ public class AdmobHelp {
 
     }
 
-    public void loadNative(final Activity mActivity, String ads) {
-        ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) mActivity.findViewById(R.id.shimmer_container);
-        FrameLayout frameLayout = mActivity.findViewById(R.id.admob_adplaceholder);
-        frameLayout.setVisibility(View.GONE);
-        containerShimmer.setVisibility(View.VISIBLE);
-        containerShimmer.startShimmer();
-        MobileAds.initialize(context, new OnInitializationCompleteListener() {
-            @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-
-            }
-        });
-
-        AdLoader.Builder builder = new AdLoader.Builder(context, ads);
-        builder.forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
-            // OnUnifiedNativeAdLoadedListener implementation.
-            @Override
-            public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
-                // You must call destroy on old ads when you are done with them,
-                // otherwise you will have a memory leak.
-                UnifiedNativeAdView adView = (UnifiedNativeAdView) mActivity.getLayoutInflater()
-                        .inflate(R.layout.item_admob_native_ad, null);
-                populateUnifiedNativeAdView(unifiedNativeAd, adView);
-                frameLayout.removeAllViews();
-                frameLayout.addView(adView);
-                frameLayout.setVisibility(View.VISIBLE);
-                containerShimmer.stopShimmer();
-                containerShimmer.setVisibility(View.GONE);
-                setAnimation(mActivity, adView);
-            }
-        });
-
-        VideoOptions videoOptions = new VideoOptions.Builder()
-                .setStartMuted(false)
-                .build();
-
-        NativeAdOptions adOptions = new NativeAdOptions.Builder()
-                .setVideoOptions(videoOptions)
-                .build();
-
-        builder.withNativeAdOptions(adOptions);
-
-        AdLoader adLoader = builder.withAdListener(new AdListener() {
-            @Override
-            public void onAdFailedToLoad(LoadAdError  errorCode) {
-                containerShimmer.stopShimmer();
-                containerShimmer.setVisibility(View.GONE);
-            }
-        }).build();
-        adLoader.loadAd(new AdRequest.Builder().build());
-    }
-
-    public void loadNativeFragment(final Activity mActivity, final View rootView, String ads) {
+    public void loadNative(final Activity mActivity, final View rootView, String ads, int resourceLayout) {
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         FrameLayout frameLayout = rootView.findViewById(R.id.admob_adplaceholder);
         frameLayout.setVisibility(View.GONE);
@@ -246,7 +194,7 @@ public class AdmobHelp {
                 // You must call destroy on old ads when you are done with them,
                 // otherwise you will have a memory leak.
                 UnifiedNativeAdView adView = (UnifiedNativeAdView) mActivity.getLayoutInflater()
-                        .inflate(R.layout.item_admob_native_ad, null);
+                        .inflate(resourceLayout, null);
                 populateUnifiedNativeAdView(unifiedNativeAd, adView);
                 frameLayout.removeAllViews();
                 frameLayout.addView(adView);

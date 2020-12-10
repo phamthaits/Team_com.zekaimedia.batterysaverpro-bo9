@@ -36,7 +36,9 @@ import app.ads.control.AdControlHelp.AdCloseListener;
 import app.tahachi.batterydoctor.Utilsb.SharePreferenceUtils;
 import app.tahachi.batterydoctor.Utilsb.Utils;
 import app.tahachi.batterydoctor.model.TaskInfo;
+
 import com.skyfishjy.library.RippleBackground;
+
 import app.tahachi.batterydoctor.R;
 
 import java.util.ArrayList;
@@ -74,8 +76,8 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         setContentView(R.layout.activity_do_optimize);
         adControlHelp = AdControlHelp.getInstance(context);
         intView();
-        adControlHelp.loadNative(this);
-        adControlHelp.loadInterstitialAd(this,adCloseListener, null, false);
+        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), R.layout.item_admob_native_ad);
+        adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
     }
 
     private AdCloseListener adCloseListener = new AdCloseListener() {

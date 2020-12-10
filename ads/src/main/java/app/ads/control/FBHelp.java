@@ -193,7 +193,7 @@ public class FBHelp {
 
     private AdView fbAdView;
 
-    public void loadBannerFragment(final Activity mActivity, final View rootView, String ads) {
+    public void loadBanner(final Activity mActivity, final View rootView, String ads) {
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         containerShimmer.setVisibility(View.VISIBLE);
         containerShimmer.startShimmer();
@@ -332,66 +332,6 @@ public class FBHelp {
                     Log.d(TAG, "Native ad is loaded and ready to be displayed!");
                 }
 //                Log.d(TAG, "Native ad is loaded and ready to be displayed!");
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-                // Native ad clicked
-                Log.d(TAG, "Native ad clicked!");
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-                // Native ad impression
-                Log.d(TAG, "Native ad impression logged!");
-            }
-        }).build();
-
-        // Request an ad
-        nativeAd.loadAd();
-    }
-
-    public void loadNativeFrament(final Activity mActivity, final View rootView, String ads) {
-        ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
-        NativeAdLayout nativeAdLayout = rootView.findViewById(R.id.fb_adplaceholder);
-        nativeAdLayout.setVisibility(View.GONE);
-        containerShimmer.setVisibility(View.VISIBLE);
-        containerShimmer.startShimmer();
-        NativeAd nativeAd = new NativeAd(rootView.getContext(), ads);
-//        interstitialAd.buildLoadAdConfig().withAdListener(interstitialAdListener).build();
-
-        nativeAd.buildLoadAdConfig().withAdListener(new NativeAdListener() {
-            @Override
-            public void onMediaDownloaded(Ad ad) {
-                // Native ad finished downloading all assets
-                Log.e(TAG, "Native ad finished downloading all assets.");
-            }
-
-            @Override
-            public void onError(Ad ad, AdError adError) {
-                // Native ad failed to load
-                containerShimmer.stopShimmer();
-                containerShimmer.setVisibility(View.GONE);
-
-                if (containerShimmer != null) {
-                    containerShimmer.setVisibility(View.GONE);
-                }
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-                // Native ad is loaded and ready to be displayed
-                containerShimmer.stopShimmer();
-                containerShimmer.setVisibility(View.GONE);
-                FrameLayout frameLayout = rootView.findViewById(R.id.fb_adplaceholder);
-                if (frameLayout != null) {
-                    frameLayout.setVisibility(View.VISIBLE);
-                    if (nativeAd == null || nativeAd != ad) {
-                        return;
-                    }
-                    inflateAd(nativeAd, mActivity, nativeAdLayout);
-                }
-                Log.d(TAG, "Native ad is loaded and ready to be displayed!");
             }
 
             @Override

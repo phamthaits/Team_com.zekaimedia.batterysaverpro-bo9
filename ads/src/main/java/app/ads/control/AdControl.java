@@ -130,7 +130,7 @@ public class AdControl {
     }
 
     public Boolean remove_ads() {
-//        if (isTest) return false;
+        if (isTest) return false;
         return true;
 //        return this.pre.getBoolean("remove_ads", false);
     }
@@ -188,7 +188,6 @@ public class AdControl {
     public enum AdcontrolType {
         Admob,
         Facebook,
-        StartApp,
         Mopub;
 
         public static AdcontrolType toMyEnum(String myEnumString) {
@@ -204,8 +203,6 @@ public class AdControl {
             if (rate <= instance.rate_admob()) instance.adcontrolType(Admob);
             else if (rate <= instance.rate_fb() + instance.rate_admob())
                 instance.adcontrolType(Facebook);
-            else if (rate <= instance.rate_fb() + instance.rate_admob() + instance.rate_startapp())
-                instance.adcontrolType(StartApp);
             else instance.adcontrolType(Mopub);
         }
     }

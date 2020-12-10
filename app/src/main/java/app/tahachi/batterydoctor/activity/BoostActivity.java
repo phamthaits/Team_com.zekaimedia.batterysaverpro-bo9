@@ -57,7 +57,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         context = this;
         adControlHelp = AdControlHelp.getInstance(context);
         NotificationDevice.cancle(context, NotificationDevice.ID_NOTIFICATTION_BOOST);
-        adControlHelp.loadNative(this);
+//        adControlHelp.loadNative(this);
         adControlHelp.loadInterstitialAd(this,adCloseListener, null, false);
     }
 

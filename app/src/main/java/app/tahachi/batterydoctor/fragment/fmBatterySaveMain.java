@@ -411,9 +411,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intView(view);
         intData(view);
         intEvent();
-        adControlHelp.loadNativeFragment(getActivity(), view.findViewById(R.id.native_ads_control_holder));
-        adControlHelp.loadBannerFragment(getActivity(), view.findViewById(R.id.banner));
-//        adControlHelp.loadNativeFragment(getActivity(), view.findViewById(R.id.native_ads_control_holder2));
+        adControlHelp.loadNative(getActivity(), view.findViewById(R.id.native_ads_control_holder), R.layout.item_admob_native_ad2);
+        adControlHelp.loadBanner(getActivity(), view.findViewById(R.id.banner));
         return view;
     }
 
@@ -480,7 +479,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         lrCool = view.findViewById(R.id.lrCool);
         lrSettings = view.findViewById(R.id.lrSettings);
         lrHistory = view.findViewById(R.id.lrHistory);
-        lrManager= view.findViewById(R.id.lrManager);
+        lrManager = view.findViewById(R.id.lrManager);
     }
 
     WaveDrawable mWaveDrawable;

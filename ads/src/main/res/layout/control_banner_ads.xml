@@ -21,14 +21,6 @@
         android:visibility="gone" />
 
     <FrameLayout
-        android:id="@+id/statapp_adplaceholder"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone" />
-
-    <FrameLayout
         android:id="@+id/mopub_adplaceholder"
         android:layout_width='match_parent'
         android:layout_height='wrap_content'

@@ -19,13 +19,6 @@
         android:orientation="vertical"
         android:visibility="gone" />
     <FrameLayout
-        android:id="@+id/startapp_adplaceholder"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_native_ads"
-        android:background="@drawable/bg_card_ads"
-        android:orientation="vertical"
-        android:visibility="gone" />
-    <FrameLayout
         android:id="@+id/mopub_adplaceholder"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_native_ads"

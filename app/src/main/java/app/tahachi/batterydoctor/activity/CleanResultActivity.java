@@ -53,7 +53,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         adControlHelp = AdControlHelp.getInstance(context);
         setContentView(R.layout.activity_clean_result);
 
-        adControlHelp.loadNative(this);
+//        adControlHelp.loadNative(this);
         SharePreferenceUtils.getInstance(this).setFlagAds(true);
 
         rlScan = findViewById(R.id.rlScanning);
