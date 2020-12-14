@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <dimen name="text_size_title">15sp</dimen>
+    <dimen name="textsize_compo_ram_cpu_des">5sp</dimen>
     <dimen name="size_dialog_height">250dp</dimen>
     <dimen name="text_details">10sp</dimen>
 </resources>

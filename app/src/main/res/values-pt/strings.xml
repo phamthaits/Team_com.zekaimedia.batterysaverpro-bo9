@@ -78,7 +78,7 @@
     <string name="fast_charger_boosted">Impulsionado</string>
     <string name="auto_sync">Sincrnz.</string>
     <string name="title_activity_white_list">Lista de apps ignorados</string>
-    <string name="remove">REMOVER</string>
+    <string name="remove">Remover</string>
     <string name="white_list_add">ADICIONAR</string>
     <string name="no_item">Nenhum item</string>
     <string name="notification_setting">Def. Notificação</string>
@@ -125,5 +125,15 @@
     <string name="feedback_nav">Feedback</string>
     <string name="general_title">Geral</string>
     <string name="battery_level">Nível da bateria</string>
+    <string name="name_remove_ads">Remover Ads</string>
+    <string name="manage">Gestão</string>
+    <string name="phone_cooler">Refrigeração</string>
+    <string name="clean_description">Limpar arquivos desnecessários para salvar espaços</string>
+    <string name="boost_description">O telefone é lento? Muitos aplicativos rodando em segundo plano</string>
+    <string name="cool_description">O telefone está quente? Esfrie seu telefone agora para estender a vida útil do telefone</string>
+    <string name="history_description">Gerencie todos os carregador</string>
+    <string name="manager_description">Gerencie seus aplicativos como desinstalar, fazer backup...</string>
+    <string name="settings_description">Gerenciar todas as configurações</string>
+    <string name="remove_description">Anúncios irritantes? Remova anúncios para sempre agora</string>
 
 </resources>

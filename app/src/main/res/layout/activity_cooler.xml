@@ -261,6 +261,7 @@
                 </RelativeLayout>
 
                 <include
+                    android:id="@+id/native_ads_control_holder"
                     layout="@layout/control_native_ads"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

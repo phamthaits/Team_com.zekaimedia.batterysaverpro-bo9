@@ -79,7 +79,7 @@
     <string name="fast_charger_boosted">hızlı şarj artırdığını</string>
     <string name="auto_sync">Senkronizasyon</string>
     <string name="title_activity_white_list">Uyg yoksy list</string>
-    <string name="remove">KALDIR</string>
+    <string name="remove">Kaldir</string>
     <string name="white_list_add">EKLE</string>
     <string name="no_item">Eşya yok</string>
     <string name="notification_setting">Bildirim ayarları</string>
@@ -126,4 +126,14 @@
     <string name="feedback_nav">Geribildirim</string>
     <string name="general_title">Genel</string>
     <string name="battery_level">Pil Seviyesi</string>
+    <string name="name_remove_ads">Kaldir Ads</string>
+    <string name="manage">Yönetimi</string>
+    <string name="phone_cooler">Soğutma</string>
+    <string name="clean_description">Boşluk kaydetmek için gereksiz dosyaları temizleme</string>
+    <string name="boost_description">Telefon yavaş mı? Arka planda çalışan çok fazla uygulama</string>
+    <string name="cool_description">Telefon sıcak mı? Telefon ömrünü uzatmak için telefonunuzu şimdi soğutun</string>
+    <string name="history_description">Tüm şarj cihazlarını yönetin</string>
+    <string name="manager_description">Uygulamalarınızı kaldırma, yedekleme gibi uygulamalarınızı yönetin ...</string>
+    <string name="settings_description">Tüm Ayarı Yönet</string>
+    <string name="remove_description">Sinir bozucu reklamlar mı? Şimdi forever reklamları kaldırın</string>
 </resources>

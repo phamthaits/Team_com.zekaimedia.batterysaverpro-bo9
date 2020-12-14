@@ -6,6 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimary</item>
         <item name="colorAccent">@color/colorAccent</item>
         <!-- Status bar stuff. -->
+        <item name="android:colorControlNormal">@color/description</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="android:navigationBarColor">@color/windowBackground</item>
         <item name="android:fontFamily">@font/barlowcondensed_regular</item>

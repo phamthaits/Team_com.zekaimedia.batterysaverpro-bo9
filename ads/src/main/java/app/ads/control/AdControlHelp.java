@@ -128,14 +128,14 @@ public class AdControlHelp {
         void onAdLoaded();
     }
 
-    public void loadNative(Activity mActivity, View view,int resourceLayout) {
+    public void loadNative(Activity mActivity, View view,int resourceLayout, boolean isAnimButton) {
         if (adControl.remove_ads()) {
             return;
         }
         loadNetworkHelp();
         switch (adControl.adcontrolType()) {
             case Admob:
-                admobHelp.loadNative(mActivity, view, adControl.admob_native(),resourceLayout);
+                admobHelp.loadNative(mActivity, view, adControl.admob_native(),resourceLayout,isAnimButton);
                 break;
             case Facebook:
 //                fbHelp.loadNative(mActivity, view, adControl.fb_native());

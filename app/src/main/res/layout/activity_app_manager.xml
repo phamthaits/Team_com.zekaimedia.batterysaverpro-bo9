@@ -5,19 +5,50 @@
     android:layout_height="match_parent"
     android:background="@color/windowBackground"
     android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/activity_battery_actionbar"
+        android:layout_width="fill_parent"
+        android:layout_height="?actionBarSize"
+        android:gravity="center|left"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true">
 
+        <LinearLayout
+            android:id="@+id/lr_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:paddingEnd="8.0dip">
+
+            <FrameLayout
+                android:layout_width="48.0dip"
+                android:layout_height="48.0dip"
+                android:layout_centerVertical="true">
+
+                <ImageView
+                    android:id="@+id/iv_arrow"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="8.0dip"
+                    android:src="@drawable/ic_navigate_before_white_48dp" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/activity_charge_tv_title_1"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:fontFamily="@font/barlowcondensed_medium"
+                android:gravity="center_vertical"
+                android:text="@string/title_app_manager"
+                android:textColor="@color/subsection"
+                android:textSize="@dimen/text_size_title" />
+
+        </LinearLayout>
+    </RelativeLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <!--        <LinearLayout-->
-        <!--            android:id="@+id/test"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="parent">-->
-
         <include
             android:id="@+id/banner"
             layout="@layout/control_banner_ads"

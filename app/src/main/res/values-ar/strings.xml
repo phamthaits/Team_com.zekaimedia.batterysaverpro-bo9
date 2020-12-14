@@ -127,4 +127,14 @@
     <string name="feedback_nav">ردود الفعل</string>
     <string name="general_title" >العامه</string>
     <string name="battery_level">مستوي البطارية</string>
+    <string name="phone_cooler">تبريد</string>
+    <string name="name_remove_ads">ازالة الاعلانات</string>
+    <string name="manage">مدير</string>
+    <string name="clean_description">تنظيف الملفات غير الضرورية لحفظ المساحات</string>
+    <string name="boost_description">الهاتف بطيء؟ عدد كبير جداً من التطبيقات التي تعمل في الخلفية</string>
+    <string name="cool_description">هل الهاتف ساخن؟ تهدئة هاتفك الآن لإطالة عمر الهاتف</string>
+    <string name="history_description">إدارة جميع أجهزة الشحن</string>
+    <string name="manager_description">إدارة التطبيقات الخاصة بك مثل إلغاء التثبيت، والنسخ الاحتياطي...</string>
+    <string name="settings_description">إدارة كافة الإعدادات</string>
+    <string name="remove_description">إعلانات مزعجة؟ إزالة الإعلانات إلى الأبد الآن</string>
 </resources>

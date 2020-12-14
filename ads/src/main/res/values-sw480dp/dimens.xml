@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="text_size_title">22sp</dimen>
+    <dimen name="textsize_compo_ram_cpu_des">13sp</dimen>
+</resources>

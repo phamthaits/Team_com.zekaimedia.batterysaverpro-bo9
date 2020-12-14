@@ -121,6 +121,7 @@
                     android:orientation="vertical">-->
 
                 <include
+                    android:id="@+id/native_ads_control_holder"
                     layout="@layout/control_native_ads"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -494,8 +495,8 @@
 
         <FrameLayout
             android:id="@+id/imgOutCircle"
-            android:layout_width="@dimen/imgCircle_size"
-            android:layout_height="@dimen/imgCircle_size"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="@dimen/_160sdp"
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
@@ -508,27 +509,38 @@
                     android:id="@+id/ivDoneHoloCirular"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="visible"
+                    android:visibility="invisible"
                     app:holo_progress="0"
                     app:marker_progress="0"
                     app:marker_visible="false"
                     app:progress_background_color="@color/progress_bg"
                     app:progress_color="@color/progress_color"
                     app:stroke_width="4dp" />
-                <!--                app:tint="@color/colorAccent"-->
+
+                <ImageView
+                    android:id="@+id/img_rotate_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/_15sdp"
+                    android:src="@drawable/ic_icon_progress_charge"
+                    android:visibility="visible" />
+
                 <ImageView
                     android:id="@+id/clean_done_iv_rocket"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_margin="32dp"
+                    android:layout_margin="@dimen/_38sdp"
                     android:src="@drawable/ic_memory_boost"
                     android:visibility="visible" />
+
                 <ImageView
                     android:id="@+id/clean_done_iv_tick"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
+                    android:layout_margin="@dimen/_5sdp"
                     android:background="@drawable/complete_bg_boost"
                     android:padding="50dp"
                     android:src="@drawable/ic_complete_tick"

@@ -167,6 +167,7 @@
             </LinearLayout>
 
             <include
+                android:id="@+id/native_ads_control_holder"
                 layout="@layout/control_native_ads"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -502,84 +503,6 @@
                         android:src="@drawable/ic_next_page" />
                 </LinearLayout>
             </LinearLayout>
-
-            <!--Trash Cleaner-->
-            <include
-                layout="@layout/trash_cleaner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="@dimen/screen_padding_5"
-                android:layout_marginEnd="@dimen/screen_padding_5"
-                android:layout_marginTop="@dimen/screen_padding_5"
-                android:paddingTop="@dimen/margin_between_progress"
-                android:paddingBottom="@dimen/margin_between_progress" />
-
-            <!--Phone Boost-->
-            <include
-                android:id="@+id/phone_boost"
-                layout="@layout/phone_boost"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="@dimen/screen_padding_5"
-                android:layout_marginEnd="@dimen/screen_padding_5"
-                android:layout_marginTop="@dimen/screen_padding_5"
-                android:paddingTop="@dimen/margin_between_progress"
-                android:paddingBottom="@dimen/margin_between_progress" />
-
-            <!--Phone Cooler-->
-            <include
-                android:id="@+id/phone_cooler"
-                layout="@layout/phone_cooler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="@dimen/screen_padding_5"
-                android:layout_marginEnd="@dimen/screen_padding_5"
-                android:layout_marginTop="@dimen/screen_padding_5"
-                android:paddingTop="@dimen/margin_between_progress"
-                android:paddingBottom="@dimen/margin_between_progress" />
-
-            <!--Charge History-->
-            <include
-                android:id="@+id/charge_history"
-                layout="@layout/charge_history"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="@dimen/screen_padding_5"
-                android:layout_marginEnd="@dimen/screen_padding_5"
-                android:layout_marginTop="@dimen/screen_padding_5"
-                android:paddingTop="@dimen/margin_between_progress"
-                android:paddingBottom="@dimen/margin_between_progress" />
-
-            <!--App Manager-->
-            <include
-                android:id="@+id/app_manager"
-                layout="@layout/app_manager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="@dimen/screen_padding_5"
-                android:layout_marginTop="@dimen/screen_padding_5"
-                android:layout_marginEnd="@dimen/screen_padding_5"
-                android:paddingTop="@dimen/margin_between_progress"
-                android:paddingBottom="@dimen/margin_between_progress" />
-
-            <!--Remove Ads-->
-            <include
-                android:id="@+id/remove_ads"
-                layout="@layout/remove_ads"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginStart="@dimen/screen_padding_5"
-                android:layout_marginEnd="@dimen/screen_padding_5"
-                android:layout_marginTop="@dimen/screen_padding_5"
-
-                android:paddingTop="@dimen/margin_between_progress"
-                android:paddingBottom="@dimen/margin_between_progress" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

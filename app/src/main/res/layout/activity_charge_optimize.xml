@@ -542,8 +542,8 @@
 
                 <ImageView
                     android:id="@+id/clean_done_iv_done"
-                    android:layout_width="wrap_content"
-                    android:layout_height="200dp"
+                    android:layout_width="@dimen/_155sdp"
+                    android:layout_height="@dimen/_155sdp"
                     android:layout_centerInParent="true"
                     android:layout_gravity="center"
                     android:background="@drawable/circle_bg_done"

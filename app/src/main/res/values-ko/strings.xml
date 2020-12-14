@@ -126,4 +126,14 @@
     <string name="feedback_nav">피드백</string>
     <string name="general_title">일반</string>
     <string name="battery_level">배터리 잔량</string>
+    <string name="name_remove_ads">제거 Ads</string>
+    <string name="manage">관리</string>
+    <string name="phone_cooler">냉각</string>
+    <string name="clean_description">공간을 절약하기 위해 불필요한 파일 청소</string>
+    <string name="boost_description">전화는 느리습니까? 백그라운드에서 실행되는 앱이 너무 많습니다.</string>
+    <string name="cool_description">전화가 뜨겁습니다? 전화 수명을 연장하기 위해 지금 휴대 전화를 시키십시오.</string>
+    <string name="history_description">모든 충전기 관리</string>
+    <string name="manager_description">제거, 백업 과 같은 앱을 관리 ...</string>
+    <string name="settings_description">모든 설정 관리</string>
+    <string name="remove_description">성가신 광고? 지금 영원히 광고를 제거</string>
 </resources>

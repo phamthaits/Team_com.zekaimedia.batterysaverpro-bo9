@@ -36,8 +36,10 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         context = this;
-        activity=this;
+        activity = this;
         adControlHelp = AdControlHelp.getInstance(context);
+        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
+                R.layout.item_admob_native_setting, false);
         intView();
         intData();
     }
@@ -162,26 +164,6 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 SharePreferenceUtils.getInstance(activity).saveLanguageChange(false);
                 startActivityForResult(new Intent(activity, LanguageActivity.class), SharePreferenceConstant.LANGUAGE_REQUEST);
                 break;
-            case R.id.lrClean:
-                startActivity(new Intent(activity, CleanActivity.class));
-                finish();
-                return;
-            case R.id.lrCool:
-                startActivity(new Intent(activity, CoolActivity.class));
-                finish();
-                return;
-            case R.id.lrBoost:
-                startActivity(new Intent(activity, BoostActivity.class));
-                finish();
-                return;
-            case R.id.lrHistory:
-                startActivity(new Intent(activity, ChartActivity.class));
-                finish();
-                return;
-            case R.id.lrManager:
-                startActivity(new Intent(activity, AppManagerActivity.class));
-                finish();
-                return;
             case R.id.lr_back:
                 finish();
                 return;

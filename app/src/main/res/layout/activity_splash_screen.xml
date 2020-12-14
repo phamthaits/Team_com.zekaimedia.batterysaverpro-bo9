@@ -35,7 +35,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/gabo_drive"
+                    android:fontFamily="@font/barlowcondensed_black"
                     android:shadowColor="#0000"
                     android:shadowDy="1"
                     android:shadowRadius="2"

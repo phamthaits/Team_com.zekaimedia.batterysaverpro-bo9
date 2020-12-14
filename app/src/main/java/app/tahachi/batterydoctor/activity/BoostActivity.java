@@ -57,7 +57,8 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         context = this;
         adControlHelp = AdControlHelp.getInstance(context);
         NotificationDevice.cancle(context, NotificationDevice.ID_NOTIFICATTION_BOOST);
-//        adControlHelp.loadNative(this);
+        adControlHelp.loadNative(this,findViewById(R.id.native_ads_control_holder),
+                R.layout.item_admob_native_ad,true);
         adControlHelp.loadInterstitialAd(this,adCloseListener, null, false);
     }
 
@@ -77,8 +78,9 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         AnimationUtils.loadAnimation(this, R.anim.delay_anim);
         this.ivRocket = findViewById(R.id.clean_done_iv_rocket);
         this.mHoloCircularProgressBarCleanDone = findViewById(R.id.ivDoneHoloCirular);
-        animate(this.mHoloCircularProgressBarCleanDone, null, 1.0f, 3000);
-        this.mHoloCircularProgressBarCleanDone.setMarkerProgress(1.0f);
+       /* animate(this.mHoloCircularProgressBarCleanDone, null, 1.0f, 3000);*/
+        animate();
+        /*this.mHoloCircularProgressBarCleanDone.setMarkerProgress(1.0f);*/
         this.ivTick = findViewById(R.id.clean_done_iv_tick);
         this.ivDoneAnim = AnimationUtils.loadAnimation(this, R.anim.ic_done_anim);
         this.ivDoneAnim.setAnimationListener(new CustomAnimationListener());
@@ -164,7 +166,32 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private void animate(final HoloCircularProgressBar holoCircularProgressBar, Animator.AnimatorListener animatorListener, final float f, int i) {
+    private void animate() {
+        Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate_result);
+        ImageView img_rotate_result=findViewById(R.id.img_rotate_result);
+        img_rotate_result.startAnimation(animation);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                BoostActivity.this.ivRocket.setVisibility(View.INVISIBLE);
+                BoostActivity.this.ivTick.setVisibility(View.VISIBLE);
+                tvResult.setText(getString(R.string.done));
+                BoostActivity.this.ivTick.startAnimation(BoostActivity.this.ivDoneAnim);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+    }
+
+    /*private void animate(final HoloCircularProgressBar holoCircularProgressBar, Animator.AnimatorListener animatorListener, final float f, int i) {
         this.mProgressBarAnimatorCleanDone = ObjectAnimator.ofFloat(holoCircularProgressBar, NotificationCompat.CATEGORY_PROGRESS, 0.0f, f);
         this.mProgressBarAnimatorCleanDone.setDuration((long) i);
         this.mProgressBarAnimatorCleanDone.addListener(new Animator.AnimatorListener() {
@@ -199,7 +226,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         });
         holoCircularProgressBar.setMarkerProgress(f);
         this.mProgressBarAnimatorCleanDone.start();
-    }
+    }*/
 
     public void cancleUIUPdate() {
         if (this.mTaskBoost != null && this.mTaskBoost.getStatus() == AsyncTask.Status.RUNNING) {

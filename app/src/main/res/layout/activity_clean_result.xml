@@ -2,17 +2,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/windowBackground">
+    android:background="@color/windowBackground"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/activity_battery_actionbar"
         android:layout_width="fill_parent"
         android:layout_height="?actionBarSize"
-        android:gravity="center|left"
         android:layout_alignParentTop="true"
         android:background="@color/colorPrimary"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:gravity="center|left">
 
         <LinearLayout
             android:id="@+id/lr_back"
@@ -58,38 +58,42 @@
         <ScrollView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:paddingBottom="@dimen/screen_padding_5"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/screen_padding_5">
+
                 <RelativeLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"
                     android:gravity="center"
+                    android:orientation="horizontal"
                     android:paddingLeft="@dimen/_38sdp"
                     android:paddingRight="@dimen/_38sdp"
-                    android:paddingBottom="@dimen/_15sdp"
-                    android:orientation="horizontal">
-<!--                    &lt;!&ndash;                app:tint="@color/more_clean"&ndash;&gt;-->
+                    android:paddingBottom="@dimen/_15sdp">
+                    <!--                    &lt;!&ndash;                app:tint="@color/more_clean"&ndash;&gt;-->
                     <TextView
                         android:id="@+id/tv_optimized_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_28sdp"
+                        android:fontFamily="@font/barlowcondensed_medium"
                         android:text="@string/op_clean"
                         android:textAllCaps="true"
-                        android:layout_marginTop="@dimen/_28sdp"
                         android:textColor="@color/temperature"
-                        android:fontFamily="@font/barlowcondensed_medium"
                         android:textSize="@dimen/text_size_title" />
+
                     <ImageView
                         android:layout_width="@dimen/img_mark_size"
                         android:layout_height="@dimen/img_mark_size"
                         android:layout_alignParentRight="true"
-                        android:padding="5dp"
                         android:layout_marginTop="@dimen/screen_padding_5"
+                        android:padding="5dp"
                         android:src="@drawable/ic_clean_trash" />
+
                     <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/img_done"
                         android:layout_width="@dimen/img_mark_size"
@@ -98,6 +102,7 @@
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true"
                         app:lottie_rawRes="@raw/confetti_blast" />
+
                     <View
                         android:layout_width="wrap_content"
                         android:layout_height="0.0dip"
@@ -105,47 +110,48 @@
                         android:layout_marginBottom="10dip" />
                 </RelativeLayout>
 
-               <!-- <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="1.0dip"
-                    android:background="@color/divider" />-->
+                <!-- <View
+                     android:layout_width="fill_parent"
+                     android:layout_height="1.0dip"
+                     android:background="@color/divider" />-->
 
                 <!--<LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:orientation="vertical">-->
 
-                    <include
-                        layout="@layout/control_native_ads"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/screen_padding_5"
-                        android:layout_marginTop="@dimen/screen_padding_5"
-                        android:layout_marginRight="@dimen/screen_padding_5"/>
+                <include
+                    android:id="@+id/native_ads_control_holder"
+                    layout="@layout/control_native_ads"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/screen_padding_5"
+                    android:layout_marginTop="@dimen/screen_padding_5"
+                    android:layout_marginRight="@dimen/screen_padding_5" />
 
-                    <!--Phone Boost-->
-                    <include
-                        layout="@layout/phone_boost"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginStart="@dimen/screen_padding_5"
-                        android:layout_marginEnd="@dimen/screen_padding_5"
-                        android:layout_marginTop="@dimen/screen_padding_5"
-                        android:paddingTop="@dimen/margin_between_progress"
-                        android:paddingBottom="@dimen/margin_between_progress" />
+                <!--Phone Boost-->
+                <include
+                    layout="@layout/phone_boost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/screen_padding_5"
+                    android:layout_marginTop="@dimen/screen_padding_5"
+                    android:layout_marginEnd="@dimen/screen_padding_5"
+                    android:paddingTop="@dimen/margin_between_progress"
+                    android:paddingBottom="@dimen/margin_between_progress" />
 
-                    <!--Phone Cooler-->
-                    <include
-                        layout="@layout/phone_cooler"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginStart="@dimen/screen_padding_5"
-                        android:layout_marginEnd="@dimen/screen_padding_5"
-                        android:layout_marginTop="@dimen/screen_padding_5"
-                        android:paddingTop="@dimen/margin_between_progress"
-                        android:paddingBottom="@dimen/margin_between_progress" />
+                <!--Phone Cooler-->
+                <include
+                    layout="@layout/phone_cooler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="@dimen/screen_padding_5"
+                    android:layout_marginTop="@dimen/screen_padding_5"
+                    android:layout_marginEnd="@dimen/screen_padding_5"
+                    android:paddingTop="@dimen/margin_between_progress"
+                    android:paddingBottom="@dimen/margin_between_progress" />
 
                 <!--Charge History-->
                 <include
@@ -154,8 +160,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
                     android:layout_marginTop="@dimen/screen_padding_5"
+                    android:layout_marginEnd="@dimen/screen_padding_5"
                     android:paddingTop="@dimen/margin_between_progress"
                     android:paddingBottom="@dimen/margin_between_progress" />
 
@@ -178,8 +184,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
                     android:layout_marginTop="@dimen/screen_padding_5"
+                    android:layout_marginEnd="@dimen/screen_padding_5"
                     android:paddingTop="@dimen/margin_between_progress"
                     android:paddingBottom="@dimen/margin_between_progress" />
 
@@ -190,8 +196,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
                     android:layout_marginTop="@dimen/screen_padding_5"
+                    android:layout_marginEnd="@dimen/screen_padding_5"
                     android:paddingTop="@dimen/margin_between_progress"
                     android:paddingBottom="@dimen/margin_between_progress" />
             </LinearLayout>
@@ -201,15 +207,15 @@
     <!--Scanning Trash Cleaner-->
     <RelativeLayout
         android:id="@+id/rlScanning"
-        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
         android:gravity="center">
 
         <FrameLayout
             android:id="@+id/imgOutCircle"
-            android:layout_width="@dimen/imgCircle_size"
-            android:layout_height="@dimen/imgCircle_size"
+            android:layout_width="@dimen/_160sdp"
+            android:layout_height="@dimen/_160sdp"
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
@@ -218,23 +224,34 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <app.tahachi.batterydoctor.view.HoloCircularProgressBar
                     android:id="@+id/ivDoneHoloCirular"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:visibility="visible"
+                    android:visibility="invisible"
                     app:holo_progress="0"
                     app:marker_progress="0"
                     app:marker_visible="false"
                     app:progress_background_color="@color/more_clean_bg"
                     app:progress_color="@color/more_clean"
                     app:stroke_width="4dp" />
+
+                <ImageView
+                    android:id="@+id/img_rotate_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/_15sdp"
+                    android:src="@drawable/ic_icon_progress_charge"
+                    android:visibility="visible" />
+
                 <ImageView
                     android:id="@+id/clean_done_iv_rocket"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_margin="32dp"
+                    android:layout_margin="@dimen/_25sdp"
                     android:src="@drawable/ic_clean_trash"
                     android:visibility="visible" />
                 <!--                app:tint="@color/white"-->
@@ -242,6 +259,7 @@
                     android:id="@+id/clean_done_iv_tick"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_5sdp"
                     android:layout_gravity="center"
                     android:background="@drawable/complete_bg_clean"
                     android:padding="50dp"

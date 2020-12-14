@@ -173,7 +173,7 @@ public class AdmobHelp {
 
     }
 
-    public void loadNative(final Activity mActivity, final View rootView, String ads, int resourceLayout) {
+    public void loadNative(final Activity mActivity, final View rootView, String ads, int resourceLayout, boolean isAnimButton) {
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         FrameLayout frameLayout = rootView.findViewById(R.id.admob_adplaceholder);
         frameLayout.setVisibility(View.GONE);
@@ -201,7 +201,8 @@ public class AdmobHelp {
                 frameLayout.setVisibility(View.VISIBLE);
                 containerShimmer.stopShimmer();
                 containerShimmer.setVisibility(View.GONE);
-                setAnimation(mActivity, adView);
+                if (isAnimButton)
+                    setAnimation(mActivity, adView);
             }
         });
 
@@ -217,7 +218,7 @@ public class AdmobHelp {
 
         AdLoader adLoader = builder.withAdListener(new AdListener() {
             @Override
-            public void onAdFailedToLoad(LoadAdError  errorCode) {
+            public void onAdFailedToLoad(LoadAdError errorCode) {
                 containerShimmer.stopShimmer();
                 containerShimmer.setVisibility(View.GONE);
             }

@@ -76,7 +76,8 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         setContentView(R.layout.activity_do_optimize);
         adControlHelp = AdControlHelp.getInstance(context);
         intView();
-        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), R.layout.item_admob_native_ad);
+        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
+                R.layout.item_admob_native_ad,true);
         adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
     }
 

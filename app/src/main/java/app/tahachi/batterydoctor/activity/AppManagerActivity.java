@@ -72,7 +72,7 @@ public class AppManagerActivity extends AppCompatActivity {
         initAdapter();
         loadData();
         adControlHelp = AdControlHelp.getInstance(context);
-//        adControlHelp.loadBannerFragment(getActivity(), view);
+        adControlHelp.loadBanner(this, findViewById(R.id.banner));
     }
 
     private void initAdapter() {

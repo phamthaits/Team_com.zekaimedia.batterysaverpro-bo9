@@ -50,4 +50,5 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads-identifier'
     implementation 'com.google.android.gms:play-services-base'
     implementation 'com.mopub:mopub-sdk:5.14.0'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
 }

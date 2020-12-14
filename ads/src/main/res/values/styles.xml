@@ -24,6 +24,22 @@
         <item name="android:minHeight">13.0px</item>
         <item name="android:text">AD</item>
     </style>
+    <style name="AppTheme.Ads.Banner.Native" parent="@style/AdsAppTheme">
+        <item name="android:textSize">11.0sp</item>
+        <item name="android:textColor">#D18440</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:background">@drawable/banner_native_ads_icon</item>
+        <item name="android:paddingTop">6.0dip</item>
+        <item name="android:paddingLeft">6.0dip</item>
+        <item name="android:paddingRight">6.0dip</item>
+        <item name="android:paddingBottom">6.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">13.0px</item>
+        <item name="android:minHeight">13.0px</item>
+        <item name="android:text">AD</item>
+    </style>
     <style name="PauseDialogAnimation">
         <item name="android:windowEnterAnimation">@anim/fade_in_ads</item>
         <item name="android:windowExitAnimation">@anim/fade_out_ads</item>

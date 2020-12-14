@@ -35,7 +35,6 @@
     <string name="user_app">Ứng dụng người dùng</string>
     <string name="app_manager">QUẢN LÝ ỨNG DỤNG</string>
     <string name="done">Hoàn tất</string>
-    <string name="wifi">Wi-Fi</string>
     <string name="pc_ram_free_able">Tìm thấy</string>
     <string name="total_found">Đã phát hiện Rác: %s</string>
     <string name="system_cache">Bộ đệm rác</string>
@@ -79,7 +78,7 @@
     <string name="fast_charger_boosted">Sạc nhanh đã kích hoạt</string>
     <string name="auto_sync">Đồng bộ</string>
     <string name="title_activity_white_list">DANH SÁCH ỨNG DỤNG BỎ QUA</string>
-    <string name="remove">XÓA BỎ</string>
+    <string name="remove">Xóa bỏ</string>
     <string name="white_list_add">THÊM</string>
     <string name="no_item">Không có mục</string>
     <string name="notification_setting">Cài đặt thông báo</string>
@@ -125,5 +124,16 @@
     <string name="disable_fast_charging_des">Bạn sẽ không thể giám sát tình trạng sạc pin. Chắc chắn bạn muốn vô hiệu hóa</string>
     <string name="feedback_nav">Phản hồi</string>
     <string name="general_title">Chung</string>
-    <string name="battery_level">Mức Pin</string>
+    <string name="battery_level">Wi-Fi</string>
+    <string name="phone_cooler">Làm mát</string>
+    <string name="name_remove_ads">Loại bỏ quảng cáo</string>
+    <string name="manage">Quản lý</string>
+    <string name="clean_description">Xóa các tệp không cần thiết để tiết kiệm dung lượng</string>
+    <string name="cool_description">Điện thoại nóng à? Làm mát điện thoại của bạn ngay bây giờ để kéo dài tuổi thọ điện thoại</string>
+    <string name="history_description">Quản lý bộ sạc</string>
+    <string name="manager_description">Quản lý các ứng dụng của bạn như gỡ cài đặt, sao lưu ...</string>
+    <string name="settings_description">Quản lý tất cả cài đặt</string>
+    <string name="remove_description">Quảng cáo gây phiền nhiễu? Xóa quảng cáo MÃI MÃI ngay bây giờ</string>
+    <string name="wifi">Wi-Fi</string>
+    <string name="boost_description">Điện thoại chạy chậm? Nhiều ứng dụng chạy ngầm quá</string>
 </resources>

@@ -88,7 +88,7 @@
     <string name="fast_charger_boosted">Schnellladung steigern</string>
     <string name="auto_sync">Automatisch synchronisieren</string>
     <string name="title_activity_white_list">App-Ignorieren-Liste</string>
-    <string name="remove">ENTFERNEN</string>
+    <string name="remove">Entfernen</string>
     <string name="white_list_add">HINZUFÜGEN</string>
     <string name="no_item">Leere</string>
     <string name="notification_setting">Benachrichtigungston</string>
@@ -168,5 +168,15 @@
     <string name="feedback_nav">Feedback</string>
     <string name="general_title">Allgemeine</string>
     <string name="battery_level">Batteriestand</string>
+    <string name="phone_cooler">Kühlung</string>
+    <string name="manage">Verwalten</string>
+    <string name="name_remove_ads">Entfernen Ads</string>
+    <string name="clean_description">Reinigen unnötiger Dateien zum Speichern von Leerzeichen</string>
+    <string name="boost_description">"Telefon ist langsam? Zu viele Apps, die im Hintergrund ausgeführt werden "</string>
+    <string name="cool_description">Telefon ist heiß? Kühlen Sie Ihr Telefon jetzt ab, um die Lebensdauer des Telefons zu verlängern</string>
+    <string name="history_description">Verwalten Sie alle Ladegeräte</string>
+    <string name="manager_description">Verwalten Sie Ihre Apps wie Deinstallieren, Backup ...</string>
+    <string name="settings_description">Verwalten aller Einstellungen</string>
+    <string name="remove_description">Ärgerliche Werbung? Entfernen von Anzeigen für immer jetzt</string>
 
 </resources>

@@ -74,7 +74,7 @@ public class ChartActivity extends AppCompatActivity  {
         vpPager.setAdapter(adapterViewPager);
         vpPager.setCurrentItem(2);
 
-//        adControlHelp.loadBannerFragment(this, view);
+        adControlHelp.loadBanner(this, findViewById(R.id.banner));
     }
 
     TextView tvNormal, tvOver, tvHealthy, tvLastFull, tvChargeType, tvTimeCharge, tvQuantity, tvDate;

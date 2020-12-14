@@ -78,7 +78,7 @@
     <string name="fast_charger_boosted">Carga rápida Mejoró</string>
     <string name="auto_sync">Sincronización</string>
     <string name="title_activity_white_list">App Ignorado</string>
-    <string name="remove">ELIMINAR</string>
+    <string name="remove">Eliminar</string>
     <string name="white_list_add">AGREGAR</string>
     <string name="no_item">VACÍO</string>
     <string name="notification_setting">Configuración de las notificaciones</string>
@@ -125,5 +125,15 @@
     <string name="feedback_nav">Comentarios</string>
     <string name="general_title">General</string>
     <string name="battery_level">Nivel de batería</string>
+    <string name="name_remove_ads">Eliminar Ads</string>
+    <string name="manage">Gestionar</string>
+    <string name="phone_cooler">Enfriamiento</string>
+    <string name="clean_description">Limpie los archivos innecesarios para guardar espacios</string>
+    <string name="boost_description">¿El teléfono es lento? Demasiadas aplicaciones que se ejecutan en segundo plano</string>
+    <string name="cool_description">¿El teléfono está caliente? Enfríe su teléfono ahora para extender la vida del teléfono</string>
+    <string name="history_description">Gestionar todos los cargadores</string>
+    <string name="manager_description">Administrar sus aplicaciones como desinstalar, copia de seguridad ...</string>
+    <string name="settings_description">Administrar todos los ajustes</string>
+    <string name="remove_description">¿Anuncios molestos? Eliminar anuncios para siempre ahora mismo</string>
 
 </resources>

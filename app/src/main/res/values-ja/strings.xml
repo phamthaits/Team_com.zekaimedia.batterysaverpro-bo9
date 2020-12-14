@@ -126,4 +126,14 @@
     <string name="feedback_nav">フィードバック</string>
     <string name="general_title">一般</string>
     <string name="battery_level">バッテリーレベル</string>
+    <string name="name_remove_ads">削除 Ads</string>
+    <string name="manage">管理</string>
+    <string name="phone_cooler">冷却</string>
+    <string name="clean_description">"スペースを節約するために不要なファイルをきれいにする "</string>
+    <string name="boost_description">"電話が遅い?バックグラウンドで実行されているアプリが多すぎます "</string>
+    <string name="cool_description">電話は熱いですか?電話の寿命を延ばすために今すぐ携帯電話を冷やす</string>
+    <string name="history_description">すべての充電器を管理する</string>
+    <string name="manager_description">アンインストール、バックアップなどのアプリを管理 ...</string>
+    <string name="settings_description">すべての設定を管理する</string>
+    <string name="remove_description">迷惑な広告?今すぐ広告を永久に削除する</string>
 </resources>

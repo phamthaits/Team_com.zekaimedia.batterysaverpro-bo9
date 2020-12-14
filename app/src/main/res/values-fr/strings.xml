@@ -80,7 +80,7 @@
     <string name="fast_charger_boosted">CHARGE RAPIDE RENFORCÉ</string>
     <string name="auto_sync">Synch. auto.</string>
     <string name="title_activity_white_list">Applis ignorées</string>
-    <string name="remove">SUPPRIMER</string>
+    <string name="remove">Supprimer</string>
     <string name="white_list_add">AJOUTER</string>
     <string name="no_item">Vide</string>
     <string name="notification_setting">Paramètres Notification</string>
@@ -127,4 +127,14 @@
     <string name="feedback_nav">Commentaires</string>
     <string name="general_title">Générales</string>
     <string name="battery_level">Niveau de la batterie</string>
+    <string name="phone_cooler">Refroidissement</string>
+    <string name="manage">Gérer</string>
+    <string name="name_remove_ads">Supprimer Ads</string>
+    <string name="clean_description">Nettoyer les fichiers inutiles pour économiser des espaces</string>
+    <string name="boost_description">"Le téléphone est lent ? Trop d’applications en cours d’exécution en arrière-plan "</string>
+    <string name="cool_description">Le téléphone est chaud ? Refroidissez votre téléphone maintenant pour prolonger la durée de vie du téléphone</string>
+    <string name="history_description">Gérer tous les chargeurs</string>
+    <string name="manager_description">Gérez vos applications comme la désinstallation, la sauvegarde ...</string>
+    <string name="settings_description">Gérer tous les réglages</string>
+    <string name="remove_description">Énervante publicités? Supprimer les publicités pour toujours maintenant</string>
 </resources>

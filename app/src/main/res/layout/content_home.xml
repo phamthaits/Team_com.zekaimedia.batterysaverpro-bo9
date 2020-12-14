@@ -414,11 +414,13 @@
 
             <!--TODO Native Banner-->
             <include
-                android:id="@+id/banner"
-                layout="@layout/control_banner_ads"
-                android:layout_marginTop="@dimen/screen_padding_5"
+                android:id="@+id/banner_native_ads_control_holder"
+                layout="@layout/control_native_ads"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/screen_padding_5"
+                android:layout_marginTop="@dimen/screen_padding_5"
+                android:layout_marginRight="@dimen/screen_padding_5"/>
             <!--End Native Banner-->
 
             <!--Phone Cooler-->

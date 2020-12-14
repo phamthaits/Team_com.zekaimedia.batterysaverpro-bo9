@@ -78,7 +78,7 @@
     <string name="fast_charger_boosted">charger cepat didorong</string>
     <string name="auto_sync">Sinkronisasi</string>
     <string name="title_activity_white_list">Daftar pengabaian aplikasi</string>
-    <string name="remove">HAPUS</string>
+    <string name="remove">Hapus</string>
     <string name="white_list_add">TAMBAH</string>
     <string name="no_item">Ada item</string>
     <string name="notification_setting">Pengaturan Notifikasi</string>
@@ -125,5 +125,15 @@
     <string name="feedback_nav">Umpan balik</string>
     <string name="general_title">Umum</string>
     <string name="battery_level">Tingkat Baterai</string>
+    <string name="phone_cooler">Pendinginan</string>
+    <string name="manage">Mengelola</string>
+    <string name="name_remove_ads">Hapus Ads</string>
+    <string name="clean_description">Bersihkan file yang tidak perlu untuk menghemat ruang</string>
+    <string name="boost_description">Ponsel lambat? Terlalu banyak aplikasi yang berjalan di latar belakang</string>
+    <string name="cool_description">Ponsel panas? Dinginkan ponsel Anda sekarang untuk memperpanjang umur ponsel</string>
+    <string name="history_description">Kelola semua pengisi daya</string>
+    <string name="manager_description">Kelola aplikasi Anda seperti uninstall, backup ...</string>
+    <string name="settings_description">Kelola Semua Pengaturan</string>
+    <string name="remove_description">Iklan yang mengganggu? Hapus iklan selamanya sekarang</string>
 
 </resources>

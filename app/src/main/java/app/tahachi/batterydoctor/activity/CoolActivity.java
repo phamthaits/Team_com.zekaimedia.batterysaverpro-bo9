@@ -78,7 +78,8 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         context = this;
 //        checkTask();
         adControlHelp = AdControlHelp.getInstance(context);
-//        adControlHelp.loadNative(this);
+        adControlHelp.loadNative(this,findViewById(R.id.native_ads_control_holder),
+                R.layout.item_admob_native_ad,true);
         adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
 //        SharePreferenceUtils.getInstance(this).setFlagAds(true);
     }

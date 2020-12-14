@@ -126,4 +126,14 @@
     <string name="feedback_nav">คำ ติชม</string>
     <string name="general_title">ทั่ว ไป</string>
     <string name="battery_level">ระดับแบตเตอรี่</string>
+    <string name="name_remove_ads">ลบ Ads</string>
+    <string name="manage">จัดการ</string>
+    <string name="phone_cooler">เย็น</string>
+    <string name="clean_description">ทําความสะอาดไฟล์ที่ไม่จําเป็นเพื่อประหยัดพื้นที่</string>
+    <string name="boost_description">โทรศัพท์ช้า? มีแอปที่ทํางานอยู่เบื้องหลังมากเกินไป</string>
+    <string name="cool_description">โทรศัพท์ร้อน? ทําให้โทรศัพท์ของคุณเย็นลงตอนนี้เพื่อยืดอายุการใช้งานโทรศัพท์</string>
+    <string name="history_description">จัดการอุปกรณ์ชาร์จทั้งหมด</string>
+    <string name="manager_description">จัดการแอปของคุณเช่นถอนการติดตั้งสํารองข้อมูล ...</string>
+    <string name="settings_description">จัดการการตั้งค่าทั้งหมด</string>
+    <string name="remove_description">โฆษณาที่น่ารําคาญ? ลบโฆษณาตลอดไปตอนนี้</string>
 </resources>

@@ -2,4 +2,7 @@
     <dimen name="text_details">10sp</dimen>
     <dimen name="height_native_ads">340dip</dimen>
     <dimen name="height_full_ads">300dip</dimen>
+    <dimen name="text_size_title">18sp</dimen>
+    <dimen name="textsize_compo_ram_cpu_des">10.0sp</dimen>
 </resources>
+
