@@ -291,13 +291,13 @@ public class FBHelp {
         });
     }
 
-    public void loadNative(final Activity mActivity, String ads) {
-        NativeAdLayout nativeAdLayout = mActivity.findViewById(R.id.fb_adplaceholder);
-        ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) mActivity.findViewById(R.id.shimmer_container);
+    public void loadNative(final Activity mActivity, final View rootView, String ads) {
+        ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
+        NativeAdLayout nativeAdLayout = rootView.findViewById(R.id.fb_adplaceholder);
         nativeAdLayout.setVisibility(View.GONE);
         containerShimmer.setVisibility(View.VISIBLE);
         containerShimmer.startShimmer();
-        NativeAd nativeAd = new NativeAd(mActivity, ads);
+        NativeAd nativeAd = new NativeAd(rootView.getContext(), ads);
         nativeAd.buildLoadAdConfig().withAdListener(new NativeAdListener() {
             @Override
             public void onMediaDownloaded(Ad ad) {
@@ -308,30 +308,28 @@ public class FBHelp {
             @Override
             public void onError(Ad ad, AdError adError) {
                 // Native ad failed to load
-                Log.e(TAG, "Native ad failed to load: " + adError.getErrorMessage());
-                FrameLayout frameLayout = mActivity.findViewById(R.id.fb_adplaceholder);
-                if (frameLayout != null) {
-                    frameLayout.setVisibility(View.GONE);
-                }
                 containerShimmer.stopShimmer();
                 containerShimmer.setVisibility(View.GONE);
+
+                if (containerShimmer != null) {
+                    containerShimmer.setVisibility(View.GONE);
+                }
             }
 
             @Override
             public void onAdLoaded(Ad ad) {
                 // Native ad is loaded and ready to be displayed
-                FrameLayout frameLayout = mActivity.findViewById(R.id.fb_adplaceholder);
                 containerShimmer.stopShimmer();
                 containerShimmer.setVisibility(View.GONE);
+                FrameLayout frameLayout = rootView.findViewById(R.id.fb_adplaceholder);
                 if (frameLayout != null) {
                     frameLayout.setVisibility(View.VISIBLE);
                     if (nativeAd == null || nativeAd != ad) {
                         return;
                     }
                     inflateAd(nativeAd, mActivity, nativeAdLayout);
-                    Log.d(TAG, "Native ad is loaded and ready to be displayed!");
                 }
-//                Log.d(TAG, "Native ad is loaded and ready to be displayed!");
+                Log.d(TAG, "Native ad is loaded and ready to be displayed!");
             }
 
             @Override

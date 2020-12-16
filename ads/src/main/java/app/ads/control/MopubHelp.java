@@ -161,7 +161,7 @@ public class MopubHelp {
         }
     }
 
-    public void loadBannerFragment(View rootView, String ads) {
+    public void loadBanner(View rootView, String ads) {
         FrameLayout frameLayout = rootView.findViewById(R.id.mopub_adplaceholder);
         frameLayout.setVisibility(View.GONE);
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
@@ -207,63 +207,7 @@ public class MopubHelp {
         });
     }
 
-    public void loadNative(final Activity mActivity, String ads) {
-        ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) mActivity.findViewById(R.id.shimmer_container);
-        FrameLayout frameLayout = mActivity.findViewById(R.id.mopub_adplaceholder);
-        frameLayout.removeAllViews();
-        frameLayout.setVisibility(View.GONE);
-        containerShimmer.setVisibility(View.VISIBLE);
-        containerShimmer.startShimmer();
-        MoPubNative.MoPubNativeNetworkListener moPubNativeNetworkListener = new MoPubNative.MoPubNativeNetworkListener() {
-            @Override
-            public void onNativeLoad(NativeAd nativeAd) {
-                AdapterHelper adapterHelper = new AdapterHelper(context, 0, 3);
-                View v = adapterHelper.getAdView(null, frameLayout, nativeAd, new ViewBinder.Builder(0).build());
-                // Set the native event listeners (onImpression, and onClick).
-                nativeAd.setMoPubNativeEventListener(new NativeAd.MoPubNativeEventListener() {
-                    @Override
-                    public void onImpression(View view) {
-                    }
-
-                    @Override
-                    public void onClick(View view) {
-                    }
-                });
-                frameLayout.addView(v);
-                frameLayout.setVisibility(View.VISIBLE);
-                containerShimmer.setVisibility(View.GONE);
-                setAnimation(frameLayout);
-            }
-
-            @Override
-            public void onNativeFail(NativeErrorCode errorCode) {
-                frameLayout.setVisibility(View.GONE);
-                containerShimmer.setVisibility(View.GONE);
-            }
-        };
-        SdkConfiguration.Builder configBuilder = new SdkConfiguration.Builder(ads);
-        configBuilder.withLogLevel(NONE);
-        MoPub.initializeSdk(context, configBuilder.build(), new SdkInitializationListener() {
-            @Override
-            public void onInitializationFinished() {
-                MoPubNative moPubNative = new MoPubNative(context, ads, moPubNativeNetworkListener);
-                ViewBinder viewBinder = new ViewBinder.Builder(R.layout.item_mopub_native_ad)
-                        .mainImageId(R.id.native_main_image)
-                        .iconImageId(R.id.native_icon_image)
-                        .titleId(R.id.native_ad_title)
-                        .textId(R.id.native_text)
-                        .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
-                        .sponsoredTextId(R.id.native_sponsored_text_view)
-                        .callToActionId(R.id.native_cta)
-                        .build();
-                MoPubStaticNativeAdRenderer moPubStaticNativeAdRenderer = new MoPubStaticNativeAdRenderer(viewBinder);
-                moPubNative.registerAdRenderer(moPubStaticNativeAdRenderer);
-                moPubNative.makeRequest();
-            }
-        });
-    }
-
-    public void loadNativeFragment(final View rootView, String ads) {
+    public void loadNative(final View rootView, String ads) {
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         FrameLayout frameLayout = rootView.findViewById(R.id.mopub_adplaceholder);
         frameLayout.removeAllViews();

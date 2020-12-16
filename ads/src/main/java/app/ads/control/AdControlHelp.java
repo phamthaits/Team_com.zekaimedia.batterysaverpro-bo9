@@ -68,9 +68,6 @@ public class AdControlHelp {
                                         case "rate_fb":
                                             adControl.rate_fb(object.getInt(key));
                                             break;
-                                        case "rate_startapp":
-                                            adControl.rate_startapp(object.getInt(key));
-                                            break;
                                         case "rate_mopub":
                                             adControl.rate_mopub(object.getInt(key));
                                             break;
@@ -128,20 +125,20 @@ public class AdControlHelp {
         void onAdLoaded();
     }
 
-    public void loadNative(Activity mActivity, View view,int resourceLayout, boolean isAnimButton) {
+    public void loadNative(Activity mActivity, View view, int resourceLayout, boolean isAnimButton) {
         if (adControl.remove_ads()) {
             return;
         }
         loadNetworkHelp();
         switch (adControl.adcontrolType()) {
             case Admob:
-                admobHelp.loadNative(mActivity, view, adControl.admob_native(),resourceLayout,isAnimButton);
+                admobHelp.loadNative(mActivity, view, adControl.admob_native(), resourceLayout, isAnimButton);
                 break;
             case Facebook:
-//                fbHelp.loadNative(mActivity, view, adControl.fb_native());
+                fbHelp.loadNative(mActivity, view, adControl.fb_native());
                 break;
             case Mopub:
-//                mopubHelp.loadNativeFragment(view, adControl.mopub_native());
+                mopubHelp.loadNative(view, adControl.mopub_native());
                 break;
         }
     }
@@ -156,10 +153,10 @@ public class AdControlHelp {
                 admobHelp.loadBanner(mActivity, view, adControl.admob_banner());
                 break;
             case Facebook:
-//                fbHelp.loadBanner(mActivity, view, adControl.fb_banner());
+                fbHelp.loadBanner(mActivity, view, adControl.fb_banner());
                 break;
             case Mopub:
-//                mopubHelp.loadBannerFragment(view, adControl.mopub_banner());
+                mopubHelp.loadBanner(view, adControl.mopub_banner());
                 break;
         }
     }
@@ -178,10 +175,10 @@ public class AdControlHelp {
                 admobHelp.loadInterstitialAd(adCloseListener, adLoadedListener, adControl.admob_full(), showWhenLoaded);
                 break;
             case Facebook:
-//                fbHelp.loadInterstitialAd(adCloseListener, adLoadedListener, adControl.fb_full(), showWhenLoaded);
+                fbHelp.loadInterstitialAd(adCloseListener, adLoadedListener, adControl.fb_full(), showWhenLoaded);
                 break;
             case Mopub:
-//                mopubHelp.loadInterstitialAd(activity, adCloseListener, adLoadedListener, adControl.mopub_full(), showWhenLoaded);
+                mopubHelp.loadInterstitialAd(activity, adCloseListener, adLoadedListener, adControl.mopub_full(), showWhenLoaded);
                 break;
         }
     }

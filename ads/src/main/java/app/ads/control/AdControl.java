@@ -34,7 +34,6 @@ public class AdControl {
     }
 
     public String admob_full() {
-        if (isTest) return "ca-app-pub-3940256099942544/1033173712";
         return this.pre.getString("admob_full", "");
     }
 
@@ -56,7 +55,6 @@ public class AdControl {
     }
 
     public String admob_native() {
-        if (isTest) return "/6499/example/native";
         return this.pre.getString("admob_native", "");
     }
 
@@ -66,7 +64,6 @@ public class AdControl {
     }
 
     public String admob_banner() {
-        if (isTest) return "ca-app-pub-3940256099942544/6300978111";
         return this.pre.getString("admob_banner", "");
     }
 
@@ -131,8 +128,8 @@ public class AdControl {
 
     public Boolean remove_ads() {
         if (isTest) return false;
-        return true;
-//        return this.pre.getBoolean("remove_ads", false);
+//        return true;
+        return this.pre.getBoolean("remove_ads", false);
     }
 
     public void remove_ads(Boolean value) {
@@ -155,15 +152,6 @@ public class AdControl {
 
     public void rate_fb(int value) {
         editor.putInt("rate_fb", value);
-        editor.commit();
-    }
-
-    public int rate_startapp() {
-        return this.pre.getInt("rate_startapp", 0);
-    }
-
-    public void rate_startapp(int value) {
-        editor.putInt("rate_startapp", value);
         editor.commit();
     }
 
