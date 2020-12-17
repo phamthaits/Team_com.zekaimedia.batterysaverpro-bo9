@@ -207,7 +207,7 @@ public class MopubHelp {
         });
     }
 
-    public void loadNative(final View rootView, String ads) {
+    public void loadNative(final View rootView, String ads, int mopub_layout_resource,boolean isAnimButton) {
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         FrameLayout frameLayout = rootView.findViewById(R.id.mopub_adplaceholder);
         frameLayout.removeAllViews();
@@ -232,6 +232,7 @@ public class MopubHelp {
                 frameLayout.addView(v);
                 frameLayout.setVisibility(View.VISIBLE);
                 containerShimmer.setVisibility(View.GONE);
+                if (isAnimButton)
                 setAnimation(frameLayout);
             }
 
@@ -247,7 +248,7 @@ public class MopubHelp {
             @Override
             public void onInitializationFinished() {
                 MoPubNative moPubNative = new MoPubNative(context, ads, moPubNativeNetworkListener);
-                ViewBinder viewBinder = new ViewBinder.Builder(R.layout.item_mopub_native_ad)
+                ViewBinder viewBinder = new ViewBinder.Builder(mopub_layout_resource)
                         .mainImageId(R.id.native_main_image)
                         .iconImageId(R.id.native_icon_image)
                         .titleId(R.id.native_ad_title)

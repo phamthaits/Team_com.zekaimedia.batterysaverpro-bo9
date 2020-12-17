@@ -125,20 +125,22 @@ public class AdControlHelp {
         void onAdLoaded();
     }
 
-    public void loadNative(Activity mActivity, View view, int resourceLayout, boolean isAnimButton) {
+    public void loadNative(Activity mActivity, View view, int admob_layout_resource,
+                           int fb_layout_resource, int mopub_layout_resource,
+                           boolean isAnimButton) {
         if (adControl.remove_ads()) {
             return;
         }
         loadNetworkHelp();
         switch (adControl.adcontrolType()) {
             case Admob:
-                admobHelp.loadNative(mActivity, view, adControl.admob_native(), resourceLayout, isAnimButton);
+                admobHelp.loadNative(mActivity, view, adControl.admob_native(), admob_layout_resource, isAnimButton);
                 break;
             case Facebook:
-                fbHelp.loadNative(mActivity, view, adControl.fb_native());
+                fbHelp.loadNative(mActivity, view, adControl.fb_native(), fb_layout_resource, isAnimButton);
                 break;
             case Mopub:
-                mopubHelp.loadNative(view, adControl.mopub_native());
+                mopubHelp.loadNative(view, adControl.mopub_native(), mopub_layout_resource, isAnimButton);
                 break;
         }
     }

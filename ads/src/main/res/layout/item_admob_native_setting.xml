@@ -20,21 +20,26 @@
                 android:layout_height="@dimen/_200sdp"
                 android:layout_gravity="center_horizontal"/>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingRight="30dip"
-                android:paddingLeft="30dip"
-                android:paddingTop="@dimen/_5sdp">
+                android:paddingRight="@dimen/_20sdp"
+                android:paddingLeft="@dimen/_20sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_5sdp">
 
                 <ImageView
                     android:id="@+id/ad_app_icon"
                     android:layout_width="38dip"
                     android:layout_height="38dip"
+                    android:layout_alignTop="@+id/text_admob"
+                    android:layout_alignBottom="@+id/text_admob"
                     android:adjustViewBounds="true" />
 
                 <LinearLayout
+                    android:id="@+id/text_admob"
+                    android:layout_toRightOf="@+id/ad_app_icon"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dip"
@@ -96,7 +101,7 @@
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="fill_parent"
@@ -106,8 +111,9 @@
                     android:layout_toStartOf="@+id/ad_call_to_action"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dip"
+                    android:layout_marginTop="10dip"
                     android:layout_marginLeft="30dip"
+                    android:layout_marginBottom="10dip"
                     android:textColor="@color/body_color"
                     android:fontFamily="@font/barlowcondensed_regular"
                     android:maxLines="3"
@@ -117,7 +123,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_width="120dip"
                     android:layout_height="40dip"
-                    android:layout_marginTop="20dip"
+                    android:layout_marginTop="10dip"
                     android:layout_marginLeft="30dip"
                     android:layout_marginRight="30dip"
                     android:layout_marginBottom="10dip"

@@ -173,7 +173,7 @@ public class AdmobHelp {
 
     }
 
-    public void loadNative(final Activity mActivity, final View rootView, String ads, int resourceLayout, boolean isAnimButton) {
+    public void loadNative(final Activity mActivity, final View rootView, String ads, int admob_layout_resource, boolean isAnimButton) {
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         FrameLayout frameLayout = rootView.findViewById(R.id.admob_adplaceholder);
         frameLayout.setVisibility(View.GONE);
@@ -194,7 +194,7 @@ public class AdmobHelp {
                 // You must call destroy on old ads when you are done with them,
                 // otherwise you will have a memory leak.
                 UnifiedNativeAdView adView = (UnifiedNativeAdView) mActivity.getLayoutInflater()
-                        .inflate(resourceLayout, null);
+                        .inflate(admob_layout_resource, null);
                 populateUnifiedNativeAdView(unifiedNativeAd, adView);
                 frameLayout.removeAllViews();
                 frameLayout.addView(adView);

@@ -55,7 +55,8 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_clean_result);
 
         adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
-                R.layout.item_admob_native_ad, true);
+                R.layout.item_admob_native_ad,  R.layout.item_fb_native_ad,
+                R.layout.item_mopub_native_ad,true);
         SharePreferenceUtils.getInstance(this).setFlagAds(true);
 
         rlScan = findViewById(R.id.rlScanning);
@@ -102,6 +103,10 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
                 return;
             case R.id.lrSettings:
                 startActivity(new Intent(this, SettingActivity.class));
+                finish();
+                return;
+            case R.id.lrRemove:
+                startActivity(new Intent(this, RemoveAdsActivity.class));
                 finish();
                 return;
             default:

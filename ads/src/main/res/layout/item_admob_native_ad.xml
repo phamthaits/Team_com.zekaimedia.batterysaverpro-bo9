@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -27,11 +27,15 @@
                     android:id="@+id/ad_app_icon"
                     android:layout_width="38dip"
                     android:layout_height="38dip"
+                    android:layout_alignTop="@+id/text_admob"
+                    android:layout_alignBottom="@+id/text_admob"
                     android:adjustViewBounds="true" />
 
                 <LinearLayout
+                    android:id="@+id/text_admob"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/ad_app_icon"
                     android:layout_marginLeft="5dip"
                     android:orientation="vertical">
 
@@ -91,7 +95,7 @@
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/ad_body"

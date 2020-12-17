@@ -51,6 +51,7 @@ import app.tahachi.batterydoctor.activity.BaseActivity;
 import app.tahachi.batterydoctor.activity.ChartActivity;
 import app.tahachi.batterydoctor.activity.CleanActivity;
 import app.tahachi.batterydoctor.activity.PermissionActivity;
+import app.tahachi.batterydoctor.activity.RemoveAdsActivity;
 import app.tahachi.batterydoctor.activity.SettingActivity;
 import app.tahachi.batterydoctor.model.AppManager;
 import app.tahachi.batterydoctor.service.BatteryService;
@@ -108,7 +109,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private RippleBackground rippleBackground;
     private TextView tvFullCharge;
     private LinearLayout lrTimeLeft;
-    private RelativeLayout lrClean, lrBoost, lrCool, lrSettings, lrHistory, lrManager;
+    private RelativeLayout lrClean, lrBoost, lrCool, lrSettings, lrHistory, lrManager, lrRemove;
 
     private ProgressBar pbQuick, pbFull, pbTrickle;
     private ImageView imgQuick, imgFull, imgTrickle;
@@ -143,6 +144,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         btnAirPlane.setOnClickListener(this);
         lrHistory.setOnClickListener(this);
         lrManager.setOnClickListener(this);
+        lrRemove.setOnClickListener(this);
     }
 
     @Override
@@ -183,6 +185,9 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 break;
             case R.id.lrManager:
                 startActivity(new Intent(getActivity(), AppManagerActivity.class));
+                break;
+            case R.id.lrRemove:
+                startActivity(new Intent(getActivity(), RemoveAdsActivity.class));
                 break;
 
             case R.id.btnWifi:
@@ -412,9 +417,10 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intData(view);
         intEvent();
         adControlHelp.loadNative(getActivity(), view.findViewById(R.id.native_ads_control_holder)
-                , R.layout.item_admob_native_ad,true);
+                , R.layout.item_admob_native_ad, R.layout.item_fb_native_ad,R.layout.item_mopub_native_ad,true);
         adControlHelp.loadNative(getActivity(), view.findViewById(R.id.banner_native_ads_control_holder)
-                , R.layout.item_admob_banner_native,false);
+                , R.layout.item_admob_banner_native, R.layout.item_fb_banner_native,R.layout.item_mopub_banner_native,
+                false);
         /*adControlHelp.loadBanner(getActivity(), view.findViewById(R.id.banner));*/
         return view;
     }
@@ -483,6 +489,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         lrSettings = view.findViewById(R.id.lrSettings);
         lrHistory = view.findViewById(R.id.lrHistory);
         lrManager = view.findViewById(R.id.lrManager);
+        lrRemove = view.findViewById(R.id.lrRemove);
     }
 
     WaveDrawable mWaveDrawable;
