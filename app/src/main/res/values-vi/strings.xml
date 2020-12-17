@@ -78,7 +78,7 @@
     <string name="fast_charger_boosted">Sạc nhanh đã kích hoạt</string>
     <string name="auto_sync">Đồng bộ</string>
     <string name="title_activity_white_list">DANH SÁCH ỨNG DỤNG BỎ QUA</string>
-    <string name="remove">Xóa bỏ</string>
+    <string name="remove">Remove</string>
     <string name="white_list_add">THÊM</string>
     <string name="no_item">Không có mục</string>
     <string name="notification_setting">Cài đặt thông báo</string>
@@ -126,7 +126,7 @@
     <string name="general_title">Chung</string>
     <string name="battery_level">Wi-Fi</string>
     <string name="phone_cooler">Làm mát</string>
-    <string name="name_remove_ads">Loại bỏ quảng cáo</string>
+    <string name="name_remove_ads">Remove Ads</string>
     <string name="manage">Quản lý</string>
     <string name="clean_description">Xóa các tệp không cần thiết để tiết kiệm dung lượng</string>
     <string name="cool_description">Điện thoại nóng à? Làm mát điện thoại của bạn ngay bây giờ để kéo dài tuổi thọ điện thoại</string>
