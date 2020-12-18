@@ -8,6 +8,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 
@@ -172,7 +173,7 @@ public class MopubHelp {
         MoPub.initializeSdk(context, configBuilder.build(), new SdkInitializationListener() {
             @Override
             public void onInitializationFinished() {
-                MoPubView moPubView  =  rootView.findViewById(R.id.adview);
+                MoPubView moPubView = rootView.findViewById(R.id.adview);
                 moPubView.setAdUnitId(ads);
                 moPubView.setBannerAdListener(new MoPubView.BannerAdListener() {
                     @Override
@@ -207,7 +208,14 @@ public class MopubHelp {
         });
     }
 
-    public void loadNative(final View rootView, String ads, int mopub_layout_resource,boolean isAnimButton) {
+    public void loadNative(final Activity mActivity, final LinearLayout rootView, String ads, int mopub_layout_resource, boolean isAnimButton, boolean is_native_banner) {
+
+        ShimmerFrameLayout shimmerFrameLayout = (ShimmerFrameLayout) mActivity.getLayoutInflater().inflate(R.layout.load_native, null);
+        if (is_native_banner) {
+            shimmerFrameLayout = (ShimmerFrameLayout) mActivity.getLayoutInflater().inflate(R.layout.load_banner, null);
+        }
+        rootView.addView(shimmerFrameLayout);
+
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         FrameLayout frameLayout = rootView.findViewById(R.id.mopub_adplaceholder);
         frameLayout.removeAllViews();
@@ -233,7 +241,7 @@ public class MopubHelp {
                 frameLayout.setVisibility(View.VISIBLE);
                 containerShimmer.setVisibility(View.GONE);
                 if (isAnimButton)
-                setAnimation(frameLayout);
+                    setAnimation(frameLayout);
             }
 
             @Override

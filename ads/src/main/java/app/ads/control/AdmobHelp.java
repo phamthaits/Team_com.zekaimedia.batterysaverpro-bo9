@@ -11,6 +11,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -173,7 +174,15 @@ public class AdmobHelp {
 
     }
 
-    public void loadNative(final Activity mActivity, final View rootView, String ads, int admob_layout_resource, boolean isAnimButton) {
+    public void loadNative(final Activity mActivity, final LinearLayout rootView, String ads,
+                           int admob_layout_resource, boolean isAnimButton, boolean is_native_banner) {
+
+        ShimmerFrameLayout shimmerFrameLayout = (ShimmerFrameLayout) mActivity.getLayoutInflater().inflate(R.layout.load_native, null);
+        if (is_native_banner) {
+            shimmerFrameLayout = (ShimmerFrameLayout) mActivity.getLayoutInflater().inflate(R.layout.load_banner, null);
+        }
+        rootView.addView(shimmerFrameLayout);
+
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         FrameLayout frameLayout = rootView.findViewById(R.id.admob_adplaceholder);
         frameLayout.setVisibility(View.GONE);

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -124,23 +125,25 @@ public class AdControlHelp {
     public interface AdLoadedListener {
         void onAdLoaded();
     }
-
-    public void loadNative(Activity mActivity, View view, int admob_layout_resource,
-                           int fb_layout_resource, int mopub_layout_resource,
-                           boolean isAnimButton) {
+    public void loadNative(Activity mActivity, LinearLayout view, int admob_layout_resource,
+                      int fb_layout_resource, int mopub_layout_resource, boolean isAnimButton, boolean is_native_banner) {
         if (adControl.remove_ads()) {
             return;
         }
         loadNetworkHelp();
         switch (adControl.adcontrolType()) {
             case Admob:
-                admobHelp.loadNative(mActivity, view, adControl.admob_native(), admob_layout_resource, isAnimButton);
+                admobHelp.loadNative(mActivity, view, adControl.admob_native(),
+                        admob_layout_resource, isAnimButton, is_native_banner);
                 break;
             case Facebook:
-                fbHelp.loadNative(mActivity, view, adControl.fb_native(), fb_layout_resource, isAnimButton);
+                fbHelp.loadNative(mActivity, view, adControl.fb_native(), fb_layout_resource,
+                        isAnimButton, is_native_banner);
                 break;
             case Mopub:
-                mopubHelp.loadNative(view, adControl.mopub_native(), mopub_layout_resource, isAnimButton);
+                mopubHelp.loadNative(mActivity, view, adControl.mopub_native(),
+                        mopub_layout_resource,
+                        isAnimButton, is_native_banner);
                 break;
         }
     }
@@ -166,23 +169,25 @@ public class AdControlHelp {
 
     public void loadInterstitialAd(Activity activity, AdCloseListener adCloseListener, AdLoadedListener adLoadedListener, boolean showWhenLoaded) {
         Log.v("ads", "Call ads");
-        if (adControl.remove_ads()) {
-            if (showWhenLoaded)
-                adCloseListener.onAdClosed();
-            return;
-        }
-        loadNetworkHelp();
-        switch (adControl.adcontrolType()) {
-            case Admob:
-                admobHelp.loadInterstitialAd(adCloseListener, adLoadedListener, adControl.admob_full(), showWhenLoaded);
-                break;
-            case Facebook:
-                fbHelp.loadInterstitialAd(adCloseListener, adLoadedListener, adControl.fb_full(), showWhenLoaded);
-                break;
-            case Mopub:
-                mopubHelp.loadInterstitialAd(activity, adCloseListener, adLoadedListener, adControl.mopub_full(), showWhenLoaded);
-                break;
-        }
+        adCloseListener.onAdClosed();
+        return;
+//        if (adControl.remove_ads()) {
+//            if (showWhenLoaded)
+//                adCloseListener.onAdClosed();
+//            return;
+//        }
+//        loadNetworkHelp();
+//        switch (adControl.adcontrolType()) {
+//            case Admob:
+//                admobHelp.loadInterstitialAd(adCloseListener, adLoadedListener, adControl.admob_full(), showWhenLoaded);
+//                break;
+//            case Facebook:
+//                fbHelp.loadInterstitialAd(adCloseListener, adLoadedListener, adControl.fb_full(), showWhenLoaded);
+//                break;
+//            case Mopub:
+//                mopubHelp.loadInterstitialAd(activity, adCloseListener, adLoadedListener, adControl.mopub_full(), showWhenLoaded);
+//                break;
+//        }
     }
 
     public void showInterstitialAd(AdCloseListener adCloseListener) {

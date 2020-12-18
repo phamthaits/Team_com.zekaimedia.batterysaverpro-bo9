@@ -53,10 +53,9 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         context = this;
         adControlHelp = AdControlHelp.getInstance(context);
         setContentView(R.layout.activity_clean_result);
-
         adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
                 R.layout.item_admob_native_ad,  R.layout.item_fb_native_ad,
-                R.layout.item_mopub_native_ad,true);
+                R.layout.item_mopub_native_ad,true, false);
         SharePreferenceUtils.getInstance(this).setFlagAds(true);
 
         rlScan = findViewById(R.id.rlScanning);

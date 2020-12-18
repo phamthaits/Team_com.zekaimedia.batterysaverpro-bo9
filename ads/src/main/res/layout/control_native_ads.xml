@@ -25,6 +25,5 @@
         android:background="@drawable/bg_card_ads"
         android:orientation="vertical"
         android:visibility="gone" />
-
-    <include layout="@layout/load_native" />
+<!--    <include layout="@layout/load_native" />-->
 </LinearLayout>

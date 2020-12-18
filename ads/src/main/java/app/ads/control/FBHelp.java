@@ -291,8 +291,13 @@ public class FBHelp {
         });
     }
 
-    public void loadNative(final Activity mActivity, final View rootView,
-                           String ads,int fb_layout_resource,boolean isAnimButton) {
+    public void loadNative(final Activity mActivity, final LinearLayout rootView, String ads,
+                           int fb_layout_resource, boolean isAnimButton, boolean is_native_banner) {
+        ShimmerFrameLayout shimmerFrameLayout = (ShimmerFrameLayout) mActivity.getLayoutInflater().inflate(R.layout.load_native, null);
+        if (is_native_banner) {
+            shimmerFrameLayout = (ShimmerFrameLayout) mActivity.getLayoutInflater().inflate(R.layout.load_banner, null);
+        }
+        rootView.addView(shimmerFrameLayout);
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         NativeAdLayout nativeAdLayout = rootView.findViewById(R.id.fb_adplaceholder);
         nativeAdLayout.setVisibility(View.GONE);
@@ -357,10 +362,11 @@ public class FBHelp {
         LayoutInflater inflater = LayoutInflater.from(mActivity);
         // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
         LinearLayout adView = (LinearLayout) inflater.inflate(fb_layout_resource, nativeAdLayout, false);
-        if (isAnimButton)
-        setAnimation(adView);
         nativeAdLayout.removeAllViews();
         nativeAdLayout.addView(adView);
+        if (isAnimButton) {
+            setAnimation(adView);
+        }
 
         // Add the AdOptionsView
         LinearLayout adChoicesContainer = mActivity.findViewById(R.id.ad_choices_container);
