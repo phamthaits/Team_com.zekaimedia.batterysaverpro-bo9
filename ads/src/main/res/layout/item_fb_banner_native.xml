@@ -115,13 +115,6 @@
                         android:fontFamily="@font/barlowcondensed_regular"
                         android:textColor="@color/body_color"
                         android:textSize="12.0sp" />
-
-                    <com.facebook.ads.MediaView
-                        android:id="@+id/native_ad_media"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_150sdp"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dip" />
                 </LinearLayout>
             </RelativeLayout>
         </LinearLayout>
