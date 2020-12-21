@@ -41,10 +41,11 @@ public class AdControlHelp {
     }
 
     public boolean is_reload_firebase() {
-        if (adControl.remove_ads())
-            return false;
-        if (adControl.isTest) return true;
-        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
+        return true;
+//        if (adControl.remove_ads())
+//            return false;
+//        if (adControl.isTest) return true;
+//        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
     }
 
     private AdControlHelp() {
@@ -54,8 +55,12 @@ public class AdControlHelp {
     {
         String key_reverse = context.getResources().getString(R.string.admob_app_id);
         String[] fn_reverse = key_reverse.split("~");
+
         String value_reverse = new StringBuffer(reverse).reverse().toString();
-        return fn_reverse[0] + "/" + value_reverse;
+
+        String reversed = fn_reverse[0] + "/" + value_reverse;
+
+        return reversed;
     }
 
     public void getAdControlFromFireBase(AdmobHelp.FireBaseListener fireBaseListener) {
