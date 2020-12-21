@@ -10,7 +10,7 @@ public class AdControl {
     private static AdControl instance;
     private SharedPreferences.Editor editor;
     private SharedPreferences pre;
-    public boolean isTest = true;
+    public boolean isTest = false;
 
     public AdControl(Context context) {
         this.pre = context.getSharedPreferences("app_data", Context.MODE_MULTI_PROCESS);

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.ads.control.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.startapp.sdk.adsbase.StartAppAd;
@@ -15,6 +16,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.ResourceBundle;
 
 public class AdControlHelp {
     private static Context context;
@@ -47,6 +50,13 @@ public class AdControlHelp {
     private AdControlHelp() {
 
     }
+    private String getRealAdmob(String reverse)
+    {
+        String key_reverse = context.getResources().getString(R.string.admob_app_id);
+        String[] fn_reverse = key_reverse.split("~");
+        String value_reverse = new StringBuffer(reverse).reverse().toString();
+        return fn_reverse[0] + "/" + value_reverse;
+    }
 
     public void getAdControlFromFireBase(AdmobHelp.FireBaseListener fireBaseListener) {
         Log.v("ads", "Load Firebase");
@@ -73,13 +83,13 @@ public class AdControlHelp {
                                             adControl.rate_mopub(object.getInt(key));
                                             break;
                                         case "admob_full":
-                                            adControl.admob_full(object.getString(key));
+                                            adControl.admob_full(getRealAdmob(object.getString(key)));
                                             break;
                                         case "admob_native":
-                                            adControl.admob_native(object.getString(key));
+                                            adControl.admob_native(getRealAdmob(object.getString(key)));
                                             break;
                                         case "admob_banner":
-                                            adControl.admob_banner(object.getString(key));
+                                            adControl.admob_banner(getRealAdmob(object.getString(key)));
                                             break;
                                         case "fb_full":
                                             adControl.fb_full(object.getString(key));
@@ -169,25 +179,25 @@ public class AdControlHelp {
 
     public void loadInterstitialAd(Activity activity, AdCloseListener adCloseListener, AdLoadedListener adLoadedListener, boolean showWhenLoaded) {
         Log.v("ads", "Call ads");
-        adCloseListener.onAdClosed();
-        return;
-//        if (adControl.remove_ads()) {
-//            if (showWhenLoaded)
-//                adCloseListener.onAdClosed();
-//            return;
-//        }
-//        loadNetworkHelp();
-//        switch (adControl.adcontrolType()) {
-//            case Admob:
-//                admobHelp.loadInterstitialAd(adCloseListener, adLoadedListener, adControl.admob_full(), showWhenLoaded);
-//                break;
-//            case Facebook:
-//                fbHelp.loadInterstitialAd(adCloseListener, adLoadedListener, adControl.fb_full(), showWhenLoaded);
-//                break;
-//            case Mopub:
-//                mopubHelp.loadInterstitialAd(activity, adCloseListener, adLoadedListener, adControl.mopub_full(), showWhenLoaded);
-//                break;
-//        }
+//        adCloseListener.onAdClosed();
+//        return;
+        if (adControl.remove_ads()) {
+            if (showWhenLoaded)
+                adCloseListener.onAdClosed();
+            return;
+        }
+        loadNetworkHelp();
+        switch (adControl.adcontrolType()) {
+            case Admob:
+                admobHelp.loadInterstitialAd(adCloseListener, adLoadedListener, adControl.admob_full(), showWhenLoaded);
+                break;
+            case Facebook:
+                fbHelp.loadInterstitialAd(adCloseListener, adLoadedListener, adControl.fb_full(), showWhenLoaded);
+                break;
+            case Mopub:
+                mopubHelp.loadInterstitialAd(activity, adCloseListener, adLoadedListener, adControl.mopub_full(), showWhenLoaded);
+                break;
+        }
     }
 
     public void showInterstitialAd(AdCloseListener adCloseListener) {
