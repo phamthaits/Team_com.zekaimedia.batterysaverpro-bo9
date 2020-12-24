@@ -10,8 +10,11 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ads.control.R;
@@ -23,6 +26,7 @@ public class RateApp extends Dialog {
     String mEmail, mTitleEmail;
     int mStyle = 0;
     Activity mActivity;
+    private AdControlHelp adControlHelp;
 
     public RateApp(Context context, String email, String TitleEmail, int style, Activity activity) {
         super(context);
@@ -50,25 +54,46 @@ public class RateApp extends Dialog {
         }
         setContentView(R.layout.dialog_rate_app);
 
-//        AdmobHelp.getInstance().loadNativeRate(mActivity,this.getWindow());
-        TextView btnRate = findViewById(R.id.btn_good);
-        TextView btn_not_good = findViewById(R.id.btn_not_good);
-        TextView btn_late = findViewById(R.id.btn_late);
+        adControlHelp = AdControlHelp.getInstance(mContext);
+        adControlHelp.loadNative(mActivity, findViewById(R.id.native_ads_control_holder),
+                R.layout.item_admob_native_rate_app, R.layout.item_fb_native_rate_app,
+                R.layout.item_mopub_native_rate_app,
+                false, true);
 
-        btnRate.setOnClickListener(new View.OnClickListener() {
+//        AdmobHelp.getInstance().loadNativeRate(mActivity,this.getWindow());
+        RatingBar btnRate = findViewById(R.id.rating);
+        /*TextView btn_not_good = findViewById(R.id.btn_not_good);*/
+        TextView btn_late = findViewById(R.id.btn_late);
+        btnRate.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View view) {
-                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putBoolean("Show_rate", true);
-                editor.commit();
-                UtilsApp.RateApp(mContext);
-                UtilsApp.ShowToastLong(mContext, "Thanks for rate and review ^^ ");
-                dismiss();
-                ((Activity) (mContext)).finish();
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putBoolean("Show_rate", true);
+                    editor.commit();
+                    UtilsApp.RateApp(mContext);
+                    UtilsApp.ShowToastLong(mContext, "Thanks for rate and review ^^ ");
+                    dismiss();
+                    ((Activity) (mContext)).finish();
+                }
+                return true;
             }
         });
-        btn_not_good.setOnClickListener(new View.OnClickListener() {
+//        btnRate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+//                SharedPreferences.Editor editor = preferences.edit();
+//                editor.putBoolean("Show_rate", true);
+//                editor.commit();
+//                UtilsApp.RateApp(mContext);
+//                UtilsApp.ShowToastLong(mContext, "Thanks for rate and review ^^ ");
+//                dismiss();
+//                ((Activity) (mContext)).finish();
+//            }
+//        });
+        /*btn_not_good.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
@@ -78,7 +103,7 @@ public class RateApp extends Dialog {
                 showFeedBackDialog();
                 dismiss();
             }
-        });
+        });*/
         btn_late.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

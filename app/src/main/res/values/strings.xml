@@ -189,7 +189,7 @@
     <string name="pc_scanning">Scanning</string>
     <string name="cpugpuram" translatable="false">CPU,GPU,RAM</string>
     <string name="bd_power_issue">Power issue</string>
-    <string name="app_name">Super Fast Doctor</string>
+    <string name="app_name">Super Battery Doctor</string>
     <string name="power_full">Power is full</string>
     <string name="auto_disable">Disable</string>
     <string name="on_status">ON</string>

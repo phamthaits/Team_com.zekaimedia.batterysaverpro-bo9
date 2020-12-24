@@ -2,22 +2,30 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/native_outer_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <LinearLayout
             android:id="@+id/linear_top"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/native_privacy_information_icon_image"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="right"
+                android:contentDescription="Privacy Information Icon image" />
+
+            <ImageView
                 android:id="@+id/native_main_image"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_150sdp"
+                android:layout_height="@dimen/_160sdp"
                 android:layout_gravity="center_horizontal"
                 android:background="@null"
                 android:scaleType="centerCrop" />
@@ -25,91 +33,97 @@
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="@dimen/_20sdp"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingRight="@dimen/_20sdp"
-                android:paddingBottom="@dimen/_5sdp">
+                android:padding="@dimen/_5sdp">
 
-                <ImageView
-                    android:id="@+id/native_icon_image"
-                    android:layout_width="38dip"
-                    android:layout_height="38dip"
+                <RelativeLayout
+                    android:id="@+id/image_native_mopub"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="fill_parent"
                     android:layout_alignTop="@+id/text_mopub"
                     android:layout_alignBottom="@+id/text_mopub"
-                    android:background="@null"
-                    android:contentDescription="@null" />
+                    android:background="@drawable/ic_test_ad">
 
-                <LinearLayout
+                    <ImageView
+                        android:id="@+id/native_icon_image"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:background="@null"
+                        android:contentDescription="@null" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
                     android:id="@+id/text_mopub"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="43dip"
-                    android:layout_toStartOf="@+id/native_privacy_information_icon_image"
-                    android:orientation="vertical">
+                    android:layout_toRightOf="@+id/image_native_mopub"
+                    android:paddingLeft="@dimen/_4sdp">
 
-                    <TextView
-                        android:id="@+id/native_title"
+                    <RelativeLayout
+                        android:id="@+id/right_native"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/barlowcondensed_medium"
-                        android:textColor="@color/headline_color"
-                        android:textSize="18sp" />
+                        android:layout_toStartOf="@+id/button_native_mopub">
 
-                    <TextView
-                        android:id="@+id/native_text"
-                        android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/native_title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/barlowcondensed_medium"
+                                android:maxLines="1"
+                                android:textColor="@color/headline_color"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/native_text"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/linear_top"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/barlowcondensed_regular"
+                                android:maxLines="1"
+                                android:textColor="@color/body_color"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/native_sponsored_text_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:fontFamily="@font/barlowcondensed_regular"
+                                android:maxLines="1"
+                                android:textColor="@color/body_color"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/button_native_mopub"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/linear_top"
-                        android:fontFamily="@font/barlowcondensed_regular"
-                        android:textColor="@color/body_color"
-                        android:textSize="12sp" />
-                </LinearLayout>
+                        android:layout_alignTop="@+id/right_native"
+                        android:layout_alignBottom="@+id/right_native"
+                        android:layout_alignParentRight="true">
 
-                <ImageView
-                    android:id="@+id/native_privacy_information_icon_image"
-                    android:layout_width="38dip"
-                    android:layout_height="38dip"
-                    android:layout_alignTop="@+id/text_mopub"
-                    android:layout_alignBottom="@+id/text_mopub"
-                    android:layout_alignParentRight="true"
-                    android:contentDescription="Privacy Information Icon image"
-                    android:gravity="center_vertical" />
+                        <Button
+                            android:id="@+id/native_cta"
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:background="@drawable/ads_bg_lib"
+                            android:fontFamily="@font/barlowcondensed_medium"
+                            android:gravity="center"
+                            android:textColor="@color/color_white"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+                    </RelativeLayout>
+                </RelativeLayout>
             </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/native_sponsored_text_view"
-                    android:layout_toStartOf="@+id/native_cta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dip"
-                    android:layout_marginLeft="30dip"
-                    android:layout_marginBottom="10dip"
-                    android:textColor="@color/body_color"
-                    android:fontFamily="@font/barlowcondensed_regular"
-                    android:maxLines="3"
-                    android:textSize="12sp" />
-                <Button
-                    android:id="@+id/native_cta"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="120dip"
-                    android:layout_height="40dip"
-                    android:layout_marginTop="10dip"
-                    android:layout_marginLeft="30dip"
-                    android:layout_marginRight="30dip"
-                    android:layout_marginBottom="10dip"
-                    android:background="@drawable/ads_bg_lib"
-                    android:gravity="center"
-                    android:textColor="@color/color_white"
-                    android:textSize="22sp"
-                    android:fontFamily="@font/barlowcondensed_medium"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
         </LinearLayout>
     </LinearLayout>
 

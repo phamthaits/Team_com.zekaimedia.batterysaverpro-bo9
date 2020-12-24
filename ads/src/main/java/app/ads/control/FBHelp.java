@@ -397,7 +397,7 @@ public class FBHelp {
         clickableViews.add(nativeAdCallToAction);
 
         // Register the Title and CTA button to listen for clicks.
-        if (nativeAdMedia == null)
+        if ((nativeAdMedia == null) || (nativeAdBody == null))
             nativeAd.registerViewForInteraction(
                     adView,
                     nativeAdIcon,

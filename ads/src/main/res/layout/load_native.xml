@@ -2,11 +2,11 @@
 <com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/shimmer_container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@drawable/bg_card_ads"
-    android:visibility="gone"
     app:shimmer_auto_start="true"
+    android:visibility="gone"
     app:shimmer_base_color="#ccc">
 
     <RelativeLayout
@@ -116,7 +116,7 @@
 
             <ImageView
                 android:layout_width="fill_parent"
-                android:layout_height="@dimen/_150sdp"
+                android:layout_height="@dimen/_100sdp"
                 android:layout_weight="1"
                 android:background="@color/light_transparent"
                 android:clickable="false"
