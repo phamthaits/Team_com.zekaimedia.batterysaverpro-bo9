@@ -9,15 +9,9 @@ import android.widget.LinearLayout;
 import com.ads.control.R;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.startapp.sdk.adsbase.StartAppAd;
-import com.startapp.sdk.adsbase.StartAppSDK;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.ResourceBundle;
 
 public class AdControlHelp {
     private static Context context;
@@ -30,10 +24,6 @@ public class AdControlHelp {
     public static AdControlHelp getInstance(Context value) {
         context = value;
         adControl = AdControl.getInstance(value);
-        StartAppAd.disableSplash();
-        StartAppAd.disableAutoInterstitial();
-        StartAppSDK.enableReturnAds(false);
-        StartAppSDK.setUserConsent(context, "pas", System.currentTimeMillis(), true);
         if (instance == null) {
             instance = new AdControlHelp();
         }
@@ -63,7 +53,7 @@ public class AdControlHelp {
         return reversed;
     }
 
-    public void getAdControlFromFireBase(AdmobHelp.FireBaseListener fireBaseListener) {
+    public void getAdControlFromFireBase(FireBaseListener fireBaseListener) {
         Log.v("ads", "Load Firebase");
         AdControl adControl = AdControl.getInstance(context);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -244,5 +234,8 @@ public class AdControlHelp {
                 mopubHelp = MopubHelp.getInstance(context);
                 break;
         }
+    }
+    public interface FireBaseListener {
+        void addOnCompleteListener();
     }
 }
