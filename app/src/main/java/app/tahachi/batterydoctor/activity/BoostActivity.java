@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import app.ads.control.AdControl;
 import app.ads.control.AdControlHelp;
 import app.ads.control.AdControlHelp.AdCloseListener;
 import app.tahachi.batterydoctor.Utilsb.SharePreferenceUtils;
@@ -46,6 +47,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
     private long useRam2;
     private Context context;
     private AdControlHelp adControlHelp;
+    private AdControl adControl;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -56,8 +58,10 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         intView();
         context = this;
         adControlHelp = AdControlHelp.getInstance(context);
+        adControl = AdControl.getInstance(context);
         NotificationDevice.cancle(context, NotificationDevice.ID_NOTIFICATTION_BOOST);
         adControlHelp.loadNative(this,findViewById(R.id.native_ads_control_holder),
+                adControl.admob_native(),
                 R.layout.item_admob_native_ad, R.layout.item_fb_native_ad,
                 R.layout.item_mopub_native_ad,true,false);
         adControlHelp.loadInterstitialAd(this,adCloseListener, null, false);

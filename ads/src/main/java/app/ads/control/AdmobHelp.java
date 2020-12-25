@@ -176,7 +176,6 @@ public class AdmobHelp {
 
     public void loadNative(final Activity mActivity, final LinearLayout rootView, String ads,
                            int admob_layout_resource, boolean isAnimButton, boolean is_native_banner) {
-
         ShimmerFrameLayout shimmerFrameLayout = (ShimmerFrameLayout) mActivity.getLayoutInflater().inflate(R.layout.load_native, null);
         if (is_native_banner) {
             shimmerFrameLayout = (ShimmerFrameLayout) mActivity.getLayoutInflater().inflate(R.layout.load_banner, null);

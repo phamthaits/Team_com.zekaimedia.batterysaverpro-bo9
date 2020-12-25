@@ -27,6 +27,7 @@ public class RateApp extends Dialog {
     int mStyle = 0;
     Activity mActivity;
     private AdControlHelp adControlHelp;
+    private static AdControl adControl;
 
     public RateApp(Context context, String email, String TitleEmail, int style, Activity activity) {
         super(context);
@@ -55,10 +56,16 @@ public class RateApp extends Dialog {
         setContentView(R.layout.dialog_rate_app);
 
         adControlHelp = AdControlHelp.getInstance(mContext);
-        adControlHelp.loadNative(mActivity, findViewById(R.id.native_ads_control_holder),
-                R.layout.item_admob_native_rate_app, R.layout.item_fb_native_rate_app,
+        adControl = AdControl.getInstance(mContext);
+
+        adControlHelp.loadNative(mActivity,
+                findViewById(R.id.native_ads_control_holder),
+                adControl.admob_native_rate_app(),
+                R.layout.item_admob_native_rate_app,
+                R.layout.item_fb_native_rate_app,
                 R.layout.item_mopub_native_rate_app,
-                false, true);
+                false,
+                true);
 
 //        AdmobHelp.getInstance().loadNativeRate(mActivity,this.getWindow());
         RatingBar btnRate = findViewById(R.id.rating);

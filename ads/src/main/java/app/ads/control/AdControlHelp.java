@@ -51,8 +51,8 @@ public class AdControlHelp {
     private AdControlHelp() {
 
     }
-    private String getRealAdmob(String reverse)
-    {
+
+    private String getRealAdmob(String reverse) {
         String key_reverse = context.getResources().getString(R.string.admob_app_id);
         String[] fn_reverse = key_reverse.split("~");
 
@@ -92,6 +92,12 @@ public class AdControlHelp {
                                             break;
                                         case "admob_native":
                                             adControl.admob_native(getRealAdmob(object.getString(key)));
+                                            break;
+                                        case "admob_native_setting":
+                                            adControl.admob_native_setting(getRealAdmob(object.getString(key)));
+                                            break;
+                                        case "admob_native_rate_app":
+                                            adControl.admob_native_rate_app(getRealAdmob(object.getString(key)));
                                             break;
                                         case "admob_banner":
                                             adControl.admob_banner(getRealAdmob(object.getString(key)));
@@ -140,15 +146,17 @@ public class AdControlHelp {
     public interface AdLoadedListener {
         void onAdLoaded();
     }
-    public void loadNative(Activity mActivity, LinearLayout view, int admob_layout_resource,
-                      int fb_layout_resource, int mopub_layout_resource, boolean isAnimButton, boolean is_native_banner) {
+
+    public void loadNative(Activity mActivity, LinearLayout view, String ads,
+                           int admob_layout_resource,
+                           int fb_layout_resource, int mopub_layout_resource, boolean isAnimButton, boolean is_native_banner) {
         if (adControl.remove_ads()) {
             return;
         }
         loadNetworkHelp();
         switch (adControl.adcontrolType()) {
             case Admob:
-                admobHelp.loadNative(mActivity, view, adControl.admob_native(),
+                admobHelp.loadNative(mActivity, view, ads,
                         admob_layout_resource, isAnimButton, is_native_banner);
                 break;
             case Facebook:

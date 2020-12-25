@@ -63,6 +63,22 @@ public class AdControl {
         editor.commit();
     }
 
+    public String admob_native_setting() {
+        return this.pre.getString("admob_native_setting", "");
+    }
+
+    public void admob_native_setting(String value) {
+        editor.putString("admob_native_setting", value);
+        editor.commit();
+    }
+    public String admob_native_rate_app() {
+        return this.pre.getString("admob_native_rate_app", "");
+    }
+
+    public void admob_native_rate_app(String value) {
+        editor.putString("admob_native_rate_app", value);
+        editor.commit();
+    }
     public String admob_banner() {
         return this.pre.getString("admob_banner", "");
     }

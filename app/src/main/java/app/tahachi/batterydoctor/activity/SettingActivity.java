@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
+import app.ads.control.AdControl;
 import app.ads.control.AdControlHelp;
 import app.tahachi.batterydoctor.MainActivity;
 import app.tahachi.batterydoctor.R;
@@ -27,6 +29,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     SwitchCompat swKillApp, swLowBattery, swBatteryFull, swCoolDown, swBoost, swTemp, swEnableNotification;
     TextView tvTempertureDes, tvLanguageDes, tvDNDDes;
     Boolean flag = false;
+    private AdControl adControl;
     private AdControlHelp adControlHelp;
     private Context context;
     private Activity activity;
@@ -38,9 +41,15 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         context = this;
         activity = this;
         adControlHelp = AdControlHelp.getInstance(context);
-        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
-                R.layout.item_admob_native_setting, R.layout.item_fb_native_setting, R.layout.item_mopub_native_setting,
-                false,false);
+        adControl = adControl.getInstance(context);
+        adControlHelp.loadNative(this,
+                findViewById(R.id.native_ads_control_holder),
+                adControl.admob_native_setting(),
+                R.layout.item_admob_native_setting,
+                R.layout.item_fb_native_setting,
+                R.layout.item_mopub_native_setting,
+                false,
+                false);
         intView();
         intData();
     }

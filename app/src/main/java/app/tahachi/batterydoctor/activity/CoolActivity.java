@@ -29,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import app.ads.control.AdControl;
 import app.ads.control.AdControlHelp;
 import app.tahachi.batterydoctor.Utilsb.SharePreferenceUtils;
 import app.tahachi.batterydoctor.Utilsb.Utils;
@@ -67,6 +68,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout lrScan;
     private Context context;
     private AdControlHelp adControlHelp;
+    private AdControl adControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +80,9 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         context = this;
 //        checkTask();
         adControlHelp = AdControlHelp.getInstance(context);
+        adControl = AdControl.getInstance(context);
         adControlHelp.loadNative(this,findViewById(R.id.native_ads_control_holder),
+                adControl.admob_native(),
                 R.layout.item_admob_native_ad, R.layout.item_fb_native_ad,
                 R.layout.item_mopub_native_ad,true,false);
         adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);

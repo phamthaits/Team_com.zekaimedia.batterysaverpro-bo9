@@ -31,6 +31,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import app.ads.control.AdControl;
 import app.ads.control.AdControlHelp;
 import app.ads.control.AdControlHelp.AdCloseListener;
 import app.tahachi.batterydoctor.Utilsb.SharePreferenceUtils;
@@ -67,6 +68,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     private LinearLayout lrScan;
     private Context context;
     private AdControlHelp adControlHelp;
+    private AdControl adControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +77,10 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         Utils.setLocate(context);
         setContentView(R.layout.activity_do_optimize);
         adControlHelp = AdControlHelp.getInstance(context);
+        adControl = AdControl.getInstance(context);
         intView();
         adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
+                adControl.admob_native(),
                 R.layout.item_admob_native_ad,R.layout.item_fb_native_ad,
                 R.layout.item_mopub_native_ad, true,false);
         adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);

@@ -27,7 +27,7 @@
                         android:id="@+id/ad_app_icon"
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
-                        android:adjustViewBounds="true"/>
+                        android:adjustViewBounds="true" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -62,21 +62,43 @@
                                 android:textSize="18sp" />
 
                             <LinearLayout
-                                android:layout_width="fill_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
-                                <RatingBar
-                                    android:id="@+id/ad_stars"
-                                    style="?android:ratingBarStyleSmall"
+                                <TextView
+                                    android:id="@+id/ad_advertiser"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:isIndicator="true"
-                                    android:numStars="5"
-                                    android:stepSize="0.5" />
+                                    android:fontFamily="@font/barlowcondensed_medium"
+                                    android:gravity="bottom"
+                                    android:maxLines="1"
+                                    android:textColor="@color/advertiser_color"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
 
+                                <TextView
+                                    android:id="@+id/ad_price"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dip"
+                                    android:layout_marginRight="5dip"
+                                    android:fontFamily="@font/barlowcondensed_medium"
+                                    android:maxLines="1"
+                                    android:textColor="@color/advertiser_color"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/ad_store"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dip"
+                                    android:fontFamily="@font/barlowcondensed_medium"
+                                    android:maxLines="1"
+                                    android:textColor="@color/advertiser_color"
+                                    android:textSize="14sp" />
                             </LinearLayout>
-
                         </LinearLayout>
                     </RelativeLayout>
 
@@ -115,38 +137,14 @@
                             android:layout_height="@dimen/_160sdp"
                             android:layout_gravity="center_horizontal" />
 
-                        <TextView
-                            android:id="@+id/ad_advertiser"
+                        <RatingBar
+                            android:id="@+id/ad_stars"
+                            style="?android:ratingBarStyleSmall"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/barlowcondensed_medium"
-                            android:gravity="bottom"
-                            android:maxLines="1"
-                            android:textColor="@color/advertiser_color"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/ad_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dip"
-                            android:layout_marginRight="5dip"
-                            android:fontFamily="@font/barlowcondensed_medium"
-                            android:maxLines="1"
-                            android:textColor="@color/advertiser_color"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/ad_store"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dip"
-                            android:fontFamily="@font/barlowcondensed_medium"
-                            android:maxLines="1"
-                            android:textColor="@color/advertiser_color"
-                            android:textSize="14sp" />
+                            android:isIndicator="true"
+                            android:numStars="5"
+                            android:stepSize="0.5" />
 
                         <TextView
                             android:id="@+id/ad_body"

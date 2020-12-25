@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import app.ads.control.AdControl;
 import app.ads.control.AdControlHelp;
 import app.tahachi.batterydoctor.MainActivity;
 import app.tahachi.batterydoctor.Utilsb.SharePreferenceConstant;
@@ -44,6 +45,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
     RelativeLayout rlScan;
     FrameLayout parentAds;
     private AdControlHelp adControlHelp;
+    private AdControl adControl;
     private Context context;
 
     @Override
@@ -52,8 +54,10 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         Utils.setLocate(this);
         context = this;
         adControlHelp = AdControlHelp.getInstance(context);
+        adControl = AdControl.getInstance(context);
         setContentView(R.layout.activity_clean_result);
         adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
+                adControl.admob_native(),
                 R.layout.item_admob_native_ad,  R.layout.item_fb_native_ad,
                 R.layout.item_mopub_native_ad,true, false);
         SharePreferenceUtils.getInstance(this).setFlagAds(true);

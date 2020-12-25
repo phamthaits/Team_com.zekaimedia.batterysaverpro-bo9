@@ -41,6 +41,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import app.ads.control.AdControl;
 import app.ads.control.AdControlHelp;
 import app.tahachi.batterydoctor.BatteryMode.BatteryInfo;
 import app.tahachi.batterydoctor.Utilsb.BatteryPref;
@@ -117,6 +118,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private ShimmerTextView tvFast, tvFull, tvTrickle;
     private View v1, v2, v3, v4, v5;
     private AdControlHelp adControlHelp;
+    private AdControl adControl;
     private Context context;
 
     @Override
@@ -124,6 +126,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         context = getContext();
         adControlHelp = AdControlHelp.getInstance(context);
+        adControl = AdControl.getInstance(context);
     }
 
     public void intEvent() {
@@ -417,12 +420,14 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intData(view);
         intEvent();
         adControlHelp.loadNative(getActivity(), view.findViewById(R.id.native_ads_control_holder)
-                , R.layout.item_admob_native_setting, R.layout.item_fb_native_setting,
-                R.layout.item_mopub_native_setting,false,false);
-        adControlHelp.loadNative(getActivity(), view.findViewById(R.id.banner_native_ads_control_holder)
+                , adControl.admob_native(), R.layout.item_admob_native_setting,
+                R.layout.item_fb_native_setting,
+                R.layout.item_mopub_native_setting, false, false);
+        adControlHelp.loadNative(getActivity(),
+                view.findViewById(R.id.banner_native_ads_control_holder), adControl.admob_native()
                 , R.layout.item_admob_banner_native, R.layout.item_fb_banner_native,
                 R.layout.item_mopub_banner_native,
-                false,true);
+                false, true);
         /*adControlHelp.loadBanner(getActivity(), view.findViewById(R.id.banner));*/
         return view;
     }
