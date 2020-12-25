@@ -383,11 +383,6 @@ public class AdmobHelp {
         });
     }
 
-    public interface FireBaseListener {
-        void addOnCompleteListener();
-    }
-
-
 //    public void destroyNative() {
 //        if (nativeAd != null) {
 //            nativeAd.destroy();

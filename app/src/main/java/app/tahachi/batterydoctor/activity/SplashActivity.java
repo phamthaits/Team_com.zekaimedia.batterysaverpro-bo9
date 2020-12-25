@@ -10,7 +10,7 @@ import android.os.Handler;
 import android.util.Log;
 
 import app.ads.control.AdControlHelp;
-import app.ads.control.AdmobHelp.FireBaseListener;
+import app.ads.control.AdControlHelp.FireBaseListener;
 import app.ads.control.AdControlHelp.AdCloseListener;
 import app.ads.control.AdControlHelp.AdLoadedListener;
 import app.ads.control.AdControl;
