@@ -105,7 +105,14 @@ public class AdControl {
         editor.putString("fb_native", value);
         editor.commit();
     }
+    public String fb_native_rate_app() {
+        return this.pre.getString("fb_native_rate_app", "");
+    }
 
+    public void fb_native_rate_app(String value) {
+        editor.putString("fb_native_rate_app", value);
+        editor.commit();
+    }
     public String fb_banner() {
         return this.pre.getString("fb_banner", "");
     }

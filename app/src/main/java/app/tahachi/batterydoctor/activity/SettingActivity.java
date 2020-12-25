@@ -44,12 +44,11 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         adControl = adControl.getInstance(context);
         adControlHelp.loadNative(this,
                 findViewById(R.id.native_ads_control_holder),
-                adControl.admob_native_setting(),
                 R.layout.item_admob_native_setting,
                 R.layout.item_fb_native_setting,
                 R.layout.item_mopub_native_setting,
                 false,
-                false);
+                false,adControl.admob_native_setting());
         intView();
         intData();
     }

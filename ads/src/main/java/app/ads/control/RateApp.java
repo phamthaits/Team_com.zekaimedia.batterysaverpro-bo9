@@ -60,7 +60,6 @@ public class RateApp extends Dialog {
 
         adControlHelp.loadNative(mActivity,
                 findViewById(R.id.native_ads_control_holder),
-                adControl.admob_native_rate_app(),
                 R.layout.item_admob_native_rate_app,
                 R.layout.item_fb_native_rate_app,
                 R.layout.item_mopub_native_rate_app,

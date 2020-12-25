@@ -56,10 +56,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         adControlHelp = AdControlHelp.getInstance(context);
         adControl = AdControl.getInstance(context);
         setContentView(R.layout.activity_clean_result);
-        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
-                adControl.admob_native(),
-                R.layout.item_admob_native_ad,  R.layout.item_fb_native_ad,
-                R.layout.item_mopub_native_ad,true, false);
+        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder));
         SharePreferenceUtils.getInstance(this).setFlagAds(true);
 
         rlScan = findViewById(R.id.rlScanning);
@@ -158,7 +155,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
 
     private void animate() {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate_result);
-        ImageView img_rotate_result=findViewById(R.id.img_rotate_result);
+        ImageView img_rotate_result = findViewById(R.id.img_rotate_result);
         img_rotate_result.startAnimation(animation);
         AdControlHelp.AdCloseListener adCloseListener = new AdControlHelp.AdCloseListener() {
             @Override
@@ -166,7 +163,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
                 loadResult(mHoloCircularProgressBarCleanDone, 1.0f);
             }
         };
-        adControlHelp.loadInterstitialAd(this, adCloseListener, null, false );
+        adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {

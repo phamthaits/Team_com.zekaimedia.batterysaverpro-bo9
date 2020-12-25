@@ -101,6 +101,9 @@ public class AdControlHelp {
                                         case "fb_native":
                                             adControl.fb_native(object.getString(key));
                                             break;
+                                        case "fb_native_rate_app":
+                                            adControl.fb_native_rate_app(getRealAdmob(object.getString(key)));
+                                            break;
                                         case "mopub_full":
                                             adControl.mopub_full(object.getString(key));
                                             break;
@@ -137,16 +140,29 @@ public class AdControlHelp {
         void onAdLoaded();
     }
 
-    public void loadNative(Activity mActivity, LinearLayout view, String ads,
-                           int admob_layout_resource,
-                           int fb_layout_resource, int mopub_layout_resource, boolean isAnimButton, boolean is_native_banner) {
+    public void loadNative(Activity mActivity, LinearLayout view) {
+        loadNative(mActivity, view, R.layout.item_admob_native_ad, R.layout.item_fb_native_ad,
+                R.layout.item_mopub_native_ad, true, false, adControl.admob_native());
+    }
+
+    public void loadNative(Activity mActivity, LinearLayout view, int admob_layout_resource,
+                           int fb_layout_resource,
+                           int mopub_layout_resource, boolean isAnimButton, boolean is_native_banner) {
+        loadNative(mActivity, view, admob_layout_resource, fb_layout_resource, mopub_layout_resource,
+                isAnimButton, is_native_banner, adControl.admob_native());
+    }
+
+    public void loadNative(Activity mActivity, LinearLayout view, int admob_layout_resource,
+                           int fb_layout_resource, int mopub_layout_resource,
+                           boolean isAnimButton, boolean is_native_banner,
+                           String admob_native_ads) {
         if (adControl.remove_ads()) {
             return;
         }
         loadNetworkHelp();
         switch (adControl.adcontrolType()) {
             case Admob:
-                admobHelp.loadNative(mActivity, view, ads,
+                admobHelp.loadNative(mActivity, view, admob_native_ads,
                         admob_layout_resource, isAnimButton, is_native_banner);
                 break;
             case Facebook:
@@ -235,6 +251,7 @@ public class AdControlHelp {
                 break;
         }
     }
+
     public interface FireBaseListener {
         void addOnCompleteListener();
     }
