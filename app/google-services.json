@@ -1,34 +1,33 @@
 {
   "project_info": {
-    "project_number": "658146804620",
-    "firebase_url": "https://super-battery-doctor.firebaseio.com",
-    "project_id": "super-battery-doctor",
-    "storage_bucket": "super-battery-doctor.appspot.com"
+    "project_number": "1097432439570",
+    "project_id": "super-battery-doctor-bo-5",
+    "storage_bucket": "super-battery-doctor-bo-5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:658146804620:android:284d372993c2c03ce3cca9",
+        "mobilesdk_app_id": "1:1097432439570:android:25b0b58b947cb236acf1cb",
         "android_client_info": {
           "package_name": "app.tahachi.batterydoctor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "658146804620-l99b9laj2qesqml55cfllv4b7vte4ltf.apps.googleusercontent.com",
+          "client_id": "1097432439570-sibqf99t4mofud8gn0kgjltpgb547gup.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCeJzdcnnfZwQVVZ1AKGp839AGl7MLqIME"
+          "current_key": "AIzaSyBy8AjjkDWh4_rBxPrlvvos0aOALQJ3vRs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "658146804620-l99b9laj2qesqml55cfllv4b7vte4ltf.apps.googleusercontent.com",
+              "client_id": "1097432439570-sibqf99t4mofud8gn0kgjltpgb547gup.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

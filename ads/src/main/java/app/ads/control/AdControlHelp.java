@@ -13,6 +13,8 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
+
 public class AdControlHelp {
     private static Context context;
     private static AdControlHelp instance;
@@ -31,11 +33,11 @@ public class AdControlHelp {
     }
 
     public boolean is_reload_firebase() {
-        return true;
-//        if (adControl.remove_ads())
-//            return false;
+//        return true;
+        if (adControl.remove_ads())
+            return false;
 //        if (adControl.isTest) return true;
-//        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
+        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
     }
 
     private AdControlHelp() {
@@ -100,9 +102,6 @@ public class AdControlHelp {
                                             break;
                                         case "fb_native":
                                             adControl.fb_native(object.getString(key));
-                                            break;
-                                        case "fb_native_rate_app":
-                                            adControl.fb_native_rate_app(getRealAdmob(object.getString(key)));
                                             break;
                                         case "mopub_full":
                                             adControl.mopub_full(object.getString(key));

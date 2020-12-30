@@ -68,7 +68,6 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout lrScan;
     private Context context;
     private AdControlHelp adControlHelp;
-    private AdControl adControl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,14 +77,12 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         new CoolActivity.LoadRunningTask().execute();
         intView();
         context = this;
-//        checkTask();
+        checkTask();
         adControlHelp = AdControlHelp.getInstance(context);
-        adControl = AdControl.getInstance(context);
         adControlHelp.loadNative(this,findViewById(R.id.native_ads_control_holder),
                 R.layout.item_admob_native_ad, R.layout.item_fb_native_ad,
                 R.layout.item_mopub_native_ad,true,false);
         adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
-//        SharePreferenceUtils.getInstance(this).setFlagAds(true);
     }
 
     private AdControlHelp.AdCloseListener adCloseListener = new AdControlHelp.AdCloseListener() {
@@ -95,24 +92,11 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         }
     };
 
-//    public void checkTask() {
-//        if (!Utils.checkShouldDoing(this, 6)) {
-//            findViewById(R.id.cvBoost).setVisibility(View.GONE);
-//        }
-//        if (!Utils.checkShouldDoing(this, 7)) {
-//            findViewById(R.id.cvCool).setVisibility(View.GONE);
-//        }
-//        if (!Utils.checkShouldDoing(this, 3)) {
-//            findViewById(R.id.cvClean).setVisibility(View.GONE);
-//        }
-//        if (!Utils.checkShouldDoing(this, 8)) {
-//            findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-//
-//        } else {
-//            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
-//                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
-//        }
-//    }
+    public void checkTask() {
+        if (!Utils.checkShouldDoing(this, 3)) {
+            findViewById(R.id.cv_trash_cleaner).setVisibility(View.GONE);
+        }
+    }
 
     @Override
     public void onClick(View view) {

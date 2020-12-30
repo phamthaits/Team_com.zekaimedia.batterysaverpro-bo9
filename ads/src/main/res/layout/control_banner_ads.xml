@@ -5,12 +5,18 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <com.facebook.ads.NativeAdLayout
+    <FrameLayout
         android:id="@+id/fb_adplaceholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
         android:visibility="gone" />
+    <!--    <FrameLayout-->
+    <!--        android:id="@+id/fb_adplaceholder"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:visibility="gone" />-->
 
     <FrameLayout
         android:id="@+id/admob_adplaceholder"

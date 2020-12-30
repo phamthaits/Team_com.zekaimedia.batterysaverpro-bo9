@@ -116,17 +116,16 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private ImageView imgQuick, imgFull, imgTrickle;
     private Shimmer shFast, shFull, shTrickle, shOptimize;
     private ShimmerTextView tvFast, tvFull, tvTrickle;
-    private View v1, v2, v3, v4, v5;
+    private View v1, v2, v3, v4;
     private AdControlHelp adControlHelp;
-    private AdControl adControl;
     private Context context;
+    private View cv_trash_cleaner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getContext();
         adControlHelp = AdControlHelp.getInstance(context);
-        adControl = AdControl.getInstance(context);
     }
 
     public void intEvent() {
@@ -292,6 +291,12 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         return Settings.System.getInt(context.getContentResolver(), Settings.System.ACCELEROMETER_ROTATION, 0) != 0;
     }
 
+    public void checkTask() {
+        if (!Utils.checkShouldDoing(getContext(), 3)) {
+            cv_trash_cleaner.setVisibility(View.GONE);
+        }
+    }
+
     private int getScreenTimeout() {
         try {
             int time = 15000;
@@ -301,8 +306,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 e.printStackTrace();
             }
             switch (time) {
-                case 15000:
-                    return 0;
                 case 30000:
                     return 1;
                 case 60000:
@@ -419,6 +422,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intView(view);
         intData(view);
         intEvent();
+        checkTask();
         adControlHelp.loadNative(getActivity(), view.findViewById(R.id.native_ads_control_holder), R.layout.item_admob_native_setting,
                 R.layout.item_fb_native_setting,
                 R.layout.item_mopub_native_setting, false, false);
@@ -495,6 +499,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         lrHistory = view.findViewById(R.id.lrHistory);
         lrManager = view.findViewById(R.id.lrManager);
         lrRemove = view.findViewById(R.id.lrRemove);
+        cv_trash_cleaner = view.findViewById(R.id.cv_trash_cleaner);
     }
 
     WaveDrawable mWaveDrawable;
@@ -806,6 +811,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
 
             }
         });
+        checkTask();
         if (Utils.checkShouldDoing(getActivity(), 5)) {
             vPowerIssue.setVisibility(View.VISIBLE);
             tvPowerIssue.setTextColor(ContextCompat.getColor(getActivity(), R.color.orange));

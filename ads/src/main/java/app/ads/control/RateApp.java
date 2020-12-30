@@ -64,7 +64,8 @@ public class RateApp extends Dialog {
                 R.layout.item_fb_native_rate_app,
                 R.layout.item_mopub_native_rate_app,
                 false,
-                true);
+                true
+                , adControl.admob_native_rate_app());
 
 //        AdmobHelp.getInstance().loadNativeRate(mActivity,this.getWindow());
         RatingBar btnRate = findViewById(R.id.rating);

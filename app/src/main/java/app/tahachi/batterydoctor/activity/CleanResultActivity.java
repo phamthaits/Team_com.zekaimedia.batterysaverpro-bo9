@@ -1,22 +1,12 @@
 package app.tahachi.batterydoctor.activity;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
-import android.media.Image;
 import android.os.Bundle;
 
-import androidx.appcompat.widget.SwitchCompat;
-import androidx.core.app.NotificationCompat;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
@@ -24,13 +14,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import app.ads.control.AdControl;
 import app.ads.control.AdControlHelp;
-import app.tahachi.batterydoctor.MainActivity;
-import app.tahachi.batterydoctor.Utilsb.SharePreferenceConstant;
 import app.tahachi.batterydoctor.Utilsb.SharePreferenceUtils;
 import app.tahachi.batterydoctor.Utilsb.Utils;
-import app.tahachi.batterydoctor.notification.NotificationBattery;
 import app.tahachi.batterydoctor.view.HoloCircularProgressBar;
 import app.tahachi.batterydoctor.R;
 
@@ -40,12 +26,10 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
     private Animation ivDoneAnim;
     private TextView tvResult, tvCleaned;
     private HoloCircularProgressBar mHoloCircularProgressBarCleanDone;
-    private ObjectAnimator mProgressBarAnimatorCleanDone;
     private ImageView ivTick;
     RelativeLayout rlScan;
     FrameLayout parentAds;
     private AdControlHelp adControlHelp;
-    private AdControl adControl;
     private Context context;
 
     @Override
@@ -54,7 +38,6 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         Utils.setLocate(this);
         context = this;
         adControlHelp = AdControlHelp.getInstance(context);
-        adControl = AdControl.getInstance(context);
         setContentView(R.layout.activity_clean_result);
         adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder));
         SharePreferenceUtils.getInstance(this).setFlagAds(true);
@@ -66,16 +49,13 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         AnimationUtils.loadAnimation(this, R.anim.delay_anim);
         this.ivRocket = findViewById(R.id.clean_done_iv_rocket);
         this.mHoloCircularProgressBarCleanDone = findViewById(R.id.ivDoneHoloCirular);
-//        animate(this.mHoloCircularProgressBarCleanDone, null, 1.0f, 3000);
         animate();
-//        this.mHoloCircularProgressBarCleanDone.setMarkerProgress(1.0f);
         this.ivTick = findViewById(R.id.clean_done_iv_tick);
         this.ivDoneAnim = AnimationUtils.loadAnimation(this, R.anim.ic_done_anim);
         this.ivDoneAnim.setAnimationListener(new CleanResultActivity.C06741());
         tvCleaned.setText(String.format(getString(R.string.cleaned),
                 Utils.formatSize(SharePreferenceUtils.getInstance(this).getTotalJunk())));
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
-        /*   checkTask();*/
     }
 
     @Override
@@ -114,17 +94,6 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-   /* public void checkTask() {
-        if (!Utils.checkShouldDoing(this, 6)) {
-            findViewById(R.id.cvBoost).setVisibility(View.GONE);
-        }
-        if (!Utils.checkShouldDoing(this, 7)) {
-            findViewById(R.id.cvCool).setVisibility(View.GONE);
-        }
-        if (!Utils.checkShouldDoing(this, 3)) {
-            findViewById(R.id.cvClean).setVisibility(View.GONE);
-        }
-    }*/
 
     class C06741 implements Animation.AnimationListener {
 

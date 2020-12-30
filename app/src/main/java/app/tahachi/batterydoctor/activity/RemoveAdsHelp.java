@@ -11,9 +11,9 @@ import com.anjlab.android.iab.v3.TransactionDetails;
 
 public class RemoveAdsHelp {
 
-    private static String Code_InApp = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiOuydQZF//vYUY4kB4m1+PGANRR6dN6cqjEjXDh+qiCGU+GbavDDjOPeZzxX/8Uld4wGsqPdA0MwyehCofZeWuQz81pk+2k8TaDVdfvvJ100HcqtkTXk24uIM49gBWcj3KslCNT0S7egbbnnlQ+BSV2OnqdlDDynm5e/Mr+reb9WaHWr44UiIVQ59T8mf4W5SHp4mBJDjY2cH+IbW0NMlq4bTrJc69XlFLqAzdTERaiuGY43brpGSMCbpS8EzGtypTgbjgkm3ogptGtqlrM9VnSC3nVhmenoY4eiNnccxfxI/TDgu5CriOc/VkEFswQwD8AlllAbRgBQT/k8GPcpfQIDAQAB";
-    private static String Code_ProductId = "com.amt.batterysaver.removeads";
-    private static String merchantID = "5794897387132212509";
+    private static String Code_InApp = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzaB9U9HDRVZHgaUVqL41WJRS6nhYdMYcM/HS1pMrDDFlNcGF4EhIhZpNQiRfGhScYE/aLRTHNTmhXhLxg+XGoVvlTk60c0F5Lc9AZ945yJOnF5qG0iefEgFxj2LWB/b7OMq1hxviyx5drOjs8Cf37UrUinMM7cz20tk3eAkX8DFauUvk/Ar4tOzLf+OqbhANDtH/pSKQvvx5fqiwr/H52fHTfJwpOPmhK8fd9kd0Vm3kQBYuib9L9BPidGbSDkP3bYUAoTYtXNJ8ONmp8wmppceGSsTPJOQUw/oeq0r2gRF/F5YFLw8ptjYyOaEI0qitq3APQYDo/Je5W9bMYc4StQIDAQAB";
+    private static String Code_ProductId = "app.tahachi.batterydoctor.removeads";
+    private static String merchantID = "9101010923570468146";
     public static BillingProcessor bp;
     private static AdControl adControl;
     private static RemoveAdsHelp instance;

@@ -10,7 +10,7 @@ public class AdControl {
     private static AdControl instance;
     private SharedPreferences.Editor editor;
     private SharedPreferences pre;
-    public boolean isTest = false;
+//    public boolean isTest = false;
 
     public AdControl(Context context) {
         this.pre = context.getSharedPreferences("app_data", Context.MODE_MULTI_PROCESS);
@@ -105,14 +105,7 @@ public class AdControl {
         editor.putString("fb_native", value);
         editor.commit();
     }
-    public String fb_native_rate_app() {
-        return this.pre.getString("fb_native_rate_app", "");
-    }
 
-    public void fb_native_rate_app(String value) {
-        editor.putString("fb_native_rate_app", value);
-        editor.commit();
-    }
     public String fb_banner() {
         return this.pre.getString("fb_banner", "");
     }
@@ -150,7 +143,7 @@ public class AdControl {
     }
 
     public Boolean remove_ads() {
-        if (isTest) return false;
+//        if (isTest) return false;
 //        return true;
         return this.pre.getBoolean("remove_ads", false);
     }

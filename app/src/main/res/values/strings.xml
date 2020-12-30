@@ -209,7 +209,6 @@
     <string name="stringGreen" translatable="false">#7777DC</string>
     <string name="stringGray" translatable="false">#7777DC</string>
 
-    <string name="link_policy" translatable="false">https://sites.google.com/view/amtteam/</string>
     <string name="calculating">calculating...</string>
     <string name="battery_level">Battery Level</string>
 
