@@ -118,6 +118,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private ShimmerTextView tvFast, tvFull, tvTrickle;
     private View v1, v2, v3, v4;
     private AdControlHelp adControlHelp;
+    private AdControl adControl;
     private Context context;
     private View cv_trash_cleaner;
 
@@ -126,6 +127,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         context = getContext();
         adControlHelp = AdControlHelp.getInstance(context);
+        adControl = AdControl.getInstance(context);
     }
 
     public void intEvent() {
@@ -423,13 +425,15 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intData(view);
         intEvent();
         checkTask();
+        View bt_RemoveAds = view.findViewById(R.id.remove_ads);
+        bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
         adControlHelp.loadNative(getActivity(), view.findViewById(R.id.native_ads_control_holder), R.layout.item_admob_native_setting,
                 R.layout.item_fb_native_setting,
                 R.layout.item_mopub_native_setting, false, false);
         adControlHelp.loadNative(getActivity(),
                 view.findViewById(R.id.banner_native_ads_control_holder), R.layout.item_admob_banner_native, R.layout.item_fb_banner_native,
                 R.layout.item_mopub_banner_native,
-                false, true);
+                false, true, adControl.admob_native_banner());
         /*adControlHelp.loadBanner(getActivity(), view.findViewById(R.id.banner));*/
         return view;
     }

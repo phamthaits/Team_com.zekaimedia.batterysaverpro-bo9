@@ -279,6 +279,7 @@
 
                 <!--Trash Cleaner-->
                 <include
+                    android:id="@+id/cv_trash_cleaner"
                     layout="@layout/trash_cleaner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -351,6 +352,7 @@
 
                 <!--Remove Ads-->
                 <include
+                    android:id="@+id/remove_ads"
                     layout="@layout/remove_ads"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

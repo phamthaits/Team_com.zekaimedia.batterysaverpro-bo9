@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import app.ads.control.AdControl;
 import app.ads.control.AdControlHelp;
 import app.tahachi.batterydoctor.Utilsb.SharePreferenceUtils;
 import app.tahachi.batterydoctor.Utilsb.Utils;
@@ -39,6 +40,10 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         context = this;
         adControlHelp = AdControlHelp.getInstance(context);
         setContentView(R.layout.activity_clean_result);
+
+        View bt_RemoveAds = findViewById(R.id.remove_ads);
+        bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
+
         adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder));
         SharePreferenceUtils.getInstance(this).setFlagAds(true);
 

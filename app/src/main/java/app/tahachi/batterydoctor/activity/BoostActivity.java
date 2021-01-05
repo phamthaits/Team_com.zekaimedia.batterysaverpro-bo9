@@ -59,6 +59,8 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         context = this;
         adControlHelp = AdControlHelp.getInstance(context);
         NotificationDevice.cancle(context, NotificationDevice.ID_NOTIFICATTION_BOOST);
+        View bt_RemoveAds = findViewById(R.id.remove_ads);
+        bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
         adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
                 R.layout.item_admob_native_ad, R.layout.item_fb_native_ad,
                 R.layout.item_mopub_native_ad, true, false);

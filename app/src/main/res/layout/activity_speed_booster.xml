@@ -192,6 +192,7 @@
 
                 <!--Remove Ads-->
                 <include
+                    android:id="@+id/remove_ads"
                     layout="@layout/remove_ads"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

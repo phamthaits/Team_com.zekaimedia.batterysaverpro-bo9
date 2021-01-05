@@ -33,11 +33,10 @@ public class AdControlHelp {
     }
 
     public boolean is_reload_firebase() {
-//        return true;
-        if (adControl.remove_ads())
-            return false;
-//        if (adControl.isTest) return true;
-        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
+        return true;
+//        if (adControl.remove_ads())
+//            return false;
+//        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
     }
 
     private AdControlHelp() {
@@ -59,7 +58,7 @@ public class AdControlHelp {
         Log.v("ads", "Load Firebase");
         AdControl adControl = AdControl.getInstance(context);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("Ad1")
+        db.collection("AdTest")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -90,6 +89,9 @@ public class AdControlHelp {
                                             break;
                                         case "admob_native_rate_app":
                                             adControl.admob_native_rate_app(getRealAdmob(object.getString(key)));
+                                            break;
+                                        case "admob_native_banner":
+                                            adControl.admob_native_banner(getRealAdmob(object.getString(key)));
                                             break;
                                         case "admob_banner":
                                             adControl.admob_banner(getRealAdmob(object.getString(key)));

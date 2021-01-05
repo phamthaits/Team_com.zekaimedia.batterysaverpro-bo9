@@ -70,15 +70,22 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     private AdControlHelp adControlHelp;
     private AdControl adControl;
 
+    private View cv_trash_cleaner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
+
         Utils.setLocate(context);
         setContentView(R.layout.activity_do_optimize);
         adControlHelp = AdControlHelp.getInstance(context);
         adControl = AdControl.getInstance(context);
         intView();
+
+        View bt_RemoveAds = findViewById(R.id.remove_ads);
+        bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
+
         adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
                 R.layout.item_admob_native_ad,R.layout.item_fb_native_ad,
                 R.layout.item_mopub_native_ad, true,false);
@@ -91,6 +98,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
             loadResult();
         }
     };
+
 
     @Override
     public void onClick(View view) {
@@ -135,6 +143,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     public void intView() {
         lrScan = findViewById(R.id.lrScan);
         parentAds = findViewById(R.id.fmResult);
+        cv_trash_cleaner = findViewById(R.id.cv_trash_cleaner);
         this.chargeBoostContainers[0] = findViewById(R.id.fm_scan_container_1);
         this.chargeBoostContainers[1] = findViewById(R.id.fm_scan_container_2);
         this.chargeBoostContainers[2] = findViewById(R.id.fm_scan_container_3);
@@ -170,6 +179,9 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         this.ivDone.setColorFilter(getResources().getColor(R.color.color_white), Mode.MULTIPLY);
         this.rocketImageOut.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
         this.rocketImage.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
+        if (!Utils.checkShouldDoing(context, 3)) {
+            cv_trash_cleaner.setVisibility(View.GONE);
+        }
     }
 
     class anmRotate implements AnimationListener {
