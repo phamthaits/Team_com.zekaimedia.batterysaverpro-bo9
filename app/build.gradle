@@ -7,8 +7,8 @@ android {
         applicationId 'app.tahachi.batterydoctor'
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
-        versionName '1'
+        versionCode 3
+        versionName '3'
         testInstrumentationRunner "androidx.move_up_button.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }

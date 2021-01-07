@@ -33,10 +33,10 @@ public class AdControlHelp {
     }
 
     public boolean is_reload_firebase() {
-        return true;
-//        if (adControl.remove_ads())
-//            return false;
-//        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
+//        return true;
+        if (adControl.remove_ads())
+            return false;
+        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
     }
 
     private AdControlHelp() {
@@ -58,7 +58,7 @@ public class AdControlHelp {
         Log.v("ads", "Load Firebase");
         AdControl adControl = AdControl.getInstance(context);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("AdTest")
+        db.collection("Ad1")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {

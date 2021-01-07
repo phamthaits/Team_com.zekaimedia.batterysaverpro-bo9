@@ -55,8 +55,8 @@ public class AdControl {
     }
 
     public String admob_native() {
-        return "/6499/example/native";
-//        return this.pre.getString("admob_native", "");
+//        return "/6499/example/native";
+        return this.pre.getString("admob_native", "");
     }
 
     public void admob_native(String value) {
@@ -65,8 +65,8 @@ public class AdControl {
     }
 
     public String admob_native_setting() {
-        return "/6499/example/native";
-//        return this.pre.getString("admob_native_setting", "");
+//        return "/6499/example/native";
+        return this.pre.getString("admob_native_setting", "");
     }
 
     public void admob_native_setting(String value) {
@@ -75,8 +75,8 @@ public class AdControl {
     }
 
     public String admob_native_rate_app() {
-        return "/6499/example/native";
-//        return this.pre.getString("admob_native_rate_app", "");
+//        return "/6499/example/native";
+        return this.pre.getString("admob_native_rate_app", "");
     }
 
     public void admob_native_rate_app(String value) {
@@ -85,8 +85,8 @@ public class AdControl {
     }
 
     public String admob_native_banner() {
-        return "/6499/example/native";
-//        return this.pre.getString("admob_native_banner", "");
+//        return "/6499/example/native";
+        return this.pre.getString("admob_native_banner", "");
     }
 
     public void admob_native_banner(String value) {
@@ -95,8 +95,8 @@ public class AdControl {
     }
 
     public String admob_native_main() {
-        return "/6499/example/native";
-//        return this.pre.getString("admob_native_main", "");
+//        return "/6499/example/native";
+        return this.pre.getString("admob_native_main", "");
     }
 
     public void admob_native_main(String value) {
