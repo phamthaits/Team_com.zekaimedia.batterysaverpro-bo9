@@ -197,7 +197,7 @@ public class AdControl {
     }
 
     public int rate_mopub() {
-        return this.pre.getInt("rate_startapp", 0);
+        return this.pre.getInt("rate_mopub", 0);
     }
 
     public void rate_mopub(int value) {
