@@ -93,6 +93,9 @@ public class AdControlHelp {
                                         case "admob_native_banner":
                                             adControl.admob_native_banner(getRealAdmob(object.getString(key)));
                                             break;
+                                        case "admob_native_main":
+                                            adControl.admob_native_main(getRealAdmob(object.getString(key)));
+                                            break;
                                         case "admob_banner":
                                             adControl.admob_banner(getRealAdmob(object.getString(key)));
                                             break;
