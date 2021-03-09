@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "1097432439570",
-    "project_id": "super-battery-doctor-bo-5",
-    "storage_bucket": "super-battery-doctor-bo-5.appspot.com"
+    "project_number": "549701347462",
+    "project_id": "fast-charging---battery-saver",
+    "storage_bucket": "fast-charging---battery-saver.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1097432439570:android:25b0b58b947cb236acf1cb",
+        "mobilesdk_app_id": "1:549701347462:android:3405e2e00a03ec4c534907",
         "android_client_info": {
-          "package_name": "app.tahachi.batterydoctor"
+          "package_name": "com.newus.battery"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1097432439570-sibqf99t4mofud8gn0kgjltpgb547gup.apps.googleusercontent.com",
+          "client_id": "549701347462-sqiff4oqmvvqc734e7a1nadlt49iu0nj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBy8AjjkDWh4_rBxPrlvvos0aOALQJ3vRs"
+          "current_key": "AIzaSyAQYxA_3_kunucLvbGZRD3ijWSKnp2h3ag"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1097432439570-sibqf99t4mofud8gn0kgjltpgb547gup.apps.googleusercontent.com",
+              "client_id": "549701347462-sqiff4oqmvvqc734e7a1nadlt49iu0nj.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

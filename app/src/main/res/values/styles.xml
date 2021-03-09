@@ -8,7 +8,7 @@
         <!-- Status bar stuff. -->
         <item name="android:colorControlNormal">@color/description</item>
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
-        <item name="android:navigationBarColor">@color/windowBackground</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
         <item name="android:fontFamily">@font/barlowcondensed_regular</item>
         <item name="android:windowBackground">@color/windowBackground</item>
         <item name="android:windowAnimationStyle">@style/AppTheme.WindowTransition</item>
@@ -48,7 +48,7 @@
     </style>
 
     <style name="ToolbarThemeGreen" parent="@style/ThemeOverlay.AppCompat.ActionBar">
-        <item name="colorControlNormal">@color/description</item>
+        <item name="colorControlNormal">@color/colorPrimaryDark</item>
         <item name="android:textColorPrimary">@color/subsection</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/barlowcondensed_regular</item>

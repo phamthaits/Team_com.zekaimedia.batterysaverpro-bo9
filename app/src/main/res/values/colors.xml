@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#29292C</color>
-    <color name="colorPrimaryDark">#1C1C1F</color>
-    <color name="colorAccent">#7777DC</color>
-    <color name="windowBackground">#1C1C1F</color>
+    <color name="colorPrimary">#E8EBF3</color>
+    <color name="colorPrimaryDark">#23215C</color>
+    <color name="colorAccent">#3F3FB2</color>
+    <color name="windowBackground">#E8EBF3</color>
 
     <color name="text_color">#FFFFFF</color>
     <color name="purple">#7777DC</color>
+    <color name="title_dark">#393B47</color>
+    <color name="text_light">#717EEE</color>
     <color name="text_gray">#55626e</color>
     <color name="orange">#FF7217</color>
     <color name="black">#000000</color>
@@ -16,29 +18,36 @@
     <color name="color_white">#ffffff</color>
 
     // Main
-    <color name="description">#9B9AAA</color>
+    <color name="description">#FFFFFF</color>
     <color name="text_activity">#DEBE86</color>
 
     // Trash Cleaner
-    <color name="trash_cleanner">#54D184</color>
+    <color name="trash_cleanner">#7C64F4</color>
+    <color name="text_cleanner">#187040</color>
 
     //Phone Boost
-    <color name="phone_boost">#DB7A66</color>
+    <color name="phone_boost">#FB5D60</color>
+    <color name="text_phone_boost">#AB3F3F</color>
 
     //Phone Cooler
-    <color name="phone_cooler">#47A1EB</color>
+    <color name="phone_cooler">#2AC3FF</color>
+    <color name="text_phone_cooler">#145F96</color>
 
     //Charge History
-    <color name="charge_history">#DEBE86</color>
+    <color name="charge_history">#009788</color>
+    <color name="text_charge_history">#C18111</color>
 
     //App Manager
-    <color name="app_manager">#AACA45</color>
+    <color name="app_manager">#3E7EBE</color>
+    <color name="text_app_manager">#154593</color>
 
     //Settings
-    <color name="settings">#A36CEF</color>
+    <color name="settings">#3AC3AE</color>
+    <color name="text_settings">#511CB7</color>
 
     //Remove Ads
-    <color name="remove_ads">#EBD8B6</color>
+    <color name="remove_ads">#5A65FF</color>
+    <color name="text_remove_ads">#1D706C</color>
 
     //Subsection
     <color name="subsection">#DEBE87</color>
@@ -46,7 +55,7 @@
     //Checkbox
     <color name="clean_checkbox">#54D18E</color>
 
-    <color name="progress_background">#313135</color>
+    <color name="progress_background">#717EEE</color>
 
     //Notification
     <color name="notification_1">#DB7A67</color>
@@ -60,14 +69,15 @@
     <color name="battery_almost_die">#ff800000</color>
     <color name="battery_averange">#ffff8000</color>
     <color name="battery_bad">#ffff0000</color>
-    <color name="battery_good">#749D30</color>
+    <color name="battery_good">#717EEE</color>
 
     <color name="point_chart">#9B9AAA</color>
 
     //device status
-    <color name="ram">#759C31</color>
-    <color name="storage">#FC2922</color>
-    <color name="temperature">#DFBE85</color>
+    <color name="temperature">#FFBB54</color>
+    <color name="storage">#F35554</color>
+    <color name="ram">#23B86C</color>
+
     <color name="opacity_button">#D18440</color>
     <color name="click_button">#29292C</color>
     <color name="grey_500">#6e7f89</color>
@@ -91,12 +101,12 @@
     <color name="color_text_item_setting">#9B9AAA</color>
     <color name="color_over">#DA406D</color>
     <color name="color_healthy">#5454D1</color>
-    <color name="dark_grayish_blue">#353539</color>
+    <color name="dark_grayish_blue">#7B789C</color>
 
     <color name="list_selector_pressed_dark">#55eeeeff</color>
 
     <color name="phoneboost_top_color_blue">#ff2a91cd</color>
-    <color name="text_second">#7777DC</color>
+    <color name="text_second">#23215C</color>
 
     <color name="text_value">#ff999999</color>
     <color name="divider">#55aaaaaa</color>
@@ -109,8 +119,8 @@
     <color name="more_boost">#e2fce0</color>
     <color name="more_share">#43c63c</color>
     <color name="dark_icon_color">#ff212121</color>
-    <color name="progress_color">#8482C9</color>
-    <color name="color_complete_bg">#524BA8</color>
+    <color name="progress_color">#3F3FB2</color>
+    <color name="color_complete_bg">#3F3FB2</color>
 
     <color name="color_text_progress_charge_dim">#9B9AAA</color>
     <color name="progress_bg">#553fb5cf</color>

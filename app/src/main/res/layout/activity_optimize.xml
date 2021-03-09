@@ -23,12 +23,12 @@
                 android:id="@+id/tv1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/barlowcondensed_light"
+                android:fontFamily="@font/barlowcondensed_medium"
                 android:singleLine="true"
                 android:text="@string/time_left"
                 android:textAlignment="center"
                 android:textAllCaps="true"
-                android:textColor="@color/purple"
+                android:textColor="@color/title_dark"
                 android:textSize="@dimen/arc_title_time_left" />
 
             <TextView
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv1"
                 android:fontFamily="@font/barlowcondensed_regular"
-                android:textColor="@color/text_color"
+                android:textColor="@color/text_light"
                 android:textSize="18dip"
                 android:textStyle="normal"
                 android:gravity="center"/>
@@ -57,7 +57,7 @@
                     android:layout_gravity="bottom|center"
                     android:fontFamily="@font/barlowcondensed_regular"
                     android:text="00"
-                    android:textColor="@color/text_color"
+                    android:textColor="@color/text_light"
                     android:textSize="@dimen/text_size_hour" />
 
                 <TextView
@@ -68,7 +68,7 @@
                     android:layout_marginStart="2.0dip"
                     android:fontFamily="@font/barlowcondensed_regular"
                     android:text="h"
-                    android:textColor="@color/text_color"
+                    android:textColor="@color/text_light"
                     android:textSize="@dimen/arc_suffix_text_size" />
 
                 <TextView
@@ -79,7 +79,7 @@
                     android:layout_marginStart="2.0dip"
                     android:fontFamily="@font/barlowcondensed_regular"
                     android:text="00"
-                    android:textColor="@color/text_color"
+                    android:textColor="@color/text_light"
                     android:textSize="@dimen/text_size_hour" />
 
                 <TextView
@@ -90,7 +90,7 @@
                     android:layout_marginStart="2.0dip"
                     android:fontFamily="@font/barlowcondensed_regular"
                     android:text="m"
-                    android:textColor="@color/text_color"
+                    android:textColor="@color/text_light"
                     android:textSize="@dimen/arc_suffix_text_size" />
             </LinearLayout>
 
@@ -172,7 +172,7 @@
                 android:layout_width="@dimen/imgCircle_size"
                 android:layout_height="@dimen/imgCircle_size"
                 android:layout_centerInParent="true"
-                app:wlv_borderColor="#212123"
+                app:wlv_borderColor="#E8EBF3"
                 app:wlv_borderWidth="4dp"
                 app:wlv_progressValue="0"
                 app:wlv_round_rectangle="true"
@@ -183,8 +183,8 @@
                 app:wlv_titleCenterStrokeWidth="3dp"
                 app:wlv_triangle_direction="north"
                 app:wlv_waveAmplitude="70"
-                app:wlv_waveColor="#212123"
-                app:wlv_wave_background_Color="#212123" />
+                app:wlv_waveColor="#E8EBF3"
+                app:wlv_wave_background_Color="#E8EBF3" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -199,7 +199,7 @@
                     android:singleLine="true"
                     android:text="20%"
                     android:textAllCaps="true"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_second"
                     android:textSize="@dimen/progress_percent2"
                     android:textStyle="bold" />
                 <TextView
@@ -209,7 +209,7 @@
                     android:singleLine="true"
                     android:text="@string/battery"
                     android:textAllCaps="true"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_second"
                     android:textSize="@dimen/arc_battery_title" />
                 <ImageView
                     android:id="@+id/imgUsb"

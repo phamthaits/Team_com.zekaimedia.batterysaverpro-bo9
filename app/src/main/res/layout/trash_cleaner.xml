@@ -9,6 +9,7 @@
         android:id="@+id/lrClean"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:background="@drawable/bg_icon_trash_cleaner"
         android:clickable="true"
         android:gravity="center"
         android:onClick="onClick">
@@ -18,7 +19,6 @@
             android:layout_width="@dimen/_78sdp"
             android:layout_height="@dimen/_78sdp"
             android:layout_alignParentLeft="true"
-            android:background="@drawable/bg_icon_trash_cleaner"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -52,7 +52,7 @@
                     android:maxLines="1"
                     android:singleLine="true"
                     android:text="@string/junk_clean_nav"
-                    android:textColor="@color/trash_cleanner"
+                    android:textColor="@color/description"
                     android:textSize="@dimen/text_size_title" />
 
                 <TextView
@@ -75,7 +75,7 @@
                     android:layout_alignParentBottom="true"
                     android:fontFamily="@font/barlowcondensed_medium"
                     android:text="@string/op_clean"
-                    android:textColor="@color/trash_cleanner"
+                    android:textColor="@color/description"
                     android:textSize="@dimen/text_size_title"
                     android:textStyle="normal" />
             </RelativeLayout>

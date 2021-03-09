@@ -9,14 +9,15 @@
         android:id="@+id/lrRemove"
         android:onClick="onClick"
         android:clickable="true"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_icon_remove_ads"
+        android:layout_height="match_parent"
         android:gravity="center">
         <RelativeLayout
             android:id="@+id/icon_remove"
             android:layout_width="@dimen/_78sdp"
             android:layout_height="@dimen/_78sdp"
-            android:background="@drawable/bg_icon_remove_ads"
+            
             android:layout_alignParentLeft="true"
             android:gravity="center"
             android:orientation="vertical">
@@ -30,8 +31,8 @@
 
         <RelativeLayout
             android:id="@+id/text_remove"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignTop="@+id/icon_remove"
             android:layout_alignBottom="@+id/icon_remove"
             android:layout_toEndOf="@+id/icon_remove">
@@ -48,12 +49,12 @@
                     android:maxLines="1"
                     android:singleLine="true"
                     android:text="@string/name_remove_ads"
-                    android:textColor="@color/remove_ads"
+                    android:textColor="@color/description"
                     android:textSize="@dimen/text_size_title" />
                 <TextView
                     android:id="@+id/tvDescription"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_below="@+id/tvRemove"
                     android:gravity="left"
                     android:text="@string/remove_description"
@@ -69,7 +70,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:fontFamily="@font/barlowcondensed_medium"
-                    android:textColor="@color/remove_ads"
+                    android:textColor="@color/description"
                     android:padding="0dp"
                     android:textSize="@dimen/text_size_title"
                     android:textStyle="normal" />

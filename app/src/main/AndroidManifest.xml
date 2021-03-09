@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="app.tahachi.batterydoctor">
+    package="com.newus.battery">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -36,7 +36,7 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
-        android:name="app.tahachi.batterydoctor.App"
+        android:name="com.newus.battery.App"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -54,69 +54,69 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id" />
 
-        <activity android:name="app.tahachi.batterydoctor.activity.RemoveAdsActivity"></activity>
+        <activity android:name="com.newus.battery.activity.RemoveAdsActivity"></activity>
         <activity
-            android:name="app.tahachi.batterydoctor.activity.DoNotDisturbActivity"
+            android:name="com.newus.battery.activity.DoNotDisturbActivity"
             android:label="@string/title_activity_do_not_disturb"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <activity
-            android:name="app.tahachi.batterydoctor.activity.LanguageActivity"
+            android:name="com.newus.battery.activity.LanguageActivity"
             android:label="@string/title_activity_language"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
-        <activity android:name="app.tahachi.batterydoctor.activity.WhiteListAddActivity" />
+        <activity android:name="com.newus.battery.activity.WhiteListAddActivity" />
         <activity
-            android:name="app.tahachi.batterydoctor.activity.WhiteListActivity"
+            android:name="com.newus.battery.activity.WhiteListActivity"
             android:label="@string/title_activity_white_list"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
 
         <activity
-            android:name="app.tahachi.batterydoctor.activity.CleanResultActivity"
+            android:name="com.newus.battery.activity.CleanResultActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name="app.tahachi.batterydoctor.MainActivity"
+            android:name="com.newus.battery.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
-            android:name="app.tahachi.batterydoctor.activity.CleanActivity"
+            android:name="com.newus.battery.activity.CleanActivity"
             android:exported="true"
             android:label="@string/junk_clean_nav"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name="app.tahachi.batterydoctor.activity.SettingActivity"
+            android:name="com.newus.battery.activity.SettingActivity"
             android:exported="true"
             android:label="Setting"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name="app.tahachi.batterydoctor.activity.ChartActivity"
+            android:name="com.newus.battery.activity.ChartActivity"
             android:exported="true"
             android:label="ChartActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name="app.tahachi.batterydoctor.activity.AppManagerActivity"
+            android:name="com.newus.battery.activity.AppManagerActivity"
             android:exported="true"
             android:label="AppManagerActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name="app.tahachi.batterydoctor.activity.BatterySaverActivity"
+            android:name="com.newus.battery.activity.BatterySaverActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="app.tahachi.batterydoctor.activity.BoostActivity"
+            android:name="com.newus.battery.activity.BoostActivity"
             android:exported="true"
             android:label="@string/phone_boost_nav"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="app.tahachi.batterydoctor.activity.CoolActivity"
+            android:name="com.newus.battery.activity.CoolActivity"
             android:exported="true"
             android:label="@string/phone_cool_nav"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="app.tahachi.batterydoctor.activity.PermissionActivity"
+            android:name="com.newus.battery.activity.PermissionActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="app.tahachi.batterydoctor.activity.SplashActivity"
+            android:name="com.newus.battery.activity.SplashActivity"
             android:theme="@style/Theme_AppCompat_Light_NoActionBar_FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -124,18 +124,18 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="app.tahachi.batterydoctor.Receiver.AlarmReceiver">
+        <receiver android:name="com.newus.battery.Receiver.AlarmReceiver">
             <intent-filter>
                 <action android:name="com.app.action.alarmmanager" />
             </intent-filter>
         </receiver>
         <service
-            android:name="app.tahachi.batterydoctor.service.BatteryService"
+            android:name="com.newus.battery.service.BatteryService"
             android:exported="false"></service>
 
-        <receiver android:name="app.tahachi.batterydoctor.Receiver.BatteryStatusReceiver"></receiver>
+        <receiver android:name="com.newus.battery.Receiver.BatteryStatusReceiver"></receiver>
         <receiver
-            android:name="app.tahachi.batterydoctor.Receiver.AutoRebootReceiver"
+            android:name="com.newus.battery.Receiver.AutoRebootReceiver"
             android:enabled="true"
             android:exported="true"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
@@ -152,7 +152,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="app.tahachi.batterydoctor.Receiver.UpgradeReceiver"
+            android:name="com.newus.battery.Receiver.UpgradeReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

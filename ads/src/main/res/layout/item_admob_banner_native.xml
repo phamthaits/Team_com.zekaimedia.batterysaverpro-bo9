@@ -31,6 +31,7 @@
             android:layout_alignTop="@+id/banner_native_image"
             android:layout_alignBottom="@+id/banner_native_image"
             android:layout_toEndOf="@+id/banner_native_image"
+            android:background="@drawable/bg_icon_ads_right"
             android:orientation="horizontal">
 
             <RelativeLayout
@@ -45,7 +46,7 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/barlowcondensed_medium"
                     android:maxLines="1"
-                    android:textColor="#D18440"
+                    android:textColor="#3F3FB2"
                     android:textSize="@dimen/text_size_title" />
 
                 <TextView
@@ -70,7 +71,7 @@
                     android:gravity="right|bottom"
                     android:text="Install"
                     android:textAllCaps="false"
-                    android:textColor="#D18440"
+                    android:textColor="@android:color/white"
                     android:textSize="@dimen/text_size_title"
                     android:textStyle="bold" />
 

@@ -10,13 +10,14 @@
         android:onClick="onClick"
         android:clickable="true"
         android:layout_width="fill_parent"
+        android:background="@drawable/bg_icon_app_manager"
         android:layout_height="fill_parent"
         android:gravity="center">
         <RelativeLayout
             android:id="@+id/icon_manager"
             android:layout_width="@dimen/_78sdp"
             android:layout_height="@dimen/_78sdp"
-            android:background="@drawable/bg_icon_app_manager"
+
             android:layout_alignParentLeft="true"
             android:gravity="center"
             android:orientation="vertical">
@@ -48,7 +49,7 @@
                     android:maxLines="1"
                     android:singleLine="true"
                     android:text="@string/title_app_manager"
-                    android:textColor="@color/app_manager"
+                    android:textColor="@color/text_app_manager"
                     android:textSize="@dimen/text_size_title" />
                 <TextView
                     android:id="@+id/tvDescription"
@@ -69,7 +70,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_alignParentRight="true"
                     android:fontFamily="@font/barlowcondensed_medium"
-                    android:textColor="@color/app_manager"
+                    android:textColor="@color/description"
                     android:padding="0dp"
                     android:textSize="@dimen/text_size_title"
                     android:textStyle="normal" />

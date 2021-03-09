@@ -77,7 +77,7 @@
                                 android:layout_height="@dimen/progress_hight"
                                 android:layout_marginLeft="@dimen/progress_trickle_charging_margin"
                                 android:layout_weight="1.0"
-                                android:background="@color/purple" />
+                                android:background="@color/dark_grayish_blue" />
                         </LinearLayout>
 
                         <FrameLayout
@@ -106,7 +106,7 @@
                                     android:layout_width="@dimen/progress_trickle_charging_width_image"
                                     android:layout_height="@dimen/progress_trickle_charging_width_image"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/icon_shape_progress_cyan"
+                                    android:background="@color/white"
                                     android:gravity="center"
                                     android:src="@drawable/ic_quick_charging_end" />
                             </FrameLayout>
@@ -122,9 +122,9 @@
                             android:paddingTop="3.0dip"
                             android:paddingBottom="5.0dip"
                             android:text="@string/fast_charging"
-                            android:textColor="@color/color_text_progress_charge_dim"
+                            android:textColor="@color/title_dark"
                             android:textSize="@dimen/textsize_ram_storage_total"
-                            app:reflectionColor="@color/purple" />
+                            app:reflectionColor="@color/colorAccent" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -146,7 +146,7 @@
                                 android:layout_height="@dimen/progress_hight"
                                 android:layout_marginRight="@dimen/progress_trickle_charging_margin"
                                 android:layout_weight="1.0"
-                                android:background="@color/purple" />
+                                android:background="@color/dark_grayish_blue" />
 
                             <View
                                 android:id="@+id/view3"
@@ -154,7 +154,7 @@
                                 android:layout_height="@dimen/progress_hight"
                                 android:layout_marginLeft="@dimen/progress_trickle_charging_margin"
                                 android:layout_weight="1.0"
-                                android:background="@color/color_progress_charge_dim" />
+                                android:background="@color/dark_grayish_blue" />
                         </LinearLayout>
 
                         <FrameLayout
@@ -183,7 +183,7 @@
                                     android:layout_width="@dimen/progress_trickle_charging_width_image"
                                     android:layout_height="@dimen/progress_trickle_charging_width_image"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/icon_shape_progress_cyan"
+                                    android:background="@color/white"
                                     android:gravity="center"
                                     android:src="@drawable/ic_full_charging_end" />
                             </FrameLayout>
@@ -199,9 +199,9 @@
                             android:paddingTop="3.0dip"
                             android:paddingBottom="5.0dip"
                             android:text="@string/full_charging"
-                            android:textColor="@color/color_text_progress_charge_dim"
+                            android:textColor="@color/title_dark"
                             android:textSize="@dimen/textsize_ram_storage_total"
-                            app:reflectionColor="@color/purple" />
+                            app:reflectionColor="@color/colorAccent" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -223,7 +223,7 @@
                                 android:layout_height="@dimen/progress_hight"
                                 android:layout_marginRight="@dimen/progress_trickle_charging_margin"
                                 android:layout_weight="1.0"
-                                android:background="@color/color_progress_charge_dim" />
+                                android:background="@color/dark_grayish_blue" />
 
                             <View
                                 android:layout_width="fill_parent"
@@ -257,7 +257,7 @@
                                     android:layout_width="@dimen/progress_trickle_charging_width_image"
                                     android:layout_height="@dimen/progress_trickle_charging_width_image"
                                     android:layout_gravity="center"
-                                    android:background="@drawable/shape_process_green"
+                                    android:background="@color/white"
                                     android:gravity="center"
                                     android:src="@drawable/ic_trickle_charging_end" />
                             </FrameLayout>
@@ -273,9 +273,9 @@
                             android:paddingTop="3.0dip"
                             android:paddingBottom="5.0dip"
                             android:text="@string/trickle_charging"
-                            android:textColor="@color/color_text_progress_charge_dim"
+                            android:textColor="@color/title_dark"
                             android:textSize="@dimen/textsize_ram_storage_total"
-                            app:reflectionColor="@color/purple" />
+                            app:reflectionColor="@color/colorAccent" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -328,7 +328,7 @@
                             android:fontFamily="@font/barlowcondensed_regular"
                             android:singleLine="true"
                             android:text="@string/temperature"
-                            android:textColor="@color/grey_400"
+                            android:textColor="@color/title_dark"
                             android:textSize="@dimen/textsize_compo_ram_cpu_des" />
                     </LinearLayout>
 
@@ -355,7 +355,7 @@
                             android:fontFamily="@font/barlowcondensed_regular"
                             android:singleLine="true"
                             android:text="@string/voltage"
-                            android:textColor="@color/grey_400"
+                            android:textColor="@color/title_dark"
                             android:textSize="@dimen/textsize_compo_ram_cpu_des" />
                     </LinearLayout>
 
@@ -382,7 +382,7 @@
                             android:fontFamily="@font/barlowcondensed_regular"
                             android:singleLine="true"
                             android:text="@string/capacity"
-                            android:textColor="@color/grey_400"
+                            android:textColor="@color/title_dark"
                             android:textSize="@dimen/textsize_compo_ram_cpu_des" />
                     </LinearLayout>
                 </LinearLayout>
