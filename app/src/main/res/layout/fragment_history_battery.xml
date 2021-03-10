@@ -9,7 +9,7 @@
         style="@style/Ripple"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -24,11 +24,11 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginStart="16.0dip"
-                android:fontFamily="@font/barlowcondensed_regular"
+
                 android:gravity="center"
                 android:text="@string/bd_charge_history"
                 android:textColor="@color/description"
-                android:textSize="@dimen/text_size_title" />
+                android:textSize="@dimen/_16sdp" />
 
         </LinearLayout>
 
@@ -36,7 +36,7 @@
         <TextView
             android:textSize="@dimen/text_size"
             android:textColor="@color/description"
-            android:fontFamily="@font/barlowcondensed_regular"
+
             android:gravity="center"
             android:layout_gravity="center"
             android:id="@+id/tvDate"

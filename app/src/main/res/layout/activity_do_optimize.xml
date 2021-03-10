@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/activity_battery_actionbar"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:gravity="center|left"
         android:layout_height="?actionBarSize"
         android:layout_alignParentTop="true"
@@ -28,8 +28,8 @@
 
                 <ImageView
                     android:id="@+id/iv_arrow"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_margin="8.0dip"
                     android:src="@drawable/ic_navigate_before_white_48dp" />
             </FrameLayout>
@@ -37,19 +37,19 @@
             <TextView
                 android:id="@+id/activity_charge_tv_title_1"
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:fontFamily="@font/barlowcondensed_medium"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/googlesans_medium"
                 android:gravity="center_vertical"
                 android:text="@string/title_optimize"
                 android:textColor="@color/subsection"
-                android:textSize="@dimen/text_size_title" />
+                android:textSize="@dimen/_16sdp" />
 
         </LinearLayout>
     </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/lrScan"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
@@ -57,7 +57,7 @@
 
         <com.skyfishjy.library.RippleBackground
             android:id="@+id/charge_boost_ripple_background"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             app:rb_color="#808BD1"
@@ -75,20 +75,20 @@
                 android:padding="44.0dip">
 
                 <FrameLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:id="@+id/ivDoneHoloCirular"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:alpha="0.6"
                         android:visibility="visible" />
 
                     <ImageView
                         android:id="@+id/clean_done_iv_done"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_centerInParent="true"
                         android:layout_gravity="center"
                         android:background="@drawable/circle_bg_done"
@@ -98,36 +98,36 @@
                 </FrameLayout>
 
                 <FrameLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_centerInParent="true"
                     android:layout_gravity="center"
                     android:gravity="center">
 
                     <ImageView
                         android:id="@+id/ivScan"
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:src="@drawable/ic_fan" />
 
                     <ImageView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:src="@drawable/ic_fan_white"
                         app:tint="#808BD1" />
                 </FrameLayout>
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:visibility="visible"
                     android:weightSum="2.0">
 
                     <LinearLayout
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="96.0dip"
                         android:orientation="horizontal"
                         android:weightSum="2.0">
@@ -135,17 +135,17 @@
                         <FrameLayout
                             android:id="@+id/fm_scan_container_1"
                             android:layout_width="96.0dip"
-                            android:layout_height="fill_parent" />
+                            android:layout_height="match_parent" />
 
                         <FrameLayout
                             android:id="@+id/fm_scan_container_2"
                             android:layout_width="96.0dip"
-                            android:layout_height="fill_parent"
+                            android:layout_height="match_parent"
                             android:layout_weight="1.0" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="96.0dip"
                         android:orientation="horizontal"
                         android:weightSum="2.0">
@@ -153,12 +153,12 @@
                         <FrameLayout
                             android:id="@+id/fm_scan_container_4"
                             android:layout_width="96.0dip"
-                            android:layout_height="fill_parent" />
+                            android:layout_height="match_parent" />
 
                         <FrameLayout
                             android:id="@+id/fm_scan_container_3"
                             android:layout_width="96.0dip"
-                            android:layout_height="fill_parent" />
+                            android:layout_height="match_parent" />
                     </LinearLayout>
                 </LinearLayout>
             </FrameLayout>
@@ -171,7 +171,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="16.0dip"
             android:layout_marginEnd="16.0dip"
-            android:fontFamily="@font/barlowcondensed_regular"
+
             android:gravity="center"
             android:text="@string/pc_auto_optimizing"
             android:textAllCaps="true"
@@ -181,12 +181,12 @@
 
         <TextView
             android:id="@+id/tvScan"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16.0dip"
             android:layout_marginTop="8.0dip"
             android:layout_marginEnd="16.0dip"
-            android:fontFamily="@font/barlowcondensed_regular"
+
             android:gravity="center"
             android:textColor="@color/text_activity"
             android:textSize="@dimen/text_details_optimize" />
@@ -195,8 +195,8 @@
 
     <FrameLayout
         android:id="@+id/fmResult"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginTop="?actionBarSize"
         android:background="@color/windowBackground"
         android:animateLayoutChanges="true"
@@ -204,17 +204,17 @@
         <!-- android:visibility="gone" -> End Potimization-->
 
         <ScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:paddingBottom="@dimen/screen_padding_5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/_5sdp"
                 android:orientation="vertical">
 
                 <RelativeLayout
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"
                     android:gravity="center"
@@ -231,16 +231,16 @@
                         android:text="@string/sm_edge_device_optimized"
                         android:textAllCaps="true"
                         android:layout_marginTop="@dimen/_28sdp"
-                        android:fontFamily="@font/barlowcondensed_medium"
+                        android:fontFamily="@font/googlesans_medium"
                         android:textColor="@color/subsection"
-                        android:textSize="@dimen/text_size_title" />
+                        android:textSize="@dimen/_16sdp" />
                     <ImageView
                         android:id="@+id/img_done"
                         android:layout_width="@dimen/img_mark_size"
                         android:layout_height="@dimen/img_mark_size"
                         android:layout_alignParentRight="true"
                         android:padding="5dp"
-                        android:layout_marginTop="@dimen/screen_padding_5"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:src="@drawable/ic_optimize" />
 
                     <com.airbnb.lottie.LottieAnimationView
@@ -259,13 +259,13 @@
 
 
                <!-- <View
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="1.0dip"
                     android:background="@color/divider" />
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">-->
 
                     <include
@@ -273,9 +273,9 @@
                         layout="@layout/control_native_ads"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/screen_padding_5"
-                        android:layout_marginTop="@dimen/screen_padding_5"
-                        android:layout_marginRight="@dimen/screen_padding_5"/>
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_5sdp"/>
 
                 <!--Trash Cleaner-->
                 <include
@@ -284,11 +284,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:paddingTop="@dimen/margin_between_progress"
-                    android:paddingBottom="@dimen/margin_between_progress" />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp" />
 
                 <!--Phone Boost-->
                 <include
@@ -296,11 +296,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:paddingTop="@dimen/margin_between_progress"
-                    android:paddingBottom="@dimen/margin_between_progress" />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp" />
 
                 <!--Phone Cooler-->
                 <include
@@ -308,11 +308,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:paddingTop="@dimen/margin_between_progress"
-                    android:paddingBottom="@dimen/margin_between_progress" />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp" />
 
                 <!--Charge History-->
                 <include
@@ -320,11 +320,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:paddingTop="@dimen/margin_between_progress"
-                    android:paddingBottom="@dimen/margin_between_progress" />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp" />
 
                 <!--App Manager-->
                 <include
@@ -332,11 +332,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:paddingTop="@dimen/margin_between_progress"
-                    android:paddingBottom="@dimen/margin_between_progress" />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp" />
 
                 <!--Settings-->
                 <include
@@ -344,11 +344,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:paddingTop="@dimen/margin_between_progress"
-                    android:paddingBottom="@dimen/margin_between_progress" />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp" />
 
                 <!--Remove Ads-->
                 <include
@@ -357,15 +357,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:paddingTop="@dimen/margin_between_progress"
-                    android:paddingBottom="@dimen/margin_between_progress" />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp" />
 
                     <!--                    <androidx.cardview.widget.CardView-->
                     <!--                        android:id="@+id/cvFastCharge"-->
-                    <!--                        android:layout_width="fill_parent"-->
+                    <!--                        android:layout_width="match_parent"-->
                     <!--                        android:layout_height="wrap_content"-->
                     <!--                        android:layout_marginLeft="8.0dip"-->
                     <!--                        android:layout_marginTop="5.0dip"-->
@@ -382,7 +382,7 @@
 
                     <!--<androidx.cardview.widget.CardView
                         android:id="@+id/cvBoost"
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="120.0dip"
                         android:layout_marginStart="8.0dip"
                         android:layout_marginTop="8.0dip"
@@ -395,8 +395,8 @@
 
                         <RelativeLayout
                             android:id="@+id/rlBoost"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:background="@drawable/card_selector"
                             android:clickable="true"
                             android:onClick="onClick">
@@ -404,7 +404,7 @@
                             <FrameLayout
                                 android:id="@+id/fl_boost"
                                 android:layout_width="72.0dip"
-                                android:layout_height="fill_parent"
+                                android:layout_height="match_parent"
                                 android:background="@drawable/more_clean_bg">
 
                                 <ImageView
@@ -416,8 +416,8 @@
                             </FrameLayout>
 
                             <LinearLayout
-                                android:layout_width="fill_parent"
-                                android:layout_height="fill_parent"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:layout_toEndOf="@+id/fl_boost"
                                 android:orientation="vertical"
                                 android:paddingStart="16.0dip"
@@ -428,7 +428,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/barlowcondensed_regular"
+
                                     android:text="@string/ram_boost_title"
                                     android:textAllCaps="true"
                                     android:textColor="@color/text_color"
@@ -441,7 +441,7 @@
                                     android:layout_above="@+id/tvBoost3"
                                     android:layout_below="@+id/tvBoost1"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/barlowcondensed_regular"
+
                                     android:text="@string/sm_ram_detail"
                                     android:textColor="@color/grey_500"
                                     android:textSize="@dimen/text_details_optimize" />
@@ -454,7 +454,7 @@
                                     android:layout_marginBottom="8.0dip"
                                     android:background="@drawable/button_dialog_selector"
                                     android:clickable="true"
-                                    android:fontFamily="@font/barlowcondensed_regular"
+
                                     android:gravity="center"
                                     android:minWidth="64.0dip"
                                     android:paddingStart="8.0dip"
@@ -472,7 +472,7 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cvClean"
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="120.0dip"
                         android:layout_marginStart="8.0dip"
                         android:layout_marginTop="8.0dip"
@@ -483,8 +483,8 @@
 
                         <RelativeLayout
                             android:id="@+id/rlClean"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:background="@drawable/card_selector"
                             android:clickable="true"
                             android:onClick="onClick">
@@ -492,7 +492,7 @@
                             <FrameLayout
                                 android:id="@+id/fm_header_clean"
                                 android:layout_width="72.0dip"
-                                android:layout_height="fill_parent"
+                                android:layout_height="match_parent"
                                 android:background="@drawable/more_clean_bg">
 
                                 <ImageView
@@ -503,8 +503,8 @@
                             </FrameLayout>
 
                             <LinearLayout
-                                android:layout_width="fill_parent"
-                                android:layout_height="fill_parent"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:layout_toEndOf="@+id/fm_header_clean"
                                 android:orientation="vertical"
                                 android:paddingStart="16.0dip"
@@ -515,7 +515,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/barlowcondensed_regular"
+
                                     android:text="@string/junk_clean_nav"
                                     android:textAllCaps="true"
                                     android:textColor="@color/text_color"
@@ -528,7 +528,7 @@
                                     android:layout_above="@+id/tv_jc_3"
                                     android:layout_below="@+id/tv_jc_1"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/barlowcondensed_regular"
+
                                     android:text="@string/op_storage_des"
                                     android:textColor="@color/grey_500"
                                     android:textSize="@dimen/text_details_optimize" />
@@ -540,7 +540,7 @@
                                     android:layout_gravity="end"
                                     android:layout_marginBottom="8.0dip"
                                     android:background="@drawable/button_dialog_selector"
-                                    android:fontFamily="@font/barlowcondensed_regular"
+
                                     android:gravity="center"
                                     android:minWidth="64.0dip"
                                     android:paddingStart="8.0dip"
@@ -556,7 +556,7 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cvCool"
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="120.0dip"
                         android:layout_marginStart="8.0dip"
                         android:layout_marginTop="8.0dip"
@@ -569,8 +569,8 @@
 
                         <RelativeLayout
                             android:id="@+id/rlCool"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:background="@drawable/card_selector"
                             android:clickable="true"
                             android:onClick="onClick">
@@ -578,7 +578,7 @@
                             <FrameLayout
                                 android:id="@+id/fl_cool"
                                 android:layout_width="72.0dip"
-                                android:layout_height="fill_parent"
+                                android:layout_height="match_parent"
                                 android:background="@drawable/more_clean_bg">
 
                                 <ImageView
@@ -591,8 +591,8 @@
                             </FrameLayout>
 
                             <LinearLayout
-                                android:layout_width="fill_parent"
-                                android:layout_height="fill_parent"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
                                 android:layout_toEndOf="@+id/fl_cool"
                                 android:orientation="vertical"
                                 android:paddingStart="16.0dip"
@@ -603,7 +603,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/barlowcondensed_regular"
+
                                     android:text="@string/phone_cool_nav"
                                     android:textAllCaps="true"
                                     android:textColor="@color/text_color"
@@ -616,7 +616,7 @@
                                     android:layout_above="@+id/tvCool3"
                                     android:layout_below="@+id/tvCool1"
                                     android:layout_marginTop="8.0dip"
-                                    android:fontFamily="@font/barlowcondensed_regular"
+
                                     android:text="@string/op_cool_down_tip"
                                     android:textColor="@color/grey_500"
                                     android:textSize="@dimen/text_details_optimize" />
@@ -628,7 +628,7 @@
                                     android:layout_gravity="end"
                                     android:layout_marginBottom="8.0dip"
                                     android:background="@drawable/button_dialog_selector"
-                                    android:fontFamily="@font/barlowcondensed_regular"
+
                                     android:gravity="center"
                                     android:minWidth="64.0dip"
                                     android:paddingStart="8.0dip"

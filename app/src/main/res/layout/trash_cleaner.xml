@@ -1,14 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_rounded">
 
     <RelativeLayout
         android:id="@+id/lrClean"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@drawable/bg_icon_trash_cleaner"
         android:clickable="true"
         android:gravity="center"
@@ -32,8 +30,8 @@
 
         <RelativeLayout
             android:id="@+id/text_trash"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignTop="@+id/icon_clean"
             android:layout_alignBottom="@+id/icon_clean"
             android:layout_toEndOf="@+id/icon_clean">
@@ -45,39 +43,28 @@
 
                 <TextView
                     android:id="@+id/tvClean"
+                    style="@style/listContentHome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/barlowcondensed_medium"
                     android:gravity="left"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:text="@string/junk_clean_nav"
-                    android:textColor="@color/description"
-                    android:textSize="@dimen/text_size_title" />
+                    android:text="@string/junk_clean_nav" />
 
                 <TextView
                     android:id="@+id/tvDescription"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    style="@style/descriptionListContentHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_below="@+id/tvClean"
-                    android:fontFamily="@font/barlowcondensed_regular"
-                    android:gravity="left"
-                    android:text="@string/clean_description"
-                    android:textColor="@color/description"
-                    android:textSize="@dimen/textsize_compo_ram_cpu_des"
-                    android:textStyle="normal" />
+                    android:text="@string/clean_description" />
 
                 <TextView
                     android:id="@+id/tvFullCharge"
+                    style="@style/listContentHome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
-                    android:fontFamily="@font/barlowcondensed_medium"
-                    android:text="@string/op_clean"
-                    android:textColor="@color/description"
-                    android:textSize="@dimen/text_size_title"
-                    android:textStyle="normal" />
+                    android:text="@string/op_clean" />
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.gms.ads.formats.UnifiedNativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/ad_unit_content"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <RelativeLayout
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingTop="@dimen/_10sdp"
@@ -33,7 +33,7 @@
 
                 <LinearLayout
                     android:id="@+id/text_admob"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/ad_app_icon"
                     android:layout_marginLeft="5dip"
@@ -41,16 +41,16 @@
 
                     <TextView
                         android:id="@+id/ad_headline"
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
                         android:maxLines="2"
-                        android:fontFamily="@font/barlowcondensed_medium"
+                        android:fontFamily="@font/googlesans_medium"
                         android:textColor="@color/headline_color"
                         android:textSize="18sp" />
 
                     <LinearLayout
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
@@ -61,7 +61,7 @@
                             android:gravity="bottom"
                             android:lines="1"
                             android:textColor="@color/advertiser_color"
-                            android:fontFamily="@font/barlowcondensed_medium"
+                            android:fontFamily="@font/googlesans_medium"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
@@ -72,7 +72,7 @@
                             android:layout_marginLeft="5dip"
                             android:layout_marginRight="5dip"
                             android:textColor="@color/advertiser_color"
-                            android:fontFamily="@font/barlowcondensed_medium"
+                            android:fontFamily="@font/googlesans_medium"
                             android:textSize="14sp"
                             android:textStyle="bold" />
 
@@ -91,7 +91,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dip"
                             android:textColor="@color/advertiser_color"
-                            android:fontFamily="@font/barlowcondensed_medium"
+                            android:fontFamily="@font/googlesans_medium"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
@@ -104,7 +104,7 @@
                 android:layout_marginLeft="30dip"
                 android:layout_marginRight="30dip"
                 android:textColor="@color/body_color"
-                android:fontFamily="@font/barlowcondensed_regular"
+
                 android:maxLines="3"
                 android:textSize="12sp" />
 
@@ -117,7 +117,7 @@
 
             <Button
                 android:id="@+id/ad_call_to_action"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="40dip"
                 android:layout_marginLeft="30dip"
                 android:layout_marginTop="5dip"
@@ -126,8 +126,8 @@
                 android:background="@drawable/ads_bg_lib"
                 android:gravity="center"
                 android:textColor="@color/color_white"
-                android:textSize="22sp"
-                android:fontFamily="@font/barlowcondensed_medium"
+                android:textSize="@dimen/_16sdp"
+                android:fontFamily="@font/googlesans_medium"
                 android:textStyle="bold" />
         </LinearLayout>
 

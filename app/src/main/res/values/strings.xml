@@ -21,11 +21,9 @@
     <string name="clean_description">Clean unnecessary files to save
         spaces</string>
     //Phone Boost
-    <string name="boost_description">Phone is slow? Too many apps
-        running in background</string>
+    <string name="boost_description">"Phone is slow? \nToo many apps running in background"</string>
     //Phone Cooler
-    <string name="cool_description">Phone is hot? Cool down your phone
-    now to extend phone life</string>
+    <string name="cool_description">"Phone is hot? \nCool down your phone now to extend phone life"</string>
     <string name="phone_cooler">Cool</string>
     //Charge History
     <string name="history_description">Manage All Charging</string>
@@ -34,7 +32,7 @@
     //Settings
     <string name="settings_description">Manage All Setting</string>
     //Remove Ads
-    <string name="remove_description">Annoying Ads? Remove ads FOREVER now</string>
+    <string name="remove_description">"Annoying Ads? \nRemove ads FOREVER now"</string>
 
     <string name="manage">Manage</string>
 
@@ -199,7 +197,7 @@
     <string name="low_power_30">Low battery</string>
     <string name="my_mode">My Mode</string>
     <string name="toast_mode_title">Has switched to</string>
-    <string name="charge_des" >Monitor battery charge status and charge overload to prevent (May contain ads)</string>
+    <string name="charge_des">Monitor battery charge status and charge overload to prevent (May contain ads)</string>
     <string name="disable_fast_charging_des">You will not be able monitor battery charge status. Sure you want to disable</string>
     <string name="disable_fast_charging">Disable Fast Charging</string>
     <string name="enable_fast_charging">Enable Fast Charging</string>

@@ -34,59 +34,52 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignTop="@+id/banner_native_fb_image"
             android:layout_alignBottom="@+id/banner_native_fb_image"
             android:layout_toEndOf="@+id/banner_native_fb_image"
+            android:background="@drawable/bg_icon_ads_right"
             android:orientation="horizontal">
 
             <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:padding="10dip">
 
                 <TextView
                     android:id="@+id/native_ad_title"
-                    android:layout_width="fill_parent"
+                    style="@style/listContentHome"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="false"
                     android:ellipsize="end"
-                    android:fontFamily="@font/barlowcondensed_medium"
-                    android:lines="1"
-                    android:textColor="#D18440"
-                    android:textSize="18sp" />
+                    android:gravity="left" />
 
                 <TextView
                     android:id="@+id/native_ad_body"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    style="@style/descriptionListContentHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_below="@+id/native_ad_title"
                     android:clickable="false"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/barlowcondensed_regular"
-                    android:maxLines="2"
-                    android:textColor="@color/body_color"
-                    android:textSize="@dimen/textsize_compo_ram_cpu_des" />
+                    android:ellipsize="end" />
 
                 <Button
                     android:id="@+id/native_ad_call_to_action"
+                    style="@style/listContentHome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:background="@android:color/transparent"
-                    android:fontFamily="@font/barlowcondensed_medium"
                     android:gravity="right|bottom"
                     android:text="Test"
-                    android:textAllCaps="false"
-                    android:textColor="#D18440"
-                    android:textSize="@dimen/text_size_title"
-                    android:textStyle="bold" />
+                    android:textAllCaps="false" />
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:visibility="gone">
@@ -97,7 +90,7 @@
                         android:layout_height="wrap_content"
                         android:clickable="false"
                         android:ellipsize="end"
-                        android:fontFamily="@font/barlowcondensed_medium"
+                        android:fontFamily="@font/googlesans_medium"
                         android:lines="1"
                         android:text="Sponsored"
                         android:textColor="@color/advertiser_color"
@@ -106,12 +99,12 @@
 
                     <TextView
                         android:id="@+id/native_ad_social_context"
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_5sdp"
                         android:clickable="false"
                         android:ellipsize="end"
-                        android:fontFamily="@font/barlowcondensed_regular"
+
                         android:textColor="@color/body_color"
                         android:textSize="12.0sp" />
                 </LinearLayout>

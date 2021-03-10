@@ -11,12 +11,12 @@
 
         <LinearLayout
             android:id="@+id/linear_top"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <RelativeLayout
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="@dimen/_20sdp"
@@ -35,7 +35,7 @@
 
                 <LinearLayout
                     android:id="@+id/text_mopub"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="43dip"
                     android:layout_toStartOf="@+id/native_privacy_information_icon_image"
@@ -45,7 +45,7 @@
                         android:id="@+id/native_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/barlowcondensed_medium"
+                        android:fontFamily="@font/googlesans_medium"
                         android:textColor="@color/headline_color"
                         android:textSize="18sp" />
 
@@ -54,7 +54,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/linear_top"
-                        android:fontFamily="@font/barlowcondensed_regular"
+
                         android:textColor="@color/body_color"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -71,7 +71,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dip"
                 android:layout_marginRight="30dip"
@@ -81,7 +81,7 @@
                     android:id="@+id/native_sponsored_text_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/barlowcondensed_regular"
+
                     android:textColor="@color/body_color"
                     android:textSize="12.0sp" />
             </RelativeLayout>
@@ -106,8 +106,8 @@
                 android:background="@drawable/ads_bg_lib"
                 android:gravity="center"
                 android:textColor="@color/color_white"
-                android:textSize="22sp"
-                android:fontFamily="@font/barlowcondensed_medium"
+                android:textSize="@dimen/_16sdp"
+                android:fontFamily="@font/googlesans_medium"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>

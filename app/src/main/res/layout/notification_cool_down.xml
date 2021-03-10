@@ -46,7 +46,7 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/cool_down_title"
-                    android:fontFamily="@font/barlowcondensed_regular"
+
                     android:textColor="@color/notification_1"
                     android:textSize="16sp" />
 
@@ -58,7 +58,7 @@
                     android:ellipsize="marquee"
                     android:singleLine="true"
                     android:text="@string/cool_down_des"
-                    android:fontFamily="@font/barlowcondensed_light"
+                    android:fontFamily="@font/googlesans_light"
                     android:textColor="@color/grey_700"
                     android:textSize="12sp" />
             </LinearLayout>
@@ -87,7 +87,7 @@
                 android:paddingTop="9dp"
                 android:text="Boost"
                 android:textAllCaps="true"
-                android:fontFamily="@font/barlowcondensed_regular"
+
                 android:textColor="@android:color/white"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -115,7 +115,7 @@
                 android:paddingTop="9dp"
                 android:text="@string/cool_down_button"
                 android:textColor="@android:color/white"
-                android:fontFamily="@font/barlowcondensed_regular"
+
                 android:textAllCaps="true"
                 android:textSize="13sp"
                 android:textStyle="bold" />

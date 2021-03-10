@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:id="@+id/activity_battery_actionbar"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:gravity="center|left"
         android:layout_alignParentTop="true"
@@ -30,8 +30,8 @@
 
                 <ImageView
                     android:id="@+id/iv_arrow"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_margin="8.0dip"
                     android:src="@drawable/ic_navigate_before_white_48dp" />
             </FrameLayout>
@@ -39,33 +39,33 @@
             <TextView
                 android:id="@+id/activity_charge_tv_title_1"
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:fontFamily="@font/barlowcondensed_medium"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/googlesans_medium"
                 android:gravity="center_vertical"
                 android:text="@string/title_activity_setting"
                 android:textColor="@color/subsection"
-                android:textSize="@dimen/text_size_title" />
+                android:textSize="@dimen/_16sdp" />
 
         </LinearLayout>
     </RelativeLayout>
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/screen_padding_5">
+            android:paddingBottom="@dimen/_5sdp">
 
             <LinearLayout
                 android:id="@+id/lr1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/screen_padding_5"
-                android:layout_marginTop="@dimen/screen_padding_5"
-                android:layout_marginRight="@dimen/screen_padding_5"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
                 android:background="@drawable/bg_rounded"
                 android:orientation="vertical">
 
@@ -77,16 +77,16 @@
                     <TextView
                         android:id="@+id/title2"
                         style="@style/tvTitleStyle"
-                        android:fontFamily="@font/barlowcondensed_regular"
+
                         android:textColor="@color/text_activity"
-                        android:textSize="@dimen/text_size_title"
+                        android:textSize="@dimen/_16sdp"
                         android:text="@string/battery_title" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/lrKillApp"
                     style="@style/Ripple"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="false"
                     android:paddingTop="@dimen/screen_padding_2"
@@ -100,7 +100,7 @@
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:gravity="center"
                         android:layout_weight="1"
                         android:orientation="vertical">
@@ -125,7 +125,7 @@
                 <LinearLayout
                     android:id="@+id/lrIngoreList"
                     style="@style/Ripple"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/screen_padding_2"
                     android:paddingBottom="@dimen/screen_padding_2">
@@ -137,7 +137,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -171,17 +171,17 @@
                 layout="@layout/control_native_ads"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/screen_padding_5"
-                android:layout_marginTop="@dimen/screen_padding_5"
-                android:layout_marginRight="@dimen/screen_padding_5"/>
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/screen_padding_5"
-                android:layout_marginTop="@dimen/screen_padding_5"
-                android:layout_marginRight="@dimen/screen_padding_5"
-                android:layout_marginBottom="@dimen/screen_padding_5"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/bg_rounded"
                 android:orientation="vertical">
 
@@ -192,9 +192,9 @@
 
                     <TextView
                         style="@style/tvTitleStyle"
-                        android:fontFamily="@font/barlowcondensed_regular"
+
                         android:textColor="@color/text_activity"
-                        android:textSize="@dimen/text_size_title"
+                        android:textSize="@dimen/_16sdp"
                         android:text="@string/notification_setting" />
 
                 </LinearLayout>
@@ -202,7 +202,7 @@
                 <LinearLayout
                     android:id="@+id/lrEnableNotification"
                     style="@style/Ripple"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="false"
                     android:paddingTop="@dimen/screen_padding_2"
@@ -216,7 +216,7 @@
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
@@ -238,7 +238,7 @@
                 <LinearLayout
                     android:id="@+id/lrDnd"
                     style="@style/Ripple"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
@@ -248,7 +248,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -281,7 +281,7 @@
                 <LinearLayout
                     android:id="@+id/lrBoost"
                     style="@style/Ripple"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
@@ -292,7 +292,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -314,7 +314,7 @@
                 <LinearLayout
                     android:id="@+id/lrCoolDown"
                     style="@style/Ripple"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
@@ -324,7 +324,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -347,7 +347,7 @@
                 <LinearLayout
                     android:id="@+id/lrLowPower"
                     style="@style/Ripple"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
@@ -357,7 +357,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -378,7 +378,7 @@
                 <LinearLayout
                     android:id="@+id/lrBatteryFull"
                     style="@style/Ripple"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
@@ -388,7 +388,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -409,10 +409,10 @@
                 android:id="@+id/lr2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/screen_padding_5"
-                android:layout_marginTop="@dimen/screen_padding_5"
-                android:layout_marginRight="@dimen/screen_padding_5"
-                android:layout_marginBottom="@dimen/screen_padding_5"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/bg_rounded"
                 android:orientation="vertical">
 
@@ -423,16 +423,16 @@
 
                     <TextView
                         style="@style/tvTitleStyle"
-                        android:fontFamily="@font/barlowcondensed_regular"
+
                         android:textColor="@color/text_activity"
-                        android:textSize="@dimen/text_size_title"
+                        android:textSize="@dimen/_16sdp"
                         android:text="@string/general_title" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/lrTemperture"
                     style="@style/Ripple"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
@@ -442,7 +442,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -468,7 +468,7 @@
                 <LinearLayout
                     android:id="@+id/lrLanguage"
                     style="@style/Ripple"
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
@@ -478,7 +478,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:orientation="vertical">
 

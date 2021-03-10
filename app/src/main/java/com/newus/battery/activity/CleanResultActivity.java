@@ -11,6 +11,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -28,7 +29,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
     private TextView tvResult, tvCleaned;
     private HoloCircularProgressBar mHoloCircularProgressBarCleanDone;
     private ImageView ivTick;
-    RelativeLayout rlScan;
+    LinearLayout rlScan;
     FrameLayout parentAds;
     private AdControlHelp adControlHelp;
     private Context context;

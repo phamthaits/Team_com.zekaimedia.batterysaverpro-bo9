@@ -17,8 +17,8 @@
             android:layout_gravity="center"
             android:gravity="center_horizontal"
             android:orientation="vertical"
-
             android:paddingBottom="32dp">
+
             <ImageView
                 android:layout_width="@dimen/_200sdp"
                 android:layout_height="@dimen/_200sdp"
@@ -35,17 +35,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/barlowcondensed_black"
+                    android:fontFamily="@font/googlesans_medium"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/_40sdp"
+                    android:paddingRight="@dimen/_40sdp"
                     android:shadowColor="#0000"
                     android:shadowDy="1"
                     android:shadowRadius="2"
                     android:text="@string/app_name"
                     android:textAllCaps="true"
-                    android:textColor="#DEBE86"
-                    android:paddingLeft="@dimen/_40sdp"
-                    android:paddingRight="@dimen/_40sdp"
-                    android:gravity="center"
-                    android:textSize="@dimen/size_title_spash" />
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/_28sdp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -56,7 +57,7 @@
                     android:shadowRadius="2"
                     android:text="SAVER"
                     android:textColor="@color/color_green_5"
-                    android:textSize="@dimen/size_title_spash"
+                    android:textSize="@dimen/_28sdp"
                     android:visibility="gone" />
             </LinearLayout>
 
@@ -65,7 +66,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dip"
-                android:fontFamily="@font/barlowcondensed_regular"
                 android:gravity="center_horizontal"
                 android:lineSpacingMultiplier="1.06"
                 android:shadowColor="#0000"
@@ -74,7 +74,7 @@
                 android:text="Fast Charge &amp; Extend Battery Life"
                 android:textAllCaps="true"
                 android:textColor="@color/text_color"
-                android:textSize="@dimen/size_detail_spash" />
+                android:textSize="@dimen/_14sdp" />
 
             <com.airbnb.lottie.LottieAnimationView
                 android:layout_width="wrap_content"

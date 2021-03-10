@@ -61,8 +61,8 @@
         android:paddingBottom="15dp"
         android:text="Buy Now!"
         android:textColor="@android:color/background_light"
-        android:fontFamily="@font/barlowcondensed_medium"
-        android:textSize="22sp"
+        android:fontFamily="@font/googlesans_medium"
+        android:textSize="@dimen/_16sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

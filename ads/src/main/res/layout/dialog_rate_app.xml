@@ -9,7 +9,7 @@
 
     <FrameLayout
         android:id="@+id/native_ad_media_container"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bt_container">
 
@@ -35,7 +35,7 @@
 
         <!--<ImageView
             android:id="@+id/ivAdsBig"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="150dip"
             android:adjustViewBounds="true"
             android:background="@drawable/style_dialog_full"
@@ -45,7 +45,7 @@
     </FrameLayout>
 
     <View
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
@@ -53,7 +53,7 @@
 
     <RelativeLayout
         android:id="@+id/rtl_rating"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:paddingLeft="@dimen/_20sdp"
@@ -69,9 +69,9 @@
 
     <TextView
         android:id="@+id/rd_msg"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/barlowcondensed_light"
+        android:fontFamily="@font/googlesans_light"
         android:paddingLeft="@dimen/_10sdp"
         android:paddingRight="@dimen/_10sdp"
         android:paddingBottom="5dip"
@@ -93,7 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/selector_button"
-            android:fontFamily="@font/barlowcondensed_regular"
+
             android:paddingLeft="@dimen/_10sdp"
             android:paddingTop="10dp"
             android:paddingRight="@dimen/_10sdp"

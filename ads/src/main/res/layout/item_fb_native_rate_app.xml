@@ -39,8 +39,8 @@
 
                         <com.facebook.ads.MediaView
                             android:id="@+id/native_ad_icon"
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:clickable="false" />
                     </RelativeLayout>
 
@@ -68,17 +68,17 @@
 
                                 <TextView
                                     android:id="@+id/native_ad_title"
-                                    android:layout_width="fill_parent"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:clickable="false"
                                     android:ellipsize="end"
-                                    android:fontFamily="@font/barlowcondensed_medium"
+                                    android:fontFamily="@font/googlesans_medium"
                                     android:lines="1"
                                     android:textColor="@color/headline_color"
                                     android:textSize="18sp" />
 
                                 <LinearLayout
-                                    android:layout_width="fill_parent"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
@@ -88,7 +88,7 @@
                                         android:layout_height="wrap_content"
                                         android:clickable="false"
                                         android:ellipsize="end"
-                                        android:fontFamily="@font/barlowcondensed_medium"
+                                        android:fontFamily="@font/googlesans_medium"
                                         android:lines="1"
                                         android:text="Sponsored"
                                         android:textColor="@color/advertiser_color"
@@ -102,7 +102,7 @@
                                         android:layout_marginLeft="@dimen/_5sdp"
                                         android:clickable="false"
                                         android:ellipsize="end"
-                                        android:fontFamily="@font/barlowcondensed_regular"
+
                                         android:lines="1"
                                         android:textColor="@color/body_color"
                                         android:textSize="12.0sp" />
@@ -119,12 +119,12 @@
                             <Button
                                 android:id="@+id/native_ad_call_to_action"
                                 android:layout_width="wrap_content"
-                                android:layout_height="fill_parent"
+                                android:layout_height="match_parent"
                                 android:layout_marginLeft="@dimen/_3sdp"
                                 android:layout_marginTop="@dimen/_3sdp"
                                 android:layout_marginBottom="@dimen/_3sdp"
                                 android:background="@drawable/ads_bg_lib"
-                                android:fontFamily="@font/barlowcondensed_medium"
+                                android:fontFamily="@font/googlesans_medium"
                                 android:gravity="center"
                                 android:paddingLeft="@dimen/_2sdp"
                                 android:paddingRight="@dimen/_2sdp"
@@ -134,18 +134,18 @@
                         </RelativeLayout>
 
                         <LinearLayout
-                            android:layout_width="fill_parent"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:visibility="gone">
 
                             <TextView
                                 android:id="@+id/native_ad_body"
-                                android:layout_width="fill_parent"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:clickable="false"
                                 android:ellipsize="end"
-                                android:fontFamily="@font/barlowcondensed_regular"
+
                                 android:gravity="center_vertical"
                                 android:maxLines="1"
                                 android:textColor="@color/body_color"

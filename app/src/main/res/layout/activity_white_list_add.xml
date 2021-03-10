@@ -13,10 +13,10 @@
             android:id="@+id/toolbar"
             app:titleTextColor="@color/subsection"
             app:subtitleTextColor="@color/subsection"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             app:layout_collapseMode="pin"
-            android:fontFamily="@font/barlowcondensed_regular"
+
             android:theme="@style/ToolbarThemeGreen"
             app:titleTextAppearance="@style/textsizetoolbar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
@@ -64,7 +64,7 @@
             android:text="@string/white_list_add"
             android:layout_marginStart="20dip"
             android:layout_marginEnd="20dip"
-            android:textSize="@dimen/text_size_title"
+            android:textSize="@dimen/_16sdp"
             android:textAllCaps="true"
             android:textColor="@color/white" />
 

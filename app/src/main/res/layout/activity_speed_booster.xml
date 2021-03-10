@@ -7,7 +7,7 @@
 
     <RelativeLayout
         android:id="@+id/activity_battery_actionbar"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:layout_alignParentTop="true"
         android:background="@color/colorPrimary"
@@ -28,8 +28,8 @@
 
                 <ImageView
                     android:id="@+id/iv_arrow"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_margin="8.0dip"
                     android:src="@drawable/ic_navigate_before_white_48dp" />
             </FrameLayout>
@@ -37,35 +37,35 @@
             <TextView
                 android:id="@+id/activity_charge_tv_title_1"
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:fontFamily="@font/barlowcondensed_medium"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/googlesans_medium"
                 android:gravity="center_vertical"
                 android:text="@string/ram_boost_title"
                 android:textColor="@color/phone_boost"
-                android:textSize="@dimen/text_size_title" />
+                android:textSize="@dimen/_16sdp" />
 
         </LinearLayout>
     </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/fmResult"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:visibility="gone">
         <!-- android:visibility="gone" -> Cleaned -->
         <ScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/screen_padding_5">
+                android:paddingBottom="@dimen/_5sdp">
 
                 <RelativeLayout
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"
                     android:gravity="center"
@@ -79,11 +79,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_35sdp"
-                        android:fontFamily="@font/barlowcondensed_medium"
+                        android:fontFamily="@font/googlesans_medium"
                         android:text="@string/ram_result"
                         android:textAllCaps="true"
                         android:textColor="@color/temperature"
-                        android:textSize="@dimen/text_size_title" />
+                        android:textSize="@dimen/_16sdp" />
                     <!--                     <com.airbnb.lottie.LottieAnimationView
                                              android:id="@+id/img_done"
                                              android:layout_width="@dimen/img_mark_size"
@@ -111,13 +111,13 @@
 
 
                 <!--<View
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="1.0dip"
                     android:background="@color/divider" />
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">-->
 
                 <include
@@ -125,9 +125,9 @@
                     layout="@layout/control_native_ads"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:layout_marginRight="@dimen/screen_padding_5" />
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginRight="@dimen/_5sdp" />
 
                 <!--Trash Cleaner-->
                 <include
@@ -136,11 +136,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:paddingTop="@dimen/margin_between_progress"
-                    android:paddingBottom="@dimen/margin_between_progress" />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp" />
 
                 <!--Phone Cooler-->
                 <include
@@ -148,11 +148,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:paddingTop="@dimen/margin_between_progress"
-                    android:paddingBottom="@dimen/margin_between_progress" />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp" />
 
                 <!--Charge History-->
                 <include
@@ -160,11 +160,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:paddingTop="@dimen/margin_between_progress"
-                    android:paddingBottom="@dimen/margin_between_progress" />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp" />
 
                 <!--App Manager-->
                 <include
@@ -172,11 +172,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:paddingTop="@dimen/margin_between_progress"
-                    android:paddingBottom="@dimen/margin_between_progress" />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp" />
 
                 <!--Settings-->
                 <include
@@ -184,11 +184,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:paddingTop="@dimen/margin_between_progress"
-                    android:paddingBottom="@dimen/margin_between_progress" />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp" />
 
                 <!--Remove Ads-->
                 <include
@@ -197,11 +197,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginStart="@dimen/screen_padding_5"
-                    android:layout_marginTop="@dimen/screen_padding_5"
-                    android:layout_marginEnd="@dimen/screen_padding_5"
-                    android:paddingTop="@dimen/margin_between_progress"
-                    android:paddingBottom="@dimen/margin_between_progress" />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:paddingBottom="@dimen/_20sdp" />
 
             </LinearLayout>
         </ScrollView>
@@ -247,8 +247,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:padding="@dimen/_15sdp"
-                    android:src="@drawable/ic_icon_progress_charge"
-                    android:backgroundTint="#FF0000"
+                    android:src="@drawable/ic_icon_progress_boost"
                     android:visibility="visible" />
 
                 <ImageView
@@ -256,7 +255,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:layout_margin="@dimen/_38sdp"
+                    android:layout_margin="@dimen/_45sdp"
                     android:src="@drawable/ic_memory_boost"
                     android:visibility="visible" />
 
@@ -287,7 +286,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20.0dip"
-                android:fontFamily="@font/barlowcondensed_regular"
+
                 android:text="@string/boosting"
                 android:textAllCaps="true"
                 android:textColor="@color/text_activity"

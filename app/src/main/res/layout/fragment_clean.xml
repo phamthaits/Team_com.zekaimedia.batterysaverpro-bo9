@@ -7,7 +7,7 @@
     <RelativeLayout
         android:id="@+id/activity_battery_actionbar"
         android:fitsSystemWindows="true"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:gravity="center|left"
         android:layout_alignParentTop="true"
@@ -24,20 +24,20 @@
                 android:layout_centerVertical="true">
                 <ImageView
                     android:id="@+id/iv_arrow"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_margin="8.0dip"
                     android:src="@drawable/ic_navigate_before_white_48dp" />
             </FrameLayout>
             <TextView
-                android:textSize="@dimen/text_size_title"
+                android:textSize="@dimen/_16sdp"
                 android:textColor="@color/trash_cleanner"
                 android:gravity="center_vertical"
                 android:id="@+id/activity_charge_tv_title_1"
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:text="@string/junk_clean_nav"
-                android:fontFamily="@font/barlowcondensed_medium" />
+                android:fontFamily="@font/googlesans_medium" />
 
         </LinearLayout>
     </RelativeLayout>
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/temperature"
                 android:textSize="@dimen/textview_header_clean"
-                android:fontFamily="@font/barlowcondensed_medium"
+                android:fontFamily="@font/googlesans_medium"
                 tools:text="75" />
 
             <LinearLayout
@@ -75,8 +75,8 @@
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:textColor="@color/temperature"
-                    android:textSize="@dimen/text_size_title"
-                    android:fontFamily="@font/barlowcondensed_medium"
+                    android:textSize="@dimen/_16sdp"
+                    android:fontFamily="@font/googlesans_medium"
                     tools:text="@string/percent_none" />
 
                 <TextView
@@ -85,8 +85,8 @@
                     android:gravity="center_vertical"
                     android:text="@string/pc_ram_free_able"
                     android:textColor="@color/temperature"
-                    android:textSize="@dimen/text_size_title"
-                    android:fontFamily="@font/barlowcondensed_medium" />
+                    android:textSize="@dimen/_16sdp"
+                    android:fontFamily="@font/googlesans_medium" />
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -103,7 +103,7 @@
     <View
         android:layout_gravity="bottom"
         android:background="#103c3c3c"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="1.0dip"
         android:layout_below="@+id/view_action_bar" />
 
@@ -116,14 +116,14 @@
         android:padding="10dp"
         android:singleLine="true"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/text_size_title"
-        android:fontFamily="@font/barlowcondensed_medium"
+        android:textSize="@dimen/_16sdp"
+        android:fontFamily="@font/googlesans_medium"
         tools:text="@string/total_found" />
     <View
         android:layout_gravity="bottom"
         android:id="@+id/divider"
         android:background="#103c3c3c"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="1.0dip"
         android:layout_below="@+id/view_action_bar" />
 
@@ -179,8 +179,8 @@
                     android:layout_margin="7dp"
                     android:layout_weight="1"
                     android:text="@string/obsolete_apk"
-                    android:textSize="@dimen/text_size_title"
-                    android:fontFamily="@font/barlowcondensed_regular"
+                    android:textSize="@dimen/_16sdp"
+
                     android:textColor="@color/description" />
 
                 <com.newus.battery.view.RotateLoading
@@ -213,8 +213,8 @@
                     android:layout_margin="7dp"
                     android:layout_weight="1"
                     android:text="@string/system_cache"
-                    android:textSize="@dimen/text_size_title"
-                    android:fontFamily="@font/barlowcondensed_regular"
+                    android:textSize="@dimen/_16sdp"
+
                     android:textColor="@color/description" />
 
                 <com.newus.battery.view.RotateLoading
@@ -246,8 +246,8 @@
                     android:layout_margin="7dp"
                     android:layout_weight="1"
                     android:text="@string/downloader_files"
-                    android:textSize="@dimen/text_size_title"
-                    android:fontFamily="@font/barlowcondensed_regular"
+                    android:textSize="@dimen/_16sdp"
+
                     android:textColor="@color/description" />
 
                 <com.newus.battery.view.RotateLoading
@@ -279,8 +279,8 @@
                     android:layout_margin="7dp"
                     android:layout_weight="1"
                     android:text="@string/large_files"
-                    android:textSize="@dimen/text_size_title"
-                    android:fontFamily="@font/barlowcondensed_regular"
+                    android:textSize="@dimen/_16sdp"
+
                     android:textColor="@color/description" />
 
                 <com.newus.battery.view.RotateLoading
@@ -303,8 +303,8 @@
         android:background="@drawable/bg_btn"
         android:text="@string/op_clean"
         android:textAllCaps="true"
-        android:textSize="@dimen/text_size_title"
-        android:fontFamily="@font/barlowcondensed_medium"
+        android:textSize="@dimen/_16sdp"
+        android:fontFamily="@font/googlesans_medium"
         android:textColor="@color/white"
         android:layout_marginBottom="10dip"/>
 </LinearLayout>

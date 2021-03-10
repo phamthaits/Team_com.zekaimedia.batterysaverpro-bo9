@@ -15,6 +15,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -36,7 +37,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
     private HoloCircularProgressBar mHoloCircularProgressBarCleanDone;
     private ObjectAnimator mProgressBarAnimatorCleanDone;
     private ImageView ivTick;
-    RelativeLayout rlScan;
+    LinearLayout rlScan;
     FrameLayout parentAds;
     TaskBoost mTaskBoost;
     private long totalRam;

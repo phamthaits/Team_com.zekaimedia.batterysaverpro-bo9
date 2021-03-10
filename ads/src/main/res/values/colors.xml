@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_ads">#3F3FB2</color>
+    <color name="color_ads">#C18111</color>
     <color name="headline_color">#23215C</color>
-    <color name="advertiser_color">#717EEE</color>
+    <color name="advertiser_color">#FFBB54</color>
+    <color name="button_ads">#3F3FB2</color>
     <color name="body_color">@color/color_white</color>
+    <color name="text_light">#717EEE</color>
 
     <color name="colorindicator">#ff3fb5cf</color>
     <color name="bg_color">#FFFFFF</color>

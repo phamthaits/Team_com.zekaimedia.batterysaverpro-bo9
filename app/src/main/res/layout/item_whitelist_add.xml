@@ -27,7 +27,7 @@
         android:scrollHorizontally="true"
         android:singleLine="true"
         android:textColor="@color/purple"
-        android:textSize="@dimen/text_size_title"
+        android:textSize="@dimen/_16sdp"
         tools:text="Person Name" />
 
     <CheckBox

@@ -31,62 +31,52 @@
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/_20sdp"
                 android:background="@null"
-                android:contentDescription="@null"
-                android:src="@drawable/ic_test_ad" />
+                android:contentDescription="@null" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignTop="@+id/linear_top"
             android:layout_alignBottom="@+id/linear_top"
             android:layout_toEndOf="@+id/linear_top"
+            android:background="@drawable/bg_icon_ads_right"
             android:orientation="horizontal">
 
             <RelativeLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:padding="10dip">
 
                 <TextView
                     android:id="@+id/native_title"
-                    android:layout_width="fill_parent"
+                    style="@style/listContentHome"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/barlowcondensed_medium"
-                    android:maxLines="1"
-                    android:textColor="#D18440"
-                    android:textSize="@dimen/text_size_title" />
+                    android:ellipsize="end" />
 
                 <TextView
                     android:id="@+id/native_text"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    style="@style/descriptionListContentHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_below="@+id/native_title"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/barlowcondensed_regular"
-                    android:maxLines="2"
-                    android:textColor="@color/body_color"
-                    android:textSize="@dimen/textsize_compo_ram_cpu_des" />
+                    android:ellipsize="end" />
 
                 <Button
                     android:id="@+id/native_cta"
+                    style="@style/listContentHome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:background="@android:color/transparent"
-                    android:fontFamily="@font/barlowcondensed_medium"
                     android:gravity="right|bottom"
-                    android:text="Test"
-                    android:textAllCaps="false"
-                    android:textColor="#D18440"
-                    android:textSize="@dimen/text_size_title"
-                    android:textStyle="bold" />
+                    android:text="Test" />
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dip"
                 android:layout_marginRight="30dip"
@@ -96,7 +86,6 @@
                     android:id="@+id/native_sponsored_text_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/barlowcondensed_regular"
                     android:textColor="@color/body_color"
                     android:textSize="12.0sp" />
 

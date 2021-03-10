@@ -49,8 +49,8 @@
                 android:layout_marginStart="@dimen/standard_padding"
                 android:layout_weight="1"
                 android:textColor="@color/purple"
-                android:textSize="@dimen/text_size_title"
-                android:fontFamily="@font/barlowcondensed_regular"
+                android:textSize="@dimen/_16sdp"
+
                 tools:text="Group Name" />
 
             <TextView
@@ -62,8 +62,8 @@
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text_size_title"
-                android:fontFamily="@font/barlowcondensed_regular"
+                android:textSize="@dimen/_16sdp"
+
                 tools:text="74 MB" />
 
             <CheckBox

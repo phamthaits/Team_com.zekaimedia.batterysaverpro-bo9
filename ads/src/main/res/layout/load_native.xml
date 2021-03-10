@@ -10,7 +10,7 @@
     app:shimmer_base_color="#ccc">
 
     <RelativeLayout
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
@@ -19,7 +19,7 @@
             android:orientation="vertical">
 
             <RelativeLayout
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dip"
                 android:clickable="false"
@@ -36,7 +36,7 @@
                     android:clickable="false" />
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dip"
                     android:layout_toLeftOf="@+id/ad_choices_container_load"
@@ -47,22 +47,22 @@
 
                     <TextView
                         android:id="@+id/native_ad_title"
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="false"
                         android:ellipsize="end"
-                        android:fontFamily="@font/barlowcondensed_medium"
+                        android:fontFamily="@font/googlesans_medium"
                         android:lines="1"
                         android:textColor="@color/headline_color"
                         android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/native_ad_sponsored_label_load"
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="false"
                         android:ellipsize="end"
-                        android:fontFamily="@font/barlowcondensed_medium"
+                        android:fontFamily="@font/googlesans_medium"
                         android:lines="1"
                         android:textColor="@color/advertiser_color"
                         android:textSize="14sp" />
@@ -78,36 +78,36 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dip"
                 android:layout_marginRight="30dip"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/light_transparent"
                     android:clickable="false"
                     android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="false"
                         android:ellipsize="end"
-                        android:fontFamily="@font/barlowcondensed_regular"
+
                         android:gravity="center_vertical"
                         android:maxLines="3"
                         android:textColor="@color/body_color"
                         android:textSize="12.0sp" />
 
                     <TextView
-                        android:layout_width="fill_parent"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="false"
                         android:ellipsize="end"
-                        android:fontFamily="@font/barlowcondensed_regular"
+
                         android:lines="1"
                         android:textColor="@color/body_color"
                         android:textSize="12.0sp" />
@@ -115,7 +115,7 @@
             </RelativeLayout>
 
             <ImageView
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/_100sdp"
                 android:layout_weight="1"
                 android:background="@color/light_transparent"

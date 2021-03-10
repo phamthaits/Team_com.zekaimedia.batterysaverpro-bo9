@@ -12,10 +12,9 @@
             android:background="@color/colorPrimary"
             app:titleTextColor="@color/text_second"
             app:subtitleTextColor="@color/text_second"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             app:layout_collapseMode="pin"
-            android:fontFamily="@font/barlowcondensed_medium"
             android:theme="@style/ToolbarThemeGreen"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:titleTextAppearance="@style/textsizetoolbar">

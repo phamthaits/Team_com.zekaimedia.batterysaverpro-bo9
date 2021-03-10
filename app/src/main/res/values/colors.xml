@@ -3,12 +3,11 @@
     <color name="colorPrimary">#E8EBF3</color>
     <color name="colorPrimaryDark">#23215C</color>
     <color name="colorAccent">#3F3FB2</color>
-    <color name="windowBackground">#E8EBF3</color>
+    <color name="windowBackground">#EDEDF4</color>
 
     <color name="text_color">#FFFFFF</color>
     <color name="purple">#7777DC</color>
     <color name="title_dark">#393B47</color>
-    <color name="text_light">#717EEE</color>
     <color name="text_gray">#55626e</color>
     <color name="orange">#FF7217</color>
     <color name="black">#000000</color>

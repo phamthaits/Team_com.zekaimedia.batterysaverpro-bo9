@@ -1,18 +1,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_rounded">
 
     <RelativeLayout
         android:id="@+id/lrCool"
-        android:onClick="onClick"
-        android:clickable="true"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@drawable/bg_icon_phone_cooler"
-        android:gravity="center">
+        android:clickable="true"
+        android:gravity="center"
+        android:onClick="onClick">
+
         <RelativeLayout
             android:id="@+id/icon_cool"
             android:layout_width="@dimen/_78sdp"
@@ -21,6 +20,7 @@
             android:layout_alignParentLeft="true"
             android:gravity="center"
             android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/ivCapacity"
                 android:layout_width="match_parent"
@@ -31,49 +31,41 @@
 
         <RelativeLayout
             android:id="@+id/text_cool"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignTop="@+id/icon_cool"
             android:layout_alignBottom="@+id/icon_cool"
             android:layout_toEndOf="@+id/icon_cool">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="@dimen/_10sdp">
+
                 <TextView
                     android:id="@+id/tvCool"
-                    android:gravity="left"
+                    style="@style/listContentHome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/barlowcondensed_medium"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:text="@string/phone_cool_nav"
-                    android:textColor="@color/text_phone_cooler"
-                    android:textSize="@dimen/text_size_title" />
+                    android:gravity="left"
+                    android:text="@string/phone_cool_nav" />
+
                 <TextView
                     android:id="@+id/tvDescription"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    style="@style/descriptionListContentHome"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_below="@+id/tvCool"
-                    android:gravity="left"
-                    android:text="@string/cool_description"
-                    android:fontFamily="@font/barlowcondensed_regular"
-                    android:textColor="@color/description"
-                    android:textSize="@dimen/textsize_compo_ram_cpu_des"
-                    android:textStyle="normal" />
+                    android:text="@string/cool_description" />
+
                 <TextView
                     android:id="@+id/tvFullCharge"
+                    style="@style/listContentHome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/phone_cooler"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
-                    android:fontFamily="@font/barlowcondensed_medium"
-                    android:textColor="@color/description"
-                    android:padding="0dp"
-                    android:textSize="@dimen/text_size_title"
-                    android:textStyle="normal" />
+                    android:text="@string/phone_cooler" />
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>

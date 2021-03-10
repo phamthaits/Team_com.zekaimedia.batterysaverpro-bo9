@@ -47,9 +47,9 @@
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/low_battery"
-                    android:fontFamily="@font/barlowcondensed_regular"
+
                     android:textColor="@color/notification_1"
-                    android:textSize="@dimen/text_size_title" />
+                    android:textSize="@dimen/_16sdp" />
 
                 <TextView
                     android:id="@+id/tvNotiTitleDes"
@@ -59,7 +59,7 @@
                     android:ellipsize="marquee"
                     android:singleLine="true"
                     android:text="@string/low_battery_des"
-                    android:fontFamily="@font/barlowcondensed_light"
+                    android:fontFamily="@font/googlesans_light"
                     android:textColor="@color/grey_700"
                     android:textSize="@dimen/text_size" />
             </LinearLayout>
@@ -89,7 +89,7 @@
                 android:paddingTop="9dp"
                 android:text="@string/low_battery"
                 android:textAllCaps="true"
-                android:fontFamily="@font/barlowcondensed_regular"
+
                 android:textColor="@android:color/white"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -116,7 +116,7 @@
                 android:paddingTop="9dp"
                 android:text="@string/optimize_noti"
                 android:textColor="@android:color/white"
-                android:fontFamily="@font/barlowcondensed_regular"
+
                 android:textSize="@dimen/text_size"
                 android:textStyle="bold" />
         </FrameLayout>

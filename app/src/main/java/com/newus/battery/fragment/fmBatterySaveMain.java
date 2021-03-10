@@ -614,7 +614,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     public void updateStatus(BatteryInfo info) {
 
 
-        tvPercentPin.setText(info.level + "%  ");
+        tvPercentPin.setText(info.level + "%");
         if (0 <= info.level && info.level <= 5) {
             waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.battery_almost_die));
             waveLoadingView.setProgressValue(info.level);

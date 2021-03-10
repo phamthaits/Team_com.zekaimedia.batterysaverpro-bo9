@@ -65,8 +65,8 @@
                     android:scrollHorizontally="true"
                     android:singleLine="true"
                     android:textColor="@color/purple"
-                    android:textSize="@dimen/text_size_title"
-                    android:fontFamily="@font/barlowcondensed_regular"
+                    android:textSize="@dimen/_16sdp"
+
                     tools:text="Person Name" />
 
                 <TextView
@@ -76,7 +76,7 @@
                     android:singleLine="true"
                     android:textColor="@color/description"
                     android:textSize="@dimen/text_size"
-                    android:fontFamily="@font/barlowcondensed_light"
+                    android:fontFamily="@font/googlesans_light"
                     tools:text="Person Name" />
             </LinearLayout>
 

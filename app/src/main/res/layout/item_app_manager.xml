@@ -37,9 +37,9 @@
                 android:marqueeRepeatLimit="marquee_forever"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:fontFamily="@font/barlowcondensed_regular"
+
                 android:textColor="@color/purple"
-                android:textSize="@dimen/text_size_title"
+                android:textSize="@dimen/_16sdp"
                 tools:text="Person Name" />
 
             <TextView
@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:fontFamily="@font/barlowcondensed_light"
+                android:fontFamily="@font/googlesans_light"
                 android:textColor="@color/description"
                 android:textSize="@dimen/text_size"
                 tools:text="Person Name" />
@@ -61,8 +61,8 @@
             android:padding="7dp"
             android:text="@string/uninstall"
             android:textAllCaps="false"
-            android:textSize="@dimen/text_size_title"
-            android:fontFamily="@font/barlowcondensed_regular"
+            android:textSize="@dimen/_16sdp"
+
             android:textColor="@color/text_color" />
 
         <ImageView

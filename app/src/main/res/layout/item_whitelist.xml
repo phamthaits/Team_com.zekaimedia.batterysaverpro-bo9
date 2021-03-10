@@ -27,7 +27,7 @@
         android:scrollHorizontally="true"
         android:singleLine="true"
         android:textColor="@color/purple"
-        android:textSize="@dimen/text_size_title"
+        android:textSize="@dimen/_16sdp"
         tools:text="Person Name" />
 
     <TextView
@@ -35,10 +35,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_button_uninstall"
-        android:textSize="@dimen/text_size_title"
+        android:textSize="@dimen/_16sdp"
         android:padding="7dp"
         android:text="@string/remove"
         android:textAllCaps="false"
-        android:fontFamily="@font/barlowcondensed_regular"
+
         android:textColor="@color/text_color" />
 </LinearLayout>

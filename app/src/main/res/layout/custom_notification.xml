@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/notification_background"
     android:gravity="center">
 
     <FrameLayout
         style="@style/button_bg_noti"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/notifiation_icon"
@@ -32,7 +32,7 @@
                 android:id="@+id/tv_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/barlowcondensed_regular"
+
                 android:text="Time left"
                 android:textColor="@color/description"
                 android:textSize="12.0dip"
@@ -50,7 +50,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
-                    android:fontFamily="@font/barlowcondensed_regular"
+
                     android:text="00"
                     android:textColor="@color/trash_cleanner"
                     android:textSize="@dimen/text_size_hour" />
@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:layout_marginStart="2.0dip"
-                    android:fontFamily="@font/barlowcondensed_regular"
+
                     android:text="h"
                     android:textColor="@color/description"
                     android:textSize="@dimen/arc_suffix_text_size" />
@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:layout_marginStart="2.0dip"
-                    android:fontFamily="@font/barlowcondensed_regular"
+
                     android:text="00"
                     android:textColor="@color/trash_cleanner"
                     android:textSize="@dimen/text_size_hour" />
@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:layout_marginStart="2.0dip"
-                    android:fontFamily="@font/barlowcondensed_regular"
+
                     android:text="m"
                     android:textColor="@color/description"
                     android:textSize="@dimen/arc_suffix_text_size" />
@@ -93,7 +93,7 @@
                 android:id="@+id/tvFullCharge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/barlowcondensed_regular"
+
                 android:text="@string/app_name"
                 android:textColor="@color/text_color"
                 android:textSize="18dip"
@@ -169,7 +169,7 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center|end"
             android:orientation="horizontal">
 

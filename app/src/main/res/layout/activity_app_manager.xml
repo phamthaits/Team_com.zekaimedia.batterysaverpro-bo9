@@ -7,7 +7,7 @@
     android:orientation="vertical">
     <RelativeLayout
         android:id="@+id/activity_battery_actionbar"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:gravity="center|left"
         android:layout_alignParentTop="true"
@@ -28,8 +28,8 @@
 
                 <ImageView
                     android:id="@+id/iv_arrow"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_margin="8.0dip"
                     android:src="@drawable/ic_navigate_before_white_48dp" />
             </FrameLayout>
@@ -37,12 +37,12 @@
             <TextView
                 android:id="@+id/activity_charge_tv_title_1"
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:fontFamily="@font/barlowcondensed_medium"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/googlesans_medium"
                 android:gravity="center_vertical"
                 android:text="@string/title_app_manager"
                 android:textColor="@color/subsection"
-                android:textSize="@dimen/text_size_title" />
+                android:textSize="@dimen/_16sdp" />
 
         </LinearLayout>
     </RelativeLayout>
