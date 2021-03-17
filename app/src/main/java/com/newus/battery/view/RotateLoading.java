@@ -23,7 +23,7 @@ public class RotateLoading extends View {
     private static final int DEFAULT_WIDTH = 1;
     private static final int DEFAULT_SHADOW_POSITION = 2;
     private static final int DEFAULT_SPEED_OF_DEGREE = 10;
-    private static final String DEFAULT_COLOR = "#7777DC";
+    private static final String DEFAULT_COLOR = "#717EEE";
 
     private Paint mPaint;
     private Paint mPaintComplete;
@@ -97,8 +97,8 @@ public class RotateLoading extends View {
         mPaintComplete.setStyle(Paint.Style.FILL);
         mPaintComplete.setStrokeWidth(45);
         mPaintComplete.setTextAlign(Paint.Align.CENTER);
-//        mBitmapComplete = ((BitmapDrawable) ResourcesCompat.getDrawable(context.getResources(), R.drawable.ic_check, null)).getBitmap();
-//        mBitmapComplete = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_check);
+//        mBitmapComplete = ((BitmapDrawable) ResourcesCompat.getDrawable(context.getResources(), R.drawable.ic_check_complete, null)).getBitmap();
+//        mBitmapComplete = BitmapFactory.decodeResource(this.getResources(), R.drawable.ic_check_complete);
     }
 
     @Override

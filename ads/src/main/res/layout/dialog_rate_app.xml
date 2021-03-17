@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
     android:background="@drawable/style_dialog_full"
     android:orientation="vertical">
 
@@ -13,94 +13,75 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/bt_container">
 
-        <!--        <FrameLayout-->
-        <!--            android:id="@+id/fl_adplaceholderrate"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="@dimen/height_native_ads_rate"-->
-        <!--            android:layout_marginLeft="5dip"-->
-        <!--            android:layout_marginTop="5dip"-->
-        <!--            android:layout_marginRight="5dip"-->
-        <!--            android:background="@drawable/bg_card_ads"-->
-        <!--            android:orientation="vertical"-->
-        <!--            android:paddingLeft="2dip"-->
-        <!--            android:paddingTop="2dip"-->
-        <!--            android:paddingRight="2dip"-->
-        <!--            android:paddingBottom="2dip"-->
-        <!--            android:visibility="gone" />-->
         <include
             android:id="@+id/native_ads_control_holder"
             layout="@layout/control_native_ads"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!--<ImageView
-            android:id="@+id/ivAdsBig"
-            android:layout_width="match_parent"
-            android:layout_height="150dip"
-            android:adjustViewBounds="true"
-            android:background="@drawable/style_dialog_full"
-            android:gravity="center"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_nz_studio" />-->
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_5sdp" />
     </FrameLayout>
 
-    <View
+    <TextView
+        android:id="@+id/rd_msg"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginRight="@dimen/_10sdp"
-        android:layout_marginLeft="@dimen/_10sdp"
-        android:background="#1F1F1F" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:fontFamily="@font/googlesans_light"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingBottom="5dip"
+        android:text="@string/rate_msg"
+        android:textColor="@color/title_dark"
+        android:textSize="@dimen/_12sdp" />
 
     <RelativeLayout
         android:id="@+id/rtl_rating"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingLeft="@dimen/_20sdp"
-        android:paddingRight="@dimen/_20sdp">
+        android:gravity="center">
 
         <RatingBar
             android:id="@+id/rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numStars="5"
+            android:progressBackgroundTint="#B8BFF1"
             android:stepSize="0.5" />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/rd_msg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/googlesans_light"
-        android:paddingLeft="@dimen/_10sdp"
-        android:paddingRight="@dimen/_10sdp"
-        android:paddingBottom="5dip"
-        android:text="@string/rate_msg"
-        android:textColor="@color/text_color_dialog"
-        android:textSize="@dimen/text_details" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:background="@drawable/bg_bt_rate_app"
-        android:gravity="right"
+        android:gravity="center"
         android:orientation="horizontal"
-        android:padding="5dip">
+        android:paddingVertical="@dimen/_5sdp">
 
         <TextView
             android:id="@+id/btn_late"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/selector_button"
-
-            android:paddingLeft="@dimen/_10sdp"
-            android:paddingTop="10dp"
-            android:paddingRight="@dimen/_10sdp"
-            android:paddingBottom="10dp"
-            android:text="@string/remind_later"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_bt_rate_app"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="Exit"
             android:textAllCaps="true"
-            android:textColor="@color/text_color_dialog"
-            android:textSize="@dimen/text_details" />
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/btn_feed_rate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:background="@drawable/ads_bg_lib"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="Feedback"
+            android:textAllCaps="true"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/_12sdp" />
     </LinearLayout>
 </LinearLayout>

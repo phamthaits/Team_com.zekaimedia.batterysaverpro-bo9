@@ -3,11 +3,14 @@ package com.newus.battery.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.ads.control.AdControl;
 import com.newus.battery.MainActivity;
@@ -27,10 +30,14 @@ public class RemoveAdsActivity extends AppCompatActivity {
         context = this;
         Activity activity = this;
         adControl = AdControl.getInstance(context);
+
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.bg_ads));
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.bg_ads));
+        
         removeAdsHelp = RemoveAdsHelp.getInstance(this, () -> {
             this.finish();
         });
-        Button back = findViewById(R.id.bntBackHome);
+        ImageView back = findViewById(R.id.bntBackHome);
         back.setOnClickListener(view -> finish());
 
         Button bntBuyNow = findViewById(R.id.bntBuyNow);

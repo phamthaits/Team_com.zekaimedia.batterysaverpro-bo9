@@ -2,13 +2,9 @@ package com.newus.battery.activity;
 
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
@@ -17,6 +13,12 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.newus.battery.R;
 import com.newus.battery.Utilsb.PreferAppList;
@@ -53,12 +55,20 @@ public class WhiteListAddActivity extends AppCompatActivity {
         toolbar.setTitle(getString(R.string.title_activity_white_list));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationIcon(R.drawable.ic_navigate_before_white_48dp);
+
+        /* ------------------- StatusBar text dark bg white ----------------- */
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.windowBackground));
+        /* ------------------------------------------------------------------ */
+
         intView();
         intEvent();
         intData();
 
     }
-    public void intView(){
+
+    public void intView() {
         mProgressBarLoading = findViewById(R.id.progressBarLoading);
         mPackageManager = getPackageManager();
         mFrameLayout = findViewById(R.id.recyclerViewWhiteList);
@@ -69,7 +79,8 @@ public class WhiteListAddActivity extends AppCompatActivity {
         checkBoxAddWhiteList = findViewById(R.id.checkBoxAddWhiteList);
 
     }
-    public void intData(){
+
+    public void intData() {
 
         mPreferenceUtil = new PreferAppList();
         mAdapter = new WhiteListAddAdapter(mWhitelists,
@@ -86,7 +97,8 @@ public class WhiteListAddActivity extends AppCompatActivity {
 
         loadData();
     }
-    public void intEvent(){
+
+    public void intEvent() {
         checkBoxAddWhiteList
                 .setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
@@ -180,6 +192,7 @@ public class WhiteListAddActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onBackPressed() {
 

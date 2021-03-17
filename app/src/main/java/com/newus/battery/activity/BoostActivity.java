@@ -4,12 +4,10 @@ import android.animation.ObjectAnimator;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -19,15 +17,18 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.ads.control.AdControl;
 import com.ads.control.AdControlHelp;
 import com.ads.control.AdControlHelp.AdCloseListener;
+import com.newus.battery.R;
 import com.newus.battery.Utilsb.SharePreferenceUtils;
 import com.newus.battery.Utilsb.Utils;
 import com.newus.battery.notification.NotificationDevice;
 import com.newus.battery.task.TaskBoost;
 import com.newus.battery.view.HoloCircularProgressBar;
-import com.newus.battery.R;
 
 public class BoostActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -37,7 +38,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
     private HoloCircularProgressBar mHoloCircularProgressBarCleanDone;
     private ObjectAnimator mProgressBarAnimatorCleanDone;
     private ImageView ivTick;
-    LinearLayout rlScan;
+    RelativeLayout rlScan;
     FrameLayout parentAds;
     TaskBoost mTaskBoost;
     private long totalRam;
@@ -49,13 +50,18 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
         setContentView(R.layout.activity_speed_booster);
         intView();
         context = this;
         adControlHelp = AdControlHelp.getInstance(context);
+
+        /* ------------------- StatusBar text dark bg white ----------------- */
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+        /* ------------------------------------------------------------------ */
+
         NotificationDevice.cancle(context, NotificationDevice.ID_NOTIFICATTION_BOOST);
         View bt_RemoveAds = findViewById(R.id.remove_ads);
         bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
@@ -213,6 +219,9 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         Animation slideUp = AnimationUtils.loadAnimation(BoostActivity.this, R.anim.zoom_in);
         rlScan.startAnimation(slideUp);
         BoostActivity.this.rlScan.setVisibility(View.GONE);
+        getWindow().setStatusBarColor(Color.rgb(251, 93, 96));
+        LinearLayout lrBack = findViewById(R.id.lr_back);
+        lrBack.setBackgroundColor(Color.rgb(251, 93, 96));
         BoostActivity.this.parentAds.setAlpha(0.0f);
         BoostActivity.this.parentAds.setVisibility(View.VISIBLE);
         BoostActivity.this.parentAds.animate().alpha(1.0f).start();

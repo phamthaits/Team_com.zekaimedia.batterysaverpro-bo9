@@ -2,40 +2,38 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
     android:background="@drawable/notification_background"
     android:gravity="center">
 
-    <FrameLayout
+    <LinearLayout
         style="@style/button_bg_noti"
         android:layout_width="match_parent"
+        android:padding="@dimen/_5sdp"
         android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/notifiation_icon"
-            android:layout_width="48.0dip"
-            android:layout_height="48.0dip"
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
             android:layout_gravity="center_vertical"
-            android:layout_margin="8.0dip"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_splash" />
-<!--        android:src="@mipmap/ic_launcher" />-->
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="64.0dip"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="Time left"
                 android:textColor="@color/description"
-                android:textSize="12.0dip"
+                android:textSize="@dimen/_10sdp"
                 android:textStyle="normal" />
 
             <LinearLayout
@@ -50,10 +48,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
-
                     android:text="00"
-                    android:textColor="@color/trash_cleanner"
-                    android:textSize="@dimen/text_size_hour" />
+                    android:textColor="@color/progress_background"
+                    android:textSize="@dimen/_12sdp" />
 
                 <TextView
                     android:id="@+id/tv_time_h_unit"
@@ -61,10 +58,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:layout_marginStart="2.0dip"
-
                     android:text="h"
                     android:textColor="@color/description"
-                    android:textSize="@dimen/arc_suffix_text_size" />
+                    android:textSize="@dimen/_12sdp" />
 
                 <TextView
                     android:id="@+id/tvMin"
@@ -72,10 +68,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:layout_marginStart="2.0dip"
-
                     android:text="00"
-                    android:textColor="@color/trash_cleanner"
-                    android:textSize="@dimen/text_size_hour" />
+                    android:textColor="@color/progress_background"
+                    android:textSize="@dimen/_12sdp" />
 
                 <TextView
                     android:id="@+id/tv_time_m_unit"
@@ -83,20 +78,18 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
                     android:layout_marginStart="2.0dip"
-
                     android:text="m"
                     android:textColor="@color/description"
-                    android:textSize="@dimen/arc_suffix_text_size" />
+                    android:textSize="@dimen/_12sdp" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/tvFullCharge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="@string/app_name"
                 android:textColor="@color/text_color"
-                android:textSize="18dip"
+                android:textSize="@dimen/_10sdp"
                 android:textStyle="normal"
                 android:visibility="gone" />
         </LinearLayout>
@@ -105,7 +98,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|end"
-            android:layout_marginEnd="62.0dip"
             android:orientation="vertical">
 
             <LinearLayout
@@ -116,11 +108,10 @@
 
                 <ImageView
                     android:id="@+id/img_battery"
-                    android:layout_width="18.0dip"
-                    android:layout_height="18.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_battery_notification_normal"
-                    app:tint="@color/colorAccent" />
+                    android:src="@drawable/ic_battery_notification_normal" />
 
                 <TextView
                     android:id="@+id/tvBattery"
@@ -130,7 +121,7 @@
                     android:layout_marginStart="@dimen/marging_left_ne"
                     android:text="45%"
                     android:textColor="@color/description"
-                    android:textSize="13.0dip" />
+                    android:textSize="@dimen/_10sdp" />
             </LinearLayout>
 
             <LinearLayout
@@ -142,11 +133,10 @@
 
                 <ImageView
                     android:id="@+id/img_temp"
-                    android:layout_width="18.0dip"
-                    android:layout_height="18.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_temperature_normal"
-                    app:tint="@color/purple" />
+                    android:src="@drawable/ic_temperature_normal" />
 
                 <TextView
                     android:id="@+id/tvTemp"
@@ -156,15 +146,16 @@
                     android:layout_marginStart="@dimen/marging_left_ne"
                     android:text="35.5*C"
                     android:textColor="@color/description"
-                    android:textSize="13.0dip" />
+                    android:textSize="@dimen/_10sdp" />
             </LinearLayout>
         </LinearLayout>
 
         <FrameLayout
-            android:layout_width="1.0px"
-            android:layout_height="56.0dip"
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="match_parent"
             android:layout_gravity="center|end"
-            android:layout_marginEnd="58.0dip"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_5sdp"
             android:background="@color/description" />
 
         <LinearLayout
@@ -175,15 +166,11 @@
 
             <ImageView
                 android:id="@+id/img_clean"
-                android:layout_width="38.0dip"
-                android:layout_height="38.0dip"
+                android:layout_width="@dimen/_38sdp"
+                android:layout_height="@dimen/_38sdp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="10.0dip"
-                android:layout_marginEnd="10.0dip"
-                android:padding="5dip"
-                android:src="@drawable/ic_memory_boost"
-                />
-<!--            app:tint="@color/more_boost"-->
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_memory_boost" />
         </LinearLayout>
-    </FrameLayout>
+    </LinearLayout>
 </FrameLayout>

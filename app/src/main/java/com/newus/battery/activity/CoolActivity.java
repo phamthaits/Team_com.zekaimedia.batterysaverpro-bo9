@@ -10,14 +10,12 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionInfo;
 import android.content.pm.ServiceInfo;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,15 +27,16 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.ads.control.AdControl;
 import com.ads.control.AdControlHelp;
+import com.newus.battery.R;
 import com.newus.battery.Utilsb.SharePreferenceUtils;
 import com.newus.battery.Utilsb.Utils;
 import com.newus.battery.model.TaskInfo;
-
 import com.skyfishjy.library.RippleBackground;
-
-import com.newus.battery.R;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -57,7 +56,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
     private FrameLayout[] chargeBoostContainers = new FrameLayout[4];
     private PackageManager mPackageManager;
     ActivityManager mActivityManager;
-    ImageView rocketImage, rocketImageOut;
+    ImageView rocketImage, rocketImageOut, rocketImage2;
 
     private TextView tvResult;
 
@@ -80,12 +79,17 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         checkTask();
         adControlHelp = AdControlHelp.getInstance(context);
 
+        /* ------------------- StatusBar text dark bg white ----------------- */
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+        /* ------------------------------------------------------------------ */
+
         View bt_RemoveAds = findViewById(R.id.remove_ads);
         bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
 
-        adControlHelp.loadNative(this,findViewById(R.id.native_ads_control_holder),
+        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
                 R.layout.item_admob_native_ad, R.layout.item_fb_native_ad,
-                R.layout.item_mopub_native_ad,true,false);
+                R.layout.item_mopub_native_ad, true, false);
         adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
     }
 
@@ -146,6 +150,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         this.chargeBoostContainers[2] = findViewById(R.id.fm_scan_container_3);
         this.chargeBoostContainers[3] = findViewById(R.id.fm_scan_container_4);
         this.rocketImage = findViewById(R.id.ivScan);
+        this.rocketImage2 = findViewById(R.id.ivScan2);
         this.rocketImageOut = findViewById(R.id.ivDoneHoloCirular);
         this.tvResult = findViewById(R.id.clean_up_done_tv_result);
         this.ivDone = findViewById(R.id.clean_done_iv_done);
@@ -158,6 +163,9 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         this.layoutParams.gravity = 17;
         Animation animationRotate = AnimationUtils.loadAnimation(this, R.anim.rote_charge_anim);
         this.rocketImage.startAnimation(animationRotate);
+        animationRotate.start();
+        Animation animationRotate2 = AnimationUtils.loadAnimation(this, R.anim.rote_charge_anim);
+        this.rocketImage2.startAnimation(animationRotate2);
         animationRotate.start();
         Animation loadAnimation = AnimationUtils.loadAnimation(this, R.anim.rote_charge_anim_out);
         this.rocketImageOut.startAnimation(loadAnimation);
@@ -177,10 +185,10 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 //        }
 
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
-        ((ImageView) findViewById(R.id.iv_bg_snow)).setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
+//        ((ImageView) findViewById(R.id.iv_bg_snow)).setColorFilter(getResources().getColor(R.color.color_trans), PorterDuff.Mode.MULTIPLY);
         this.ivDone.setColorFilter(getResources().getColor(R.color.color_white), PorterDuff.Mode.MULTIPLY);
-        this.rocketImageOut.setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
-        this.rocketImage.setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
+        this.rocketImageOut.setColorFilter(getResources().getColor(R.color.text_phone_cooler), PorterDuff.Mode.MULTIPLY);
+//        this.rocketImage.setColorFilter(getResources().getColor(R.color.color_trans), PorterDuff.Mode.MULTIPLY);
     }
 
     class anmRotate implements Animation.AnimationListener {
@@ -431,7 +439,9 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         Animation slideUp = AnimationUtils.loadAnimation(CoolActivity.this, R.anim.zoom_in);
         lrScan.startAnimation(slideUp);
         CoolActivity.this.lrScan.setVisibility(View.GONE);
-
+        getWindow().setStatusBarColor(Color.rgb(42, 195, 255));
+        LinearLayout lrBack = findViewById(R.id.lr_back);
+        lrBack.setBackgroundColor(Color.rgb(42, 195, 255));
         CoolActivity.this.parentAds.setAlpha(0.0f);
         CoolActivity.this.parentAds.setVisibility(View.VISIBLE);
         CoolActivity.this.parentAds.animate().alpha(1.0f).start();

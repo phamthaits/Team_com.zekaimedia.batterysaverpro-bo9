@@ -32,7 +32,8 @@ public class AdControlHelp {
     }
 
     public boolean is_reload_firebase() {
-//        return true;
+        if (adControl._isTestAds)
+            return true;
         if (adControl.remove_ads())
             return false;
         return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
@@ -57,7 +58,7 @@ public class AdControlHelp {
         Log.v("ads", "Load Firebase");
         AdControl adControl = AdControl.getInstance(context);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("AdTest")
+        db.collection("Ad1")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -107,6 +108,18 @@ public class AdControlHelp {
                                         case "fb_native":
                                             adControl.fb_native(object.getString(key));
                                             break;
+                                        case "fb_native_main":
+                                            adControl.fb_native_main(object.getString(key));
+                                            break;
+                                        case "fb_native_banner":
+                                            adControl.fb_native_banner(object.getString(key));
+                                            break;
+                                        case "fb_native_rate_app":
+                                            adControl.fb_native_rate_app(object.getString(key));
+                                            break;
+                                        case "fb_native_setting":
+                                            adControl.fb_native_setting(object.getString(key));
+                                            break;
                                         case "mopub_full":
                                             adControl.mopub_full(object.getString(key));
                                             break;
@@ -115,6 +128,9 @@ public class AdControlHelp {
                                             break;
                                         case "mopub_native":
                                             adControl.mopub_native(object.getString(key));
+                                            break;
+                                        case "version":
+                                            adControl.isUpdate(object.getInt(key));
                                             break;
                                     }
                                     Log.d("ads", "key = " + key + ":" + object.getString(key));
@@ -145,20 +161,20 @@ public class AdControlHelp {
 
     public void loadNative(Activity mActivity, LinearLayout view) {
         loadNative(mActivity, view, R.layout.item_admob_native_ad, R.layout.item_fb_native_ad,
-                R.layout.item_mopub_native_ad, true, false, adControl.admob_native());
+                R.layout.item_mopub_native_ad, true, false, adControl.admob_native(), adControl.fb_native());
     }
 
     public void loadNative(Activity mActivity, LinearLayout view, int admob_layout_resource,
                            int fb_layout_resource,
                            int mopub_layout_resource, boolean isAnimButton, boolean is_native_banner) {
         loadNative(mActivity, view, admob_layout_resource, fb_layout_resource, mopub_layout_resource,
-                isAnimButton, is_native_banner, adControl.admob_native());
+                isAnimButton, is_native_banner, adControl.admob_native(), adControl.fb_native());
     }
 
     public void loadNative(Activity mActivity, LinearLayout view, int admob_layout_resource,
                            int fb_layout_resource, int mopub_layout_resource,
                            boolean isAnimButton, boolean is_native_banner,
-                           String admob_native_ads) {
+                           String admob_native_ads, String fb_native_ads) {
         if (adControl.remove_ads()) {
             return;
         }
@@ -169,7 +185,7 @@ public class AdControlHelp {
                         admob_layout_resource, isAnimButton, is_native_banner);
                 break;
             case Facebook:
-                fbHelp.loadNative(mActivity, view, adControl.fb_native(), fb_layout_resource,
+                fbHelp.loadNative(mActivity, view, fb_native_ads, fb_layout_resource,
                         isAnimButton, is_native_banner);
                 break;
             case Mopub:

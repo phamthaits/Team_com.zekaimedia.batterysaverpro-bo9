@@ -68,14 +68,10 @@
 
                                 <TextView
                                     android:id="@+id/native_ad_title"
+                                    style="@style/listContentHome"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:clickable="false"
-                                    android:ellipsize="end"
-                                    android:fontFamily="@font/googlesans_medium"
-                                    android:lines="1"
-                                    android:textColor="@color/headline_color"
-                                    android:textSize="18sp" />
+                                    android:clickable="false" />
 
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -84,28 +80,17 @@
 
                                     <TextView
                                         android:id="@+id/native_ad_sponsored_label"
+                                        style="@style/descriptionTextAds"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:clickable="false"
-                                        android:ellipsize="end"
-                                        android:fontFamily="@font/googlesans_medium"
-                                        android:lines="1"
-                                        android:text="Sponsored"
-                                        android:textColor="@color/advertiser_color"
-                                        android:textSize="14sp"
-                                        android:textStyle="bold" />
+                                        android:clickable="false" />
 
                                     <TextView
                                         android:id="@+id/native_ad_social_context"
+                                        style="@style/descriptionTextAds"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginLeft="@dimen/_5sdp"
-                                        android:clickable="false"
-                                        android:ellipsize="end"
-
-                                        android:lines="1"
-                                        android:textColor="@color/body_color"
-                                        android:textSize="12.0sp" />
+                                        android:layout_marginLeft="@dimen/_5sdp" />
                                 </LinearLayout>
                             </LinearLayout>
                         </RelativeLayout>
@@ -118,19 +103,10 @@
 
                             <Button
                                 android:id="@+id/native_ad_call_to_action"
+                                style="@style/buttonSettingAds"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/_3sdp"
-                                android:layout_marginTop="@dimen/_3sdp"
-                                android:layout_marginBottom="@dimen/_3sdp"
-                                android:background="@drawable/ads_bg_lib"
-                                android:fontFamily="@font/googlesans_medium"
-                                android:gravity="center"
-                                android:paddingLeft="@dimen/_2sdp"
-                                android:paddingRight="@dimen/_2sdp"
-                                android:textColor="@color/color_white"
-                                android:textSize="@dimen/_12sdp"
-                                android:textStyle="bold" />
+                                android:layout_margin="@dimen/_3sdp" />
                         </RelativeLayout>
 
                         <LinearLayout
@@ -145,7 +121,6 @@
                                 android:layout_height="wrap_content"
                                 android:clickable="false"
                                 android:ellipsize="end"
-
                                 android:gravity="center_vertical"
                                 android:maxLines="1"
                                 android:textColor="@color/body_color"

@@ -1,526 +1,427 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
         android:gravity="center_vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            app:titleTextColor="@color/subsection"
-            app:subtitleTextColor="@color/subsection"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:layout_gravity="center"
-            app:layout_collapseMode="pin"
             android:fontFamily="@font/googlesans_medium"
             android:theme="@style/ToolbarThemeGreen"
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:subtitleTextColor="@color/subsection"
             app:titleTextAppearance="@style/textsizetoolbar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:titleTextColor="@color/subsection" />
     </LinearLayout>
+
     <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/divider">
+        android:padding="@dimen/_10sdp">
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
             <RelativeLayout
                 android:id="@+id/btnDe"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_item_height"
-                style="@style/Ripple">
-                <TextView
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/color_text_item_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_item_margin_left"
-                    android:text="Deutsch"
-                    android:layout_centerVertical="true"
+                style="@style/Ripple"
+                android:paddingVertical="@dimen/_10sdp">
 
-                    android:layout_marginStart="@dimen/setting_item_margin_left" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Deutsch"
+                    android:textColor="@color/color_text_item_setting"
+                    android:textSize="@dimen/_12sdp" />
+
                 <ImageView
                     android:id="@+id/imgDe"
-                    android:visibility="gone"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginRight="16.0dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"
-                    app:tint="#9B9AAA"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_check_complete"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <View
-                android:background="@color/color_divider"
                 android:layout_width="match_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/color_divider" />
+
             <RelativeLayout
                 android:id="@+id/btnEn"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_item_height"
-                style="@style/Ripple">
-                <TextView
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/color_text_item_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_item_margin_left"
-                    android:text="English"
-                    android:layout_centerVertical="true"
+                style="@style/Ripple"
+                android:gravity="left"
+                android:paddingVertical="@dimen/_10sdp">
 
-                    android:layout_marginStart="@dimen/setting_item_margin_left" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="English"
+                    android:textColor="@color/color_text_item_setting"
+                    android:textSize="@dimen/_12sdp" />
+
                 <ImageView
                     android:id="@+id/imgEn"
-                    android:visibility="gone"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginRight="16.0dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_check_complete"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <View
-                android:background="@color/color_divider"
                 android:layout_width="match_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/color_divider" />
+
             <RelativeLayout
                 android:id="@+id/btnEs"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_item_height"
-                style="@style/Ripple">
-                <TextView
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/color_text_item_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_item_margin_left"
-                    android:text="Español"
-                    android:layout_centerVertical="true"
+                style="@style/Ripple"
+                android:gravity="left"
+                android:paddingVertical="@dimen/_10sdp">
 
-                    android:layout_marginStart="@dimen/setting_item_margin_left" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Español"
+                    android:textColor="@color/color_text_item_setting"
+                    android:textSize="@dimen/_12sdp" />
+
                 <ImageView
                     android:id="@+id/imgEs"
-                    android:visibility="gone"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginRight="16.0dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_check_complete"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <View
-                android:background="@color/color_divider"
                 android:layout_width="match_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/color_divider" />
+
             <RelativeLayout
                 android:id="@+id/btnFr"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_item_height"
-                style="@style/Ripple">
-                <TextView
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/color_text_item_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_item_margin_left"
-                    android:text="Français"
-                    android:layout_centerVertical="true"
+                style="@style/Ripple"
+                android:gravity="left"
+                android:paddingVertical="@dimen/_10sdp">
 
-                    android:layout_marginStart="@dimen/setting_item_margin_left" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Français"
+                    android:textColor="@color/color_text_item_setting"
+                    android:textSize="@dimen/_12sdp" />
+
                 <ImageView
                     android:id="@+id/imgFr"
-                    android:visibility="gone"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginRight="16.0dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_check_complete"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <View
-                android:background="@color/color_divider"
                 android:layout_width="match_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/color_divider" />
 
             <RelativeLayout
                 android:id="@+id/btnIndo"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_item_height"
-                style="@style/Ripple">
-                <TextView
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/color_text_item_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_item_margin_left"
-                    android:text="Indonesia"
-                    android:layout_centerVertical="true"
+                style="@style/Ripple"
+                android:gravity="left"
+                android:paddingVertical="@dimen/_10sdp">
 
-                    android:layout_marginStart="@dimen/setting_item_margin_left" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Indonesia"
+                    android:textColor="@color/color_text_item_setting"
+                    android:textSize="@dimen/_12sdp" />
+
                 <ImageView
                     android:id="@+id/imgIndo"
-                    android:visibility="gone"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginRight="16.0dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_check_complete"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <View
-                android:background="@color/color_divider"
                 android:layout_width="match_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/color_divider" />
+
             <RelativeLayout
                 android:id="@+id/btnIt"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_item_height"
-                style="@style/Ripple">
-                <TextView
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/color_text_item_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_item_margin_left"
-                    android:text="Italiano"
-                    android:layout_centerVertical="true"
+                style="@style/Ripple"
+                android:gravity="left"
+                android:paddingVertical="@dimen/_10sdp">
 
-                    android:layout_marginStart="@dimen/setting_item_margin_left" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Italiano"
+                    android:textColor="@color/color_text_item_setting"
+                    android:textSize="@dimen/_12sdp" />
+
                 <ImageView
                     android:id="@+id/imgIt"
-                    android:visibility="gone"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginRight="16.0dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_check_complete"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <View
-                android:background="@color/color_divider"
                 android:layout_width="match_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/color_divider" />
+
             <RelativeLayout
                 android:id="@+id/btnPt"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_item_height"
-                style="@style/Ripple">
-                <TextView
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/color_text_item_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_item_margin_left"
-                    android:text="Português"
-                    android:layout_centerVertical="true"
+                style="@style/Ripple"
+                android:gravity="left"
+                android:paddingVertical="@dimen/_10sdp">
 
-                    android:layout_marginStart="@dimen/setting_item_margin_left" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Português"
+                    android:textColor="@color/color_text_item_setting"
+                    android:textSize="@dimen/_12sdp" />
+
                 <ImageView
                     android:id="@+id/imgPt"
-                    android:visibility="gone"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginRight="16.0dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_check_complete"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <View
-                android:background="@color/color_divider"
                 android:layout_width="match_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/color_divider" />
+
             <RelativeLayout
                 android:id="@+id/btnRu"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_item_height"
-                style="@style/Ripple">
-                <TextView
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/color_text_item_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_item_margin_left"
-                    android:text="Pусский"
-                    android:layout_centerVertical="true"
+                style="@style/Ripple"
+                android:gravity="left"
+                android:paddingVertical="@dimen/_10sdp">
 
-                    android:layout_marginStart="@dimen/setting_item_margin_left" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pусский"
+                    android:textColor="@color/color_text_item_setting"
+                    android:textSize="@dimen/_12sdp" />
+
                 <ImageView
                     android:id="@+id/imgRu"
-                    android:visibility="gone"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginRight="16.0dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_check_complete"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <View
-                android:background="@color/color_divider"
                 android:layout_width="match_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/color_divider" />
+
             <RelativeLayout
                 android:id="@+id/btnTr"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_item_height"
-                style="@style/Ripple">
-                <TextView
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/color_text_item_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_item_margin_left"
-                    android:text="Türkçe"
-                    android:layout_centerVertical="true"
+                style="@style/Ripple"
+                android:gravity="left"
+                android:paddingVertical="@dimen/_10sdp">
 
-                    android:layout_marginStart="@dimen/setting_item_margin_left" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Türkçe"
+                    android:textColor="@color/color_text_item_setting"
+                    android:textSize="@dimen/_12sdp" />
+
                 <ImageView
                     android:id="@+id/imgTr"
-                    android:visibility="gone"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginRight="16.0dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_check_complete"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <View
-                android:background="@color/color_divider"
                 android:layout_width="match_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/color_divider" />
+
             <RelativeLayout
                 android:id="@+id/btnAr"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_item_height"
-                style="@style/Ripple">
-                <TextView
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/color_text_item_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_item_margin_left"
-                    android:text="العربية"
-                    android:layout_centerVertical="true"
+                style="@style/Ripple"
+                android:gravity="left"
+                android:paddingVertical="@dimen/_10sdp">
 
-                    android:layout_marginStart="@dimen/setting_item_margin_left" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="left"
+                    android:text="العربية"
+                    android:textColor="@color/color_text_item_setting"
+                    android:textSize="@dimen/_12sdp" />
+
                 <ImageView
                     android:id="@+id/imgAr"
-                    android:visibility="gone"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginRight="16.0dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_check_complete"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <View
-                android:background="@color/color_divider"
                 android:layout_width="match_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/color_divider" />
+
             <RelativeLayout
                 android:id="@+id/btnTh"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_item_height"
-                style="@style/Ripple">
-                <TextView
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/color_text_item_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_item_margin_left"
-                    android:text="ไทย"
-                    android:layout_centerVertical="true"
+                style="@style/Ripple"
+                android:gravity="left"
+                android:paddingVertical="@dimen/_10sdp">
 
-                    android:layout_marginStart="@dimen/setting_item_margin_left" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ไทย"
+                    android:textColor="@color/color_text_item_setting"
+                    android:textSize="@dimen/_12sdp" />
+
                 <ImageView
                     android:id="@+id/imgTh"
-                    android:visibility="gone"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginRight="16.0dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_check_complete"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <View
-                android:background="@color/color_divider"
                 android:layout_width="match_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/color_divider" />
+
             <RelativeLayout
                 android:id="@+id/btnVietnam"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_item_height"
-                style="@style/Ripple">
-                <TextView
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/color_text_item_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_item_margin_left"
-                    android:text="Tiếng Việt"
-                    android:layout_centerVertical="true"
+                style="@style/Ripple"
+                android:gravity="left"
+                android:paddingVertical="@dimen/_10sdp">
 
-                    android:layout_marginStart="@dimen/setting_item_margin_left" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tiếng Việt"
+                    android:textColor="@color/color_text_item_setting"
+                    android:textSize="@dimen/_12sdp" />
+
                 <ImageView
                     android:id="@+id/imgVietNam"
-                    android:visibility="gone"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginRight="16.0dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_check_complete"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <View
-                android:background="@color/color_divider"
                 android:layout_width="match_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/color_divider" />
+
             <RelativeLayout
                 android:id="@+id/btnJa"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_item_height"
-                style="@style/Ripple">
-                <TextView
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/color_text_item_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_item_margin_left"
-                    android:text="日本語"
-                    android:layout_centerVertical="true"
+                style="@style/Ripple"
+                android:gravity="left"
+                android:paddingVertical="@dimen/_10sdp">
 
-                    android:layout_marginStart="@dimen/setting_item_margin_left" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="日本語"
+                    android:textColor="@color/color_text_item_setting"
+                    android:textSize="@dimen/_12sdp" />
+
                 <ImageView
                     android:id="@+id/imgJa"
-                    android:visibility="gone"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginRight="16.0dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_check_complete"
+                    android:visibility="gone" />
             </RelativeLayout>
+
             <View
-                android:background="@color/color_divider"
                 android:layout_width="match_parent"
-                android:layout_height="1.0px"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="@dimen/_1sdp"
+                android:background="@color/color_divider" />
+
             <RelativeLayout
                 android:id="@+id/btnKo"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/setting_item_height"
-                style="@style/Ripple">
-                <TextView
-                    android:textSize="@dimen/_16sdp"
-                    android:textColor="@color/color_text_item_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/setting_item_margin_left"
-                    android:text="한국어"
-                    android:layout_centerVertical="true"
+                style="@style/Ripple"
+                android:gravity="left"
+                android:paddingVertical="@dimen/_10sdp">
 
-                    android:layout_marginStart="@dimen/setting_item_margin_left" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="한국어"
+                    android:textColor="@color/color_text_item_setting"
+                    android:textSize="@dimen/_12sdp" />
+
                 <ImageView
                     android:id="@+id/imgKo"
-                    android:visibility="gone"
-                    android:layout_width="@dimen/_28sdp"
-                    android:layout_height="@dimen/_28sdp"
-                    android:layout_marginRight="16.0dip"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginEnd="16.0dip"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_check"/>
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/ic_check_complete"
+                    android:visibility="gone" />
             </RelativeLayout>
-
         </LinearLayout>
     </ScrollView>
-
-
 </LinearLayout>

@@ -102,6 +102,7 @@
                         <Button
                             android:id="@+id/native_cta"
                             style="@style/buttonSettingAds"
+                            android:layout_margin="@dimen/_3sdp"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:paddingHorizontal="@dimen/_4sdp" />

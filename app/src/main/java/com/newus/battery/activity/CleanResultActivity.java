@@ -2,10 +2,9 @@ package com.newus.battery.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -15,12 +14,15 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.ads.control.AdControl;
 import com.ads.control.AdControlHelp;
+import com.newus.battery.R;
 import com.newus.battery.Utilsb.SharePreferenceUtils;
 import com.newus.battery.Utilsb.Utils;
 import com.newus.battery.view.HoloCircularProgressBar;
-import com.newus.battery.R;
 
 public class CleanResultActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -29,7 +31,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
     private TextView tvResult, tvCleaned;
     private HoloCircularProgressBar mHoloCircularProgressBarCleanDone;
     private ImageView ivTick;
-    LinearLayout rlScan;
+    RelativeLayout rlScan;
     FrameLayout parentAds;
     private AdControlHelp adControlHelp;
     private Context context;
@@ -62,7 +64,16 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         tvCleaned.setText(String.format(getString(R.string.cleaned),
                 Utils.formatSize(SharePreferenceUtils.getInstance(this).getTotalJunk())));
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
+
+        adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
     }
+
+    AdControlHelp.AdCloseListener adCloseListener = new AdControlHelp.AdCloseListener() {
+        @Override
+        public void onAdClosed() {
+            loadResult(mHoloCircularProgressBarCleanDone, 1.0f);
+        }
+    };
 
     @Override
     public void onClick(View view) {
@@ -100,7 +111,6 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-
     class C06741 implements Animation.AnimationListener {
 
         @Override
@@ -116,15 +126,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            Animation slideUp = AnimationUtils.loadAnimation(CleanResultActivity.this, R.anim.zoom_in);
-            rlScan.startAnimation(slideUp);
-            CleanResultActivity.this.rlScan.setVisibility(View.GONE);
-            CleanResultActivity.this.parentAds.setAlpha(0.0f);
-            CleanResultActivity.this.parentAds.setVisibility(View.VISIBLE);
-            CleanResultActivity.this.parentAds.animate().alpha(1.0f).start();
-            Animation downtoup = AnimationUtils.loadAnimation(CleanResultActivity.this, R.anim.downtoup);
-            parentAds.startAnimation(downtoup);
-            SharePreferenceUtils.getInstance(CleanResultActivity.this).setCleanTime(System.currentTimeMillis());
+            adControlHelp.showInterstitialAd(adCloseListener);
         }
     }
 
@@ -132,22 +134,20 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.rotate_result);
         ImageView img_rotate_result = findViewById(R.id.img_rotate_result);
         img_rotate_result.startAnimation(animation);
-        AdControlHelp.AdCloseListener adCloseListener = new AdControlHelp.AdCloseListener() {
-            @Override
-            public void onAdClosed() {
-                loadResult(mHoloCircularProgressBarCleanDone, 1.0f);
-            }
-        };
-        adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                getWindow().setStatusBarColor(ContextCompat.getColor(context, R.color.white));
 
             }
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                adControlHelp.showInterstitialAd(adCloseListener);
+                CleanResultActivity.this.ivRocket.setVisibility(View.INVISIBLE);
+                CleanResultActivity.this.ivTick.setVisibility(View.VISIBLE);
+                tvResult.setText(getString(R.string.done));
+                CleanResultActivity.this.ivTick.startAnimation(CleanResultActivity.this.ivDoneAnim);
             }
 
             @Override
@@ -156,52 +156,21 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
             }
         });
     }
-//    private void animate(final HoloCircularProgressBar holoCircularProgressBar, Animator.AnimatorListener animatorListener, final float f, int i) {
-//        this.mProgressBarAnimatorCleanDone = ObjectAnimator.ofFloat(holoCircularProgressBar, NotificationCompat.CATEGORY_PROGRESS, 0.0f, f);
-//        this.mProgressBarAnimatorCleanDone.setDuration((long) i);
-//        AdControlHelp.AdCloseListener adCloseListener = new AdControlHelp.AdCloseListener() {
-//            @Override
-//            public void onAdClosed() {
-//                loadResult(holoCircularProgressBar, f);
-//            }
-//        };
-//        adControlHelp.loadInterstitialAd(this,adCloseListener, null, false);
-//        this.mProgressBarAnimatorCleanDone.addListener(new Animator.AnimatorListener() {
-//            public void onAnimationCancel(Animator animator) {
-//            }
-//
-//            public void onAnimationRepeat(Animator animator) {
-//            }
-//
-//            public void onAnimationStart(Animator animator) {
-//            }
-//
-//            public void onAnimationEnd(Animator animator) {
-//                adControlHelp.showInterstitialAd(adCloseListener);
-//            }
-//        });
-//        if (animatorListener != null) {
-//            this.mProgressBarAnimatorCleanDone.addListener(animatorListener);
-//        }
-//        this.mProgressBarAnimatorCleanDone.reverse();
-//        this.mProgressBarAnimatorCleanDone.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-//            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-//                holoCircularProgressBar.setProgress(((Float) valueAnimator.getAnimatedValue()).floatValue());
-//                StringBuilder stringBuilder = new StringBuilder();
-//                stringBuilder.append(valueAnimator.getAnimatedValue());
-//                stringBuilder.append("");
-//            }
-//        });
-//        holoCircularProgressBar.setMarkerProgress(f);
-//        this.mProgressBarAnimatorCleanDone.start();
-//    }
 
     private void loadResult(HoloCircularProgressBar holoCircularProgressBar, float f) {
         holoCircularProgressBar.setProgress(f);
-        CleanResultActivity.this.ivRocket.setVisibility(View.INVISIBLE);
-        CleanResultActivity.this.ivTick.setVisibility(View.VISIBLE);
-        tvResult.setText(getString(R.string.done));
-        CleanResultActivity.this.ivTick.startAnimation(CleanResultActivity.this.ivDoneAnim);
+        getWindow().setStatusBarColor(Color.rgb(113, 126, 238));
+        LinearLayout lrBack = findViewById(R.id.lr_back);
+        lrBack.setBackgroundColor(Color.rgb(113, 126, 238));
+        Animation slideUp = AnimationUtils.loadAnimation(CleanResultActivity.this, R.anim.zoom_in);
+        rlScan.startAnimation(slideUp);
+        CleanResultActivity.this.rlScan.setVisibility(View.GONE);
+        CleanResultActivity.this.parentAds.setAlpha(0.0f);
+        CleanResultActivity.this.parentAds.setVisibility(View.VISIBLE);
+        CleanResultActivity.this.parentAds.animate().alpha(1.0f).start();
+        Animation downtoup = AnimationUtils.loadAnimation(CleanResultActivity.this, R.anim.downtoup);
+        parentAds.startAnimation(downtoup);
+        SharePreferenceUtils.getInstance(CleanResultActivity.this).setCleanTime(System.currentTimeMillis());
     }
 
     @Override

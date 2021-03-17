@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/windowBackground"
@@ -11,41 +10,37 @@
         android:id="@+id/activity_battery_actionbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:gravity="center|left"
         android:layout_alignParentTop="true"
         android:background="@color/colorPrimary"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:gravity="center|left">
 
         <LinearLayout
             android:id="@+id/lr_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:paddingEnd="8.0dip">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onClick">
 
             <FrameLayout
-                android:layout_width="48.0dip"
-                android:layout_height="48.0dip"
+                android:layout_width="@dimen/_48sdp"
+                android:layout_height="match_parent"
                 android:layout_centerVertical="true">
 
                 <ImageView
                     android:id="@+id/iv_arrow"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="8.0dip"
+                    android:padding="10dp"
                     android:src="@drawable/ic_navigate_before_white_48dp" />
             </FrameLayout>
 
             <TextView
                 android:id="@+id/activity_charge_tv_title_1"
+                style="@style/textHeaderActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/googlesans_medium"
-                android:gravity="center_vertical"
                 android:text="@string/title_activity_setting"
-                android:textColor="@color/subsection"
-                android:textSize="@dimen/_16sdp" />
-
+                android:textColor="@color/colorPrimaryDark" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -63,11 +58,11 @@
                 android:id="@+id/lr1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginRight="@dimen/_5sdp"
                 android:background="@drawable/bg_rounded"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -77,63 +72,50 @@
                     <TextView
                         android:id="@+id/title2"
                         style="@style/tvTitleStyle"
-
-                        android:textColor="@color/text_activity"
-                        android:textSize="@dimen/_16sdp"
                         android:text="@string/battery_title" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/lrKillApp"
                     style="@style/Ripple"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="false"
-                    android:paddingTop="@dimen/screen_padding_2"
-                    android:paddingBottom="@dimen/screen_padding_2">
+                    android:clickable="false">
 
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_rocket_red" />
-                    <!--                    android:src="@drawable/ic_rocket_white"-->
-                    <!--                    app:tint="#FF5252" />-->
 
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:gravity="center"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/sw_wave_mode"
                             style="@style/rowSwitchStyle"
-                            android:textColor="@color/description"
                             android:text="@string/kill_app_screen_off" />
 
                         <TextView
                             style="@style/rowdetails"
-                            android:paddingBottom="@dimen/screen_padding_2"
                             android:text="@string/kill_app_screen_off_des" />
                     </LinearLayout>
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swKillApp"
-                        style="@style/swStyle" />
+                        style="@style/swStyle"
+                        app:track="@drawable/track" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/lrIngoreList"
                     style="@style/Ripple"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/screen_padding_2"
-                    android:paddingBottom="@dimen/screen_padding_2">
+                    android:layout_height="wrap_content">
 
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_setting_white_list" />
-                    <!--                    app:tint="#536DFE"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -144,7 +126,6 @@
 
                         <TextView
                             style="@style/rowSwitchStyle"
-                            android:textColor="@color/description"
                             android:text="@string/app_white_list" />
 
                         <TextView
@@ -156,11 +137,10 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/checkbox_size"
-                        android:layout_height="@dimen/checkbox_size"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:layout_gravity="center"
-                        android:layout_marginRight="10dp"
-                        android:padding="@dimen/checkbox_padding"
+                        android:padding="5dp"
                         android:src="@drawable/ic_next_page" />
                 </LinearLayout>
 
@@ -171,19 +151,16 @@
                 layout="@layout/control_native_ads"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginRight="@dimen/_5sdp"/>
+                android:layout_marginHorizontal="@dimen/_5sdp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginRight="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/bg_rounded"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -192,27 +169,19 @@
 
                     <TextView
                         style="@style/tvTitleStyle"
-
-                        android:textColor="@color/text_activity"
-                        android:textSize="@dimen/_16sdp"
                         android:text="@string/notification_setting" />
-
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/lrEnableNotification"
                     style="@style/Ripple"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
                     android:clickable="false"
-                    android:paddingTop="@dimen/screen_padding_2"
-                    android:paddingBottom="@dimen/screen_padding_2"
                     android:visibility="gone">
 
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_rocket_white"
-                        app:tint="@color/more_clean" />
+                        app:tint="@color/colorAccent" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -226,25 +195,22 @@
 
                         <TextView
                             style="@style/rowdetails"
-                            android:paddingBottom="@dimen/screen_padding_2"
                             android:text="@string/kill_app_screen_off_des" />
                     </LinearLayout>
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swEnableNotification"
-                        style="@style/swStyle" />
+                        style="@style/swStyle"
+                        app:track="@drawable/track" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/lrDnd"
-                    style="@style/Ripple"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/Ripple">
 
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_moon" />
-                    <!--                    app:tint="#FF4081"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -255,9 +221,7 @@
 
                         <TextView
                             style="@style/rowSwitchStyle"
-                            android:textColor="@color/description"
                             android:text="@string/do_not_disturb" />
-
                     </LinearLayout>
 
                     <TextView
@@ -265,16 +229,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginRight="5dp"
-                        android:textColor="@color/description"
                         android:text="20:00-8:00" />
 
                     <ImageView
-                        android:layout_width="@dimen/checkbox_size"
-                        android:layout_height="@dimen/checkbox_size"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:layout_gravity="center"
-                        android:layout_marginRight="10dp"
-                        android:padding="@dimen/checkbox_padding"
+                        android:padding="5dp"
                         android:src="@drawable/ic_next_page" />
                 </LinearLayout>
 
@@ -287,8 +248,6 @@
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_rocket_yellow" />
-                    <!--                    android:src="@drawable/ic_rocket_white"-->
-                    <!--                    app:tint="#FFD740" />-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -299,28 +258,22 @@
 
                         <TextView
                             style="@style/rowSwitchStyle"
-                            android:textColor="@color/description"
                             android:text="@string/bg_power_use" />
-
-
                     </LinearLayout>
-
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swBoost"
-                        style="@style/swStyle" />
+                        style="@style/swStyle"
+                        app:track="@drawable/track" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/lrCoolDown"
-                    style="@style/Ripple"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/Ripple">
 
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_temperature_normal" />
-                    <!--                    app:tint="@color/colorAccent"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -331,18 +284,14 @@
 
                         <TextView
                             style="@style/rowSwitchStyle"
-                            android:textColor="@color/description"
                             android:text="@string/phone_cool_reminder" />
-
-
                     </LinearLayout>
-
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swCoolDown"
-                        style="@style/swStyle" />
+                        style="@style/swStyle"
+                        app:track="@drawable/track" />
                 </LinearLayout>
-
 
                 <LinearLayout
                     android:id="@+id/lrLowPower"
@@ -353,7 +302,6 @@
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_battery_low" />
-                    <!--                    app:tint="#FF5252"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -364,27 +312,22 @@
 
                         <TextView
                             style="@style/rowSwitchStyle"
-                            android:textColor="@color/description"
                             android:text="@string/low_power_reminder" />
-
-
                     </LinearLayout>
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swLowPower"
-                        style="@style/swStyle" />
+                        style="@style/swStyle"
+                        app:track="@drawable/track" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/lrBatteryFull"
-                    style="@style/Ripple"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/Ripple">
 
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_charge_full_reminder" />
-                    <!--                    app:tint="#536DFE"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -395,13 +338,13 @@
 
                         <TextView
                             style="@style/rowSwitchStyle"
-                            android:textColor="@color/description"
                             android:text="@string/charging_completed" />
                     </LinearLayout>
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swBatteryFull"
-                        style="@style/swStyle" />
+                        style="@style/swStyle"
+                        app:track="@drawable/track" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -409,12 +352,11 @@
                 android:id="@+id/lr2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginRight="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
                 android:background="@drawable/bg_rounded"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -423,22 +365,16 @@
 
                     <TextView
                         style="@style/tvTitleStyle"
-
-                        android:textColor="@color/text_activity"
-                        android:textSize="@dimen/_16sdp"
                         android:text="@string/general_title" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/lrTemperture"
-                    style="@style/Ripple"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    style="@style/Ripple">
 
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_temperature_normal" />
-                    <!--                    app:tint="#FF5252"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -449,8 +385,6 @@
 
                         <TextView
                             style="@style/rowSwitchStyle"
-                            android:layout_marginTop="10dp"
-                            android:textColor="@color/description"
                             android:text="@string/temperature" />
 
                         <TextView
@@ -462,7 +396,8 @@
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/swTemp"
-                        style="@style/swStyle" />
+                        style="@style/swStyle"
+                        app:track="@drawable/track" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -474,7 +409,6 @@
                     <ImageView
                         style="@style/imageStyle"
                         android:src="@drawable/ic_langue" />
-                    <!--                    app:tint="#536DFE"-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -484,8 +418,6 @@
 
                         <TextView
                             style="@style/rowSwitchStyle"
-                            android:layout_marginTop="10dp"
-                            android:textColor="@color/description"
                             android:text="@string/title_activity_language" />
 
                         <TextView
@@ -495,11 +427,10 @@
                     </LinearLayout>
 
                     <ImageView
-                        android:layout_width="@dimen/checkbox_size"
-                        android:layout_height="@dimen/checkbox_size"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
                         android:layout_gravity="center"
-                        android:layout_marginRight="10dp"
-                        android:padding="@dimen/checkbox_padding"
+                        android:padding="5dp"
                         android:src="@drawable/ic_next_page" />
                 </LinearLayout>
             </LinearLayout>

@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorPrimary">#E8EBF3</color>
+    <color name="colorPrimaryDark">#23215C</color>
+    <color name="colorAccent">#3F3FB2</color>
+    <color name="windowBackground">#EDEDF4</color>
+
+
+    <color name="title_dark">#393B47</color>
+    <color name="bg_ads">#7777DC</color>
+
+
     <color name="color_ads">#C18111</color>
     <color name="headline_color">#23215C</color>
     <color name="advertiser_color">#FFBB54</color>
@@ -16,4 +26,5 @@
     <color name="stocke_card">#252C2B2B</color>
     <color name="light_transparent">#16000000</color>
     <color name="_bg">#ebeff1</color>
+    <color name="border_ads">#3F3FB2</color>
 </resources>

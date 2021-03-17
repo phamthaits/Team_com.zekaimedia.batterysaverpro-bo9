@@ -1,15 +1,20 @@
 package com.newus.battery;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
@@ -37,6 +42,7 @@ public class MainActivity extends BaseActivity {
     SharedPreferences appPreferences;
     boolean isAppInstalled = false;
     private Context context;
+    private AdControl adControl;
 
     private void addShourcut() {
         /**
@@ -98,9 +104,33 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         context = this;
         toolbar = findViewById(R.id.toolbar);
+        adControl = AdControl.getInstance(this);
         bt_RemoveAds = findViewById(R.id.bt_removeads);
         bt_RemoveAds.setVisibility(AdControl.getInstance(this).remove_ads() ? View.GONE : View.VISIBLE);
         toolbar.setTitle(getString(R.string.app_name));
+
+        /* --------- Dialog Update Version ------------------- */
+        Dialog tv_version = new Dialog(this);
+        tv_version.setCanceledOnTouchOutside(false);
+        tv_version.setCancelable(false);
+
+        tv_version.setContentView(R.layout.tips_new_version);
+        tv_version.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        if (adControl.isUpdate()) {
+            Log.v("isUpdate", "đã gọi dialog");
+            tv_version.show();
+            TextView btnUpdate = tv_version.findViewById(R.id.btn_ok);
+            btnUpdate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + context.getPackageName()));
+                    startActivity(intent);
+                }
+            });
+        }
+        /*--------------------------------------------------------*/
+
         bt_RemoveAds.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

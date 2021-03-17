@@ -8,107 +8,105 @@
         android:id="@+id/activity_battery_actionbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:gravity="center|left"
         android:layout_alignParentTop="true"
         android:background="@color/colorPrimary"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:gravity="center|left">
 
         <LinearLayout
             android:id="@+id/lr_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:paddingEnd="8.0dip">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onClick">
 
             <FrameLayout
-                android:layout_width="48.0dip"
-                android:layout_height="48.0dip"
+                android:layout_width="@dimen/_48sdp"
+                android:layout_height="match_parent"
                 android:layout_centerVertical="true">
 
                 <ImageView
                     android:id="@+id/iv_arrow"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="8.0dip"
+                    android:padding="10dp"
                     android:src="@drawable/ic_navigate_before_white_48dp" />
             </FrameLayout>
 
             <TextView
                 android:id="@+id/activity_charge_tv_title_1"
+                style="@style/textHeaderActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/googlesans_medium"
-                android:gravity="center_vertical"
                 android:text="@string/title_activity_charge_history"
-                android:textColor="@color/subsection"
-                android:textSize="@dimen/_16sdp" />
+                android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
     </RelativeLayout>
 
     <include
         android:id="@+id/banner"
-        android:layout_below="@+id/activity_battery_actionbar"
         layout="@layout/control_banner_ads"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_battery_actionbar" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/banner">
+        android:layout_below="@+id/banner"
+        android:layout_marginBottom="@dimen/_5sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/_5sdp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/bg_rounded"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="@dimen/_10sdp">
 
                 <RelativeLayout
                     android:id="@+id/view_chart"
-                    android:layout_width="@dimen/chart_battery_charge_count_width"
-                    android:layout_height="@dimen/chart_battery_charge_count_width"
-                    android:layout_margin="@dimen/chart_battery_charge_count_margin">
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_120sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:gravity="center">
 
                     <com.github.mikephil.charting.charts.PieChart
                         android:id="@+id/chartPie"
-                        android:layout_width="@dimen/chart_battery_charge_count_width"
-                        android:layout_height="@dimen/chart_battery_charge_count_width" />
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
 
                     <TextView
                         android:id="@+id/tvCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-
                         android:includeFontPadding="false"
                         android:text="0"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/text_size_value_status" />
+                        android:textColor="@color/title_dark"
+                        android:textSize="@dimen/_20sdp" />
 
                     <ImageView
                         android:id="@+id/img_charge_icon"
-                        android:layout_width="@dimen/img_charge_icon_width"
-                        android:layout_height="@dimen/img_charge_icon_width"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
                         android:layout_below="@+id/tvCount"
                         android:layout_centerHorizontal="true"
-                        app:tint="@color/color_black_6"
                         app:srcCompat="@drawable/ic_power" />
 
                     <ImageView
                         android:id="@+id/imgColor"
-                        android:layout_width="@dimen/img_chart_item_color_width"
-                        android:layout_height="@dimen/img_chart_item_color_width"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
                         android:layout_above="@+id/tvCount"
                         android:layout_centerHorizontal="true"
                         android:visibility="invisible" />
@@ -117,8 +115,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="20.0dip"
-                    android:layout_marginEnd="24.0dip">
+                    android:layout_weight="1">
 
                     <RelativeLayout
                         android:id="@+id/view_info_healthy"
@@ -128,8 +125,8 @@
 
                         <ImageView
                             android:id="@+id/imgHealthy"
-                            android:layout_width="@dimen/img_chart_item_color_width"
-                            android:layout_height="@dimen/img_chart_item_color_width"
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
                             android:layout_centerVertical="true"
                             android:background="@drawable/shape_status_healthy" />
 
@@ -139,10 +136,9 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
-
                             android:text="0"
-                            android:textColor="@color/description"
-                            android:textSize="@dimen/textsize_history_charge" />
+                            android:textColor="@color/title_dark"
+                            android:textSize="@dimen/_12sdp" />
 
                         <TextView
                             android:id="@+id/label_info_healthy"
@@ -152,10 +148,9 @@
                             android:layout_margin="8.0dip"
                             android:layout_toStartOf="@+id/tvHealthy"
                             android:layout_toEndOf="@+id/imgHealthy"
-
                             android:text="@string/bd_charge_record_healthy"
-                            android:textColor="@color/description"
-                            android:textSize="@dimen/text_size" />
+                            android:textColor="@color/title_dark"
+                            android:textSize="@dimen/_12sdp" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -166,8 +161,8 @@
 
                         <ImageView
                             android:id="@+id/imgNorml"
-                            android:layout_width="@dimen/img_chart_item_color_width"
-                            android:layout_height="@dimen/img_chart_item_color_width"
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
                             android:layout_centerVertical="true"
                             android:background="@drawable/shape_status_normal" />
 
@@ -177,10 +172,9 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
-
                             android:text="0"
-                            android:textColor="@color/description"
-                            android:textSize="@dimen/textsize_history_charge" />
+                            android:textColor="@color/title_dark"
+                            android:textSize="@dimen/_12sdp" />
 
                         <TextView
                             android:id="@+id/label_info_full"
@@ -190,10 +184,9 @@
                             android:layout_margin="8.0dip"
                             android:layout_toStartOf="@+id/tvNormal"
                             android:layout_toEndOf="@+id/imgNorml"
-
                             android:text="@string/bd_charge_record_normal"
-                            android:textColor="@color/description"
-                            android:textSize="@dimen/text_size" />
+                            android:textColor="@color/title_dark"
+                            android:textSize="@dimen/_12sdp" />
                     </RelativeLayout>
 
                     <RelativeLayout
@@ -204,8 +197,8 @@
 
                         <ImageView
                             android:id="@+id/imgOver"
-                            android:layout_width="@dimen/img_chart_item_color_width"
-                            android:layout_height="@dimen/img_chart_item_color_width"
+                            android:layout_width="@dimen/_15sdp"
+                            android:layout_height="@dimen/_15sdp"
                             android:layout_centerVertical="true"
                             android:background="@drawable/shape_status_over" />
 
@@ -215,10 +208,9 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_centerVertical="true"
-
                             android:text="0"
-                            android:textColor="@color/description"
-                            android:textSize="@dimen/textsize_history_charge" />
+                            android:textColor="@color/title_dark"
+                            android:textSize="@dimen/_12sdp" />
 
                         <TextView
                             android:id="@+id/label_info_over"
@@ -228,71 +220,51 @@
                             android:layout_margin="8.0dip"
                             android:layout_toStartOf="@+id/tvOver"
                             android:layout_toEndOf="@+id/imgOver"
-
                             android:text="@string/bd_charge_record_overcharging"
-                            android:textColor="@color/description"
-                            android:textSize="@dimen/text_size" />
+                            android:textColor="@color/title_dark"
+                            android:textSize="@dimen/_12sdp" />
                     </RelativeLayout>
                 </RelativeLayout>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/bg_rounded"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingTop="10dip"
-                android:paddingBottom="10dip">
+                android:padding="@dimen/_10sdp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dip"
-                    android:paddingBottom="10dip">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/last_charge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/setting_item_margin_left"
-
                         android:text="@string/go_last_charge_record"
                         android:textAllCaps="true"
-                        android:textColor="@color/purple"
-                        android:textSize="@dimen/_16sdp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1.0dip"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/setting_item_margin_left"
-                        android:layout_marginEnd="@dimen/setting_item_margin_left"
-                        android:layout_toEndOf="@+id/last_charge"
-                        android:background="@color/color_divider" />
+                        android:textColor="@color/progress_background"
+                        android:textSize="@dimen/_14sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     style="@style/ItemFrameTextRecord"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16.0dip"
-                    android:layout_marginEnd="16.0dip">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/label_last_full"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-
                         android:text="@string/go_since_the_last_full_charge"
-                        android:textColor="@color/description"
-                        android:textSize="@dimen/text_size" />
+                        android:textColor="@color/title_dark"
+                        android:textSize="@dimen/_12sdp" />
 
                     <TextView
                         android:id="@+id/tvLastFull"
@@ -300,18 +272,15 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="@dimen/margin_text_value_record"
-
                         android:text="@string/du_no_charger_record"
-                        android:textColor="@color/description"
-                        android:textSize="@dimen/text_size" />
+                        android:textColor="@color/title_dark"
+                        android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     style="@style/ItemFrameTextRecord"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16.0dip"
-                    android:layout_marginEnd="16.0dip"
                     android:orientation="horizontal">
 
                     <TextView
@@ -319,10 +288,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-
                         android:text="@string/bd_charger_type"
-                        android:textColor="@color/description"
-                        android:textSize="@dimen/text_size" />
+                        android:textColor="@color/title_dark"
+                        android:textSize="@dimen/_12sdp" />
 
                     <TextView
                         android:id="@+id/tvChargeType"
@@ -331,16 +299,14 @@
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:text="@string/du_no_charger_record"
-                        android:textColor="@color/description"
-                        android:textSize="@dimen/text_size" />
+                        android:textColor="@color/title_dark"
+                        android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     style="@style/ItemFrameTextRecord"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16.0dip"
-                    android:layout_marginEnd="16.0dip"
                     android:orientation="horizontal">
 
                     <TextView
@@ -348,10 +314,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-
                         android:text="@string/bd_charge_duration"
-                        android:textColor="@color/description"
-                        android:textSize="@dimen/text_size" />
+                        android:textColor="@color/title_dark"
+                        android:textSize="@dimen/_12sdp" />
 
                     <TextView
                         android:id="@+id/tvTimeCharge"
@@ -359,18 +324,15 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="@dimen/margin_text_value_record"
-
                         android:text="@string/du_no_charger_record"
-                        android:textColor="@color/description"
-                        android:textSize="@dimen/text_size" />
+                        android:textColor="@color/title_dark"
+                        android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
                 <RelativeLayout
                     style="@style/ItemFrameTextRecord"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16.0dip"
-                    android:layout_marginEnd="16.0dip"
                     android:orientation="horizontal">
 
                     <TextView
@@ -378,10 +340,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
-
                         android:text="@string/go_charge_quantity"
-                        android:textColor="@color/description"
-                        android:textSize="@dimen/text_size" />
+                        android:textColor="@color/title_dark"
+                        android:textSize="@dimen/_12sdp" />
 
                     <TextView
                         android:id="@+id/tvQuantity"
@@ -389,10 +350,9 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_marginStart="@dimen/margin_text_value_record"
-
                         android:text="@string/du_no_charger_record"
-                        android:textColor="@color/description"
-                        android:textSize="@dimen/text_size" />
+                        android:textColor="@color/title_dark"
+                        android:textSize="@dimen/_12sdp" />
                 </RelativeLayout>
 
             </LinearLayout>
@@ -400,41 +360,26 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:background="@drawable/bg_rounded"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingTop="10dip"
-                android:paddingBottom="10dip">
+                android:padding="@dimen/_10sdp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="10dip"
-                    android:paddingBottom="10dip">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/last_3_days_charge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/setting_item_margin_left"
-
                         android:text="@string/go_last_3_days"
                         android:textAllCaps="true"
                         android:textColor="@color/purple"
-                        android:textSize="@dimen/_16sdp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1.0dip"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="@dimen/setting_item_margin_left"
-                        android:layout_marginEnd="@dimen/setting_item_margin_left"
-                        android:layout_toEndOf="@+id/last_3_days_charge"
-                        android:background="@color/color_divider" />
+                        android:textSize="@dimen/_14sdp" />
                 </RelativeLayout>
 
                 <include
@@ -443,8 +388,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true" />
             </LinearLayout>
-
-
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
@@ -46,6 +47,13 @@ public class WhiteListActivity extends AppCompatActivity {
         toolbar.setTitle(getString(R.string.title_activity_white_list));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationIcon(R.drawable.ic_navigate_before_white_48dp);
+
+        /* ------------------- StatusBar text dark bg white ----------------- */
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.windowBackground));
+        /* ------------------------------------------------------------------ */
+
         intView();
         intEvent();
         intData();

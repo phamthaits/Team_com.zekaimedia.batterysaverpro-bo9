@@ -179,7 +179,7 @@ public class fragment1 extends Fragment {
             set2.setDrawValues(false);
             set2.setCircleColor(ContextCompat.getColor(getContext(), R.color.point_chart));
             set2.setDrawFilled(true);
-            set2.setFillColor(0xFF9B9AAA);
+            set2.setFillColor(0xFF717EEE);
             set2.setFillFormatter(new IFillFormatter() {
                 @Override
                 public float getFillLinePosition(ILineDataSet dataSet, LineDataProvider dataProvider) {
@@ -208,7 +208,7 @@ public class fragment1 extends Fragment {
             String [] values2 = new String[]{"","","","","","","","","","","","","","","","","","","","","20%","","","","","","","","","","","","","","","","","","","","40%","","","","","","","","","","","","","","","","","","","","60%","","","","","","","","","","","","","","","","","","","","80%","","","","","","","","","","","","","","","","","","","","100%"};
 
             XAxis xAxis = chart.getXAxis();
-            xAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.description));
+            xAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.title_dark));
             xAxis.setAxisMaximum(24);
             xAxis.setAxisMinimum(0);
             xAxis.setLabelCount(6);
@@ -217,7 +217,7 @@ public class fragment1 extends Fragment {
             chart.getXAxis().setDrawGridLines(false);
 
             YAxis yAxis = chart.getAxisLeft();
-            yAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.description));
+            yAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.title_dark));
             yAxis.setAxisMaximum(100);
             yAxis.setAxisMinimum(0);
             yAxis.setLabelCount(6);

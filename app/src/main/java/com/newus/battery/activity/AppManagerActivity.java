@@ -10,6 +10,7 @@ import android.os.Looper;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -62,6 +63,12 @@ public class AppManagerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_manager);
         context = this;
+
+        /* ------------------- StatusBar text dark bg white ----------------- */
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.windowBackground));
+        /* ------------------------------------------------------------------ */
+
         mProgressBarLoading = findViewById(R.id.progressBarLoading);
         mRecyclerView = findViewById(R.id.recyclerView);
         initAdapter();

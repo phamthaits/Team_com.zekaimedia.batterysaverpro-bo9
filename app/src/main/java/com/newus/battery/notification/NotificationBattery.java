@@ -152,19 +152,19 @@ public class NotificationBattery extends NotificationCompat.Builder {
                 shortcut_junk_clean = new ShortcutInfo.Builder(mContext, "shortcut_junk_clean")
                         .setShortLabel(mContext.getString(R.string.junk_clean_nav))
                         .setLongLabel(mContext.getString(R.string.junk_clean_nav))
-                        .setIcon(Icon.createWithResource(mContext, R.drawable.ic_clean_trash))
+                        .setIcon(Icon.createWithResource(mContext, R.drawable.ic_clean_trash_info))
                         .setIntent(iOptimize)
                         .build();
                 shortcut_boost = new ShortcutInfo.Builder(mContext, "shortcut_boost")
                         .setShortLabel(mContext.getString(R.string.phone_boost_nav))
                         .setLongLabel(mContext.getString(R.string.phone_boost_nav))
-                        .setIcon(Icon.createWithResource(mContext, R.drawable.ic_memory_boost))
+                        .setIcon(Icon.createWithResource(mContext, R.drawable.ic_memory_boost_info))
                         .setIntent(iOptimize)
                         .build();
                 shortcut_cool = new ShortcutInfo.Builder(mContext, "shortcut_cool")
                         .setShortLabel(mContext.getString(R.string.phone_cool_nav))
                         .setLongLabel(mContext.getString(R.string.phone_cool_nav))
-                        .setIcon(Icon.createWithResource(mContext, R.drawable.ic_temperature))
+                        .setIcon(Icon.createWithResource(mContext, R.drawable.ic_temperature_info))
                         .setIntent(iOptimize)
                         .build();
                 shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut_junk_clean, shortcut_boost, shortcut_cool));

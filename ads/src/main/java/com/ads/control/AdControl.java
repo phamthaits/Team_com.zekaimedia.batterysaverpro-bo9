@@ -34,6 +34,7 @@ public class AdControl {
     }
 
     public String admob_full() {
+        if (_isTestAds) return "ca-app-pub-3940256099942544/1033173712";
         return this.pre.getString("admob_full", "");
     }
 
@@ -55,7 +56,6 @@ public class AdControl {
     }
 
     public String admob_native() {
-//        return "/6499/example/native";
         if (_isTestAds) return "/6499/example/native";
         return this.pre.getString("admob_native", "");
     }
@@ -110,6 +110,7 @@ public class AdControl {
     }
 
     public String admob_banner() {
+        if (_isTestAds) return "/6499/example/banner";
         return this.pre.getString("admob_banner", "");
     }
 
@@ -136,8 +137,44 @@ public class AdControl {
         editor.commit();
     }
 
+    public String fb_native_main() {
+        return this.pre.getString("fb_native_main", "");
+    }
+
+    public void fb_native_main(String value) {
+        editor.putString("fb_native_main", value);
+        editor.commit();
+    }
+
+    public String fb_native_banner() {
+        return this.pre.getString("fb_native_banner", "");
+    }
+
+    public void fb_native_banner(String value) {
+        editor.putString("fb_native_banner", value);
+        editor.commit();
+    }
+
+    public String fb_native_rate_app() {
+        return this.pre.getString("fb_native_rate_app", "");
+    }
+
+    public void fb_native_rate_app(String value) {
+        editor.putString("fb_native_rate_app", value);
+        editor.commit();
+    }
+
+    public String fb_native_setting() {
+        return this.pre.getString("fb_native_setting", "");
+    }
+
+    public void fb_native_setting(String value) {
+        editor.putString("fb_native_setting", value);
+        editor.commit();
+    }
+
     public String fb_banner() {
-        return this.pre.getString("fb_banner", "");
+        return this.pre.getString("fb_native_banner", "");
     }
 
     public void fb_banner(String value) {
@@ -247,4 +284,17 @@ public class AdControl {
     }
 
     public boolean isStillShowAds = true;
+
+    public boolean isUpdate() {
+        return this.pre.getBoolean("isUpdate", false);
+    }
+
+    public void isUpdate(int value) {
+        editor.putBoolean("isUpdate", value != version);
+        editor.commit();
+    }
+
+    private int version = 2;
+
+
 }

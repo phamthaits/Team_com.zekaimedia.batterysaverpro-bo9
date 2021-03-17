@@ -3,35 +3,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="3dp"
-    android:background="@drawable/bg_rounded"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_marginHorizontal="@dimen/_5sdp"
     android:gravity="center"
-    android:orientation="horizontal"
-    android:padding="10dp">
+    android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/imgIconApp"
-        android:layout_width="@dimen/width_icon"
-        android:layout_height="@dimen/width_icon"
-        android:contentDescription="@string/app_name"
-        android:src="@mipmap/ic_launcher" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_rounded"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/_10sdp">
 
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:ellipsize="marquee"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:scrollHorizontally="true"
-        android:singleLine="true"
-        android:textColor="@color/purple"
-        android:textSize="@dimen/_16sdp"
-        tools:text="Person Name" />
+        <ImageView
+            android:id="@+id/imgIconApp"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/ic_launcher" />
 
-    <CheckBox
-        android:id="@+id/checkboxAddItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:textColor="@color/title_dark"
+            android:textSize="@dimen/_12sdp"
+            tools:text="Person Name" />
+
+        <CheckBox
+            android:id="@+id/checkboxAddItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:button="@drawable/checkbox" />
+    </LinearLayout>
 </LinearLayout>

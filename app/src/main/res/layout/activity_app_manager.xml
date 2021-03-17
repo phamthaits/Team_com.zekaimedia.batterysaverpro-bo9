@@ -1,54 +1,53 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/windowBackground"
     android:orientation="vertical">
+
     <RelativeLayout
         android:id="@+id/activity_battery_actionbar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:gravity="center|left"
         android:layout_alignParentTop="true"
         android:background="@color/colorPrimary"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="true"
+        android:gravity="center|left">
 
         <LinearLayout
             android:id="@+id/lr_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onClick"
-            android:paddingEnd="8.0dip">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onClick">
 
             <FrameLayout
-                android:layout_width="48.0dip"
-                android:layout_height="48.0dip"
+                android:layout_width="@dimen/_48sdp"
+                android:layout_height="match_parent"
                 android:layout_centerVertical="true">
 
                 <ImageView
                     android:id="@+id/iv_arrow"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="8.0dip"
+                    android:layout_margin="10dp"
                     android:src="@drawable/ic_navigate_before_white_48dp" />
             </FrameLayout>
 
             <TextView
                 android:id="@+id/activity_charge_tv_title_1"
+                style="@style/textHeaderActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:fontFamily="@font/googlesans_medium"
-                android:gravity="center_vertical"
                 android:text="@string/title_app_manager"
-                android:textColor="@color/subsection"
-                android:textSize="@dimen/_16sdp" />
+                android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
     </RelativeLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <include
             android:id="@+id/banner"
             layout="@layout/control_banner_ads"
@@ -57,14 +56,17 @@
             app:layout_constraintBottom_toTopOf="@+id/recyclerView"
             app:layout_constraintEnd_toStartOf="@+id/recyclerView"
             app:layout_constraintStart_toEndOf="@+id/recyclerView"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.newus.battery.view.AnimatedExpandableListView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_centerHorizontal="true"
-            android:padding="5dp"
+            android:divider="@null"
+            android:dividerHeight="0dp"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
             android:scrollbars="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

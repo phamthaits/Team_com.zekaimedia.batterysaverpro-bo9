@@ -71,7 +71,7 @@
                 android:shadowColor="#0000"
                 android:shadowDy="1"
                 android:shadowRadius="2"
-                android:text="Fast Charge &amp; Extend Battery Life"
+                android:text="Optimize Battery &amp; Extend Battery Life"
                 android:textAllCaps="true"
                 android:textColor="@color/text_color"
                 android:textSize="@dimen/_14sdp" />

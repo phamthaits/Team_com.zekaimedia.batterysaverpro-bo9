@@ -3,34 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="3dp"
-    android:background="@android:color/transparent"
-    android:orientation="vertical">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="@android:color/transparent" />
+    android:layout_marginHorizontal="@dimen/_5sdp"
+    android:gravity="center"
+    android:orientation="horizontal">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_rounded">
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/bg_rounded"
+        android:padding="@dimen/_10sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
+            android:layout_gravity="center"
+            android:background="@drawable/selector_row"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="7dp">
+            android:orientation="horizontal">
 
             <RelativeLayout
                 android:id="@+id/viewIconFile"
-                android:layout_width="@dimen/width_icon"
-                android:layout_height="@dimen/width_icon"
-                >
-<!--                android:background="@drawable/bg_icon_file"-->
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp">
 
                 <ImageView
                     android:id="@+id/imgFileApk"
@@ -43,15 +39,15 @@
 
             <ImageView
                 android:id="@+id/imgIconApp"
-                android:layout_width="@dimen/width_icon"
-                android:layout_height="@dimen/width_icon"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:contentDescription="@string/app_name"
                 android:src="@mipmap/ic_launcher" />
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginHorizontal="5dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -64,26 +60,28 @@
                     android:marqueeRepeatLimit="marquee_forever"
                     android:scrollHorizontally="true"
                     android:singleLine="true"
-                    android:textColor="@color/purple"
-                    android:textSize="@dimen/_16sdp"
-
+                    android:textColor="@color/title_dark"
+                    android:textSize="@dimen/_12sdp"
                     tools:text="Person Name" />
 
                 <TextView
                     android:id="@+id/tvSize"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:textColor="@color/description"
-                    android:textSize="@dimen/text_size"
                     android:fontFamily="@font/googlesans_light"
+                    android:singleLine="true"
+                    android:textColor="@color/title_dark"
+                    android:textSize="@dimen/_10sdp"
                     tools:text="Person Name" />
             </LinearLayout>
 
             <CheckBox
                 android:id="@+id/ckItem"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="5dp"
+                android:button="@drawable/checkbox" />
         </LinearLayout>
 
     </FrameLayout>

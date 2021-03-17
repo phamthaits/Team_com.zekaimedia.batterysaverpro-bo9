@@ -3,41 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/transparent"
+    android:layout_marginHorizontal="@dimen/_5sdp"
     android:orientation="vertical">
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="@android:color/transparent" />
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_rounded">
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@drawable/bg_rounded"
+        android:padding="@dimen/_10sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="@drawable/selector_row"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:paddingBottom="20dp"
-            android:paddingEnd="5dp"
-            android:paddingLeft="45dp"
-            android:paddingRight="5dp"
-            android:paddingStart="45dp"
-            android:paddingTop="20dp">
+            android:paddingVertical="@dimen/_5sdp"
+            android:paddingLeft="45dp">
 
             <TextView
                 android:id="@+id/tvNameHeaderAppManager"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/standard_padding"
                 android:layout_marginStart="@dimen/standard_padding"
+                android:layout_marginLeft="@dimen/standard_padding"
                 android:layout_weight="1"
-                android:textColor="@color/purple"
-                android:textSize="@dimen/_16sdp"
+                android:textColor="@color/title_dark"
+                android:textSize="@dimen/_12sdp"
                 tools:text="Group Name" />
 
             <TextView
@@ -46,12 +42,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/bg_textview_header"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
+                android:paddingHorizontal="@dimen/_15sdp"
+                android:paddingVertical="@dimen/_2sdp"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_16sdp"
+                android:textSize="@dimen/_12sdp"
                 tools:text="74 MB" />
-
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>

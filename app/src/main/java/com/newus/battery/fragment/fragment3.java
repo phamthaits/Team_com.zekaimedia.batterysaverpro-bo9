@@ -216,7 +216,7 @@ public class fragment3 extends Fragment {
         set1.enableDashedLine(10f, 10f, 0f);
         set1.setDrawCircles(false);
         set1.setDrawFilled(true);
-        set1.setFillColor(0xFF9B9AAA);
+        set1.setFillColor(0xFF717EEE);
         set1.setDrawFilled(true);
         set1.setFillFormatter(new IFillFormatter() {
             @Override
@@ -296,7 +296,7 @@ public class fragment3 extends Fragment {
         String [] values2 = new String[]{"","","","","","","","","","","","","","","","","","","","","20%","","","","","","","","","","","","","","","","","","","","40%","","","","","","","","","","","","","","","","","","","","60%","","","","","","","","","","","","","","","","","","","","80%","","","","","","","","","","","","","","","","","","","","100%"};
 
         XAxis xAxis = chart.getXAxis();
-        xAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.description));
+        xAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.title_dark));
         xAxis.setAxisMaximum(24);
         xAxis.setAxisMinimum(0);
         xAxis.setLabelCount(6);
@@ -304,7 +304,7 @@ public class fragment3 extends Fragment {
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
         YAxis yAxis = chart.getAxisLeft();
-        yAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.description));
+        yAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.title_dark));
         yAxis.setAxisMaximum(100);
         yAxis.setAxisMinimum(0);
         yAxis.setLabelCount(6);

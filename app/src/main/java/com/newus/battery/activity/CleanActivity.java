@@ -10,16 +10,12 @@ import android.content.pm.IPackageStatsObserver;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageStats;
 import android.content.pm.ResolveInfo;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.os.Environment;
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-
+import android.os.Environment;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -27,13 +23,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.newus.battery.notification.NotificationDevice;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.newus.battery.R;
 import com.newus.battery.Utilsb.SharePreferenceUtils;
 import com.newus.battery.Utilsb.Utils;
 import com.newus.battery.adapter.CleanAdapter;
 import com.newus.battery.model.ChildItem;
 import com.newus.battery.model.GroupItem;
+import com.newus.battery.notification.NotificationDevice;
 import com.newus.battery.task.TaskClean;
 import com.newus.battery.view.AnimatedExpandableListView;
 import com.newus.battery.view.RotateLoading;
@@ -47,7 +48,7 @@ import java.util.List;
 
 public class CleanActivity extends AppCompatActivity implements View.OnClickListener {
 
-    public  Boolean flagExit = false;
+    public Boolean flagExit = false;
     private AnimatedExpandableListView mRecyclerView;
     private TextView mTvTotalCache;
     private TextView mTvType;
@@ -77,7 +78,8 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
     private ScanDownLoadFiles mScanDownLoadFiles;
     private ScanLargeFiles mScanLargeFiles;
 
-    public static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE=300;
+    public static final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 300;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -86,7 +88,8 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.fragment_clean);
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
         requestPerMission();
-        NotificationDevice.cancle(this,NotificationDevice.ID_NOTIFICATTION_CLEAN_JUNK);
+        NotificationDevice.cancle(this, NotificationDevice.ID_NOTIFICATTION_CLEAN_JUNK);
+        getWindow().setStatusBarColor(Color.rgb(113, 126, 238));
     }
 
 
@@ -100,15 +103,17 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
                 return;
         }
     }
-    public void requestPerMission(){
+
+    public void requestPerMission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
                 && ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                     MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE);
-        }else{
+        } else {
             intView();
         }
     }
+
     @Override
     public void onRequestPermissionsResult(final int requestCode, @NonNull final String[] permissions, @NonNull final int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -120,7 +125,8 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
             }
         }
     }
-//    public void requestPermissionStorage() {
+
+    //    public void requestPermissionStorage() {
 //        if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
 //                != PackageManager.PERMISSION_GRANTED) {
 //
@@ -139,9 +145,8 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
 //            return;
 //        }
 //    }
-    public void intView(){
+    public void intView() {
         mViewLoading = findViewById(R.id.viewLoading);
-
         mRotateloadingApks = findViewById(R.id.rotateloadingApks);
         mRotateloadingCache = findViewById(R.id.rotateloadingCache);
         mRotateloadingDownloadFiles = findViewById(R.id.rotateloadingDownload);
@@ -185,10 +190,11 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onBackPressed() {
 
-        if(flagExit){
+        if (flagExit) {
             super.onBackPressed();
         }
     }
@@ -396,7 +402,7 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
         for (int i = 0; i < mGroupItems.size() + 1; i++) {
             if (i == mGroupItems.size()) {
                 //
-                startActivity(new Intent(CleanActivity.this,CleanResultActivity.class));
+                startActivity(new Intent(CleanActivity.this, CleanResultActivity.class));
                 finish();
                 return;
             }
@@ -693,6 +699,7 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
         super.onPause();
 
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -701,7 +708,7 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    public void cancleTask(){
+    public void cancleTask() {
         if (mScanApkFiles != null
                 && mScanApkFiles.getStatus() == AsyncTask.Status.RUNNING) {
             mScanApkFiles.cancel(true);
@@ -715,7 +722,7 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
         if (mScanDownLoadFiles != null
                 && mScanDownLoadFiles.getStatus() == AsyncTask.Status.RUNNING) {
             mScanDownLoadFiles.cancel(true);
-            mScanDownLoadFiles =null;
+            mScanDownLoadFiles = null;
         }
         if (mScanLargeFiles != null
                 && mScanLargeFiles.getStatus() == AsyncTask.Status.RUNNING) {

@@ -3,33 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/layout"
     android:layout_width="match_parent"
-    android:layout_height="64dp">
+    android:layout_height="@dimen/_60sdp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:background="#29292C">
+        android:layout_height="@dimen/_60sdp"
+        android:background="@color/white">
 
         <LinearLayout
             android:id="@+id/notification_layout_main_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/_60sdp"
             android:layout_toStartOf="@+id/notification_layout_show_icon_container"
             android:orientation="horizontal">
 
             <FrameLayout
                 android:id="@+id/image"
-                android:layout_width="64dp"
-                android:layout_height="match_parent"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
                     android:layout_gravity="center"
+                    android:scaleType="centerInside"
+                    android:padding="@dimen/_10sdp"
                     android:src="@drawable/ic_temperature_normal"
-                    app:tint="#FF5252"
-                    android:scaleType="centerInside" />
+                    app:tint="#FF5252" />
             </FrameLayout>
 
             <LinearLayout
@@ -42,34 +43,33 @@
                 <TextView
                     android:id="@+id/tvNotiTitle"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/cool_down_title"
-
                     android:textColor="@color/notification_1"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/_12sdp" />
 
                 <TextView
                     android:id="@+id/tvNotiTitleDes"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:ellipsize="marquee"
+                    android:fontFamily="@font/googlesans_light"
                     android:singleLine="true"
                     android:text="@string/cool_down_des"
-                    android:fontFamily="@font/googlesans_light"
-                    android:textColor="@color/grey_700"
-                    android:textSize="12sp" />
+                    android:textColor="@color/progress_background"
+                    android:textSize="@dimen/_10sdp" />
             </LinearLayout>
         </LinearLayout>
 
         <FrameLayout
             android:id="@+id/notification_layout_show_icon_container"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="4dp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
             android:layout_toStartOf="@+id/notification_layout_boost_container"
             android:visibility="gone">
 
@@ -80,14 +80,9 @@
                 android:layout_gravity="center"
                 android:background="@drawable/install_button_bg_radius"
                 android:gravity="center"
-                android:minWidth="60dp"
-                android:paddingBottom="8dp"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:paddingTop="9dp"
+                android:padding="@dimen/_10sdp"
                 android:text="Boost"
                 android:textAllCaps="true"
-
                 android:textColor="@android:color/white"
                 android:textSize="13sp"
                 android:textStyle="bold" />
@@ -96,10 +91,10 @@
         <FrameLayout
             android:id="@+id/notification_layout_boost_container"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/_60sdp"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="4dp"
-            android:layout_marginEnd="8dp">
+            android:layout_marginEnd="@dimen/_10sdp">
 
             <TextView
                 android:id="@+id/btnAction"
@@ -109,15 +104,11 @@
                 android:layout_gravity="center"
                 android:background="@drawable/bg_button_notification_red"
                 android:gravity="center"
-                android:paddingBottom="8dp"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:paddingTop="9dp"
+                android:padding="@dimen/_10sdp"
                 android:text="@string/cool_down_button"
-                android:textColor="@android:color/white"
-
                 android:textAllCaps="true"
-                android:textSize="13sp"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/_12sdp"
                 android:textStyle="bold" />
         </FrameLayout>
     </RelativeLayout>

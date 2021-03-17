@@ -99,7 +99,6 @@ public class CleanAdapter extends AnimatedExpandableListView.AnimatedExpandableL
                 holder.viewIconFile.setVisibility(View.GONE);
                 holder.imgIconApp.setVisibility(View.VISIBLE);
                 holder.imgIconApp.setImageDrawable(item.getApplicationIcon());
-
                 holder.ckItem.setVisibility(View.GONE);
                 break;
             default:

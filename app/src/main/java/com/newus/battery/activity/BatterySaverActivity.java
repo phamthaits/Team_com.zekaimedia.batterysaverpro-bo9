@@ -1,28 +1,26 @@
 package com.newus.battery.activity;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionInfo;
 import android.content.pm.ServiceInfo;
+import android.graphics.Color;
+import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.app.ActivityManager;
-import android.content.Intent;
-import android.graphics.PorterDuff.Mode;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
@@ -31,16 +29,17 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
 import com.ads.control.AdControl;
 import com.ads.control.AdControlHelp;
 import com.ads.control.AdControlHelp.AdCloseListener;
+import com.newus.battery.R;
 import com.newus.battery.Utilsb.SharePreferenceUtils;
 import com.newus.battery.Utilsb.Utils;
 import com.newus.battery.model.TaskInfo;
-
 import com.skyfishjy.library.RippleBackground;
-
-import com.newus.battery.R;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -76,19 +75,22 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
-
         Utils.setLocate(context);
         setContentView(R.layout.activity_do_optimize);
         adControlHelp = AdControlHelp.getInstance(context);
         adControl = AdControl.getInstance(context);
+        /* ------------------- StatusBar text dark bg white ----------------- */
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+        /* ------------------------------------------------------------------ */
         intView();
 
         View bt_RemoveAds = findViewById(R.id.remove_ads);
         bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
 
         adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
-                R.layout.item_admob_native_ad,R.layout.item_fb_native_ad,
-                R.layout.item_mopub_native_ad, true,false);
+                R.layout.item_admob_native_ad, R.layout.item_fb_native_ad,
+                R.layout.item_mopub_native_ad, true, false);
         adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
     }
 
@@ -177,8 +179,8 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         this.ivDoneAnim.setAnimationListener(new anmDone());
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), Mode.MULTIPLY);
         this.ivDone.setColorFilter(getResources().getColor(R.color.color_white), Mode.MULTIPLY);
-        this.rocketImageOut.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
-        this.rocketImage.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
+//        this.rocketImageOut.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
+//        this.rocketImage.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
         if (!Utils.checkShouldDoing(context, 3)) {
             cv_trash_cleaner.setVisibility(View.GONE);
         }
@@ -442,7 +444,9 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         Animation slideUp = AnimationUtils.loadAnimation(BatterySaverActivity.this, R.anim.zoom_in);
         lrScan.startAnimation(slideUp);
         BatterySaverActivity.this.lrScan.setVisibility(View.GONE);
-
+        getWindow().setStatusBarColor(Color.rgb(113, 126, 238));
+        LinearLayout lrBack = findViewById(R.id.lr_back);
+        lrBack.setBackgroundColor(Color.rgb(113, 126, 238));
         BatterySaverActivity.this.parentAds.setAlpha(0.0f);
         BatterySaverActivity.this.parentAds.setVisibility(View.VISIBLE);
         BatterySaverActivity.this.parentAds.animate().alpha(1.0f).start();

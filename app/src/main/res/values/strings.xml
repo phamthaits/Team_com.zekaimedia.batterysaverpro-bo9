@@ -23,12 +23,12 @@
     //Phone Boost
     <string name="boost_description">"Phone is slow? \nToo many apps running in background"</string>
     //Phone Cooler
-    <string name="cool_description">"Phone is hot? \nCool down your phone now to extend phone life"</string>
+    <string name="cool_description">"Phone is hot? \nCool down phone temperature now"</string>
     <string name="phone_cooler">Cool</string>
     //Charge History
     <string name="history_description">Manage All Charging</string>
     //App Manager
-    <string name="manager_description">Manage your apps like uninstall, backup...</string>
+    <string name="manager_description">Manage your apps like uninstall</string>
     //Settings
     <string name="settings_description">Manage All Setting</string>
     //Remove Ads
@@ -187,7 +187,7 @@
     <string name="pc_scanning">Scanning</string>
     <string name="cpugpuram" translatable="false">CPU,GPU,RAM</string>
     <string name="bd_power_issue">Power issue</string>
-    <string name="app_name">Super Battery Doctor</string>
+    <string name="app_name">Battery Saver</string>
     <string name="power_full">Power is full</string>
     <string name="auto_disable">Disable</string>
     <string name="on_status">ON</string>

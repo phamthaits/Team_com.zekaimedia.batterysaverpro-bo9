@@ -97,16 +97,16 @@
 
                     <ImageView
                         android:id="@+id/img_done"
-                        android:layout_width="@dimen/img_mark_size"
-                        android:layout_height="@dimen/img_mark_size"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
                         android:layout_alignParentRight="true"
                         android:padding="5dp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:src="@drawable/ic_optimize" />
 
                     <com.airbnb.lottie.LottieAnimationView
-                        android:layout_width="@dimen/img_mark_size"
-                        android:layout_height="@dimen/img_mark_size"
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_100sdp"
                         android:layout_alignParentRight="true"
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true"
