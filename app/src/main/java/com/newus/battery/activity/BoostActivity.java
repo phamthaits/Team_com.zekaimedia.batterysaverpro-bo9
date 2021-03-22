@@ -57,9 +57,10 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         context = this;
         adControlHelp = AdControlHelp.getInstance(context);
 
-        /* ------------------- StatusBar text dark bg white ----------------- */
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        /* ------------------- StatusBar Navigation text dark bg white ----------------- */
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.white));
         /* ------------------------------------------------------------------ */
 
         NotificationDevice.cancle(context, NotificationDevice.ID_NOTIFICATTION_BOOST);
@@ -220,6 +221,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         rlScan.startAnimation(slideUp);
         BoostActivity.this.rlScan.setVisibility(View.GONE);
         getWindow().setStatusBarColor(Color.rgb(251, 93, 96));
+        getWindow().setNavigationBarColor(Color.rgb(251, 93, 96));
         LinearLayout lrBack = findViewById(R.id.lr_back);
         lrBack.setBackgroundColor(Color.rgb(251, 93, 96));
         BoostActivity.this.parentAds.setAlpha(0.0f);

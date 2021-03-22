@@ -79,9 +79,10 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         checkTask();
         adControlHelp = AdControlHelp.getInstance(context);
 
-        /* ------------------- StatusBar text dark bg white ----------------- */
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        /* ------------------- StatusBar Navigation text dark bg white ----------------- */
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.white));
         /* ------------------------------------------------------------------ */
 
         View bt_RemoveAds = findViewById(R.id.remove_ads);
@@ -440,6 +441,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         lrScan.startAnimation(slideUp);
         CoolActivity.this.lrScan.setVisibility(View.GONE);
         getWindow().setStatusBarColor(Color.rgb(42, 195, 255));
+        getWindow().setNavigationBarColor(Color.rgb(42, 195, 255));
         LinearLayout lrBack = findViewById(R.id.lr_back);
         lrBack.setBackgroundColor(Color.rgb(42, 195, 255));
         CoolActivity.this.parentAds.setAlpha(0.0f);

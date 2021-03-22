@@ -27,8 +27,7 @@
                     android:id="@+id/bt_removeads"
                     android:layout_width="wrap_content"
                     android:background="@drawable/ic_ads"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp" />
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
         </androidx.appcompat.widget.Toolbar>
         <FrameLayout
@@ -51,5 +50,4 @@
 <!--            app:itemTextAppearanceActive="@style/BottomNavigationViewTextStyle"-->
 <!--            app:itemTextAppearanceInactive="@style/BottomNavigationViewTextStyle"/>-->
     </RelativeLayout>
-    <!--            app:itemIconTint="@color/colorAccent"-->
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

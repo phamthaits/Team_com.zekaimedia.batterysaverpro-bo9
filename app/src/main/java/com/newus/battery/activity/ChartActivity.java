@@ -61,9 +61,10 @@ public class ChartActivity extends AppCompatActivity  {
         context = this;
         adControlHelp = AdControlHelp.getInstance(context);
 
-        /* ------------------- StatusBar text dark bg white ----------------- */
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        /* ------------------- StatusBar Navigation text dark bg white ----------------- */
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.windowBackground));
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.windowBackground));
         /* ------------------------------------------------------------------ */
 
         adapterViewPager = new ChartAdapter(this.getSupportFragmentManager());

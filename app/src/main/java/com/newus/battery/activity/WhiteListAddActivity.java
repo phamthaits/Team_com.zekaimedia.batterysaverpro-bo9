@@ -57,9 +57,10 @@ public class WhiteListAddActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationIcon(R.drawable.ic_navigate_before_white_48dp);
 
-        /* ------------------- StatusBar text dark bg white ----------------- */
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        /* ------------------- StatusBar Navigation text dark bg white ----------------- */
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.windowBackground));
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.windowBackground));
         /* ------------------------------------------------------------------ */
 
         intView();

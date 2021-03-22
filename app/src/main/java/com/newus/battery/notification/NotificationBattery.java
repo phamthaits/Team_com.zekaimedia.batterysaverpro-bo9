@@ -8,18 +8,19 @@ import android.content.Intent;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.graphics.drawable.Icon;
+import android.view.View;
+import android.widget.RemoteViews;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
-
-import android.view.View;
-import android.widget.RemoteViews;
 
 import com.newus.battery.MainActivity;
 import com.newus.battery.R;
 import com.newus.battery.Utilsb.SharePreferenceUtils;
 import com.newus.battery.Utilsb.Utils;
 import com.newus.battery.activity.BoostActivity;
+import com.newus.battery.activity.CleanActivity;
+import com.newus.battery.activity.CoolActivity;
 
 import java.util.Arrays;
 
@@ -104,10 +105,18 @@ public class NotificationBattery extends NotificationCompat.Builder {
         intent.setAction("LOCATION_SHORTCUT");
         PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, intent, 0);
 
+        Intent iCleaner = new Intent(mContext, CleanActivity.class);
+        iCleaner.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        iCleaner.setAction("LOCATION_SHORTCUT");
+
         Intent iOptimize = new Intent(mContext, BoostActivity.class);
         iOptimize.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         iOptimize.setAction("LOCATION_SHORTCUT");
         PendingIntent pOptipimize = PendingIntent.getActivity(mContext, 0, iOptimize, 0);
+
+        Intent iCooler = new Intent(mContext, CoolActivity.class);
+        iCooler.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        iCooler.setAction("LOCATION_SHORTCUT");
 
         RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.custom_notification);
         remoteViews.setOnClickPendingIntent(R.id.img_clean, pOptipimize);
@@ -153,7 +162,7 @@ public class NotificationBattery extends NotificationCompat.Builder {
                         .setShortLabel(mContext.getString(R.string.junk_clean_nav))
                         .setLongLabel(mContext.getString(R.string.junk_clean_nav))
                         .setIcon(Icon.createWithResource(mContext, R.drawable.ic_clean_trash_info))
-                        .setIntent(iOptimize)
+                        .setIntent(iCleaner)
                         .build();
                 shortcut_boost = new ShortcutInfo.Builder(mContext, "shortcut_boost")
                         .setShortLabel(mContext.getString(R.string.phone_boost_nav))
@@ -165,7 +174,7 @@ public class NotificationBattery extends NotificationCompat.Builder {
                         .setShortLabel(mContext.getString(R.string.phone_cool_nav))
                         .setLongLabel(mContext.getString(R.string.phone_cool_nav))
                         .setIcon(Icon.createWithResource(mContext, R.drawable.ic_temperature_info))
-                        .setIntent(iOptimize)
+                        .setIntent(iCooler)
                         .build();
                 shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut_junk_clean, shortcut_boost, shortcut_cool));
 //                shortcutManager.addDynamicShortcuts(Arrays.asList());

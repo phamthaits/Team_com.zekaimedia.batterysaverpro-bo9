@@ -36,7 +36,7 @@
             android:id="@+id/adview"
             android:layout_width="match_parent"
             android:layout_height='50dp'
-            app:moPubAdSize='height_50'></com.mopub.mobileads.MoPubView>
+            app:moPubAdSize='height_50'/>
     </FrameLayout>
 
     <include layout="@layout/load_banner" />

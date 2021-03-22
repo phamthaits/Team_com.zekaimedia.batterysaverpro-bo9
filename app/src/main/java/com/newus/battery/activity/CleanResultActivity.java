@@ -137,8 +137,11 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+                /* ------------------- StatusBar Navigation text dark bg white ----------------- */
+                getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
                 getWindow().setStatusBarColor(ContextCompat.getColor(context, R.color.white));
+                getWindow().setNavigationBarColor(ContextCompat.getColor(context, R.color.white));
+                /* ------------------------------------------------------------------ */
 
             }
 
@@ -160,6 +163,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
     private void loadResult(HoloCircularProgressBar holoCircularProgressBar, float f) {
         holoCircularProgressBar.setProgress(f);
         getWindow().setStatusBarColor(Color.rgb(113, 126, 238));
+        getWindow().setNavigationBarColor(Color.rgb(113, 126, 238));
         LinearLayout lrBack = findViewById(R.id.lr_back);
         lrBack.setBackgroundColor(Color.rgb(113, 126, 238));
         Animation slideUp = AnimationUtils.loadAnimation(CleanResultActivity.this, R.anim.zoom_in);

@@ -79,9 +79,10 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         setContentView(R.layout.activity_do_optimize);
         adControlHelp = AdControlHelp.getInstance(context);
         adControl = AdControl.getInstance(context);
-        /* ------------------- StatusBar text dark bg white ----------------- */
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+        /* ------------------- StatusBar Navigation text dark bg white ----------------- */
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+        getWindow().setStatusBarColor(ContextCompat.getColor(context, R.color.white));
+        getWindow().setNavigationBarColor(ContextCompat.getColor(context, R.color.white));
         /* ------------------------------------------------------------------ */
         intView();
 
@@ -445,6 +446,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         lrScan.startAnimation(slideUp);
         BatterySaverActivity.this.lrScan.setVisibility(View.GONE);
         getWindow().setStatusBarColor(Color.rgb(113, 126, 238));
+        getWindow().setNavigationBarColor(Color.rgb(113, 126, 238));
         LinearLayout lrBack = findViewById(R.id.lr_back);
         lrBack.setBackgroundColor(Color.rgb(113, 126, 238));
         BatterySaverActivity.this.parentAds.setAlpha(0.0f);

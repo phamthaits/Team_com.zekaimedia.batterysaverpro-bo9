@@ -23,10 +23,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
-
-import androidx.fragment.app.Fragment;
-import androidx.core.content.ContextCompat;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,33 +37,34 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+
 import com.ads.control.AdControl;
 import com.ads.control.AdControlHelp;
 import com.newus.battery.BatteryMode.BatteryInfo;
+import com.newus.battery.R;
 import com.newus.battery.Utilsb.BatteryPref;
 import com.newus.battery.Utilsb.SharePreferenceUtils;
 import com.newus.battery.Utilsb.Utils;
 import com.newus.battery.activity.AppManagerActivity;
 import com.newus.battery.activity.BaseActivity;
+import com.newus.battery.activity.BatterySaverActivity;
+import com.newus.battery.activity.BoostActivity;
 import com.newus.battery.activity.ChartActivity;
 import com.newus.battery.activity.CleanActivity;
+import com.newus.battery.activity.CoolActivity;
 import com.newus.battery.activity.PermissionActivity;
 import com.newus.battery.activity.RemoveAdsActivity;
 import com.newus.battery.activity.SettingActivity;
 import com.newus.battery.service.BatteryService;
+import com.newus.battery.task.BatteryTask;
+import com.newus.battery.task.TaskCount;
 import com.newus.battery.task.TaskCountDoing;
-
+import com.newus.battery.view.WaveDrawable;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 import com.skyfishjy.library.RippleBackground;
-
-import com.newus.battery.R;
-import com.newus.battery.task.BatteryTask;
-import com.newus.battery.task.TaskCount;
-import com.newus.battery.activity.CoolActivity;
-import com.newus.battery.activity.BatterySaverActivity;
-import com.newus.battery.activity.BoostActivity;
-import com.newus.battery.view.WaveDrawable;
 
 import java.util.concurrent.Callable;
 
@@ -1047,12 +1044,10 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
 
             if (paramIntent.getAction().equals(LocationManager.PROVIDERS_CHANGED_ACTION)) {
                 updateLocationImage();
-
             }
 
             if (paramIntent.getAction().equals(Intent.ACTION_AIRPLANE_MODE_CHANGED)) {
                 updateAirplaneImage();
-
             }
         }
     };
@@ -1073,12 +1068,10 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private void updateAirplaneImage() {
         try {
             if (isAirplaneModeOn(getActivity())) {
-
                 btnAirPlane.setImageResource(R.drawable.ic_airplane_true);
             } else {
                 btnAirPlane.setImageResource(R.drawable.ic_airplane_false);
             }
-
         } catch (Exception e) {
         }
     }

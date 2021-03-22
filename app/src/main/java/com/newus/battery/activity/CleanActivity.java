@@ -90,6 +90,7 @@ public class CleanActivity extends AppCompatActivity implements View.OnClickList
         requestPerMission();
         NotificationDevice.cancle(this, NotificationDevice.ID_NOTIFICATTION_CLEAN_JUNK);
         getWindow().setStatusBarColor(Color.rgb(113, 126, 238));
+        getWindow().setNavigationBarColor(Color.rgb(113, 126, 238));
     }
 
 
