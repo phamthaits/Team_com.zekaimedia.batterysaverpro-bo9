@@ -12,7 +12,6 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -68,7 +67,7 @@ public class MainActivity extends BaseActivity {
             Intent intentCleaner = new Intent();
             intentCleaner.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntentCleaner);
             intentCleaner.putExtra(Intent.EXTRA_SHORTCUT_NAME, this.getString(R.string.junk_clean_nav));
-            intentCleaner.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource.fromContext(getApplicationContext(), R.drawable.ic_clean_trash));
+            intentCleaner.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource.fromContext(getApplicationContext(), R.drawable.ic_clean_trash_info));
             intentCleaner.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
             getApplicationContext().sendBroadcast(intentCleaner);
 
@@ -77,7 +76,7 @@ public class MainActivity extends BaseActivity {
             Intent intentBoost = new Intent();
             intentBoost.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntentBoost);
             intentBoost.putExtra(Intent.EXTRA_SHORTCUT_NAME, this.getString(R.string.phone_boost_nav));
-            intentBoost.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource.fromContext(getApplicationContext(), R.drawable.ic_memory_boost));
+            intentBoost.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource.fromContext(getApplicationContext(), R.drawable.ic_memory_boost_info));
             intentBoost.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
             getApplicationContext().sendBroadcast(intentBoost);
 
@@ -86,7 +85,7 @@ public class MainActivity extends BaseActivity {
             Intent intentCooler = new Intent();
             intentCooler.putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntentCooler);
             intentCooler.putExtra(Intent.EXTRA_SHORTCUT_NAME, this.getString(R.string.phone_cool_nav));
-            intentCooler.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource.fromContext(getApplicationContext(), R.drawable.ic_temperature));
+            intentCooler.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE, Intent.ShortcutIconResource.fromContext(getApplicationContext(), R.drawable.ic_temperature_info));
             intentCooler.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
             getApplicationContext().sendBroadcast(intentCooler);
             /**
