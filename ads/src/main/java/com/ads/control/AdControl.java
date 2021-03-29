@@ -132,7 +132,7 @@ public class AdControl {
     }
 
     public boolean isStillShowAds = true;
-    private int version = 1;
+    private int version = 2;
 
     public int old_date() {
         return this.pre.getInt("old_date", -1);

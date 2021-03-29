@@ -188,8 +188,7 @@ public class AdmobHelp {
             public void onNativeAdLoaded(NativeAd nativeAd) {
                 // You must call destroy on old ads when you are done with them,
                 // otherwise you will have a memory leak.
-                NativeAdView adView = (NativeAdView) mActivity.getLayoutInflater()
-                        .inflate(admob_layout_resource, null);
+                NativeAdView adView = (NativeAdView) mActivity.getLayoutInflater().inflate(admob_layout_resource, null);
                 populateNativeAdView(nativeAd, adView, is_native_banner);
                 frameLayout.removeAllViews();
                 frameLayout.addView(adView);
@@ -316,13 +315,13 @@ public class AdmobHelp {
             ((Button) adView.getCallToActionView()).setText(nativeAd.getCallToAction());
         }
 
-//        if (nativeAd.getIcon() == null) {
-//            adView.getIconView().setBackground(context.getResources().getDrawable(R.drawable.ic_ad_new));
-//        } else {
-//            ((ImageView) adView.getIconView()).setImageDrawable(
-//                    nativeAd.getIcon().getDrawable());
-//            adView.getIconView().setVisibility(View.VISIBLE);
-//        }
+        if (nativeAd.getIcon() == null) {
+            adView.getIconView().setBackground(context.getResources().getDrawable(R.drawable.ic_test_ad));
+        } else {
+            ((ImageView) adView.getIconView()).setImageDrawable(
+                    nativeAd.getIcon().getDrawable());
+            adView.getIconView().setVisibility(View.VISIBLE);
+        }
 
         if (nativeAd.getPrice() == null) {
             adView.getPriceView().setVisibility(View.INVISIBLE);
@@ -375,79 +374,4 @@ public class AdmobHelp {
         // Step 3 - Get adaptive ad size and return for setting on the ad view.
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(activity, adWidth);
     }
-
-//    public void showRewardedAd(String ads, Activity activity, UserEarnedReward earnedReward, AdFailedToShowListener adFailedToShowListener, AdDismissedListener adDismissedListener) {
-//        Log.v("ads", "Đã gọi show Reward");
-//        if (!canShowRewardAd) {
-//            if (adFailedToShowListener != null) adFailedToShowListener.onAdFailed();
-//            loadRewardedAd(ads);
-//            return;
-//        }
-//        canShowRewardAd = false;
-//        FullScreenContentCallback fullScreenContentCallback = new FullScreenContentCallback() {
-//            @Override
-//            public void onAdFailedToShowFullScreenContent(AdError adError) {
-//                Log.v("ads", "Show Failed Reward");
-//                if (adFailedToShowListener != null) adFailedToShowListener.onAdFailed();
-//                super.onAdFailedToShowFullScreenContent(adError);
-//            }
-//
-//            @Override
-//            public void onAdShowedFullScreenContent() {
-//                Log.v("ads", "Show suscess Reward");
-//                super.onAdShowedFullScreenContent();
-//            }
-//
-//            @Override
-//            public void onAdDismissedFullScreenContent() {
-//                Log.v("ads", "Người dùng skip.");
-//                loadRewardedAd(ads);
-//                if (adDismissedListener != null) adDismissedListener.onAdDismissed();
-//                super.onAdDismissedFullScreenContent();
-//            }
-//        };
-//        _rewardedAd.setFullScreenContentCallback(fullScreenContentCallback);
-//        _rewardedAd.show(activity, new OnUserEarnedRewardListener() {
-//            @Override
-//            public void onUserEarnedReward(@NonNull RewardItem rewardItem) {
-//                Log.v("ads", "Người dùng earnedReward");
-//                earnedReward.onUserEarnedReward();
-//            }
-//        });
-//    }
-//    public void destroyNative() {
-//        if (nativeAd != null) {
-//            nativeAd.destroy();
-//        }
-//    }
-//private RewardedAd _rewardedAd;
-//    private static boolean canShowRewardAd = false;
-//    private static boolean _rewardAdLoading = false;
-//public void loadRewardedAd(String ads) {
-//    Log.v("ads", "Đã gọi Reward");
-//    if (_rewardedAd != null && canShowRewardAd)
-//        return;
-//    if (_rewardAdLoading) return;
-//    _rewardAdLoading = true;
-//    RewardedAdLoadCallback adLoadCallback = new RewardedAdLoadCallback() {
-//        @Override
-//        public void onAdLoaded(@NonNull RewardedAd rewardedAd) {
-//            _rewardAdLoading = false;
-//            _rewardedAd = rewardedAd;
-//            canShowRewardAd = true;
-//            Log.v("ads", "Đã load thành công Reward");
-//            super.onAdLoaded(rewardedAd);
-//        }
-//
-//        @Override
-//        public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-//            _rewardAdLoading = false;
-//            Log.v("ads", "Load Không thành công Reward");
-//            canShowRewardAd = false;
-//            super.onAdFailedToLoad(loadAdError);
-//        }
-//    };
-//    AdManagerAdRequest adRequest = new AdManagerAdRequest.Builder().build();
-//    RewardedAd.load(context, ads, adRequest, adLoadCallback);
-//}
 }

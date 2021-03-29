@@ -2,6 +2,7 @@ package com.newus.battery.activity;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -67,6 +68,8 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout lrScan;
     private Context context;
     private AdControlHelp adControlHelp;
+    private AdControl adControl;
+    private Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +79,10 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         new CoolActivity.LoadRunningTask().execute();
         intView();
         context = this;
+        activity = this;
         checkTask();
         adControlHelp = AdControlHelp.getInstance(context);
+        adControl = AdControl.getInstance(context);
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
@@ -88,9 +93,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         View bt_RemoveAds = findViewById(R.id.remove_ads);
         bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
 
-        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
-                R.layout.item_admob_native_ad, R.layout.item_fb_native_ad,
-                R.layout.item_mopub_native_ad, true, false);
+        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), R.layout.item_admob_native_ad, true, false, adControl.admob_native_main());
         adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
     }
 
@@ -423,7 +426,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 //                SharePreferenceUtils.getInstance(CoolActivity.this).setFlagAds(false);
 //                    AdmobHelp.getInstance().loadInterstitialAd   (this, TypeAds.admod_full_phonecooler,);
 
-            adControlHelp.showInterstitialAd(adCloseListener);
+            adControlHelp.showInterstitialAd(activity, adCloseListener);
 //            AdmobHelp.getInstance().showInterstitialAd(new AdmobHelp.AdCloseListener() {
 //                @Override
 //                public void onAdClosed() {

@@ -1,5 +1,6 @@
 package com.newus.battery.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -34,20 +35,24 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
     RelativeLayout rlScan;
     FrameLayout parentAds;
     private AdControlHelp adControlHelp;
+    private AdControl adControl;
     private Context context;
+    private Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
         context = this;
+        activity = this;
         adControlHelp = AdControlHelp.getInstance(context);
+        adControl = AdControl.getInstance(context);
         setContentView(R.layout.activity_clean_result);
 
         View bt_RemoveAds = findViewById(R.id.remove_ads);
         bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
 
-        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder));
+        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), R.layout.item_admob_native_ad, true, false, adControl.admob_native_main());
         SharePreferenceUtils.getInstance(this).setFlagAds(true);
 
         rlScan = findViewById(R.id.rlScanning);
@@ -126,7 +131,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            adControlHelp.showInterstitialAd(adCloseListener);
+            adControlHelp.showInterstitialAd(activity, adCloseListener);
         }
     }
 

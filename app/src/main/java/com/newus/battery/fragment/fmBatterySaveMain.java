@@ -420,12 +420,10 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         View bt_RemoveAds = view.findViewById(R.id.remove_ads);
         bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
         adControlHelp.loadNative(getActivity(), view.findViewById(R.id.native_ads_control_holder), R.layout.item_admob_native_setting,
-                R.layout.item_fb_native_setting,
-                R.layout.item_mopub_native_setting, false, false, adControl.admob_native_main(), adControl.fb_native_main());
+                false, false, adControl.admob_native_main());
         adControlHelp.loadNative(getActivity(),
-                view.findViewById(R.id.banner_native_ads_control_holder), R.layout.item_admob_banner_native, R.layout.item_fb_banner_native,
-                R.layout.item_mopub_banner_native,
-                false, true, adControl.admob_native_banner(), adControl.fb_native_banner());
+                view.findViewById(R.id.banner_native_ads_control_holder), R.layout.item_admob_banner_native,
+                false, true, adControl.admob_native_banner());
         /*adControlHelp.loadBanner(getActivity(), view.findViewById(R.id.banner));*/
         return view;
     }

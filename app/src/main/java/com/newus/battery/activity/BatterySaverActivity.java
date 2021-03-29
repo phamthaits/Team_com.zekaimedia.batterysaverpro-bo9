@@ -2,6 +2,7 @@ package com.newus.battery.activity;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -68,13 +69,14 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     private Context context;
     private AdControlHelp adControlHelp;
     private AdControl adControl;
-
     private View cv_trash_cleaner;
+    private Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = this;
+        activity = this;
         Utils.setLocate(context);
         setContentView(R.layout.activity_do_optimize);
         adControlHelp = AdControlHelp.getInstance(context);
@@ -89,9 +91,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         View bt_RemoveAds = findViewById(R.id.remove_ads);
         bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
 
-        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
-                R.layout.item_admob_native_ad, R.layout.item_fb_native_ad,
-                R.layout.item_mopub_native_ad, true, false);
+        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), R.layout.item_admob_native_ad, true, false, adControl.admob_native_main());
         adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
     }
 
@@ -415,7 +415,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            adControlHelp.showInterstitialAd(adCloseListener);
+            adControlHelp.showInterstitialAd(activity, adCloseListener);
         }
     }
 

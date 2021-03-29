@@ -1,6 +1,7 @@
 package com.newus.battery.activity;
 
 import android.animation.ObjectAnimator;
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -46,7 +47,9 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
     private long useRam2;
     private Context context;
     private AdControlHelp adControlHelp;
+    private AdControl adControl;
     private View cv_trash_cleaner;
+    private Activity activity;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -55,7 +58,9 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_speed_booster);
         intView();
         context = this;
+        activity = this;
         adControlHelp = AdControlHelp.getInstance(context);
+        adControl = AdControl.getInstance(context);
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
@@ -66,9 +71,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         NotificationDevice.cancle(context, NotificationDevice.ID_NOTIFICATTION_BOOST);
         View bt_RemoveAds = findViewById(R.id.remove_ads);
         bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
-        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder),
-                R.layout.item_admob_native_ad, R.layout.item_fb_native_ad,
-                R.layout.item_mopub_native_ad, true, false);
+        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), R.layout.item_admob_native_ad, true, false, adControl.admob_native_main());
         adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
     }
 
@@ -180,7 +183,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            adControlHelp.showInterstitialAd(adCloseListener);
+            adControlHelp.showInterstitialAd(activity, adCloseListener);
         }
     }
 

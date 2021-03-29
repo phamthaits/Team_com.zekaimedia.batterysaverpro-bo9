@@ -1,10 +1,9 @@
 package com.newus.battery.activity;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -15,39 +14,36 @@ import androidx.core.content.ContextCompat;
 import com.ads.control.AdControl;
 import com.newus.battery.MainActivity;
 import com.newus.battery.R;
+import com.newus.battery.billing.BillingClientHelp;
 
 public class RemoveAdsActivity extends AppCompatActivity {
 
     private AdControl adControl;
-    private RemoveAdsHelp removeAdsHelp;
     private Context context;
-    public static String TagPurchase = "purchase";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remove_ads);
-        context = this;
-        Activity activity = this;
-        adControl = AdControl.getInstance(context);
-
-        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.bg_ads));
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.bg_ads));
-        
-        removeAdsHelp = RemoveAdsHelp.getInstance(this, () -> {
-            this.finish();
-        });
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.bg_ads));
+        setContentView(R.layout.activity_remove_ads);
+        context = this;
+        adControl = AdControl.getInstance(context);
         ImageView back = findViewById(R.id.bntBackHome);
         back.setOnClickListener(view -> finish());
-
         Button bntBuyNow = findViewById(R.id.bntBuyNow);
-        bntBuyNow.setOnClickListener(view -> removeAdsHelp.Purchase_ads(activity));
+        BillingClientHelp.initBillingClient(this, this, new BillingClientHelp.BillingInitListener() {
+            @Override
+            public void onBillingInitialized() {
+                if (adControl.remove_ads())
+                    finish();
+            }
+        });
+        bntBuyNow.setOnClickListener(view -> BillingClientHelp.buyProduct(this));
     }
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (!RemoveAdsHelp.bp.handleActivityResult(requestCode, resultCode, data))
-            super.onActivityResult(requestCode, resultCode, data);
-    }
+
     @Override
     public void onBackPressed() {
         finish();
