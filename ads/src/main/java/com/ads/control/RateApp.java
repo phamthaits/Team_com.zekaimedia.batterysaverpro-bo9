@@ -58,7 +58,7 @@ public class RateApp extends Dialog {
                 findViewById(R.id.native_ads_control_holder),
                 R.layout.item_admob_native_setting,
                 false,
-                true
+                false
                 , adControl.admob_native_rate_app());
 
         RatingBar ratingbar = findViewById(R.id.rating);
