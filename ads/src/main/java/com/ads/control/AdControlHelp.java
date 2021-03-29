@@ -6,6 +6,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.AdapterStatus;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -13,14 +17,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Calendar;
+import java.util.Map;
 
 public class AdControlHelp {
     private static Context context;
     private static AdControlHelp instance;
     private static AdControl adControl;
     private static AdmobHelp admobHelp;
-    private static FBHelp fbHelp;
-    private static MopubHelp mopubHelp;
 
     public static AdControlHelp getInstance(Context value) {
         context = value;
@@ -31,11 +34,25 @@ public class AdControlHelp {
         return instance;
     }
 
+    public void mobileAdsInitialize(Activity activity, MobileAdsInitialize mobileAdsInitialize) {
+        MobileAds.initialize(activity, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+                Map<String, AdapterStatus> statusMap = initializationStatus.getAdapterStatusMap();
+                for (String adapterClass : statusMap.keySet()) {
+                    AdapterStatus status = statusMap.get(adapterClass);
+                    Log.d("MyApp", String.format("Adapter name: %s, Description: %s, Latency: %d", adapterClass, status.getDescription(), status.getLatency()));
+                }
+                if (mobileAdsInitialize != null)
+                    mobileAdsInitialize.onInitialized();
+            }
+        });
+    }
+
     public boolean is_reload_firebase() {
-        if (adControl._isTestAds)
-            return true;
         if (adControl.remove_ads())
             return false;
+        if (AdControl._isTestAds) return true;
         return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
     }
 
@@ -43,14 +60,16 @@ public class AdControlHelp {
 
     }
 
+    public boolean checkShowadsTimeSpan() {
+        long timeSpace = System.currentTimeMillis() - adControl.getLastTimeShowAds();
+        return timeSpace > adControl.limit_showads();
+    }
+
     private String getRealAdmob(String reverse) {
         String key_reverse = context.getResources().getString(R.string.admob_app_id);
         String[] fn_reverse = key_reverse.split("~");
-
         String value_reverse = new StringBuffer(reverse).reverse().toString();
-
         String reversed = fn_reverse[0] + "/" + value_reverse;
-
         return reversed;
     }
 
@@ -69,15 +88,6 @@ public class AdControlHelp {
                                 try {
                                     String key = object.names().getString(i);
                                     switch (key) {
-                                        case "rate_admob":
-                                            adControl.rate_admob(object.getInt(key));
-                                            break;
-                                        case "rate_fb":
-                                            adControl.rate_fb(object.getInt(key));
-                                            break;
-                                        case "rate_mopub":
-                                            adControl.rate_mopub(object.getInt(key));
-                                            break;
                                         case "admob_full":
                                             adControl.admob_full(getRealAdmob(object.getString(key)));
                                             break;
@@ -99,43 +109,12 @@ public class AdControlHelp {
                                         case "admob_banner":
                                             adControl.admob_banner(getRealAdmob(object.getString(key)));
                                             break;
-                                        case "fb_full":
-                                            adControl.fb_full(object.getString(key));
-                                            break;
-                                        case "fb_banner":
-                                            adControl.fb_banner(object.getString(key));
-                                            break;
-                                        case "fb_native":
-                                            adControl.fb_native(object.getString(key));
-                                            break;
-                                        case "fb_native_main":
-                                            adControl.fb_native_main(object.getString(key));
-                                            break;
-                                        case "fb_native_banner":
-                                            adControl.fb_native_banner(object.getString(key));
-                                            break;
-                                        case "fb_native_rate_app":
-                                            adControl.fb_native_rate_app(object.getString(key));
-                                            break;
-                                        case "fb_native_setting":
-                                            adControl.fb_native_setting(object.getString(key));
-                                            break;
-                                        case "mopub_full":
-                                            adControl.mopub_full(object.getString(key));
-                                            break;
-                                        case "mopub_banner":
-                                            adControl.mopub_banner(object.getString(key));
-                                            break;
-                                        case "mopub_native":
-                                            adControl.mopub_native(object.getString(key));
-                                            break;
                                         case "version":
                                             adControl.isUpdate(object.getInt(key));
                                             break;
                                     }
                                     Log.d("ads", "key = " + key + ":" + object.getString(key));
                                     adControl.isInit(true);
-                                    AdControl.AdcontrolType.setControlType();
                                     adControl.old_date(-1);
                                 } catch (JSONException e) {
                                     Log.d("ads", "Lỗi");
@@ -147,8 +126,67 @@ public class AdControlHelp {
                     } else {
                         Log.d("ads", "Error getting documents.", task.getException());
                     }
-                    fireBaseListener.addOnCompleteListener();
+                    if (fireBaseListener != null)
+                        fireBaseListener.addOnCompleteListener();
                 });
+    }
+
+    public void loadNative(Activity mActivity, LinearLayout view, int admob_layout_resource, boolean isAnimButton, boolean is_native_banner, String admob_native_ads) {
+        if (adControl.remove_ads()) {
+            return;
+        }
+        admobHelp = AdmobHelp.getInstance(context);
+        admobHelp.loadNative(mActivity, view, admob_native_ads, admob_layout_resource, is_native_banner, isAnimButton);
+    }
+
+    public void loadBanner(Activity mActivity, View view) {
+        if (adControl.remove_ads()) {
+            return;
+        }
+        admobHelp = AdmobHelp.getInstance(context);
+        admobHelp.loadBanner(mActivity, view, adControl.admob_banner());
+    }
+
+    public void loadInterstitialAd(Activity activity, AdCloseListener adCloseListener, AdLoadedListener adLoadedListener, boolean showWhenLoaded) {
+        Log.v("ads", "Call ads");
+        if (adControl.remove_ads()) {
+            if (showWhenLoaded)
+                if(adCloseListener!=null)
+                    adCloseListener.onAdClosed();
+            return;
+        }
+        if (showWhenLoaded) {
+            if (!checkShowadsTimeSpan())//Kiểm tra giới hạn thời gian show full ads
+            {
+                if(adCloseListener!=null)
+                    adCloseListener.onAdClosed();
+                return;
+            }
+            adControl.setLastTimeShowAds();//Nếu show thì lưu thời gian này lại
+        }
+        admobHelp = AdmobHelp.getInstance(context);
+        admobHelp.loadInterstitialAd(activity, adCloseListener, adLoadedListener, adControl.admob_full(), showWhenLoaded);
+    }
+
+    public void showInterstitialAd(Activity activity, AdCloseListener adCloseListener) {
+        if (adControl.remove_ads()) {
+            if(adCloseListener!=null)
+                adCloseListener.onAdClosed();
+            return;
+        }
+        if (!checkShowadsTimeSpan())//Kiểm tra giới hạn thời gian show full ads
+        {
+            if(adCloseListener!=null)
+                adCloseListener.onAdClosed();
+            return;
+        }
+        adControl.setLastTimeShowAds();//Nếu show thì lưu thời gian này lại
+        admobHelp = AdmobHelp.getInstance(context);
+        admobHelp.showInterstitialAd(activity, adCloseListener, adControl.admob_full());
+    }
+
+    public interface FireBaseListener {
+        void addOnCompleteListener();
     }
 
     public interface AdCloseListener {
@@ -158,120 +196,7 @@ public class AdControlHelp {
     public interface AdLoadedListener {
         void onAdLoaded();
     }
-
-    public void loadNative(Activity mActivity, LinearLayout view) {
-        loadNative(mActivity, view, R.layout.item_admob_native_ad, R.layout.item_fb_native_ad,
-                R.layout.item_mopub_native_ad, true, false, adControl.admob_native(), adControl.fb_native());
-    }
-
-    public void loadNative(Activity mActivity, LinearLayout view, int admob_layout_resource,
-                           int fb_layout_resource,
-                           int mopub_layout_resource, boolean isAnimButton, boolean is_native_banner) {
-        loadNative(mActivity, view, admob_layout_resource, fb_layout_resource, mopub_layout_resource,
-                isAnimButton, is_native_banner, adControl.admob_native(), adControl.fb_native());
-    }
-
-    public void loadNative(Activity mActivity, LinearLayout view, int admob_layout_resource,
-                           int fb_layout_resource, int mopub_layout_resource,
-                           boolean isAnimButton, boolean is_native_banner,
-                           String admob_native_ads, String fb_native_ads) {
-        if (adControl.remove_ads()) {
-            return;
-        }
-        loadNetworkHelp();
-        switch (adControl.adcontrolType()) {
-            case Admob:
-                admobHelp.loadNative(mActivity, view, admob_native_ads,
-                        admob_layout_resource, isAnimButton, is_native_banner);
-                break;
-            case Facebook:
-                fbHelp.loadNative(mActivity, view, fb_native_ads, fb_layout_resource,
-                        isAnimButton, is_native_banner);
-                break;
-            case Mopub:
-                mopubHelp.loadNative(mActivity, view, adControl.mopub_native(),
-                        mopub_layout_resource,
-                        isAnimButton, is_native_banner);
-                break;
-        }
-    }
-
-    public void loadBanner(Activity mActivity, View view) {
-        if (adControl.remove_ads()) {
-            return;
-        }
-        loadNetworkHelp();
-        switch (adControl.adcontrolType()) {
-            case Admob:
-                admobHelp.loadBanner(mActivity, view, adControl.admob_banner());
-                break;
-            case Facebook:
-                fbHelp.loadBanner(mActivity, view, adControl.fb_banner());
-                break;
-            case Mopub:
-                mopubHelp.loadBanner(view, adControl.mopub_banner());
-                break;
-        }
-    }
-
-
-    public void loadInterstitialAd(Activity activity, AdCloseListener adCloseListener, AdLoadedListener adLoadedListener, boolean showWhenLoaded) {
-        Log.v("ads", "Call ads");
-//        adCloseListener.onAdClosed();
-//        return;
-        if (adControl.remove_ads()) {
-            if (showWhenLoaded)
-                adCloseListener.onAdClosed();
-            return;
-        }
-        loadNetworkHelp();
-        switch (adControl.adcontrolType()) {
-            case Admob:
-                admobHelp.loadInterstitialAd(adCloseListener, adLoadedListener, adControl.admob_full(), showWhenLoaded);
-                break;
-            case Facebook:
-                fbHelp.loadInterstitialAd(adCloseListener, adLoadedListener, adControl.fb_full(), showWhenLoaded);
-                break;
-            case Mopub:
-                mopubHelp.loadInterstitialAd(activity, adCloseListener, adLoadedListener, adControl.mopub_full(), showWhenLoaded);
-                break;
-        }
-    }
-
-    public void showInterstitialAd(AdCloseListener adCloseListener) {
-        if (adControl.remove_ads()) {
-            adCloseListener.onAdClosed();
-            return;
-        }
-        loadNetworkHelp();
-        switch (adControl.adcontrolType()) {
-            case Admob:
-                admobHelp.showInterstitialAd(adCloseListener);
-                break;
-            case Facebook:
-                fbHelp.showInterstitialAd(adCloseListener);
-                break;
-            case Mopub:
-                mopubHelp.showInterstitialAd(adCloseListener);
-                break;
-        }
-    }
-
-    private void loadNetworkHelp() {
-        switch (adControl.adcontrolType()) {
-            case Admob:
-                admobHelp = AdmobHelp.getInstance(context);
-                break;
-            case Facebook:
-                fbHelp = FBHelp.getInstance(context);
-                break;
-            case Mopub:
-                mopubHelp = MopubHelp.getInstance(context);
-                break;
-        }
-    }
-
-    public interface FireBaseListener {
-        void addOnCompleteListener();
+    public interface MobileAdsInitialize {
+        void onInitialized();
     }
 }

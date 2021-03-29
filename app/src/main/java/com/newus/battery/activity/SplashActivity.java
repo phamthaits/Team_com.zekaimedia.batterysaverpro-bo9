@@ -5,16 +5,12 @@ import android.content.Intent;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.WindowManager;
 
 import com.ads.control.AdControlHelp;
-import com.ads.control.AdControlHelp.FireBaseListener;
-import com.ads.control.AdControlHelp.AdCloseListener;
-import com.ads.control.AdControlHelp.AdLoadedListener;
 import com.ads.control.AdControl;
 import com.newus.battery.MainActivity;
 import com.newus.battery.R;
@@ -25,39 +21,42 @@ public class SplashActivity extends AppCompatActivity {
     private AdControlHelp adControlHelp;
     private Handler handler = new Handler();
     private Runnable runnable;
-    private AdCloseListener adCloseListener = () -> {
+    private boolean isStill_startMainActivity = true;
+
+    private void startMainActivity() {
         Intent mIntent = new Intent(this, MainActivity.class);
         mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(mIntent);
         finish();
-    };
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         adControl = AdControl.getInstance(this);
         adControlHelp = AdControlHelp.getInstance(this);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        RemoveAdsHelp.getInstance(this, null);
-        AdLoadedListener adLoadedListener = new AdLoadedListener() {
-            @Override
-            public void onAdLoaded() {
-                if (handler != null) {
-                    handler.removeCallbacks(runnable);
-                }
-            }
+        runnable = () -> {
+            isStill_startMainActivity = false;
+            startMainActivity();
+            finish();
         };
-        runnable = new Runnable() {
-            @Override
-            public void run() {
-                adControl.isStillShowAds = false;
-                adCloseListener.onAdClosed();
-            }
-        };
+        Log.v("ads", "Remove_ads: " + adControl.remove_ads());
         handler.postDelayed(runnable, 8000);
-        FireBaseListener fireBaseListener = () -> {
-            adControlHelp.loadInterstitialAd(this, adCloseListener, adLoadedListener, true);
+        AdControlHelp.FireBaseListener fireBaseListener = new AdControlHelp.FireBaseListener() {
+            @Override
+            public void addOnCompleteListener() {
+                adControlHelp.mobileAdsInitialize(SplashActivity.this, new AdControlHelp.MobileAdsInitialize() {
+                    @Override
+                    public void onInitialized() {
+                        if (isStill_startMainActivity) {
+                            SplashActivity.this.startMainActivity();
+                            finish();
+                        }
+                    }
+                });
+            }
         };
         if (adControlHelp.is_reload_firebase()) {
             Log.v("ads", "reload Firebase: True");
@@ -66,7 +65,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     protected void onDestroy() {
-        Log.v("Thaidaica", "On Destroy");
+        Log.v("test", "On Destroy");
         if (handler != null) {
             handler.removeCallbacks(runnable);
         }
@@ -75,7 +74,7 @@ public class SplashActivity extends AppCompatActivity {
 
     @Override
     public void finish() {
-        Log.v("Thaidaica", "On Finish");
+        Log.v("test", "On Finish");
         if (handler != null) {
             handler.removeCallbacks(runnable);
         }
