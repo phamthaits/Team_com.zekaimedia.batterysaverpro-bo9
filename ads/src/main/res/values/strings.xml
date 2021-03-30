@@ -16,10 +16,10 @@
     <string name="install_app_ads">Install Now</string>
 
     <string name="title_email" translatable="false">Battery saver feed back</string>
-    <string name="email_feedback" translatable="false">mdhshirt@gmail.com</string>
-    <string name="nav_more_app" translatable="false">https://play.google.com/store/apps/developer?id=MdhTeam</string>
-    <string name="link_policy" translatable="false">https://mdhteam.blogspot.com/2020/12/privacy-policy-mdhteam.html</string>
-        <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
-<!--    <string name="admob_app_id" translatable="false">ca-app-pub-3034546608899751~5495021603</string>-->
+    <string name="email_feedback" translatable="false">shirtnewus.com@gmail.com</string>
+    <string name="nav_more_app" translatable="false">https://play.google.com/store/apps/developer?id=Newus</string>
+    <string name="link_policy" translatable="false">https://shirtnewus.blogspot.com/2021/03/privacy-policy-newus.html</string>
+<!--        <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>-->
+    <string name="admob_app_id" translatable="false">ca-app-pub-8144329962438774~7689221866</string>
     <!--   Mã thật-->
 </resources>

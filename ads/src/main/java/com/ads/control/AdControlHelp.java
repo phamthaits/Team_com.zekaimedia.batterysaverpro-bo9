@@ -112,6 +112,8 @@ public class AdControlHelp {
                                         case "version":
                                             adControl.isUpdate(object.getInt(key));
                                             break;
+                                        case "limit_showads":
+                                            adControl.limit_showads(object.getInt("limit_showads"));
                                     }
                                     Log.d("ads", "key = " + key + ":" + object.getString(key));
                                     adControl.isInit(true);

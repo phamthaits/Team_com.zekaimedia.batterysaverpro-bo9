@@ -28,7 +28,7 @@ import java.util.List;
 
 public class BillingClientHelp {
 
-    private static String Code_ProductId = "";
+    private static String Code_ProductId = "app.newus.battery.removeads";
     private static AdControl adControl;
     private static Context context;
     private static SkuDetails skuDetails;

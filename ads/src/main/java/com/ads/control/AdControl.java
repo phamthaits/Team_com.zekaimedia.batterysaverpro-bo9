@@ -9,8 +9,8 @@ public class AdControl {
     private static AdControl instance;
     private SharedPreferences.Editor editor;
     private SharedPreferences pre;
-    //    public static boolean _isTestAds = false;
-    public static boolean _isTestAds = true;
+        public static boolean _isTestAds = false;
+//    public static boolean _isTestAds = true;
 
     public AdControl(Context context) {
         this.pre = context.getSharedPreferences("app_data", Context.MODE_MULTI_PROCESS);
@@ -132,7 +132,7 @@ public class AdControl {
     }
 
     public boolean isStillShowAds = true;
-    private int version = 2;
+    private int version = 1;
 
     public int old_date() {
         return this.pre.getInt("old_date", -1);
