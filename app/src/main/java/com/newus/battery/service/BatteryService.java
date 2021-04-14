@@ -62,8 +62,6 @@ public class BatteryService  extends Service
                             .build();
                   //  BatteryService.this.startForeground(1100, new Builder(BatteryService.this.getApplicationContext(), "notification_channel_id").build());
                     BatteryService.this.startForeground(1100, mNotification);
-
-
                 }
             }
         resScreen();

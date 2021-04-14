@@ -91,9 +91,9 @@ public class AdControlHelp {
                                         case "admob_full":
                                             adControl.admob_full(getRealAdmob(object.getString(key)));
                                             break;
-                                        case "admob_native":
-                                            adControl.admob_native(getRealAdmob(object.getString(key)));
-                                            break;
+//                                        case "admob_native":
+//                                            adControl.admob_native(getRealAdmob(object.getString(key)));
+//                                            break;
                                         case "admob_native_setting":
                                             adControl.admob_native_setting(getRealAdmob(object.getString(key)));
                                             break;

@@ -54,12 +54,7 @@ public class RateApp extends Dialog {
         adControlHelp = AdControlHelp.getInstance(mContext);
         adControl = AdControl.getInstance(mContext);
 
-        adControlHelp.loadNative(mActivity,
-                findViewById(R.id.native_ads_control_holder),
-                R.layout.item_admob_native_setting,
-                false,
-                false
-                , adControl.admob_native_rate_app());
+        adControlHelp.loadNative(mActivity, findViewById(R.id.native_ads_control_holder), R.layout.item_admob_native_setting, false, false, adControl.admob_native_rate_app());
 
         RatingBar ratingbar = findViewById(R.id.rating);
         TextView btnFeedRate = findViewById(R.id.btn_feed_rate);
