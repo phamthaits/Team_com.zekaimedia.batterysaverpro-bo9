@@ -44,6 +44,7 @@
         android:largeHeap="true"
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme.NoActionBar">
 
         <uses-library
@@ -53,8 +54,11 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id" />
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true" />
 
-        <activity android:name="com.newus.battery.activity.RemoveAdsActivity"></activity>
+        <activity android:name="com.newus.battery.billing.RemoveAdsActivity"></activity>
         <activity
             android:name="com.newus.battery.activity.DoNotDisturbActivity"
             android:label="@string/title_activity_do_not_disturb"

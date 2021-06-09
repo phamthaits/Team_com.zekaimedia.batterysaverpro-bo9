@@ -1,4 +1,4 @@
-package com.newus.battery.activity;
+package com.newus.battery.billing;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +14,6 @@ import androidx.core.content.ContextCompat;
 import com.ads.control.AdControl;
 import com.newus.battery.MainActivity;
 import com.newus.battery.R;
-import com.newus.battery.billing.BillingClientHelp;
 
 public class RemoveAdsActivity extends AppCompatActivity {
 

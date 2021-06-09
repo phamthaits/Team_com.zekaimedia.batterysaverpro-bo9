@@ -27,6 +27,7 @@ import com.ads.control.AdControlHelp.AdCloseListener;
 import com.newus.battery.R;
 import com.newus.battery.Utilsb.SharePreferenceUtils;
 import com.newus.battery.Utilsb.Utils;
+import com.newus.battery.billing.RemoveAdsActivity;
 import com.newus.battery.notification.NotificationDevice;
 import com.newus.battery.task.TaskBoost;
 import com.newus.battery.view.HoloCircularProgressBar;

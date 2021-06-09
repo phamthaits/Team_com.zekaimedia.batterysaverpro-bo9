@@ -23,6 +23,7 @@ import com.ads.control.AdControlHelp;
 import com.newus.battery.R;
 import com.newus.battery.Utilsb.SharePreferenceUtils;
 import com.newus.battery.Utilsb.Utils;
+import com.newus.battery.billing.RemoveAdsActivity;
 import com.newus.battery.view.HoloCircularProgressBar;
 
 public class CleanResultActivity extends AppCompatActivity implements View.OnClickListener {

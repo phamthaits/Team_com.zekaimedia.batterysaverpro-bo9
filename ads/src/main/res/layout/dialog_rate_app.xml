@@ -6,7 +6,6 @@
     android:background="@drawable/style_dialog_full"
     android:orientation="vertical">
 
-
     <FrameLayout
         android:id="@+id/native_ad_media_container"
         android:layout_width="match_parent"

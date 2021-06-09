@@ -30,7 +30,7 @@ import com.newus.battery.activity.BaseActivity;
 import com.newus.battery.activity.BoostActivity;
 import com.newus.battery.activity.CleanActivity;
 import com.newus.battery.activity.CoolActivity;
-import com.newus.battery.activity.RemoveAdsActivity;
+import com.newus.battery.billing.RemoveAdsActivity;
 import com.newus.battery.fragment.fmBatterySaveMain;
 
 public class MainActivity extends BaseActivity {

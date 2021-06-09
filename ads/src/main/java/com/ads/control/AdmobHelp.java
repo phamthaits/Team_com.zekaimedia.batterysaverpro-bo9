@@ -20,7 +20,6 @@ import androidx.annotation.NonNull;
 
 import com.ads.control.AdControlHelp.AdCloseListener;
 import com.ads.control.AdControlHelp.AdLoadedListener;
-
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.ads.mediation.facebook.FacebookAdapter;
 import com.google.ads.mediation.facebook.FacebookExtras;
@@ -40,12 +39,14 @@ import com.google.android.gms.ads.nativead.NativeAd;
 import com.google.android.gms.ads.nativead.NativeAdOptions;
 import com.google.android.gms.ads.nativead.NativeAdView;
 
+
 public class AdmobHelp {
     private static AdmobHelp instance;
-    private boolean canShowInterstitialAd = false;
     private AdManagerInterstitialAd mAdManagerInterstitialAd;//Full
     private static Context context;
     private static AdControl adControl;
+    private boolean loaddingInterstitialAd = false;
+    public boolean canShowInterstitialAd = false;
 
     public static AdmobHelp getInstance(Context value) {
         context = value;
@@ -64,29 +65,38 @@ public class AdmobHelp {
         public void onAdLoaded(@NonNull AdManagerInterstitialAd adManagerInterstitialAd) {
             mAdManagerInterstitialAd = adManagerInterstitialAd;
             canShowInterstitialAd = true;
+            loaddingInterstitialAd = false;
             Log.v("ads", "Ads Loaded");
+        }
+
+        @Override
+        public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+            super.onAdFailedToLoad(loadAdError);
+            loaddingInterstitialAd = false;
+            canShowInterstitialAd = false;
         }
     };
 
-    public void loadInterstitialAd(Activity activity, AdCloseListener adCloseListener, AdLoadedListener adLoadedListener, String ads, boolean showWhenLoaded) {
+    public void loadInterstitialAd(Activity activity, AdCloseListener adCloseListener, AdLoadedListener adLoadedListener, boolean showWhenLoaded) {
         Log.v("ads", "Call ads");
         adControl.isStillShowAds = true;
         AdManagerInterstitialAdLoadCallback adListener = new AdManagerInterstitialAdLoadCallback() {
             @Override
             public void onAdLoaded(@NonNull AdManagerInterstitialAd adManagerInterstitialAd) {
                 mAdManagerInterstitialAd = adManagerInterstitialAd;
+                loaddingInterstitialAd = false;
                 canShowInterstitialAd = true;
-                Log.v("ads", "Ads Loaded");
+                Log.v("ads", "Interstitial ad is loaded and ready to be displayed!");
                 if (adLoadedListener != null) {
                     adLoadedListener.onAdLoaded();
                 }
-                if (showWhenLoaded && adControl.isStillShowAds) {
-                    showInterstitialAd(activity, adCloseListener, ads);
-                }
+                if (showWhenLoaded && adControl.isStillShowAds)
+                    showInterstitialAd(activity, adCloseListener, adControl.admob_full());
             }
 
             @Override
             public void onAdFailedToLoad(LoadAdError adError) {
+                loaddingInterstitialAd = false;
                 canShowInterstitialAd = false;
                 Log.v("ads", "ads Fail");
                 if (showWhenLoaded && adControl.isStillShowAds) {
@@ -98,10 +108,10 @@ public class AdmobHelp {
         if (canShowInterstitialAd) {
             if (adLoadedListener != null) adLoadedListener.onAdLoaded();
             if (showWhenLoaded) {
-                showInterstitialAd(activity, adCloseListener, ads);
+                showInterstitialAd(activity, adCloseListener, adControl.admob_full());
             }
         } else {
-            loadInterstitialAd(activity, ads, adListener);
+            loadInterstitialAd(activity, adControl.admob_full(), adListener);
         }
     }
 
@@ -122,6 +132,7 @@ public class AdmobHelp {
             mAdManagerInterstitialAd.setFullScreenContentCallback(fullScreenContentCallback);
             mAdManagerInterstitialAd.show(activity);
         } else {
+            loadInterstitialAd(activity, ads, adListenerEmpty);
             if (adCloseListener != null) {
                 adCloseListener.onAdClosed();
             }
@@ -129,8 +140,9 @@ public class AdmobHelp {
     }
 
     private void loadInterstitialAd(Activity activity, String ads, AdManagerInterstitialAdLoadCallback adManagerInterstitialAdLoadCallback) {
-        Log.v("ads", "ads get Request");
-        if (!canShowInterstitialAd) {
+        if (!canShowInterstitialAd && !loaddingInterstitialAd) {
+            loaddingInterstitialAd = true;
+            Log.v("ads", "Interstitial ad Loadding.");
             AdManagerAdRequest adRequest = new AdManagerAdRequest.Builder().build();
             AdManagerInterstitialAd.load(activity, ads, adRequest, adManagerInterstitialAdLoadCallback);
         }
@@ -168,35 +180,37 @@ public class AdmobHelp {
         adView_Banner.loadAd(new AdRequest.Builder().build());
     }
 
-    public void loadNative(final Activity mActivity, final LinearLayout rootView, String ads, int admob_layout_resource, boolean is_native_banner, boolean isAnimButton) {
-        Log.v("ads", "is_native_banner: " + is_native_banner);
+    public void loadNative(final Activity mActivity, final LinearLayout rootView, AdControl.NativeBundle nativeBundle) {
         ShimmerFrameLayout shimmerFrameLayout = (ShimmerFrameLayout) mActivity.getLayoutInflater().inflate(R.layout.load_native, null);
-        if (is_native_banner) {
+        if (nativeBundle.is_native_banner) {
             shimmerFrameLayout = (ShimmerFrameLayout) mActivity.getLayoutInflater().inflate(R.layout.load_banner, null);
         }
         rootView.addView(shimmerFrameLayout);
-
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         FrameLayout frameLayout = rootView.findViewById(R.id.admob_adplaceholder);
         frameLayout.setVisibility(View.GONE);
         containerShimmer.setVisibility(View.VISIBLE);
         containerShimmer.startShimmer();
+        // You must call destroy on old ads when you are done with them,
+        // otherwise you will have a memory leak.
 
-        AdLoader.Builder builder = new AdLoader.Builder(context, ads);
+        NativeAdView adView = (NativeAdView) mActivity.getLayoutInflater().inflate(nativeBundle.admob_layout_resource, null);
+        AdLoader.Builder builder = new AdLoader.Builder(context, nativeBundle.admob_ads);
         builder.forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
             @Override
-            public void onNativeAdLoaded(NativeAd nativeAd) {
-                // You must call destroy on old ads when you are done with them,
-                // otherwise you will have a memory leak.
-                NativeAdView adView = (NativeAdView) mActivity.getLayoutInflater().inflate(admob_layout_resource, null);
-                populateNativeAdView(nativeAd, adView, is_native_banner);
-                frameLayout.removeAllViews();
-                frameLayout.addView(adView);
-                frameLayout.setVisibility(View.VISIBLE);
+            public void onNativeAdLoaded(NativeAd ad) {
                 containerShimmer.stopShimmer();
                 containerShimmer.setVisibility(View.GONE);
-                if (isAnimButton)
-                    setAnimation(mActivity, adView);
+                try {
+                    populateNativeAdView(ad, adView, nativeBundle.is_native_banner);
+                    frameLayout.removeAllViews();
+                    frameLayout.addView(adView);
+                    frameLayout.setVisibility(View.VISIBLE);
+                    if (nativeBundle.isAnimationButton)
+                        setAnimation(mActivity, adView);
+                } catch (Exception e) {
+                    frameLayout.setVisibility(View.GONE);
+                }
             }
         });
 
@@ -218,7 +232,7 @@ public class AdmobHelp {
             }
         }).build();
         Bundle extras = new FacebookExtras()
-                .setNativeBanner(is_native_banner)
+                .setNativeBanner(nativeBundle.is_native_banner)
                 .build();
 
         AdRequest request = new AdRequest.Builder()
@@ -226,58 +240,7 @@ public class AdmobHelp {
                 .build();
         adLoader.loadAd(request);
     }
-    private void setAnimation(Activity mActivity, NativeAdView adView) {
-        Animation animation = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.move_up_button);
-        Animation animation2 = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.move_down_button);
-        Animation animation3 = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.delay_anim_button);
-        Button btnCallToAction = adView.findViewById(R.id.ad_call_to_action);
-//        btnCallToAction.startAnimation(animation);
 
-        animation.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                btnCallToAction.startAnimation(animation2);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-            }
-        });
-        btnCallToAction.startAnimation(animation);
-        animation2.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation1) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation1) {
-                btnCallToAction.startAnimation(animation3);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation1) {
-            }
-        });
-        animation3.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation1) {
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation1) {
-                btnCallToAction.startAnimation(animation);
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation1) {
-            }
-        });
-    }
     private void populateNativeAdView(NativeAd nativeAd, NativeAdView adView, boolean is_native_banner) {
         // Set the media view.
         if (!is_native_banner)
@@ -316,7 +279,7 @@ public class AdmobHelp {
         }
 
         if (nativeAd.getIcon() == null) {
-            adView.getIconView().setBackground(context.getResources().getDrawable(R.drawable.ic_test_ad));
+            adView.getIconView().setBackground(context.getResources().getDrawable(R.drawable.ic_ad_new));
         } else {
             ((ImageView) adView.getIconView()).setImageDrawable(
                     nativeAd.getIcon().getDrawable());
@@ -373,5 +336,58 @@ public class AdmobHelp {
 
         // Step 3 - Get adaptive ad size and return for setting on the ad view.
         return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(activity, adWidth);
+    }
+
+    private void setAnimation(Activity mActivity, NativeAdView adView) {
+        Animation animation = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.move_up_button);
+        Animation animation2 = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.move_down_button);
+        Animation animation3 = AnimationUtils.loadAnimation(mActivity.getBaseContext(), R.anim.delay_anim_button);
+        Button btnCallToAction = adView.findViewById(R.id.ad_call_to_action);
+//        btnCallToAction.startAnimation(animation);
+
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                btnCallToAction.startAnimation(animation2);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+        });
+        btnCallToAction.startAnimation(animation);
+        animation2.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation1) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation1) {
+                btnCallToAction.startAnimation(animation3);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation1) {
+            }
+        });
+        animation3.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation1) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation1) {
+                btnCallToAction.startAnimation(animation);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation1) {
+            }
+        });
     }
 }

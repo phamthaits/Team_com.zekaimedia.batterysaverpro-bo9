@@ -122,10 +122,13 @@ public class BillingClientHelp {
                                             {
                                                 Log.v("ads", listHistory.toString());
                                                 for (PurchaseHistoryRecord historyRecord : listHistory) {
-                                                    String prdId = historyRecord.getSku();
-                                                    if (prdId.equals(Code_ProductId)) {
-                                                        adControl.remove_ads(true);
-                                                    }
+                                                    ArrayList<String> prdIds = historyRecord.getSkus();
+                                                    if (prdIds != null && !prdIds.isEmpty())
+                                                        for (String prdId : prdIds) {
+                                                            if (prdId.equals(Code_ProductId)) {
+                                                                adControl.remove_ads(true);
+                                                            }
+                                                        }
                                                 }
                                             }
                                         } else adControl.remove_ads(false);

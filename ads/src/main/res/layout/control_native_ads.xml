@@ -8,7 +8,13 @@
         android:id="@+id/admob_adplaceholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_5sdp"
+        android:orientation="vertical"
+        android:visibility="gone" />
+
+    <com.facebook.ads.NativeAdLayout
+        android:id="@+id/fb_adplaceholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_card_ads"
         android:orientation="vertical"
         android:visibility="gone" />

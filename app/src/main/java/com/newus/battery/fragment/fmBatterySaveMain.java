@@ -55,7 +55,7 @@ import com.newus.battery.activity.ChartActivity;
 import com.newus.battery.activity.CleanActivity;
 import com.newus.battery.activity.CoolActivity;
 import com.newus.battery.activity.PermissionActivity;
-import com.newus.battery.activity.RemoveAdsActivity;
+import com.newus.battery.billing.RemoveAdsActivity;
 import com.newus.battery.activity.SettingActivity;
 import com.newus.battery.service.BatteryService;
 import com.newus.battery.task.BatteryTask;
