@@ -5,26 +5,21 @@
     <color name="colorAccent">#3F3FB2</color>
     <color name="windowBackground">#EDEDF4</color>
 
-
     <color name="title_dark">#393B47</color>
     <color name="bg_ads">#7777DC</color>
-
 
     <color name="color_ads">#C18111</color>
     <color name="headline_color">#23215C</color>
     <color name="advertiser_color">#FFBB54</color>
     <color name="button_ads">#3F3FB2</color>
+    <color name="button_ads_60">#993F3FB2</color>
+    <color name="white_60">#99FFFFFF</color>
     <color name="body_color">@color/color_white</color>
     <color name="text_light">#717EEE</color>
 
     <color name="colorindicator">#ff3fb5cf</color>
     <color name="bg_color">#FFFFFF</color>
     <color name="white_blur">#bf9c9c9c</color>
-    <color name="text_color_dialog">#9B9AAA</color>
     <color name="color_white">#ffffffff</color>
-    <color name="color_gray_2_ads">#fff8f8f8</color>
-    <color name="stocke_card">#252C2B2B</color>
     <color name="light_transparent">#16000000</color>
-    <color name="_bg">#ebeff1</color>
-    <color name="border_ads">#3F3FB2</color>
 </resources>

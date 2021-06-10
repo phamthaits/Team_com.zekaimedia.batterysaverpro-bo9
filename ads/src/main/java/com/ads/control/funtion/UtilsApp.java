@@ -9,12 +9,14 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
 import java.util.Locale;
 import java.util.Random;
+import com.ads.control.R;
 
 public class UtilsApp {
     public static void ShowToastShort(Context mContext, String mtext) {
@@ -134,8 +136,47 @@ public class UtilsApp {
             return text[0];
         }
     }
+
     public static boolean getRandomBoolean() {
         Random random = new Random();
         return random.nextBoolean();
     }
+
+    //    Send Mail
+    public static String getDeviceName() {
+        String manufacturer = Build.MANUFACTURER;
+        String model = Build.MODEL;
+        if (model.startsWith(manufacturer)) {
+            return capitalize(model);
+        } else {
+            return capitalize(manufacturer);
+        }
+    }
+
+    public static String capitalize(String s) {
+        if (s == null || s.length() == 0) {
+            return "";
+        }
+        char first = s.charAt(0);
+        if (Character.isUpperCase(first)) {
+            return s;
+        } else {
+            return Character.toUpperCase(first) + s.substring(1);
+        }
+    }
+
+    public static void openEmail(Context mContext) {
+        try {
+            Intent intentShare = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + R.string.email_feedback));
+            intentShare.putExtra(Intent.EXTRA_SUBJECT, mContext.getString(R.string.feedback));
+            String out = "Manufaceturer: " + UtilsApp.getDeviceName() + "\n" +
+                    "OS: " + Build.VERSION.SDK_INT + "\n" +
+                    "Model: " + Build.MODEL;
+            intentShare.putExtra(Intent.EXTRA_TEXT, out);
+            mContext.startActivity(intentShare);
+        } catch (ActivityNotFoundException e) {
+            //TODO smth
+        }
+    }
+    ///////////////////////////////////
 }

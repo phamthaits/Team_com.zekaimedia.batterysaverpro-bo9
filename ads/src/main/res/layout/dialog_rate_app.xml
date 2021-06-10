@@ -3,22 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
+    android:layout_margin="@dimen/_10sdp"
     android:background="@drawable/style_dialog_full"
     android:orientation="vertical">
 
-    <FrameLayout
-        android:id="@+id/native_ad_media_container"
+    <TextView
+        android:id="@+id/title_exit_app"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/bt_container">
+        android:layout_height="match_parent"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:gravity="center"
+        android:paddingLeft="@dimen/_10sdp"
+        android:paddingRight="@dimen/_10sdp"
+        android:text="@string/confirm_exit"
+        android:textColor="@color/title_dark"
+        android:textSize="@dimen/_14sdp"
+        android:visibility="gone" />
 
-        <include
-            android:id="@+id/native_ads_control_holder"
-            layout="@layout/control_native_ads"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_5sdp" />
-    </FrameLayout>
+    <ImageView
+        android:id="@+id/img_rate_exit"
+        android:layout_width="match_parent"
+        android:padding="@dimen/_10sdp"
+        android:layout_height="@dimen/_220sdp"
+        android:src="@drawable/img_rate_app" />
 
     <TextView
         android:id="@+id/rd_msg"
@@ -26,6 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_5sdp"
         android:fontFamily="@font/googlesans_light"
+        android:gravity="center"
         android:paddingHorizontal="@dimen/_10sdp"
         android:paddingBottom="5dip"
         android:text="@string/rate_msg"
@@ -75,12 +83,27 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10sdp"
             android:layout_weight="1"
-            android:background="@drawable/ads_bg_lib"
+            android:background="@drawable/ads_bg_disable"
             android:gravity="center"
             android:padding="@dimen/_10sdp"
             android:text="Feedback"
             android:textAllCaps="true"
-            android:textColor="@color/color_white"
+            android:textColor="@color/white_60"
             android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/btn_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:background="@drawable/ads_bg_lib"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="No"
+            android:textAllCaps="true"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/_12sdp"
+            android:visibility="gone" />
     </LinearLayout>
 </LinearLayout>

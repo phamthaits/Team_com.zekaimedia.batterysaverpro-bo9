@@ -44,7 +44,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.windowBackground));
         /* ------------------------------------------------------------------ */
 
-        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), R.layout.item_admob_native_setting, false, false, adControl.admob_native_setting());
+        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), adControl.native_setting);
         intView();
         intData();
     }

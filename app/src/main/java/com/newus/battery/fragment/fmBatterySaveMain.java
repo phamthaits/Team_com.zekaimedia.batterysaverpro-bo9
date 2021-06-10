@@ -55,8 +55,8 @@ import com.newus.battery.activity.ChartActivity;
 import com.newus.battery.activity.CleanActivity;
 import com.newus.battery.activity.CoolActivity;
 import com.newus.battery.activity.PermissionActivity;
-import com.newus.battery.billing.RemoveAdsActivity;
 import com.newus.battery.activity.SettingActivity;
+import com.newus.battery.billing.RemoveAdsActivity;
 import com.newus.battery.service.BatteryService;
 import com.newus.battery.task.BatteryTask;
 import com.newus.battery.task.TaskCount;
@@ -419,11 +419,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         checkTask();
         View bt_RemoveAds = view.findViewById(R.id.remove_ads);
         bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
-        adControlHelp.loadNative(getActivity(), view.findViewById(R.id.native_ads_control_holder), R.layout.item_admob_native_setting,
-                false, false, adControl.admob_native_main());
-        adControlHelp.loadNative(getActivity(),
-                view.findViewById(R.id.banner_native_ads_control_holder), R.layout.item_admob_banner_native,
-                false, true, adControl.admob_native_banner());
+        adControlHelp.loadNative(getActivity(), view.findViewById(R.id.native_ads_control_holder), adControl.native_main);
+        adControlHelp.loadNative(getActivity(), view.findViewById(R.id.banner_native_ads_control_holder), adControl.native_banner_home);
         /*adControlHelp.loadBanner(getActivity(), view.findViewById(R.id.banner));*/
         return view;
     }

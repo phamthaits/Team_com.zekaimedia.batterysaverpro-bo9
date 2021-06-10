@@ -4,14 +4,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import java.util.Calendar;
-import java.util.Random;
 
 public class AdControl {
     private static AdControl instance;
     private SharedPreferences.Editor editor;
     private SharedPreferences pre;
-    public static boolean _isTestAds = false;
-//    public static boolean _isTestAds = true;
+//    public static boolean _isTestAds = false;
+    public static boolean _isTestAds = true;
 
     public AdControl(Context context) {
         this.pre = context.getSharedPreferences("app_data", Context.MODE_MULTI_PROCESS);
@@ -55,14 +54,6 @@ public class AdControl {
         editor.commit();
     }
 
-    public String fb_full() {
-        return this.pre.getString("fb_full", "");
-    }
-
-    public void fb_full(String value) {
-        editor.putString("fb_full", value);
-        editor.commit();
-    }
 
     //Native Main
     public String admob_native_main() {
@@ -75,14 +66,7 @@ public class AdControl {
         editor.commit();
     }
 
-    public String fb_native_main() {
-        return this.pre.getString("fb_native_main", "");
-    }
 
-    public void fb_native_main(String value) {
-        editor.putString("fb_native_main", value);
-        editor.commit();
-    }
     //Native Setting
     public String admob_native_setting() {
         if (_isTestAds) return "/6499/example/native";
@@ -93,32 +77,19 @@ public class AdControl {
         editor.putString("admob_native_setting", value);
         editor.commit();
     }
-    public String fb_native_setting() {
-        return this.pre.getString("fb_native_setting", "");
-    }
 
-    public void fb_native_setting(String value) {
-        editor.putString("fb_native_setting", value);
-        editor.commit();
-    }
     //Native Banner
     public String admob_native_banner() {
         if (_isTestAds) return "/6499/example/native";
         return this.pre.getString("admob_native_banner", "");
     }
+
     public void admob_native_banner(String value) {
         editor.putString("admob_native_banner", value);
         editor.commit();
     }
-    public String fb_native_banner() {
-        return this.pre.getString("fb_native_banner", "");
-    }
 
-    public void fb_native_banner(String value) {
-        editor.putString("fb_native_banner", value);
-        editor.commit();
-    }
-      //Banner
+    //Banner
     public String admob_banner() {
         if (_isTestAds) return "/6499/example/banner";
         return this.pre.getString("admob_banner", "");
@@ -128,31 +99,7 @@ public class AdControl {
         editor.putString("admob_banner", value);
         editor.commit();
     }
-    public String fb_banner() {
-        return this.pre.getString("fb_banner", "");
-    }
 
-    public void fb_banner(String value) {
-        editor.putString("fb_banner", value);
-        editor.commit();
-    }
-    public int rate_admob() {
-        return this.pre.getInt("rate_admob", 100);
-    }
-
-    public void rate_admob(int value) {
-        editor.putInt("rate_admob", value);
-        editor.commit();
-    }
-
-    public int rate_fb() {
-        return this.pre.getInt("rate_fb", 0);
-    }
-
-    public void rate_fb(int value) {
-        editor.putInt("rate_fb", value);
-        editor.commit();
-    }
     public boolean isUpdate() {
         return this.pre.getBoolean("isUpdate", false);
     }
@@ -214,63 +161,29 @@ public class AdControl {
         editor.commit();
     }
 
-    public enum AdcontrolType {
-        Admob,
-        Facebook;
-
-        public static AdcontrolType toMyEnum(String myEnumString) {
-            try {
-                return valueOf(myEnumString);
-            } catch (Exception ex) {
-                return Admob;
-            }
-        }
-
-        public static void setControlType() {
-            int rate = getRandomNumberInRange(1, 100);
-            if (rate <= instance.rate_admob()) instance.adcontrolType(Admob);
-            else instance.adcontrolType(Facebook);
-        }
-    }
-
-    public AdcontrolType adcontrolType() {
-        return AdcontrolType.toMyEnum(this.pre.getString("adcontrolType", AdcontrolType.Admob.toString()));
-    }
-
-    private void adcontrolType(AdcontrolType value) {
-        editor.putString("adcontrolType", value.toString());
-        editor.commit();
-    }
-
-    private static int getRandomNumberInRange(int min, int max) {
-        Random r = new Random();
-        return r.nextInt((max - min) + 1) + min;
-    }
-
     public NativeBundle native_main;
     public NativeBundle native_banner_home;
+    public NativeBundle native_setting;
 
     private void SetNative() {
-        native_main = new NativeBundle(R.layout.item_admob_native_ad, R.layout.item_fb_native_ad, false,
-                admob_native_main(), fb_native_main(), false);
-        native_banner_home = new NativeBundle(R.layout.item_admob_native_banner_home, R.layout.item_fb_native_banner_home, true,
-                admob_native_banner_home(), fb_native_banner_home(), false);
+        native_main = new NativeBundle(R.layout.item_admob_native_ad, false,
+                admob_native_main(), false);
+        native_banner_home = new NativeBundle(R.layout.item_admob_banner_native, true,
+                admob_native_banner(), false);
+        native_setting = new NativeBundle(R.layout.item_admob_native_setting, true,
+                admob_native_setting(), false);
     }
 
     public class NativeBundle {
         public int admob_layout_resource;
-        public int fb_layout_resource;
         public boolean is_native_banner;
         public String admob_ads;
-        public String fb_ads;
         public boolean isAnimationButton;
 
-        public NativeBundle(int admob_layout_resource, int fb_layout_resource, boolean is_native_banner, String admob_ads, String fb_ads, boolean isAnimationButton) {
+        public NativeBundle(int admob_layout_resource, boolean is_native_banner, String admob_ads, boolean isAnimationButton) {
             this.admob_layout_resource = admob_layout_resource;
-            this.fb_layout_resource = fb_layout_resource;
             this.is_native_banner = is_native_banner;
             this.admob_ads = admob_ads;
-            this.fb_ads = fb_ads;
             this.isAnimationButton = isAnimationButton;
         }
     }
