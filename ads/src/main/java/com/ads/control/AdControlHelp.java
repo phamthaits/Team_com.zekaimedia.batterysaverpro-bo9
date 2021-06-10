@@ -58,8 +58,8 @@ public class AdControlHelp {
                                         case "version":
                                             adControl.isUpdate(object.getInt(key));
                                             break;
-                                        case "limit_showads":
-                                            adControl.limit_showads(object.getInt("limit_showads"));
+                                        case "version_update_url":
+                                            adControl.version_update_url(object.getString("version_update_url"));
                                     }
                                     Log.d("ads", "key = " + key + ":" + object.getString(key));
                                     adControl.isInit(true);
@@ -112,19 +112,13 @@ public class AdControlHelp {
 
     }
 
-    public boolean checkShowadsTimeSpan() {
-        long timeSpace = System.currentTimeMillis() - adControl.getLastTimeShowAds();
-        return timeSpace > adControl.limit_showads();
-    }
-
-    private String getRealAdmob(String reverse) {
+     private String getRealAdmob(String reverse) {
         String key_reverse = context.getResources().getString(R.string.admob_app_id);
         String[] fn_reverse = key_reverse.split("~");
         String value_reverse = new StringBuffer(reverse).reverse().toString();
         String reversed = fn_reverse[0] + "/" + value_reverse;
         return reversed;
     }
-
 
     public void loadNative(Activity mActivity, LinearLayout root_view, AdControl.NativeBundle nativeBundle) {
         Log.v("ads", "Call Load Native Total");
@@ -153,16 +147,7 @@ public class AdControlHelp {
                     adCloseListener.onAdClosed();
             return;
         }
-        if (showWhenLoaded) {
-            if (!checkShowadsTimeSpan())//Kiểm tra giới hạn thời gian show full ads
-            {
-                if (adCloseListener != null)
-                    adCloseListener.onAdClosed();
-                return;
-            }
-            adControl.setLastTimeShowAds();//Nếu show thì lưu thời gian này lại
-        }
-        loadNetworkHelp();
+            loadNetworkHelp();
 
         if (!adControl.admob_full().equals(""))
             admobHelp.loadInterstitialAd(activity, adCloseListener, adLoadedListener, showWhenLoaded);
@@ -179,13 +164,6 @@ public class AdControlHelp {
                 adCloseListener.onAdClosed();
             return;
         }
-        if (!checkShowadsTimeSpan())//Kiểm tra giới hạn thời gian show full ads
-        {
-            if (adCloseListener != null)
-                adCloseListener.onAdClosed();
-            return;
-        }
-        adControl.setLastTimeShowAds();//Nếu show thì lưu thời gian này lại
         loadNetworkHelp();
         admobHelp.showInterstitialAd(activity, adCloseListener, adControl.admob_full());
     }

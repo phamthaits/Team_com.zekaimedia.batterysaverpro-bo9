@@ -9,8 +9,8 @@ public class AdControl {
     private static AdControl instance;
     private SharedPreferences.Editor editor;
     private SharedPreferences pre;
-//    public static boolean _isTestAds = false;
-    public static boolean _isTestAds = true;
+    public static boolean _isTestAds = false;
+//    public static boolean _isTestAds = true;
 
     public AdControl(Context context) {
         this.pre = context.getSharedPreferences("app_data", Context.MODE_MULTI_PROCESS);
@@ -34,15 +34,6 @@ public class AdControl {
         editor.commit();
     }
 
-    public long limit_showads() {
-        return this.pre.getLong("limit_showads", 0);
-    }
-
-    public void limit_showads(int value) {
-        editor.putLong("limit_showads", value * 60 * 1000);
-        editor.commit();
-    }
-
     //Full
     public String admob_full() {
         if (_isTestAds) return "ca-app-pub-3940256099942544/1033173712";
@@ -53,7 +44,6 @@ public class AdControl {
         editor.putString("admob_full", value);
         editor.commit();
     }
-
 
     //Native Main
     public String admob_native_main() {
@@ -152,15 +142,6 @@ public class AdControl {
         editor.commit();
     }
 
-    public long getLastTimeShowAds() {
-        return this.pre.getLong("lastTimeShowAds", 0);
-    }
-
-    public void setLastTimeShowAds() {
-        editor.putLong("lastTimeShowAds", System.currentTimeMillis());
-        editor.commit();
-    }
-
     public NativeBundle native_main;
     public NativeBundle native_banner_home;
     public NativeBundle native_setting;
@@ -170,7 +151,7 @@ public class AdControl {
                 admob_native_main(), false);
         native_banner_home = new NativeBundle(R.layout.item_admob_banner_native, true,
                 admob_native_banner(), false);
-        native_setting = new NativeBundle(R.layout.item_admob_native_setting, true,
+        native_setting = new NativeBundle(R.layout.item_admob_native_setting, false,
                 admob_native_setting(), false);
     }
 

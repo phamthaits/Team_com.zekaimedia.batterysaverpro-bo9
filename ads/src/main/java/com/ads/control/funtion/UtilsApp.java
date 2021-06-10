@@ -71,7 +71,15 @@ public class UtilsApp {
             ShowToastShort(mContext, "There is no email client installed.");
         }
     }
-
+public static void OpenEmail(Context context)
+{
+    Intent intent = new Intent(Intent.ACTION_VIEW);
+    Uri data = Uri.parse("mailto:"
+            + context.getString(R.string.email_feedback)
+            + "?subject=" + context.getString(R.string.feedback) + "&body=" + "");
+    intent.setData(data);
+    context.startActivity(intent);
+}
     public static boolean isConnectionAvailable(Context context) {
 
         ConnectivityManager connectivityManager = (ConnectivityManager) context
@@ -164,19 +172,18 @@ public class UtilsApp {
             return Character.toUpperCase(first) + s.substring(1);
         }
     }
-
-    public static void openEmail(Context mContext) {
-        try {
-            Intent intentShare = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + R.string.email_feedback));
-            intentShare.putExtra(Intent.EXTRA_SUBJECT, mContext.getString(R.string.feedback));
-            String out = "Manufaceturer: " + UtilsApp.getDeviceName() + "\n" +
-                    "OS: " + Build.VERSION.SDK_INT + "\n" +
-                    "Model: " + Build.MODEL;
-            intentShare.putExtra(Intent.EXTRA_TEXT, out);
-            mContext.startActivity(intentShare);
-        } catch (ActivityNotFoundException e) {
-            //TODO smth
-        }
-    }
+//     public static void openEmail(Context mContext) {
+//        try {
+//            Intent intentShare = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + R.string.email_feedback));
+//            intentShare.putExtra(Intent.EXTRA_SUBJECT, mContext.getString(R.string.feedback));
+//            String out = "Manufaceturer: " + UtilsApp.getDeviceName() + "\n" +
+//                    "OS: " + Build.VERSION.SDK_INT + "\n" +
+//                    "Model: " + Build.MODEL;
+//            intentShare.putExtra(Intent.EXTRA_TEXT, out);
+//            mContext.startActivity(intentShare);
+//        } catch (ActivityNotFoundException e) {
+//            //TODO smth
+//        }
+//    }
     ///////////////////////////////////
 }

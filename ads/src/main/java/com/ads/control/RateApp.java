@@ -51,12 +51,12 @@ public class RateApp extends Dialog {
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 if (ratingBar.getRating() < 0.5) {
                     btnFeedRate.setTextColor(ContextCompat.getColor(mContext, R.color.white_60));
-                    btnFeedRate.setBackgroundDrawable(ContextCompat.getDrawable(mContext, R.drawable.ads_bg_disable));
+                    btnFeedRate.setBackground(ContextCompat.getDrawable(mContext, R.drawable.ads_bg_disable));
                     btnFeedRate.setEnabled(false);
                 }
                 if (ratingBar.getRating() >= 0.5) {
                     btnFeedRate.setTextColor(ContextCompat.getColor(mContext, R.color.color_white));
-                    btnFeedRate.setBackgroundDrawable(ContextCompat.getDrawable(mContext, R.drawable.ads_bg_lib));
+                    btnFeedRate.setBackground(ContextCompat.getDrawable(mContext, R.drawable.ads_bg_lib));
                     btnFeedRate.setEnabled(true);
                 }
                 if (ratingBar.getRating() <= 3) {
@@ -64,7 +64,7 @@ public class RateApp extends Dialog {
                     btnFeedRate.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            UtilsApp.openEmail(mContext);
+                            UtilsApp.OpenEmail(mContext);
                             ((Activity) (mContext)).finish();
                         }
                     });

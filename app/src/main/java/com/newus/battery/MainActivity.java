@@ -117,17 +117,21 @@ public class MainActivity extends BaseActivity {
         tv_version.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         if (adControl.isUpdate()) {
+            adControl.forceUpdateFirebase(true);
             Log.v("isUpdate", "đã gọi dialog");
             tv_version.show();
             TextView btnUpdate = tv_version.findViewById(R.id.btn_ok);
             btnUpdate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + context.getPackageName()));
+                    Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=" + getPackageName());
+                    if (!adControl.version_update_url().equals(""))
+                        uri = Uri.parse(adControl.version_update_url());
+                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                     startActivity(intent);
                 }
             });
-        }
+        } else adControl.forceUpdateFirebase(false);
         /*--------------------------------------------------------*/
 
         bt_RemoveAds.setOnClickListener(new View.OnClickListener() {
@@ -162,7 +166,7 @@ public class MainActivity extends BaseActivity {
                                 UtilsApp.OpenBrower(MainActivity.this, getString(R.string.link_policy));
                                 break;
                             case R.id.nav_send:
-                                UtilsApp.SendFeedBack(MainActivity.this, getString(R.string.email_feedback), getString(R.string.title_email));
+                                UtilsApp.OpenEmail(MainActivity.this);
                                 break;
                             case R.id.nav_boost:
 //                                SharePreferenceUtils.getInstance(MainActivity.this).setFlagAds(true);
