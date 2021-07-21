@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "549701347462",
-    "project_id": "fast-charging---battery-saver",
-    "storage_bucket": "fast-charging---battery-saver.appspot.com"
+    "project_number": "766628803582",
+    "project_id": "battery-fast-charge-7",
+    "storage_bucket": "battery-fast-charge-7.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:549701347462:android:3405e2e00a03ec4c534907",
+        "mobilesdk_app_id": "1:766628803582:android:9ace6e05f3a4543e8c86af",
         "android_client_info": {
-          "package_name": "com.newus.battery"
+          "package_name": "com.newus.batteryfastcharge"
         }
       },
       "oauth_client": [
         {
-          "client_id": "549701347462-sqiff4oqmvvqc734e7a1nadlt49iu0nj.apps.googleusercontent.com",
+          "client_id": "766628803582-aitc2jce03pufqnqogtqfnlbidl08mce.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAQYxA_3_kunucLvbGZRD3ijWSKnp2h3ag"
+          "current_key": "AIzaSyCkoQpnBBOxQltxxa31Vt-J9z0ZahaUmGo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "549701347462-sqiff4oqmvvqc734e7a1nadlt49iu0nj.apps.googleusercontent.com",
+              "client_id": "766628803582-aitc2jce03pufqnqogtqfnlbidl08mce.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

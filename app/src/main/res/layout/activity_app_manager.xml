@@ -58,7 +58,7 @@
             app:layout_constraintStart_toEndOf="@+id/recyclerView"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.newus.battery.view.AnimatedExpandableListView
+        <com.newus.batteryfastcharge.view.AnimatedExpandableListView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -74,7 +74,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/banner"
             app:layout_constraintVertical_bias="1.0">
-        </com.newus.battery.view.AnimatedExpandableListView>
+        </com.newus.batteryfastcharge.view.AnimatedExpandableListView>
 
         <include
             layout="@layout/loading"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.newus.battery">
+    package="com.newus.batteryfastcharge">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -36,7 +36,7 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
-        android:name=".App"
+        android:name="com.newus.batteryfastcharge.App"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -46,8 +46,8 @@
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".activity.ChargeActivity"></activity>
-        <activity android:name=".activity.ChargeSettingActivity"></activity>
+        <activity android:name="com.newus.batteryfastcharge.activity.ChargeActivity"></activity>
+        <activity android:name="com.newus.batteryfastcharge.activity.ChargeSettingActivity"></activity>
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
@@ -59,66 +59,66 @@
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />
 
-        <activity android:name=".billing.RemoveAdsActivity" />
+        <activity android:name="com.newus.batteryfastcharge.billing.RemoveAdsActivity" />
         <activity
-            android:name=".activity.DoNotDisturbActivity"
+            android:name="com.newus.batteryfastcharge.activity.DoNotDisturbActivity"
             android:label="@string/title_activity_do_not_disturb"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <activity
-            android:name=".activity.LanguageActivity"
+            android:name="com.newus.batteryfastcharge.activity.LanguageActivity"
             android:label="@string/title_activity_language"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
-        <activity android:name=".activity.WhiteListAddActivity" />
+        <activity android:name="com.newus.batteryfastcharge.activity.WhiteListAddActivity" />
         <activity
-            android:name=".activity.WhiteListActivity"
+            android:name="com.newus.batteryfastcharge.activity.WhiteListActivity"
             android:label="@string/title_activity_white_list"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <activity
-            android:name=".activity.CleanResultActivity"
+            android:name="com.newus.batteryfastcharge.activity.CleanResultActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.newus.batteryfastcharge.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.CleanActivity"
+            android:name="com.newus.batteryfastcharge.activity.CleanActivity"
             android:exported="true"
             android:label="@string/junk_clean_nav"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.SettingActivity"
+            android:name="com.newus.batteryfastcharge.activity.SettingActivity"
             android:exported="true"
             android:label="Setting"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.ChartActivity"
+            android:name="com.newus.batteryfastcharge.activity.ChartActivity"
             android:exported="true"
             android:label="ChartActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.AppManagerActivity"
+            android:name="com.newus.batteryfastcharge.activity.AppManagerActivity"
             android:exported="true"
             android:label="AppManagerActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.BatterySaverActivity"
+            android:name="com.newus.batteryfastcharge.activity.BatterySaverActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.BoostActivity"
+            android:name="com.newus.batteryfastcharge.activity.BoostActivity"
             android:exported="true"
             android:label="@string/phone_boost_nav"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.CoolActivity"
+            android:name="com.newus.batteryfastcharge.activity.CoolActivity"
             android:exported="true"
             android:label="@string/phone_cool_nav"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.PermissionActivity"
+            android:name="com.newus.batteryfastcharge.activity.PermissionActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.SplashActivity"
+            android:name="com.newus.batteryfastcharge.activity.SplashActivity"
             android:theme="@style/Theme_AppCompat_Light_NoActionBar_FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -127,19 +127,19 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".Receiver.AlarmReceiver">
+        <receiver android:name="com.newus.batteryfastcharge.Receiver.AlarmReceiver">
             <intent-filter>
                 <action android:name="com.app.action.alarmmanager" />
             </intent-filter>
         </receiver>
 
         <service
-            android:name=".service.BatteryService"
+            android:name="com.newus.batteryfastcharge.service.BatteryService"
             android:exported="false" />
 
-        <receiver android:name=".Receiver.BatteryStatusReceiver" />
+        <receiver android:name="com.newus.batteryfastcharge.Receiver.BatteryStatusReceiver" />
         <receiver
-            android:name=".Receiver.AutoRebootReceiver"
+            android:name="com.newus.batteryfastcharge.Receiver.AutoRebootReceiver"
             android:enabled="true"
             android:exported="true"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
@@ -156,7 +156,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".Receiver.UpgradeReceiver"
+            android:name="com.newus.batteryfastcharge.Receiver.UpgradeReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

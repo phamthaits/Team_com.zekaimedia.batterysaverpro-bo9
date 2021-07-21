@@ -196,7 +196,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.newus.battery.view.HoloCircularProgressBar
+                <com.newus.batteryfastcharge.view.HoloCircularProgressBar
                     android:id="@+id/ivDoneHoloCirular"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

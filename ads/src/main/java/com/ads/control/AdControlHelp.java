@@ -29,7 +29,7 @@ public class AdControlHelp {
         Log.v("ads", "Load Firebase");
         AdControl adControl = AdControl.getInstance(context);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("Ad3")
+        db.collection("Ad1")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {

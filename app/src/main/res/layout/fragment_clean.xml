@@ -129,7 +129,7 @@
         android:layout_marginBottom="10dip"
         android:layout_weight="1">
 
-        <com.newus.battery.view.AnimatedExpandableListView
+        <com.newus.batteryfastcharge.view.AnimatedExpandableListView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -180,7 +180,7 @@
                     android:textColor="@color/title_dark"
                     android:textSize="@dimen/_12sdp" />
 
-                <com.newus.battery.view.RotateLoading
+                <com.newus.batteryfastcharge.view.RotateLoading
                     android:id="@+id/rotateloadingApks"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
@@ -211,7 +211,7 @@
                     android:textColor="@color/title_dark"
                     android:textSize="@dimen/_12sdp" />
 
-                <com.newus.battery.view.RotateLoading
+                <com.newus.batteryfastcharge.view.RotateLoading
                     android:id="@+id/rotateloadingCache"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
@@ -242,7 +242,7 @@
                     android:textColor="@color/title_dark"
                     android:textSize="@dimen/_12sdp" />
 
-                <com.newus.battery.view.RotateLoading
+                <com.newus.batteryfastcharge.view.RotateLoading
                     android:id="@+id/rotateloadingDownload"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
@@ -273,7 +273,7 @@
                     android:textColor="@color/title_dark"
                     android:textSize="@dimen/_12sdp" />
 
-                <com.newus.battery.view.RotateLoading
+                <com.newus.batteryfastcharge.view.RotateLoading
                     android:id="@+id/rotateloadingLargeFiles"
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"

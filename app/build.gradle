@@ -4,11 +4,11 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId 'com.newus.battery'
+        applicationId 'com.newus.batteryfastcharge'
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 3
-        versionName '3'
+        versionCode 1
+        versionName '1'
         testInstrumentationRunner "androidx.move_up_button.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
