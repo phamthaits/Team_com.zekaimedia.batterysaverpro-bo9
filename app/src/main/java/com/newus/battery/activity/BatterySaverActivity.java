@@ -107,7 +107,6 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-
             case R.id.lr_back:
                 finish();
                 return;
@@ -186,6 +185,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         if (!Utils.checkShouldDoing(context, 3)) {
             cv_trash_cleaner.setVisibility(View.GONE);
         }
+//        checkTask();
     }
 
     class anmRotate implements AnimationListener {
@@ -439,7 +439,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
 //            if (SharePreferenceUtils.getInstance(this).getFsAutoRun())
 //                findViewById(R.id.cvFastCharge).setVisibility(View.GONE);
 //        }
-
+//
 //    }
 
     private void loadResult() {

@@ -350,7 +350,7 @@ public class SharePreferenceUtils {
     }
 
     public boolean getFsAutoRun() {
-        return this.pre.getBoolean("FsAutoRun", false);
+        return this.pre.getBoolean("FsAutoRun", true);
     }
 
     public void setFsAutoRun(boolean i) {

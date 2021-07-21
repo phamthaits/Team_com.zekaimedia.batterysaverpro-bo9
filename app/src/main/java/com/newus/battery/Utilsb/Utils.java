@@ -25,6 +25,7 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.newus.battery.activity.ChargeActivity;
 import com.newus.battery.activity.PermissionActivity;
 import com.newus.battery.notification.NotificationDevice;
 import com.newus.battery.Alarm.AlarmUtils;
@@ -99,11 +100,11 @@ public class Utils {
 
     public static void intPowerConnected(Context context) {
         //Open activity sac nhanh
-//        if (SharePreferenceUtils.getInstance(context).getFsAutoRun() && !Utils.getChargeFull(context)) {
-//            Intent i = new Intent(context, ChargeActivity.class);
-//            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//            context.startActivity(i);
-//        }
+        if (SharePreferenceUtils.getInstance(context).getFsAutoRun() && !Utils.getChargeFull(context)) {
+            Intent i = new Intent(context, ChargeActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            context.startActivity(i);
+        }
         //Loai sac
         SharePreferenceUtils.getInstance(context).setChargeType(Utils.getChargeType(context));
         //Pin vao
