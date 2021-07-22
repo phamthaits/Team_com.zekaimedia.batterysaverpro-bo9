@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,35 +13,35 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            app:titleTextColor="@color/text_color"
-            app:subtitleTextColor="@color/text_color"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
-            app:layout_collapseMode="pin"
-
             android:theme="@style/ToolbarThemeGreen"
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:subtitleTextColor="@color/colorPrimaryDark"
             app:titleTextAppearance="@style/textsizetoolbar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:titleTextColor="@color/colorPrimaryDark" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
         android:background="@drawable/bg_rounded"
         android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/lrAutoRun"
-            android:clickable="false"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:paddingEnd="10dp"
-            android:paddingStart="10dp"
             style="@style/Ripple"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:paddingStart="10dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -53,28 +52,29 @@
 
                 <TextView
                     android:id="@+id/tvEnable"
-                    android:textAllCaps="true"
                     style="@style/rowSwitchStyle"
-                    android:text="@string/auto_disable" />
+                    android:text="@string/auto_disable"
+                    android:textAllCaps="true" />
 
             </LinearLayout>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swAutoRun"
-                style="@style/swStyle" />
+                style="@style/swStyle"
+                app:track="@drawable/track" />
         </LinearLayout>
 
 
         <LinearLayout
             android:id="@+id/lrWifi"
-            android:clickable="false"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:paddingEnd="10dp"
-            android:paddingStart="10dp"
             style="@style/Ripple"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:paddingStart="10dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -88,28 +88,30 @@
                     android:id="@+id/tvWifi"
                     style="@style/rowSwitchStyle"
                     android:text="@string/wifi" />
+
                 <TextView
                     android:id="@+id/tvWifiDes"
                     style="@style/rowdetails"
-                    android:text="@string/off_status"/>
+                    android:text="@string/off_status" />
 
             </LinearLayout>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swWifi"
-                style="@style/swStyle" />
+                style="@style/swStyle"
+                app:track="@drawable/track" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/lrAutoBrightness"
-            android:clickable="false"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:paddingEnd="10dp"
-            android:paddingStart="10dp"
             style="@style/Ripple"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:paddingStart="10dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -123,28 +125,30 @@
                     android:id="@+id/tvBrightness"
                     style="@style/rowSwitchStyle"
                     android:text="@string/screen_brightness" />
+
                 <TextView
                     android:id="@+id/tvBrightnessDes"
                     style="@style/rowdetails"
-                    android:text="@string/auto"/>
+                    android:text="@string/auto" />
 
             </LinearLayout>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swAutoBrightness"
-                style="@style/swStyle" />
+                style="@style/swStyle"
+                app:track="@drawable/track" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/lrBluetooth"
-            android:clickable="false"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:paddingEnd="10dp"
-            android:paddingStart="10dp"
             style="@style/Ripple"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:paddingStart="10dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -158,28 +162,30 @@
 
                     style="@style/rowSwitchStyle"
                     android:text="@string/bluetooth" />
+
                 <TextView
                     android:id="@+id/tvBluetoothDes"
                     style="@style/rowdetails"
-                    android:text="@string/off_status"/>
+                    android:text="@string/off_status" />
 
             </LinearLayout>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swBluetooth"
-                style="@style/swStyle" />
+                style="@style/swStyle"
+                app:track="@drawable/track" />
         </LinearLayout>
-        
+
         <LinearLayout
             android:id="@+id/lrAutoSync"
-            android:clickable="false"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:paddingEnd="10dp"
-            android:paddingStart="10dp"
             style="@style/Ripple"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:paddingStart="10dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -193,19 +199,18 @@
 
                     style="@style/rowSwitchStyle"
                     android:text="@string/auto_sync" />
+
                 <TextView
                     android:id="@+id/tvSyncDes"
                     style="@style/rowdetails"
-                    android:text="@string/auto"/>
+                    android:text="@string/auto" />
 
             </LinearLayout>
 
             <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/swAutoSync"
-                style="@style/swStyle" />
+                style="@style/swStyle"
+                app:track="@drawable/track" />
         </LinearLayout>
-
-
-
     </LinearLayout>
 </LinearLayout>

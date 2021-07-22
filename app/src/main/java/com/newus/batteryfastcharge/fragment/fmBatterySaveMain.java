@@ -51,6 +51,7 @@ import com.newus.batteryfastcharge.activity.AppManagerActivity;
 import com.newus.batteryfastcharge.activity.BaseActivity;
 import com.newus.batteryfastcharge.activity.BatterySaverActivity;
 import com.newus.batteryfastcharge.activity.BoostActivity;
+import com.newus.batteryfastcharge.activity.ChargeSettingActivity;
 import com.newus.batteryfastcharge.activity.ChartActivity;
 import com.newus.batteryfastcharge.activity.CleanActivity;
 import com.newus.batteryfastcharge.activity.CoolActivity;
@@ -102,7 +103,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private RippleBackground rippleBackground;
     private TextView tvFullCharge;
     private LinearLayout lrTimeLeft;
-    private RelativeLayout lrClean, lrBoost, lrCool, lrSettings, lrHistory, lrManager, lrRemove;
+    private RelativeLayout lrClean, lrBoost, lrCharge, lrCool, lrSettings, lrHistory, lrManager, lrRemove;
 
     private ProgressBar pbQuick, pbFull, pbTrickle;
     private ImageView imgQuick, imgFull, imgTrickle;
@@ -126,6 +127,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         lrBoost.setOnClickListener(this);
         lrClean.setOnClickListener(this);
         lrCool.setOnClickListener(this);
+        lrCharge.setOnClickListener(this);
         lrSettings.setOnClickListener(this);
         btnOptimize.setOnClickListener(this);
         btnWifi.setOnClickListener(this);
@@ -172,6 +174,9 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 } else {
                     writePermission();
                 }
+                break;
+            case R.id.lrCharge:
+                startActivity(new Intent(getActivity(), ChargeSettingActivity.class));
                 break;
             case R.id.lrSettings:
                 startActivity(new Intent(getActivity(), SettingActivity.class));
@@ -485,6 +490,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         rippleBackground = view.findViewById(R.id.content);
         lrBoost = view.findViewById(R.id.lrBoost);
         lrClean = view.findViewById(R.id.lrClean);
+        lrCharge = view.findViewById(R.id.lrCharge);
         lrCool = view.findViewById(R.id.lrCool);
         lrSettings = view.findViewById(R.id.lrSettings);
         lrHistory = view.findViewById(R.id.lrHistory);

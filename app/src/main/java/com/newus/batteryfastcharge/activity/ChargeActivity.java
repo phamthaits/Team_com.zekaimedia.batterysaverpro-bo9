@@ -2,14 +2,12 @@ package com.newus.batteryfastcharge.activity;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
@@ -19,16 +17,20 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.ads.control.AdControl;
+import com.airbnb.lottie.LottieAnimationView;
 import com.newus.batteryfastcharge.R;
+import com.newus.batteryfastcharge.Utilsb.SharePreferenceUtils;
 import com.newus.batteryfastcharge.Utilsb.Utils;
+import com.newus.batteryfastcharge.billing.RemoveAdsActivity;
 import com.newus.batteryfastcharge.task.TaskCharge;
 import com.newus.batteryfastcharge.task.TaskChargeDetail;
 import com.skyfishjy.library.RippleBackground;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
-import com.newus.batteryfastcharge.Utilsb.SharePreferenceUtils;
 
 public class ChargeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -40,7 +42,10 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
     Boolean flagExit = false;
     ImageView rocketImage, rocketImageOut, ic_fan_white;
 
+    LottieAnimationView animationProgress;
+
     private ImageView ivDone;
+    private Context context;
     Handler mHandler1;
     Runnable r1;
 
@@ -48,49 +53,59 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
+        context = this;
         setContentView(R.layout.activity_charge_optimize);
         intView();
         intData();
         checkTask();
-
+        View bt_RemoveAds = findViewById(R.id.remove_ads);
+        bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
     }
 
     public void checkTask() {
-        if (!Utils.checkShouldDoing(this, 6)) {
-            findViewById(R.id.phone_boost).setVisibility(View.GONE);
-        }
-        if (!Utils.checkShouldDoing(this, 7)) {
-            findViewById(R.id.phone_cooler).setVisibility(View.GONE);
-        }
         if (!Utils.checkShouldDoing(this, 3)) {
-            findViewById(R.id.trash_cleaner).setVisibility(View.GONE);
+            findViewById(R.id.cv_trash_cleaner).setVisibility(View.GONE);
         }
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-
             case R.id.lr_back:
                 finish();
                 return;
-
             case R.id.ivSetting:
                 startActivity(new Intent(this, ChargeSettingActivity.class));
-
+                finish();
                 return;
-//            case R.id.rlBoost:
-//                startActivity(new Intent(this, BoostActivity.class));
-//                finish();
-//                return;
-//            case R.id.rlClean:
-//                startActivity(new Intent(this, CleanActivity.class));
-//                finish();
-//                return;
-//            case R.id.rlCool:
-//                startActivity(new Intent(this, CoolActivity.class));
-//                finish();
-//                return;
+            case R.id.lrBoost:
+                startActivity(new Intent(this, BoostActivity.class));
+                finish();
+                return;
+            case R.id.lrClean:
+                startActivity(new Intent(this, CleanActivity.class));
+                finish();
+                return;
+            case R.id.lrCool:
+                startActivity(new Intent(this, CoolActivity.class));
+                finish();
+                return;
+            case R.id.lrHistory:
+                startActivity(new Intent(this, ChartActivity.class));
+                finish();
+                return;
+            case R.id.lrManager:
+                startActivity(new Intent(this, AppManagerActivity.class));
+                finish();
+                return;
+            case R.id.lrSettings:
+                startActivity(new Intent(this, SettingActivity.class));
+                finish();
+                return;
+            case R.id.lrRemove:
+                startActivity(new Intent(this, RemoveAdsActivity.class));
+                finish();
+                return;
             default:
                 return;
         }
@@ -111,9 +126,10 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         tvOptimize = findViewById(R.id.tvOptimize);
         ic_fan_white = findViewById(R.id.ic_fan_white);
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
-        this.ivDone.setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
-        this.rocketImageOut.setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
-        this.rocketImage.setColorFilter(getResources().getColor(R.color.progress_color), PorterDuff.Mode.MULTIPLY);
+        this.ivDone.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.MULTIPLY);
+
+        animationProgress = findViewById(R.id.av_progress);
+
 
         initRippleBackgound();
 
@@ -124,6 +140,7 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         Animation loadAnimation = AnimationUtils.loadAnimation(this, R.anim.rote_charge_anim_out);
         this.rocketImageOut.startAnimation(loadAnimation);
         loadAnimation.start();
+        animationProgress.playAnimation();
 
         mHandler1 = new Handler();
         r1 = new Runnable() {

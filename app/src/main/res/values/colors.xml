@@ -26,17 +26,21 @@
     <color name="phone_cooler">#2AC3FF</color>
     <color name="text_phone_cooler">#048DB7</color>
 
+    //Fast Charge
+    <color name="fast_charge">#C3BC61</color>
+<!--    <color name="text_fast_charge">#048DB7</color>-->
+
     //Charge History
     <color name="charge_history">#009788</color>
-    <color name="text_charge_history">#C18111</color>
+<!--    <color name="text_charge_history">#009788</color>-->
 
     //App Manager
     <color name="app_manager">#3E7EBE</color>
-    <color name="text_app_manager">#154593</color>
+<!--    <color name="text_app_manager">#154593</color>-->
 
     //Settings
     <color name="settings">#3AC3AE</color>
-    <color name="text_settings">#511CB7</color>
+<!--    <color name="text_settings">#511CB7</color>-->
 
     //Remove Ads
     <color name="remove_ads">#5A65FF</color>
