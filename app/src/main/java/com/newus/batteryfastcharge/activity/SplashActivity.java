@@ -42,6 +42,17 @@ public class SplashActivity extends AppCompatActivity {
             startMainActivity();
             finish();
         };
+        AdControlHelp.AdCloseListener adCloseListener = () -> {
+            startMainActivity();
+        };
+        AdControlHelp.AdLoadedListener adLoadedListener = new AdControlHelp.AdLoadedListener() {
+            @Override
+            public void onAdLoaded() {
+                if (handler != null) {
+                    handler.removeCallbacks(runnable);
+                }
+            }
+        };
         Log.v("ads", "Remove_ads: " + adControl.remove_ads());
         handler.postDelayed(runnable, 8000);
         AdControlHelp.FireBaseListener fireBaseListener = new AdControlHelp.FireBaseListener() {
@@ -51,8 +62,9 @@ public class SplashActivity extends AppCompatActivity {
                     @Override
                     public void onInitialized() {
                         if (isStill_startMainActivity) {
-                            SplashActivity.this.startMainActivity();
-                            finish();
+                            adControlHelp.loadInterstitialAd(SplashActivity.this, adCloseListener, adLoadedListener, true);
+//                            SplashActivity.this.startMainActivity();
+//                            finish();
                         }
                     }
                 });
