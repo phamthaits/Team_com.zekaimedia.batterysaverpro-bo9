@@ -1,6 +1,7 @@
 package com.newus.batteryfastcharge.fragment;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.NotificationManager;
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
@@ -172,11 +173,16 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                     SharePreferenceUtils.getInstance(getActivity()).setFlagAds(true);
                     startActivity(new Intent(getActivity(), BatterySaverActivity.class));
                 } else {
-                    writePermission();
+                    ((BaseActivity) getActivity()).writePermission(getActivity(), this.getClass());
                 }
                 break;
             case R.id.lrCharge:
-                startActivity(new Intent(getActivity(), ChargeSettingActivity.class));
+                adControlHelp.showInterstitialAd(getActivity(), new AdControlHelp.AdCloseListener() {
+                    @Override
+                    public void onAdClosed() {
+                        startActivity(new Intent(getActivity(), ChargeSettingActivity.class));
+                    }
+                });
                 break;
             case R.id.lrSettings:
                 startActivity(new Intent(getActivity(), SettingActivity.class));
@@ -526,34 +532,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         imageView.startAnimation(rotation);
     }
 
-    public void writePermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            try {
-                ((BaseActivity) getActivity()).checkdrawPermission(new Callable<Void>() {
-                    @Override
-                    public Void call() throws Exception {
-                        if (Utils.checkSystemWritePermission(fmBatterySaveMain.this.getActivity())) {
-                            fmBatterySaveMain.this.startActivity(new Intent(fmBatterySaveMain.this.getActivity(), fmBatterySaveMain.this.getActivity().getClass()));
-                        } else {
-                            Utils.openAndroidPermissionsMenu(fmBatterySaveMain.this.getActivity());
-                        }
-                        return null;
-                    }
-                });
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (!Settings.System.canWrite(getActivity())) {
-                    SharePreferenceUtils.getInstance(getActivity()).setStatusPer(true);
-                    Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS, Uri.parse("package:" + getActivity().getPackageName()));
-                    startActivityForResult(intent, WRITE_PERMISSION_REQUEST);
-                    startActivity(new Intent(getActivity(), PermissionActivity.class));
-                }
-            }
-        }
-    }
 
     BroadcastReceiver receiver = new BroadcastReceiver() {
 

@@ -69,7 +69,6 @@
     <string name="go_charge_quantity">充電電気量：</string>
     <string name="title_activity_charge_history">充電履歴</string>
     <string name="title_activity_setting">設定</string>
-    <string name="title_activity_fast_charge">急速充電</string>
     <string name="kill_app_screen_off">自動タスク削除</string>
     <string name="kill_app_screen_off_des">画面がロックされた時に使用していないバックグラウンドアプリをクリア</string>
     <string name="app_white_list">アプリ無視リスト</string>

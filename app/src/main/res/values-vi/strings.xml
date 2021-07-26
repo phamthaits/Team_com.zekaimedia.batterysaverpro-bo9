@@ -68,7 +68,6 @@
     <string name="go_charge_quantity">Chất lượng sạc pin:</string>
     <string name="title_activity_charge_history">Lịch Sử Sạc Pin</string>
     <string name="title_activity_setting">CÀI ĐẶT</string>
-    <string name="title_activity_fast_charge">Sạc nhanh</string>
     <string name="kill_app_screen_off">Tự động ngắt ứng dụng</string>
     <string name="kill_app_screen_off_des">Dọn các ứng dụng nền không sử dụng khi màn hình bị khóa</string>
     <string name="app_white_list">Danh sách ứng dụng bỏ qua</string>
@@ -124,7 +123,7 @@
     <string name="disable_fast_charging_des">Bạn sẽ không thể giám sát tình trạng sạc pin. Chắc chắn bạn muốn vô hiệu hóa</string>
     <string name="feedback_nav">Phản hồi</string>
     <string name="general_title">Chung</string>
-    <string name="battery_level">Wi-Fi</string>
+    <string name="battery_level">Battery Level</string>
     <string name="phone_cooler">Làm mát</string>
     <string name="name_remove_ads">Remove Ads</string>
     <string name="manage">Quản lý</string>

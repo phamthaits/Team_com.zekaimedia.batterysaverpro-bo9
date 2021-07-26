@@ -69,7 +69,6 @@
     <string name="go_charge_quantity">ปริมาณในการชาร์จ:</string>
     <string name="title_activity_charge_history">ประวัติการชาร์จ</string>
     <string name="title_activity_setting">การตั้งค่า</string>
-    <string name="title_activity_fast_charge">ชาร์จแบบเร็ว</string>
     <string name="kill_app_screen_off">หยุดการทำงานของแอปอัตโนมัติ</string>
     <string name="kill_app_screen_off_des">ล้างแอปพื้นหลังที่ไม่ได้ใช้เมื่อหน้าจอถูกล็อค</string>
     <string name="app_white_list">รายการแอปละเว้น</string>

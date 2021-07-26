@@ -70,7 +70,6 @@
     <string name="go_charge_quantity">Consommation:</string>
     <string name="title_activity_charge_history">Historique de charge</string>
     <string name="title_activity_setting">Paramètres</string>
-    <string name="title_activity_fast_charge">Charge Rapide</string>
     <string name="kill_app_screen_off">Fermer automatiquement l\'application</string>
     <string name="kill_app_screen_off_des">Arrêter les applications d\'arrière-plan inutilisées lorsque l\'écran est verrouillé</string>
     <string name="app_white_list">Applis ignorées</string>

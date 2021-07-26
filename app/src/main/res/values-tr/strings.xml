@@ -69,7 +69,6 @@
     <string name="go_charge_quantity">Şarj miktarı:</string>
     <string name="title_activity_charge_history">Şarj Geçmişi</string>
     <string name="title_activity_setting">Ayarlar</string>
-    <string name="title_activity_fast_charge">Hızlı Şarj</string>
     <string name="kill_app_screen_off">Otomatik Olarak Uygulamaları Kapat</string>
     <string name="kill_app_screen_off_des">Ekran kilitlendiğinde kullanılmayan arkaplan uygulamalarını temizle</string>
     <string name="app_white_list">Uyg yoksy list</string>

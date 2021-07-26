@@ -69,7 +69,6 @@
     <string name="go_charge_quantity">Carica quantità</string>
     <string name="title_activity_charge_history">Archivio ricariche</string>
     <string name="title_activity_setting">Impostazioni</string>
-    <string name="title_activity_fast_charge">Carica veloce</string>
     <string name="kill_app_screen_off">Auto Kill Apps</string>
     <string name="kill_app_screen_off_des">Chiudi le app inutilizzate in background  quando lo schermo è bloccato</string>
     <string name="app_white_list">Elenco Ignora app</string>

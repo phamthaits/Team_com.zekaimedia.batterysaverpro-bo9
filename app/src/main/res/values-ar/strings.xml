@@ -70,7 +70,6 @@
     <string name="go_charge_quantity">كمية الشحن</string>
     <string name="title_activity_charge_history">تاريخ الشحن</string>
     <string name="title_activity_setting">الإعدادات</string>
-    <string name="title_activity_fast_charge">الشحن السريع</string>
     <string name="kill_app_screen_off">تطبيقات قتل السيارات</string>
     <string name="kill_app_screen_off_des">تنظيف التطبيقات الخلفية غير المستخدمة عند قفل الشاشة</string>
     <string name="app_white_list">قائمة تجاهل تطبيق</string>

@@ -69,7 +69,6 @@
     <string name="go_charge_quantity">충전량:</string>
     <string name="title_activity_charge_history">충전 이력</string>
     <string name="title_activity_setting">설정</string>
-    <string name="title_activity_fast_charge">빠른충전</string>
     <string name="kill_app_screen_off">앱 자동 중지</string>
     <string name="kill_app_screen_off_des">스크린 잠금 시 백그라운드에 실행 중인 사용하지 않는 앱을 종료하세요</string>
     <string name="app_white_list">어플 제외 목록</string>

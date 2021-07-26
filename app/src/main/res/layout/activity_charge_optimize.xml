@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
-                android:text="@string/title_activity_fast_charge"
+                android:text="@string/fast_charging"
                 android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
@@ -172,15 +172,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_5sdp"
                     android:layout_marginTop="@dimen/_5sdp" />
-
-                <!--Remove Ads-->
-                <include
-                    android:id="@+id/remove_ads"
-                    layout="@layout/remove_ads"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
             </LinearLayout>
         </ScrollView>
     </FrameLayout>
@@ -201,14 +192,14 @@
             android:layout_gravity="center"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/fast_charge"/>
+            app:lottie_rawRes="@raw/fast_charge" />
 
         <com.skyfishjy.library.RippleBackground
-            android:visibility="gone"
             android:id="@+id/charge_boost_ripple_background"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:visibility="gone"
             app:rb_color="@color/fast_charge"
             app:rb_duration="1200"
             app:rb_radius="56.0dip"

@@ -19,7 +19,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ads.control.AdControl;
 import com.airbnb.lottie.LottieAnimationView;
 import com.newus.batteryfastcharge.R;
 import com.newus.batteryfastcharge.Utilsb.SharePreferenceUtils;
@@ -45,7 +44,6 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
     LottieAnimationView animationProgress;
 
     private ImageView ivDone;
-    private Context context;
     Handler mHandler1;
     Runnable r1;
 
@@ -53,13 +51,10 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
-        context = this;
         setContentView(R.layout.activity_charge_optimize);
         intView();
         intData();
         checkTask();
-        View bt_RemoveAds = findViewById(R.id.remove_ads);
-        bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
     }
 
     public void checkTask() {
@@ -102,11 +97,7 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(new Intent(this, SettingActivity.class));
                 finish();
                 return;
-            case R.id.lrRemove:
-                startActivity(new Intent(this, RemoveAdsActivity.class));
-                finish();
-                return;
-            default:
+             default:
                 return;
         }
     }

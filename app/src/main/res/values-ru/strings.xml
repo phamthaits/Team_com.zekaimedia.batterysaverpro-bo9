@@ -69,7 +69,6 @@
     <string name="go_charge_quantity">Количество зарядок:</string>
     <string name="title_activity_charge_history">История зарядок</string>
     <string name="title_activity_setting">Настройки</string>
-    <string name="title_activity_fast_charge">Быстрая зарядка</string>
     <string name="kill_app_screen_off">Автозавершение приложений</string>
     <string name="kill_app_screen_off_des">Очищайте неисп. фоновые приложения  при заблокированном экране</string>
     <string name="app_white_list">Список игнор прил-я</string>

@@ -116,7 +116,6 @@
     <string name="title_activity_charge_history">Charge History</string>
 
     <string name="title_activity_setting">Settings</string>
-    <string name="title_activity_fast_charge">Fast Charge</string>
 
     //Setting
     <string name="kill_app_screen_off">Auto Kill Apps</string>

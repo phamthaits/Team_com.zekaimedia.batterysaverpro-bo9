@@ -19,7 +19,7 @@
     <string name="email_feedback" translatable="false">shirtnewus.com@gmail.com</string>
     <string name="nav_more_app" translatable="false">https://play.google.com/store/apps/developer?id=Newus</string>
     <string name="link_policy" translatable="false">https://shirtnewus.blogspot.com/2021/03/privacy-policy-newus.html</string>
-    <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
-<!--        <string name="admob_app_id" translatable="false">ca-app-pub-8144329962438774~7689221866</string>-->
+<!--    <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>-->
+        <string name="admob_app_id" translatable="false">ca-app-pub-8144329962438774~1146493037</string>
     <!--   Mã thật-->
 </resources>

@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.gms.ads.nativead.NativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_card_ads">
+
+    <TextView
+        android:id="@+id/native_ad_sponsored_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/_5sdp"
+        android:clickable="false"
+        android:ellipsize="end"
+        android:gravity="right"
+        android:lines="1"
+        android:text="Sponsored"
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
     <RelativeLayout
         android:id="@+id/ad_unit_content"
@@ -93,7 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dip" />
+                android:layout_margin="2dip" />
 
             <Button
                 android:id="@+id/ad_call_to_action"
@@ -101,8 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_20sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_10sdp" />
+                android:layout_marginBottom="@dimen/_5sdp" />
         </LinearLayout>
 
         <TextView style="@style/AppTheme.Ads" />

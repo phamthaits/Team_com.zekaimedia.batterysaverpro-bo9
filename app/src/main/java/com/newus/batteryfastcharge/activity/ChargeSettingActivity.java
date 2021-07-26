@@ -5,21 +5,29 @@ import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
+
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.ads.control.AdControl;
+import com.ads.control.AdControlHelp;
 import com.newus.batteryfastcharge.Utilsb.SharePreferenceUtils;
 import com.newus.batteryfastcharge.Utilsb.Utils;
 import com.newus.batteryfastcharge.R;
 
-public class ChargeSettingActivity extends AppCompatActivity implements View.OnClickListener{
+public class ChargeSettingActivity extends BaseActivity implements View.OnClickListener {
 
-    SwitchCompat swWifi,swAutoBrightness,swAutoRun,swBluetooth,swAutoSync;
-    private TextView tvWifi,tvWifiDes,tvBluetooth,tvBluetoothDes,tvBrightness,tvBrightnessDes,tvSync,tvSyncDes,tvEnable;
+    SwitchCompat swWifi, swAutoBrightness, swAutoRun, swBluetooth, swAutoSync;
+    private TextView tvWifi, tvWifiDes, tvBluetooth, tvBluetoothDes, tvBrightness, tvBrightnessDes, tvSync, tvSyncDes, tvEnable;
+    AdControl adControl;
+    AdControlHelp adControlHelp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +48,24 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
         intView();
         intEvent();
         intData();
+        checkPer();
     }
+
+    private void checkPer() {
+        if (Utils.checkSystemWritePermission(this)) {
+            SharePreferenceUtils.getInstance(this).setFlagAds(true);
+            tvEnable.setText(R.string.enabled);
+            swAutoRun.setChecked(true);
+            SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoRun(true);
+            intStatus();
+        } else {
+            ((BaseActivity) this).writePermission(this, ChargeSettingActivity.class);
+        }
+    }
+
     private void showDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(getString(R.string.disable_fast_charging) );
+        builder.setTitle(getString(R.string.disable_fast_charging));
         builder.setMessage(getString(R.string.disable_fast_charging_des));
 
         String positiveText = getString(R.string.auto_disable);
@@ -75,10 +97,13 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
         // display dialog
         dialog.show();
     }
-    public void intView(){
+
+    public void intView() {
+        adControl = AdControl.getInstance(this);
+        adControlHelp = AdControlHelp.getInstance(this);
         swWifi = findViewById(R.id.swWifi);
         swBluetooth = findViewById(R.id.swBluetooth);
-        swAutoBrightness= findViewById(R.id.swAutoBrightness);
+        swAutoBrightness = findViewById(R.id.swAutoBrightness);
         swAutoRun = findViewById(R.id.swAutoRun);
         swAutoSync = findViewById(R.id.swAutoSync);
         tvWifi = findViewById(R.id.tvWifi);
@@ -90,14 +115,17 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
         tvSync = findViewById(R.id.tvSync);
         tvSyncDes = findViewById(R.id.tvSyncDes);
         tvEnable = findViewById(R.id.tvEnable);
+        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), adControl.native_setting);
     }
-    public void intEvent(){
+
+    public void intEvent() {
         findViewById(R.id.lrWifi).setOnClickListener(this);
         findViewById(R.id.lrBluetooth).setOnClickListener(this);
         findViewById(R.id.lrAutoBrightness).setOnClickListener(this);
         findViewById(R.id.lrAutoRun).setOnClickListener(this);
         findViewById(R.id.lrAutoSync).setOnClickListener(this);
     }
+
     private void setColorText(boolean isChecked) {
         if (isChecked) {
             tvEnable.setText(getString(R.string.enabled));
@@ -110,39 +138,39 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
 
 
             tvWifi.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
-            if(SharePreferenceUtils.getInstance(this).getFsWifi()){
+            if (SharePreferenceUtils.getInstance(this).getFsWifi()) {
                 swWifi.setChecked(true);
                 tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
                 tvWifiDes.setText(getString(R.string.on_status));
 
-            }else{
+            } else {
                 swWifi.setChecked(false);
                 tvWifiDes.setText(getString(R.string.off_status));
                 tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
             }
 
-            if(SharePreferenceUtils.getInstance(this).getFsBluetooth()){
+            if (SharePreferenceUtils.getInstance(this).getFsBluetooth()) {
                 swBluetooth.setChecked(true);
                 tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
                 tvBluetoothDes.setText(getString(R.string.on_status));
-            }else{
+            } else {
                 swBluetooth.setChecked(false);
                 tvBluetoothDes.setText(getString(R.string.off_status));
                 tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
             }
             tvBluetooth.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
-            if(SharePreferenceUtils.getInstance(this).getFsAutoBrightness()){
+            if (SharePreferenceUtils.getInstance(this).getFsAutoBrightness()) {
                 tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
-            }else{
+            } else {
                 tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
             }
             tvBrightness.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
 
-            if(SharePreferenceUtils.getInstance(this).getFsAutoSync()){
+            if (SharePreferenceUtils.getInstance(this).getFsAutoSync()) {
                 tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
-            }else{
+            } else {
                 tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
             }
             tvSync.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
@@ -170,7 +198,8 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
             tvWifiDes.setText(R.string.off_status);
         }
     }
-    public void intData(){
+
+    public void intData() {
         swWifi.setChecked(SharePreferenceUtils.getInstance(this).getFsWifi());
         swBluetooth.setChecked(SharePreferenceUtils.getInstance(this).getFsBluetooth());
         swAutoBrightness.setChecked(SharePreferenceUtils.getInstance(this).getAutoBrightness());
@@ -179,6 +208,7 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
         intStatus();
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -193,6 +223,7 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onBackPressed() {
 
@@ -205,12 +236,12 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
         switch (v.getId()) {
             case R.id.lrWifi:
 
-                if(SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsWifi()){
+                if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsWifi()) {
                     tvWifiDes.setText(R.string.off_status);
                     tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
                     swWifi.setChecked(false);
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsWifi(false);
-                }else{
+                } else {
                     tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
                     tvWifiDes.setText(R.string.on_status);
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsWifi(true);
@@ -219,12 +250,12 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.lrBluetooth:
 
-                if(SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsBluetooth()){
+                if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsBluetooth()) {
                     tvBluetoothDes.setText(R.string.off_status);
                     swBluetooth.setChecked(false);
                     tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsBluetooth(false);
-                }else{
+                } else {
                     tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
                     tvBluetoothDes.setText(R.string.on_status);
                     swBluetooth.setChecked(true);
@@ -233,11 +264,11 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.lrAutoBrightness:
 
-                if(SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsAutoBrightness()){
+                if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsAutoBrightness()) {
                     tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
                     swAutoBrightness.setChecked(false);
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoBrightness(false);
-                }else{
+                } else {
                     tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
                     swAutoBrightness.setChecked(true);
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoBrightness(true);
@@ -245,24 +276,20 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.lrAutoRun:
 
-                if(SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsAutoRun()){
+                if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsAutoRun()) {
                     showDialog();
-                }else{
-
-                    tvEnable.setText(R.string.enabled);
-                    swAutoRun.setChecked(true);
-                    SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoRun(true);
-                    intStatus();
+                } else {
+                    checkPer();
                 }
                 break;
             case R.id.lrAutoSync:
 
-                if(SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsAutoSync()){
+                if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsAutoSync()) {
                     tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
                     swAutoSync.setChecked(false);
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoSync(false);
 
-                }else{
+                } else {
                     tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
                     swAutoSync.setChecked(true);
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoSync(true);
@@ -275,43 +302,43 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
                 break;
         }
     }
-    public void intStatus(){
+
+    public void intStatus() {
 
 
-
-        if(SharePreferenceUtils.getInstance(this).getFsAutoRun()){
-            if(SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsWifi()){
+        if (SharePreferenceUtils.getInstance(this).getFsAutoRun()) {
+            if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsWifi()) {
                 tvWifiDes.setText(R.string.on_status);
                 swWifi.setChecked(true);
-            }else{
+            } else {
                 tvWifiDes.setText(R.string.off_status);
                 swWifi.setChecked(false);
             }
-            if(SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsAutoSync()){
+            if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsAutoSync()) {
                 swAutoSync.setChecked(true);
 
-            }else{
+            } else {
                 swAutoSync.setChecked(false);
 
 
             }
-            if(SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsAutoBrightness()){
+            if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsAutoBrightness()) {
 
                 swAutoBrightness.setChecked(true);
-            }else{
+            } else {
 
                 swAutoBrightness.setChecked(false);
             }
-            if(SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsBluetooth()){
+            if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsBluetooth()) {
                 tvBluetoothDes.setText(R.string.on_status);
                 swBluetooth.setChecked(true);
-            }else{
+            } else {
 
                 tvBluetoothDes.setText(R.string.off_status);
                 swBluetooth.setChecked(false);
             }
             setColorText(true);
-        }else{
+        } else {
             setColorText(false);
         }
 

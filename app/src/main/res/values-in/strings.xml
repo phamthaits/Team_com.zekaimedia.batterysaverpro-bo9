@@ -68,7 +68,6 @@
     <string name="go_charge_quantity">Jumlah pengisian:</string>
     <string name="title_activity_charge_history">Riwayat Pengisian Daya</string>
     <string name="title_activity_setting">Setelan</string>
-    <string name="title_activity_fast_charge">Isi Cepat</string>
     <string name="kill_app_screen_off">Otomatis Matikan App</string>
     <string name="kill_app_screen_off_des">Bersihkan app belakang layar yang tak terpakai saat layar dikunci</string>
     <string name="app_white_list">Daftar pengabaian aplikasi</string>

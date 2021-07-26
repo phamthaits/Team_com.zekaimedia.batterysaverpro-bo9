@@ -68,7 +68,6 @@
     <string name="go_charge_quantity">Quantidade de carregamento:</string>
     <string name="title_activity_charge_history">Charge History</string>
     <string name="title_activity_setting">Definições</string>
-    <string name="title_activity_fast_charge">Carga rápida</string>
     <string name="kill_app_screen_off">Terminar aplicativos automaticamente</string>
     <string name="kill_app_screen_off_des">Limpar aplicativos em segundo plano não usados quando a tela estiver bloqueada</string>
     <string name="app_white_list">Lista de apps ignorados</string>
