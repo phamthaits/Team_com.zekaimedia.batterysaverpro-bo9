@@ -109,7 +109,7 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
             findViewById(R.id.lrAutoSync).setEnabled(true);
 
 
-            tvWifi.setTextColor(ContextCompat.getColor(this, R.color.text_color));
+            tvWifi.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
             if(SharePreferenceUtils.getInstance(this).getFsWifi()){
                 swWifi.setChecked(true);
                 tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
@@ -130,14 +130,14 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
                 tvBluetoothDes.setText(getString(R.string.off_status));
                 tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
             }
-            tvBluetooth.setTextColor(ContextCompat.getColor(this, R.color.text_color));
+            tvBluetooth.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
             if(SharePreferenceUtils.getInstance(this).getFsAutoBrightness()){
                 tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
             }else{
                 tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
             }
-            tvBrightness.setTextColor(ContextCompat.getColor(this, R.color.text_color));
+            tvBrightness.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
 
 
             if(SharePreferenceUtils.getInstance(this).getFsAutoSync()){
@@ -145,7 +145,7 @@ public class ChargeSettingActivity extends AppCompatActivity implements View.OnC
             }else{
                 tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
             }
-            tvSync.setTextColor(ContextCompat.getColor(this, R.color.text_color));
+            tvSync.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         } else {
             tvEnable.setText(getString(R.string.auto_disable));
             tvEnable.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
