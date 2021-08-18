@@ -120,7 +120,12 @@
                 android:layout_weight="1"
                 android:visibility="gone" />
         </LinearLayout>
-
+        <com.google.android.gms.ads.nativead.AdChoicesView
+            android:id="@+id/adchoices_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true" />
         <TextView style="@style/AppTheme.Ads.Banner.Native" />
     </RelativeLayout>
 </com.google.android.gms.ads.nativead.NativeAdView>

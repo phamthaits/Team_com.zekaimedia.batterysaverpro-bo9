@@ -20,16 +20,15 @@ import java.util.Calendar;
 import java.util.Map;
 
 public class AdControlHelp {
-    private static Context context;
     private static AdControlHelp instance;
     private static AdControl adControl;
     private static AdmobHelp admobHelp;
 
-    public void getAdControlFromFireBase(FireBaseListener fireBaseListener) {
+    public void getAdControlFromFireBase(FireBaseListener fireBaseListener, Activity activity) {
         Log.v("ads", "Load Firebase");
-        AdControl adControl = AdControl.getInstance(context);
+        AdControl adControl = AdControl.getInstance(activity);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("Ad1")
+        db.collection("Ad2")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
@@ -41,19 +40,19 @@ public class AdControlHelp {
                                     String key = object.names().getString(i);
                                     switch (key) {
                                         case "admob_full":
-                                            adControl.admob_full(getRealAdmob(object.getString(key)));
+                                            adControl.admob_full(getRealAdmob(object.getString(key), activity));
                                             break;
                                         case "admob_native_setting":
-                                            adControl.admob_native_setting(getRealAdmob(object.getString(key)));
+                                            adControl.admob_native_setting(getRealAdmob(object.getString(key), activity));
                                             break;
                                         case "admob_native_banner":
-                                            adControl.admob_native_banner(getRealAdmob(object.getString(key)));
+                                            adControl.admob_native_banner(getRealAdmob(object.getString(key), activity));
                                             break;
                                         case "admob_native_main":
-                                            adControl.admob_native_main(getRealAdmob(object.getString(key)));
+                                            adControl.admob_native_main(getRealAdmob(object.getString(key), activity));
                                             break;
                                         case "admob_banner":
-                                            adControl.admob_banner(getRealAdmob(object.getString(key)));
+                                            adControl.admob_banner(getRealAdmob(object.getString(key), activity));
                                             break;
                                         case "version":
                                             adControl.isUpdate(object.getInt(key));
@@ -79,8 +78,7 @@ public class AdControlHelp {
                 });
     }
 
-    public static AdControlHelp getInstance(Context value) {
-        context = value;
+    public static AdControlHelp getInstance(Activity value) {
         adControl = AdControl.getInstance(value);
         if (instance == null) {
             instance = new AdControlHelp();
@@ -109,11 +107,10 @@ public class AdControlHelp {
     }
 
     private AdControlHelp() {
-
     }
 
-     private String getRealAdmob(String reverse) {
-        String key_reverse = context.getResources().getString(R.string.admob_app_id);
+    private String getRealAdmob(String reverse, Activity activity) {
+        String key_reverse = activity.getResources().getString(R.string.admob_app_id);
         String[] fn_reverse = key_reverse.split("~");
         String value_reverse = new StringBuffer(reverse).reverse().toString();
         String reversed = fn_reverse[0] + "/" + value_reverse;
@@ -121,11 +118,10 @@ public class AdControlHelp {
     }
 
     public void loadNative(Activity mActivity, LinearLayout root_view, AdControl.NativeBundle nativeBundle) {
-        Log.v("ads", "Call Load Native Total");
         if (adControl.remove_ads() || !adControl.isInit()) {
             return;
         }
-        loadNetworkHelp();
+        loadNetworkHelp(mActivity);
         if (!nativeBundle.admob_ads.equals(""))
             admobHelp.loadNative(mActivity, root_view, nativeBundle);
     }
@@ -134,27 +130,24 @@ public class AdControlHelp {
         if (adControl.remove_ads() || !adControl.isInit()) {
             return;
         }
-        loadNetworkHelp();
+        loadNetworkHelp(mActivity);
         if (!adControl.admob_banner().equals(""))
             admobHelp.loadBanner(mActivity, view, adControl.admob_banner());
     }
 
-    public void loadInterstitialAd(Activity activity, AdCloseListener adCloseListener, AdLoadedListener adLoadedListener, boolean showWhenLoaded) {
-        Log.v("ads", "Call ads");
+    public void loadInterstitialAd(Activity activity, AdLoadedListener adLoadedListener) {
         if (adControl.remove_ads() || !adControl.isInit()) {
-            if (showWhenLoaded)
-                if (adCloseListener != null)
-                    adCloseListener.onAdClosed();
+            if (adLoadedListener != null)
+                adLoadedListener.onAdLoaded();
             return;
         }
-            loadNetworkHelp();
-
+        loadNetworkHelp(activity);
         if (!adControl.admob_full().equals(""))
-            admobHelp.loadInterstitialAd(activity, adCloseListener, adLoadedListener, showWhenLoaded);
+            admobHelp.loadInterstitialAd(activity, adLoadedListener);
         else {
-            if (showWhenLoaded)
-                if (adCloseListener != null)
-                    adCloseListener.onAdClosed();
+
+            if (adLoadedListener != null)
+                adLoadedListener.onAdLoaded();
         }
     }
 
@@ -164,12 +157,12 @@ public class AdControlHelp {
                 adCloseListener.onAdClosed();
             return;
         }
-        loadNetworkHelp();
+        loadNetworkHelp(activity);
         admobHelp.showInterstitialAd(activity, adCloseListener, adControl.admob_full());
     }
 
-    private void loadNetworkHelp() {
-        admobHelp = AdmobHelp.getInstance(context);
+    private void loadNetworkHelp(Activity activity) {
+        admobHelp = AdmobHelp.getInstance(activity);
     }
 
     public interface FireBaseListener {

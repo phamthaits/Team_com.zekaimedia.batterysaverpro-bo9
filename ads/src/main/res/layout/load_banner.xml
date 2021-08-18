@@ -4,34 +4,33 @@
     android:id="@+id/shimmer_container"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_card_ads"
-    android:visibility="gone"
+        android:background="@drawable/bg_card_ads"
     app:shimmer_auto_start="true"
     app:shimmer_base_color="#ccc">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_white">
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dip"
+            android:layout_height="@dimen/_50sdp"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="50dip"
-                android:layout_height="50dip"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
                 android:background="@color/light_transparent"
-                android:padding="5dip"
+                android:padding="@dimen/_5sdp"
                 android:scaleType="centerCrop" />
 
             <LinearLayout
                 android:layout_width="0dip"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5dip"
-                android:layout_marginRight="5dip"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_5sdp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -39,7 +38,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dip"
+                    android:layout_marginTop="@dimen/_5sdp"
                     android:background="@color/light_transparent"
                     android:ellipsize="end"
                     android:lines="1"
@@ -49,26 +48,24 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dip"
+                    android:layout_marginVertical="@dimen/_5sdp"
                     android:background="@color/light_transparent"
                     android:ellipsize="end"
                     android:lines="1"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="14.0sp" />
-
             </LinearLayout>
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="5dip"
-                android:layout_marginRight="10dip"
-                android:layout_marginBottom="5dip"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:background="@color/light_transparent"
                 android:gravity="center"
-                android:paddingLeft="5dip"
-                android:paddingRight="5dip"
+                android:paddingVertical="@dimen/_5sdp"
                 android:textColor="@android:color/white"
                 android:textSize="12.0sp"
                 android:textStyle="bold" />

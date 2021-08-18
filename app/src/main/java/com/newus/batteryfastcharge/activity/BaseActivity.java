@@ -33,7 +33,11 @@ public class BaseActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
             Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
                     Uri.parse("package:" + getPackageName()));
+
             startActivityForResult(intent, PERMISSIONS_DRAW_APPICATION);
+            Intent intent2 = new Intent(this,PermissionActivity.class);
+            intent2.putExtra("text_permission","Allow appear on top");
+            startActivity(intent2);
         } else {
             callable.call();
         }
@@ -44,6 +48,9 @@ public class BaseActivity extends AppCompatActivity {
         this.callables.add(callable);
         if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) && !isUsageAccessAllowed(this)) {
             startActivityForResult(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS), PERMISSIONS_USAGE);
+            Intent intent=new Intent(this,PermissionActivity.class);
+            intent.putExtra("text_permission","Allow usage data access");
+            startActivity(intent);
         } else {
             callable.call();
         }
@@ -68,7 +75,8 @@ public class BaseActivity extends AppCompatActivity {
         }
         return granted;
     }
-    public void writePermission(Context activity,Class aClass) {
+
+    public void writePermission(Context activity, Class aClass) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
             try {
                 checkdrawPermission(new Callable<Void>() {
@@ -96,10 +104,11 @@ public class BaseActivity extends AppCompatActivity {
             }
         }
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode){
+        switch (requestCode) {
             case PERMISSIONS_DRAW_APPICATION:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && Settings.canDrawOverlays(this))
                     callListener();
@@ -113,7 +122,7 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     private void callListener() {
-        for (Callable callable: callables){
+        for (Callable callable : callables) {
             try {
                 callable.call();
             } catch (Exception e) {

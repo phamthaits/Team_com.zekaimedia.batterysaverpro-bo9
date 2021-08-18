@@ -37,15 +37,11 @@ public class AppManagerActivity extends AppCompatActivity {
     private List<GroupItemAppManager> mGroupItems = new ArrayList<>();
 
     private AppManagerAdapter mAdapter;
-    private int mPositionUninstall;
-    ImageView btnDone;
-    Toolbar mTopToolbar;
     private int mGroupPosition;
     private int mChildPosition;
     private AnimatedExpandableListView mRecyclerView;
     Runnable runnableLocal;
     private AdControlHelp adControlHelp;
-    private Context context;
 
     public void onClick(View view) {
         switch (view.getId()) {
@@ -62,7 +58,6 @@ public class AppManagerActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_manager);
-        context = this;
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
@@ -74,17 +69,16 @@ public class AppManagerActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recyclerView);
         initAdapter();
         loadData();
-        adControlHelp = AdControlHelp.getInstance(context);
+        adControlHelp = AdControlHelp.getInstance(this);
         adControlHelp.loadBanner(this, findViewById(R.id.banner));
     }
 
     private void initAdapter() {
-        mAdapter = new AppManagerAdapter(context, mGroupItems, new AppManagerAdapter.OnClickItemListener() {
+        mAdapter = new AppManagerAdapter(this, mGroupItems, new AppManagerAdapter.OnClickItemListener() {
             @Override
             public void onUninstallApp(int groupPosition, int childPosition) {
                 mGroupPosition = groupPosition;
                 mChildPosition = childPosition;
-                mPositionUninstall = mChildPosition;
                 ApplicationInfo app = mGroupItems.get(groupPosition).getItems().get(childPosition);
                 Intent intent = new Intent(Intent.ACTION_UNINSTALL_PACKAGE);
                 intent.setData(Uri.parse("package:" + app.packageName));
@@ -109,7 +103,7 @@ public class AppManagerActivity extends AppCompatActivity {
     private void loadData() {
         mProgressBarLoading.setVisibility(View.VISIBLE);
         ManagerConnect managerConnect = new ManagerConnect();
-        managerConnect.getListManager(context, new ManagerConnect.OnManagerConnectListener() {
+        managerConnect.getListManager(this, new ManagerConnect.OnManagerConnectListener() {
             @Override
             public void OnResultManager(final List<ApplicationInfo> result) {
                 runnableLocal = new Runnable() {

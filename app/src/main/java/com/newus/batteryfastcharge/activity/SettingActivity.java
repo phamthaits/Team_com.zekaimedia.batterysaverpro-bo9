@@ -33,10 +33,9 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-        context = this;
         activity = this;
-        adControlHelp = AdControlHelp.getInstance(context);
-        adControl = adControl.getInstance(context);
+        adControlHelp = AdControlHelp.getInstance(activity);
+        adControl = adControl.getInstance(activity);
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);

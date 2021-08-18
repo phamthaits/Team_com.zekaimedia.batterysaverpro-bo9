@@ -67,7 +67,6 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 
     private ViewGroup parentAds;
     private LinearLayout lrScan;
-    private Context context;
     private AdControlHelp adControlHelp;
     private AdControl adControl;
     private Activity activity;
@@ -79,11 +78,10 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         Utils.setLocate(this);
         new CoolActivity.LoadRunningTask().execute();
         intView();
-        context = this;
         activity = this;
         checkTask();
-        adControlHelp = AdControlHelp.getInstance(context);
-        adControl = AdControl.getInstance(context);
+        adControlHelp = AdControlHelp.getInstance(activity);
+        adControl = AdControl.getInstance(activity);
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
@@ -92,10 +90,10 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         /* ------------------------------------------------------------------ */
 
         View bt_RemoveAds = findViewById(R.id.remove_ads);
-        bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
+        bt_RemoveAds.setVisibility(AdControl.getInstance(activity).remove_ads() ? View.GONE : View.VISIBLE);
 
         adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), adControl.native_main);
-        adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
+        adControlHelp.loadInterstitialAd(this, null);
     }
 
     private AdControlHelp.AdCloseListener adCloseListener = new AdControlHelp.AdCloseListener() {

@@ -1,5 +1,6 @@
 package com.newus.batteryfastcharge.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -58,8 +59,8 @@ public class ChartActivity extends AppCompatActivity  {
         intView();
         intEvent();
         intData();
-        context = this;
-        adControlHelp = AdControlHelp.getInstance(context);
+        activity=this;
+        adControlHelp = AdControlHelp.getInstance(this);
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
@@ -82,9 +83,7 @@ public class ChartActivity extends AppCompatActivity  {
     ChartAdapter adapterViewPager;
     private TabLayout indicator;
     private AdControlHelp adControlHelp;
-    private Context context;
-
-
+    private Activity activity;
 
     public void intView() {
         tvNormal = findViewById(R.id.tvNormal);
@@ -120,16 +119,16 @@ public class ChartActivity extends AppCompatActivity  {
             public void onNothingSelected() {
 
                 imgColor.setVisibility(View.INVISIBLE);
-                tvCount.setText(String.valueOf(SharePreferenceUtils.getInstance(context).getChargeNormal()));
+                tvCount.setText(String.valueOf(SharePreferenceUtils.getInstance(activity).getChargeNormal()));
             }
         });
         viewPagerListenItem();
     }
 
     public void setPercent(float i) {
-        float normal = (float) SharePreferenceUtils.getInstance(context).getChargeNormal();
-        float healthy = (float) SharePreferenceUtils.getInstance(context).getChargeHealthy();
-        float over = (float) SharePreferenceUtils.getInstance(context).getChargeOver();
+        float normal = (float) SharePreferenceUtils.getInstance(activity).getChargeNormal();
+        float healthy = (float) SharePreferenceUtils.getInstance(activity).getChargeHealthy();
+        float over = (float) SharePreferenceUtils.getInstance(activity).getChargeOver();
         float sum = normal + healthy + over;
         if (i == 0) {
             imgColor.setBackgroundResource(R.drawable.shape_status_normal);
@@ -215,22 +214,22 @@ public class ChartActivity extends AppCompatActivity  {
     public void intData() {
 
 
-        if (SharePreferenceUtils.getInstance(context).getChargeNormal() != 0) {
-            tvNormal.setText(String.valueOf(SharePreferenceUtils.getInstance(context).getChargeNormal()));
+        if (SharePreferenceUtils.getInstance(activity).getChargeNormal() != 0) {
+            tvNormal.setText(String.valueOf(SharePreferenceUtils.getInstance(activity).getChargeNormal()));
         }
-        if (SharePreferenceUtils.getInstance(context).getChargeOver() != 0) {
-            tvOver.setText(String.valueOf(SharePreferenceUtils.getInstance(context).getChargeOver()));
+        if (SharePreferenceUtils.getInstance(activity).getChargeOver() != 0) {
+            tvOver.setText(String.valueOf(SharePreferenceUtils.getInstance(activity).getChargeOver()));
         }
-        if (SharePreferenceUtils.getInstance(context).getChargeHealthy() != 0) {
-            tvHealthy.setText(String.valueOf(SharePreferenceUtils.getInstance(context).getChargeHealthy()));
+        if (SharePreferenceUtils.getInstance(activity).getChargeHealthy() != 0) {
+            tvHealthy.setText(String.valueOf(SharePreferenceUtils.getInstance(activity).getChargeHealthy()));
 
         }
-        if (SharePreferenceUtils.getInstance(context).getChargeFull() != null) {
-            tvLastFull.setText(SharePreferenceUtils.getInstance(context).getChargeFull());
+        if (SharePreferenceUtils.getInstance(activity).getChargeFull() != null) {
+            tvLastFull.setText(SharePreferenceUtils.getInstance(activity).getChargeFull());
         }
-        tvChargeType.setText(SharePreferenceUtils.getInstance(context).getChargeType());
-        tvTimeCharge.setText(formatHourMinutune(SharePreferenceUtils.getInstance(context).getTimeCharge()));
-        tvQuantity.setText(SharePreferenceUtils.getInstance(context).getChargeQuantity() + "%");
+        tvChargeType.setText(SharePreferenceUtils.getInstance(activity).getChargeType());
+        tvTimeCharge.setText(formatHourMinutune(SharePreferenceUtils.getInstance(activity).getTimeCharge()));
+        tvQuantity.setText(SharePreferenceUtils.getInstance(activity).getChargeQuantity() + "%");
 
 
         setData();
@@ -252,11 +251,11 @@ public class ChartActivity extends AppCompatActivity  {
 
     private void setData() {
         ArrayList<PieEntry> entries = new ArrayList<>();
-        float b = (float) Math.round(SharePreferenceUtils.getInstance(context).getChargeNormal()) / 40;
+        float b = (float) Math.round(SharePreferenceUtils.getInstance(activity).getChargeNormal()) / 40;
 
-        float normal = (float) SharePreferenceUtils.getInstance(context).getChargeNormal();
-        float healthy = (float) SharePreferenceUtils.getInstance(context).getChargeHealthy();
-        float over = (float) SharePreferenceUtils.getInstance(context).getChargeOver();
+        float normal = (float) SharePreferenceUtils.getInstance(activity).getChargeNormal();
+        float healthy = (float) SharePreferenceUtils.getInstance(activity).getChargeHealthy();
+        float over = (float) SharePreferenceUtils.getInstance(activity).getChargeOver();
         float max = normal;
         if (normal == 0 && healthy == 0 && over == 0) {
             entries.add(new PieEntry(40, 0));

@@ -30,7 +30,6 @@ public class BillingClientHelp {
 
     private static String Code_ProductId = "com.newus.batteryfastcharge.removeads";
     private static AdControl adControl;
-    private static Context context;
     private static SkuDetails skuDetails;
     private static BillingClient billingClient;
     private static Activity activity;
@@ -61,9 +60,9 @@ public class BillingClientHelp {
                     handlePurchase(purchase);
                 }
             } else if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.USER_CANCELED) {
-                Toast.makeText(context, "USER CANCELED", Toast.LENGTH_LONG).show();
+                Toast.makeText(activity, "USER CANCELED", Toast.LENGTH_LONG).show();
             } else {
-                Toast.makeText(context, "ERROR", Toast.LENGTH_LONG).show();
+                Toast.makeText(activity, "ERROR", Toast.LENGTH_LONG).show();
             }
         }
     };
@@ -89,8 +88,7 @@ public class BillingClientHelp {
 
     public static BillingClient initBillingClient(Activity tActivity, Context tContext, BillingInitListener tBillingInitListener) {
         activity = tActivity;
-        context = tContext;
-        adControl = AdControl.getInstance(context);
+        adControl = AdControl.getInstance(activity);
         billingInitListener = tBillingInitListener;
 //        if (billingClient != null && billingClient.isReady() && skuDetails != null) {
 //            if (tBillingInitListener != null)
@@ -154,7 +152,7 @@ public class BillingClientHelp {
             activity.finish();
             return;
         }
-        initBillingClient(activity, context, new BillingInitListener() {
+        initBillingClient(activity, activity, new BillingInitListener() {
             @Override
             public void onBillingInitialized() {
                 if (adControl.remove_ads()) {
@@ -162,7 +160,7 @@ public class BillingClientHelp {
                     return;
                 }
                 if (skuDetails == null) {
-                    Toast.makeText(context, "The item is not ready, please try again later.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity, "The item is not ready, please try again later.", Toast.LENGTH_LONG).show();
                     return;
                 }
                 BillingFlowParams billingFlowParams = BillingFlowParams.newBuilder()

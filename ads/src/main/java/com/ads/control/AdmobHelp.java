@@ -1,5 +1,7 @@
 package com.ads.control;
 
+import static com.google.android.gms.ads.nativead.NativeAdOptions.ADCHOICES_TOP_RIGHT;
+
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -20,6 +22,7 @@ import androidx.annotation.NonNull;
 
 import com.ads.control.AdControlHelp.AdCloseListener;
 import com.ads.control.AdControlHelp.AdLoadedListener;
+
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.ads.mediation.facebook.FacebookAdapter;
 import com.google.ads.mediation.facebook.FacebookExtras;
@@ -34,6 +37,7 @@ import com.google.android.gms.ads.VideoOptions;
 import com.google.android.gms.ads.admanager.AdManagerAdRequest;
 import com.google.android.gms.ads.admanager.AdManagerInterstitialAd;
 import com.google.android.gms.ads.admanager.AdManagerInterstitialAdLoadCallback;
+import com.google.android.gms.ads.nativead.AdChoicesView;
 import com.google.android.gms.ads.nativead.MediaView;
 import com.google.android.gms.ads.nativead.NativeAd;
 import com.google.android.gms.ads.nativead.NativeAdOptions;
@@ -43,13 +47,12 @@ import com.google.android.gms.ads.nativead.NativeAdView;
 public class AdmobHelp {
     private static AdmobHelp instance;
     private AdManagerInterstitialAd mAdManagerInterstitialAd;//Full
-    private static Context context;
     private static AdControl adControl;
     private boolean loaddingInterstitialAd = false;
     public boolean canShowInterstitialAd = false;
+    private boolean isReloadedFull = false;
 
-    public static AdmobHelp getInstance(Context value) {
-        context = value;
+    public static AdmobHelp getInstance(Activity value) {
         adControl = AdControl.getInstance(value);
         if (instance == null) {
             instance = new AdmobHelp();
@@ -77,9 +80,8 @@ public class AdmobHelp {
         }
     };
 
-    public void loadInterstitialAd(Activity activity, AdCloseListener adCloseListener, AdLoadedListener adLoadedListener, boolean showWhenLoaded) {
+    public void loadInterstitialAd(Activity activity, AdLoadedListener adLoadedListener) {
         Log.v("ads", "Call ads");
-        adControl.isStillShowAds = true;
         AdManagerInterstitialAdLoadCallback adListener = new AdManagerInterstitialAdLoadCallback() {
             @Override
             public void onAdLoaded(@NonNull AdManagerInterstitialAd adManagerInterstitialAd) {
@@ -90,27 +92,26 @@ public class AdmobHelp {
                 if (adLoadedListener != null) {
                     adLoadedListener.onAdLoaded();
                 }
-                if (showWhenLoaded && adControl.isStillShowAds)
-                    showInterstitialAd(activity, adCloseListener, adControl.admob_full());
             }
 
             @Override
             public void onAdFailedToLoad(LoadAdError adError) {
+                Log.v("ads", "ads Fail");
                 loaddingInterstitialAd = false;
                 canShowInterstitialAd = false;
-                Log.v("ads", "ads Fail");
-                if (showWhenLoaded && adControl.isStillShowAds) {
-                    if (adCloseListener != null)
-                        adCloseListener.onAdClosed();
+                if (!isReloadedFull) {
+                    isReloadedFull = true;
+                    loadInterstitialAd(activity, adControl.admob_full(), adListenerEmpty);
+                }
+                if (adLoadedListener != null) {
+                    adLoadedListener.onAdLoaded();
                 }
             }
         };
         if (canShowInterstitialAd) {
             if (adLoadedListener != null) adLoadedListener.onAdLoaded();
-            if (showWhenLoaded) {
-                showInterstitialAd(activity, adCloseListener, adControl.admob_full());
-            }
         } else {
+            isReloadedFull = false;
             loadInterstitialAd(activity, adControl.admob_full(), adListener);
         }
     }
@@ -122,7 +123,6 @@ public class AdmobHelp {
             FullScreenContentCallback fullScreenContentCallback = new FullScreenContentCallback() {
                 @Override
                 public void onAdDismissedFullScreenContent() {
-                    Log.v("ads", "ads closed");
                     if (adCloseListener != null) {
                         adCloseListener.onAdClosed();
                     }
@@ -181,10 +181,7 @@ public class AdmobHelp {
     }
 
     public void loadNative(final Activity mActivity, final LinearLayout rootView, AdControl.NativeBundle nativeBundle) {
-        ShimmerFrameLayout shimmerFrameLayout = (ShimmerFrameLayout) mActivity.getLayoutInflater().inflate(R.layout.load_native, null);
-        if (nativeBundle.is_native_banner) {
-            shimmerFrameLayout = (ShimmerFrameLayout) mActivity.getLayoutInflater().inflate(R.layout.load_banner, null);
-        }
+        ShimmerFrameLayout shimmerFrameLayout = (ShimmerFrameLayout) mActivity.getLayoutInflater().inflate(nativeBundle.loading_layout_resource, null);
         rootView.addView(shimmerFrameLayout);
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         FrameLayout frameLayout = rootView.findViewById(R.id.admob_adplaceholder);
@@ -195,14 +192,14 @@ public class AdmobHelp {
         // otherwise you will have a memory leak.
 
         NativeAdView adView = (NativeAdView) mActivity.getLayoutInflater().inflate(nativeBundle.admob_layout_resource, null);
-        AdLoader.Builder builder = new AdLoader.Builder(context, nativeBundle.admob_ads);
+        AdLoader.Builder builder = new AdLoader.Builder(mActivity, nativeBundle.admob_ads);
         builder.forNativeAd(new NativeAd.OnNativeAdLoadedListener() {
             @Override
             public void onNativeAdLoaded(NativeAd ad) {
                 containerShimmer.stopShimmer();
                 containerShimmer.setVisibility(View.GONE);
                 try {
-                    populateNativeAdView(ad, adView, nativeBundle.is_native_banner);
+                    populateNativeAdView(mActivity, ad, adView, nativeBundle.is_native_banner);
                     frameLayout.removeAllViews();
                     frameLayout.addView(adView);
                     frameLayout.setVisibility(View.VISIBLE);
@@ -220,6 +217,7 @@ public class AdmobHelp {
 
         NativeAdOptions adOptions = new NativeAdOptions.Builder()
                 .setVideoOptions(videoOptions)
+                .setAdChoicesPlacement(ADCHOICES_TOP_RIGHT)
                 .build();
 
         builder.withNativeAdOptions(adOptions);
@@ -241,7 +239,7 @@ public class AdmobHelp {
         adLoader.loadAd(request);
     }
 
-    private void populateNativeAdView(NativeAd nativeAd, NativeAdView adView, boolean is_native_banner) {
+    private void populateNativeAdView(Activity activity, NativeAd nativeAd, NativeAdView adView, boolean is_native_banner) {
         // Set the media view.
         if (!is_native_banner)
             adView.setMediaView((MediaView) adView.findViewById(R.id.ad_media));
@@ -255,7 +253,7 @@ public class AdmobHelp {
         adView.setStarRatingView(adView.findViewById(R.id.ad_stars));
         adView.setStoreView(adView.findViewById(R.id.ad_store));
         adView.setAdvertiserView(adView.findViewById(R.id.ad_advertiser));
-
+        adView.setAdChoicesView(adView.findViewById(R.id.adchoices_view));
         // The headline and mediaContent are guaranteed to be in every UnifiedNativeAd.
         ((TextView) adView.getHeadlineView()).setText(nativeAd.getHeadline());
         if (!is_native_banner)
@@ -279,7 +277,7 @@ public class AdmobHelp {
         }
 
         if (nativeAd.getIcon() == null) {
-            adView.getIconView().setBackground(context.getResources().getDrawable(R.drawable.ic_ad_new));
+            adView.getIconView().setBackground(activity.getResources().getDrawable(R.drawable.ic_ad_new));
         } else {
             ((ImageView) adView.getIconView()).setImageDrawable(
                     nativeAd.getIcon().getDrawable());
@@ -314,6 +312,15 @@ public class AdmobHelp {
             ((TextView) adView.getAdvertiserView()).setText(nativeAd.getAdvertiser());
             adView.getAdvertiserView().setVisibility(View.VISIBLE);
         }
+
+        if (nativeAd.getAdChoicesInfo() == null) {
+            adView.getAdChoicesView().setVisibility(View.INVISIBLE);
+        } else {
+            AdChoicesView choicesView = new AdChoicesView(adView.getContext());
+            adView.setAdChoicesView(choicesView);
+            adView.getAdChoicesView().setVisibility(View.VISIBLE);
+        }
+
         // This method tells the Google Mobile Ads SDK that you have finished populating your
         // native ad view with this native ad.
         adView.setNativeAd(nativeAd);

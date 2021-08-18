@@ -18,7 +18,6 @@ import com.newus.batteryfastcharge.R;
 public class RemoveAdsActivity extends AppCompatActivity {
 
     private AdControl adControl;
-    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +27,7 @@ public class RemoveAdsActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.bg_ads));
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.bg_ads));
         setContentView(R.layout.activity_remove_ads);
-        context = this;
-        adControl = AdControl.getInstance(context);
+        adControl = AdControl.getInstance(this);
         ImageView back = findViewById(R.id.bntBackHome);
         back.setOnClickListener(view -> finish());
         Button bntBuyNow = findViewById(R.id.bntBuyNow);

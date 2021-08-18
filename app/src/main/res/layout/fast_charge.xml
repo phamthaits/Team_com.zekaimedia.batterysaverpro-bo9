@@ -56,7 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/tvCharge"
-                    android:text="@string/smart_charge_des" />
+                    android:text="@string/enable_fast_charging" />
 
                 <TextView
                     android:id="@+id/tvFullCharge"
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
-                    android:text="@string/manage" />
+                    android:text="@string/enabled" />
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>

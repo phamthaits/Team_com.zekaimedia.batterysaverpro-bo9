@@ -1,5 +1,6 @@
 package com.ads.control;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -17,9 +18,9 @@ public class AdControl {
         this.editor = this.pre.edit();
     }
 
-    public static AdControl getInstance(Context context) {
+    public static AdControl getInstance(Activity value) {
         if (instance == null) {
-            instance = new AdControl(context);
+            instance = new AdControl(value);
         }
         instance.SetNative();
         return instance;
@@ -127,8 +128,7 @@ public class AdControl {
         editor.commit();
     }
 
-    public boolean isStillShowAds = true;
-    private int version = 1;
+    private int version = 2;
 
     public int old_date() {
         return this.pre.getInt("old_date", -1);
@@ -147,11 +147,11 @@ public class AdControl {
     public NativeBundle native_setting;
 
     private void SetNative() {
-        native_main = new NativeBundle(R.layout.item_admob_native_ad, false,
+        native_main = new NativeBundle(R.layout.item_admob_native_ad, R.layout.load_native_main, false,
                 admob_native_main(), false);
-        native_banner_home = new NativeBundle(R.layout.item_admob_banner_native, true,
+        native_banner_home = new NativeBundle(R.layout.item_admob_banner_native, R.layout.load_native_banner, true,
                 admob_native_banner(), false);
-        native_setting = new NativeBundle(R.layout.item_admob_native_setting, false,
+        native_setting = new NativeBundle(R.layout.item_admob_native_setting, R.layout.load_native_setting, false,
                 admob_native_setting(), false);
     }
 
@@ -159,12 +159,14 @@ public class AdControl {
         public int admob_layout_resource;
         public boolean is_native_banner;
         public String admob_ads;
+        public int loading_layout_resource;
         public boolean isAnimationButton;
 
-        public NativeBundle(int admob_layout_resource, boolean is_native_banner, String admob_ads, boolean isAnimationButton) {
+        public NativeBundle(int admob_layout_resource, int loading_layout_resource, boolean is_native_banner, String admob_ads, boolean isAnimationButton) {
             this.admob_layout_resource = admob_layout_resource;
             this.is_native_banner = is_native_banner;
             this.admob_ads = admob_ads;
+            this.loading_layout_resource = loading_layout_resource;
             this.isAnimationButton = isAnimationButton;
         }
     }

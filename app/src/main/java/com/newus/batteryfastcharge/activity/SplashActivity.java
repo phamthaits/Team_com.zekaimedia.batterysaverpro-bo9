@@ -1,5 +1,6 @@
 package com.newus.batteryfastcharge.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 
 import androidx.annotation.Nullable;
@@ -21,40 +22,48 @@ public class SplashActivity extends AppCompatActivity {
     private AdControlHelp adControlHelp;
     private Handler handler = new Handler();
     private Runnable runnable;
+    public static SplashActivity splashActivity;
+
     private boolean isStill_startMainActivity = true;
 
     private void startMainActivity() {
+        removeCallBack();
         Intent mIntent = new Intent(this, MainActivity.class);
         mIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(mIntent);
-        finish();
     }
+
+    private void removeCallBack() {
+        if (handler != null) {
+            handler.removeCallbacks(runnable);
+        }
+    }
+
+    AdControlHelp.AdCloseListener adCloseListener = () -> {
+        startMainActivity();
+    };
+    AdControlHelp.AdLoadedListener adLoadedListener = () -> {
+        if (isStill_startMainActivity) {
+            adControlHelp.showInterstitialAd(splashActivity, adCloseListener);
+            removeCallBack();
+        }
+    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        splashActivity = this;
         adControl = AdControl.getInstance(this);
         adControlHelp = AdControlHelp.getInstance(this);
         runnable = () -> {
             isStill_startMainActivity = false;
             startMainActivity();
-            finish();
         };
-        AdControlHelp.AdCloseListener adCloseListener = () -> {
-            startMainActivity();
-        };
-        AdControlHelp.AdLoadedListener adLoadedListener = new AdControlHelp.AdLoadedListener() {
-            @Override
-            public void onAdLoaded() {
-                if (handler != null) {
-                    handler.removeCallbacks(runnable);
-                }
-            }
-        };
+
         Log.v("ads", "Remove_ads: " + adControl.remove_ads());
-        handler.postDelayed(runnable, 8000);
+        handler.postDelayed(runnable, 7000);
         AdControlHelp.FireBaseListener fireBaseListener = new AdControlHelp.FireBaseListener() {
             @Override
             public void addOnCompleteListener() {
@@ -62,9 +71,7 @@ public class SplashActivity extends AppCompatActivity {
                     @Override
                     public void onInitialized() {
                         if (isStill_startMainActivity) {
-                            adControlHelp.loadInterstitialAd(SplashActivity.this, adCloseListener, adLoadedListener, true);
-//                            SplashActivity.this.startMainActivity();
-//                            finish();
+                            adControlHelp.loadInterstitialAd(SplashActivity.this, adLoadedListener);
                         }
                     }
                 });
@@ -72,7 +79,7 @@ public class SplashActivity extends AppCompatActivity {
         };
         if (adControlHelp.is_reload_firebase()) {
             Log.v("ads", "reload Firebase: True");
-            adControlHelp.getAdControlFromFireBase(fireBaseListener);
+            adControlHelp.getAdControlFromFireBase(fireBaseListener, this);
         } else fireBaseListener.addOnCompleteListener();
     }
 

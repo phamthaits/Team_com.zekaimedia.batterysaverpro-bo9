@@ -67,7 +67,6 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     private Animation ivDoneAnim;
     private ViewGroup parentAds;
     private LinearLayout lrScan;
-    private Context context;
     private AdControlHelp adControlHelp;
     private AdControl adControl;
     private View cv_trash_cleaner;
@@ -76,24 +75,23 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        context = this;
         activity = this;
-        Utils.setLocate(context);
+        Utils.setLocate(activity);
         setContentView(R.layout.activity_do_optimize);
-        adControlHelp = AdControlHelp.getInstance(context);
-        adControl = AdControl.getInstance(context);
+        adControlHelp = AdControlHelp.getInstance(activity);
+        adControl = AdControl.getInstance(activity);
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
-        getWindow().setStatusBarColor(ContextCompat.getColor(context, R.color.white));
-        getWindow().setNavigationBarColor(ContextCompat.getColor(context, R.color.white));
+        getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.white));
+        getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.white));
         /* ------------------------------------------------------------------ */
         intView();
 
         View bt_RemoveAds = findViewById(R.id.remove_ads);
-        bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
+        bt_RemoveAds.setVisibility(AdControl.getInstance(activity).remove_ads() ? View.GONE : View.VISIBLE);
 
         adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), adControl.native_main);
-        adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
+        adControlHelp.loadInterstitialAd(this,  null);
     }
 
     private AdCloseListener adCloseListener = new AdCloseListener() {
@@ -182,7 +180,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         this.ivDone.setColorFilter(getResources().getColor(R.color.color_white), Mode.MULTIPLY);
 //        this.rocketImageOut.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
 //        this.rocketImage.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
-        if (!Utils.checkShouldDoing(context, 3)) {
+        if (!Utils.checkShouldDoing(activity, 3)) {
             cv_trash_cleaner.setVisibility(View.GONE);
         }
 //        checkTask();

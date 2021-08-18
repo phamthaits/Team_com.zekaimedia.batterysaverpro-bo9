@@ -113,15 +113,13 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private View v1, v2, v3, v4;
     private AdControlHelp adControlHelp;
     private AdControl adControl;
-    private Context context;
     private View cv_trash_cleaner;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        context = getContext();
-        adControlHelp = AdControlHelp.getInstance(context);
-        adControl = AdControl.getInstance(context);
+        adControlHelp = AdControlHelp.getInstance(getActivity());
+        adControl = AdControl.getInstance(getActivity());
     }
 
     public void intEvent() {
@@ -429,7 +427,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         intEvent();
         checkTask();
         View bt_RemoveAds = view.findViewById(R.id.remove_ads);
-        bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
+        bt_RemoveAds.setVisibility(AdControl.getInstance(getActivity()).remove_ads() ? View.GONE : View.VISIBLE);
         adControlHelp.loadNative(getActivity(), view.findViewById(R.id.native_ads_control_holder), adControl.native_main);
         adControlHelp.loadNative(getActivity(), view.findViewById(R.id.banner_native_ads_control_holder), adControl.native_banner_home);
         /*adControlHelp.loadBanner(getActivity(), view.findViewById(R.id.banner));*/

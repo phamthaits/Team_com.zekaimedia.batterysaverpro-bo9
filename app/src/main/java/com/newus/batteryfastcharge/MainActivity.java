@@ -30,6 +30,7 @@ import com.newus.batteryfastcharge.activity.BaseActivity;
 import com.newus.batteryfastcharge.activity.BoostActivity;
 import com.newus.batteryfastcharge.activity.CleanActivity;
 import com.newus.batteryfastcharge.activity.CoolActivity;
+import com.newus.batteryfastcharge.activity.SplashActivity;
 import com.newus.batteryfastcharge.billing.RemoveAdsActivity;
 import com.newus.batteryfastcharge.fragment.fmBatterySaveMain;
 
@@ -107,7 +108,7 @@ public class MainActivity extends BaseActivity {
         bt_RemoveAds = findViewById(R.id.bt_removeads);
         bt_RemoveAds.setVisibility(AdControl.getInstance(this).remove_ads() ? View.GONE : View.VISIBLE);
         toolbar.setTitle(getString(R.string.app_name));
-
+        SplashActivity.splashActivity.finish();
         /* --------- Dialog Update Version ------------------- */
         Dialog tv_version = new Dialog(this);
         tv_version.setCanceledOnTouchOutside(false);

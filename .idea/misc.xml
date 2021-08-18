@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/ads/src/main/res/drawable/bg_card_ads.xml" value="0.24078947368421053" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/ads/src/main/res/layout/control_banner_ads.xml" value="0.22719298245614036" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/ads/src/main/res/layout/control_native_ads.xml" value="0.22719298245614036" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/ads/src/main/res/layout/item_admob_banner_native.xml" value="0.2015625" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/ads/src/main/res/layout/item_admob_native_ad.xml" value="0.22192028985507245" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/ads/src/main/res/layout/item_admob_native_setting.xml" value="0.22192028985507245" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/ads/src/main/res/layout/load_banner.xml" value="0.2015625" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/ads/src/main/res/layout/load_native.xml" value="0.2015625" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/ads/src/main/res/layout/load_native_banner.xml" value="0.23728070175438595" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/ads/src/main/res/layout/load_native_setting.xml" value="0.22719298245614036" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/activity_charge_dialog.xml" value="0.22719298245614036" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/activity_clean_result.xml" value="0.22719298245614036" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/activity_cooler.xml" value="0.22719298245614036" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/activity_do_optimize.xml" value="0.22719298245614036" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/activity_fast_charge.xml" value="0.22719298245614036" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/activity_guide_setting.xml" value="0.5" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/activity_setting.xml" value="0.22719298245614036" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/activity_speed_booster.xml" value="0.22719298245614036" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/content_home.xml" value="0.22719298245614036" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/fast_charge.xml" value="0.22735507246376813" />
+        <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/trash_cleaner.xml" value="0.22719298245614036" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

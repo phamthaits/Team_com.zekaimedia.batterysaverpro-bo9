@@ -16,7 +16,8 @@
             layout="@layout/control_native_ads"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_5sdp" />
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp" />
         <!--End Native ADS-->
 
         <include
@@ -383,15 +384,6 @@
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_5sdp" />
 
-            <!--TODO Native Banner-->
-            <include
-                android:id="@+id/banner_native_ads_control_holder"
-                layout="@layout/control_native_ads"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_5sdp" />
-            <!--End Native Banner-->
-
             <!--Phone Cooler-->
             <include
                 layout="@layout/phone_cooler"
@@ -407,7 +399,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_5sdp" />
-
+            <!--Native Banner-->
+            <include
+                android:id="@+id/banner_native_ads_control_holder"
+                layout="@layout/control_native_ads"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp" />
+            <!--End Native Banner-->
             <!--Charge History-->
             <include
                 layout="@layout/charge_history"

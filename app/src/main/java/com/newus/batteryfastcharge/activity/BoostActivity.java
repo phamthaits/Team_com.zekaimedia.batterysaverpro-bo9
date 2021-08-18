@@ -46,7 +46,6 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
     private long totalRam;
     private long useRam;
     private long useRam2;
-    private Context context;
     private AdControlHelp adControlHelp;
     private AdControl adControl;
     private View cv_trash_cleaner;
@@ -58,10 +57,9 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         Utils.setLocate(this);
         setContentView(R.layout.activity_speed_booster);
         intView();
-        context = this;
         activity = this;
-        adControlHelp = AdControlHelp.getInstance(context);
-        adControl = AdControl.getInstance(context);
+        adControlHelp = AdControlHelp.getInstance(activity);
+        adControl = AdControl.getInstance(activity);
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
@@ -69,11 +67,11 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.white));
         /* ------------------------------------------------------------------ */
 
-        NotificationDevice.cancle(context, NotificationDevice.ID_NOTIFICATTION_BOOST);
+        NotificationDevice.cancle(activity, NotificationDevice.ID_NOTIFICATTION_BOOST);
         View bt_RemoveAds = findViewById(R.id.remove_ads);
-        bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
+        bt_RemoveAds.setVisibility(AdControl.getInstance(activity).remove_ads() ? View.GONE : View.VISIBLE);
         adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), adControl.native_main);
-        adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
+        adControlHelp.loadInterstitialAd(this,  null);
     }
 
     AdCloseListener adCloseListener = new AdCloseListener() {
@@ -102,7 +100,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         intData();
         ((ImageView) findViewById(R.id.clean_done_iv_tick)).setColorFilter(getResources().getColor(R.color.color_white), PorterDuff.Mode.MULTIPLY);
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
-        if (!Utils.checkShouldDoing(context, 3)) {
+        if (!Utils.checkShouldDoing(activity, 3)) {
             cv_trash_cleaner.setVisibility(View.GONE);
         }
     }

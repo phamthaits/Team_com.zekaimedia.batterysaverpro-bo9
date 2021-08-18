@@ -37,23 +37,21 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
     FrameLayout parentAds;
     private AdControlHelp adControlHelp;
     private AdControl adControl;
-    private Context context;
     private Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
-        context = this;
         activity = this;
-        adControlHelp = AdControlHelp.getInstance(context);
-        adControl = AdControl.getInstance(context);
+        adControlHelp = AdControlHelp.getInstance(activity);
+        adControl = AdControl.getInstance(activity);
         setContentView(R.layout.activity_clean_result);
 
         View bt_RemoveAds = findViewById(R.id.remove_ads);
-        bt_RemoveAds.setVisibility(AdControl.getInstance(context).remove_ads() ? View.GONE : View.VISIBLE);
+        bt_RemoveAds.setVisibility(AdControl.getInstance(activity).remove_ads() ? View.GONE : View.VISIBLE);
 
-        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), adControl.native_banner_home);
+        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), adControl.native_main);
         SharePreferenceUtils.getInstance(this).setFlagAds(true);
 
         rlScan = findViewById(R.id.rlScanning);
@@ -71,7 +69,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
                 Utils.formatSize(SharePreferenceUtils.getInstance(this).getTotalJunk())));
         ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
 
-        adControlHelp.loadInterstitialAd(this, adCloseListener, null, false);
+        adControlHelp.loadInterstitialAd(this,  null );
     }
 
     AdControlHelp.AdCloseListener adCloseListener = new AdControlHelp.AdCloseListener() {
@@ -145,8 +143,8 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
             public void onAnimationStart(Animation animation) {
                 /* ------------------- StatusBar Navigation text dark bg white ----------------- */
                 getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
-                getWindow().setStatusBarColor(ContextCompat.getColor(context, R.color.white));
-                getWindow().setNavigationBarColor(ContextCompat.getColor(context, R.color.white));
+                getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.white));
+                getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.white));
                 /* ------------------------------------------------------------------ */
 
             }

@@ -46,8 +46,13 @@
         android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name="com.newus.batteryfastcharge.activity.ChargeActivity"></activity>
-        <activity android:name="com.newus.batteryfastcharge.activity.ChargeSettingActivity"></activity>
+        <activity
+            android:name="com.newus.batteryfastcharge.activity.ChargeActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.newus.batteryfastcharge.activity.ChargeSettingActivity"
+            android:screenOrientation="portrait"></activity>
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
@@ -59,66 +64,84 @@
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />
 
-        <activity android:name="com.newus.batteryfastcharge.billing.RemoveAdsActivity" />
+        <activity
+            android:name="com.newus.batteryfastcharge.billing.RemoveAdsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.newus.batteryfastcharge.activity.DoNotDisturbActivity"
             android:label="@string/title_activity_do_not_disturb"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <activity
             android:name="com.newus.batteryfastcharge.activity.LanguageActivity"
             android:label="@string/title_activity_language"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
-        <activity android:name="com.newus.batteryfastcharge.activity.WhiteListAddActivity" />
+        <activity
+            android:name="com.newus.batteryfastcharge.activity.WhiteListAddActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.newus.batteryfastcharge.activity.WhiteListActivity"
             android:label="@string/title_activity_white_list"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <activity
             android:name="com.newus.batteryfastcharge.activity.CleanResultActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.newus.batteryfastcharge.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.newus.batteryfastcharge.activity.CleanActivity"
             android:exported="true"
             android:label="@string/junk_clean_nav"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.newus.batteryfastcharge.activity.SettingActivity"
             android:exported="true"
             android:label="Setting"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.newus.batteryfastcharge.activity.ChartActivity"
             android:exported="true"
             android:label="ChartActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.newus.batteryfastcharge.activity.AppManagerActivity"
             android:exported="true"
             android:label="AppManagerActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.newus.batteryfastcharge.activity.BatterySaverActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.newus.batteryfastcharge.activity.BoostActivity"
             android:exported="true"
             android:label="@string/phone_boost_nav"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.newus.batteryfastcharge.activity.CoolActivity"
             android:exported="true"
             android:label="@string/phone_cool_nav"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.newus.batteryfastcharge.activity.PermissionActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.newus.batteryfastcharge.activity.SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme_AppCompat_Light_NoActionBar_FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

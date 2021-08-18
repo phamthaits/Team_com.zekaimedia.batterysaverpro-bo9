@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 
 import android.view.View;
+import android.widget.TextView;
 
 import com.newus.batteryfastcharge.R;
 
@@ -17,14 +18,16 @@ public class PermissionActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide_setting);
-
-        getWindow().setStatusBarColor(Color.rgb(71,71,73));
-        getWindow().setNavigationBarColor(Color.rgb(71,71,73));
-
+        getWindow().setStatusBarColor(Color.rgb(71, 71, 73));
+        getWindow().setNavigationBarColor(Color.rgb(71, 71, 73));
+        String text_permission = getIntent().getStringExtra("text_permission");
+        if(text_permission==null||text_permission.isEmpty())
+            text_permission=getString(R.string.setting_permission_request_title);
+        TextView textView = findViewById(R.id.text_permission);
+        textView.setText(text_permission);
         findViewById(R.id.na_guide_ok).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 finish();
             }
         });
