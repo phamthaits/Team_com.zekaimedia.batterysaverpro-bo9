@@ -111,7 +111,7 @@
     <string name="toast_mode_title">เปลี่ยนไปเป็น</string>
     <string name="charge_des">ตรวจสอบสถานะการชาร์จแบตเตอรี่และชาร์จไฟเกินเพื่อป้องกัน (อาจมีโฆษณา)</string>
     <string name="enable_fast_charging">เปิดใช้งานการชาร์จอย่างรวดเร็ว</string>
-    <string name="app_name">เครื่องชาร์จเร็วสุด</string>
+    <string name="app_name">ประหยัดแบตเตอรี่</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="bluetooth_is_enabling">เปิดใช้งานบลูทูธโปรดรอสักครู่ ...</string>
     <string name="moreapp_nav">แอปพลิเคชันเพิ่มเติม</string>

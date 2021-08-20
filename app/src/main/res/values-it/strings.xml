@@ -111,7 +111,7 @@
     <string name="toast_mode_title">È passato a</string>
     <string name="charge_des">Monitorare lo stato di carica della batteria e sovraccaricare la carica per impedire (potrebbe contenere annunci)</string>
     <string name="enable_fast_charging">Abilita ricarica rapida</string>
-    <string name="app_name">Caricatore super veloce</string>
+    <string name="app_name">Risparmio Batteria</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="bluetooth_is_enabling">Bluetooth è abilitato, si prega di attendere...</string>
     <string name="moreapp_nav" >Altro App</string>

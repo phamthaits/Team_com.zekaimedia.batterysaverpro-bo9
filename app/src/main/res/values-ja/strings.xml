@@ -111,7 +111,7 @@
     <string name="toast_mode_title">切り替え:</string>
     <string name="charge_des">防止するためにバッテリーの充電状態と充電過負荷を監視する（広告を含む可能性があります）</string>
     <string name="enable_fast_charging">急速充電を有効にする</string>
-    <string name="app_name">超高速充電器</string>
+    <string name="app_name">バッテリーセーバー</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="bluetooth_is_enabling">ブルートゥースが有効になっています。</string>
     <string name="moreapp_nav">その他のアプリ</string>

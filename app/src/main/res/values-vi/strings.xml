@@ -110,7 +110,7 @@
     <string name="charge_des">Theo dõi trạng thái sạc và sạc nhanh bằng cách dừng ứng dụng chạy nền khi kết nối nguồn. (may contain ads)</string>
     <string name="enable_fast_charging">Kích hoạt chế độ sạc nhanh</string>
     <string name="cool_down_button">LÀM MÁT</string>
-    <string name="app_name" >Bộ sạc siêu nhanh</string>
+    <string name="app_name" >Battery Saver</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="bluetooth_is_enabling">Bluetooth đang kích hoạt, xin vui lòng chờ...</string>
     <string name="moreapp_nav">Thêm Ứng Dụng</string>

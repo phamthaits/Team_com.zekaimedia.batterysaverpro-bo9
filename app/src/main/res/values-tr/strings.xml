@@ -111,7 +111,7 @@
     <string name="toast_mode_title">Şuna geçiş yaptı:</string>
     <string name="charge_des">Akünün şarj durumunu ve aşırı şarjı önlemek için izleyin (Reklam içerebilir)</string>
     <string name="enable_fast_charging">Hızlı Şarjı Etkinleştir</string>
-    <string name="app_name" >Süper Hızlı Şarj Cihazı</string>
+    <string name="app_name" >Batarya koruyucu</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="bluetooth_is_enabling">Bluetooth etkin, lütfen bekleyin ...</string>
     <string name="moreapp_nav">Diğer Uygulama</string>

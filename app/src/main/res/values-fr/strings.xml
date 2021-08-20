@@ -112,7 +112,7 @@
     <string name="toast_mode_title">A basculé vers</string>
     <string name="charge_des">Surveiller l\'état de charge de la batterie et la surcharge de charge pour éviter (Peut contenir des annonces)</string>
     <string name="enable_fast_charging">Activer la charge rapide</string>
-    <string name="app_name">Super Fast Charger</string>
+    <string name="app_name">Battery Saver</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="bluetooth_is_enabling">Bluetooth est activé, s\'il vous plaît attendre ...</string>
     <string name="moreapp_nav" >Plus d\'applications</string>

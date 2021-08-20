@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "766628803582",
-    "project_id": "battery-fast-charge-7",
-    "storage_bucket": "battery-fast-charge-7.appspot.com"
+    "project_number": "305703663524",
+    "project_id": "batterysaver7-b8c62",
+    "storage_bucket": "batterysaver7-b8c62.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:766628803582:android:9ace6e05f3a4543e8c86af",
+        "mobilesdk_app_id": "1:305703663524:android:fe90dd9b7b762acd0bb331",
         "android_client_info": {
-          "package_name": "com.newus.batteryfastcharge"
+          "package_name": "com.snowshirt.batterysaver"
         }
       },
       "oauth_client": [
         {
-          "client_id": "766628803582-aitc2jce03pufqnqogtqfnlbidl08mce.apps.googleusercontent.com",
+          "client_id": "305703663524-040ho8i68icajcpvsn9cd5au5042a8n7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCkoQpnBBOxQltxxa31Vt-J9z0ZahaUmGo"
+          "current_key": "AIzaSyC5H7jqpByiPgzmpItczzfddv1Cn5iZE_8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "766628803582-aitc2jce03pufqnqogtqfnlbidl08mce.apps.googleusercontent.com",
+              "client_id": "305703663524-040ho8i68icajcpvsn9cd5au5042a8n7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

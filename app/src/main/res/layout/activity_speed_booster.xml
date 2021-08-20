@@ -193,7 +193,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.newus.batteryfastcharge.view.HoloCircularProgressBar
+                <com.snowshirt.batterysaver.view.HoloCircularProgressBar
                     android:id="@+id/ivDoneHoloCirular"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

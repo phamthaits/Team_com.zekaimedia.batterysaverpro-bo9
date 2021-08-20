@@ -153,7 +153,7 @@
     <string name="toast_mode_title">Gewechselt zu</string>
     <string name="charge_des">Überwachen Sie den Ladezustand des Akkus und die Überladung, um dies zu verhindern (kann Werbung enthalten)</string>
     <string name="enable_fast_charging">Aktivieren Sie das Schnellladen</string>
-    <string name="app_name">Super Fast Charger</string>
+    <string name="app_name">Battery Saver</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="bluetooth_is_enabling">Bluetooth ist aktiviert, bitte warten...</string>
     <string name="moreapp_nav" >Mehr App</string>

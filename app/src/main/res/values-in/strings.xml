@@ -110,7 +110,7 @@
     <string name="toast_mode_title">Beralih ke</string>
     <string name="charge_des">Pantau status pengisian daya baterai dan kelebihan muatan untuk mencegah (Dapat berisi iklan)</string>
     <string name="enable_fast_charging">Aktifkan Pengisian Cepat</string>
-    <string name="app_name">Pengisi Daya Super Cepat</string>
+    <string name="app_name">Penghemat Baterai</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="bluetooth_is_enabling">Bluetooth diaktifkan, harap tunggu ...</string>
     <string name="moreapp_nav">Aplikasi Lainnya</string>

@@ -111,7 +111,7 @@
     <string name="toast_mode_title">Переключено на</string>
     <string name="charge_des">Мониторинг состояния заряда аккумулятора и перегрузки заряда для предотвращения (может содержать рекламу)</string>
     <string name="enable_fast_charging">Включить быструю зарядку</string>
-    <string name="app_name">Супер Быстрый зарядное устройство</string>
+    <string name="app_name">Экономия заряда батареи</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="bluetooth_is_enabling">Bluetooth включен, пожалуйста, подождите ...</string>
     <string name="moreapp_nav">Больше App</string>

@@ -112,7 +112,7 @@
     <string name="toast_mode_title">تم الانتقال إلى</string>
     <string name="charge_des">مراقبة حالة شحن البطارية وحمل الشحن الزائد لمنع (قد تحتوي على إعلانات)</string>
     <string name="enable_fast_charging">تمكين الشحن السريع</string>
-    <string name="app_name">شاحن فائق السرعة</string>
+    <string name="app_name">حافظ البطارية</string>
     <string name="bluetooth" >بلوتوث</string>
     <string name="bluetooth_is_enabling" >تم تمكين البلوتوث ، الرجاء الانتظار...</string>
     <string name="moreapp_nav" >المزيد من التطبيقات</string>
