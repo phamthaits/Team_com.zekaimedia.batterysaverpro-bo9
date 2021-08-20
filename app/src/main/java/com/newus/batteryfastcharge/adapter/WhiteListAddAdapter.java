@@ -1,6 +1,7 @@
 package com.newus.batteryfastcharge.adapter;
 
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +54,8 @@ public class WhiteListAddAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         if (holder instanceof ViewHolder) {
-            Whitelist whitelist = mWhitelists.get(position);
+            int i = holder.getBindingAdapterPosition();
+            Whitelist whitelist = mWhitelists.get(i);
             final ViewHolder viewHolder = (ViewHolder) holder;
 
             viewHolder.tvName.setText(whitelist.getApplicationName());
@@ -62,8 +64,7 @@ public class WhiteListAddAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             viewHolder.checkBoxAddItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    mOnHandleItemClickListener.onClickCheckBox(!viewHolder.checkBoxAddItem.isChecked(),
-                            position);
+                    mOnHandleItemClickListener.onClickCheckBox(!viewHolder.checkBoxAddItem.isChecked(), i);
                 }
             });
         }
