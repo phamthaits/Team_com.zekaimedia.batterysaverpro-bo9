@@ -107,9 +107,15 @@
                 android:layout_marginHorizontal="@dimen/_20sdp"
                 android:layout_marginVertical="@dimen/_5sdp" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:gravity="right">
         <TextView
             android:id="@+id/native_ad_sponsored_label"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/_5sdp"
             android:clickable="false"
@@ -122,10 +128,11 @@
             android:textStyle="bold" />
         <com.google.android.gms.ads.nativead.AdChoicesView
             android:id="@+id/adchoices_view"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/_10sdp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true" />
+        </LinearLayout>
         <TextView style="@style/AppTheme.Ads" />
     </RelativeLayout>
 </com.google.android.gms.ads.nativead.NativeAdView>

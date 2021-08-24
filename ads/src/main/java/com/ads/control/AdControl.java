@@ -128,7 +128,7 @@ public class AdControl {
         editor.commit();
     }
 
-    private int version = 2;
+    private int version = 1;
 
     public int old_date() {
         return this.pre.getInt("old_date", -1);
