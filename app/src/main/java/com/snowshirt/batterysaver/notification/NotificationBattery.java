@@ -146,17 +146,10 @@ public class NotificationBattery extends NotificationCompat.Builder {
         remoteViews.setImageViewResource(R.id.img_temp, R.drawable.ic_temperature_normal);
 
         ShortcutManager shortcutManager;
-//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
         if (android.os.Build.VERSION.SDK_INT >= 25) {
             shortcutManager = mContext.getSystemService(ShortcutManager.class);
-            ShortcutInfo shortcut_main, shortcut_junk_clean, shortcut_boost, shortcut_cool;
+            ShortcutInfo shortcut_junk_clean, shortcut_boost, shortcut_cool;
             if (android.os.Build.VERSION.SDK_INT >= 25) {
-//                shortcut_main = new ShortcutInfo.Builder(mContext, "shortcut_main")
-////                        .setShortLabel(mContext.getString(R.string.app_name))
-////                        .setLongLabel(mContext.getString(R.string.app_name))
-////                        .setIcon(Icon.createWithResource(mContext, R.mipmap.ic_launcher))
-////                        .setIntent(intent)
-////                        .build();
 
                 shortcut_junk_clean = new ShortcutInfo.Builder(mContext, "shortcut_junk_clean")
                         .setShortLabel(mContext.getString(R.string.junk_clean_nav))
@@ -177,7 +170,6 @@ public class NotificationBattery extends NotificationCompat.Builder {
                         .setIntent(iCooler)
                         .build();
                 shortcutManager.setDynamicShortcuts(Arrays.asList(shortcut_junk_clean, shortcut_boost, shortcut_cool));
-//                shortcutManager.addDynamicShortcuts(Arrays.asList());
             }
         }
 

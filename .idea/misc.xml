@@ -36,6 +36,16 @@
         <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/content_home.xml" value="0.22719298245614036" />
         <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/fast_charge.xml" value="0.22735507246376813" />
         <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/trash_cleaner.xml" value="0.22719298245614036" />
+        <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/drawable/bg_icon_charge_history.xml" value="0.3828125" />
+        <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/layout/activity_charge_dialog.xml" value="0.34193840579710144" />
+        <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/layout/activity_charge_optimize.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/layout/activity_guide_setting.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/layout/content_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/layout/custom_notification.xml" value="0.34193840579710144" />
+        <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/layout/fast_charge.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/layout/fragment_clean.xml" value="0.34193840579710144" />
+        <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/layout/notification_battery_full.xml" value="0.35190217391304346" />
+        <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/layout/notification_optimize.xml" value="0.35190217391304346" />
       </map>
     </option>
   </component>
