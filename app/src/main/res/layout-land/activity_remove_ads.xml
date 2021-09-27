@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_remove_ads_all"
-    tools:context="com.snowshirt.batterysaver.billing.RemoveAdsActivity">
+    tools:context="com.qamob.batterysaver.billing.RemoveAdsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
