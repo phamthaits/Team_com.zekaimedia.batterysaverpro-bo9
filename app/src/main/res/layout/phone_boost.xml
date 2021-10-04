@@ -22,9 +22,9 @@
 
             <ImageView
                 android:id="@+id/ivTemperaturePin"
+                style="@style/imageListContentHome"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/_20sdp"
                 android:src="@drawable/ic_rocket_white" />
         </RelativeLayout>
 
@@ -39,7 +39,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="@dimen/_10sdp">
+                android:padding="@dimen/_5sdp">
 
                 <TextView
                     android:id="@+id/tvBoost"

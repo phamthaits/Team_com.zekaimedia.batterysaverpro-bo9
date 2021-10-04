@@ -4,7 +4,7 @@
     <string name="fix_now">지금 해결하기</string>
     <string name="language_name">한국어</string>
     <string name="optimize">최적화</string>
-    <string name="fast_charging">빠른충전</string>
+    <string name="fast_charging">충전기 최적화</string>
     <string name="full_charging">완전충전</string>
     <string name="trickle_charging">세류충전</string>
     <string name="temperature">배터리 온도</string>

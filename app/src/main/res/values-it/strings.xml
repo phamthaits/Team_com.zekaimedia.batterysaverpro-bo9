@@ -4,7 +4,7 @@
     <string name="fix_now">CORREGGI</string>
     <string name="language_name">Italiano</string>
     <string name="optimize">Ottimizza</string>
-    <string name="fast_charging">Carica veloce</string>
+    <string name="fast_charging">Ottimizza il caricabatterie</string>
     <string name="full_charging">Carica completa</string>
     <string name="trickle_charging">Carica ruscello</string>
     <string name="temperature">Temperatura</string>

@@ -37,7 +37,6 @@ import com.qamob.batterysaver.fragment.fmBatterySaveMain;
 public class MainActivity extends BaseActivity {
     private DrawerLayout mDrawerLayout;
     Toolbar toolbar;
-    Fragment fragment;
     private Button bt_RemoveAds;
     SharedPreferences appPreferences;
     boolean isAppInstalled = false;

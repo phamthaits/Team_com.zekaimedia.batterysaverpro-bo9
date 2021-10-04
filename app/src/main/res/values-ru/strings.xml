@@ -4,7 +4,7 @@
     <string name="fix_now">ИСПРАВИТЬ</string>
     <string name="language_name">Pусский</string>
     <string name="optimize">ОПТИМИЗИРОВАТЬ</string>
-    <string name="fast_charging">Быстрая зарядка</string>
+    <string name="fast_charging">Оптимизация зарядного устройства</string>
     <string name="full_charging">Полная зарядка</string>
     <string name="trickle_charging">Капельная зарядка</string>
     <string name="temperature">Температура</string>

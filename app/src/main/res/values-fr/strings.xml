@@ -5,7 +5,7 @@
     <string name="fix_now">RÉPARER</string>
     <string name="language_name">Français</string>
     <string name="optimize">OPTIMISER</string>
-    <string name="fast_charging">Charge Rapide</string>
+    <string name="fast_charging">Optimiser le chargeur</string>
     <string name="full_charging">Charge Pleine</string>
     <string name="trickle_charging">Charge Entretien</string>
     <string name="temperature">Température</string>

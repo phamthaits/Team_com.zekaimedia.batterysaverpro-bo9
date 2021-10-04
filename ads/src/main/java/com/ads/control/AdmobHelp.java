@@ -168,6 +168,7 @@ public class AdmobHelp {
                 containerShimmer.stopShimmer();
                 containerShimmer.setVisibility(View.GONE);
                 frameLayout.setVisibility(View.GONE);
+                rootView.setVisibility(View.GONE);
             }
 
             @Override
@@ -227,6 +228,7 @@ public class AdmobHelp {
             public void onAdFailedToLoad(LoadAdError errorCode) {
                 containerShimmer.stopShimmer();
                 containerShimmer.setVisibility(View.GONE);
+                rootView.setVisibility(View.GONE);
             }
         }).build();
         Bundle extras = new FacebookExtras()
@@ -263,14 +265,14 @@ public class AdmobHelp {
         // check before trying to display them.
 
         if (nativeAd.getBody() == null) {
-            adView.getBodyView().setVisibility(View.INVISIBLE);
+            adView.getBodyView().setVisibility(View.GONE);
         } else {
             adView.getBodyView().setVisibility(View.VISIBLE);
             ((TextView) adView.getBodyView()).setText(nativeAd.getBody());
         }
 
         if (nativeAd.getCallToAction() == null) {
-            adView.getCallToActionView().setVisibility(View.INVISIBLE);
+            adView.getCallToActionView().setVisibility(View.GONE);
         } else {
             adView.getCallToActionView().setVisibility(View.VISIBLE);
             ((Button) adView.getCallToActionView()).setText(nativeAd.getCallToAction());
@@ -285,21 +287,21 @@ public class AdmobHelp {
         }
 
         if (nativeAd.getPrice() == null) {
-            adView.getPriceView().setVisibility(View.INVISIBLE);
+            adView.getPriceView().setVisibility(View.GONE);
         } else {
             adView.getPriceView().setVisibility(View.VISIBLE);
             ((TextView) adView.getPriceView()).setText(nativeAd.getPrice());
         }
 
         if (nativeAd.getStore() == null) {
-            adView.getStoreView().setVisibility(View.INVISIBLE);
+            adView.getStoreView().setVisibility(View.GONE);
         } else {
             adView.getStoreView().setVisibility(View.VISIBLE);
             ((TextView) adView.getStoreView()).setText(nativeAd.getStore());
         }
 
         if (nativeAd.getStarRating() == null) {
-            adView.getStarRatingView().setVisibility(View.INVISIBLE);
+            adView.getStarRatingView().setVisibility(View.GONE);
         } else {
             ((RatingBar) adView.getStarRatingView())
                     .setRating(nativeAd.getStarRating().floatValue());
@@ -307,14 +309,14 @@ public class AdmobHelp {
         }
 
         if (nativeAd.getAdvertiser() == null) {
-            adView.getAdvertiserView().setVisibility(View.INVISIBLE);
+            adView.getAdvertiserView().setVisibility(View.GONE);
         } else {
             ((TextView) adView.getAdvertiserView()).setText(nativeAd.getAdvertiser());
             adView.getAdvertiserView().setVisibility(View.VISIBLE);
         }
 
         if (nativeAd.getAdChoicesInfo() == null) {
-            adView.getAdChoicesView().setVisibility(View.INVISIBLE);
+            adView.getAdChoicesView().setVisibility(View.GONE);
         } else {
             AdChoicesView choicesView = new AdChoicesView(adView.getContext());
             adView.setAdChoicesView(choicesView);

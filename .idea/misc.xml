@@ -36,6 +36,36 @@
         <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/content_home.xml" value="0.22719298245614036" />
         <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/fast_charge.xml" value="0.22735507246376813" />
         <entry key="..\:/Project/BatterySaver/Team_com.newus.batteryfastcharge-bo7/app/src/main/res/layout/trash_cleaner.xml" value="0.22719298245614036" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/ads/src/main/res/layout/control_banner_ads.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/ads/src/main/res/layout/control_native_ads.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/ads/src/main/res/layout/dialog_rate_app.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/ads/src/main/res/layout/item_admob_banner_native.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/ads/src/main/res/layout/item_admob_native_ad.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/ads/src/main/res/layout/item_admob_native_setting.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/ads/src/main/res/layout/load_banner.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/ads/src/main/res/layout/load_native_banner.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/ads/src/main/res/layout/load_native_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/ads/src/main/res/layout/load_native_setting.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/activity_clean_result.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/activity_do_not_disturb.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/activity_do_optimize.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/activity_speed_booster.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/app_manager.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/boost_notification.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/charge_history.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/content_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/custom_notification.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/fast_charge.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/fragment_clean.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/notification_battery_full.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/notification_cool_down.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/notification_low.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/notification_optimize.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/phone_boost.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/phone_cooler.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/remove_ads.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/settings.xml" value="0.36666666666666664" />
+        <entry key="..\:/Project/BatterySaver/Team_com.qamob.batterysaver-bo8/app/src/main/res/layout/trash_cleaner.xml" value="0.36666666666666664" />
         <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/drawable/bg_icon_charge_history.xml" value="0.3828125" />
         <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/layout/activity_charge_dialog.xml" value="0.34193840579710144" />
         <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/layout/activity_charge_optimize.xml" value="0.36666666666666664" />
@@ -49,7 +79,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

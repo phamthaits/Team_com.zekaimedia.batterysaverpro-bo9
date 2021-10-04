@@ -3,7 +3,7 @@
     <string name="fix_now">CORREGIR AHORA</string>
     <string name="language_name">Español</string>
     <string name="optimize">OPTIMIZAR</string>
-    <string name="fast_charging">Carga rápida.</string>
+    <string name="fast_charging">Optimizar el cargador</string>
     <string name="full_charging">Carga completa</string>
     <string name="trickle_charging">Carga lenta</string>
     <string name="temperature">Temperatura</string>

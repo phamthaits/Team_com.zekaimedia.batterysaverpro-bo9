@@ -9,7 +9,7 @@
     <string name="optimize">OPTIMIZE</string>
 
     //
-    <string name="fast_charging">Fast Charge</string>
+    <string name="fast_charging">Optimize charger</string>
     <string name="full_charging">Full Charge</string>
     <string name="trickle_charging">Trickle Charge</string>
     <string name="bd_charge_history">Charge History</string>
@@ -21,9 +21,9 @@
     <string name="clean_description">Clean unnecessary files to save
         spaces</string>
     //Phone Boost
-    <string name="boost_description">"Phone is slow? \nToo many apps running in background"</string>
+    <string name="boost_description">Phone is slow? Too many apps running in background</string>
     //Phone Cooler
-    <string name="cool_description">"Phone is hot? \nCool down phone temperature now"</string>
+    <string name="cool_description">"Phone is hot? Cool down phone temperature now"</string>
     <string name="phone_cooler">Cool</string>
     //Charge History
     <string name="history_description">Manage All Charging</string>
@@ -32,7 +32,7 @@
     //Settings
     <string name="settings_description">Manage All Setting</string>
     //Remove Ads
-    <string name="remove_description">"Annoying Ads? \nRemove ads FOREVER now"</string>
+    <string name="remove_description">"Annoying Ads? Remove ads FOREVER now"</string>
     //Smart Charge
     <string name="smart_charge_des" translatable="false">Remind you charging state to avoid overcharge</string>
 

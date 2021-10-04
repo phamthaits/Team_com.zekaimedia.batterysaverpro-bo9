@@ -4,7 +4,7 @@
     <string name="fix_now">修復</string>
     <string name="language_name">日本語</string>
     <string name="optimize">最適化</string>
-    <string name="fast_charging">急速充電</string>
+    <string name="fast_charging">充電器を最適化する</string>
     <string name="full_charging">完全充電</string>
     <string name="trickle_charging">細流充電</string>
     <string name="temperature">温度</string>
