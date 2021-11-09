@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "882626282204",
-    "project_id": "battery-saver-8",
-    "storage_bucket": "battery-saver-8.appspot.com"
+    "project_number": "856568175297",
+    "project_id": "battery-thai-9",
+    "storage_bucket": "battery-thai-9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:882626282204:android:bb61626825944eb8b7ea19",
+        "mobilesdk_app_id": "1:856568175297:android:3de4b9ad5d64a0d0611240",
         "android_client_info": {
-          "package_name": "com.qamob.batterysaver"
+          "package_name": "com.zekaimedia.batterysaverpro"
         }
       },
       "oauth_client": [
         {
-          "client_id": "882626282204-f2kd7rj7giug95q04bbp47vgespmr0md.apps.googleusercontent.com",
+          "client_id": "856568175297-9gvo0d3frvhmkh7r5hoa4h1nm9orka2m.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAomg40DKg06IbU53slavZt94JIgaC86F8"
+          "current_key": "AIzaSyDRrxRMwYYxECTQmsAI5Oe65Mlin-whwRE"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "882626282204-f2kd7rj7giug95q04bbp47vgespmr0md.apps.googleusercontent.com",
+              "client_id": "856568175297-9gvo0d3frvhmkh7r5hoa4h1nm9orka2m.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
