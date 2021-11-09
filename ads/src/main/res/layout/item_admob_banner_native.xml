@@ -54,7 +54,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/ad_headline"
-                    android:layout_toLeftOf="@+id/ad_call_to_action"
                     android:orientation="horizontal">
 
                     <RatingBar

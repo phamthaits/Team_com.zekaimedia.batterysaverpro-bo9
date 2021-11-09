@@ -10,8 +10,8 @@ public class AdControl {
     private static AdControl instance;
     private SharedPreferences.Editor editor;
     private SharedPreferences pre;
-    public static boolean _isTestAds = false;
-//    public static boolean _isTestAds = true;
+//    public static boolean _isTestAds = false;
+    public static boolean _isTestAds = true;
 
     public AdControl(Context context) {
         this.pre = context.getSharedPreferences("app_data", Context.MODE_MULTI_PROCESS);
@@ -37,7 +37,7 @@ public class AdControl {
 
     //Full
     public String admob_full() {
-        if (_isTestAds) return "ca-app-pub-3940256099942544/1033173712";
+        if (_isTestAds) return "/6499/example/interstitial";
         return this.pre.getString("admob_full", "");
     }
 
