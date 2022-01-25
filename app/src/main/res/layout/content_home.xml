@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,8 +16,7 @@
             layout="@layout/control_native_ads"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_5sdp" />
+            android:layout_marginHorizontal="@dimen/_16sdp" />
         <!--End Native ADS-->
 
         <include
@@ -25,111 +24,128 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginHorizontal="@dimen/_5sdp"
-            android:layout_marginTop="@dimen/_5sdp" />
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_20sdp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/ll_btn_charging_tip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/bg_rounded"
+                android:layout_marginHorizontal="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_16sdp"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:padding="@dimen/_10sdp">
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_weight="1.0"
+                            android:gravity="right">
+
+                            <View
+                                android:id="@+id/view1"
+                                android:layout_width="@dimen/_24sdp"
+                                android:layout_height="0.5dp"
+                                android:layout_marginRight="@dimen/_38sdp"
+                                android:background="@color/dark_grayish_blue" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_centerVertical="true"
+                            android:layout_weight="1.0"
+                            android:gravity="left">
+
+                            <View
+                                android:id="@+id/view3"
+                                android:layout_width="@dimen/_24sdp"
+                                android:layout_height="0.5dp"
+                                android:layout_marginLeft="@dimen/_34sdp"
+                                android:background="@color/dark_grayish_blue" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <RelativeLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1.0"
-                        android:gravity="center">
+                        android:layout_weight="1"
+                        android:gravity="left">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/_1sdp"
-                            android:layout_marginTop="@dimen/_20sdp">
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_1sdp"
-                                android:layout_weight="1.0" />
+                            <RelativeLayout
+                                android:layout_width="@dimen/_16sdp"
+                                android:layout_height="@dimen/_20sdp">
 
-                            <View
-                                android:id="@+id/view1"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/_1sdp"
-                                android:layout_marginLeft="@dimen/_20sdp"
-                                android:layout_weight="1.0"
-                                android:background="@color/dark_grayish_blue" />
-                        </LinearLayout>
-
-                        <FrameLayout
-                            android:id="@+id/fl_quick_chaging"
-                            android:layout_width="@dimen/_43sdp"
-                            android:layout_height="@dimen/_43sdp"
-                            android:layout_centerHorizontal="true">
-
-                            <FrameLayout
-                                android:layout_width="@dimen/_43sdp"
-                                android:layout_height="@dimen/_43sdp"
-                                android:layout_centerHorizontal="true"
-                                android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/imgQuick"
+                                    android:layout_width="@dimen/_16sdp"
+                                    android:layout_height="@dimen/_20sdp"
+                                    android:layout_centerInParent="true"
+                                    android:src="@drawable/ic_quick_charging_end" />
 
                                 <ProgressBar
                                     android:id="@+id/pbQuick"
                                     style="?android:attr/progressBarStyleLarge"
-                                    android:layout_width="@dimen/_43sdp"
-                                    android:layout_height="@dimen/_43sdp"
-                                    android:layout_gravity="center"
-                                    android:gravity="center"
-                                    android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan" />
+                                    android:layout_width="@dimen/_10sdp"
+                                    android:layout_height="@dimen/_10sdp"
+                                    android:layout_centerInParent="true"
+                                    android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan"
+                                    android:visibility="gone" />
+                            </RelativeLayout>
 
-                                <ImageView
-                                    android:id="@+id/imgQuick"
-                                    android:layout_width="@dimen/_40sdp"
-                                    android:layout_height="@dimen/_40sdp"
-                                    android:layout_gravity="center"
-                                    android:gravity="center"
-                                    android:src="@drawable/ic_quick_charging_end" />
-                            </FrameLayout>
-                        </FrameLayout>
+                            <com.romainpiel.shimmer.ShimmerTextView
+                                android:id="@+id/tvFast"
+                                android:layout_width="@dimen/_40sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/_4sdp"
+                                android:ellipsize="end"
+                                android:lines="2"
+                                android:text="@string/fast_charging"
+                                android:textColor="@color/secondary_text"
+                                android:textSize="@dimen/_8sdp"
+                                app:reflectionColor="@color/colorAccent" />
 
-                        <com.romainpiel.shimmer.ShimmerTextView
-                            android:id="@+id/tvFast"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/fl_quick_chaging"
-                            android:layout_centerHorizontal="true"
-                            android:gravity="center"
-                            android:text="@string/fast_charging"
-                            android:textColor="@color/title_dark"
-                            android:textSize="@dimen/_10sdp"
-                            app:reflectionColor="@color/colorAccent" />
+                        </LinearLayout>
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
                         android:layout_weight="1.0"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/_1sdp"
-                            android:layout_marginTop="@dimen/_20sdp">
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:gravity="center"
+                            android:visibility="gone">
 
                             <View
                                 android:id="@+id/view2"
@@ -140,7 +156,6 @@
                                 android:background="@color/dark_grayish_blue" />
 
                             <View
-                                android:id="@+id/view3"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/_1sdp"
                                 android:layout_marginLeft="@dimen/_20sdp"
@@ -148,62 +163,62 @@
                                 android:background="@color/dark_grayish_blue" />
                         </LinearLayout>
 
-                        <FrameLayout
-                            android:id="@+id/fl_full_charging"
-                            android:layout_width="@dimen/_43sdp"
-                            android:layout_height="@dimen/_43sdp"
-                            android:layout_centerHorizontal="true">
 
-                            <FrameLayout
-                                android:layout_width="@dimen/_43sdp"
-                                android:layout_height="@dimen/_43sdp"
-                                android:layout_centerHorizontal="true"
-                                android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="@dimen/_16sdp"
+                                android:layout_height="@dimen/_20sdp">
 
                                 <ProgressBar
                                     android:id="@+id/pbFull"
                                     style="?android:attr/progressBarStyleLarge"
-                                    android:layout_width="@dimen/_43sdp"
-                                    android:layout_height="@dimen/_43sdp"
-                                    android:layout_gravity="center"
-                                    android:gravity="center"
-                                    android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan" />
+                                    android:layout_width="@dimen/_10sdp"
+                                    android:layout_height="@dimen/_10sdp"
+                                    android:layout_centerInParent="true"
+                                    android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan"
+                                    android:visibility="gone" />
 
                                 <ImageView
                                     android:id="@+id/imgFull"
-                                    android:layout_width="@dimen/_40sdp"
-                                    android:layout_height="@dimen/_40sdp"
-                                    android:layout_gravity="center"
-                                    android:background="@color/white"
-                                    android:gravity="center"
+                                    android:layout_width="@dimen/_16sdp"
+                                    android:layout_height="@dimen/_20sdp"
+                                    android:layout_centerInParent="true"
                                     android:src="@drawable/ic_full_charging_end" />
-                            </FrameLayout>
-                        </FrameLayout>
+                            </RelativeLayout>
 
-                        <com.romainpiel.shimmer.ShimmerTextView
-                            android:id="@+id/tvFull"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/fl_full_charging"
-                            android:layout_centerHorizontal="true"
-                            android:gravity="center"
-                            android:text="@string/full_charging"
-                            android:textColor="@color/title_dark"
-                            android:textSize="@dimen/_10sdp"
-                            app:reflectionColor="@color/colorAccent" />
+                            <com.romainpiel.shimmer.ShimmerTextView
+                                android:id="@+id/tvFull"
+                                android:layout_width="@dimen/_40sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/fl_full_charging"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/_4sdp"
+                                android:ellipsize="end"
+                                android:lines="2"
+                                android:text="@string/full_charging"
+                                android:textColor="@color/secondary_text"
+                                android:textSize="@dimen/_8sdp"
+                                app:reflectionColor="@color/colorAccent" />
+                        </LinearLayout>
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_weight="1.0"
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/_1sdp"
-                            android:layout_marginTop="@dimen/_20sdp">
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:visibility="gone">
 
                             <View
                                 android:id="@+id/view4"
@@ -219,235 +234,152 @@
                                 android:layout_weight="1.0" />
                         </LinearLayout>
 
-                        <FrameLayout
-                            android:id="@+id/fl_trickle_charging"
-                            android:layout_width="@dimen/_43sdp"
-                            android:layout_height="@dimen/_43sdp"
-                            android:layout_centerHorizontal="true">
 
-                            <FrameLayout
-                                android:layout_width="@dimen/_43sdp"
-                                android:layout_height="@dimen/_43sdp"
-                                android:layout_centerHorizontal="true"
-                                android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="right"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="@dimen/_16sdp"
+                                android:layout_height="@dimen/_20sdp">
 
                                 <ProgressBar
                                     android:id="@+id/pbTrickle"
                                     style="?android:attr/progressBarStyleLarge"
-                                    android:layout_width="@dimen/_43sdp"
-                                    android:layout_height="@dimen/_43sdp"
-                                    android:layout_gravity="center"
-                                    android:gravity="center"
-                                    android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan" />
+                                    android:layout_width="@dimen/_10sdp"
+                                    android:layout_height="@dimen/_10sdp"
+                                    android:layout_centerInParent="true"
+                                    android:indeterminateDrawable="@drawable/style_circular_indeterminate_cyan"
+                                    android:visibility="gone" />
 
                                 <ImageView
                                     android:id="@+id/imgTrickle"
-                                    android:layout_width="@dimen/_40sdp"
-                                    android:layout_height="@dimen/_40sdp"
-                                    android:layout_gravity="center"
-                                    android:background="@color/white"
-                                    android:gravity="center"
+                                    android:layout_width="@dimen/_16sdp"
+                                    android:layout_height="@dimen/_20sdp"
+                                    android:layout_centerInParent="true"
                                     android:src="@drawable/ic_trickle_charging_end" />
-                            </FrameLayout>
-                        </FrameLayout>
+                            </RelativeLayout>
 
-                        <com.romainpiel.shimmer.ShimmerTextView
-                            android:id="@+id/tvTrickle"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/fl_trickle_charging"
-                            android:layout_centerHorizontal="true"
-                            android:gravity="center"
-                            android:text="@string/trickle_charging"
-                            android:textColor="@color/title_dark"
-                            android:textSize="@dimen/_10sdp"
-                            app:reflectionColor="@color/colorAccent" />
+                            <com.romainpiel.shimmer.ShimmerTextView
+                                android:id="@+id/tvTrickle"
+                                android:layout_width="@dimen/_40sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/fl_trickle_charging"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/_4sdp"
+                                android:ellipsize="end"
+                                android:lines="2"
+                                android:text="@string/trickle_charging"
+                                android:textColor="@color/secondary_text"
+                                android:textSize="@dimen/_8sdp"
+                                app:reflectionColor="@color/colorAccent" />
+                        </LinearLayout>
                     </RelativeLayout>
                 </LinearLayout>
+            </RelativeLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="@dimen/_16sdp"
+                android:layout_marginLeft="@dimen/_16sdp"
+                android:scrollbars="none">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp">
+                    android:orientation="vertical">
 
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_16sdp"
+                        android:orientation="horizontal">
+                        <!--Trash Cleaner-->
+                        <include
+                            android:id="@+id/cv_trash_cleaner"
+                            layout="@layout/trash_cleaner"
+                            android:layout_width="@dimen/_112sdp"
+                            android:layout_height="@dimen/_136sdp"
+                            android:layout_marginRight="@dimen/_16sdp" />
 
-                        <View
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/_1sdp"
-                            android:layout_marginLeft="@dimen/_20sdp"
-                            android:layout_marginRight="@dimen/_20sdp"
-                            android:layout_weight="1.0"
-                            android:background="@color/dark_grayish_blue" />
-                    </RelativeLayout>
+                        <!--Phone Boost-->
+                        <include
+                            layout="@layout/phone_boost"
+                            android:layout_width="@dimen/_112sdp"
+                            android:layout_height="@dimen/_136sdp"
+                            android:layout_marginRight="@dimen/_16sdp" />
+
+                        <!--Phone Cooler-->
+
+                        <include
+                            layout="@layout/phone_cooler"
+                            android:layout_width="@dimen/_112sdp"
+                            android:layout_height="@dimen/_136sdp"
+                            android:layout_marginRight="@dimen/_16sdp" />
+
+                        <!--Fast Charge-->
+                        <include
+                            layout="@layout/fast_charge"
+                            android:layout_width="@dimen/_112sdp"
+                            android:layout_height="@dimen/_136sdp"
+                            android:layout_marginRight="@dimen/_16sdp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <!--Charge History-->
+                        <include
+                            layout="@layout/charge_history"
+                            android:layout_width="@dimen/_112sdp"
+                            android:layout_height="@dimen/_136sdp"
+                            android:layout_marginRight="@dimen/_16sdp" />
+
+                        <!--App Manager-->
+                        <include
+                            layout="@layout/app_manager"
+                            android:layout_width="@dimen/_112sdp"
+                            android:layout_height="@dimen/_136sdp"
+                            android:layout_marginRight="@dimen/_16sdp" />
+
+                        <!--Settings-->
+                        <include
+                            layout="@layout/settings"
+                            android:layout_width="@dimen/_112sdp"
+                            android:layout_height="@dimen/_136sdp"
+                            android:layout_marginRight="@dimen/_16sdp" />
+
+                        <!--Remove Ads-->
+                        <include
+                            android:id="@+id/remove_ads"
+                            layout="@layout/remove_ads"
+                            android:layout_width="@dimen/_112sdp"
+                            android:layout_height="@dimen/_136sdp"
+                            android:layout_marginRight="@dimen/_16sdp" />
+                    </LinearLayout>
+                    <!--Native Banner-->
+                    <!--<include
+                        android:id="@+id/banner_native_ads_control_holder"
+                        layout="@layout/control_native_ads"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp" />-->
+                    <!--End Native Banner-->
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:gravity="center">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tvTemperaturePin"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="40 C"
-                            android:textColor="@color/temperature"
-                            android:textSize="@dimen/_12sdp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:text="@string/temperature"
-                            android:textColor="@color/title_dark"
-                            android:textSize="@dimen/_10sdp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tvVoltage"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="30 V"
-                            android:textColor="@color/storage"
-                            android:textSize="@dimen/_12sdp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:text="@string/voltage"
-                            android:textColor="@color/title_dark"
-                            android:textSize="@dimen/_10sdp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tvCapacity"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2500 mA"
-                            android:textColor="@color/ram"
-                            android:textSize="@dimen/_12sdp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:singleLine="true"
-                            android:text="@string/capacity"
-                            android:textColor="@color/title_dark"
-                            android:textSize="@dimen/_10sdp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <!--Trash Cleaner-->
-            <include
-                android:id="@+id/cv_trash_cleaner"
-                layout="@layout/trash_cleaner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp" />
-
-            <!--Phone Boost-->
-            <include
-                layout="@layout/phone_boost"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp" />
-
-            <!--Phone Cooler-->
-            <include
-                layout="@layout/phone_cooler"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp" />
-
-            <!--Fast Charge-->
-            <include
-                layout="@layout/fast_charge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp" />
-            <!--Native Banner-->
-            <include
-                android:id="@+id/banner_native_ads_control_holder"
-                layout="@layout/control_native_ads"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp" />
-            <!--End Native Banner-->
-            <!--Charge History-->
-            <include
-                layout="@layout/charge_history"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp" />
-
-            <!--App Manager-->
-            <include
-                layout="@layout/app_manager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp" />
-
-            <!--Settings-->
-            <include
-                layout="@layout/settings"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp" />
-
-            <!--Remove Ads-->
-            <include
-                android:id="@+id/remove_ads"
-                layout="@layout/remove_ads"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_5sdp" />
+            </HorizontalScrollView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                android:background="@drawable/bg_rounded"
-                android:orientation="vertical"
-                android:paddingVertical="@dimen/_20sdp">
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_24sdp"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -460,12 +392,11 @@
 
                         <ImageView
                             android:id="@+id/btnWifi"
-                            android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_centerInParent="true"
+                            android:layout_width="@dimen/_44sdp"
+                            android:layout_height="@dimen/_44sdp"
                             android:background="@drawable/bg_circle_progress"
                             android:contentDescription="@string/app_name"
-                            android:padding="10dp"
+                            android:padding="@dimen/_12sdp"
                             android:src="@drawable/ic_wifi_true" />
                     </RelativeLayout>
 
@@ -476,12 +407,11 @@
 
                         <ImageView
                             android:id="@+id/btnSound"
-                            android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_centerInParent="true"
+                            android:layout_width="@dimen/_44sdp"
+                            android:layout_height="@dimen/_44sdp"
                             android:background="@drawable/bg_circle_progress"
                             android:contentDescription="@string/app_name"
-                            android:padding="10dp"
+                            android:padding="@dimen/_12sdp"
                             android:src="@drawable/ic_volume_normal" />
                     </RelativeLayout>
 
@@ -492,12 +422,11 @@
 
                         <ImageView
                             android:id="@+id/btnScreenTime"
-                            android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_centerInParent="true"
+                            android:layout_width="@dimen/_44sdp"
+                            android:layout_height="@dimen/_44sdp"
                             android:background="@drawable/bg_circle_progress"
                             android:contentDescription="@string/app_name"
-                            android:padding="10dp"
+                            android:padding="@dimen/_12sdp"
                             android:src="@drawable/ic_lock_outline_teal_700_24dp" />
                     </RelativeLayout>
 
@@ -508,28 +437,25 @@
 
                         <ImageView
                             android:id="@+id/btnBluetooth"
-                            android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_centerInParent="true"
+                            android:layout_width="@dimen/_44sdp"
+                            android:layout_height="@dimen/_44sdp"
                             android:background="@drawable/bg_circle_progress"
                             android:contentDescription="@string/app_name"
-                            android:padding="10dp"
+                            android:padding="@dimen/_12sdp"
                             android:src="@drawable/ic_bluetooth_false" />
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
                         <ImageView
                             android:id="@+id/btnSync"
-                            android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_centerInParent="true"
+                            android:layout_width="@dimen/_44sdp"
+                            android:layout_height="@dimen/_44sdp"
                             android:background="@drawable/bg_circle_progress"
                             android:contentDescription="@string/app_name"
-                            android:padding="10dp"
+                            android:padding="@dimen/_12sdp"
                             android:src="@drawable/ic_sync_true" />
                     </RelativeLayout>
                 </LinearLayout>
@@ -546,12 +472,11 @@
 
                         <ImageView
                             android:id="@+id/btnBrightness"
-                            android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_centerInParent="true"
+                            android:layout_width="@dimen/_44sdp"
+                            android:layout_height="@dimen/_44sdp"
                             android:background="@drawable/bg_circle_progress"
                             android:contentDescription="@string/app_name"
-                            android:padding="10dp"
+                            android:padding="@dimen/_12sdp"
                             android:src="@drawable/ic_mobile_true" />
                     </RelativeLayout>
 
@@ -562,12 +487,11 @@
 
                         <ImageView
                             android:id="@+id/btnMobileData"
-                            android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_centerInParent="true"
+                            android:layout_width="@dimen/_44sdp"
+                            android:layout_height="@dimen/_44sdp"
                             android:background="@drawable/bg_circle_progress"
                             android:contentDescription="@string/app_name"
-                            android:padding="10dp"
+                            android:padding="@dimen/_12sdp"
                             android:src="@drawable/ic_mobile_false" />
                     </RelativeLayout>
 
@@ -578,12 +502,11 @@
 
                         <ImageView
                             android:id="@+id/btnRotate"
-                            android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_centerInParent="true"
+                            android:layout_width="@dimen/_44sdp"
+                            android:layout_height="@dimen/_44sdp"
                             android:background="@drawable/bg_circle_progress"
                             android:contentDescription="@string/app_name"
-                            android:padding="10dp"
+                            android:padding="@dimen/_12sdp"
                             android:src="@drawable/ic_rotate_true" />
                     </RelativeLayout>
 
@@ -594,28 +517,25 @@
 
                         <ImageView
                             android:id="@+id/btnGPS"
-                            android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_centerInParent="true"
+                            android:layout_width="@dimen/_44sdp"
+                            android:layout_height="@dimen/_44sdp"
                             android:background="@drawable/bg_circle_progress"
                             android:contentDescription="@string/app_name"
-                            android:padding="10dp"
+                            android:padding="@dimen/_12sdp"
                             android:src="@drawable/ic_gps_true" />
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
 
                         <ImageView
                             android:id="@+id/btnAirPlane"
-                            android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_centerInParent="true"
+                            android:layout_width="@dimen/_44sdp"
+                            android:layout_height="@dimen/_44sdp"
                             android:background="@drawable/bg_circle_progress"
                             android:contentDescription="@string/app_name"
-                            android:padding="10dp"
+                            android:padding="@dimen/_12sdp"
                             android:src="@drawable/ic_airplane_false" />
                     </RelativeLayout>
                 </LinearLayout>

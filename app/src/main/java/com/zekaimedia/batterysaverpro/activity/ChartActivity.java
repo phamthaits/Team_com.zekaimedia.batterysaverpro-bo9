@@ -62,7 +62,6 @@ public class ChartActivity extends AppCompatActivity  {
         adControlHelp = AdControlHelp.getInstance(this);
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.windowBackground));
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.windowBackground));
         /* ------------------------------------------------------------------ */

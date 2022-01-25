@@ -10,6 +10,9 @@
     <color name="black_alpha_70">#b3000000</color>
     <color name="color_white">#ffffff</color>
 
+    //Button
+    <color name="bg_button">#803E3B63</color>
+
     // Main
     <color name="description">#FFFFFF</color>
     <color name="text_activity">#DEBE86</color>
@@ -58,15 +61,16 @@
     <color name="notification_1">#DB7A67</color>
     <color name="notification_2">#749D30</color>
 
-    //
-    <color name="grey_400">#b1b1b1</color>
-
     //Noti custom
 
-    <color name="battery_almost_die">#ff800000</color>
-    <color name="battery_averange">#ffff8000</color>
-    <color name="battery_bad">#ffff0000</color>
-    <color name="battery_good">#717EEE</color>
+    <color name="battery_almost_die">#5757F7</color>
+    <color name="bg_battery_almost_die">#CC332C54</color>
+    <color name="battery_averange">#679DF4</color>
+    <color name="bg_battery_averange">#332c54</color>
+    <color name="battery_bad">#5B82EF</color>
+    <color name="bg_battery_bad">#332C54</color>
+    <color name="battery_good">#40A6F2</color>
+    <color name="bg_battery_good">#332C54</color>
 
     <color name="point_chart">#717EEE</color>
 
@@ -89,16 +93,13 @@
     <color name="color_green_2">#446ebd52</color>
     <color name="color_green_5">#c0155334</color>
 
-
-    <color name="tv_charge_count_color">#ff45527a</color>
-    <color name="color_black_6">#ffacacac</color>
     <color name="color_normal">#717EEE</color>
     <color name="color_text_title_item_setting">#9B9AAA</color>
     <color name="color_divider">#222c2c2c</color>
     <color name="color_text_item_setting">#9B9AAA</color>
     <color name="color_over">#F35554</color>
     <color name="color_healthy">#3AC3AE</color>
-    <color name="dark_grayish_blue">#7B789C</color>
+    <color name="dark_grayish_blue">#409D9DCE</color>
 
     <color name="list_selector_pressed_dark">#55eeeeff</color>
 

@@ -3,29 +3,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/_5sdp"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:background="@drawable/bg_rounded"
-        android:gravity="center"
-        android:padding="@dimen/_10sdp">
+        android:layout_marginLeft="@dimen/_32sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_24sdp"
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/imgIconApp"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
             android:contentDescription="@string/app_name"
             android:src="@mipmap/ic_launcher" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="vertical">
@@ -38,39 +37,46 @@
                 android:marqueeRepeatLimit="marquee_forever"
                 android:scrollHorizontally="true"
                 android:singleLine="true"
-                android:textColor="@color/progress_background"
-                android:textSize="@dimen/_12sdp"
-                tools:text="Person Name" />
-
-            <TextView
-                android:id="@+id/tvSize"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/googlesans_light"
-                android:singleLine="true"
-                android:textColor="@color/title_dark"
                 android:textSize="@dimen/_10sdp"
                 tools:text="Person Name" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvSize"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/_10sdp"
+                    tools:text="Person Name" />
+
+                <ImageView
+                    android:id="@+id/switchCompatLock"
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:clickable="false"
+                    android:src="@drawable/ic_info" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <TextView
             android:id="@+id/btnUninstall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_64sdp"
+            android:layout_height="@dimen/_20sdp"
             android:background="@drawable/bg_button_uninstall"
-            android:padding="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_16sdp"
+            android:gravity="center"
             android:text="@string/uninstall"
             android:textAllCaps="false"
             android:textColor="@color/text_color"
-            android:textSize="@dimen/_12sdp" />
-
-        <ImageView
-            android:id="@+id/switchCompatLock"
-            android:layout_width="@dimen/_20sdp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/_5sdp"
-            android:clickable="false"
-            android:src="@drawable/ic_info" />
+            android:textSize="@dimen/_10sdp" />
     </LinearLayout>
 
 </LinearLayout>

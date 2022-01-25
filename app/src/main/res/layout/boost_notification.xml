@@ -58,7 +58,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:ellipsize="marquee"
-                    android:fontFamily="@font/googlesans_light"
                     android:singleLine="true"
                     android:text="@string/boost_action"
                     android:textColor="@color/progress_background"

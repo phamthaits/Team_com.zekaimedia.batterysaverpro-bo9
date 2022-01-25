@@ -38,7 +38,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         adControl = adControl.getInstance(activity);
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.windowBackground));
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.windowBackground));
         /* ------------------------------------------------------------------ */

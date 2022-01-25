@@ -14,7 +14,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize">
+        android:layout_height="@dimen/_58sdp">
 
             <!--<Button
                 android:id="@+id/bntBackHome"
@@ -43,7 +43,7 @@
                 android:id="@+id/tv_remove_ads"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
-                android:fontFamily="@font/googlesans_medium"
+                android:fontFamily="@font/bold"
                 android:gravity="center"
                 android:text="REMOVE ADS"
                 android:textColor="@color/white"
@@ -88,7 +88,7 @@
                     android:layout_marginHorizontal="@dimen/_20sdp"
                     android:layout_marginBottom="@dimen/_20sdp"
                     android:background="@drawable/btn_primary_round"
-                    android:fontFamily="@font/googlesans_medium"
+                    android:fontFamily="@font/bold"
                     android:paddingVertical="@dimen/_10sdp"
                     android:text="Buy Now!"
                     android:textColor="@color/colorAccent"

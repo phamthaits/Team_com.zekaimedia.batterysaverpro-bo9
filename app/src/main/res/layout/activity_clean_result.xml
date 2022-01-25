@@ -2,13 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@color/primary_color"
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/activity_battery_actionbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="@dimen/_58sdp"
         android:layout_alignParentTop="true"
         android:fitsSystemWindows="true"
         android:gravity="center|left">
@@ -20,16 +20,18 @@
             android:onClick="onClick">
 
             <FrameLayout
-                android:layout_width="@dimen/_48sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_centerVertical="true">
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_16sdp">
 
                 <ImageView
                     android:id="@+id/iv_arrow"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_navigate_before_white_48dp" />
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_navigate_before_white_48dp"
+                    app:tint="@color/primary_text" />
             </FrameLayout>
 
             <TextView
@@ -37,8 +39,11 @@
                 style="@style/textHeaderActivity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/junk_clean_nav"
-                android:textColor="@color/text_cleanner" />
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginRight="@dimen/_52sdp"
+                android:gravity="center"
+                android:text="@string/junk_clean_nav" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -46,9 +51,10 @@
         android:id="@+id/fmResult"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/_16sdp"
         android:animateLayoutChanges="true"
-        android:background="@color/windowBackground"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:background="@color/windowBackground">
         <!-- android:visibility="gone" -> Cleaned-->
 
         <ScrollView
@@ -58,121 +64,111 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/_5sdp">
+                android:orientation="vertical">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_100sdp"
-                    android:layout_gravity="center_vertical"
+                    android:layout_height="@dimen/_88sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_24sdp"
                     android:background="@color/progress_background"
-                    android:gravity="center"
-                    android:paddingHorizontal="@dimen/_30sdp"
-                    android:paddingVertical="@dimen/_10sdp">
+                    android:gravity="center">
 
-                    <RelativeLayout
+                    <TextView
+                        android:id="@+id/tv_optimized_info"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_alignParentLeft="true"
-                        android:layout_toStartOf="@+id/image_right">
+                        android:fontFamily="@font/bold"
+                        android:gravity="center"
+                        android:text="@string/op_clean"
+                        android:textAllCaps="true"
+                        android:textColor="@color/primary_text"
+                        android:textSize="@dimen/_14sdp" />
 
-                        <TextView
-                            android:id="@+id/tv_optimized_info"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:fontFamily="@font/googlesans_medium"
-                            android:gravity="left|center"
-                            android:text="@string/op_clean"
-                            android:textAllCaps="true"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_14sdp" />
-                    </RelativeLayout>
+                </LinearLayout>
 
-                    <RelativeLayout
-                        android:id="@+id/image_right"
-                        android:layout_width="@dimen/_100sdp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_alignParentRight="true">
-
-                        <ImageView
-                            android:layout_width="@dimen/_70sdp"
-                            android:layout_height="@dimen/_70sdp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/ic_clean_trash" />
-
-                        <com.airbnb.lottie.LottieAnimationView
-                            android:id="@+id/img_done"
-                            android:layout_width="@dimen/_100sdp"
-                            android:layout_height="@dimen/_100sdp"
-                            android:layout_alignParentRight="true"
-                            app:lottie_autoPlay="true"
-                            app:lottie_loop="true"
-                            app:lottie_rawRes="@raw/confetti_blast" />
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="0.0dip"
-                        android:layout_below="@+id/image_right" />
-                </RelativeLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:text="Subtitle here"
+                    android:textAllCaps="true"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <include
                     android:id="@+id/native_ads_control_holder"
                     layout="@layout/control_native_ads"
-                    android:layout_marginTop="@dimen/_5sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp" />
+                    android:layout_height="wrap_content" />
 
-                <!--Phone Boost-->
-                <include
-                    layout="@layout/phone_boost"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:orientation="horizontal">
+                    <!--Phone Boost-->
+                    <include
+                        layout="@layout/phone_boost"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_weight="1" />
 
-                <!--Phone Cooler-->
-                <include
-                    layout="@layout/phone_cooler"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    <!--Phone Cooler-->
+                    <include
+                        layout="@layout/phone_cooler"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_weight="1" />
+                </LinearLayout>
 
-                <!--Charge History-->
-                <include
-                    layout="@layout/charge_history"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:orientation="horizontal">
+                    <!--Charge History-->
+                    <include
+                        layout="@layout/charge_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_weight="1" />
 
-                <!--App Manager-->
-                <include
-                    layout="@layout/app_manager"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    <!--App Manager-->
+                    <include
+                        layout="@layout/app_manager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_weight="1" />
+                </LinearLayout>
 
-                <!--Settings-->
-                <include
-                    layout="@layout/settings"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:orientation="horizontal">
+                    <!--Settings-->
+                    <include
+                        layout="@layout/settings"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_weight="1" />
 
-                <!--Remove Ads-->
-                <include
-                    android:id="@+id/remove_ads"
-                    layout="@layout/remove_ads"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    <!--Remove Ads-->
+                    <include
+                        android:id="@+id/remove_ads"
+                        layout="@layout/remove_ads"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_weight="1" />
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
     </FrameLayout>
@@ -182,12 +178,13 @@
         android:id="@+id/rlScanning"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginHorizontal="@dimen/_24sdp"
         android:gravity="center">
 
         <FrameLayout
             android:id="@+id/imgOutCircle"
-            android:layout_width="@dimen/_160sdp"
-            android:layout_height="@dimen/_160sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_416sdp"
             android:layout_centerInParent="true"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"

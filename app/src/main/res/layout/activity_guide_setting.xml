@@ -4,7 +4,6 @@
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_alpha_70"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -89,7 +88,6 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/googlesans_light"
                 android:text="@string/setting_permission_request_summary"
                 android:textColor="@color/text_gray"
                 android:textSize="@dimen/_10sdp" />

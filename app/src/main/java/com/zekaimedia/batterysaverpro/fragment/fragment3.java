@@ -296,7 +296,7 @@ public class fragment3 extends Fragment {
         String [] values2 = new String[]{"","","","","","","","","","","","","","","","","","","","","20%","","","","","","","","","","","","","","","","","","","","40%","","","","","","","","","","","","","","","","","","","","60%","","","","","","","","","","","","","","","","","","","","80%","","","","","","","","","","","","","","","","","","","","100%"};
 
         XAxis xAxis = chart.getXAxis();
-        xAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.title_dark));
+        xAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.secondary_text));
         xAxis.setAxisMaximum(24);
         xAxis.setAxisMinimum(0);
         xAxis.setLabelCount(6);
@@ -304,7 +304,7 @@ public class fragment3 extends Fragment {
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
         YAxis yAxis = chart.getAxisLeft();
-        yAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.title_dark));
+        yAxis.setTextColor(ContextCompat.getColor(getContext(),R.color.secondary_text));
         yAxis.setAxisMaximum(100);
         yAxis.setAxisMinimum(0);
         yAxis.setLabelCount(6);

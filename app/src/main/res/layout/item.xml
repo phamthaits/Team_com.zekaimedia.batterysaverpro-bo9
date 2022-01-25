@@ -68,7 +68,6 @@
                     android:id="@+id/tvSize"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/googlesans_light"
                     android:singleLine="true"
                     android:textColor="@color/title_dark"
                     android:textSize="@dimen/_10sdp"

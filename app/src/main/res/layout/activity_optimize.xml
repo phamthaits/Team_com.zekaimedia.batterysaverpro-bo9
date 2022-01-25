@@ -11,7 +11,187 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:padding="@dimen/_10sdp">
+        android:paddingHorizontal="@dimen/_16sdp"
+        android:paddingVertical="@dimen/_32sdp">
+
+        <RelativeLayout
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_alignTop="@+id/rlRound"
+            android:layout_alignBottom="@+id/rlRound"
+            android:layout_toEndOf="@+id/rlRound"
+            android:layout_weight="0.5">
+
+            <TextView
+                android:id="@+id/tvPercentPin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:fontFamily="@font/bold"
+                android:singleLine="true"
+                android:text="100%"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_30sdp" />
+
+            <LinearLayout
+                android:id="@+id/updateCharge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvPercentPin"
+                android:layout_marginBottom="@dimen/_32sdp"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvTemperaturePin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="40 C"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:background="@color/secondary_text" />
+
+                <TextView
+                    android:id="@+id/tvVoltage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="30 V"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:background="@color/secondary_text" />
+
+                <TextView
+                    android:id="@+id/tvCapacity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2500 mA"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/_10sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/view_time_left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/updateCharge"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:singleLine="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/time_left"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_5sdp"
+                    android:background="@color/primary_text" />
+
+                <TextView
+                    android:id="@+id/tvHour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/tv_time_h_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2.0dip"
+                    android:text="h"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/tvMin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2.0dip"
+                    android:text="00"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/tv_time_m_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2.0dip"
+                    android:text="m"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/tvFullCharge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="normal" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout_power_issue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view_time_left"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:visibility="invisible">
+
+                <View
+                    android:id="@+id/vPowerIssue"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_power_issue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_toRightOf="@+id/vPowerIssue"
+                    android:singleLine="true"
+                    android:text="Power Issue"
+                    android:textColor="@color/accent_color"
+                    android:textSize="@dimen/_10sdp" />
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/btnOptimize"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:layout_below="@+id/layout_power_issue"
+                android:background="@drawable/button_optimize"
+                android:singleLine="true"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:text="FIX NOW"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
+        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rlRound"
@@ -23,8 +203,8 @@
 
             <com.skyfishjy.library.RippleBackground
                 android:id="@+id/content"
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="@dimen/_150sdp"
+                android:layout_width="@dimen/_92sdp"
+                android:layout_height="@dimen/_144sdp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:visibility="gone"
@@ -40,22 +220,17 @@
 
             <me.itangqi.waveloadingview.WaveLoadingView
                 android:id="@+id/waveLoadingView"
-                android:layout_width="@dimen/_150sdp"
-                android:layout_height="@dimen/_150sdp"
+                android:layout_width="@dimen/_92sdp"
+                android:layout_height="@dimen/_144sdp"
+                android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
-                app:wlv_borderColor="#E8EBF3"
-                app:wlv_borderWidth="4dp"
                 app:wlv_progressValue="0"
                 app:wlv_round_rectangle="true"
-                app:wlv_shapeType="circle"
-                app:wlv_titleCenterColor="@android:color/white"
-                app:wlv_titleCenterSize="24sp"
-                app:wlv_titleCenterStrokeColor="@color/white"
-                app:wlv_titleCenterStrokeWidth="3dp"
-                app:wlv_triangle_direction="north"
-                app:wlv_waveAmplitude="70"
-                app:wlv_waveColor="#E8EBF3"
-                app:wlv_wave_background_Color="#E8EBF3" />
+                app:wlv_round_rectangle_x_and_y="45"
+                app:wlv_shapeType="rectangle"
+                app:wlv_waveColor="#40A6F2"
+                app:wlv_waveAmplitude="20"
+                app:wlv_wave_background_Color="#332C54" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -65,163 +240,27 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvPercentPin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:gravity="center"
-                    android:singleLine="true"
-                    android:layout_marginLeft="@dimen/_4sdp"
-                    android:text="100%"
-                    android:textAllCaps="true"
-                    android:textColor="@color/text_second"
-                    android:textSize="@dimen/_22sdp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/googlesans_light"
                     android:gravity="center"
                     android:singleLine="true"
                     android:text="@string/battery"
                     android:textAllCaps="true"
                     android:textColor="@color/text_second"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_12sdp"
+                    android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/imgUsb"
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
                     android:layout_gravity="center"
                     android:contentDescription="@string/app_name"
+                    android:singleLine="true"
                     android:gravity="center"
-                    android:src="@drawable/baseline_usb_white_48" />
+                    android:src="@drawable/ico_home_bat_flash" />
             </LinearLayout>
-        </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/tv2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignTop="@+id/rlRound"
-            android:layout_alignBottom="@+id/rlRound"
-            android:layout_alignParentRight="true"
-            android:layout_toEndOf="@+id/rlRound"
-            android:layout_weight="1"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/tv1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/googlesans_medium"
-                android:singleLine="true"
-                android:text="@string/time_left"
-                android:textAlignment="center"
-                android:textColor="@color/title_dark"
-                android:textSize="@dimen/_10sdp" />
-
-            <TextView
-                android:id="@+id/tvFullCharge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv1"
-                android:gravity="center"
-                android:textColor="@color/text_light"
-                 android:textSize="@dimen/_12sdp"
-                android:textStyle="normal" />
-
-            <LinearLayout
-                android:id="@+id/view_time_left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv1"
-                android:layout_centerHorizontal="true"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tvHour"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center"
-                    android:text="00"
-                    android:textColor="@color/text_light"
-                     android:textSize="@dimen/_12sdp" />
-
-                <TextView
-                    android:id="@+id/tv_time_h_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center"
-                    android:layout_marginStart="2.0dip"
-                    android:text="h"
-                    android:textColor="@color/text_light"
-                     android:textSize="@dimen/_12sdp" />
-
-                <TextView
-                    android:id="@+id/tvMin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center"
-                    android:layout_marginStart="2.0dip"
-                    android:text="00"
-                    android:textColor="@color/text_light"
-                     android:textSize="@dimen/_12sdp" />
-
-                <TextView
-                    android:id="@+id/tv_time_m_unit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center"
-                    android:layout_marginStart="2.0dip"
-                    android:text="m"
-                    android:textColor="@color/text_light"
-                     android:textSize="@dimen/_12sdp" />
-            </LinearLayout>
-
-            <RelativeLayout
-                android:id="@+id/layout_power_issue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tvFullCharge"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_marginTop="25dp"
-                android:layout_marginBottom="5dp"
-                android:visibility="invisible">
-
-                <View
-                    android:id="@+id/vPowerIssue"
-                    android:layout_width="@dimen/_15sdp"
-                    android:layout_height="@dimen/_15sdp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginEnd="3.0dip" />
-
-                <TextView
-                    android:id="@+id/tv_power_issue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="5.0dip"
-                    android:layout_toRightOf="@+id/vPowerIssue"
-                    android:textColor="@color/orange"
-                    android:textSize="@dimen/_10sdp" />
-            </RelativeLayout>
-
-            <Button
-                android:id="@+id/btnOptimize"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/layout_power_issue"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/btn_rounded"
-                android:gravity="center"
-                android:paddingHorizontal="@dimen/_30sdp"
-                android:paddingVertical="@dimen/_5sdp"
-                android:text="OPTIMIZE"
-                android:textColor="@color/white"
-                 android:textSize="@dimen/_14sdp" />
         </RelativeLayout>
     </LinearLayout>
 </RelativeLayout>

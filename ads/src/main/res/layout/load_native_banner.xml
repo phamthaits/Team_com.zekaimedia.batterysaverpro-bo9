@@ -52,7 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/_50sdp"
-                    android:lines="1"
+                    android:singleLine="true"
                     android:textSize="@dimen/_12sdp" />
 
                 <LinearLayout
@@ -79,8 +79,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_5sdp"
-                        android:fontFamily="@font/googlesans_medium"
-                        android:lines="1"
+                        android:fontFamily="@font/bold"
+                        android:singleLine="true"
                         android:textColor="@color/advertiser_color"
                         android:textSize="@dimen/_10sdp"
                         android:textStyle="bold" />
@@ -90,7 +90,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_5sdp"
-                        android:fontFamily="@font/googlesans_medium"
+                        android:fontFamily="@font/bold"
                         android:textColor="@color/advertiser_color"
                         android:textSize="@dimen/_10sdp"
                         android:textStyle="bold" />
@@ -100,7 +100,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_5sdp"
-                        android:fontFamily="@font/googlesans_medium"
+                        android:fontFamily="@font/bold"
                         android:textColor="@color/advertiser_color"
                         android:textSize="@dimen/_10sdp" />
 
@@ -163,9 +163,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/_5sdp"
                 android:clickable="false"
-                android:ellipsize="end"
+                android:singleLine="true"
                 android:gravity="right"
-                android:lines="1"
                 android:text="Sponsored"
                 android:textColor="@color/cardview_dark_background"
                 android:textSize="12sp"

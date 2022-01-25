@@ -199,6 +199,7 @@ public class MainActivity extends BaseActivity {
 //        navigation.setItemIconTintList(null);
 //        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFragment(new fmBatterySaveMain());
+        toolbar.setNavigationIcon(R.drawable.ic_menu_home_24dp);
     }
 
     @Override

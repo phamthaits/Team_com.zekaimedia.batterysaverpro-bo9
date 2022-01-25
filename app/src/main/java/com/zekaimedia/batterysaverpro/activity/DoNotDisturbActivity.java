@@ -38,7 +38,7 @@ public class DoNotDisturbActivity extends AppCompatActivity implements View.OnCl
         toolbar.setNavigationIcon(R.drawable.ic_navigate_before_white_48dp);
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.windowBackground));
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.windowBackground));
         /* ------------------------------------------------------------------ */
@@ -110,11 +110,11 @@ public class DoNotDisturbActivity extends AppCompatActivity implements View.OnCl
     }
     private void setColorText(boolean isChecked) {
         if (isChecked) {
-            tvEnable.setTextColor(ContextCompat.getColor(this, R.color.subsection));
+            tvEnable.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
             swDND.setChecked(isChecked);
             rlDNDStart.setEnabled(true);
-            tvDNDStartSecond.setTextColor(ContextCompat.getColor(this, R.color.subsection));
-            tvDNDStopSecond.setTextColor(ContextCompat.getColor(this, R.color.subsection));
+            tvDNDStartSecond.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
+            tvDNDStopSecond.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
             tvDNDStart.setTextColor(ContextCompat.getColor(this, R.color.purple));
             tvDNDStop.setTextColor(ContextCompat.getColor(this, R.color.purple));
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.gms.ads.nativead.NativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/bg_card_ads">
 
     <RelativeLayout
@@ -122,11 +122,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/_5sdp"
                 android:clickable="false"
-                android:ellipsize="end"
+                android:singleLine="true"
                 android:gravity="right"
-                android:lines="1"
                 android:text="Sponsored"
-                android:textColor="@color/cardview_dark_background"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 

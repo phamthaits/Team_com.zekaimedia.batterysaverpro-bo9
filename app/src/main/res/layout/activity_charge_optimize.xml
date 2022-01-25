@@ -2,13 +2,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/activity_battery_actionbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="@dimen/_58sdp"
         android:layout_alignParentTop="true"
         android:fitsSystemWindows="true"
         android:gravity="center|left">
@@ -21,16 +20,18 @@
             android:paddingEnd="8.0dip">
 
             <FrameLayout
-                android:layout_width="@dimen/_48sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_centerVertical="true">
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_16sdp">
 
                 <ImageView
                     android:id="@+id/iv_arrow"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_navigate_before_white_48dp" />
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="@dimen/_11sdp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_navigate_before_white_48dp"
+                    app:tint="@color/primary_text" />
             </FrameLayout>
 
             <TextView
@@ -38,9 +39,9 @@
                 style="@style/textHeaderActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_16sdp"
                 android:gravity="center_vertical"
-                android:text="@string/fast_charging"
-                android:textColor="@color/colorPrimaryDark" />
+                android:text="@string/fast_charging" />
 
         </LinearLayout>
 
@@ -93,7 +94,7 @@
                             android:id="@+id/tv_optimized_info"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:fontFamily="@font/googlesans_medium"
+                            android:fontFamily="@font/bold"
                             android:gravity="left|center"
                             android:text="@string/fast_charger_boosted"
                             android:textAllCaps="true"
@@ -284,7 +285,6 @@
                 android:layout_marginTop="20.0dip"
                 android:text="@string/pc_auto_optimizing"
                 android:textAllCaps="true"
-                android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/Optimize_big_size" />
 
             <TextView
@@ -296,7 +296,7 @@
                 android:layout_marginEnd="16.0dip"
                 android:gravity="center"
                 android:maxLines="1"
-                android:textColor="@color/grey_500"
+                android:textColor="@color/secondary_text"
                 android:textSize="@dimen/text_details_optimize" />
         </LinearLayout>
     </RelativeLayout>

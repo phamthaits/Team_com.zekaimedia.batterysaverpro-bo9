@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/activity_battery_actionbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="@dimen/_58sdp"
         android:layout_alignParentTop="true"
         android:fitsSystemWindows="true"
         android:gravity="center|left">
@@ -222,7 +222,7 @@
                             android:id="@+id/tv_optimized_info"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:fontFamily="@font/googlesans_medium"
+                            android:fontFamily="@font/bold"
                             android:gravity="left|center"
                             android:text="@string/sm_edge_device_optimized"
                             android:textAllCaps="true"

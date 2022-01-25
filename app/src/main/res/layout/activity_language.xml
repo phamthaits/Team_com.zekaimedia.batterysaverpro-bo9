@@ -13,22 +13,27 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
+            android:layout_height="@dimen/_58sdp"
             android:layout_gravity="center"
-            android:fontFamily="@font/googlesans_medium"
+            android:fontFamily="@font/bold"
             android:theme="@style/ToolbarThemeGreen"
             app:layout_collapseMode="pin"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:subtitleTextColor="@color/subsection"
+            app:subtitleTextColor="@color/primary_text"
             app:titleTextAppearance="@style/textsizetoolbar"
-            app:titleTextColor="@color/subsection" />
+            app:titleTextColor="@color/primary_text" />
     </LinearLayout>
 
     <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/_10sdp">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:background="@drawable/bg_rounded"
+        android:paddingVertical="@dimen/_16sdp"
+        android:paddingLeft="@dimen/_24sdp"
+        android:paddingRight="@dimen/_16sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,15 +42,15 @@
 
             <RelativeLayout
                 android:id="@+id/btnDe"
-                style="@style/Ripple"
-                android:paddingVertical="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_20sdp"
+                style="@style/Ripple">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Deutsch"
-                    android:textColor="@color/color_text_item_setting"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <ImageView
                     android:id="@+id/imgDe"
@@ -57,23 +62,20 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/color_divider" />
+            
 
             <RelativeLayout
                 android:id="@+id/btnEn"
                 style="@style/Ripple"
                 android:gravity="left"
-                android:paddingVertical="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_20sdp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="English"
-                    android:textColor="@color/color_text_item_setting"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <ImageView
                     android:id="@+id/imgEn"
@@ -85,23 +87,20 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/color_divider" />
+            
 
             <RelativeLayout
                 android:id="@+id/btnEs"
                 style="@style/Ripple"
                 android:gravity="left"
-                android:paddingVertical="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_20sdp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Español"
-                    android:textColor="@color/color_text_item_setting"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <ImageView
                     android:id="@+id/imgEs"
@@ -113,23 +112,20 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/color_divider" />
+            
 
             <RelativeLayout
                 android:id="@+id/btnFr"
                 style="@style/Ripple"
                 android:gravity="left"
-                android:paddingVertical="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_20sdp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Français"
-                    android:textColor="@color/color_text_item_setting"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <ImageView
                     android:id="@+id/imgFr"
@@ -141,23 +137,20 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/color_divider" />
+            
 
             <RelativeLayout
                 android:id="@+id/btnIndo"
                 style="@style/Ripple"
                 android:gravity="left"
-                android:paddingVertical="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_20sdp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Indonesia"
-                    android:textColor="@color/color_text_item_setting"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <ImageView
                     android:id="@+id/imgIndo"
@@ -169,23 +162,20 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/color_divider" />
+            
 
             <RelativeLayout
                 android:id="@+id/btnIt"
                 style="@style/Ripple"
                 android:gravity="left"
-                android:paddingVertical="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_20sdp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Italiano"
-                    android:textColor="@color/color_text_item_setting"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <ImageView
                     android:id="@+id/imgIt"
@@ -197,23 +187,20 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/color_divider" />
+            
 
             <RelativeLayout
                 android:id="@+id/btnPt"
                 style="@style/Ripple"
                 android:gravity="left"
-                android:paddingVertical="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_20sdp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Português"
-                    android:textColor="@color/color_text_item_setting"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <ImageView
                     android:id="@+id/imgPt"
@@ -225,23 +212,20 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/color_divider" />
+            
 
             <RelativeLayout
                 android:id="@+id/btnRu"
                 style="@style/Ripple"
                 android:gravity="left"
-                android:paddingVertical="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_20sdp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Pусский"
-                    android:textColor="@color/color_text_item_setting"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <ImageView
                     android:id="@+id/imgRu"
@@ -253,23 +237,20 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/color_divider" />
+            
 
             <RelativeLayout
                 android:id="@+id/btnTr"
                 style="@style/Ripple"
                 android:gravity="left"
-                android:paddingVertical="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_20sdp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Türkçe"
-                    android:textColor="@color/color_text_item_setting"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <ImageView
                     android:id="@+id/imgTr"
@@ -281,16 +262,13 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/color_divider" />
+            
 
             <RelativeLayout
                 android:id="@+id/btnAr"
                 style="@style/Ripple"
                 android:gravity="left"
-                android:paddingVertical="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_20sdp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -298,8 +276,8 @@
 
                     android:gravity="left"
                     android:text="العربية"
-                    android:textColor="@color/color_text_item_setting"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <ImageView
                     android:id="@+id/imgAr"
@@ -311,23 +289,20 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/color_divider" />
+            
 
             <RelativeLayout
                 android:id="@+id/btnTh"
                 style="@style/Ripple"
                 android:gravity="left"
-                android:paddingVertical="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_20sdp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="ไทย"
-                    android:textColor="@color/color_text_item_setting"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <ImageView
                     android:id="@+id/imgTh"
@@ -339,23 +314,20 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/color_divider" />
+            
 
             <RelativeLayout
                 android:id="@+id/btnVietnam"
                 style="@style/Ripple"
                 android:gravity="left"
-                android:paddingVertical="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_20sdp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Tiếng Việt"
-                    android:textColor="@color/color_text_item_setting"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <ImageView
                     android:id="@+id/imgVietNam"
@@ -367,23 +339,20 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/color_divider" />
+            
 
             <RelativeLayout
                 android:id="@+id/btnJa"
                 style="@style/Ripple"
                 android:gravity="left"
-                android:paddingVertical="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_20sdp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="日本語"
-                    android:textColor="@color/color_text_item_setting"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <ImageView
                     android:id="@+id/imgJa"
@@ -395,23 +364,19 @@
                     android:visibility="gone" />
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/color_divider" />
+            
 
             <RelativeLayout
                 android:id="@+id/btnKo"
                 style="@style/Ripple"
-                android:gravity="left"
-                android:paddingVertical="@dimen/_10sdp">
+                android:gravity="left">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="한국어"
-                    android:textColor="@color/color_text_item_setting"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10sdp" />
 
                 <ImageView
                     android:id="@+id/imgKo"

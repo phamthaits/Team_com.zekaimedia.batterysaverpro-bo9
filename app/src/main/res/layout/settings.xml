@@ -1,31 +1,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="@dimen/_112sdp"
+    android:layout_height="@dimen/_136sdp"
     android:background="@drawable/bg_rounded">
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/lrSettings"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_icon_settings"
         android:clickable="true"
-        android:gravity="center"
-        android:onClick="onClick">
+        android:onClick="onClick"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:paddingVertical="@dimen/_20sdp">
 
         <RelativeLayout
             android:id="@+id/icon_settings"
-            android:layout_width="@dimen/_78sdp"
-            android:layout_height="@dimen/_78sdp"
-
+            android:layout_width="@dimen/_36sdp"
+            android:layout_height="@dimen/_36sdp"
             android:layout_alignParentLeft="true"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:gravity="left">
 
             <ImageView
                 android:id="@+id/ivSettings"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                style="@style/imageListContentHome"
                 android:src="@drawable/ic_app_settings" />
         </RelativeLayout>
 
@@ -39,15 +39,13 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="@dimen/_5sdp">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/tvSettings"
                     style="@style/listContentHome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="left"
                     android:text="@string/setting_nav" />
 
                 <TextView
@@ -65,8 +63,9 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
-                    android:text="@string/manage" />
+                    android:text="@string/manage"
+                    android:visibility="gone" />
             </RelativeLayout>
         </RelativeLayout>
-    </RelativeLayout>
+    </LinearLayout>
 </RelativeLayout>

@@ -6,38 +6,38 @@
     <group android:checkableBehavior="single" android:id="@+id/test1">
         <item
             android:id="@+id/nav_junk_clean"
-            android:icon="@drawable/ic_clean_trash"
+            android:icon="@drawable/ic_menu_boost"
             android:title="@string/junk_clean_nav" />
 
         <item
             android:id="@+id/nav_boost"
-            android:icon="@drawable/ic_memory_boost"
+            android:icon="@drawable/ic_result_boost"
             android:title="@string/phone_boost_nav" />
 
         <item
             android:id="@+id/nav_cool"
-            android:icon="@drawable/ic_temperature"
+            android:icon="@drawable/ic_menu_cool"
             android:title="@string/phone_cool_nav" />
     </group>
     <group android:checkableBehavior="single" android:id="@+id/test2">
         <item
             android:id="@+id/nav_policy"
-            android:icon="@drawable/ic_policy"
+            android:icon="@drawable/ic_menu_policy"
             android:title="@string/privacy_policy" />
 
         <item
             android:id="@+id/nav_share"
-            android:icon="@drawable/ic_share"
+            android:icon="@drawable/ic_menu_share"
             android:title="@string/share_nav" />
 
         <item
             android:id="@+id/nav_send"
-            android:icon="@drawable/ic_feed_back"
+            android:icon="@drawable/ic_menu_feedback"
             android:title="@string/feedback_nav" />
 
         <item
             android:id="@+id/nav_more_app"
-            android:icon="@drawable/ic_more_app"
+            android:icon="@drawable/ic_menu_more_app"
             android:title="@string/moreapp_nav" />
     </group>
 </menu>

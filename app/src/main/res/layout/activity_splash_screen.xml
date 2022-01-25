@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash7"
     android:orientation="vertical">
 
     <FrameLayout
@@ -11,7 +10,7 @@
         android:layout_height="match_parent">
 
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
@@ -20,20 +19,26 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center">
 
-                <ImageView
-                    android:layout_width="@dimen/_200sdp"
-                    android:layout_height="@dimen/_200sdp"
-                    android:src="@drawable/ic_splash" />
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="0dp"
+                    android:padding="0dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/loading_splash" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/_88sdp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -41,7 +46,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/googlesans_medium"
+                    android:fontFamily="@font/bold"
                     android:gravity="center"
                     android:paddingLeft="@dimen/_40sdp"
                     android:paddingRight="@dimen/_40sdp"
@@ -50,14 +55,12 @@
                     android:shadowRadius="2"
                     android:text="@string/app_name"
                     android:textAllCaps="true"
-                    android:textColor="#6660FE"
-                    android:textSize="@dimen/_28sdp"
-                    android:textStyle="bold" />
+                    android:textColor="#CACAFF"
+                    android:textSize="@dimen/_16sdp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-light"
                     android:shadowColor="#0000"
                     android:shadowDy="1"
                     android:shadowRadius="2"
@@ -78,17 +81,19 @@
                     android:text="Optimize Battery &amp; Fast Charging"
                     android:textAllCaps="true"
                     android:textColor="#6660FE"
-                    android:textSize="@dimen/_14sdp" />
+                    android:textSize="@dimen/_14sdp"
+                    android:visibility="gone" />
 
                 <com.airbnb.lottie.LottieAnimationView
                     android:layout_width="wrap_content"
                     android:layout_height="50dip"
+                    android:visibility="gone"
                     app:lottie_autoPlay="true"
                     app:lottie_loop="true"
                     app:lottie_rawRes="@raw/load_splash" />
             </LinearLayout>
 
 
-        </LinearLayout>
+        </RelativeLayout>
     </FrameLayout>
 </RelativeLayout>

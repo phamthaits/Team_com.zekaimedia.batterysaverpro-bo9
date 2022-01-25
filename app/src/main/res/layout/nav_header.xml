@@ -5,7 +5,6 @@
     android:layout_height="wrap_content"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <RelativeLayout
@@ -15,10 +14,9 @@
 
         <ImageView
             android:id="@+id/img_icon_app"
-            android:layout_width="@dimen/_160sdp"
-            android:layout_height="@dimen/_160sdp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:layout_marginTop="@dimen/_24sdp"
             android:src="@drawable/ic_splash" />
         <!--                    android:layout_width="@dimen/_140sdp"-->
         <!--                    android:layout_height="@dimen/_140sdp"-->
@@ -44,7 +42,6 @@
 <!--            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-black"
                 android:shadowColor="#0000"
                 android:shadowDy="1"
                 android:shadowRadius="2"

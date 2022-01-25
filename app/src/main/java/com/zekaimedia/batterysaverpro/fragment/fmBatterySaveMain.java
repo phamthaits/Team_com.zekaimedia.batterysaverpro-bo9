@@ -100,7 +100,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private RippleBackground rippleBackground;
     private TextView tvFullCharge;
     private LinearLayout lrTimeLeft;
-    private RelativeLayout lrClean, lrBoost, lrCharge, lrCool, lrSettings, lrHistory, lrManager, lrRemove;
+    private LinearLayout lrClean, lrBoost, lrCharge, lrCool, lrSettings, lrHistory, lrManager, lrRemove;
 
     private ProgressBar pbQuick, pbFull, pbTrickle;
     private ImageView imgQuick, imgFull, imgTrickle;
@@ -425,7 +425,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         View bt_RemoveAds = view.findViewById(R.id.remove_ads);
         bt_RemoveAds.setVisibility(AdControl.getInstance(getActivity()).remove_ads() ? View.GONE : View.VISIBLE);
         adControlHelp.loadNative(getActivity(), view.findViewById(R.id.native_ads_control_holder), adControl.native_main);
-        adControlHelp.loadNative(getActivity(), view.findViewById(R.id.banner_native_ads_control_holder), adControl.native_banner_home);
+       /* adControlHelp.loadNative(getActivity(), view.findViewById(R.id.banner_native_ads_control_holder), adControl.native_banner_home);*/
         /*adControlHelp.loadBanner(getActivity(), view.findViewById(R.id.banner));*/
         return view;
     }
@@ -433,9 +433,9 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     public void intView(View view) {
 //        cvFastCharge = view.findViewById(R.id.cvFastCharge);
         v1 = (View) view.findViewById(R.id.view1);
-        v2 = (View) view.findViewById(R.id.view2);
+//        v2 = (View) view.findViewById(R.id.view2);
         v3 = (View) view.findViewById(R.id.view3);
-        v4 = (View) view.findViewById(R.id.view4);
+//        v4 = (View) view.findViewById(R.id.view4);
 
         tvFast = (ShimmerTextView) view.findViewById(R.id.tvFast);
         tvFull = (ShimmerTextView) view.findViewById(R.id.tvFull);
@@ -583,35 +583,31 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
 
     public void updateStatus(BatteryInfo info) {
 
-
         tvPercentPin.setText(info.level + "%");
-        if (0 <= info.level && info.level <= 5) {
+        if (0 <= info.level && info.level <= 20) {
             waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.battery_almost_die));
+            waveLoadingView.setWaveBgColor(ContextCompat.getColor(getActivity(), R.color.bg_battery_almost_die));
             waveLoadingView.setProgressValue(info.level);
             return;
         }
-        if (5 < info.level && info.level <= 15) {
+        if (20 < info.level && info.level <= 50) {
             waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.battery_bad));
+            waveLoadingView.setWaveBgColor(ContextCompat.getColor(getActivity(), R.color.bg_battery_bad));
             waveLoadingView.setProgressValue(info.level);
             return;
         }
-        if (15 < info.level && info.level <= 30) {
+        if (50 < info.level && info.level <= 80) {
             waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.battery_averange));
+            waveLoadingView.setWaveBgColor(ContextCompat.getColor(getActivity(), R.color.bg_battery_averange));
             waveLoadingView.setProgressValue(info.level);
             return;
         }
-        if (30 < info.level && info.level <= 60) {
+        if (80 < info.level && info.level <= 100) {
             waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.battery_good));
+            waveLoadingView.setWaveBgColor(ContextCompat.getColor(getActivity(), R.color.bg_battery_good));
             waveLoadingView.setProgressValue(info.level);
             return;
         }
-        if (60 < info.level && info.level <= 100) {
-            waveLoadingView.setWaveColor(ContextCompat.getColor(getActivity(), R.color.battery_good));
-            waveLoadingView.setProgressValue(info.level);
-            return;
-        }
-        //
-
     }
 
     public void updateCharge(boolean isCharge, BatteryInfo info) {
@@ -630,15 +626,12 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 pbQuick.setVisibility(View.VISIBLE);
                 pbFull.setVisibility(View.GONE);
                 pbTrickle.setVisibility(View.GONE);
-                imgQuick.setBackgroundResource(R.drawable.shape_process_green);
-                imgFull.setBackgroundResource(R.drawable.icon_shape_progress_cyan);
-                imgTrickle.setBackgroundResource(R.drawable.icon_shape_progress_cyan);
                 shFast.start(tvFast);
 
                 v1.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
-                v2.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
+//                v2.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
                 v3.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
-                v4.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
+//                v4.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
 
 
             } else if (30 < info.level && info.level < 90) {
@@ -648,45 +641,35 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                 pbQuick.setVisibility(View.GONE);
                 pbFull.setVisibility(View.VISIBLE);
                 pbTrickle.setVisibility(View.GONE);
-                imgQuick.setBackgroundResource(R.drawable.shape_process_green);
-                imgFull.setBackgroundResource(R.drawable.shape_process_green);
-                imgTrickle.setBackgroundResource(R.drawable.icon_shape_progress_cyan);
                 v1.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
-                v2.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
+//                v2.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
                 v3.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
-                v4.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
+//                v4.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
 
 
             } else {
                 v1.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
-                v2.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
+//                v2.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
                 v3.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
-                v4.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
+//                v4.setBackgroundColor(Color.parseColor(getString(R.string.stringGreen)));
                 shFast.cancel();
                 shFull.cancel();
                 shTrickle.start(tvTrickle);
                 pbQuick.setVisibility(View.GONE);
                 pbFull.setVisibility(View.GONE);
                 pbTrickle.setVisibility(View.VISIBLE);
-                imgQuick.setBackgroundResource(R.drawable.shape_process_green);
-                imgFull.setBackgroundResource(R.drawable.shape_process_green);
-                imgTrickle.setBackgroundResource(R.drawable.shape_process_green);
-
             }
         } else {
             shFast.cancel();
             shTrickle.cancel();
             shFull.cancel();
-            v1.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
-            v2.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
-            v3.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
-            v4.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
+//            v1.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
+//            v2.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
+//            v3.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
+//            v4.setBackgroundColor(Color.parseColor(getString(R.string.stringGray)));
             pbQuick.setVisibility(View.GONE);
             pbFull.setVisibility(View.GONE);
             pbTrickle.setVisibility(View.GONE);
-            imgQuick.setBackgroundResource(R.drawable.icon_shape_progress_cyan);
-            imgFull.setBackgroundResource(R.drawable.icon_shape_progress_cyan);
-            imgTrickle.setBackgroundResource(R.drawable.icon_shape_progress_cyan);
             imgUsb.clearAnimation();
             imgUsb.setVisibility(View.GONE);
         }
@@ -782,8 +765,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         });
         checkTask();
         if (Utils.checkShouldDoing(getActivity(), 5)) {
-            vPowerIssue.setVisibility(View.VISIBLE);
-            tvPowerIssue.setTextColor(ContextCompat.getColor(getActivity(), R.color.orange));
+            vPowerIssue.setVisibility(View.GONE);
+            tvPowerIssue.setTextColor(ContextCompat.getColor(getActivity(), R.color.accent_color));
             mTaskCount = new TaskCount(getActivity(), new TaskCount.OnTaskCountListener() {
                 @Override
                 public void OnResult(int count) {
@@ -803,7 +786,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         } else {
             lrIssue.setVisibility(View.VISIBLE);
             vPowerIssue.setVisibility(View.GONE);
-            tvPowerIssue.setTextColor(ContextCompat.getColor(getActivity(), R.color.battery_good));
+            tvPowerIssue.setTextColor(ContextCompat.getColor(getActivity(), R.color.accent_color));
             tvPowerIssue.setText(getString(R.string.battery_exellent));
             btnOptimize.setText(getString(R.string.optimize));
             rippleBackground.stopRippleAnimation();

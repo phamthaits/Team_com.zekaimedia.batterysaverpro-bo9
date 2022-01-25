@@ -8,9 +8,9 @@
     <RelativeLayout
         android:id="@+id/activity_battery_actionbar"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
+        android:layout_height="@dimen/_58sdp"
         android:layout_alignParentTop="true"
-        android:background="@color/colorPrimary"
+        android:background="@color/primary_color"
         android:fitsSystemWindows="true"
         android:gravity="center|left">
 
@@ -21,16 +21,18 @@
             android:onClick="onClick">
 
             <FrameLayout
-                android:layout_width="@dimen/_48sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_centerVertical="true">
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_16sdp">
 
                 <ImageView
                     android:id="@+id/iv_arrow"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/ic_navigate_before_white_48dp" />
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="@dimen/_11sdp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_navigate_before_white_48dp"
+                    app:tint="@color/primary_text" />
             </FrameLayout>
 
             <TextView
@@ -38,8 +40,8 @@
                 style="@style/textHeaderActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/title_app_manager"
-                android:textColor="@color/colorPrimaryDark" />
+                android:layout_marginLeft="@dimen/_16sdp"
+                android:text="@string/title_app_manager" />
 
         </LinearLayout>
     </RelativeLayout>
@@ -58,6 +60,7 @@
             app:layout_constraintStart_toEndOf="@+id/recyclerView"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <com.zekaimedia.batterysaverpro.view.AnimatedExpandableListView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
@@ -73,8 +76,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/banner"
-            app:layout_constraintVertical_bias="1.0">
-        </com.zekaimedia.batterysaverpro.view.AnimatedExpandableListView>
+            app:layout_constraintVertical_bias="1.0" />
 
         <include
             layout="@layout/loading"

@@ -40,8 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:background="@color/light_transparent"
-                    android:ellipsize="end"
-                    android:lines="1"
+                    android:singleLine="true"
                     android:textColor="@android:color/black"
                     android:textSize="15.0sp" />
 
@@ -50,8 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_5sdp"
                     android:background="@color/light_transparent"
-                    android:ellipsize="end"
-                    android:lines="1"
+                    android:singleLine="true"
                     android:textColor="@android:color/darker_gray"
                     android:textSize="14.0sp" />
             </LinearLayout>

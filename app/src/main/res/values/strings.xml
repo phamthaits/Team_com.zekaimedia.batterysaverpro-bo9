@@ -9,9 +9,9 @@
     <string name="optimize">OPTIMIZE</string>
 
     //
-    <string name="fast_charging">Optimize charger</string>
-    <string name="full_charging">Full Charge</string>
-    <string name="trickle_charging">Trickle Charge</string>
+    <string name="fast_charging">Optimize \ncharger</string>
+    <string name="full_charging">Full \nCharge</string>
+    <string name="trickle_charging">Trickle \nCharge</string>
     <string name="bd_charge_history">Charge History</string>
     <string name="title_app_manager">App Manager</string>
     <string name="setting_nav">Settings</string>
@@ -189,7 +189,7 @@
     <string name="pc_scanning">Scanning</string>
     <string name="cpugpuram" translatable="false">CPU,GPU,RAM</string>
     <string name="bd_power_issue">Power issue</string>
-    <string name="app_name">Battery Saver</string>
+    <string name="app_name">Battery Saver Master</string>
     <string name="power_full">Power is full</string>
     <string name="auto_disable">Disable</string>
     <string name="on_status">ON</string>
@@ -206,8 +206,8 @@
 
     <color name="main_darker_color">#ffffffff</color>
 
-    <string name="stringGreen" translatable="false">#7777DC</string>
-    <string name="stringGray" translatable="false">#7777DC</string>
+    <string name="stringGreen" translatable="false">#B39D9DCE</string>
+    <string name="stringGray" translatable="false">#409D9DCE</string>
 
     <string name="calculating">calculating...</string>
     <string name="battery_level">Battery Level</string>
