@@ -3,15 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single" android:id="@+id/test1">
+    <group
+        android:id="@+id/test1"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/nav_junk_clean"
-            android:icon="@drawable/ic_menu_boost"
+            android:icon="@drawable/ic_menu_clean"
             android:title="@string/junk_clean_nav" />
 
         <item
             android:id="@+id/nav_boost"
-            android:icon="@drawable/ic_result_boost"
+            android:icon="@drawable/ic_menu_boost"
             android:title="@string/phone_boost_nav" />
 
         <item
@@ -19,7 +21,13 @@
             android:icon="@drawable/ic_menu_cool"
             android:title="@string/phone_cool_nav" />
     </group>
-    <group android:checkableBehavior="single" android:id="@+id/test2">
+    <group
+        android:id="@+id/test2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_menu_setting"
+            android:title="@string/setting_nav" />
         <item
             android:id="@+id/nav_policy"
             android:icon="@drawable/ic_menu_policy"

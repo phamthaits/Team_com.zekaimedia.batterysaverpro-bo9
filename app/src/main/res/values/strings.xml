@@ -9,7 +9,7 @@
     <string name="optimize">OPTIMIZE</string>
 
     //
-    <string name="fast_charging">Optimize \ncharger</string>
+    <string name="fast_charging">Optimize \nCharger</string>
     <string name="full_charging">Full \nCharge</string>
     <string name="trickle_charging">Trickle \nCharge</string>
     <string name="bd_charge_history">Charge History</string>

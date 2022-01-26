@@ -39,7 +39,7 @@ public class TaskCountDoing extends AsyncTask<Void, Integer, Void> {
     protected void onProgressUpdate(Integer... values) {
         super.onProgressUpdate(values);
         if(values[0]!=0)
-            titleApp.setText(values[0] +"+"+mContext.getString(R.string.bd_power_issue));
+            titleApp.setText(values[0] +"+ "+mContext.getString(R.string.bd_power_issue));
 
     }
 

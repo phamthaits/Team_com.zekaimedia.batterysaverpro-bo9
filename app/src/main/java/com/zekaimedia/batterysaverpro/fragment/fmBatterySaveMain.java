@@ -75,6 +75,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private TextView tvPercentPin;
 
     private ImageView imgUsb;
+    private ImageView pin;
+
     private Button btnOptimize;
     private ImageView btnWifi, btnBluetooth, btnSound, btnScreenTime, btnRotate, btnBrightness, btnMobileData, btnSync, btnGPS, btnAirPlane;
 
@@ -123,7 +125,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         lrClean.setOnClickListener(this);
         lrCool.setOnClickListener(this);
         lrCharge.setOnClickListener(this);
-        lrSettings.setOnClickListener(this);
+        /*lrSettings.setOnClickListener(this);*/
         btnOptimize.setOnClickListener(this);
         btnWifi.setOnClickListener(this);
         btnBluetooth.setOnClickListener(this);
@@ -178,9 +180,9 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
                     }
                 });
                 break;
-            case R.id.lrSettings:
+            /*case R.id.lrSettings:
                 startActivity(new Intent(getActivity(), SettingActivity.class));
-                break;
+                break;*/
             case R.id.lrHistory:
                 startActivity(new Intent(getActivity(), ChartActivity.class));
                 break;
@@ -425,7 +427,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         View bt_RemoveAds = view.findViewById(R.id.remove_ads);
         bt_RemoveAds.setVisibility(AdControl.getInstance(getActivity()).remove_ads() ? View.GONE : View.VISIBLE);
         adControlHelp.loadNative(getActivity(), view.findViewById(R.id.native_ads_control_holder), adControl.native_main);
-       /* adControlHelp.loadNative(getActivity(), view.findViewById(R.id.banner_native_ads_control_holder), adControl.native_banner_home);*/
+        adControlHelp.loadNative(getActivity(), view.findViewById(R.id.banner_native_ads_control_holder), adControl.native_banner_home);
         /*adControlHelp.loadBanner(getActivity(), view.findViewById(R.id.banner));*/
         return view;
     }
@@ -458,6 +460,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
 
 
         imgUsb = view.findViewById(R.id.imgUsb);
+        pin = view.findViewById(R.id.pin);
 
         tvCapacity = view.findViewById(R.id.tvCapacity);
         tvTemperaturePin = view.findViewById(R.id.tvTemperaturePin);
@@ -492,7 +495,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         lrClean = view.findViewById(R.id.lrClean);
         lrCharge = view.findViewById(R.id.lrCharge);
         lrCool = view.findViewById(R.id.lrCool);
-        lrSettings = view.findViewById(R.id.lrSettings);
+        /*lrSettings = view.findViewById(R.id.lrSettings);*/
         lrHistory = view.findViewById(R.id.lrHistory);
         lrManager = view.findViewById(R.id.lrManager);
         lrRemove = view.findViewById(R.id.lrRemove);
@@ -616,11 +619,11 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         tvTemperaturePin.setText(getTemp(info.temperature));
         tvVoltage.setText(getVol(info.voltage) + "V");
         double temp = (info.level * getBatteryCapacity()) / 100;
-        tvCapacity.setText(temp + " mhA");
+        tvCapacity.setText(temp + "mhA");
         String[] string = intToArray(getActivity(), info.temperature);
 
         if (isCharge) {
-
+            pin.setVisibility(View.GONE);
             imgUsb.setVisibility(View.VISIBLE);
             if (info.level <= 30) {
                 pbQuick.setVisibility(View.VISIBLE);
@@ -670,6 +673,7 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
             pbQuick.setVisibility(View.GONE);
             pbFull.setVisibility(View.GONE);
             pbTrickle.setVisibility(View.GONE);
+            pin.setVisibility(View.VISIBLE);
             imgUsb.clearAnimation();
             imgUsb.setVisibility(View.GONE);
         }
@@ -681,7 +685,6 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
             String r = String.valueOf(b);
             return (r + this.getString(R.string.fahrenheit));
         } else {
-
             String str = Double.toString(Math.ceil((i / 10f) * 100) / 100);
             return (str + this.getString(R.string.celsius));
         }

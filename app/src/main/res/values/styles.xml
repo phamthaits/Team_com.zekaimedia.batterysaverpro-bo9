@@ -16,6 +16,7 @@
         <item name="android:windowAnimationStyle">@style/AppTheme.WindowTransition</item>
         <item name="circularProgressBarStyle">@style/CircularProgressBarLight</item>
         <item name="android:popupMenuStyle">@style/PopupMenu</item>
+        <item name="android:listDivider">@color/dark_grayish_blue</item>
     </style>
 
     <style name="PopupMenu" parent="@android:style/Widget.PopupMenu">
@@ -28,12 +29,12 @@
 
     <style name="BottomNavigationViewTextStyle">
         <item name="android:fontFamily">@font/bold</item>
-        <item name="android:textSize">@dimen/_8sdp</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
     </style>
 
     <style name="textHeaderActivity">
         <item name="android:fontFamily">@font/bold</item>
-        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:gravity">center_vertical</item>
     </style>
@@ -71,10 +72,13 @@
         <item name="android:fontFamily">@font/bold</item>
     </style>
 
-    <style name="textsizetoolbar" parent="@style/Base.TextAppearance.AppCompat.Title">
-        <item name="android:textSize">@dimen/_13sdp</item>
+    <style name="textsizetoolbar">
+        <item name="android:textSize">@dimen/_12sdp</item>
         <item name="android:fontFamily">@font/bold</item>
         <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
 

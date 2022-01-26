@@ -142,7 +142,7 @@
         <activity
             android:name="com.zekaimedia.batterysaverpro.activity.SplashActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme_AppCompat_Light_NoActionBar_FullScreen">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -18,33 +18,33 @@
             android:id="@+id/tv2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_alignTop="@+id/rlRound"
             android:layout_alignBottom="@+id/rlRound"
             android:layout_toEndOf="@+id/rlRound"
-            android:layout_weight="0.5">
+            android:layout_weight="0.5"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/tvPercentPin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:gravity="center"
                 android:fontFamily="@font/bold"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="0dp"
                 android:singleLine="true"
                 android:text="100%"
                 android:textAllCaps="true"
-                android:textSize="@dimen/_30sdp" />
+                android:textSize="@dimen/_24sdp" />
 
             <LinearLayout
                 android:id="@+id/updateCharge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvPercentPin"
-                android:layout_marginBottom="@dimen/_32sdp"
                 android:gravity="center_vertical"
-                android:singleLine="true"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:singleLine="true">
 
                 <TextView
                     android:id="@+id/tvTemperaturePin"
@@ -87,11 +87,11 @@
                 android:id="@+id/view_time_left"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/updateCharge"
+                android:layout_above="@+id/layout_power_issue"
                 android:layout_marginBottom="@dimen/_4sdp"
-                android:singleLine="true"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:singleLine="true">
 
                 <TextView
                     android:id="@+id/tv1"
@@ -156,7 +156,7 @@
                 android:id="@+id/layout_power_issue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/view_time_left"
+                android:layout_above="@+id/btnOptimize"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:visibility="invisible">
 
@@ -183,11 +183,12 @@
                 android:id="@+id/btnOptimize"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_24sdp"
-                android:layout_below="@+id/layout_power_issue"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/_4sdp"
                 android:background="@drawable/button_optimize"
-                android:singleLine="true"
                 android:fontFamily="@font/bold"
                 android:gravity="center"
+                android:singleLine="true"
                 android:text="FIX NOW"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_12sdp" />
@@ -220,16 +221,16 @@
 
             <me.itangqi.waveloadingview.WaveLoadingView
                 android:id="@+id/waveLoadingView"
-                android:layout_width="@dimen/_92sdp"
-                android:layout_height="@dimen/_144sdp"
+                android:layout_width="@dimen/_96sdp"
+                android:layout_height="@dimen/_136sdp"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
                 app:wlv_progressValue="0"
                 app:wlv_round_rectangle="true"
                 app:wlv_round_rectangle_x_and_y="45"
                 app:wlv_shapeType="rectangle"
-                app:wlv_waveColor="#40A6F2"
                 app:wlv_waveAmplitude="20"
+                app:wlv_waveColor="#40A6F2"
                 app:wlv_wave_background_Color="#332C54" />
 
             <LinearLayout
@@ -252,14 +253,24 @@
                     android:visibility="gone" />
 
                 <ImageView
+                    android:id="@+id/pin"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/app_name"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:src="@drawable/ico_home_bat_flash" />
+
+                <ImageView
                     android:id="@+id/imgUsb"
                     android:layout_width="@dimen/_24sdp"
                     android:layout_height="@dimen/_24sdp"
                     android:layout_gravity="center"
                     android:contentDescription="@string/app_name"
-                    android:singleLine="true"
                     android:gravity="center"
-                    android:src="@drawable/ico_home_bat_flash" />
+                    android:singleLine="true"
+                    android:src="@drawable/ico_home_bat_flash_charge" />
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>

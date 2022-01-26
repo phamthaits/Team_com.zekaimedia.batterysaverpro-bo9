@@ -1,5 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/_112sdp"
+    android:layout_width="@dimen/_120sdp"
     android:layout_height="@dimen/_136sdp"
     android:background="@drawable/bg_rounded">
 
@@ -12,12 +12,12 @@
         android:onClick="onClick"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/_12sdp"
-        android:paddingVertical="@dimen/_20sdp">
+        android:paddingVertical="@dimen/_16sdp">
 
         <RelativeLayout
             android:id="@+id/icon_charge"
-            android:layout_width="@dimen/_36sdp"
-            android:layout_height="@dimen/_36sdp"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_alignParentLeft="true"
             android:layout_marginBottom="@dimen/_16sdp"
             android:gravity="left">

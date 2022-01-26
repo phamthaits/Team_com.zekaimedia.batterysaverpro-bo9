@@ -30,6 +30,7 @@ import com.zekaimedia.batterysaverpro.activity.BaseActivity;
 import com.zekaimedia.batterysaverpro.activity.BoostActivity;
 import com.zekaimedia.batterysaverpro.activity.CleanActivity;
 import com.zekaimedia.batterysaverpro.activity.CoolActivity;
+import com.zekaimedia.batterysaverpro.activity.SettingActivity;
 import com.zekaimedia.batterysaverpro.activity.SplashActivity;
 import com.zekaimedia.batterysaverpro.billing.RemoveAdsActivity;
 import com.zekaimedia.batterysaverpro.fragment.fmBatterySaveMain;
@@ -165,6 +166,9 @@ public class MainActivity extends BaseActivity {
                                 break;
                             case R.id.nav_policy:
                                 UtilsApp.OpenBrower(MainActivity.this, getString(R.string.link_policy));
+                                break;
+                            case R.id.nav_setting:
+                                startActivity(new Intent(MainActivity.this, SettingActivity.class));
                                 break;
                             case R.id.nav_send:
                                 UtilsApp.OpenEmail(MainActivity.this);
