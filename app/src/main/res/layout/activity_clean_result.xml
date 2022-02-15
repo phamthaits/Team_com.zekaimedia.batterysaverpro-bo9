@@ -265,6 +265,7 @@
             android:layout_height="@dimen/_32sdp"
             android:layout_below="@+id/imgOutCircle"
             android:layout_centerHorizontal="true"
+            android:paddingHorizontal="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_44sdp"
             android:background="@drawable/bg_button_uninstall"
             android:gravity="center"

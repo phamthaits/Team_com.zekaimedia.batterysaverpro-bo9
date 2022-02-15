@@ -88,20 +88,20 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/bold"
                             android:gravity="center"
+                            android:singleLine="true"
                             android:text="@string/stt_cooler_result"
                             android:textAllCaps="true"
                             android:textColor="@android:color/white"
-                            android:singleLine="true"
                             android:textSize="@dimen/_16sdp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:singleLine="true"
                             android:text="@string/result_cooler"
                             android:textAllCaps="true"
                             android:textColor="@android:color/white"
-                            android:singleLine="true"
                             android:textSize="@dimen/_12sdp" />
                     </LinearLayout>
                 </RelativeLayout>
@@ -118,10 +118,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_16sdp"
                     android:orientation="horizontal">
-                    <!--Trash Cleaner-->
+
+                    <!--Remove Ads-->
                     <include
-                        android:id="@+id/cv_trash_cleaner"
-                        layout="@layout/result_trash_cleaner"
+                        android:id="@+id/remove_ads"
+                        layout="@layout/result_remove_ads"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/_8sdp"
@@ -172,10 +173,10 @@
                         android:layout_marginRight="@dimen/_8sdp"
                         android:layout_weight="1" />
 
-                    <!--Remove Ads-->
+                    <!--Trash Cleaner-->
                     <include
-                        android:id="@+id/remove_ads"
-                        layout="@layout/result_remove_ads"
+                        android:id="@+id/cv_trash_cleaner"
+                        layout="@layout/result_trash_cleaner"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/_8sdp"

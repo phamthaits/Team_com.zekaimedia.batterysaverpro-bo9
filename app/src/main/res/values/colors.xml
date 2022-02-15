@@ -92,7 +92,7 @@
     <color name="battery_good">#40A6F2</color>
     <color name="bg_battery_good">#332C54</color>
 
-    <color name="point_chart">#717EEE</color>
+    <color name="point_chart">@color/primary_text</color>
 
     //device status
     <color name="temperature">#FFBB54</color>
