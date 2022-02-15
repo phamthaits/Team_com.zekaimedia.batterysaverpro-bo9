@@ -23,9 +23,9 @@
     <string name="phone_boost_nav">Acelerador</string>
     <string name="phone_cool_nav">Arrefc. Tlm.</string>
     <string name="battery_exellent">Ótimo!</string>
-    <string name="cleaned">Limpou: %s</string>
+    <string name="cleaned">%s Limpou</string>
     <string name="cleaning_junk">Limpando arquivos lixo...</string>
-    <string name="result_cooler">Excelente! Arrefec. com êxito.</string>
+    <string name="result_cooler">Arrefec. com êxito.</string>
     <string name="ram_result">Otimizado</string>
     <string name="boosting">Otimização DE Memória</string>
     <string name="battery_full_des">Carga terminou, por favor corte energia.</string>
@@ -49,7 +49,7 @@
     <string name="normal">Geral</string>
     <string name="super_saving">Longo</string>
     <string name="custom">Silenc</string>
-    <string name="sm_edge_device_optimized">Ótimo! Prob. cons. energ. resolvd.</string>
+    <string name="sm_edge_device_optimized">Resolveu o problema de energia.</string>
     <string name="sm_ram_detail">Para melhorar o desempenho, liberte memória impedindo a execução de aplicações em segundo plano.</string>
     <string name="op_boost">Impulsionar</string>
     <string name="op_storage_des">Liberte espaço de armazenamento eliminando dados desnecessários, como ficheiros guardados na memória cache, residuais e de publicidade.</string>
@@ -110,7 +110,7 @@
     <string name="toast_mode_title">Mudou para</string>
     <string name="charge_des">Monitore o status de carga da bateria e sobrecarregue a carga para evitar (pode conter anúncios)</string>
     <string name="enable_fast_charging">Ativar carregamento rápido</string>
-    <string name="app_name">Economizador de bateria</string>
+    <string name="app_name">Mestre de economia de bateria</string>
     <string name="bluetooth">Bluetooth</string>
     <string name="bluetooth_is_enabling">Bluetooth está ativado, por favor, espere ...</string>
     <string name="moreapp_nav">Mais App</string>
@@ -134,5 +134,11 @@
     <string name="manager_description">Gerencie seus aplicativos como desinstalar, fazer backup...</string>
     <string name="settings_description">Gerenciar todas as configurações</string>
     <string name="remove_description">Anúncios irritantes? Remova anúncios para sempre agora</string>
+    <string name="stt_sm_edge_device_optimized">Excelente!</string>
+    <string name="stt_ram_result">Acelere completamente o seu telefone</string>
+    <string name="stt_cooler_result">Excelente!</string>
+    <string name="des_noti">Toque para aumentar agora</string>
+    <string name="des_noti_100">Carregamento finalizado. Desconecte a energia.</string>
+    <string name="des_noti_20">Bateria Fraca. Toque para economizar energia.</string>
 
 </resources>

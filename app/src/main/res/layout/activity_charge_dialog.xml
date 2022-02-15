@@ -16,17 +16,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="16.0dip"
-            android:layout_marginBottom="4.0dip"
+            android:layout_marginVertical="@dimen/_8sdp"
             android:text="@string/fast_charging"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/primary_text"
             android:textSize="12.0sp" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/lockscreen_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            shimmer:cardBackgroundColor="@color/colorPrimary"
+            shimmer:cardBackgroundColor="@color/secondary_color"
             shimmer:cardCornerRadius="8.0dip">
 
             <LinearLayout
@@ -57,9 +56,8 @@
                                 android:id="@+id/tvTime"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-
                                 android:text="12:00"
-                                android:textColor="@color/text_second"
+                                android:textColor="@color/primary_text"
                                 android:textSize="@dimen/Optimize_big_size" />
 
                             <TextView
@@ -69,7 +67,7 @@
                                 android:layout_marginStart="5.0dip"
 
                                 android:text="AM"
-                                android:textColor="@color/text_second"
+                                android:textColor="@color/primary_text"
                                 android:textSize="@dimen/text_size" />
                         </LinearLayout>
 
@@ -81,7 +79,7 @@
                             android:layout_centerHorizontal="true"
 
                             android:text="Thứ 2, 6 tháng tám"
-                            android:textColor="@color/text_second"
+                            android:textColor="@color/secondary_text"
                             android:textSize="12.0sp" />
                     </LinearLayout>
 
@@ -91,13 +89,12 @@
                         android:layout_height="48.0dip"
                         android:layout_toStartOf="@+id/fmClose"
                         android:onClick="onClick"
-                        android:padding="15.0dip">
+                        android:padding="10.0dip">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/ic_setting_fast_charge"
-                            app:tint="@color/colorAccent" />
+                            android:src="@drawable/ic_menu_setting" />
                     </FrameLayout>
 
                     <FrameLayout
@@ -106,13 +103,12 @@
                         android:layout_height="48.0dip"
                         android:layout_alignParentEnd="true"
                         android:onClick="onClick"
-                        android:padding="16.0dip">
+                        android:padding="10.0dip">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:src="@drawable/ic_close_turn_off"
-                            app:tint="@color/colorAccent" />
+                            android:src="@drawable/ic_result_ads" />
                     </FrameLayout>
                 </RelativeLayout>
 
@@ -161,7 +157,7 @@
                             android:layout_width="28.0dip"
                             android:layout_height="28.0dip"
                             android:layout_gravity="center_vertical"
-                            android:src="@drawable/ic_charging"
+                            android:src="@drawable/ico_home_bat_flash"
                             app:tint="@color/text_color" />
 
                         <TextView
@@ -170,11 +166,9 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:layout_gravity="center"
-
                             android:text="50%"
-                            android:textColor="@color/text_second"
-                            android:textSize="@dimen/Optimize_big_size"
-                            android:textStyle="bold" />
+                            android:textColor="@color/secondary_text"
+                            android:textSize="@dimen/Optimize_big_size" />
                     </LinearLayout>
                 </RelativeLayout>
 
@@ -194,7 +188,7 @@
                         android:layout_marginEnd="10dp"
 
                         android:text="@string/time_left"
-                        android:textColor="@color/text_gray"
+                        android:textColor="@color/primary_text"
                         android:textSize="@dimen/text_size" />
 
                     <LinearLayout
@@ -211,7 +205,7 @@
                             android:layout_gravity="bottom|center"
 
                             android:text="00"
-                            android:textColor="@color/colorAccent"
+                            android:textColor="@color/primary_text"
                             android:textSize="@dimen/text_size_hour" />
 
                         <TextView
@@ -222,7 +216,7 @@
                             android:layout_marginStart="2.0dip"
 
                             android:text="h"
-                            android:textColor="@color/gray"
+                            android:textColor="@color/secondary_text"
                             android:textSize="@dimen/text_size" />
 
                         <TextView
@@ -233,7 +227,7 @@
                             android:layout_marginStart="2.0dip"
 
                             android:text="00"
-                            android:textColor="@color/colorAccent"
+                            android:textColor="@color/primary_text"
                             android:textSize="@dimen/text_size_hour" />
 
                         <TextView
@@ -244,7 +238,7 @@
                             android:layout_marginStart="2.0dip"
 
                             android:text="m"
-                            android:textColor="@color/gray"
+                            android:textColor="@color/secondary_text"
                             android:textSize="@dimen/text_size" />
                     </LinearLayout>
 
@@ -252,7 +246,6 @@
                         android:id="@+id/tvFullCharge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:text="@string/app_name"
                         android:textColor="@color/text_color"
                         android:textSize="18dip"
@@ -291,7 +284,7 @@
                             android:lines="2"
                             android:maxLines="1"
                             android:text="@string/go_charge_quantity"
-                            android:textColor="@color/grey_500"
+                            android:textColor="@color/primary_text"
                             android:textSize="@dimen/_10sdp" />
 
 
@@ -301,7 +294,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2.0dip"
                             android:text="@string/du_no_charger_record"
-                            android:textColor="@color/colorAccent"
+                            android:textColor="@color/secondary_text"
                             android:textSize="@dimen/text_size" />
                     </LinearLayout>
 
@@ -316,11 +309,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4.0dip"
-
                             android:lines="2"
                             android:maxLines="1"
                             android:text="@string/bd_charge_duration"
-                            android:textColor="@color/grey_500"
+                            android:textColor="@color/primary_text"
                             android:textSize="@dimen/_10sdp" />
 
                         <TextView
@@ -328,9 +320,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2.0dip"
-
                             android:text="@string/du_no_charger_record"
-                            android:textColor="@color/colorAccent"
+                            android:textColor="@color/secondary_text"
                             android:textSize="@dimen/text_size" />
                     </LinearLayout>
 
@@ -346,10 +337,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4.0dip"
-
                             android:lines="2"
                             android:text="@string/bd_charger_type"
-                            android:textColor="@color/grey_500"
+                            android:textColor="@color/primary_text"
                             android:textSize="@dimen/_10sdp" />
 
                         <TextView
@@ -358,10 +348,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="2.0dip"
-
                             android:gravity="center"
                             android:text="@string/du_no_charger_record"
-                            android:textColor="@color/colorAccent"
+                            android:textColor="@color/secondary_text"
                             android:textSize="@dimen/text_size" />
                     </LinearLayout>
                 </LinearLayout>
@@ -374,7 +363,7 @@
                     android:layout_marginTop="8.0dip"
                     android:layout_marginEnd="8.0dip"
                     android:layout_marginBottom="8dip"
-                    android:background="@drawable/bg_charging_status"
+                    android:background="@drawable/ads_bg_lib"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingStart="8.0dip"
@@ -392,7 +381,6 @@
                             android:id="@+id/tvFast"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:maxLines="1"
                             android:text="@string/fast_charging"
                             android:textAllCaps="true"
@@ -439,7 +427,5 @@
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
-
     </LinearLayout>
 </RelativeLayout>

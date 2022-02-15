@@ -41,6 +41,9 @@ import androidx.fragment.app.Fragment;
 
 import com.ads.control.AdControl;
 import com.ads.control.AdControlHelp;
+import com.romainpiel.shimmer.Shimmer;
+import com.romainpiel.shimmer.ShimmerTextView;
+import com.skyfishjy.library.RippleBackground;
 import com.zekaimedia.batterysaverpro.BatteryMode.BatteryInfo;
 import com.zekaimedia.batterysaverpro.R;
 import com.zekaimedia.batterysaverpro.Utilsb.BatteryPref;
@@ -55,16 +58,12 @@ import com.zekaimedia.batterysaverpro.activity.ChartActivity;
 import com.zekaimedia.batterysaverpro.activity.CleanActivity;
 import com.zekaimedia.batterysaverpro.activity.CoolActivity;
 import com.zekaimedia.batterysaverpro.activity.PermissionActivity;
-import com.zekaimedia.batterysaverpro.activity.SettingActivity;
 import com.zekaimedia.batterysaverpro.billing.RemoveAdsActivity;
 import com.zekaimedia.batterysaverpro.service.BatteryService;
 import com.zekaimedia.batterysaverpro.task.BatteryTask;
 import com.zekaimedia.batterysaverpro.task.TaskCount;
 import com.zekaimedia.batterysaverpro.task.TaskCountDoing;
 import com.zekaimedia.batterysaverpro.view.WaveDrawable;
-import com.romainpiel.shimmer.Shimmer;
-import com.romainpiel.shimmer.ShimmerTextView;
-import com.skyfishjy.library.RippleBackground;
 
 import me.itangqi.waveloadingview.WaveLoadingView;
 
@@ -619,7 +618,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         tvTemperaturePin.setText(getTemp(info.temperature));
         tvVoltage.setText(getVol(info.voltage) + "V");
         double temp = (info.level * getBatteryCapacity()) / 100;
-        tvCapacity.setText(temp + "mhA");
+        int tempI = (int) temp;
+        tvCapacity.setText(tempI + "mhA");
         String[] string = intToArray(getActivity(), info.temperature);
 
         if (isCharge) {
@@ -682,18 +682,26 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     public String getTemp(int i) {
         if (!SharePreferenceUtils.getInstance(getActivity()).getTempFormat()) {
             double b = Math.ceil(((i / 10f) * 9 / 5 + 32) * 100) / 100;
-            String r = String.valueOf(b);
+            int bS = (int) b;
+            String r = String.valueOf(bS);
             return (r + this.getString(R.string.fahrenheit));
         } else {
-            String str = Double.toString(Math.ceil((i / 10f) * 100) / 100);
-            return (str + this.getString(R.string.celsius));
+            double str = Math.ceil((i / 10f) * 100) / 100;
+            int strI = (int) str;
+            String strS = String.valueOf(strI);
+            /*String str = Double.toString(Math.ceil((i / 10f) * 100) / 100);*/
+            return (strS + this.getString(R.string.celsius));
         }
     }
 
     public double getVol(int i) {
-        double voltage = Math.ceil((i / 1000f) * 100) / 100;
-        if (voltage > 1000)
-            return voltage / 1000f;
+        double voltage = Math.round((i / 1000.0f) * 10.0) / 10.0;
+        /*String strr = String.format("%.2f", voltage);
+        voltage = Double.valueOf(strr);*/
+        /*DecimalFormat decimalFormat = new DecimalFormat("#.#");
+        voltage = Double.valueOf(decimalFormat.format(voltage));*/
+        if (voltage > 1000.0f)
+            return voltage / 1000.0f;
         else
             return voltage;
 

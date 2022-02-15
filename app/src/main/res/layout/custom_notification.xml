@@ -1,84 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/notification_background">
+    android:layout_height="wrap_content">
 
     <LinearLayout
-        style="@style/button_bg_noti"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/_5sdp">
+        android:layout_height="@dimen/_62sdp"
+        android:paddingHorizontal="@dimen/_16sdp">
 
         <ImageView
-            android:id="@+id/notifiation_icon"
-            android:layout_width="@dimen/_48sdp"
-            android:layout_height="@dimen/_48sdp"
+            android:id="@+id/img_battery"
+            android:layout_width="@dimen/_42sdp"
+            android:layout_height="@dimen/_42sdp"
             android:layout_gravity="center_vertical"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_splash" />
+            android:src="@drawable/ic_noti_boost" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/_16sdp"
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Time left"
-                android:textColor="@color/description"
-                android:textSize="@dimen/_10sdp"
-                android:textStyle="normal" />
-
             <LinearLayout
-                android:id="@+id/view_time_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvHour"
+                    android:id="@+id/tvBattery"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center"
-                    android:text="00"
-                    android:textColor="@color/progress_background"
-                    android:textSize="@dimen/_12sdp" />
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/bold"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="0dp"
+                    android:text="45%"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="@dimen/_16sdp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="@dimen/_6sdp"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tv_time_h_unit"
+                    android:id="@+id/des_noti"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center"
-                    android:layout_marginStart="2.0dip"
-                    android:text="h"
+                    android:text="@string/des_noti"
+                    android:textColor="@color/secondary_dark"
+                    android:textSize="@dimen/_8sdp" />
+
+                <ImageView
+                    android:id="@+id/img_temp"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_temperature_normal"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tvTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/marging_left_ne"
+                    android:text="35.5*C"
                     android:textColor="@color/description"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_10sdp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/line_noti"
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|end"
+            android:layout_marginVertical="@dimen/_12sdp"
+            android:src="@drawable/img_noti_line_dark" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_2sdp">
+
+                <ImageView
+                    android:id="@+id/ic_noti_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_noti_time"
+                    app:tint="@color/ic_noti_time_light" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/tvMin"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tv_status"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center"
-                    android:layout_marginStart="2.0dip"
-                    android:text="00"
-                    android:textColor="@color/progress_background"
-                    android:textSize="@dimen/_12sdp" />
+                    android:text="Time left"
+                    android:singleLine="true"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="@dimen/_8sdp"
+                    android:textStyle="normal" />
 
-                <TextView
-                    android:id="@+id/tv_time_m_unit"
+                <LinearLayout
+                    android:id="@+id/view_time_left"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|center"
-                    android:layout_marginStart="2.0dip"
-                    android:text="m"
-                    android:textColor="@color/description"
-                    android:textSize="@dimen/_12sdp" />
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvHour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:fontFamily="@font/bold"
+                        android:text="00"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="@dimen/_8sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_time_h_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:fontFamily="@font/bold"
+                        android:text="h"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="@dimen/_8sdp" />
+
+                    <TextView
+                        android:id="@+id/tvMin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:layout_marginStart="2.0dip"
+                        android:fontFamily="@font/bold"
+                        android:text="00"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="@dimen/_8sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_time_m_unit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|center"
+                        android:fontFamily="@font/bold"
+                        android:text="m"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="@dimen/_8sdp" />
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
@@ -94,73 +185,10 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|end"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/img_battery"
-                    android:layout_width="@dimen/_18sdp"
-                    android:layout_height="@dimen/_18sdp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_battery_notification_normal" />
-
-                <TextView
-                    android:id="@+id/tvBattery"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/marging_left_ne"
-                    android:text="45%"
-                    android:textColor="@color/description"
-                    android:textSize="@dimen/_10sdp" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="5.0dip"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/img_temp"
-                    android:layout_width="@dimen/_18sdp"
-                    android:layout_height="@dimen/_18sdp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_temperature_normal" />
-
-                <TextView
-                    android:id="@+id/tvTemp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="@dimen/marging_left_ne"
-                    android:text="35.5*C"
-                    android:textColor="@color/description"
-                    android:textSize="@dimen/_10sdp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <FrameLayout
-            android:layout_width="@dimen/_1sdp"
             android:layout_height="match_parent"
             android:layout_gravity="center|end"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:layout_marginVertical="@dimen/_5sdp"
-            android:background="@color/description" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center|end"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/img_clean"
@@ -168,7 +196,7 @@
                 android:layout_height="@dimen/_38sdp"
                 android:layout_gravity="center_vertical"
                 android:padding="@dimen/_5sdp"
-                android:src="@drawable/ic_memory_boost" />
+                android:src="@drawable/ic_memory_boost_info" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

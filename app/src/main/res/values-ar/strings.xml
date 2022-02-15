@@ -24,9 +24,9 @@
     <string name="junk_clean_nav">أداة تنظيف المهملات</string>
     <string name="phone_boost_nav">المسرّع</string>
     <string name="battery_exellent">رائع!</string>
-    <string name="cleaned">تم التنظيف: %s</string>
+    <string name="cleaned">%s تم تنظيفها</string>
     <string name="cleaning_junk">جارِ مسح الملفات غير الهامة...</string>
-    <string name="result_cooler">ممتاز! تم التبريد بنجاح.</string>
+    <string name="result_cooler">تبرد بنجاح.</string>
     <string name="phone_cool_nav">مبرد الهاتف</string>
     <string name="ram_result">تم التحسين</string>
     <string name="boosting">تعزيز الذاكرة</string>
@@ -136,4 +136,10 @@
     <string name="manager_description">إدارة التطبيقات الخاصة بك مثل إلغاء التثبيت، والنسخ الاحتياطي...</string>
     <string name="settings_description">إدارة كافة الإعدادات</string>
     <string name="remove_description">إعلانات مزعجة؟ إزالة الإعلانات إلى الأبد الآن</string>
+    <string name="stt_sm_edge_device_optimized">باهر!</string>
+    <string name="stt_ram_result">تسريع هاتفك تمامًا</string>
+    <string name="stt_cooler_result">ممتاز!</string>
+    <string name="des_noti">انقر للتعزيز الآن</string>
+    <string name="des_noti_100">انتهى الشحن. افصل الطاقة.</string>
+    <string name="des_noti_20">البطارية ضعيفة. انقر لتوفير الطاقة.</string>
 </resources>

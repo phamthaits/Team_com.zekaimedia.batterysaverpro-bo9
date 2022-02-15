@@ -24,7 +24,7 @@
     <string name="phone_boost_nav">Bộ tăng tốc</string>
     <string name="battery_exellent">Tuyệt!</string>
     <string name="phone_cool_nav">Làm mát điện thoại</string>
-    <string name="cleaned">Đã dọn: %s</string>
+    <string name="cleaned">%s đã được dọn</string>
     <string name="cleaning_junk">Đang xóa tập tin rác…</string>
     <string name="result_cooler">Tuyệt vời! Đã giảm thành công.</string>
     <string name="ram_result">Đã tăng tốc</string>
@@ -49,7 +49,7 @@
     <string name="normal">Thường</string>
     <string name="super_saving">Dài</string>
     <string name="custom">Nghỉ</string>
-    <string name="sm_edge_device_optimized">Tuyệt! Đã giải quyết v.đề điện.</string>
+    <string name="sm_edge_device_optimized">Đã giải quyết v.đề điện.</string>
     <string name="sm_ram_detail">Để nâng cao hiệu năng, hãy giải phóng bộ nhớ bằng cách dừng các ứng dụng chạy ngầm.</string>
     <string name="op_boost">Tăng tốc</string>
     <string name="op_storage_des">Giải phóng bộ nhớ bằng cách xóa dữ liệu không cần thiết như các file bộ nhớ đệm, dư thừa và quảng cáo.</string>
@@ -135,4 +135,10 @@
     <string name="remove_description">Quảng cáo gây phiền nhiễu? Xóa quảng cáo MÃI MÃI ngay bây giờ</string>
     <string name="wifi">Wi-Fi</string>
     <string name="boost_description">Điện thoại chạy chậm? Nhiều ứng dụng chạy ngầm quá</string>
+    <string name="stt_sm_edge_device_optimized">Tuyệt!</string>
+    <string name="stt_ram_result">Hoàn thành tăng tốc điện thoại của bạn</string>
+    <string name="stt_cooler_result">Tuyệt vời!</string>
+    <string name="des_noti">Nhấn để tăng tốc ngay bây giờ</string>
+    <string name="des_noti_100">Đã sạc xong. Rút phích cắm điện.</string>
+    <string name="des_noti_20">Pin yếu. Nhấn để tiết kiệm điện.</string>
 </resources>

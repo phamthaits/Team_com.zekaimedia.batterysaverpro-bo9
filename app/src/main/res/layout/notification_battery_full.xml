@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/notification_bg_light">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/_60sdp"
         android:orientation="horizontal"
-        android:padding="@dimen/_5sdp">
+        android:paddingHorizontal="@dimen/_16sdp">
 
         <ImageView
-            android:layout_width="@dimen/_48sdp"
-            android:layout_height="@dimen/_48sdp"
+            android:layout_width="@dimen/_42sdp"
+            android:layout_height="@dimen/_42sdp"
             android:layout_gravity="center"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_charge_full_reminder" />
+            android:src="@drawable/ic_noti_battery" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/_16sdp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -28,10 +28,11 @@
                 android:id="@+id/notification_layout_tv_first"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/bold"
                 android:gravity="center_vertical"
                 android:singleLine="true"
                 android:text="@string/power_full"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/primary_text"
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
@@ -42,42 +43,8 @@
                 android:ellipsize="marquee"
                 android:singleLine="true"
                 android:text="@string/battery_full_des"
-                android:textColor="@color/progress_background"
-                android:textSize="@dimen/_10sdp" />
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/_8sdp" />
         </LinearLayout>
-
-
-        <FrameLayout
-            android:id="@+id/notification_layout_show_icon_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_toStartOf="@+id/notification_layout_boost_container"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center"
-                android:background="@drawable/install_button_bg_radius"
-                android:gravity="center"
-                android:minWidth="60dp"
-                android:padding="@dimen/_10sdp"
-                android:text="Boost"
-                android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:id="@+id/notification_layout_boost_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="@dimen/_10sdp" />
     </LinearLayout>
 </FrameLayout>

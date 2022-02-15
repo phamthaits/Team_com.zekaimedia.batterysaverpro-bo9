@@ -63,8 +63,8 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
 
-        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
-        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.white));
+        /*getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.white));*/
         /* ------------------------------------------------------------------ */
 
         NotificationDevice.cancle(activity, NotificationDevice.ID_NOTIFICATTION_BOOST);
@@ -98,10 +98,10 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         this.ivDoneAnim = AnimationUtils.loadAnimation(this, R.anim.ic_done_anim);
         this.ivDoneAnim.setAnimationListener(new CustomAnimationListener());
         intData();
-        ((ImageView) findViewById(R.id.clean_done_iv_tick)).setColorFilter(getResources().getColor(R.color.color_white), PorterDuff.Mode.MULTIPLY);
-        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
+//        ((ImageView) findViewById(R.id.clean_done_iv_tick)).setColorFilter(getResources().getColor(R.color.color_white), PorterDuff.Mode.MULTIPLY);
+//        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
         if (!Utils.checkShouldDoing(activity, 3)) {
-            cv_trash_cleaner.setVisibility(View.GONE);
+            cv_trash_cleaner.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -125,7 +125,7 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
                 long availableRam = getAvaiableRam(BoostActivity.this);
                 useRam2 = totalRam - availableRam;
                 if (useRam2 > 0) {
-                    tv_optimized_info.setText(BoostActivity.this.getString(R.string.ram_result) + " " + Utils.formatSize(useRam - useRam2));
+                    /*tv_optimized_info.setText(BoostActivity.this.getString(R.string.ram_result) + " " + Utils.formatSize(useRam - useRam2));*/
                 }
             }
         });
@@ -154,8 +154,8 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(this, AppManagerActivity.class));
                 finish();
                 return;
-            case R.id.lrSettings:
-                startActivity(new Intent(this, SettingActivity.class));
+            case R.id.lrCharge:
+                startActivity(new Intent(this, ChargeSettingActivity.class));
                 finish();
                 return;
             case R.id.lrRemove:
@@ -222,10 +222,10 @@ public class BoostActivity extends AppCompatActivity implements View.OnClickList
         Animation slideUp = AnimationUtils.loadAnimation(BoostActivity.this, R.anim.zoom_in);
         rlScan.startAnimation(slideUp);
         BoostActivity.this.rlScan.setVisibility(View.GONE);
-        getWindow().setStatusBarColor(Color.rgb(251, 93, 96));
-        getWindow().setNavigationBarColor(Color.rgb(251, 93, 96));
+        /*getWindow().setStatusBarColor(Color.rgb(251, 93, 96));
+        getWindow().setNavigationBarColor(Color.rgb(251, 93, 96));*/
         LinearLayout lrBack = findViewById(R.id.lr_back);
-        lrBack.setBackgroundColor(Color.rgb(251, 93, 96));
+//        lrBack.setBackgroundColor(Color.rgb(251, 93, 96));
         BoostActivity.this.parentAds.setAlpha(0.0f);
         BoostActivity.this.parentAds.setVisibility(View.VISIBLE);
         BoostActivity.this.parentAds.animate().alpha(1.0f).start();

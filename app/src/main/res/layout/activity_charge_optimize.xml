@@ -14,10 +14,9 @@
 
         <LinearLayout
             android:id="@+id/lr_back"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:onClick="onClick"
-            android:paddingEnd="8.0dip">
+            android:onClick="onClick">
 
             <FrameLayout
                 android:layout_width="wrap_content"
@@ -27,33 +26,34 @@
 
                 <ImageView
                     android:id="@+id/iv_arrow"
-                    android:layout_width="@dimen/_8sdp"
-                    android:layout_height="@dimen/_11sdp"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_navigate_before_white_48dp"
-                    app:tint="@color/primary_text" />
+                    android:src="@drawable/ic_result_back" />
             </FrameLayout>
 
             <TextView
                 android:id="@+id/activity_charge_tv_title_1"
                 style="@style/textHeaderActivity"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/_16sdp"
-                android:gravity="center_vertical"
+                android:layout_marginRight="@dimen/_52sdp"
+                android:gravity="center"
                 android:text="@string/fast_charging" />
 
         </LinearLayout>
 
         <ImageView
             android:id="@+id/ivSetting"
-            android:layout_width="@dimen/_48sdp"
-            android:layout_height="match_parent"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/_16sdp"
             android:onClick="onClick"
-            android:padding="10dp"
-            android:src="@drawable/ic_setting_fast_charge" />
+            android:src="@drawable/ic_setting_fastcharge" />
     </RelativeLayout>
 
     <FrameLayout
@@ -73,123 +73,128 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingBottom="@dimen/_5sdp">
+                android:paddingHorizontal="@dimen/_16sdp">
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_100sdp"
-                    android:background="@color/progress_background"
+                    android:layout_height="@dimen/_88sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:background="@drawable/img_result_optimize"
                     android:gravity="center"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="@dimen/_30sdp"
-                    android:paddingVertical="@dimen/_10sdp">
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/_16sdp">
 
-                    <RelativeLayout
+                    <TextView
+                        android:id="@+id/stt_optimized_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bold"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="@string/stt_sm_edge_device_optimized"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_16sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_optimized_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="@string/fast_charger_boosted"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:orientation="horizontal">
+                    <!--Trash Cleaner-->
+                    <include
+                        android:id="@+id/cv_trash_cleaner"
+                        layout="@layout/result_trash_cleaner"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_alignParentLeft="true"
-                        android:layout_toStartOf="@+id/image_right">
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_weight="1" />
 
-                        <TextView
-                            android:id="@+id/tv_optimized_info"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:fontFamily="@font/bold"
-                            android:gravity="left|center"
-                            android:text="@string/fast_charger_boosted"
-                            android:textAllCaps="true"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_14sdp" />
-                    </RelativeLayout>
+                    <!--Phone Boost-->
+                    <include
+                        layout="@layout/result_phone_boost"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_weight="1" />
+                </LinearLayout>
 
-                    <RelativeLayout
-                        android:id="@+id/image_right"
-                        android:layout_width="@dimen/_100sdp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_alignParentRight="true">
-
-                        <ImageView
-                            android:layout_width="@dimen/_70sdp"
-                            android:layout_height="@dimen/_70sdp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/ic_optimize" />
-
-                        <com.airbnb.lottie.LottieAnimationView
-                            android:layout_width="@dimen/_100sdp"
-                            android:layout_height="@dimen/_100sdp"
-                            android:layout_alignParentRight="true"
-                            app:lottie_autoPlay="true"
-                            app:lottie_loop="true"
-                            app:lottie_rawRes="@raw/confetti_blast" />
-                    </RelativeLayout>
-                </RelativeLayout>
-
-                <!--Trash Cleaner-->
-                <include
-                    android:id="@+id/cv_trash_cleaner"
-                    layout="@layout/trash_cleaner"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:orientation="horizontal">
+                    <!--Phone Cooler-->
+                    <include
+                        layout="@layout/result_phone_cooler"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_weight="1" />
 
-                <!--Phone Boost-->
-                <include
-                    layout="@layout/phone_boost"
+                    <!--Charge History-->
+                    <include
+                        layout="@layout/result_charge_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:orientation="horizontal">
+                    <!--App Manager-->
+                    <include
+                        layout="@layout/result_app_manager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_weight="1" />
 
-                <!--Phone Cooler-->
-                <include
-                    layout="@layout/phone_cooler"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
-
-                <!--Charge History-->
-                <include
-                    layout="@layout/charge_history"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
-
-                <!--App Manager-->
-                <include
-                    layout="@layout/app_manager"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
-
-                <!--Settings-->
-                <include
-                    layout="@layout/settings"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    <!--Remove Ads-->
+                    <include
+                        android:id="@+id/remove_ads"
+                        layout="@layout/result_remove_ads"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_weight="1" />
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
     </FrameLayout>
 
     <!--Scan Fast Charge-->
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/rlScanning"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/_24sdp"
         android:gravity="center"
         android:orientation="vertical">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/av_progress"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_200sdp"
+            android:layout_height="@dimen/_416sdp"
+            android:layout_centerInParent="true"
             android:layout_gravity="center"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
@@ -267,37 +272,33 @@
                     android:src="@drawable/ic_complete_tick"
                     android:visibility="visible" />
             </RelativeLayout>
-
         </com.skyfishjy.library.RippleBackground>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+
+        <TextView
+            android:id="@+id/tvOptimize"
+            android:layout_width="@dimen/_144sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_56sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@drawable/bg_button_uninstall"
+            android:fontFamily="@font/bold"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_16sdp"
+            android:singleLine="true"
+            android:text="@string/pc_auto_optimizing"
+            android:textAllCaps="true"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/_10sdp"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvScan"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/av_progress"
-            android:layout_centerHorizontal="true"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvOptimize"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20.0dip"
-                android:text="@string/pc_auto_optimizing"
-                android:textAllCaps="true"
-                android:textSize="@dimen/Optimize_big_size" />
-
-            <TextView
-                android:id="@+id/tvScan"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16.0dip"
-                android:layout_marginTop="8.0dip"
-                android:layout_marginEnd="16.0dip"
-                android:gravity="center"
-                android:maxLines="1"
-                android:textColor="@color/secondary_text"
-                android:textSize="@dimen/text_details_optimize" />
-        </LinearLayout>
-    </RelativeLayout>
+            android:gravity="center"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/_7sdp" />
+    </LinearLayout>
 </LinearLayout>

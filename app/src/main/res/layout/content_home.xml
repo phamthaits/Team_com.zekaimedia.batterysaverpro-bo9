@@ -284,8 +284,8 @@
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginVertical="@dimen/_16sdp"
                 android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginVertical="@dimen/_16sdp"
                 android:scrollbars="none">
 
                 <LinearLayout
@@ -325,7 +325,7 @@
                         <include
                             layout="@layout/fast_charge"
                             android:layout_width="@dimen/_120sdp"
-                            android:layout_height="@dimen/_136sdp"/>
+                            android:layout_height="@dimen/_136sdp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -338,7 +338,7 @@
                             layout="@layout/control_native_ads"
                             android:layout_width="@dimen/_120sdp"
                             android:layout_height="@dimen/_136sdp"
-                            android:layout_marginRight="@dimen/_12sdp"/>
+                            android:layout_marginRight="@dimen/_12sdp" />
                         <!--End Native Banner-->
                         <!--Charge History-->
                         <include
@@ -355,11 +355,11 @@
                             android:layout_marginRight="@dimen/_12sdp" />
 
                         <!--Settings-->
-                       <!-- <include
-                            layout="@layout/settings"
-                            android:layout_width="@dimen/_120sdp"
-                            android:layout_height="@dimen/_136sdp"
-                            android:layout_marginRight="@dimen/_12sdp" />-->
+                        <!-- <include
+                             layout="@layout/settings"
+                             android:layout_width="@dimen/_120sdp"
+                             android:layout_height="@dimen/_136sdp"
+                             android:layout_marginRight="@dimen/_12sdp" />-->
 
                         <!--Remove Ads-->
                         <include

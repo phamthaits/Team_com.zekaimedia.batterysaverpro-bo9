@@ -9,18 +9,21 @@
         android:id="@+id/btnClick"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"
-        android:background="@color/white">
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingHorizontal="@dimen/_16sdp">
 
         <LinearLayout
             android:id="@+id/notification_layout_main_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_toStartOf="@+id/notification_layout_show_icon_container"
             android:orientation="horizontal">
 
             <FrameLayout
-                android:layout_width="@dimen/_60sdp"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/_42sdp"
+                android:layout_height="@dimen/_42sdp"
+                android:layout_gravity="center"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -28,10 +31,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:padding="@dimen/_10sdp"
                     android:scaleType="centerInside"
-                    android:src="@drawable/ic_rocket_white"
-                    app:tint="@color/progress_background" />
+                    android:src="@drawable/ic_noti_boost"/>
 
             </FrameLayout>
 
@@ -39,6 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="@dimen/_16sdp"
                 android:gravity="center_vertical"
                 android:orientation="vertical">
 
@@ -46,10 +48,11 @@
                     android:id="@+id/tvNotiTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/bold"
                     android:gravity="center_vertical"
                     android:singleLine="true"
                     android:text="@string/boost_title"
-                    android:textColor="@color/colorAccent"
+                    android:textColor="@color/primary_dark"
                     android:textSize="@dimen/_12sdp" />
 
                 <TextView
@@ -59,9 +62,9 @@
                     android:layout_gravity="center_vertical"
                     android:ellipsize="marquee"
                     android:singleLine="true"
-                    android:text="@string/boost_action"
-                    android:textColor="@color/progress_background"
-                    android:textSize="@dimen/_10sdp" />
+                    android:text="@string/des_noti"
+                    android:textColor="@color/secondary_dark"
+                    android:textSize="@dimen/_8sdp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -79,38 +82,34 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:background="@drawable/install_button_bg_radius"
+                android:background="@drawable/ads_bg_lib"
                 android:gravity="center"
                 android:padding="@dimen/_10sdp"
                 android:text="Boost"
                 android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold" />
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_12sdp" />
         </FrameLayout>
 
         <FrameLayout
             android:id="@+id/notification_layout_boost_container"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="@dimen/_10sdp">
+            android:layout_alignParentEnd="true">
 
             <TextView
                 android:id="@+id/btnAction"
+                style="@style/buttonSettingAds"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:background="@drawable/install_button_bg_radius"
                 android:gravity="center"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/op_boost"
                 android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold" />
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_12sdp" />
         </FrameLayout>
     </RelativeLayout>
 </FrameLayout>

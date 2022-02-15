@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/notification_bg_light"    >
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/_60sdp"
         android:orientation="horizontal"
-        android:padding="@dimen/_5sdp">
+        android:paddingHorizontal="@dimen/_16sdp">
 
         <ImageView
-            android:layout_width="@dimen/_48sdp"
-            android:layout_height="@dimen/_48sdp"
+            android:layout_width="@dimen/_42sdp"
+            android:layout_height="@dimen/_42sdp"
             android:layout_gravity="center"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_temperature_normal"
-            app:tint="#FF5252" />
+            android:src="@drawable/ic_noti_cool" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/_16sdp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -31,9 +29,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
+                android:fontFamily="@font/bold"
                 android:singleLine="true"
                 android:text="@string/cool_down_title"
-                android:textColor="@color/notification_1"
+                android:textColor="@color/primary_text"
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
@@ -44,24 +43,22 @@
                 android:ellipsize="marquee"
                 android:singleLine="true"
                 android:text="@string/cool_down_des"
-                android:textColor="@color/progress_background"
-                android:textSize="@dimen/_10sdp" />
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/_8sdp" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/btnAction"
+            style="@style/buttonSettingAds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:background="@drawable/bg_button_notification_red"
             android:gravity="center"
             android:padding="@dimen/_10sdp"
             android:text="@string/cool_down_button"
             android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/_12sdp"
-            android:textStyle="bold" />
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/_12sdp" />
     </LinearLayout>
 </FrameLayout>

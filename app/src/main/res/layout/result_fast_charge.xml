@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_136sdp"
+    android:layout_height="@dimen/_103sdp"
+    android:background="@drawable/bg_rounded">
+
+    <LinearLayout
+        android:id="@+id/lrCharge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:paddingVertical="@dimen/_16sdp">
+
+        <RelativeLayout
+            android:id="@+id/icon_charge"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:gravity="left">
+
+            <ImageView
+                android:id="@+id/ivCharge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_charge_fast" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/text_charge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/icon_charge"
+            android:layout_alignBottom="@+id/icon_charge"
+            android:layout_toEndOf="@+id/icon_charge">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvCharge"
+                    style="@style/listContentHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="0dp"
+                    android:text="@string/fast_charging" />
+
+                <TextView
+                    android:id="@+id/tvFullCharge"
+                    style="@style/listContentHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:text="@string/enabled"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

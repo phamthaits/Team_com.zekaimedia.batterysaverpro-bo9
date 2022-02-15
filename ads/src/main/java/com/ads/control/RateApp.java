@@ -36,7 +36,7 @@ public class RateApp extends Dialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_rate_app);
-        setCanceledOnTouchOutside(false);
+        /*setCanceledOnTouchOutside(false);*/
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
         RatingBar ratingbar = findViewById(R.id.rating);
@@ -55,7 +55,7 @@ public class RateApp extends Dialog {
                     btnFeedRate.setEnabled(false);
                 }
                 if (ratingBar.getRating() >= 0.5) {
-                    btnFeedRate.setTextColor(ContextCompat.getColor(mContext, R.color.color_white));
+                    btnFeedRate.setTextColor(ContextCompat.getColor(mContext, R.color.primary_text));
                     btnFeedRate.setBackground(ContextCompat.getDrawable(mContext, R.drawable.ads_bg_lib));
                     btnFeedRate.setEnabled(true);
                 }

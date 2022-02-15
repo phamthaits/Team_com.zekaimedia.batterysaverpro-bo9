@@ -279,7 +279,7 @@ public class AdmobHelp {
         }
 
         if (nativeAd.getIcon() == null) {
-            adView.getIconView().setBackground(activity.getResources().getDrawable(R.drawable.ic_ad_new));
+            adView.getIconView().setBackground(activity.getResources().getDrawable(R.drawable.ic_home_ads));
         } else {
             ((ImageView) adView.getIconView()).setImageDrawable(
                     nativeAd.getIcon().getDrawable());

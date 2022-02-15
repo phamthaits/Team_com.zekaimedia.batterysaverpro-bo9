@@ -9,9 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="@dimen/_32sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginRight="@dimen/_24sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_12sdp"
         android:gravity="center">
 
         <ImageView
@@ -51,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:singleLine="true"
                     android:textColor="@color/secondary_text"
-                    android:textSize="@dimen/_10sdp"
+                    android:textSize="@dimen/_7sdp"
                     tools:text="Person Name" />
 
                 <ImageView
@@ -74,6 +73,7 @@
             android:paddingHorizontal="@dimen/_16sdp"
             android:gravity="center"
             android:text="@string/uninstall"
+            android:singleLine="true"
             android:textAllCaps="false"
             android:textColor="@color/text_color"
             android:textSize="@dimen/_10sdp" />

@@ -36,7 +36,7 @@
         android:paddingHorizontal="@dimen/_10sdp"
         android:paddingBottom="5dip"
         android:text="@string/rate_msg"
-        android:textColor="@color/title_dark"
+        android:textColor="@color/secondary_text"
         android:textSize="@dimen/_12sdp" />
 
     <RelativeLayout
@@ -73,7 +73,7 @@
             android:padding="@dimen/_10sdp"
             android:text="Exit"
             android:textAllCaps="true"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/secondary_text"
             android:textSize="@dimen/_12sdp" />
 
         <TextView

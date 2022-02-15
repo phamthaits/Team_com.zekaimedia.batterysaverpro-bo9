@@ -30,8 +30,7 @@
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_navigate_before_white_48dp"
-                    app:tint="@color/primary_text" />
+                    android:src="@drawable/ic_result_back" />
             </FrameLayout>
 
             <TextView
@@ -51,57 +50,63 @@
         android:id="@+id/fmResult"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginHorizontal="@dimen/_16sdp"
         android:animateLayoutChanges="true"
-        android:visibility="gone"
-        android:background="@color/windowBackground">
+        android:background="@color/windowBackground"
+        android:visibility="gone">
         <!-- android:visibility="gone" -> Cleaned-->
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingHorizontal="@dimen/_16sdp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_88sdp"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="@dimen/_24sdp"
-                    android:background="@color/progress_background"
-                    android:gravity="center">
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:background="@drawable/img_result_clean"
+                    android:paddingHorizontal="@dimen/_16sdp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/stt_optimized_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bold"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="@string/stt_sm_edge_device_optimized"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_16sdp" />
 
                     <TextView
                         android:id="@+id/tv_optimized_info"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/bold"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="@string/op_clean"
+                        android:singleLine="true"
                         android:textAllCaps="true"
-                        android:textColor="@color/primary_text"
-                        android:textSize="@dimen/_14sdp" />
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_12sdp" />
 
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_marginBottom="@dimen/_16sdp"
-                    android:text="Subtitle here"
-                    android:textAllCaps="true"
-                    android:textColor="@color/primary_text"
-                    android:textSize="@dimen/_10sdp" />
 
                 <include
                     android:id="@+id/native_ads_control_holder"
                     layout="@layout/control_native_ads"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_16sdp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -110,7 +115,7 @@
                     android:orientation="horizontal">
                     <!--Phone Boost-->
                     <include
-                        layout="@layout/phone_boost"
+                        layout="@layout/result_phone_boost"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/_8sdp"
@@ -118,7 +123,7 @@
 
                     <!--Phone Cooler-->
                     <include
-                        layout="@layout/phone_cooler"
+                        layout="@layout/result_phone_cooler"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/_8sdp"
@@ -132,7 +137,7 @@
                     android:orientation="horizontal">
                     <!--Charge History-->
                     <include
-                        layout="@layout/charge_history"
+                        layout="@layout/result_charge_history"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/_8sdp"
@@ -140,7 +145,7 @@
 
                     <!--App Manager-->
                     <include
-                        layout="@layout/app_manager"
+                        layout="@layout/result_app_manager"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/_8sdp"
@@ -152,9 +157,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_16sdp"
                     android:orientation="horizontal">
-                    <!--Settings-->
+
+                    <!--Fast Charge-->
                     <include
-                        layout="@layout/settings"
+                        layout="@layout/result_fast_charge"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/_8sdp"
@@ -163,7 +169,7 @@
                     <!--Remove Ads-->
                     <include
                         android:id="@+id/remove_ads"
-                        layout="@layout/remove_ads"
+                        layout="@layout/result_remove_ads"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/_8sdp"
@@ -191,8 +197,9 @@
             android:layout_gravity="center">
 
             <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp"
+                android:layout_gravity="center">
 
                 <com.zekaimedia.batterysaverpro.view.HoloCircularProgressBar
                     android:id="@+id/ivDoneHoloCirular"
@@ -202,8 +209,8 @@
                     app:holo_progress="0"
                     app:marker_progress="0"
                     app:marker_visible="false"
-                    app:progress_background_color="@color/more_clean_bg"
-                    app:progress_color="@color/more_clean"
+                    app:progress_background_color="@android:color/transparent"
+                    app:progress_color="@android:color/transparent"
                     app:stroke_width="4dp" />
 
                 <ImageView
@@ -212,6 +219,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_icon_progress_cleaner"
+                    app:tint="@android:color/transparent"
                     android:visibility="visible" />
 
                 <ImageView
@@ -221,6 +229,7 @@
                     android:layout_gravity="center"
                     android:layout_margin="@dimen/_45sdp"
                     android:src="@drawable/ic_clean_trash"
+                    app:tint="@android:color/transparent"
                     android:visibility="visible" />
 
                 <ImageView
@@ -232,16 +241,33 @@
                     android:background="@drawable/complete_bg_clean"
                     android:padding="@dimen/_30sdp"
                     android:src="@drawable/ic_complete_tick"
+                    app:tint="@android:color/transparent"
                     android:visibility="invisible" />
             </FrameLayout>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/scan_optimize_charger"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_416sdp"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:padding="0dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/trash_cleaner" />
         </FrameLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/_144sdp"
+            android:layout_height="@dimen/_32sdp"
             android:layout_below="@+id/imgOutCircle"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/_44sdp"
+            android:background="@drawable/bg_button_uninstall"
+            android:gravity="center"
             android:orientation="vertical">
 
             <TextView
@@ -249,11 +275,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/bold"
                 android:gravity="center"
+                android:singleLine="true"
                 android:text="@string/cleaning_junk"
                 android:textAllCaps="true"
-                android:textColor="@color/title_dark"
-                android:textSize="@dimen/_14sdp" />
+                android:textColor="@color/primary_text" />
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

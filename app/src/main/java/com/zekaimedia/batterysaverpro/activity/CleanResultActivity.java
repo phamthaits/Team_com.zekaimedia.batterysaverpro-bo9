@@ -66,7 +66,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         this.ivDoneAnim.setAnimationListener(new CleanResultActivity.C06741());
         tvCleaned.setText(String.format(getString(R.string.cleaned),
                 Utils.formatSize(SharePreferenceUtils.getInstance(this).getTotalJunk())));
-        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
+//        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
 
         adControlHelp.loadInterstitialAd(this,  null );
     }
@@ -101,8 +101,8 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
                 startActivity(new Intent(this, AppManagerActivity.class));
                 finish();
                 return;
-            case R.id.lrSettings:
-                startActivity(new Intent(this, SettingActivity.class));
+            case R.id.lrCharge:
+                startActivity(new Intent(this, ChargeSettingActivity.class));
                 finish();
                 return;
             case R.id.lrRemove:
@@ -141,9 +141,9 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onAnimationStart(Animation animation) {
                 /* ------------------- StatusBar Navigation text dark bg white ----------------- */
-
+/*
                 getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.white));
-                getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.white));
+                getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.white));*/
                 /* ------------------------------------------------------------------ */
 
             }
@@ -165,10 +165,10 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
 
     private void loadResult(HoloCircularProgressBar holoCircularProgressBar, float f) {
         holoCircularProgressBar.setProgress(f);
-        getWindow().setStatusBarColor(Color.rgb(113, 126, 238));
-        getWindow().setNavigationBarColor(Color.rgb(113, 126, 238));
+       /* getWindow().setStatusBarColor(Color.rgb(113, 126, 238));
+        getWindow().setNavigationBarColor(Color.rgb(113, 126, 238));*/
         LinearLayout lrBack = findViewById(R.id.lr_back);
-        lrBack.setBackgroundColor(Color.rgb(113, 126, 238));
+//        lrBack.setBackgroundColor(Color.rgb(113, 126, 238));
         Animation slideUp = AnimationUtils.loadAnimation(CleanResultActivity.this, R.anim.zoom_in);
         rlScan.startAnimation(slideUp);
         CleanResultActivity.this.rlScan.setVisibility(View.GONE);

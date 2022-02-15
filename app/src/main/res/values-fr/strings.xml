@@ -25,9 +25,9 @@
     <string name="phone_boost_nav">Accelerator</string>
     <string name="phone_cool_nav">téléphone Cooler</string>
     <string name="battery_exellent">Super !</string>
-    <string name="cleaned">Nettoyé : %s</string>
+    <string name="cleaned">%s Nettoyé</string>
     <string name="cleaning_junk">Effacer fichiers indésirables</string>
-    <string name="result_cooler">Excellent ! Refroidissement réussi.</string>
+    <string name="result_cooler">Refroidissement réussi.</string>
     <string name="ram_result">Boosté</string>
     <string name="boosting">Booster la mémoire</string>
     <string name="battery_full_des">Charge complète, svp débranchez-le.</string>
@@ -51,7 +51,7 @@
     <string name="normal">Général</string>
     <string name="super_saving">Long</string>
     <string name="custom">Sommeil</string>
-    <string name="sm_edge_device_optimized">Excellent ! Problème de batterie résolu.</string>
+    <string name="sm_edge_device_optimized">Résolution du problème d\'alimentation.</string>
     <string name="sm_ram_detail">Pour améliorer les performances, libérez de la mémoire en arrêtant les applications en arrière-plan.</string>
     <string name="op_boost">Améliorer</string>
     <string name="op_storage_des">Libérez de l\'espace de stockage en supprimant les données inutiles telles que les fichiers en cache, les fichiers résiduels et les fichiers de publicité.</string>
@@ -136,4 +136,10 @@
     <string name="manager_description">Gérez vos applications comme la désinstallation, la sauvegarde ...</string>
     <string name="settings_description">Gérer tous les réglages</string>
     <string name="remove_description">Énervante publicités? Supprimer les publicités pour toujours maintenant</string>
+    <string name="stt_sm_edge_device_optimized">Super!</string>
+    <string name="stt_ram_result">Accélérez complètement votre téléphone</string>
+    <string name="stt_cooler_result">Excellent!</string>
+    <string name="des_noti">Appuyez pour booster maintenant</string>
+    <string name="des_noti_100">Chargement terminé. Débranchez l\'alimentation.</string>
+    <string name="des_noti_20">Batterie faible. Appuyez sur pour économiser de l\'énergie.</string>
 </resources>

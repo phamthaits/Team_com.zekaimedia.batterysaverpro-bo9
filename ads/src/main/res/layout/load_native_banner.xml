@@ -2,8 +2,8 @@
 <com.facebook.shimmer.ShimmerFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/shimmer_container"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="@dimen/_120sdp"
+    android:layout_height="@dimen/_136sdp"
     android:background="@drawable/bg_card_ads"
     app:shimmer_auto_start="true"
     app:shimmer_base_color="#ccc">
@@ -11,14 +11,16 @@
     <RelativeLayout
         android:id="@+id/ad_unit_content"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:paddingVertical="@dimen/_16sdp">
 
         <LinearLayout
             android:id="@+id/banner_native_image"
-            android:layout_width="@dimen/_78sdp"
-            android:layout_height="@dimen/_78sdp"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_alignParentLeft="true"
-
+            android:layout_marginBottom="@dimen/_16sdp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -26,7 +28,6 @@
                 android:id="@+id/ad_app_icon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="@dimen/_15sdp"
                 android:adjustViewBounds="true"
                 android:background="@color/light_transparent" />
         </LinearLayout>
@@ -34,26 +35,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignTop="@+id/banner_native_image"
-            android:layout_alignBottom="@+id/banner_native_image"
-            android:layout_toEndOf="@+id/banner_native_image"
-
+            android:layout_below="@+id/banner_native_image"
             android:orientation="horizontal">
 
             <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:orientation="horizontal"
-                android:padding="@dimen/_5sdp">
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/ad_headline"
                     style="@style/listContentHome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/_50sdp"
-                    android:singleLine="true"
-                    android:textSize="@dimen/_12sdp" />
+                    android:singleLine="true" />
 
                 <LinearLayout
                     android:id="@+id/linear_store_info"
@@ -62,6 +57,7 @@
                     android:layout_below="@+id/ad_headline"
                     android:layout_marginRight="@dimen/_3sdp"
                     android:layout_toLeftOf="@+id/ad_call_to_action"
+                    android:visibility="gone"
                     android:background="@color/light_transparent"
                     android:orientation="horizontal">
 
@@ -82,8 +78,7 @@
                         android:fontFamily="@font/bold"
                         android:singleLine="true"
                         android:textColor="@color/advertiser_color"
-                        android:textSize="@dimen/_10sdp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/_10sdp" />
 
                     <TextView
                         android:id="@+id/ad_price"
@@ -92,8 +87,7 @@
                         android:layout_marginLeft="@dimen/_5sdp"
                         android:fontFamily="@font/bold"
                         android:textColor="@color/advertiser_color"
-                        android:textSize="@dimen/_10sdp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/_10sdp" />
 
                     <TextView
                         android:id="@+id/ad_store"
@@ -112,7 +106,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/linear_store_info"
-                    android:layout_marginRight="@dimen/_3sdp"
                     android:layout_toLeftOf="@+id/ad_call_to_action"
                     android:background="@color/light_transparent"
                     android:ellipsize="end"
@@ -126,6 +119,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
+                    android:visibility="gone"
                     android:background="@drawable/ads_bg_lib"
                     android:gravity="center"
                     android:text="Install" />
@@ -135,8 +129,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:visibility="gone">
-
-
                 </LinearLayout>
             </RelativeLayout>
 
@@ -161,14 +153,12 @@
                 android:id="@+id/native_ad_sponsored_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/_5sdp"
                 android:clickable="false"
-                android:singleLine="true"
                 android:gravity="right"
+                android:singleLine="true"
                 android:text="Sponsored"
-                android:textColor="@color/cardview_dark_background"
-                android:textSize="12sp"
-                android:textStyle="bold" />
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/_6sdp"/>
 
             <com.google.android.gms.ads.nativead.AdChoicesView
                 android:id="@+id/adchoices_view"

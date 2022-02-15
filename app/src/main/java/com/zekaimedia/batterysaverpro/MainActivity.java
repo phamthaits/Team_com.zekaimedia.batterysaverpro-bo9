@@ -9,7 +9,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.Html;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +36,7 @@ import com.zekaimedia.batterysaverpro.activity.SettingActivity;
 import com.zekaimedia.batterysaverpro.activity.SplashActivity;
 import com.zekaimedia.batterysaverpro.billing.RemoveAdsActivity;
 import com.zekaimedia.batterysaverpro.fragment.fmBatterySaveMain;
+import com.zekaimedia.batterysaverpro.notification.NotificationDevice;
 
 public class MainActivity extends BaseActivity {
     private DrawerLayout mDrawerLayout;
@@ -204,6 +207,11 @@ public class MainActivity extends BaseActivity {
 //        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         loadFragment(new fmBatterySaveMain());
         toolbar.setNavigationIcon(R.drawable.ic_menu_home_24dp);
+        Menu menu = navigationView.getMenu();
+        menu.findItem(R.id.nav_junk_clean).setTitle(Html.fromHtml("<font color='#E0DCFF'>Trash Cleaner</font>"));
+        menu.findItem(R.id.nav_boost).setTitle(Html.fromHtml("<font color='#E0DCFF'>Phone Boost</font>"));
+        menu.findItem(R.id.nav_cool).setTitle(Html.fromHtml("<font color='#E0DCFF'>Phone Cooler</font>"));
+//        NotificationDevice.showNotificationTemp(this);
     }
 
     @Override

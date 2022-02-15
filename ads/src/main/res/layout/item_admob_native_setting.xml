@@ -12,18 +12,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="@dimen/_16sdp"
             android:orientation="vertical">
 
             <com.google.android.gms.ads.nativead.MediaView
                 android:id="@+id/ad_media"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_160sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_marginBottom="@dimen/_12sdp"
                 android:layout_gravity="center_horizontal" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/_5sdp">
+                android:layout_height="wrap_content">
 
                 <RelativeLayout
                     android:id="@+id/image_native"
@@ -120,7 +121,7 @@
                             style="@style/buttonSettingAds"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_margin="@dimen/_3sdp"
+                            android:layout_marginLeft="@dimen/_4sdp"
                             android:paddingHorizontal="@dimen/_4sdp" />
                     </RelativeLayout>
                 </RelativeLayout>
@@ -138,13 +139,14 @@
                 android:id="@+id/native_ad_sponsored_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginRight="@dimen/_16sdp"
                 android:clickable="false"
                 android:gravity="right"
                 android:singleLine="true"
                 android:text="Sponsored"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_8sdp"
+                 />
 
             <com.google.android.gms.ads.nativead.AdChoicesView
                 android:id="@+id/adchoices_view"

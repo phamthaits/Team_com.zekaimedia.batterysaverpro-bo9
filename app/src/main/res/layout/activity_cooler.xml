@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -21,172 +20,37 @@
             android:onClick="onClick">
 
             <FrameLayout
-                android:layout_width="@dimen/_48sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_centerVertical="true">
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_16sdp">
 
                 <ImageView
                     android:id="@+id/iv_arrow"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_navigate_before_white_48dp" />
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_result_back" />
             </FrameLayout>
 
             <TextView
                 android:id="@+id/activity_charge_tv_title_1"
                 style="@style/textHeaderActivity"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/phone_cool_nav"
-                android:textColor="@color/text_phone_cooler" />
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginRight="@dimen/_52sdp"
+                android:gravity="center"
+                android:text="@string/phone_cool_nav" />
 
         </LinearLayout>
     </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/lrScan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <com.skyfishjy.library.RippleBackground
-            android:id="@+id/charge_boost_ripple_background"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:rb_color="#00FFFFFF"
-            app:rb_duration="1200"
-            app:rb_radius="56.0dip"
-            app:rb_rippleAmount="2"
-            app:rb_scale="2.5">
-
-            <FrameLayout
-                android:id="@+id/fm_scan_container"
-                android:layout_width="@dimen/_200sdp"
-                android:layout_height="@dimen/_200sdp"
-                android:layout_centerInParent="true"
-                android:layout_gravity="center"
-                android:padding="@dimen/_30sdp">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/ivDoneHoloCirular"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:alpha="0.6"
-                        android:visibility="visible" />
-
-                    <ImageView
-                        android:id="@+id/clean_done_iv_done"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_centerInParent="true"
-                        android:layout_gravity="center"
-                        android:background="@drawable/complete_bg_cooler"
-                        android:padding="@dimen/_30sdp"
-                        android:src="@drawable/ic_complete_tick"
-                        android:visibility="gone" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:id="@+id/ivScan"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_fan" />
-
-                    <ImageView
-                        android:id="@+id/ivScan2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_fan_white" />
-                </FrameLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:visibility="visible"
-                    android:weightSum="2.0">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_70sdp"
-                        android:orientation="horizontal"
-                        android:weightSum="2.0">
-
-                        <FrameLayout
-                            android:id="@+id/fm_scan_container_1"
-                            android:layout_width="@dimen/_70sdp"
-                            android:layout_height="match_parent" />
-
-                        <FrameLayout
-                            android:id="@+id/fm_scan_container_2"
-                            android:layout_width="@dimen/_70sdp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1.0" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_70sdp"
-                        android:orientation="horizontal"
-                        android:weightSum="2.0">
-
-                        <FrameLayout
-                            android:id="@+id/fm_scan_container_4"
-                            android:layout_width="@dimen/_70sdp"
-                            android:layout_height="match_parent" />
-
-                        <FrameLayout
-                            android:id="@+id/fm_scan_container_3"
-                            android:layout_width="@dimen/_70sdp"
-                            android:layout_height="match_parent" />
-                    </LinearLayout>
-                </LinearLayout>
-            </FrameLayout>
-        </com.skyfishjy.library.RippleBackground>
-
-        <TextView
-            android:id="@+id/clean_up_done_tv_result"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:text="@string/cool_down_button"
-            android:textAllCaps="true"
-            android:textColor="@color/title_dark"
-            android:textSize="@dimen/_14sdp"
-            android:visibility="visible" />
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/iv_bg_snow"
-        android:layout_width="match_parent"
-        android:layout_height="1138.0dip"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/bg_snow"
-        android:translationY="-1138.0dip" />
 
     <FrameLayout
         android:id="@+id/fmResult"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?actionBarSize"
         android:animateLayoutChanges="true"
         android:background="@color/windowBackground"
         android:visibility="gone">
@@ -199,131 +63,295 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/_5sdp">
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:orientation="vertical">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_100sdp"
+                    android:layout_height="@dimen/_88sdp"
                     android:layout_gravity="center_vertical"
-                    android:background="@color/phone_cooler"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:background="@drawable/img_result_cooler"
                     android:gravity="center"
-                    android:paddingHorizontal="@dimen/_30sdp"
-                    android:paddingVertical="@dimen/_10sdp">
+                    android:paddingHorizontal="@dimen/_16sdp">
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_alignParentLeft="true"
-                        android:layout_toStartOf="@+id/image_right">
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/stt_optimized_info"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/bold"
+                            android:gravity="center"
+                            android:text="@string/stt_cooler_result"
+                            android:textAllCaps="true"
+                            android:textColor="@android:color/white"
+                            android:singleLine="true"
+                            android:textSize="@dimen/_16sdp" />
 
                         <TextView
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:fontFamily="@font/bold"
-                            android:gravity="left|center"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
                             android:text="@string/result_cooler"
                             android:textAllCaps="true"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/_14sdp" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/image_right"
-                        android:layout_width="@dimen/_100sdp"
-                        android:layout_height="@dimen/_100sdp"
-                        android:layout_alignParentRight="true">
-
-                        <ImageView
-                            android:id="@+id/img_done"
-                            android:layout_width="@dimen/_70sdp"
-                            android:layout_height="@dimen/_70sdp"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/ic_temperature" />
-
-                        <com.airbnb.lottie.LottieAnimationView
-                            android:layout_width="@dimen/_100sdp"
-                            android:layout_height="@dimen/_100sdp"
-                            android:layout_alignParentRight="true"
-                            app:lottie_autoPlay="true"
-                            app:lottie_loop="true"
-                            app:lottie_rawRes="@raw/confetti_blast" />
-
-                        <!-- <ImageView
-                             android:id="@+id/iv_bg_result"
-                             android:layout_width="@dimen/_100sdp"
-                             android:layout_height="@dimen/_100sdp"
-                             android:layout_gravity="center_horizontal"
-                             android:src="@drawable/bg_snow_result" />-->
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_width="wrap_content"
-                        android:layout_height="0.0dip"
-                        android:layout_below="@+id/image_right" />
+                            android:textColor="@android:color/white"
+                            android:singleLine="true"
+                            android:textSize="@dimen/_12sdp" />
+                    </LinearLayout>
                 </RelativeLayout>
 
                 <include
                     android:id="@+id/native_ads_control_holder"
                     layout="@layout/control_native_ads"
-                    android:layout_marginTop="@dimen/_5sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp" />
+                    android:layout_marginBottom="@dimen/_16sdp" />
 
-                <!--Trash Cleaner-->
-                <include
-                    android:id="@+id/cv_trash_cleaner"
-                    layout="@layout/trash_cleaner"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:orientation="horizontal">
+                    <!--Trash Cleaner-->
+                    <include
+                        android:id="@+id/cv_trash_cleaner"
+                        layout="@layout/result_trash_cleaner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_weight="1" />
 
-                <!--Phone Boost-->
-                <include
-                    layout="@layout/phone_boost"
+                    <!--Phone Boost-->
+                    <include
+                        layout="@layout/result_phone_boost"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:orientation="horizontal">
 
-                <!--Charge History-->
-                <include
-                    layout="@layout/charge_history"
+                    <!--App Manager-->
+                    <include
+                        layout="@layout/result_app_manager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_weight="1" />
+                    <!--Charge History-->
+                    <include
+                        layout="@layout/result_charge_history"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:orientation="horizontal">
 
-                <!--App Manager-->
-                <include
-                    layout="@layout/app_manager"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    <!--Fast Charge-->
+                    <include
+                        layout="@layout/result_fast_charge"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_weight="1" />
 
-                <!--Settings-->
-                <include
-                    layout="@layout/settings"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
-
-                <!--Remove Ads-->
-                <include
-                    android:id="@+id/remove_ads"
-                    layout="@layout/remove_ads"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_5sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
-
+                    <!--Remove Ads-->
+                    <include
+                        android:id="@+id/remove_ads"
+                        layout="@layout/result_remove_ads"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_weight="1" />
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
     </FrameLayout>
 
-</FrameLayout>
+    <!--Scanning Cooler-->
+    <LinearLayout
+        android:id="@+id/lrScan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/_24sdp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.skyfishjy.library.RippleBackground
+                android:id="@+id/charge_boost_ripple_background"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_416sdp"
+                android:layout_gravity="center"
+                app:rb_color="#00000000"
+                app:rb_duration="1200"
+                app:rb_radius="56.0dip"
+                app:rb_rippleAmount="2"
+                app:rb_scale="2.5">
+
+                <FrameLayout
+                    android:id="@+id/fm_scan_container"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/_30sdp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/ivDoneHoloCirular"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:alpha="0.6"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/clean_done_iv_done"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/complete_bg_cooler"
+                            android:padding="@dimen/_30sdp"
+                            android:src="@drawable/ic_complete_tick"
+                            android:visibility="gone"
+                            app:tint="@android:color/transparent" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/ivScan"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_fan"
+                            app:tint="@android:color/transparent" />
+
+                        <ImageView
+                            android:id="@+id/ivScan2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_fan_white"
+                            app:tint="@android:color/transparent" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="visible"
+                        android:weightSum="2.0">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_70sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2.0">
+
+                            <FrameLayout
+                                android:id="@+id/fm_scan_container_1"
+                                android:layout_width="@dimen/_70sdp"
+                                android:layout_height="match_parent" />
+
+                            <FrameLayout
+                                android:id="@+id/fm_scan_container_2"
+                                android:layout_width="@dimen/_70sdp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.0" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_70sdp"
+                            android:orientation="horizontal"
+                            android:weightSum="2.0">
+
+                            <FrameLayout
+                                android:id="@+id/fm_scan_container_4"
+                                android:layout_width="@dimen/_70sdp"
+                                android:layout_height="match_parent" />
+
+                            <FrameLayout
+                                android:id="@+id/fm_scan_container_3"
+                                android:layout_width="@dimen/_70sdp"
+                                android:layout_height="match_parent" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+            </com.skyfishjy.library.RippleBackground>
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/scan_optimize_charger"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_416sdp"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:padding="0dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/phone_cooler" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/clean_up_done_tv_result"
+            android:layout_width="@dimen/_144sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_56sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:background="@drawable/bg_button_uninstall"
+            android:fontFamily="@font/bold"
+            android:gravity="center"
+            android:paddingHorizontal="@dimen/_16sdp"
+            android:singleLine="true"
+            android:text="@string/cool_down_button"
+            android:textAllCaps="true"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/_10sdp"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_bg_snow"
+        android:layout_width="match_parent"
+        android:layout_height="1138.0dip"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/bg_snow"
+        android:translationY="-1138.0dip"
+        android:visibility="gone"
+        app:tint="@android:color/transparent" />
+</LinearLayout>

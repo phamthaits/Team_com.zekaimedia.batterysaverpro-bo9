@@ -22,6 +22,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.zekaimedia.batterysaverpro.R;
 import com.zekaimedia.batterysaverpro.Utilsb.SharePreferenceUtils;
 import com.zekaimedia.batterysaverpro.Utilsb.Utils;
+import com.zekaimedia.batterysaverpro.billing.RemoveAdsActivity;
 import com.zekaimedia.batterysaverpro.task.TaskCharge;
 import com.zekaimedia.batterysaverpro.task.TaskChargeDetail;
 import com.skyfishjy.library.RippleBackground;
@@ -57,7 +58,7 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
 
     public void checkTask() {
         if (!Utils.checkShouldDoing(this, 3)) {
-            findViewById(R.id.cv_trash_cleaner).setVisibility(View.GONE);
+            findViewById(R.id.cv_trash_cleaner).setVisibility(View.INVISIBLE);
         }
     }
 
@@ -91,8 +92,8 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(new Intent(this, AppManagerActivity.class));
                 finish();
                 return;
-            case R.id.lrSettings:
-                startActivity(new Intent(this, SettingActivity.class));
+            case R.id.lrRemove:
+                startActivity(new Intent(this, RemoveAdsActivity.class));
                 finish();
                 return;
              default:
@@ -114,7 +115,7 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
         imgOutCircle = findViewById(R.id.imgOutCircle);
         tvOptimize = findViewById(R.id.tvOptimize);
         ic_fan_white = findViewById(R.id.ic_fan_white);
-        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
+//        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.dark_icon_color), PorterDuff.Mode.MULTIPLY);
         this.ivDone.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.MULTIPLY);
 
         animationProgress = findViewById(R.id.av_progress);
@@ -163,7 +164,7 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
                         ivDone.setVisibility(View.VISIBLE);
                         ivDoneAnim = AnimationUtils.loadAnimation(ChargeActivity.this, R.anim.ic_done_anim);
                         ivDone.startAnimation(ivDoneAnim);
-                        rocketImageOut.setImageResource(R.drawable.rocket_12);
+//                        rocketImageOut.setImageResource(R.drawable.);
 
                         Animation zoom_out = AnimationUtils.loadAnimation(ChargeActivity.this, R.anim.zoom_out);
                         rlDone.startAnimation(zoom_out);

@@ -77,19 +77,32 @@
         <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/layout/fragment_clean.xml" value="0.34193840579710144" />
         <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/layout/notification_battery_full.xml" value="0.35190217391304346" />
         <entry key="..\:/Project/BatterySaver/Team_com.snowshirt.batterysaver-bo7/app/src/main/res/layout/notification_optimize.xml" value="0.35190217391304346" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/drawable/ads_bg_disable.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/drawable/ads_bg_lib.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/drawable/ads_icon.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/drawable/banner_native_ads_icon.xml" value="0.2075" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/drawable/bg_bt_rate_app.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/drawable/bg_card_ads.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/drawable/bg_rounded.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/drawable/selected_indicator.xml" value="0.2075" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/drawable/selector_button.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/drawable/selector_button_pressed.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/drawable/tab_selector.xml" value="0.2075" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/layout/control_native_ads.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/layout/dialog_rate_app.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/layout/item_admob_banner_native.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/layout/item_admob_native_ad.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/layout/item_admob_native_setting.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/layout/load_banner.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/ads/src/main/res/layout/load_native_banner.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/ad_bg.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bd_bottom_tips.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bg_btn.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bg_button_notification_red.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bg_button_uninstall.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bg_checkbox.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bg_circle_progress.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bg_head_popup.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bg_icon_app_manager.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bg_icon_charge_history.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bg_icon_phone_boost.xml" value="0.2548611111111111" />
@@ -97,19 +110,35 @@
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bg_icon_remove_ads.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bg_icon_settings.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bg_icon_trash_cleaner.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bg_remove_ads_all.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bg_textview_header.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bt_list.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bt_trash_check.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bt_trash_list.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/bt_trash_uncheck.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/btn_rounded.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/button_optimize.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/checkbox.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/default_indicator.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/fill_green.xml" value="0.2075" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/ic_back.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/ic_menu_home.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/ic_menu_home_24dp.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/ic_next.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/icon_bg.xml" value="0.2075" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/nav_item_background.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/nav_item_text.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/progess_bar.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/progess_bar_container.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/selected_indicator.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/selector_row.xml" value="0.2075" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/size_list.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/size_list_default.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/style_circular_indeterminate_cyan.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/tab_selector_history.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/thumb.xml" value="0.2548611111111111" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/drawable/track.xml" value="0.2548611111111111" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout-land/activity_remove_ads.xml" value="0.17048611111111112" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout-land/tips_new_version.xml" value="0.17048611111111112" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_app_manager.xml" value="0.25" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_charge_dialog.xml" value="0.24409722222222222" />
@@ -118,32 +147,50 @@
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_clean_result.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_cooler.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_do_not_disturb.xml" value="0.24409722222222222" />
-        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_do_optimize.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_do_optimize.xml" value="0.25" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_fast_charge.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_guide_setting.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_language.xml" value="0.234375" />
-        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_main.xml" value="0.14814814814814814" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_main.xml" value="0.2274914089347079" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_optimize.xml" value="0.24409722222222222" />
-        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_setting.xml" value="0.33" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_remove_ads.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_setting.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_speed_booster.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_splash_screen.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_white_list.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/activity_white_list_add.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/app_bar_home.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/app_manager.xml" value="0.253125" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/boost_notification.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/charge_history.xml" value="0.253125" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/content_home.xml" value="0.24409722222222222" />
-        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/custom_notification.xml" value="0.34629629629629627" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/custom_notification.xml" value="0.25" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/fast_charge.xml" value="0.253125" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/fragment_clean.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/fragment_history_battery.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/fragment_today.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/item.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/item_app_manager.xml" value="0.33" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/item_header.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/item_header_app_manager.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/item_whitelist.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/item_whitelist_add.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/loading.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/nav_header.xml" value="0.14814814814814814" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/notification_battery_full.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/notification_cool_down.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/notification_low.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/notification_optimize.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/phone_boost.xml" value="0.253125" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/phone_cooler.xml" value="0.253125" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/remove_ads.xml" value="0.253125" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/result_app_manager.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/result_charge_history.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/result_fast_charge.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/result_phone_boost.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/result_phone_cooler.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/result_remove_ads.xml" value="0.24409722222222222" />
+        <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/result_trash_cleaner.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/settings.xml" value="0.253125" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/tips_new_version.xml" value="0.24409722222222222" />
         <entry key="..\:/Project/BatterySaver/Team_com.zekaimedia.batterysaverpro-bo9/app/src/main/res/layout/trash_cleaner.xml" value="0.253125" />

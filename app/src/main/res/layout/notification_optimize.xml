@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/notification_bg_light"
     android:gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/_60sdp"
         android:orientation="horizontal"
-        android:padding="@dimen/_5sdp">
+        android:paddingHorizontal="@dimen/_16sdp">
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="@dimen/_48sdp"
-            android:layout_height="@dimen/_48sdp"
+            android:layout_width="@dimen/_42sdp"
+            android:layout_height="@dimen/_42sdp"
             android:layout_gravity="center"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_sync_true"
-            app:tint="@color/progress_background" />
+            android:src="@drawable/ic_noti_battery" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:layout_marginHorizontal="@dimen/_16sdp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -32,10 +30,11 @@
                 android:id="@+id/tvNotiTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/bold"
                 android:gravity="center_vertical"
                 android:singleLine="true"
                 android:text="@string/title_optimize"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/primary_text"
                 android:textSize="@dimen/_12sdp" />
 
             <TextView
@@ -46,8 +45,8 @@
                 android:ellipsize="marquee"
                 android:singleLine="true"
                 android:text="@string/low_battery_des"
-                android:textColor="@color/progress_background"
-                android:textSize="@dimen/_10sdp" />
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/_8sdp" />
         </LinearLayout>
 
         <FrameLayout
@@ -65,29 +64,26 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:background="@drawable/install_button_bg_radius"
+                android:background="@drawable/ads_bg_lib"
                 android:gravity="center"
                 android:padding="@dimen/_10sdp"
                 android:text="@string/low_battery"
                 android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/_12sdp"
-                android:textStyle="bold" />
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_12sdp" />
         </FrameLayout>
 
         <TextView
+            style="@style/buttonSettingAds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:background="@drawable/install_button_bg_radius"
             android:gravity="center"
             android:padding="@dimen/_10sdp"
             android:text="@string/optimize_noti"
             android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/_12sdp"
-            android:textStyle="bold" />
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/_12sdp" />
     </LinearLayout>
 </FrameLayout>

@@ -28,11 +28,10 @@
 
                 <ImageView
                     android:id="@+id/iv_arrow"
-                    android:layout_width="@dimen/_8sdp"
-                    android:layout_height="@dimen/_11sdp"
+                    android:layout_width="@dimen/_12sdp"
+                    android:layout_height="@dimen/_12sdp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_navigate_before_white_48dp"
-                    app:tint="@color/primary_text" />
+                    android:src="@drawable/ic_back" />
             </FrameLayout>
 
             <TextView
@@ -68,9 +67,10 @@
             android:layout_centerHorizontal="true"
             android:divider="@null"
             android:dividerHeight="0dp"
-            android:paddingHorizontal="@dimen/_5sdp"
-            android:paddingBottom="@dimen/_5sdp"
+            android:layout_marginHorizontal="@dimen/_32sdp"
+            android:layout_marginVertical="@dimen/_16sdp"
             android:scrollbars="none"
+            android:groupIndicator="@drawable/bt_list"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

@@ -13,22 +13,24 @@
 
     <!-- Container for contents of drawer - use NavigationView to make configuration easier -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/_256sdp"
         android:layout_height="wrap_content"
         android:layout_gravity="start">
 
         <com.google.android.material.navigation.NavigationView
             android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_480sdp"
-            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginLeft="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_42sdp"
             android:layout_marginBottom="@dimen/_24sdp"
             android:background="@drawable/nav_item_background"
             android:fitsSystemWindows="true"
             android:paddingHorizontal="@dimen/_20sdp"
+            app:elevation="0dp"
             app:headerLayout="@layout/nav_header"
             app:itemBackground="@drawable/nav_item_background"
+            app:itemIconSize="@dimen/_24sdp"
             app:itemMaxLines="1"
             app:itemTextAppearance="@style/BottomNavigationViewTextStyle"
             app:itemTextColor="@drawable/nav_item_text"

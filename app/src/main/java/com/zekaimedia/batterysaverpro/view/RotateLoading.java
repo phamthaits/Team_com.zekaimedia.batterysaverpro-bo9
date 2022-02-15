@@ -23,7 +23,7 @@ public class RotateLoading extends View {
     private static final int DEFAULT_WIDTH = 1;
     private static final int DEFAULT_SHADOW_POSITION = 2;
     private static final int DEFAULT_SPEED_OF_DEGREE = 10;
-    private static final String DEFAULT_COLOR = "#717EEE";
+    private static final String DEFAULT_COLOR = "#D4D4FF";
 
     private Paint mPaint;
     private Paint mPaintComplete;

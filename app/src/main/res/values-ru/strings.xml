@@ -24,9 +24,9 @@
     <string name="phone_boost_nav">Ускоритель</string>
     <string name="phone_cool_nav">Охлажд. тел.</string>
     <string name="battery_exellent">Ура!</string>
-    <string name="cleaned">Очищено: %s</string>
+    <string name="cleaned">%s Очищено</string>
     <string name="cleaning_junk">Удалений спама...</string>
-    <string name="result_cooler">Отлично! Охлаждение успешно.</string>
+    <string name="result_cooler">Охлаждение успешно.</string>
     <string name="ram_result">Ускорено</string>
     <string name="boosting">Ускорение памяти…</string>
     <string name="battery_full_des">Зарядка завершена, отключите ЗУ.</string>
@@ -50,7 +50,7 @@
     <string name="normal">Общий</string>
     <string name="super_saving">Энергосберегающий</string>
     <string name="custom">Сон</string>
-    <string name="sm_edge_device_optimized">Ура! Проблема перегрева решена.</string>
+    <string name="sm_edge_device_optimized">Решил проблему с питанием.</string>
     <string name="sm_ram_detail">Чтобы повысить производительность, освободите место в ОЗУ, остановив фоновые приложения.</string>
     <string name="op_boost">Ускорение</string>
     <string name="op_storage_des">Освобождение места в памяти путем удаления ненужных данных, например кэшированных, остаточных и рекламных файлов.</string>
@@ -135,4 +135,10 @@
     <string name="manager_description">Управление приложениями, такими как удаление, резервное копирование ...</string>
     <string name="settings_description">Управление всеми настройками</string>
     <string name="remove_description">Раздражающие объявления? Удаление объявлений навсегда прямо сейчас</string>
+    <string name="stt_sm_edge_device_optimized">Здорово!</string>
+    <string name="stt_ram_result">Полностью ускорьте свой телефон</string>
+    <string name="stt_cooler_result">Отлично!</string>
+    <string name="des_noti">Нажмите, чтобы повысить сейчас</string>
+    <string name="des_noti_100">Зарядка завершена. Отключите питание.</string>
+    <string name="des_noti_20">Низкий заряд батареи. Коснитесь для экономии энергии.</string>
 </resources>

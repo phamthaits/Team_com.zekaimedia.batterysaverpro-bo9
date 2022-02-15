@@ -23,8 +23,8 @@ public class RemoveAdsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remove_ads);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.bg_ads));
-        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.bg_ads));
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.windowBackground));
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.windowBackground));
         setContentView(R.layout.activity_remove_ads);
         adControl = AdControl.getInstance(this);
         ImageView back = findViewById(R.id.bntBackHome);

@@ -2,14 +2,18 @@
     <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
     <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
-    <string name="title_activity_language">Launguage</string>
+    <string name="title_activity_language">Language</string>
     <string name="language_name">English</string>
 
     <string name="fix_now">FIX NOW</string>
     <string name="optimize">OPTIMIZE</string>
 
+    //Noti
+    <string name="des_noti">Tap to boost now</string>
+    <string name="des_noti_100">Charging finished. Unplug the power.</string>
+    <string name="des_noti_20">Low battery. Tap to save power.</string>
     //
-    <string name="fast_charging">Optimize \nCharger</string>
+    <string name="fast_charging">Optimize Charger</string>
     <string name="full_charging">Full \nCharge</string>
     <string name="trickle_charging">Trickle \nCharge</string>
     <string name="bd_charge_history">Charge History</string>
@@ -79,7 +83,7 @@
 
     //Cap quyen
     <string name="setting_permission_request_title">Allow write system settings</string>
-    <string name="setting_permission_request_summary">You need turn on permission to use this funtion</string>
+    <string name="setting_permission_request_summary">You need turn on permission to use this function</string>
 
     <string name="screen_brightness">Brightness</string>
     <string name="auto">Auto</string>
@@ -93,7 +97,8 @@
     <string name="custom">Sleep</string>
 
     //Optimize
-    <string name="sm_edge_device_optimized">Great! Solved the power problem.</string>
+    <string name="sm_edge_device_optimized">Solved the power problem.</string>
+    <string name="stt_sm_edge_device_optimized">Great!</string>
     <string name="ram_boost_title">Phone Boost</string>
     <string name="sm_ram_detail">To improve performance, free up memory by stopping background apps.</string>
     <string name="op_boost">Boost</string>
@@ -168,10 +173,12 @@
 
     //
     <string name="ram_result">Boosted</string>
+    <string name="stt_ram_result">Completely speed up your phone</string>
     <string name="boosting">Boosting Memory</string>
-    <string name="result_cooler">Excellent! Successfully cooled down.</string>
+    <string name="result_cooler">Successfully cooled down.</string>
+    <string name="stt_cooler_result">Excellent!</string>
     <string name="cleaning_junk">Cleaning junk files</string>
-    <string name="cleaned">Cleaned: %s</string>
+    <string name="cleaned">%s was cleaned</string>
 
     <string name="battery_exellent">Great!</string>
 
@@ -192,8 +199,8 @@
     <string name="app_name">Battery Saver Master</string>
     <string name="power_full">Power is full</string>
     <string name="auto_disable">Disable</string>
-    <string name="on_status">ON</string>
-    <string name="off_status">OFF</string>
+    <string name="on_status">On</string>
+    <string name="off_status">Off</string>
     <string name="boost_title2">Memory is low</string>
     <string name="boost_des">Tap to speed up laggy phone</string>
     <string name="low_power_30">Low battery</string>

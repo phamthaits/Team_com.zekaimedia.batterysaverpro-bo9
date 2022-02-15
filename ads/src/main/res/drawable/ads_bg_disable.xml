@@ -8,7 +8,7 @@
             <stroke
                 android:width="1px"
                 android:color="@color/button_ads_60" />
-            <corners android:radius="10dp" />
+            <corners android:radius="@dimen/_16sdp" />
         </shape>
     </item>
     <item android:state_pressed="true" >
@@ -18,7 +18,7 @@
             <stroke
                 android:width="1px"
                 android:color="@color/button_ads_60" />
-            <corners android:radius="10dp" />
+            <corners android:radius="@dimen/_16sdp" />
         </shape>
     </item>
 </selector>

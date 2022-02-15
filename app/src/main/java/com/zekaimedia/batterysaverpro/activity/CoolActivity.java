@@ -85,8 +85,8 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
 
-        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
-        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.white));
+       /* getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.white));*/
         /* ------------------------------------------------------------------ */
 
         View bt_RemoveAds = findViewById(R.id.remove_ads);
@@ -105,7 +105,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 
     public void checkTask() {
         if (!Utils.checkShouldDoing(this, 3)) {
-            findViewById(R.id.cv_trash_cleaner).setVisibility(View.GONE);
+            findViewById(R.id.cv_trash_cleaner).setVisibility(View.INVISIBLE);
         }
     }
 
@@ -132,8 +132,8 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(this, AppManagerActivity.class));
                 finish();
                 return;
-            case R.id.lrSettings:
-                startActivity(new Intent(this, SettingActivity.class));
+            case R.id.lrCharge:
+                startActivity(new Intent(this, ChargeSettingActivity.class));
                 finish();
                 return;
             case R.id.lrRemove:
@@ -187,10 +187,10 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 //            parentAds.startAnimation(downtoup);
 //        }
 
-        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
+//        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), PorterDuff.Mode.MULTIPLY);
 //        ((ImageView) findViewById(R.id.iv_bg_snow)).setColorFilter(getResources().getColor(R.color.color_trans), PorterDuff.Mode.MULTIPLY);
-        this.ivDone.setColorFilter(getResources().getColor(R.color.color_white), PorterDuff.Mode.MULTIPLY);
-        this.rocketImageOut.setColorFilter(getResources().getColor(R.color.text_phone_cooler), PorterDuff.Mode.MULTIPLY);
+//        this.ivDone.setColorFilter(getResources().getColor(R.color.color_white), PorterDuff.Mode.MULTIPLY);
+//        this.rocketImageOut.setColorFilter(getResources().getColor(R.color.text_phone_cooler), PorterDuff.Mode.MULTIPLY);
 //        this.rocketImage.setColorFilter(getResources().getColor(R.color.color_trans), PorterDuff.Mode.MULTIPLY);
     }
 
@@ -209,10 +209,10 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            CoolActivity.this.rocketImageOut.setImageResource(R.drawable.rocket_12);
+//            CoolActivity.this.rocketImageOut.setImageResource(R.drawable.);
             ((View) CoolActivity.this.rocketImage.getParent()).setVisibility(View.GONE);
-            CoolActivity.this.ivDone.setVisibility(View.VISIBLE);
-            CoolActivity.this.ivDone.startAnimation(CoolActivity.this.ivDoneAnim);
+//            CoolActivity.this.ivDone.setVisibility(View.VISIBLE);
+//            CoolActivity.this.ivDone.startAnimation(CoolActivity.this.ivDoneAnim);
             CoolActivity.this.tvResult.setText(CoolActivity.this.getResources().getString(R.string.done));
             CoolActivity.this.tvResult.startAnimation(CoolActivity.this.ivDoneAnim);
         }
@@ -442,10 +442,10 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
         Animation slideUp = AnimationUtils.loadAnimation(CoolActivity.this, R.anim.zoom_in);
         lrScan.startAnimation(slideUp);
         CoolActivity.this.lrScan.setVisibility(View.GONE);
-        getWindow().setStatusBarColor(Color.rgb(42, 195, 255));
-        getWindow().setNavigationBarColor(Color.rgb(42, 195, 255));
+       /* getWindow().setStatusBarColor(Color.rgb(42, 195, 255));
+        getWindow().setNavigationBarColor(Color.rgb(42, 195, 255));*/
         LinearLayout lrBack = findViewById(R.id.lr_back);
-        lrBack.setBackgroundColor(Color.rgb(42, 195, 255));
+//        lrBack.setBackgroundColor(Color.rgb(42, 195, 255));
         CoolActivity.this.parentAds.setAlpha(0.0f);
         CoolActivity.this.parentAds.setVisibility(View.VISIBLE);
         CoolActivity.this.parentAds.animate().alpha(1.0f).start();

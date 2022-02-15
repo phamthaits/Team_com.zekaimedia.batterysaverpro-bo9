@@ -17,7 +17,7 @@
 
     <item
         android:id="@+id/navigation_cart"
-        android:icon="@drawable/ic_setting"
+        android:icon="@drawable/ic_setting_fastcharge"
         android:title="@string/setting_nav" />
 
 

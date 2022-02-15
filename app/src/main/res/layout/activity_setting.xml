@@ -29,11 +29,10 @@
 
                 <ImageView
                     android:id="@+id/iv_arrow"
-                    android:layout_width="@dimen/_8sdp"
-                    android:layout_height="@dimen/_11sdp"
+                    android:layout_width="@dimen/_12sdp"
+                    android:layout_height="@dimen/_12sdp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_navigate_before_white_48dp"
-                    app:tint="@color/primary_text" />
+                    android:src="@drawable/ic_back" />
             </FrameLayout>
 
             <TextView
@@ -41,25 +40,25 @@
                 style="@style/textHeaderActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginLeft="@dimen/_12sdp"
                 android:text="@string/title_activity_setting" />
         </LinearLayout>
     </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="@dimen/_16sdp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_16sdp"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_14sdp"
                 android:orientation="vertical">
 
                 <TextView
@@ -81,7 +80,7 @@
                 <LinearLayout
                     android:id="@+id/lrKillApp"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_24sdp"
+                    android:layout_height="@dimen/_32sdp"
                     android:layout_marginBottom="@dimen/_20sdp"
                     android:clickable="false">
 
@@ -118,7 +117,7 @@
                     android:id="@+id/lrIngoreList"
                     style="@style/Ripple"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_24sdp">
+                    android:layout_height="@dimen/_32sdp">
 
                     <ImageView
                         style="@style/imageStyle"
@@ -146,11 +145,11 @@
 
 
                     <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
                         android:layout_gravity="center"
                         android:padding="5dp"
-                        android:src="@drawable/ic_next_page" />
+                        android:src="@drawable/ic_next" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -160,13 +159,13 @@
                 layout="@layout/control_native_ads"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_32sdp" />
+                android:layout_marginTop="@dimen/_20sdp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_24sdp"
-                android:layout_marginBottom="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_14sdp"
                 android:orientation="vertical">
 
                 <TextView
@@ -244,15 +243,16 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="20:00-8:00"
+                        android:visibility="gone"
                         android:textColor="@color/secondary_text"
                         android:textSize="@dimen/_6sdp" />
 
                     <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
                         android:layout_gravity="center"
                         android:padding="5dp"
-                        android:src="@drawable/ic_next_page" />
+                        android:src="@drawable/ic_next" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -374,8 +374,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_24sdp"
-                android:layout_marginBottom="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_14sdp"
                 android:orientation="vertical">
 
                 <TextView
@@ -397,7 +397,7 @@
                 <LinearLayout
                     android:id="@+id/lrTemperture"
                     style="@style/Ripple"
-                    android:layout_height="@dimen/_24sdp"
+                    android:layout_height="@dimen/_32sdp"
                     android:layout_marginBottom="@dimen/_20sdp">
 
                     <ImageView
@@ -459,11 +459,11 @@
                     </LinearLayout>
 
                     <ImageView
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
                         android:layout_gravity="center"
                         android:padding="5dp"
-                        android:src="@drawable/ic_next_page" />
+                        android:src="@drawable/ic_next" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

@@ -24,9 +24,9 @@
     <string name="phone_boost_nav">속도 향상</string>
     <string name="phone_cool_nav">휴대폰 쿨러</string>
     <string name="battery_exellent">놀라운 효과!</string>
-    <string name="cleaned">청소됨: %s</string>
+    <string name="cleaned">%s 청소됨</string>
     <string name="cleaning_junk">불 필요한 파일 정리 중…</string>
-    <string name="result_cooler">성공! 냉각이 완료되었습니다.</string>
+    <string name="result_cooler">냉각이 완료되었습니다.</string>
     <string name="ram_result">부스트됨</string>
     <string name="boosting">메모리 부스트 중</string>
     <string name="battery_full_des">충전이 끝났습니다. 전원 플러그를 해제하세요</string>
@@ -50,7 +50,7 @@
     <string name="normal">일반</string>
     <string name="super_saving">장시간대기</string>
     <string name="custom">수면 모드</string>
-    <string name="sm_edge_device_optimized">성공! 전원 문제가 해결되었습니다.</string>
+    <string name="sm_edge_device_optimized">전원 문제를 해결했습니다.</string>
     <string name="sm_ram_detail">성능을 향상시킬 수 있도록 사용 중이 아닌 앱을 중지하여 RAM을 확보하세요.</string>
     <string name="op_boost">증폭화</string>
     <string name="op_storage_des">캐시 파일, 잔여 파일, 광고성 파일 등 불필요한 데이터를 삭제하여 저장공간을 확보하세요.</string>
@@ -135,4 +135,10 @@
     <string name="manager_description">제거, 백업 과 같은 앱을 관리 ...</string>
     <string name="settings_description">모든 설정 관리</string>
     <string name="remove_description">성가신 광고? 지금 영원히 광고를 제거</string>
+    <string name="stt_sm_edge_device_optimized">엄청난!</string>
+    <string name="stt_ram_result">휴대 전화의 속도를 완전히 높이십시오.</string>
+    <string name="stt_cooler_result">훌륭한!</string>
+    <string name="des_noti">지금 부스트하려면 탭하세요.</string>
+    <string name="des_noti_100">충전이 완료되었습니다. 전원을 뽑습니다.</string>
+    <string name="des_noti_20">배터리 부족. 탭하여 전력을 절약하세요.</string>
 </resources>

@@ -120,7 +120,6 @@
                     android:id="@+id/tv_time_h_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2.0dip"
                     android:text="h"
                     android:textColor="@color/primary_text"
                     android:textSize="@dimen/_10sdp" />
@@ -138,7 +137,6 @@
                     android:id="@+id/tv_time_m_unit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="2.0dip"
                     android:text="m"
                     android:textColor="@color/primary_text"
                     android:textSize="@dimen/_10sdp" />

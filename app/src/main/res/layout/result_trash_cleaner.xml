@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/_136sdp"
+    android:layout_height="@dimen/_103sdp"
+    android:background="@drawable/bg_rounded">
+
+    <LinearLayout
+        android:id="@+id/lrClean"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:onClick="onClick"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/_12sdp"
+        android:paddingVertical="@dimen/_16sdp">
+
+        <RelativeLayout
+            android:id="@+id/icon_clean"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:gravity="left">
+
+            <ImageView
+                android:id="@+id/ivVoltage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_result_clean" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/text_trash"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvClean"
+                    style="@style/listContentHome"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/junk_clean_nav" />
+
+                <TextView
+                    android:id="@+id/tvFullCharge"
+                    style="@style/listContentHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:text="@string/op_clean"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

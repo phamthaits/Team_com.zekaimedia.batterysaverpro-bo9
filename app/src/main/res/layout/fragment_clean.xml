@@ -28,11 +28,10 @@
 
                 <ImageView
                     android:id="@+id/iv_arrow"
-                    android:layout_width="@dimen/_8sdp"
-                    android:layout_height="@dimen/_11sdp"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_navigate_before_white_48dp"
-                    app:tint="@color/primary_text" />
+                    android:src="@drawable/ic_result_back" />
             </FrameLayout>
 
             <TextView
@@ -40,17 +39,19 @@
                 style="@style/textHeaderActivity"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginRight="@dimen/_52sdp"
+                android:gravity="center"
                 android:text="@string/junk_clean_nav" />
 
         </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_width="@dimen/_192sdp"
-        android:layout_height="@dimen/_192sdp"
+        android:layout_width="@dimen/_208sdp"
+        android:layout_height="@dimen/_208sdp"
         android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/_16sdp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -59,10 +60,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/scan_optimize_charger"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_clean_trash" />
+                android:layout_centerInParent="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:padding="0dp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/cleaner" />
         </LinearLayout>
 
         <LinearLayout
@@ -82,6 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
+                android:layout_marginTop="@dimen/_2sdp"
                 android:orientation="vertical">
 
                 <TextView
@@ -110,9 +121,9 @@
         android:id="@+id/tvTotalFound"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/bold"
         android:gravity="center"
         android:singleLine="true"
+        android:textAllCaps="true"
         android:textColor="@color/primary_text"
         android:textSize="@dimen/_10sdp"
         tools:text="@string/total_found" />
@@ -121,9 +132,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginVertical="@dimen/_24sdp"
-        android:layout_weight="1"
-        android:paddingLeft="@dimen/_40sdp"
-        android:paddingRight="@dimen/_32sdp">
+        android:layout_marginHorizontal="@dimen/_40sdp"
+        android:layout_weight="1">
 
         <com.zekaimedia.batterysaverpro.view.AnimatedExpandableListView
             android:id="@+id/recyclerView"
@@ -132,6 +142,7 @@
             android:layout_centerInParent="true"
             android:divider="@null"
             android:dividerHeight="0dp"
+            android:groupIndicator="@drawable/bt_list"
             android:scrollbars="none" />
 
         <TextView
@@ -281,7 +292,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="@dimen/_32sdp"
-        android:layout_marginBottom="10dip"
-        android:text="@string/op_clean"
-        android:textStyle="bold" />
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:text="@string/op_clean"/>
 </LinearLayout>

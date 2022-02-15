@@ -7,7 +7,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
+import android.content.res.Configuration;
 import android.graphics.drawable.Icon;
+import android.util.Log;
 import android.view.View;
 import android.widget.RemoteViews;
 
@@ -119,31 +121,67 @@ public class NotificationBattery extends NotificationCompat.Builder {
         iCooler.setAction("LOCATION_SHORTCUT");
 
         RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.custom_notification);
-        remoteViews.setOnClickPendingIntent(R.id.img_clean, pOptipimize);
-        remoteViews.setTextViewText(R.id.tvBattery, lv + "%");
-        //temperature
+        int currentNightMode = mContext.getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK;
+        switch (currentNightMode) {
+            case Configuration.UI_MODE_NIGHT_NO:
+                Log.d("Test", "UI_MODE_NIGHT_NO");
+                remoteViews.setTextColor(R.id.tvBattery, mContext.getResources().getColor(R.color.primary_light));
+                remoteViews.setTextColor(R.id.des_noti, mContext.getResources().getColor(R.color.secondary_light));
+                remoteViews.setTextColor(R.id.tv_status, mContext.getResources().getColor(R.color.secondary_light));
+                remoteViews.setTextColor(R.id.tvHour, mContext.getResources().getColor(R.color.secondary_light));
+                remoteViews.setTextColor(R.id.tv_time_h_unit, mContext.getResources().getColor(R.color.secondary_light));
+                remoteViews.setTextColor(R.id.tvMin, mContext.getResources().getColor(R.color.secondary_light));
+                remoteViews.setTextColor(R.id.tv_time_m_unit, mContext.getResources().getColor(R.color.secondary_light));
+                remoteViews.setImageViewResource(R.id.line_noti, R.drawable.img_noti_line_light);
+                remoteViews.setImageViewResource(R.id.ic_noti_time, R.drawable.ic_noti_time_light);
+                break;
+            case Configuration.UI_MODE_NIGHT_YES:
+                remoteViews.setTextColor(R.id.tvBattery, mContext.getResources().getColor(R.color.primary_dark));
+                remoteViews.setTextColor(R.id.des_noti, mContext.getResources().getColor(R.color.secondary_dark));
+                remoteViews.setTextColor(R.id.tv_status, mContext.getResources().getColor(R.color.secondary_dark));
+                remoteViews.setTextColor(R.id.tv_status, mContext.getResources().getColor(R.color.primary_dark));
+                remoteViews.setTextColor(R.id.tvHour, mContext.getResources().getColor(R.color.primary_dark));
+                remoteViews.setTextColor(R.id.tv_time_h_unit, mContext.getResources().getColor(R.color.primary_dark));
+                remoteViews.setTextColor(R.id.tvMin, mContext.getResources().getColor(R.color.primary_dark));
+                remoteViews.setTextColor(R.id.tv_time_m_unit, mContext.getResources().getColor(R.color.primary_dark));
+                remoteViews.setImageViewResource(R.id.line_noti, R.drawable.img_noti_line_dark);
+                remoteViews.setImageViewResource(R.id.ic_noti_time, R.drawable.ic_noti_time_dark);
+                break;
+        }
 
+//        remoteViews.setOnClickPendingIntent(R.id.img_clean, pOptipimize);
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "NOTIFYCATION_BATTERY_ID");
+        remoteViews.setTextViewText(R.id.tvBattery, lv + "%");
+        if (lv == 100) {
+            remoteViews.setImageViewResource(R.id.img_battery, R.drawable.ic_noti_battery);
+            remoteViews.setTextViewText(R.id.des_noti, mContext.getString(R.string.des_noti_100));
+            notificationBuilder.setContentIntent(pendingIntent);
+        }
+        if (lv < 20) {
+            remoteViews.setImageViewResource(R.id.img_battery, R.drawable.ic_noti_low);
+            remoteViews.setTextViewText(R.id.des_noti, mContext.getString(R.string.des_noti_20));
+            notificationBuilder.setContentIntent(pOptipimize);
+        }
+        if (lv >= 20 & lv < 100) {
+            remoteViews.setImageViewResource(R.id.img_battery, R.drawable.ic_noti_boost);
+            remoteViews.setTextViewText(R.id.des_noti, mContext.getString(R.string.des_noti));
+            notificationBuilder.setContentIntent(pOptipimize);
+        }
+        //temperature
         remoteViews.setTextViewText(R.id.tvTemp, getTemp(temp));
         remoteViews.setTextViewText(R.id.tvHour, String.format("%02d", hourleft));
         remoteViews.setTextViewText(R.id.tvMin, String.format("%02d", minleft));
         remoteViews.setTextViewText(R.id.tv_status, getStatusTime(ischarging));
+
         if (ischarging) {
             if (Utils.getChargeFull(mContext)) {
                 remoteViews.setViewVisibility(R.id.view_time_left, View.GONE);
-                remoteViews.setViewVisibility(R.id.tvFullCharge, View.VISIBLE);
-                remoteViews.setTextViewText(R.id.tvFullCharge, mContext.getString(R.string.power_full));
             }
-            remoteViews.setImageViewResource(R.id.img_battery, R.drawable.ic_battery_notification_charge);
         } else {
             remoteViews.setViewVisibility(R.id.view_time_left, View.VISIBLE);
             remoteViews.setViewVisibility(R.id.tvFullCharge, View.GONE);
-            if (lv < 20) {
-                remoteViews.setImageViewResource(R.id.img_battery, R.drawable.ic_battery_notification_low);
-            } else {
-                remoteViews.setImageViewResource(R.id.img_battery, R.drawable.ic_battery_notification_normal);
-            }
         }
-        remoteViews.setImageViewResource(R.id.img_temp, R.drawable.ic_temperature_normal);
 
         ShortcutManager shortcutManager;
         if (android.os.Build.VERSION.SDK_INT >= 25) {
@@ -174,14 +212,13 @@ public class NotificationBattery extends NotificationCompat.Builder {
         }
 
 //            if (android.os.Build.VERSION.SDK_INT < 25) {
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "NOTIFYCATION_BATTERY_ID");
+//        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "NOTIFYCATION_BATTERY_ID");
 //        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext);
-        notificationBuilder.setSmallIcon(iconRes[lv]);
+        notificationBuilder.setSmallIcon(R.drawable.logo_v3);
         notificationBuilder.setTicker(null);
         notificationBuilder.setOnlyAlertOnce(true);
         notificationBuilder.setContentTitle(mContext.getString(R.string.battery_level));
         notificationBuilder.setContentText(null);
-        notificationBuilder.setContentIntent(pendingIntent);
         notificationBuilder.setDefaults(0);
 //                    if (Build.VERSION.SDK_INT >= 23) {
         notificationBuilder.setChannelId("notification_channel_id");
@@ -190,6 +227,7 @@ public class NotificationBattery extends NotificationCompat.Builder {
         Notification notification = notificationBuilder.build();
         this.notificationManager.notify(NOTIFYCATION_BATTERY_ID, notification);
 //            }
+
     }
 
     private String getStatusTime(boolean isCharging) {

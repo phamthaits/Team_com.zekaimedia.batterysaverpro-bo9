@@ -1,23 +1,24 @@
 package com.zekaimedia.batterysaverpro.activity;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.ContextCompat;
-
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.os.Bundle;
-
-import androidx.appcompat.widget.SwitchCompat;
-import androidx.appcompat.widget.Toolbar;
-
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.ads.control.AdControl;
 import com.ads.control.AdControlHelp;
+import com.ads.control.funtion.UtilsApp;
+import com.zekaimedia.batterysaverpro.R;
 import com.zekaimedia.batterysaverpro.Utilsb.SharePreferenceUtils;
 import com.zekaimedia.batterysaverpro.Utilsb.Utils;
-import com.zekaimedia.batterysaverpro.R;
 
 public class ChargeSettingActivity extends BaseActivity implements View.OnClickListener {
 
@@ -31,11 +32,11 @@ public class ChargeSettingActivity extends BaseActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
         setContentView(R.layout.activity_fast_charge);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        /*Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(getString(R.string.fast_charging));
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationIcon(R.drawable.ic_navigate_before_white_48dp);
+        setSupportActionBar(toolbar);*/
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        toolbar.setNavigationIcon(R.drawable.ic_navigate_before_white_48dp);
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
 
@@ -47,6 +48,14 @@ public class ChargeSettingActivity extends BaseActivity implements View.OnClickL
         intEvent();
         intData();
         checkPer();
+        LinearLayout icBack = findViewById(R.id.lr_back);
+        icBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                return;
+            }
+        });
     }
 
     private void checkPer() {
@@ -62,7 +71,7 @@ public class ChargeSettingActivity extends BaseActivity implements View.OnClickL
     }
 
     private void showDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.MyDialogTheme);
         builder.setTitle(getString(R.string.disable_fast_charging));
         builder.setMessage(getString(R.string.disable_fast_charging_des));
 
@@ -127,7 +136,7 @@ public class ChargeSettingActivity extends BaseActivity implements View.OnClickL
     private void setColorText(boolean isChecked) {
         if (isChecked) {
             tvEnable.setText(getString(R.string.enabled));
-            tvEnable.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
+            tvEnable.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
             swAutoRun.setChecked(isChecked);
             findViewById(R.id.lrWifi).setEnabled(true);
             findViewById(R.id.lrBluetooth).setEnabled(true);
@@ -135,59 +144,62 @@ public class ChargeSettingActivity extends BaseActivity implements View.OnClickL
             findViewById(R.id.lrAutoSync).setEnabled(true);
 
 
-            tvWifi.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
+            tvWifi.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
             if (SharePreferenceUtils.getInstance(this).getFsWifi()) {
                 swWifi.setChecked(true);
-                tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
+                tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_text));
                 tvWifiDes.setText(getString(R.string.on_status));
-
             } else {
                 swWifi.setChecked(false);
                 tvWifiDes.setText(getString(R.string.off_status));
-                tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
+                tvWifi.setTextColor(ContextCompat.getColor(this, R.color.primary_uncheck));
+                tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_uncheck));
+            }
+
+            if (SharePreferenceUtils.getInstance(this).getFsAutoBrightness()) {
+                tvBrightness.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
+                tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_text));
+            } else {
+                tvBrightness.setTextColor(ContextCompat.getColor(this, R.color.primary_uncheck));
+                tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_uncheck));
             }
 
             if (SharePreferenceUtils.getInstance(this).getFsBluetooth()) {
                 swBluetooth.setChecked(true);
-                tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
+                tvBluetooth.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
+                tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_text));
                 tvBluetoothDes.setText(getString(R.string.on_status));
             } else {
                 swBluetooth.setChecked(false);
                 tvBluetoothDes.setText(getString(R.string.off_status));
-                tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
+                tvBluetooth.setTextColor(ContextCompat.getColor(this, R.color.primary_uncheck));
+                tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_uncheck));
             }
-            tvBluetooth.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
-
-            if (SharePreferenceUtils.getInstance(this).getFsAutoBrightness()) {
-                tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
-            } else {
-                tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
-            }
-            tvBrightness.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
-
 
             if (SharePreferenceUtils.getInstance(this).getFsAutoSync()) {
-                tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
+                tvSync.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
+                tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_text));
             } else {
-                tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
+                tvSync.setTextColor(ContextCompat.getColor(this, R.color.primary_uncheck));
+                tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_uncheck));
             }
-            tvSync.setTextColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
         } else {
             tvEnable.setText(getString(R.string.auto_disable));
-            tvEnable.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
+            tvEnable.setTextColor(ContextCompat.getColor(this, R.color.color_uncheck));
+            tvEnable.getBackground().setAlpha(20);
             swAutoRun.setChecked(isChecked);
             findViewById(R.id.lrWifi).setEnabled(false);
             findViewById(R.id.lrBluetooth).setEnabled(false);
             findViewById(R.id.lrAutoBrightness).setEnabled(false);
             findViewById(R.id.lrAutoSync).setEnabled(false);
-            tvWifi.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
-            tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
-            tvBluetooth.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
-            tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
-            tvBrightness.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
-            tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
-            tvSync.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
-            tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
+            tvWifi.setTextColor(ContextCompat.getColor(this, R.color.primary_uncheck));
+            tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_uncheck));
+            tvBluetooth.setTextColor(ContextCompat.getColor(this, R.color.primary_uncheck));
+            tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_uncheck));
+            tvBrightness.setTextColor(ContextCompat.getColor(this, R.color.primary_uncheck));
+            tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_uncheck));
+            tvSync.setTextColor(ContextCompat.getColor(this, R.color.primary_uncheck));
+            tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_uncheck));
             swWifi.setChecked(false);
             swBluetooth.setChecked(false);
             swAutoBrightness.setChecked(false);
@@ -236,42 +248,51 @@ public class ChargeSettingActivity extends BaseActivity implements View.OnClickL
 
                 if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsWifi()) {
                     tvWifiDes.setText(R.string.off_status);
-                    tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
+                    tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_uncheck));
                     swWifi.setChecked(false);
+                    tvWifi.setTextColor(ContextCompat.getColor(this, R.color.primary_uncheck));
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsWifi(false);
                 } else {
-                    tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
+                    tvWifiDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_text));
                     tvWifiDes.setText(R.string.on_status);
+                    tvWifi.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsWifi(true);
                     swWifi.setChecked(true);
                 }
                 break;
+
+            case R.id.lrAutoBrightness:
+
+                if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsAutoBrightness()) {
+                    tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_uncheck));
+                    swAutoBrightness.setChecked(false);
+                    tvBrightness.setTextColor(ContextCompat.getColor(this, R.color.primary_uncheck));
+                    SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoBrightness(false);
+                } else {
+                    tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_text));
+                    swAutoBrightness.setChecked(true);
+                    tvBrightness.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
+                    SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoBrightness(true);
+                }
+                break;
+
             case R.id.lrBluetooth:
 
                 if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsBluetooth()) {
                     tvBluetoothDes.setText(R.string.off_status);
                     swBluetooth.setChecked(false);
-                    tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
+                    tvBluetooth.setTextColor(ContextCompat.getColor(this, R.color.primary_uncheck));
+                    tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_uncheck));
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsBluetooth(false);
                 } else {
-                    tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
+                    tvBluetoothDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_text));
                     tvBluetoothDes.setText(R.string.on_status);
+                    tvBluetooth.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
                     swBluetooth.setChecked(true);
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsBluetooth(true);
                 }
                 break;
-            case R.id.lrAutoBrightness:
 
-                if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsAutoBrightness()) {
-                    tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
-                    swAutoBrightness.setChecked(false);
-                    SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoBrightness(false);
-                } else {
-                    tvBrightnessDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
-                    swAutoBrightness.setChecked(true);
-                    SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoBrightness(true);
-                }
-                break;
             case R.id.lrAutoRun:
 
                 if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsAutoRun()) {
@@ -283,16 +304,16 @@ public class ChargeSettingActivity extends BaseActivity implements View.OnClickL
             case R.id.lrAutoSync:
 
                 if (SharePreferenceUtils.getInstance(ChargeSettingActivity.this).getFsAutoSync()) {
-                    tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.grey_500));
+                    tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_uncheck));
                     swAutoSync.setChecked(false);
+                    tvSync.setTextColor(ContextCompat.getColor(this, R.color.primary_uncheck));
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoSync(false);
 
                 } else {
-                    tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.trash_cleanner));
+                    tvSyncDes.setTextColor(ContextCompat.getColor(this, R.color.secondary_text));
                     swAutoSync.setChecked(true);
+                    tvSync.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
                     SharePreferenceUtils.getInstance(ChargeSettingActivity.this).setFsAutoSync(true);
-
-
                 }
                 break;
 

@@ -3,26 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="@dimen/_5sdp"
     android:orientation="vertical">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@drawable/bg_rounded"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:padding="@dimen/_10sdp">
+        android:layout_marginVertical="@dimen/_8sdp"
+        android:layout_gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/selector_row"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingVertical="@dimen/_5sdp"
-            android:paddingLeft="45dp">
+            android:paddingLeft="@dimen/_40sdp">
 
             <ImageView
                 android:id="@+id/item_arrow"
@@ -41,8 +36,7 @@
                 android:layout_marginStart="@dimen/standard_padding"
                 android:layout_marginLeft="@dimen/standard_padding"
                 android:layout_weight="1"
-                android:textColor="@color/title_dark"
-                android:textSize="@dimen/_12sdp"
+                android:textSize="@dimen/_10sdp"
                 tools:text="Group Name" />
 
             <TextView
@@ -50,18 +44,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:background="@drawable/bg_textview_header"
-                android:paddingHorizontal="@dimen/_15sdp"
-                android:paddingVertical="@dimen/_2sdp"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/_7sdp"
                 tools:text="74 MB" />
 
             <CheckBox
                 android:id="@+id/ckHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:layout_marginLeft="@dimen/_12sdp"
                 android:button="@drawable/checkbox" />
         </LinearLayout>
     </FrameLayout>

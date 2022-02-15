@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/bt_trash_list_default"
+        android:top="@dimen/_8sdp"
+        android:bottom="@dimen/_8sdp"
+        />
+</layer-list>

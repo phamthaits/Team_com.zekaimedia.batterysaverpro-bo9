@@ -4,22 +4,44 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/activity_battery_actionbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
         android:layout_height="@dimen/_58sdp"
-            android:theme="@style/ToolbarThemeGreen"
-            app:layout_collapseMode="pin"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:subtitleTextColor="@color/colorPrimaryDark"
-            app:titleTextAppearance="@style/textsizetoolbar"
-            app:titleTextColor="@color/colorPrimaryDark" />
-    </LinearLayout>
+        android:layout_alignParentTop="true"
+        android:background="@color/primary_color"
+        android:fitsSystemWindows="true"
+        android:gravity="center|left">
+
+        <LinearLayout
+            android:id="@+id/lr_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onClick">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_16sdp">
+
+                <ImageView
+                    android:id="@+id/iv_arrow"
+                    android:layout_width="@dimen/_12sdp"
+                    android:layout_height="@dimen/_12sdp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/activity_charge_tv_title_1"
+                style="@style/textHeaderActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:text="@string/app_white_list" />
+        </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,16 +55,16 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:text="@string/no_item"
-            android:textColor="@color/title_dark"
-            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/_12sdp"
             android:visibility="gone" />
 
         <FrameLayout
             android:id="@+id/recyclerViewWhiteList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:padding="@dimen/_5sdp" />
+            android:layout_marginHorizontal="@dimen/_32sdp"
+            android:layout_centerInParent="true"/>
 
         <include layout="@layout/loading" />
     </RelativeLayout>
@@ -53,9 +75,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginHorizontal="@dimen/_20sdp"
+        android:layout_marginHorizontal="@dimen/_16sdp"
         android:paddingVertical="@dimen/_10sdp"
-        android:layout_marginVertical="10dip"
-        android:text="@string/white_list_add"
-        android:textStyle="bold" />
+        android:layout_marginVertical="@dimen/_16sdp"
+        android:text="@string/white_list_add"/>
 </LinearLayout>

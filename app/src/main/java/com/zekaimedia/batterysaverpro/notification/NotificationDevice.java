@@ -9,8 +9,12 @@ import android.content.Intent;
 
 import androidx.core.app.NotificationCompat;
 
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.RemoteViews;
+import android.widget.TextView;
 
 import com.zekaimedia.batterysaverpro.MainActivity;
 import com.zekaimedia.batterysaverpro.R;
@@ -35,6 +39,19 @@ public class NotificationDevice {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent activity = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
             RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.notification_cool_down);
+            int currentNightMode = mContext.getResources().getConfiguration().uiMode
+                    & Configuration.UI_MODE_NIGHT_MASK;
+            switch (currentNightMode) {
+                case Configuration.UI_MODE_NIGHT_NO:
+                    Log.d("Test", "UI_MODE_NIGHT_NO");
+                    remoteViews.setTextColor(R.id.tvNotiTitle, mContext.getResources().getColor(R.color.primary_light));
+                    remoteViews.setTextColor(R.id.tvNotiTitleDes, mContext.getResources().getColor(R.color.secondary_light));
+                    break;
+                case Configuration.UI_MODE_NIGHT_YES:
+                    remoteViews.setTextColor(R.id.tvNotiTitle, mContext.getResources().getColor(R.color.primary_dark));
+                    remoteViews.setTextColor(R.id.tvNotiTitleDes, mContext.getResources().getColor(R.color.secondary_dark));
+                    break;
+            }
             if (Utils.getRamdom(2) == 0) {
                 remoteViews.setTextViewText(R.id.tvNotiTitle, mContext.getString(R.string.cool_down_title_2) + " " + getTemp(mContext, Utils.getTempleCpu(mContext)));
             } else {
@@ -90,6 +107,19 @@ public class NotificationDevice {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent activity = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
             RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.boost_notification);
+            int currentNightMode = mContext.getResources().getConfiguration().uiMode
+                    & Configuration.UI_MODE_NIGHT_MASK;
+            switch (currentNightMode) {
+                case Configuration.UI_MODE_NIGHT_NO:
+                    Log.d("Test", "UI_MODE_NIGHT_NO");
+                    remoteViews.setTextColor(R.id.tvNotiTitle, mContext.getResources().getColor(R.color.primary_light));
+                    remoteViews.setTextColor(R.id.tvNotiTitleDes, mContext.getResources().getColor(R.color.secondary_light));
+                    break;
+                case Configuration.UI_MODE_NIGHT_YES:
+                    remoteViews.setTextColor(R.id.tvNotiTitle, mContext.getResources().getColor(R.color.primary_dark));
+                    remoteViews.setTextColor(R.id.tvNotiTitleDes, mContext.getResources().getColor(R.color.secondary_dark));
+                    break;
+            }
             if (Utils.getRamdom(2) == 0) {
                 remoteViews.setTextViewText(R.id.tvNotiTitle, mContext.getString(R.string.boost_title));
             } else {
@@ -136,6 +166,19 @@ public class NotificationDevice {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent activity = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
             RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.notification_low);
+            int currentNightMode = mContext.getResources().getConfiguration().uiMode
+                    & Configuration.UI_MODE_NIGHT_MASK;
+            switch (currentNightMode) {
+                case Configuration.UI_MODE_NIGHT_NO:
+                    Log.d("Test", "UI_MODE_NIGHT_NO");
+                    remoteViews.setTextColor(R.id.tvNotiTitle, mContext.getResources().getColor(R.color.primary_light));
+                    remoteViews.setTextColor(R.id.tvNotiTitleDes, mContext.getResources().getColor(R.color.secondary_light));
+                    break;
+                case Configuration.UI_MODE_NIGHT_YES:
+                    remoteViews.setTextColor(R.id.tvNotiTitle, mContext.getResources().getColor(R.color.primary_dark));
+                    remoteViews.setTextColor(R.id.tvNotiTitleDes, mContext.getResources().getColor(R.color.secondary_dark));
+                    break;
+            }
             if (Utils.getRamdom(2) == 0) {
                 remoteViews.setTextViewText(R.id.tvNotiTitle, mContext.getString(R.string.low_battery));
             } else {
@@ -185,6 +228,19 @@ public class NotificationDevice {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent activity = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
             RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.notification_optimize);
+            int currentNightMode = mContext.getResources().getConfiguration().uiMode
+                    & Configuration.UI_MODE_NIGHT_MASK;
+            switch (currentNightMode) {
+                case Configuration.UI_MODE_NIGHT_NO:
+                    Log.d("Test", "UI_MODE_NIGHT_NO");
+                    remoteViews.setTextColor(R.id.tvNotiTitle, mContext.getResources().getColor(R.color.primary_light));
+                    remoteViews.setTextColor(R.id.tvNotiTitleDes, mContext.getResources().getColor(R.color.secondary_light));
+                    break;
+                case Configuration.UI_MODE_NIGHT_YES:
+                    remoteViews.setTextColor(R.id.tvNotiTitle, mContext.getResources().getColor(R.color.primary_dark));
+                    remoteViews.setTextColor(R.id.tvNotiTitleDes, mContext.getResources().getColor(R.color.secondary_dark));
+                    break;
+            }
             if (Utils.getRamdom(2) == 0) {
                 remoteViews.setTextViewText(R.id.tvNotiTitle, mContext.getString(R.string.low_power_30));
             } else {
@@ -268,6 +324,19 @@ public class NotificationDevice {
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent activity = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
             RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.notification_battery_full);
+            int currentNightMode = mContext.getResources().getConfiguration().uiMode
+                    & Configuration.UI_MODE_NIGHT_MASK;
+            switch (currentNightMode) {
+                case Configuration.UI_MODE_NIGHT_NO:
+                    Log.d("Test", "UI_MODE_NIGHT_NO");
+                    remoteViews.setTextColor(R.id.notification_layout_tv_first, mContext.getResources().getColor(R.color.primary_light));
+                    remoteViews.setTextColor(R.id.notification_layout_tv_second, mContext.getResources().getColor(R.color.secondary_light));
+                    break;
+                case Configuration.UI_MODE_NIGHT_YES:
+                    remoteViews.setTextColor(R.id.notification_layout_tv_first, mContext.getResources().getColor(R.color.primary_dark));
+                    remoteViews.setTextColor(R.id.notification_layout_tv_second, mContext.getResources().getColor(R.color.secondary_dark));
+                    break;
+            }
             NotificationCompat.Builder ongoing = new NotificationCompat.Builder(mContext,"notification_channel_id")
                     .setSmallIcon(R.drawable.ic_noti_small_full)
                     .setOngoing(true)

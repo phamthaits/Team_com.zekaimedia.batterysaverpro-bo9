@@ -24,7 +24,7 @@
     <string name="phone_boost_nav">Hızlandırıcı</string>
     <string name="phone_cool_nav">Telefon Soğutucu</string>
     <string name="battery_exellent">Harika!</string>
-    <string name="cleaned">Temizlenen: %s</string>
+    <string name="cleaned">%s Temizlenen</string>
     <string name="cleaning_junk">Gereksiz dos. temizleniyor...</string>
     <string name="result_cooler">Mükemmel! Başarıyla soğutuldu.</string>
     <string name="ram_result">Hızlandırıldı</string>
@@ -50,7 +50,7 @@
     <string name="normal">Genel</string>
     <string name="super_saving">Uzun</string>
     <string name="custom">Uyku</string>
-    <string name="sm_edge_device_optimized">Harika! Güç sorunu çözüldü.</string>
+    <string name="sm_edge_device_optimized">Güç sorunu çözüldü.</string>
     <string name="sm_ram_detail">Performansı iyileştirmek için arka plan uygulamalarını durdurarak RAM\'da yer açın.</string>
     <string name="op_boost">Hızlandır</string>
     <string name="op_storage_des">Önbelleğe alınmış, artık ve reklam dosyaları gibi gereksiz verileri silerek depolama alanı açın.</string>
@@ -135,4 +135,10 @@
     <string name="manager_description">Uygulamalarınızı kaldırma, yedekleme gibi uygulamalarınızı yönetin ...</string>
     <string name="settings_description">Tüm Ayarı Yönet</string>
     <string name="remove_description">Sinir bozucu reklamlar mı? Şimdi forever reklamları kaldırın</string>
+    <string name="stt_sm_edge_device_optimized">Harika!</string>
+    <string name="stt_ram_result">Telefonunuzu tamamen hızlandırın</string>
+    <string name="stt_cooler_result">Harika!</string>
+    <string name="des_noti">Şimdi artırmak için dokunun</string>
+    <string name="des_noti_100">Şarj işlemi tamamlandı. Gücü fişten çekin.</string>
+    <string name="des_noti_20">Düşük pil. Güçten tasarruf etmek için dokunun.</string>
 </resources>

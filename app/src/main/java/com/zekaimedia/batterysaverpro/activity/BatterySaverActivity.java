@@ -36,6 +36,7 @@ import androidx.core.content.ContextCompat;
 import com.ads.control.AdControl;
 import com.ads.control.AdControlHelp;
 import com.ads.control.AdControlHelp.AdCloseListener;
+import com.airbnb.lottie.LottieAnimationView;
 import com.zekaimedia.batterysaverpro.R;
 import com.zekaimedia.batterysaverpro.Utilsb.SharePreferenceUtils;
 import com.zekaimedia.batterysaverpro.Utilsb.Utils;
@@ -62,7 +63,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     ActivityManager mActivityManager;
     ImageView rocketImage, rocketImageOut;
     private TextView tvResult, tvScan;
-
+    private LottieAnimationView scanOptimizeCharger;
     private ImageView ivDone;
     private Animation ivDoneAnim;
     private ViewGroup parentAds;
@@ -82,8 +83,8 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         adControl = AdControl.getInstance(activity);
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
 
-        getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.white));
-        getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.white));
+       /* getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.white));
+        getWindow().setNavigationBarColor(ContextCompat.getColor(activity, R.color.white));*/
         /* ------------------------------------------------------------------ */
         intView();
 
@@ -128,10 +129,10 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
                 startActivity(new Intent(BatterySaverActivity.this, AppManagerActivity.class));
                 finish();
                 return;
-            case R.id.lrSettings:
+            /*case R.id.lrSettings:
                 startActivity(new Intent(BatterySaverActivity.this, SettingActivity.class));
                 finish();
-                return;
+                return;*/
             case R.id.lrRemove:
                 startActivity(new Intent(BatterySaverActivity.this, RemoveAdsActivity.class));
                 finish();
@@ -151,6 +152,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         this.chargeBoostContainers[3] = findViewById(R.id.fm_scan_container_4);
         this.tvResult = findViewById(R.id.clean_up_done_tv_result);
         tvScan = findViewById(R.id.tvScan);
+        scanOptimizeCharger = findViewById(R.id.scan_optimize_charger);
         this.ivDone = findViewById(R.id.clean_done_iv_done);
         this.rocketImageOut = findViewById(R.id.ivDoneHoloCirular);
         this.rocketImage = findViewById(R.id.ivScan);
@@ -176,12 +178,12 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         this.ivDoneAnim = AnimationUtils.loadAnimation(this, R.anim.ic_done_anim);
         animationRotate.setAnimationListener(new anmRotate());
         this.ivDoneAnim.setAnimationListener(new anmDone());
-        ((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), Mode.MULTIPLY);
+        /*((ImageView) findViewById(R.id.iv_arrow)).setColorFilter(getResources().getColor(R.color.description), Mode.MULTIPLY);*/
         this.ivDone.setColorFilter(getResources().getColor(R.color.color_white), Mode.MULTIPLY);
 //        this.rocketImageOut.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
 //        this.rocketImage.setColorFilter(getResources().getColor(R.color.progress_color), Mode.MULTIPLY);
         if (!Utils.checkShouldDoing(activity, 3)) {
-            cv_trash_cleaner.setVisibility(View.GONE);
+            cv_trash_cleaner.setVisibility(View.INVISIBLE);
         }
 //        checkTask();
     }
@@ -200,8 +202,8 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            tvScan.setVisibility(View.GONE);
-            BatterySaverActivity.this.rocketImageOut.setImageResource(R.drawable.rocket_12);
+            tvScan.setVisibility(View.INVISIBLE);
+//            BatterySaverActivity.this.rocketImageOut.setImageResource(R.drawable.);
             ((View) BatterySaverActivity.this.rocketImage.getParent()).setVisibility(View.GONE);
             BatterySaverActivity.this.ivDone.setVisibility(View.VISIBLE);
             BatterySaverActivity.this.ivDone.startAnimation(BatterySaverActivity.this.ivDoneAnim);
@@ -444,10 +446,10 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
         Animation slideUp = AnimationUtils.loadAnimation(BatterySaverActivity.this, R.anim.zoom_in);
         lrScan.startAnimation(slideUp);
         BatterySaverActivity.this.lrScan.setVisibility(View.GONE);
-        getWindow().setStatusBarColor(Color.rgb(113, 126, 238));
-        getWindow().setNavigationBarColor(Color.rgb(113, 126, 238));
+//        getWindow().setStatusBarColor(Color.rgb(113, 126, 238));
+//        getWindow().setNavigationBarColor(Color.rgb(113, 126, 238));
         LinearLayout lrBack = findViewById(R.id.lr_back);
-        lrBack.setBackgroundColor(Color.rgb(113, 126, 238));
+//        lrBack.setBackgroundColor(Color.rgb(113, 126, 238));
         BatterySaverActivity.this.parentAds.setAlpha(0.0f);
         BatterySaverActivity.this.parentAds.setVisibility(View.VISIBLE);
         BatterySaverActivity.this.parentAds.animate().alpha(1.0f).start();

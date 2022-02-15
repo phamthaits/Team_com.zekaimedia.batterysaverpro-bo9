@@ -12,103 +12,103 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_38sdp"
         android:layout_marginEnd="@dimen/_38sdp"
+        android:background="@drawable/bg_rounded"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/usage_bg"
-            android:orientation="horizontal"
-            android:padding="@dimen/_10sdp">
-
-            <ImageView
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginRight="@dimen/_5sdp"
-                android:src="@mipmap/ic_launcher" />
+            android:layout_height="@dimen/_56sdp"
+            android:background="@drawable/bg_head_popup"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
+                android:textAllCaps="true"
                 android:text="@string/app_name"
-                android:textColor="@color/white"
+                android:textColor="@color/primary_text"
                 android:textSize="@dimen/_14sdp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_55sdp"
-            android:background="@android:color/white"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_8sdp">
+
+            <ImageView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_48sdp"
+                android:src="@drawable/ic_popup_allow" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:paddingHorizontal="@dimen/_10sdp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_16sdp">
 
             <TextView
                 android:id="@+id/text_permission"
-                android:layout_width="0.0dip"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1.0"
+                android:gravity="center"
                 android:text="@string/setting_permission_request_title"
-                android:textColor="#ff444444"
-                android:textSize="@dimen/_12sdp" />
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_10sdp" />
 
             <FrameLayout
                 android:layout_width="@dimen/_60sdp"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:visibility="gone">
 
                 <androidx.appcompat.widget.SwitchCompat
-                    style="@style/swguide"
                     android:id="@+id/na_guide_switch_btn"
+                    style="@style/swguide"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:track="@drawable/track"
-                    android:thumb="@drawable/thumb"/>
+                    android:thumb="@drawable/thumb"
+                    app:track="@drawable/track" />
 
                 <ImageView
                     android:id="@+id/na_guide_hand_img"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="bottom"
-                    android:paddingTop="@dimen/_20sdp"
-                    android:src="@drawable/pointing_hand" />
+                    android:paddingTop="@dimen/_20sdp" />
             </FrameLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:padding="@dimen/_10sdp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:paddingHorizontal="@dimen/_16sdp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/setting_permission_request_summary"
-                android:textColor="@color/text_gray"
+                android:textColor="@color/secondary_text"
                 android:textSize="@dimen/_10sdp" />
         </LinearLayout>
 
 
         <TextView
             android:id="@+id/na_guide_ok"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:background="@drawable/usage_button"
+            style="@style/buttonSettingAds"
+            android:layout_width="@dimen/_112sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
             android:gravity="center"
-            android:paddingVertical="@dimen/_5sdp"
-            android:textSize="@dimen/_12sdp"
             android:text="OK"
-            android:textColor="@color/colorAccent"/>
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/_12sdp" />
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_1sdp"
-        android:layout_gravity="fill_horizontal" />
 </LinearLayout>

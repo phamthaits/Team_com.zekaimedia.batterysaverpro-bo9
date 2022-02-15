@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -43,11 +44,11 @@ public class WhiteListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
         setContentView(R.layout.activity_white_list);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        /*Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(getString(R.string.title_activity_white_list));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationIcon(R.drawable.ic_navigate_before_white_48dp);
+        toolbar.setNavigationIcon(R.drawable.ic_navigate_before_white_48dp);*/
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
 
@@ -58,7 +59,14 @@ public class WhiteListActivity extends AppCompatActivity {
         intView();
         intEvent();
         intData();
-
+        LinearLayout icBack = findViewById(R.id.lr_back);
+        icBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                return;
+            }
+        });
     }
 
     public void intView(){

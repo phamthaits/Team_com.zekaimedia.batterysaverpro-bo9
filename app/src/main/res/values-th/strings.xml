@@ -24,7 +24,7 @@
     <string name="phone_boost_nav">เร่งความเร็ว</string>
     <string name="phone_cool_nav">ลดอุณหภูมิ</string>
     <string name="battery_exellent">ยอดเยี่ยม!</string>
-    <string name="cleaned">ล้างแล้ว: %s</string>
+    <string name="cleaned">%s ล้างแล้ว</string>
     <string name="cleaning_junk">กำลังทำความสะอาดไฟล์ขยะ...</string>
     <string name="result_cooler">ยอดเยี่ยม ระบายความร้อนเรียบร้อยแล้ว</string>
     <string name="ram_result">เพิ่มความเร็วแล้ว</string>
@@ -50,7 +50,7 @@
     <string name="normal">ทั่วไป</string>
     <string name="super_saving">ยืดระยะเวลา</string>
     <string name="custom">กลางคืน</string>
-    <string name="sm_edge_device_optimized">ยอดเยี่ยม แก้ไขปัญหาเรียบร้อยแล้ว</string>
+    <string name="sm_edge_device_optimized">แก้ปัญหาไฟ.</string>
     <string name="sm_ram_detail">หากต้องการปรับปรุงประสิทธิภาพ ให้เพิ่มพื้นที่หน่วยความจำโดยการหยุดแอพพื้นหลัง</string>
     <string name="op_boost">เพิ่ม</string>
     <string name="op_storage_des">เพิ่มพื้นที่จัดเก็บโดยการลบข้อมูลที่ไม่จำเป็น เช่น ไฟล์แคช สิ่งตกค้าง และไฟล์โฆษณา</string>
@@ -135,4 +135,10 @@
     <string name="manager_description">จัดการแอปของคุณเช่นถอนการติดตั้งสํารองข้อมูล ...</string>
     <string name="settings_description">จัดการการตั้งค่าทั้งหมด</string>
     <string name="remove_description">โฆษณาที่น่ารําคาญ? ลบโฆษณาตลอดไปตอนนี้</string>
+    <string name="stt_sm_edge_device_optimized">ยอดเยี่ยม!</string>
+    <string name="stt_ram_result">เร่งความเร็วโทรศัพท์ของคุณโดยสมบูรณ์</string>
+    <string name="stt_cooler_result">ยอดเยี่ยม!</string>
+    <string name="des_noti">แตะเพื่อเพิ่มทันที</string>
+    <string name="des_noti_100">ชาร์จเสร็จแล้ว ถอดปลั๊กไฟ</string>
+    <string name="des_noti_20">แบตเตอร์รี่ต่ำ. แตะเพื่อประหยัดพลังงาน</string>
 </resources>

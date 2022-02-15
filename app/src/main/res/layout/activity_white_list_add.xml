@@ -1,25 +1,46 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/activity_battery_actionbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
         android:layout_height="@dimen/_58sdp"
-            android:theme="@style/ToolbarThemeGreen"
-            app:layout_collapseMode="pin"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            app:subtitleTextColor="@color/subsection"
-            app:titleTextAppearance="@style/textsizetoolbar"
-            app:titleTextColor="@color/subsection" />
-    </LinearLayout>
+        android:layout_alignParentTop="true"
+        android:background="@color/primary_color"
+        android:fitsSystemWindows="true"
+        android:gravity="center|left">
+
+        <LinearLayout
+            android:id="@+id/lr_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onClick">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/_16sdp">
+
+                <ImageView
+                    android:id="@+id/iv_arrow"
+                    android:layout_width="@dimen/_12sdp"
+                    android:layout_height="@dimen/_12sdp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/activity_charge_tv_title_1"
+                style="@style/textHeaderActivity"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/_12sdp"
+                android:text="@string/app_white_list" />
+        </LinearLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,16 +54,16 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:text="@string/no_item"
-            android:textColor="@color/title_dark"
-            android:textSize="@dimen/_14sdp"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/_12sdp"
             android:visibility="gone" />
 
         <FrameLayout
             android:id="@+id/recyclerViewWhiteList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:padding="@dimen/_5sdp" />
+            android:layout_marginHorizontal="@dimen/_32sdp"
+            android:layout_centerInParent="true"/>
 
         <include layout="@layout/loading" />
     </RelativeLayout>
@@ -52,8 +73,8 @@
         android:id="@+id/viewAdd"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
+        android:layout_margin="@dimen/_16sdp"
         android:layout_marginVertical="10dp"
-        android:layout_marginHorizontal="@dimen/_20sdp"
         android:orientation="horizontal">
 
         <Button
@@ -61,20 +82,22 @@
             style="@style/buttonSettingAds"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/_8sdp"
             android:layout_weight="1"
-            android:text="@string/white_list_add"
-            android:textStyle="bold" />
+            android:text="@string/white_list_add" />
 
         <View
             android:layout_width="@dimen/_1sdp"
             android:layout_height="match_parent"
+            android:layout_marginHorizontal="@dimen/_10sdp"
             android:background="@color/grey_500"
-            android:layout_marginHorizontal="@dimen/_10sdp"/>
+            android:visibility="gone" />
 
         <CheckBox
             android:id="@+id/checkBoxAddWhiteList"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_8sdp"
             android:button="@drawable/checkbox" />
     </LinearLayout>
 

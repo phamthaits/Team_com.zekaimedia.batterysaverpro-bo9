@@ -10,6 +10,8 @@ import android.provider.Settings;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 import com.zekaimedia.batterysaverpro.R;
 
 public class PermissionActivity extends Activity {
@@ -18,8 +20,10 @@ public class PermissionActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide_setting);
-        getWindow().setStatusBarColor(Color.rgb(71, 71, 73));
-        getWindow().setNavigationBarColor(Color.rgb(71, 71, 73));
+        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.windowBackground));
+        getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.windowBackground));
+        /*getWindow().setStatusBarColor(Color.rgb(71, 71, 73));
+        getWindow().setNavigationBarColor(Color.rgb(71, 71, 73));*/
         String text_permission = getIntent().getStringExtra("text_permission");
         if(text_permission==null||text_permission.isEmpty())
             text_permission=getString(R.string.setting_permission_request_title);

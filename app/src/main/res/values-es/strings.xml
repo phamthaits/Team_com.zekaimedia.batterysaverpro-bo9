@@ -23,9 +23,9 @@
     <string name="phone_boost_nav">Acelerador</string>
     <string name="phone_cool_nav">Enfriador</string>
     <string name="battery_exellent">¡Genial!</string>
-    <string name="cleaned">Limpio: %s</string>
+    <string name="cleaned">%s Limpio</string>
     <string name="cleaning_junk">Borrando archivos basura</string>
-    <string name="result_cooler">¡Excelente! Enfria satisfact.</string>
+    <string name="result_cooler">Enfria satisfact.</string>
     <string name="ram_result">Optimizado</string>
     <string name="boosting">Optimiz memoria</string>
     <string name="battery_full_des">La carga finalizó. Desconecte el cable de alimentación.</string>
@@ -49,7 +49,7 @@
     <string name="normal">General</string>
     <string name="super_saving">Largo</string>
     <string name="custom">Suspender</string>
-    <string name="sm_edge_device_optimized">¡Genial! Prob energ soluc.</string>
+    <string name="sm_edge_device_optimized">Resuelto el problema de la energía.</string>
     <string name="sm_ram_detail">Para mejorar el rendimiento, libera memoria deteniendo las aplicaciones en segundo plano.</string>
     <string name="op_boost">Mejorar</string>
     <string name="op_storage_des">Libera espacio de almacenamiento eliminando datos innecesarios, como los archivos en caché, residuales y publicitarios.</string>
@@ -134,5 +134,11 @@
     <string name="manager_description">Administrar sus aplicaciones como desinstalar, copia de seguridad ...</string>
     <string name="settings_description">Administrar todos los ajustes</string>
     <string name="remove_description">¿Anuncios molestos? Eliminar anuncios para siempre ahora mismo</string>
+    <string name="stt_sm_edge_device_optimized">Great!</string>
+    <string name="stt_ram_result">Acelera completamente tu teléfono</string>
+    <string name="stt_cooler_result">¡Excelente!</string>
+    <string name="des_noti">Toca para impulsar ahora</string>
+    <string name="des_noti_100">Carga finalizada. Desconecte la alimentación.</string>
+    <string name="des_noti_20">Batería baja. Toque para ahorrar energía.</string>
 
 </resources>

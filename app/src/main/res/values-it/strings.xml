@@ -24,9 +24,9 @@
     <string name="phone_boost_nav">Acceleratore</string>
     <string name="phone_cool_nav">Cooler phone</string>
     <string name="battery_exellent">Grande!</string>
-    <string name="cleaned">Pulito: %s</string>
+    <string name="cleaned">%s Pulito</string>
     <string name="cleaning_junk">Pulizia file inutili in corso.</string>
-    <string name="result_cooler">Eccellente Raffreddamento corretto.</string>
+    <string name="result_cooler">Raffreddamento corretto.</string>
     <string name="ram_result">Boost eseguito</string>
     <string name="boosting">Boost memoria in corso</string>
     <string name="battery_full_des">Carica terminata. Scollega l\'alimentazione.</string>
@@ -50,7 +50,7 @@
     <string name="normal">Generale</string>
     <string name="super_saving">Lunga</string>
     <string name="custom">Sospensione</string>
-    <string name="sm_edge_device_optimized">Grande! Risolto il problema dell\'energia.</string>
+    <string name="sm_edge_device_optimized">Risolto il problema di alimentazione.</string>
     <string name="sm_ram_detail">Per migliorare le prestazioni, liberate dello spazio in memoria arrestando le applicazioni in background.</string>
     <string name="op_boost">Migliora</string>
     <string name="op_storage_des">Liberate dello spazio in memoria eliminando i dati non necessari come quelli memorizzati sulla cache, quelli residui e i file delle pubblicità.</string>
@@ -135,4 +135,10 @@
     <string name="manager_description">Gestisci le tue app come disinstallazione, backup ...</string>
     <string name="settings_description">Gestisci tutte le impostazioni</string>
     <string name="remove_description">Annunci fastidiosi? Rimuovere gli annunci PER SEMPRE ora</string>
+    <string name="stt_sm_edge_device_optimized">Grande!</string>
+    <string name="stt_ram_result">Velocizza completamente il tuo telefono</string>
+    <string name="stt_cooler_result">Eccellente!</string>
+    <string name="des_noti">Tocca per aumentare ora</string>
+    <string name="des_noti_100">Carica terminata. Stacca l\'alimentazione.</string>
+    <string name="des_noti_20">Batteria scarica. Tocca per risparmiare energia.</string>
 </resources>

@@ -24,9 +24,9 @@
     <string name="phone_boost_nav">高速化</string>
     <string name="phone_cool_nav">フォンクーラー</string>
     <string name="battery_exellent">完了!</string>
-    <string name="cleaned">削除した容量: %s</string>
+    <string name="cleaned">%s 削除した容量</string>
     <string name="cleaning_junk">ジャンクファイルをクリーニング中…</string>
-    <string name="result_cooler">完了! 冷却に成功しました。</string>
+    <string name="result_cooler">" 冷却に成功しました。"</string>
     <string name="ram_result">高速化済</string>
     <string name="boosting">メモリの高速化</string>
     <string name="battery_full_des">充電完了したため、電源を切ってください。</string>
@@ -50,7 +50,7 @@
     <string name="normal">通常モード</string>
     <string name="super_saving">待機モード</string>
     <string name="custom">おやすみモード</string>
-    <string name="sm_edge_device_optimized">完了! 電力の問題が解決しました。</string>
+    <string name="sm_edge_device_optimized">電源の問題を解決しました。</string>
     <string name="sm_ram_detail">パフォーマンスを向上させるには、バックグラウンドアプリを停止してメモリの空き容量を確保してください。</string>
     <string name="op_boost">加速</string>
     <string name="op_storage_des">キャッシュデータ、残留データ、広告ファイルなどの不要なデータを削除し、ストレージの空き容量を確保できます。</string>
@@ -135,4 +135,10 @@
     <string name="manager_description">アンインストール、バックアップなどのアプリを管理 ...</string>
     <string name="settings_description">すべての設定を管理する</string>
     <string name="remove_description">迷惑な広告?今すぐ広告を永久に削除する</string>
+    <string name="stt_sm_edge_device_optimized">素晴らしい！</string>
+    <string name="stt_ram_result">お使いの携帯電話を完全にスピードアップ</string>
+    <string name="stt_cooler_result">優れた！</string>
+    <string name="des_noti">タップして今すぐブースト</string>
+    <string name="des_noti_100">充電が終了しました。 電源を抜きます。</string>
+    <string name="des_noti_20">バッテリー残量が少なくなっています。 タップして電力を節約します。</string>
 </resources>

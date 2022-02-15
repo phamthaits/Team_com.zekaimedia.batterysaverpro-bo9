@@ -31,11 +31,11 @@ public class DoNotDisturbActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         Utils.setLocate(this);
         setContentView(R.layout.activity_do_not_disturb);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        /*Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(getString(R.string.title_activity_do_not_disturb));
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationIcon(R.drawable.ic_navigate_before_white_48dp);
+        toolbar.setNavigationIcon(R.drawable.ic_navigate_before_white_48dp);*/
 
         /* ------------------- StatusBar Navigation text dark bg white ----------------- */
 
@@ -46,6 +46,14 @@ public class DoNotDisturbActivity extends AppCompatActivity implements View.OnCl
         intView();
         intEvent();
         intData();
+        LinearLayout icBack = findViewById(R.id.lr_back);
+        icBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                return;
+            }
+        });
     }
 
     @Override
@@ -113,19 +121,19 @@ public class DoNotDisturbActivity extends AppCompatActivity implements View.OnCl
             tvEnable.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
             swDND.setChecked(isChecked);
             rlDNDStart.setEnabled(true);
-            tvDNDStartSecond.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
-            tvDNDStopSecond.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
-            tvDNDStart.setTextColor(ContextCompat.getColor(this, R.color.purple));
-            tvDNDStop.setTextColor(ContextCompat.getColor(this, R.color.purple));
+            tvDNDStartSecond.setTextColor(ContextCompat.getColor(this, R.color.secondary_text));
+            tvDNDStopSecond.setTextColor(ContextCompat.getColor(this, R.color.secondary_text));
+            tvDNDStart.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
+            tvDNDStop.setTextColor(ContextCompat.getColor(this, R.color.primary_text));
 
         } else {
-            tvEnable.setTextColor(ContextCompat.getColor(this, R.color.description));
+            tvEnable.setTextColor(ContextCompat.getColor(this, R.color.color_uncheck));
             swDND.setChecked(isChecked);
             rlDNDStart.setEnabled(false);
-            tvDNDStartSecond.setTextColor(ContextCompat.getColor(this, R.color.description));
-            tvDNDStopSecond.setTextColor(ContextCompat.getColor(this, R.color.description));
-            tvDNDStart.setTextColor(ContextCompat.getColor(this, R.color.description));
-            tvDNDStop.setTextColor(ContextCompat.getColor(this, R.color.description));
+            tvDNDStartSecond.setTextColor(ContextCompat.getColor(this, R.color.secondary_uncheck));
+            tvDNDStopSecond.setTextColor(ContextCompat.getColor(this, R.color.secondary_uncheck));
+            tvDNDStart.setTextColor(ContextCompat.getColor(this, R.color.primary_uncheck));
+            tvDNDStop.setTextColor(ContextCompat.getColor(this, R.color.primary_uncheck));
         }
     }
 

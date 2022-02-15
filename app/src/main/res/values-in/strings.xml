@@ -23,9 +23,9 @@
     <string name="phone_boost_nav">Akselerator</string>
     <string name="phone_cool_nav">Cooler Ponsel</string>
     <string name="battery_exellent">Hebat!</string>
-    <string name="cleaned">Dibersihkan: %s</string>
+    <string name="cleaned">%s Dibersihkan</string>
     <string name="cleaning_junk">Membersihkan file sampah</string>
-    <string name="result_cooler">Luar biasa! Berhasil didinginkan.</string>
+    <string name="result_cooler">Berhasil didinginkan.</string>
     <string name="ram_result">Di-boost</string>
     <string name="boosting">Boosting Memori</string>
     <string name="battery_full_des">Pengisian selesai. Silahkan cabut listrik.</string>
@@ -49,7 +49,7 @@
     <string name="normal">Umum</string>
     <string name="super_saving">Lama</string>
     <string name="custom">Tidur</string>
-    <string name="sm_edge_device_optimized">Hebat! Masalah daya teratasi.</string>
+    <string name="sm_edge_device_optimized">Memecahkan masalah daya.</string>
     <string name="sm_ram_detail">Untuk meningkatkan kinerja, kosongkan memori dengan menghentikan aplikasi latar belakang.</string>
     <string name="op_boost">Percepat</string>
     <string name="op_storage_des">Kosongkan ruang dengan menghapus data yang tidak diperlukan, misalnya data cache, residu, dan file iklan.</string>
@@ -134,5 +134,11 @@
     <string name="manager_description">Kelola aplikasi Anda seperti uninstall, backup ...</string>
     <string name="settings_description">Kelola Semua Pengaturan</string>
     <string name="remove_description">Iklan yang mengganggu? Hapus iklan selamanya sekarang</string>
+    <string name="stt_sm_edge_device_optimized">Besar!</string>
+    <string name="stt_ram_result">Percepat ponsel Anda sepenuhnya</string>
+    <string name="stt_cooler_result">Bagus sekali!</string>
+    <string name="des_noti">Ketuk untuk meningkatkan sekarang</string>
+    <string name="des_noti_100">Pengisian selesai. Cabut daya.</string>
+    <string name="des_noti_20">Baterai lemah. Ketuk untuk menghemat daya.</string>
 
 </resources>

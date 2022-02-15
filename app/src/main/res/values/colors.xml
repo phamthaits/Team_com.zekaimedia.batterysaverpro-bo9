@@ -10,8 +10,28 @@
     <color name="black_alpha_70">#b3000000</color>
     <color name="color_white">#ffffff</color>
 
+    //Noti
+    <color name="primary_light">#1F173F</color>
+    <color name="secondary_light">#CC1F173F</color>
+    <color name="primary_dark">#EDE6FF</color>
+    <color name="secondary_dark">#CCEDE6FF</color>
+    <color name="ic_noti_time_light">#666372</color>
+    <color name="ic_noti_time_dark">#A8A5B7</color>
+
     //Button
     <color name="bg_button">#803E3B63</color>
+
+    //Track Thumb
+    <color name="track_uncheck">#474472</color>
+    <color name="track_check">#6550FF</color>
+    <color name="thumb_uncheck">#80D4D4FF</color>
+    <color name="thumb_check">#D4D4FF</color>
+
+    // Color un/check
+
+    <color name="color_uncheck">#7D7DAF</color>
+    <color name="primary_uncheck">#80E0DCFF</color>
+    <color name="secondary_uncheck">#809D9DCE</color>
 
     // Main
     <color name="description">#FFFFFF</color>
@@ -111,7 +131,6 @@
     <color name="main_dark_color">#ffeeeeee</color>
     <color name="dark_ripple_sub">#ffcccccc</color>
     <color name="more_clean">#54D184</color>
-    <color name="more_clean_bg">#B9F6CA</color>
     <color name="gray">#ff99a0b6</color>
     <color name="dark_background_sub">#ffffffff</color>
     <color name="more_boost">#e2fce0</color>
