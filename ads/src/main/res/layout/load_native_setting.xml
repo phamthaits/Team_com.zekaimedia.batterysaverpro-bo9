@@ -145,12 +145,12 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/_5sdp"
             android:clickable="false"
-            android:singleLine="true"
             android:gravity="right"
+            android:singleLine="true"
             android:text="Sponsored"
             android:textColor="@color/cardview_dark_background"
             android:textSize="14sp"
-             />
+            android:visibility="gone" />
 
         <com.google.android.gms.ads.nativead.AdChoicesView
             android:id="@+id/adchoices_view"

@@ -121,7 +121,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:gravity="right">
+            android:gravity="right"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/native_ad_sponsored_label"
@@ -132,7 +133,7 @@
                 android:singleLine="true"
                 android:text="Sponsored"
                 android:textColor="@color/secondary_text"
-                android:textSize="@dimen/_6sdp"/>
+                android:textSize="@dimen/_6sdp" />
 
             <com.google.android.gms.ads.nativead.AdChoicesView
                 android:id="@+id/adchoices_view"
@@ -142,4 +143,6 @@
                 android:layout_alignParentRight="true" />
         </LinearLayout>
     </RelativeLayout>
+
+    <TextView style="@style/AppTheme.Ads" />
 </com.google.android.gms.ads.nativead.NativeAdView>

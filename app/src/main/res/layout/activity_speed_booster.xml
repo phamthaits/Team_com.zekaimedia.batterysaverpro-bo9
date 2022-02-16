@@ -111,15 +111,13 @@
                     android:layout_marginBottom="@dimen/_16sdp"
                     android:orientation="horizontal">
 
-                    <!--Remove Ads-->
+                    <!--Fast Charge-->
                     <include
-                        android:id="@+id/remove_ads"
-                        layout="@layout/result_remove_ads"
+                        layout="@layout/result_fast_charge"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/_8sdp"
                         android:layout_weight="1" />
-
                     <!--Phone Cooler-->
                     <include
                         layout="@layout/result_phone_cooler"
@@ -156,10 +154,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_16sdp"
                     android:orientation="horizontal">
-
-                    <!--Fast Charge-->
+                    <!--Remove Ads-->
                     <include
-                        layout="@layout/result_fast_charge"
+                        android:id="@+id/remove_ads"
+                        layout="@layout/result_remove_ads"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/_8sdp"

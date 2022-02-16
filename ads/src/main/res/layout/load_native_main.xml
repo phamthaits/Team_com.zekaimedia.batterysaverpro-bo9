@@ -24,8 +24,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingHorizontal="@dimen/_20sdp"
-                android:paddingBottom="@dimen/_10sdp"
-                android:paddingTop="@dimen/_20sdp">
+                android:paddingTop="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_10sdp">
 
                 <ImageView
                     android:id="@+id/ad_app_icon"
@@ -33,8 +33,8 @@
                     android:layout_height="match_parent"
                     android:layout_alignTop="@+id/text_admob"
                     android:layout_alignBottom="@+id/text_admob"
-                    android:background="@color/light_transparent"
-                    android:adjustViewBounds="true" />
+                    android:adjustViewBounds="true"
+                    android:background="@color/light_transparent" />
 
                 <LinearLayout
                     android:id="@+id/text_admob"
@@ -47,10 +47,10 @@
                     <TextView
                         android:id="@+id/ad_headline"
                         style="@style/headlineTextAds"
-                        android:background="@color/light_transparent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_10sdp"/>
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@color/light_transparent" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -94,19 +94,19 @@
             <TextView
                 android:id="@+id/ad_body"
                 style="@style/bodyTextAds"
-                android:background="@color/light_transparent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
-                android:layout_marginHorizontal="@dimen/_20sdp" />
+                android:background="@color/light_transparent" />
 
             <com.google.android.gms.ads.nativead.MediaView
                 android:id="@+id/ad_media"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"
                 android:layout_gravity="center_horizontal"
-                android:background="@color/light_transparent"
-                android:layout_margin="2dip" />
+                android:layout_margin="2dip"
+                android:background="@color/light_transparent" />
 
             <Button
                 android:id="@+id/ad_call_to_action"
@@ -117,24 +117,27 @@
                 android:layout_marginHorizontal="@dimen/_20sdp"
                 android:layout_marginVertical="@dimen/_5sdp" />
         </LinearLayout>
+
         <TextView
             android:id="@+id/native_ad_sponsored_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/_5sdp"
             android:clickable="false"
-            android:singleLine="true"
             android:gravity="right"
+            android:singleLine="true"
             android:text="Sponsored"
             android:textColor="@color/cardview_dark_background"
             android:textSize="14sp"
-             />
+            android:visibility="gone" />
+
         <com.google.android.gms.ads.nativead.AdChoicesView
             android:id="@+id/adchoices_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true" />
+
         <TextView style="@style/AppTheme.Ads" />
     </RelativeLayout>
 </com.facebook.shimmer.ShimmerFrameLayout>

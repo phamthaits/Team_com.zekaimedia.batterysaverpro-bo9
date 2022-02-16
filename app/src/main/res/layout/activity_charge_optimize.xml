@@ -114,10 +114,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_16sdp"
                     android:orientation="horizontal">
-                    <!--Trash Cleaner-->
+                    <!--Charge History-->
                     <include
-                        android:id="@+id/cv_trash_cleaner"
-                        layout="@layout/result_trash_cleaner"
+                        layout="@layout/result_charge_history"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/_8sdp"
@@ -144,10 +143,9 @@
                         android:layout_height="match_parent"
                         android:layout_marginRight="@dimen/_8sdp"
                         android:layout_weight="1" />
-
-                    <!--Charge History-->
+                    <!--App Manager-->
                     <include
-                        layout="@layout/result_charge_history"
+                        layout="@layout/result_app_manager"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/_8sdp"
@@ -159,13 +157,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_16sdp"
                     android:orientation="horizontal">
-                    <!--App Manager-->
-                    <include
-                        layout="@layout/result_app_manager"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="@dimen/_8sdp"
-                        android:layout_weight="1" />
 
                     <!--Remove Ads-->
                     <include
@@ -173,8 +164,16 @@
                         layout="@layout/result_remove_ads"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:layout_weight="1" /> <!--Trash Cleaner-->
+                    <include
+                        android:id="@+id/cv_trash_cleaner"
+                        layout="@layout/result_trash_cleaner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/_8sdp"
                         android:layout_weight="1" />
+
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
