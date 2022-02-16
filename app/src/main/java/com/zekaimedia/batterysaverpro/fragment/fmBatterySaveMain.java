@@ -29,6 +29,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -41,6 +42,7 @@ import androidx.fragment.app.Fragment;
 
 import com.ads.control.AdControl;
 import com.ads.control.AdControlHelp;
+import com.airbnb.lottie.LottieAnimationView;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 import com.skyfishjy.library.RippleBackground;
@@ -111,6 +113,8 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
     private AdControlHelp adControlHelp;
     private AdControl adControl;
     private View cv_trash_cleaner;
+    private HorizontalScrollView scroll;
+    private LottieAnimationView animArrowUp;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -499,6 +503,20 @@ public class fmBatterySaveMain extends Fragment implements View.OnClickListener 
         lrManager = view.findViewById(R.id.lrManager);
         lrRemove = view.findViewById(R.id.lrRemove);
         cv_trash_cleaner = view.findViewById(R.id.cv_trash_cleaner);
+
+        scroll = view.findViewById(R.id.scroll);
+        animArrowUp = view.findViewById(R.id.anim_arrow);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            scroll.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                    if (scrollX <= 200) {
+                        animArrowUp.setRotation(-360);
+                    } else animArrowUp.setRotation(180);
+                }
+            });
+        }
+
     }
 
     WaveDrawable mWaveDrawable;

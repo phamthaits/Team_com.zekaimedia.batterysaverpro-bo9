@@ -147,7 +147,7 @@ public class AdControl {
     public NativeBundle native_setting;
 
     private void SetNative() {
-        native_main = new NativeBundle(R.layout.item_admob_native_ad, R.layout.load_native_main, false,
+        native_main = new NativeBundle(R.layout.item_admob_native_setting, R.layout.load_native_setting, false,
                 admob_native_main(), false);
         native_banner_home = new NativeBundle(R.layout.item_admob_banner_native, R.layout.load_native_banner, true,
                 admob_native_banner(), false);

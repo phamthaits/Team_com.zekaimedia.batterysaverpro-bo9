@@ -284,95 +284,118 @@
                 </LinearLayout>
             </RelativeLayout>
 
-            <HorizontalScrollView
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/_16sdp"
-                android:layout_marginVertical="@dimen/_16sdp"
-                android:scrollbars="none">
+                android:layout_height="wrap_content">
 
-                <LinearLayout
+                <HorizontalScrollView
+                    android:id="@+id/scroll"
                     android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginVertical="@dimen/_16sdp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_16sdp"
+                            android:orientation="horizontal">
+                            <!--Trash Cleaner-->
+                            <include
+                                android:id="@+id/cv_trash_cleaner"
+                                layout="@layout/trash_cleaner"
+                                android:layout_width="@dimen/_120sdp"
+                                android:layout_height="@dimen/_136sdp"
+                                android:layout_marginRight="@dimen/_12sdp" />
+
+                            <!--Phone Boost-->
+                            <include
+                                layout="@layout/phone_boost"
+                                android:layout_width="@dimen/_120sdp"
+                                android:layout_height="@dimen/_136sdp"
+                                android:layout_marginRight="@dimen/_12sdp" />
+
+                            <!--Phone Cooler-->
+
+                            <include
+                                layout="@layout/phone_cooler"
+                                android:layout_width="@dimen/_120sdp"
+                                android:layout_height="@dimen/_136sdp"
+                                android:layout_marginRight="@dimen/_12sdp" />
+
+                            <!--Charge History-->
+                            <include
+                                layout="@layout/charge_history"
+                                android:layout_width="@dimen/_120sdp"
+                                android:layout_height="@dimen/_136sdp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <!--Native Banner-->
+                            <include
+                                android:id="@+id/banner_native_ads_control_holder"
+                                layout="@layout/control_native_ads"
+                                android:layout_width="@dimen/_120sdp"
+                                android:layout_height="@dimen/_136sdp"
+                                android:layout_marginRight="@dimen/_12sdp" />
+                            <!--End Native Banner-->
+
+                            <!--Fast Charge-->
+                            <include
+                                layout="@layout/fast_charge"
+                                android:layout_width="@dimen/_120sdp"
+                                android:layout_height="@dimen/_136sdp"
+                                android:layout_marginRight="@dimen/_12sdp" />
+                            <!--App Manager-->
+                            <include
+                                layout="@layout/app_manager"
+                                android:layout_width="@dimen/_120sdp"
+                                android:layout_height="@dimen/_136sdp"
+                                android:layout_marginRight="@dimen/_12sdp" />
+
+                            <!--Settings-->
+                            <!-- <include
+                                 layout="@layout/settings"
+                                 android:layout_width="@dimen/_120sdp"
+                                 android:layout_height="@dimen/_136sdp"
+                                 android:layout_marginRight="@dimen/_12sdp" />-->
+
+                            <!--Remove Ads-->
+                            <include
+                                android:id="@+id/remove_ads"
+                                layout="@layout/remove_ads"
+                                android:layout_width="@dimen/_120sdp"
+                                android:layout_height="@dimen/_136sdp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_centerInParent="true">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/_16sdp"
-                        android:orientation="horizontal">
-                        <!--Trash Cleaner-->
-                        <include
-                            android:id="@+id/cv_trash_cleaner"
-                            layout="@layout/trash_cleaner"
-                            android:layout_width="@dimen/_120sdp"
-                            android:layout_height="@dimen/_136sdp"
-                            android:layout_marginRight="@dimen/_12sdp" />
-
-                        <!--Phone Boost-->
-                        <include
-                            layout="@layout/phone_boost"
-                            android:layout_width="@dimen/_120sdp"
-                            android:layout_height="@dimen/_136sdp"
-                            android:layout_marginRight="@dimen/_12sdp" />
-
-                        <!--Phone Cooler-->
-
-                        <include
-                            layout="@layout/phone_cooler"
-                            android:layout_width="@dimen/_120sdp"
-                            android:layout_height="@dimen/_136sdp"
-                            android:layout_marginRight="@dimen/_12sdp" />
-
-                        <!--Fast Charge-->
-                        <include
-                            layout="@layout/fast_charge"
-                            android:layout_width="@dimen/_120sdp"
-                            android:layout_height="@dimen/_136sdp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <!--Native Banner-->
-                        <include
-                            android:id="@+id/banner_native_ads_control_holder"
-                            layout="@layout/control_native_ads"
-                            android:layout_width="@dimen/_120sdp"
-                            android:layout_height="@dimen/_136sdp"
-                            android:layout_marginRight="@dimen/_12sdp" />
-                        <!--End Native Banner-->
-                        <!--Charge History-->
-                        <include
-                            layout="@layout/charge_history"
-                            android:layout_width="@dimen/_120sdp"
-                            android:layout_height="@dimen/_136sdp"
-                            android:layout_marginRight="@dimen/_12sdp" />
-
-                        <!--App Manager-->
-                        <include
-                            layout="@layout/app_manager"
-                            android:layout_width="@dimen/_120sdp"
-                            android:layout_height="@dimen/_136sdp"
-                            android:layout_marginRight="@dimen/_12sdp" />
-
-                        <!--Settings-->
-                        <!-- <include
-                             layout="@layout/settings"
-                             android:layout_width="@dimen/_120sdp"
-                             android:layout_height="@dimen/_136sdp"
-                             android:layout_marginRight="@dimen/_12sdp" />-->
-
-                        <!--Remove Ads-->
-                        <include
-                            android:id="@+id/remove_ads"
-                            layout="@layout/remove_ads"
-                            android:layout_width="@dimen/_120sdp"
-                            android:layout_height="@dimen/_136sdp" />
-                    </LinearLayout>
-                </LinearLayout>
-            </HorizontalScrollView>
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/anim_arrow"
+                        android:layout_width="@dimen/_16sdp"
+                        android:layout_height="@dimen/_16sdp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/_16sdp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/scroll_right" />
+                </RelativeLayout>
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

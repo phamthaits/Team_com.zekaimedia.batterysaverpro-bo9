@@ -113,12 +113,13 @@
     <color name="color_green_2">#446ebd52</color>
     <color name="color_green_5">#c0155334</color>
 
-    <color name="color_normal">#717EEE</color>
+    <color name="color_normal">#8882F9</color>
+    <color name="color_healthy">#11AFF4</color>
+    <color name="color_over">#EA9165</color>
+
     <color name="color_text_title_item_setting">#9B9AAA</color>
     <color name="color_divider">#222c2c2c</color>
     <color name="color_text_item_setting">#9B9AAA</color>
-    <color name="color_over">#F35554</color>
-    <color name="color_healthy">#3AC3AE</color>
     <color name="dark_grayish_blue">#409D9DCE</color>
 
     <color name="list_selector_pressed_dark">#55eeeeff</color>
