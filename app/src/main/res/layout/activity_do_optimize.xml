@@ -203,9 +203,10 @@
 
             <TextView
                 android:id="@+id/clean_up_done_tv_result"
-                android:layout_width="@dimen/_144sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/_32sdp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="@dimen/_24sdp"
                 android:background="@drawable/bg_button_uninstall"
                 android:fontFamily="@font/bold"
                 android:gravity="center"
@@ -221,8 +222,8 @@
                 android:id="@+id/tvScan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center"
                 android:textColor="@color/secondary_text"
                 android:textSize="@dimen/_7sdp" />
         </LinearLayout>

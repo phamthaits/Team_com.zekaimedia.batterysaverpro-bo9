@@ -280,15 +280,16 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:orientation="vertical"
             android:layout_marginTop="@dimen/_44sdp"
-            android:layout_marginBottom="@dimen/_16sdp">
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvOptimize"
-                android:layout_width="@dimen/_144sdp"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/_32sdp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginHorizontal="@dimen/_24sdp"
                 android:background="@drawable/bg_button_uninstall"
                 android:fontFamily="@font/bold"
                 android:gravity="center"
