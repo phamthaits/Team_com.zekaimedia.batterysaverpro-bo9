@@ -72,7 +72,7 @@ public class NotificationDevice {
                     .setCustomContentView(remoteViews);
             if (Utils.isAndroid26()) {
 
-                ongoing.setChannelId("notification_channel_id");
+                ongoing.setChannelId(Utils.notification_channel_id);
             }
             Notification noti = ongoing.build();
             noti.flags = Notification.DEFAULT_LIGHTS | Notification.FLAG_AUTO_CANCEL;
@@ -142,7 +142,7 @@ public class NotificationDevice {
                     .setPriority(NotificationManager.IMPORTANCE_HIGH)
                     .setCustomContentView(remoteViews);
             if (Utils.isAndroid26()) {
-                ongoing.setChannelId("notification_channel_id");
+                ongoing.setChannelId(Utils.notification_channel_id);
             }
             Notification noti = ongoing.build();
             noti.flags = Notification.DEFAULT_LIGHTS | Notification.FLAG_AUTO_CANCEL;
@@ -202,7 +202,7 @@ public class NotificationDevice {
                     .setCustomContentView(remoteViews);
             if (Utils.isAndroid26()) {
 
-                ongoing.setChannelId("notification_channel_id");
+                ongoing.setChannelId(Utils.notification_channel_id);
             }
             Notification noti = ongoing.build();
             noti.flags = Notification.DEFAULT_LIGHTS | Notification.FLAG_AUTO_CANCEL;
@@ -269,7 +269,7 @@ public class NotificationDevice {
                     .setCustomContentView(remoteViews);
             if (Utils.isAndroid26()) {
 
-                ongoing.setChannelId("notification_channel_id");
+                ongoing.setChannelId(Utils.notification_channel_id);
             }
             Notification noti = ongoing.build();
             noti.flags = Notification.DEFAULT_LIGHTS | Notification.FLAG_AUTO_CANCEL;
@@ -306,7 +306,7 @@ public class NotificationDevice {
                     .setCustomContentView(remoteViews);
             if (Utils.isAndroid26()) {
                 ongoing.setPriority(NotificationManager.IMPORTANCE_HIGH);
-                ongoing.setChannelId("notification_channel_id");
+                ongoing.setChannelId(Utils.notification_channel_id);
             } else {
                 ongoing.setPriority(Notification.PRIORITY_MAX);
             }
@@ -337,7 +337,7 @@ public class NotificationDevice {
                     remoteViews.setTextColor(R.id.notification_layout_tv_second, mContext.getResources().getColor(R.color.secondary_dark));
                     break;
             }
-            NotificationCompat.Builder ongoing = new NotificationCompat.Builder(mContext,"notification_channel_id")
+            NotificationCompat.Builder ongoing = new NotificationCompat.Builder(mContext,Utils.notification_channel_id)
                     .setSmallIcon(R.drawable.ic_noti_small_full)
                     .setOngoing(true)
                     .setVibrate(new long[]{0L})
@@ -348,7 +348,7 @@ public class NotificationDevice {
                     .setCustomContentView(remoteViews);
 
             if (Utils.isAndroid26()) {
-                ongoing.setChannelId("notification_channel_id");
+                ongoing.setChannelId(Utils.notification_channel_id);
             }
             Notification noti = ongoing.build();
             noti.flags = Notification.DEFAULT_LIGHTS | Notification.FLAG_AUTO_CANCEL;

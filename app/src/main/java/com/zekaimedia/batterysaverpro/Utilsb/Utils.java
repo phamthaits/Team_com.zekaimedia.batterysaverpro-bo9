@@ -57,7 +57,7 @@ public class Utils {
         final float scale = resources.getDisplayMetrics().density;
         return dp * scale + 0.5f;
     }
-
+    public static String notification_channel_id ="thaidaica";
     public static float sp2px(Resources resources, float sp) {
         final float scale = resources.getDisplayMetrics().scaledDensity;
         return sp * scale;

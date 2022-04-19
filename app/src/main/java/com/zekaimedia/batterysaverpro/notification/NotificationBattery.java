@@ -97,7 +97,7 @@ public class NotificationBattery extends NotificationCompat.Builder {
 
     public static NotificationBattery getInstance(Context context) {
         if (notifycationBattery == null)
-            notifycationBattery = new NotificationBattery(context, "notification_channel_id");
+            notifycationBattery = new NotificationBattery(context, Utils.notification_channel_id);
         return notifycationBattery;
     }
 
@@ -221,7 +221,7 @@ public class NotificationBattery extends NotificationCompat.Builder {
         notificationBuilder.setContentText(null);
         notificationBuilder.setDefaults(0);
 //                    if (Build.VERSION.SDK_INT >= 23) {
-        notificationBuilder.setChannelId("notification_channel_id");
+        notificationBuilder.setChannelId(Utils.notification_channel_id);
 //        }
         notificationBuilder.setCustomContentView(remoteViews);
         Notification notification = notificationBuilder.build();

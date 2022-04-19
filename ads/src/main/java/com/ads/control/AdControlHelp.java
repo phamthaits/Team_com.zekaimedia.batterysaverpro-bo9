@@ -54,6 +54,9 @@ public class AdControlHelp {
                                         case "admob_banner":
                                             adControl.admob_banner(getRealAdmob(object.getString(key), activity));
                                             break;
+                                        case "admob_open":
+                                            adControl.admob_open(getRealAdmob(object.getString(key), activity));
+                                            break;
                                         case "version":
                                             adControl.isUpdate(object.getInt(key));
                                             break;

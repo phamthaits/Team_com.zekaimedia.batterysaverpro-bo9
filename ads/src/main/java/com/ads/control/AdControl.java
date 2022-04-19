@@ -12,6 +12,7 @@ public class AdControl {
     private SharedPreferences pre;
 //    public static boolean _isTestAds = false;
     public static boolean _isTestAds = true;
+    public static Boolean _isShowOpenAds = true;
 
     public AdControl(Context context) {
         this.pre = context.getSharedPreferences("app_data", Context.MODE_MULTI_PROCESS);
@@ -45,7 +46,16 @@ public class AdControl {
         editor.putString("admob_full", value);
         editor.commit();
     }
+    //Open
+    public String admob_open() {
+        if (_isTestAds) return "ca-app-pub-3940256099942544/3419835294";
+        return this.pre.getString("admob_open", "");
+    }
 
+    public void admob_open(String value) {
+        editor.putString("admob_open", value);
+        editor.commit();
+    }
     //Native Main
     public String admob_native_main() {
         if (_isTestAds) return "/6499/example/native";

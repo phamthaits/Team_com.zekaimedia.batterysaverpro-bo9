@@ -256,7 +256,12 @@ public class MainActivity extends BaseActivity {
         transaction.replace(R.id.frame_container, fragment);
         transaction.commit();
     }
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        App.getmInStance().appOpenManager.showAdIfAvailable();
+        Log.v("LifeCycle", "onResume");
+    }
     @Override
     protected void onDestroy() {
         SharePreferenceUtils.getInstance(this).setFlagAds(false);
