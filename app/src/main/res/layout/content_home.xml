@@ -76,7 +76,7 @@
                                 android:id="@+id/view3"
                                 android:layout_width="@dimen/_24sdp"
                                 android:layout_height="0.5dp"
-                                android:layout_marginLeft="@dimen/_34sdp"
+                                android:layout_marginLeft="@dimen/_33sdp"
                                 android:background="@color/dark_grayish_blue" />
                         </LinearLayout>
                     </LinearLayout>

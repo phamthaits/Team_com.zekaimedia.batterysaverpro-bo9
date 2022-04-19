@@ -180,7 +180,7 @@
     </FrameLayout>
 
     <!--Scan Fast Charge-->
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/rlScanning"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -192,7 +192,8 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/av_progress"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_416sdp"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/optimize"
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             app:lottie_autoPlay="true"
@@ -273,31 +274,40 @@
             </RelativeLayout>
         </com.skyfishjy.library.RippleBackground>
 
-
-        <TextView
-            android:id="@+id/tvOptimize"
-            android:layout_width="@dimen/_144sdp"
-            android:layout_height="@dimen/_32sdp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_56sdp"
-            android:layout_marginBottom="@dimen/_8sdp"
-            android:background="@drawable/bg_button_uninstall"
-            android:fontFamily="@font/bold"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_16sdp"
-            android:singleLine="true"
-            android:text="@string/pc_auto_optimizing"
-            android:textAllCaps="true"
-            android:textColor="@color/primary_text"
-            android:textSize="@dimen/_10sdp"
-            android:visibility="visible" />
-
-        <TextView
-            android:id="@+id/tvScan"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@id/optimize"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/secondary_text"
-            android:textSize="@dimen/_7sdp" />
-    </LinearLayout>
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/_44sdp"
+            android:layout_marginBottom="@dimen/_16sdp">
+
+            <TextView
+                android:id="@+id/tvOptimize"
+                android:layout_width="@dimen/_144sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_button_uninstall"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_16sdp"
+                android:singleLine="true"
+                android:text="@string/pc_auto_optimizing"
+                android:textAllCaps="true"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_10sdp"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvScan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="center"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/_7sdp" />
+        </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>

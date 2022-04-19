@@ -48,7 +48,7 @@
         </LinearLayout>
     </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/lrScan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -57,14 +57,15 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:layout_above="@+id/optimize">
 
             <com.skyfishjy.library.RippleBackground
                 android:id="@+id/charge_boost_ripple_background"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_416sdp"
+                android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
@@ -178,7 +179,7 @@
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/scan_optimize_charger"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_416sdp"
+                android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
@@ -188,34 +189,44 @@
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
                 app:lottie_rawRes="@raw/optimize_charger" />
-        </RelativeLayout>
+        </FrameLayout>
 
-        <TextView
-            android:id="@+id/clean_up_done_tv_result"
-            android:layout_width="@dimen/_144sdp"
-            android:layout_height="@dimen/_32sdp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_56sdp"
-            android:layout_marginBottom="@dimen/_8sdp"
-            android:background="@drawable/bg_button_uninstall"
-            android:fontFamily="@font/bold"
-            android:gravity="center"
-            android:paddingHorizontal="@dimen/_16sdp"
-            android:singleLine="true"
-            android:text="@string/pc_auto_optimizing"
-            android:textAllCaps="true"
-            android:textColor="@color/primary_text"
-            android:textSize="@dimen/_10sdp"
-            android:visibility="visible" />
-
-        <TextView
-            android:id="@+id/tvScan"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:id="@id/optimize"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/secondary_text"
-            android:textSize="@dimen/_7sdp" />
-    </LinearLayout>
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_44sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/clean_up_done_tv_result"
+                android:layout_width="@dimen/_144sdp"
+                android:layout_height="@dimen/_32sdp"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_button_uninstall"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_16sdp"
+                android:singleLine="true"
+                android:text="@string/pc_auto_optimizing"
+                android:textAllCaps="true"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_10sdp"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvScan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:textColor="@color/secondary_text"
+                android:textSize="@dimen/_7sdp" />
+        </LinearLayout>
+    </RelativeLayout>
 
     <FrameLayout
         android:id="@+id/fmResult"
@@ -242,9 +253,9 @@
                     android:layout_height="@dimen/_88sdp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginBottom="@dimen/_16sdp"
-                    android:paddingHorizontal="@dimen/_16sdp"
                     android:background="@drawable/img_result_optimize"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_16sdp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -258,10 +269,10 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/bold"
                             android:gravity="center"
+                            android:singleLine="true"
                             android:text="@string/stt_sm_edge_device_optimized"
                             android:textAllCaps="true"
                             android:textColor="@android:color/white"
-                            android:singleLine="true"
                             android:textSize="@dimen/_16sdp" />
 
                         <TextView
@@ -269,10 +280,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
+                            android:singleLine="true"
                             android:text="@string/sm_edge_device_optimized"
                             android:textAllCaps="true"
                             android:textColor="@android:color/white"
-                            android:singleLine="true"
                             android:textSize="@dimen/_12sdp" />
                     </LinearLayout>
 
@@ -373,7 +384,6 @@
                         android:layout_marginLeft="@dimen/_8sdp"
                         android:layout_weight="1" />
                 </LinearLayout>
-
             </LinearLayout>
         </ScrollView>
     </FrameLayout>

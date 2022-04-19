@@ -187,7 +187,7 @@
     </FrameLayout>
 
     <!--Scanning Cooler-->
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/lrScan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -196,14 +196,16 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_above="@+id/optimize"
+            android:layout_height="match_parent">
 
             <com.skyfishjy.library.RippleBackground
                 android:id="@+id/charge_boost_ripple_background"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_416sdp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
                 android:layout_gravity="center"
                 app:rb_color="#00000000"
                 app:rb_duration="1200"
@@ -315,7 +317,7 @@
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/scan_optimize_charger"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_416sdp"
+                android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
@@ -325,26 +327,36 @@
                 app:lottie_autoPlay="true"
                 app:lottie_loop="true"
                 app:lottie_rawRes="@raw/phone_cooler" />
-        </RelativeLayout>
+        </FrameLayout>
 
-        <TextView
-            android:id="@+id/clean_up_done_tv_result"
+        <LinearLayout
+            android:id="@+id/optimize"
             android:layout_width="@dimen/_144sdp"
             android:layout_height="@dimen/_32sdp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/_56sdp"
-            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_44sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
             android:background="@drawable/bg_button_uninstall"
-            android:fontFamily="@font/bold"
             android:gravity="center"
-            android:paddingHorizontal="@dimen/_16sdp"
-            android:singleLine="true"
-            android:text="@string/cool_down_button"
-            android:textAllCaps="true"
-            android:textColor="@color/primary_text"
-            android:textSize="@dimen/_10sdp"
-            android:visibility="visible" />
-    </LinearLayout>
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_16sdp">
+
+            <TextView
+                android:id="@+id/clean_up_done_tv_result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/cool_down_button"
+                android:textAllCaps="true"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_10sdp"
+                android:visibility="visible" />
+        </LinearLayout>
+    </RelativeLayout>
 
     <ImageView
         android:id="@+id/iv_bg_snow"

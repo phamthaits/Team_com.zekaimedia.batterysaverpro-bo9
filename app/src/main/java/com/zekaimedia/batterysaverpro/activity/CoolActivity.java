@@ -26,6 +26,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -66,7 +67,7 @@ public class CoolActivity extends AppCompatActivity implements View.OnClickListe
     private Animation ivDoneAnim;
 
     private ViewGroup parentAds;
-    private LinearLayout lrScan;
+    private RelativeLayout lrScan;
     private AdControlHelp adControlHelp;
     private AdControl adControl;
     private Activity activity;

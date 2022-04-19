@@ -63,8 +63,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingHorizontal="@dimen/_16sdp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/_16sdp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -72,9 +72,9 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="@dimen/_16sdp"
                     android:background="@drawable/img_result_clean"
-                    android:paddingHorizontal="@dimen/_16sdp"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingHorizontal="@dimen/_16sdp">
 
                     <TextView
                         android:id="@+id/stt_optimized_info"
@@ -93,8 +93,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="@string/op_clean"
                         android:singleLine="true"
+                        android:text="@string/op_clean"
                         android:textAllCaps="true"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/_12sdp" />
@@ -190,10 +190,9 @@
         <FrameLayout
             android:id="@+id/imgOutCircle"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_416sdp"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/optimize"
             android:layout_centerInParent="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
             android:layout_gravity="center">
 
             <FrameLayout
@@ -219,8 +218,8 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_icon_progress_cleaner"
-                    app:tint="@android:color/transparent"
-                    android:visibility="visible" />
+                    android:visibility="visible"
+                    app:tint="@android:color/transparent" />
 
                 <ImageView
                     android:id="@+id/clean_done_iv_rocket"
@@ -229,8 +228,8 @@
                     android:layout_gravity="center"
                     android:layout_margin="@dimen/_45sdp"
                     android:src="@drawable/ic_clean_trash"
-                    app:tint="@android:color/transparent"
-                    android:visibility="visible" />
+                    android:visibility="visible"
+                    app:tint="@android:color/transparent" />
 
                 <ImageView
                     android:id="@+id/clean_done_iv_tick"
@@ -241,14 +240,14 @@
                     android:background="@drawable/complete_bg_clean"
                     android:padding="@dimen/_30sdp"
                     android:src="@drawable/ic_complete_tick"
-                    app:tint="@android:color/transparent"
-                    android:visibility="invisible" />
+                    android:visibility="invisible"
+                    app:tint="@android:color/transparent" />
             </FrameLayout>
 
             <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/scan_optimize_charger"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_416sdp"
+                android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
@@ -261,15 +260,17 @@
         </FrameLayout>
 
         <LinearLayout
+            android:id="@+id/optimize"
             android:layout_width="@dimen/_144sdp"
             android:layout_height="@dimen/_32sdp"
-            android:layout_below="@+id/imgOutCircle"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:paddingHorizontal="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_44sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
             android:background="@drawable/bg_button_uninstall"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingHorizontal="@dimen/_16sdp">
 
             <TextView
                 android:id="@+id/tvOptimize"

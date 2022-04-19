@@ -28,6 +28,7 @@ import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -67,7 +68,7 @@ public class BatterySaverActivity extends AppCompatActivity implements OnClickLi
     private ImageView ivDone;
     private Animation ivDoneAnim;
     private ViewGroup parentAds;
-    private LinearLayout lrScan;
+    private RelativeLayout lrScan;
     private AdControlHelp adControlHelp;
     private AdControl adControl;
     private View cv_trash_cleaner;

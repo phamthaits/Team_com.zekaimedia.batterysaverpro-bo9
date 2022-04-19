@@ -157,7 +157,7 @@ public class ChargeActivity extends AppCompatActivity implements View.OnClickLis
                         tvOptimize.setText(getString(R.string.done));
 
                         rocketImage.setVisibility(View.GONE);
-                        tvScan.setVisibility(View.GONE);
+                        tvScan.setVisibility(View.VISIBLE);
                         rlDone.setVisibility(View.VISIBLE);
                         ic_fan_white.setVisibility(View.GONE);
 

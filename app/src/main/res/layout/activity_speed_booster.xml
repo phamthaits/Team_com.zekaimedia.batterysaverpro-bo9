@@ -245,7 +245,8 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/scan_optimize_charger"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_416sdp"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/optimize"
             android:layout_centerInParent="true"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
@@ -257,11 +258,13 @@
             app:lottie_rawRes="@raw/phone_boost" />
 
         <LinearLayout
+            android:id="@+id/optimize"
             android:layout_width="@dimen/_144sdp"
             android:layout_height="@dimen/_32sdp"
-            android:layout_below="@+id/scan_optimize_charger"
+            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_44sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
             android:background="@drawable/bg_button_uninstall"
             android:gravity="center"
             android:orientation="vertical"
