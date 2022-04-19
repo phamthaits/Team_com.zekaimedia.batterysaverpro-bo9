@@ -155,8 +155,8 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks, L
     }
 
     public boolean canShow() {
-        return true;
-//        return (timeshowAds + timeReshow) < System.currentTimeMillis();
+//        return true;
+        return (timeshowAds + timeReshow) < System.currentTimeMillis();
     }
 
     @Override
