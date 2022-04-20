@@ -18,14 +18,14 @@
     <string name="saving_now">Tiết kiệm Ngay</string>
     <string name="bd_power_issue">Vấn đề năng lượng</string>
     <string name="pc_scanning">Đang quét</string>
-    <string name="pc_auto_optimizing">Đang tự động tối ưu hóa…</string>
+    <string name="pc_auto_optimizing">Đang tự động tối ưu hóa …</string>
     <string name="setting_nav">Cài đặt</string>
     <string name="junk_clean_nav">Bộ Dọn rác</string>
     <string name="phone_boost_nav">Bộ tăng tốc</string>
     <string name="battery_exellent">Tuyệt!</string>
     <string name="phone_cool_nav">Làm mát điện thoại</string>
     <string name="cleaned">%s đã được dọn</string>
-    <string name="cleaning_junk">Đang xóa tập tin rác…</string>
+    <string name="cleaning_junk">Đang xóa tập tin rác …</string>
     <string name="result_cooler">Tuyệt vời! Đã giảm thành công.</string>
     <string name="ram_result">Đã tăng tốc</string>
     <string name="boosting">Đang tăng tốc Bộ nhớ</string>

@@ -259,25 +259,24 @@
 
         <LinearLayout
             android:id="@+id/optimize"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_32sdp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginHorizontal="@dimen/_24sdp"
             android:layout_marginTop="@dimen/_44sdp"
             android:layout_marginBottom="@dimen/_16sdp"
-            android:background="@drawable/bg_button_uninstall"
             android:gravity="center"
-            android:orientation="vertical"
-            android:paddingHorizontal="@dimen/_16sdp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvOptimize"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
+                android:background="@drawable/bg_button_uninstall"
                 android:fontFamily="@font/bold"
                 android:gravity="center"
+                android:paddingHorizontal="@dimen/_16sdp"
                 android:singleLine="true"
                 android:text="@string/boosting"
                 android:textAllCaps="true"
