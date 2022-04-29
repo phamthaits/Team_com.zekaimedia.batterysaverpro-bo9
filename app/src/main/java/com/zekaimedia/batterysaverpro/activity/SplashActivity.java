@@ -78,7 +78,7 @@ public class SplashActivity extends AppCompatActivity {
                 });
             }
         };
-        if (adControlHelp.is_reload_firebase()) {
+        if (adControl.is_reload_firebase()) {
             Log.v("ads", "reload Firebase: True");
             adControlHelp.getAdControlFromFireBase(fireBaseListener, this);
         } else fireBaseListener.addOnCompleteListener();

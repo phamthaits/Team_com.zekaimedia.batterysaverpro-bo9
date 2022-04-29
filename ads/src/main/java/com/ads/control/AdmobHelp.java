@@ -148,6 +148,15 @@ public class AdmobHelp {
         }
     }
 
+    public void goneBanner(final View rootView) {
+        FrameLayout frameLayout = rootView.findViewById(R.id.admob_adplaceholder);
+        ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
+        containerShimmer.stopShimmer();
+        containerShimmer.setVisibility(View.GONE);
+        frameLayout.setVisibility(View.GONE);
+        rootView.setVisibility(View.GONE);
+    }
+
     public void loadBanner(Activity activity, final View rootView, String ads) {
         ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
         containerShimmer.setVisibility(View.VISIBLE);
@@ -165,10 +174,7 @@ public class AdmobHelp {
             @Override
             public void onAdFailedToLoad(LoadAdError loadAdError) {
                 super.onAdFailedToLoad(loadAdError);
-                containerShimmer.stopShimmer();
-                containerShimmer.setVisibility(View.GONE);
-                frameLayout.setVisibility(View.GONE);
-                rootView.setVisibility(View.GONE);
+                goneBanner(rootView);
             }
 
             @Override
@@ -179,6 +185,10 @@ public class AdmobHelp {
             }
         });
         adView_Banner.loadAd(new AdRequest.Builder().build());
+    }
+
+    public void goneNative(  final LinearLayout rootView) {
+        rootView.setVisibility(View.GONE);
     }
 
     public void loadNative(final Activity mActivity, final LinearLayout rootView, AdControl.NativeBundle nativeBundle) {
@@ -226,9 +236,10 @@ public class AdmobHelp {
         AdLoader adLoader = builder.withAdListener(new AdListener() {
             @Override
             public void onAdFailedToLoad(LoadAdError errorCode) {
+                ShimmerFrameLayout containerShimmer = (ShimmerFrameLayout) rootView.findViewById(R.id.shimmer_container);
                 containerShimmer.stopShimmer();
                 containerShimmer.setVisibility(View.GONE);
-                rootView.setVisibility(View.GONE);
+               goneNative(rootView);
             }
         }).build();
         Bundle extras = new FacebookExtras()

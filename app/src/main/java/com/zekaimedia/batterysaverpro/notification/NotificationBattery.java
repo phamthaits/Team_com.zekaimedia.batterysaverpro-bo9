@@ -214,7 +214,7 @@ public class NotificationBattery extends NotificationCompat.Builder {
 //            if (android.os.Build.VERSION.SDK_INT < 25) {
 //        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext, "NOTIFYCATION_BATTERY_ID");
 //        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(mContext);
-        notificationBuilder.setSmallIcon(R.drawable.logo_v3);
+        notificationBuilder.setSmallIcon(iconRes[lv]);
         notificationBuilder.setTicker(null);
         notificationBuilder.setOnlyAlertOnce(true);
         notificationBuilder.setContentTitle(mContext.getString(R.string.battery_level));

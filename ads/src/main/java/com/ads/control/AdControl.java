@@ -35,7 +35,11 @@ public class AdControl {
         editor.putBoolean("isInit", value);
         editor.commit();
     }
-
+    public boolean is_reload_firebase() {
+//        return true;
+        if (_isTestAds || forceUpdateFirebase()) return true;
+        return old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !isInit();
+    }
     //Full
     public String admob_full() {
         if (_isTestAds) return "/6499/example/interstitial";
@@ -67,7 +71,6 @@ public class AdControl {
         editor.commit();
     }
 
-
     //Native Setting
     public String admob_native_setting() {
         if (_isTestAds) return "/6499/example/native";
@@ -78,7 +81,16 @@ public class AdControl {
         editor.putString("admob_native_setting", value);
         editor.commit();
     }
+    //Native result
+    public String admob_native_result() {
+        if (_isTestAds) return "/6499/example/native";
+        return this.pre.getString("admob_native_result", "");
+    }
 
+    public void admob_native_result(String value) {
+        editor.putString("admob_native_result", value);
+        editor.commit();
+    }
     //Native Banner
     public String admob_native_banner() {
         if (_isTestAds) return "/6499/example/native";
@@ -120,7 +132,7 @@ public class AdControl {
     }
 
     public Boolean remove_ads() {
-//        return false;
+//        return true;
         return this.pre.getBoolean("remove_ads", false);
     }
 
@@ -155,7 +167,7 @@ public class AdControl {
     public NativeBundle native_main;
     public NativeBundle native_banner_home;
     public NativeBundle native_setting;
-
+    public NativeBundle native_result;
     private void SetNative() {
         native_main = new NativeBundle(R.layout.item_admob_native_setting, R.layout.load_native_setting, false,
                 admob_native_main(), false);
@@ -163,6 +175,8 @@ public class AdControl {
                 admob_native_banner(), false);
         native_setting = new NativeBundle(R.layout.item_admob_native_setting, R.layout.load_native_setting, false,
                 admob_native_setting(), false);
+        native_result = new NativeBundle(R.layout.item_admob_native_setting, R.layout.load_native_setting, false,
+                admob_native_result(), false);
     }
 
     public class NativeBundle {

@@ -50,7 +50,7 @@ public class CleanResultActivity extends AppCompatActivity implements View.OnCli
         View bt_RemoveAds = findViewById(R.id.remove_ads);
         bt_RemoveAds.setVisibility(AdControl.getInstance(activity).remove_ads() ? View.GONE : View.VISIBLE);
 
-        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), adControl.native_main);
+        adControlHelp.loadNative(this, findViewById(R.id.native_ads_control_holder), adControl.native_result);
         SharePreferenceUtils.getInstance(this).setFlagAds(true);
 
         rlScan = findViewById(R.id.rlScanning);

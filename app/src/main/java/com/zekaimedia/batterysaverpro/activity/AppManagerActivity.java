@@ -115,10 +115,11 @@ public class AppManagerActivity extends AppCompatActivity {
                             int countUser = 0;
                             List<ApplicationInfo> applicationInfosUser = new ArrayList<>();
                             for (ApplicationInfo applicationInfo : result) {
-                                if (!applicationInfo.packageName.equals(getPackageName())
-                                ) {
-                                    countUser++;
-                                    applicationInfosUser.add(applicationInfo);
+                                if (!applicationInfo.packageName.equals(getPackageName())) {
+                                    if (Utils.isUserApp(applicationInfo)) {
+                                        countUser++;
+                                        applicationInfosUser.add(applicationInfo);
+                                    }
                                 }
                             }
                             groupItemAppManagerUser.setItems(applicationInfosUser);

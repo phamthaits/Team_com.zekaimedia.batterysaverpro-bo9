@@ -155,8 +155,8 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks, L
     }
 
     public boolean canShow() {
-//        return true;
-        return (timeshowAds + timeReshow) < System.currentTimeMillis();
+        return true;
+//        return (timeshowAds + timeReshow) < System.currentTimeMillis();
     }
 
     @Override
@@ -167,27 +167,30 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks, L
     @Override
     public void onActivityStarted(Activity activity) {
         Log.v("LifeCycleT", "Started: " + activity.getComponentName().getClassName());
-        if(activity.getComponentName().getClassName().toLowerCase().contains("mainactivity"))
-        currentActivity = activity;
+        if (activity.getComponentName().getClassName().toLowerCase().contains("mainactivity"))
+            currentActivity = activity;
     }
 
     @Override
     public void onActivityResumed(Activity activity) {
         Log.v("LifeCycleT", "Resumed: " + activity.getComponentName().getClassName());
-        if(activity.getComponentName().getClassName().toLowerCase().contains("mainactivity"))
+        if (activity.getComponentName().getClassName().toLowerCase().contains("mainactivity"))
             currentActivity = activity;
     }
 
     @Override
     public void onActivityStopped(Activity activity) {
         Log.v("LifeCycleT", "Stopped: " + activity.getComponentName().getClassName());
-//        currentActivity = activity;
-
+        if (!activity.getComponentName().getClassName().toLowerCase().contains("mainactivity"))
+            AdControl._isShowOpenAds = false;
+        else AdControl._isShowOpenAds = true;
     }
 
     @Override
     public void onActivityPaused(Activity activity) {
         Log.v("LifeCycleT", "Paused: " + activity.getComponentName().getClassName());
+        if (!activity.getComponentName().getClassName().toLowerCase().contains("mainactivity"))
+            AdControl._isShowOpenAds = false;
     }
 
     @Override

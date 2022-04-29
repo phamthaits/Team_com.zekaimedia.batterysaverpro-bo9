@@ -329,9 +329,10 @@
                                 android:layout_height="@dimen/_136sdp"
                                 android:layout_marginRight="@dimen/_12sdp" />
 
-                            <!--Charge History-->
+                            <!--Remove Ads-->
                             <include
-                                layout="@layout/charge_history"
+                                android:id="@+id/remove_ads"
+                                layout="@layout/remove_ads"
                                 android:layout_width="@dimen/_120sdp"
                                 android:layout_height="@dimen/_136sdp" />
                         </LinearLayout>
@@ -344,6 +345,7 @@
                             <include
                                 android:id="@+id/banner_native_ads_control_holder"
                                 layout="@layout/control_native_ads"
+
                                 android:layout_width="@dimen/_120sdp"
                                 android:layout_height="@dimen/_136sdp"
                                 android:layout_marginRight="@dimen/_12sdp" />
@@ -368,13 +370,12 @@
                                  android:layout_width="@dimen/_120sdp"
                                  android:layout_height="@dimen/_136sdp"
                                  android:layout_marginRight="@dimen/_12sdp" />-->
-
-                            <!--Remove Ads-->
+                            <!--Charge History-->
                             <include
-                                android:id="@+id/remove_ads"
-                                layout="@layout/remove_ads"
+                                layout="@layout/charge_history"
                                 android:layout_width="@dimen/_120sdp"
                                 android:layout_height="@dimen/_136sdp" />
+
                         </LinearLayout>
                     </LinearLayout>
                 </HorizontalScrollView>

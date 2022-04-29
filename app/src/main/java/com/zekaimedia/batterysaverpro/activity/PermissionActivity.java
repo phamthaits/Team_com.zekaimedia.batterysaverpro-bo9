@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
+import com.ads.control.AdControl;
 import com.zekaimedia.batterysaverpro.R;
 
 public class PermissionActivity extends Activity {
@@ -19,6 +20,7 @@ public class PermissionActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AdControl._isShowOpenAds=false;
         setContentView(R.layout.activity_guide_setting);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.windowBackground));
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.windowBackground));

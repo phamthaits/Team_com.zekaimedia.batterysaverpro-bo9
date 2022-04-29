@@ -51,6 +51,9 @@ public class AdControlHelp {
                                         case "admob_native_main":
                                             adControl.admob_native_main(getRealAdmob(object.getString(key), activity));
                                             break;
+                                        case "admob_native_result":
+                                            adControl.admob_native_result(getRealAdmob(object.getString(key), activity));
+                                            break;
                                         case "admob_banner":
                                             adControl.admob_banner(getRealAdmob(object.getString(key), activity));
                                             break;
@@ -104,11 +107,6 @@ public class AdControlHelp {
         });
     }
 
-    public boolean is_reload_firebase() {
-        if (AdControl._isTestAds || adControl.forceUpdateFirebase()) return true;
-        return adControl.old_date() != Calendar.getInstance().get(Calendar.DAY_OF_MONTH) || !adControl.isInit();
-    }
-
     private AdControlHelp() {
     }
 
@@ -121,7 +119,9 @@ public class AdControlHelp {
     }
 
     public void loadNative(Activity mActivity, LinearLayout root_view, AdControl.NativeBundle nativeBundle) {
+        loadNetworkHelp(mActivity);
         if (adControl.remove_ads() || !adControl.isInit()) {
+            admobHelp.goneNative(root_view);
             return;
         }
         loadNetworkHelp(mActivity);
@@ -130,10 +130,12 @@ public class AdControlHelp {
     }
 
     public void loadBanner(Activity mActivity, View view) {
+        loadNetworkHelp(mActivity);
         if (adControl.remove_ads() || !adControl.isInit()) {
+            admobHelp.goneBanner(view);
             return;
         }
-        loadNetworkHelp(mActivity);
+
         if (!adControl.admob_banner().equals(""))
             admobHelp.loadBanner(mActivity, view, adControl.admob_banner());
     }

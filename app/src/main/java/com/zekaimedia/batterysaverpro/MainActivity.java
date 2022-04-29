@@ -1,5 +1,7 @@
 package com.zekaimedia.batterysaverpro;
 
+import static com.ads.control.AdControl._isShowOpenAds;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -265,6 +267,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         SharePreferenceUtils.getInstance(this).setFlagAds(false);
+        _isShowOpenAds = false;
         super.onDestroy();
     }
 
