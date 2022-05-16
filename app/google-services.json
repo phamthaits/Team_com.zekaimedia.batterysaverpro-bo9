@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "856568175297",
-    "project_id": "battery-thai-9",
-    "storage_bucket": "battery-thai-9.appspot.com"
+    "project_number": "828544022478",
+    "project_id": "batterysaverpro-9-1",
+    "storage_bucket": "batterysaverpro-9-1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:856568175297:android:3de4b9ad5d64a0d0611240",
+        "mobilesdk_app_id": "1:828544022478:android:d0190acfa9a0d08ec55d9f",
         "android_client_info": {
-          "package_name": "com.zekaimedia.batterysaverpro"
+          "package_name": "com.tforlive.batterysaverpro"
         }
       },
       "oauth_client": [
         {
-          "client_id": "856568175297-9gvo0d3frvhmkh7r5hoa4h1nm9orka2m.apps.googleusercontent.com",
+          "client_id": "828544022478-7sit6e8jp6l6kd8nuppvpvt0avv9cj30.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDRrxRMwYYxECTQmsAI5Oe65Mlin-whwRE"
+          "current_key": "AIzaSyAPwcqSWowBJldSOXsq0s_G7y9FjvH06Fw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "856568175297-9gvo0d3frvhmkh7r5hoa4h1nm9orka2m.apps.googleusercontent.com",
+              "client_id": "828544022478-7sit6e8jp6l6kd8nuppvpvt0avv9cj30.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

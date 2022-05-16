@@ -18,11 +18,13 @@ import org.json.JSONObject;
 
 import java.util.Calendar;
 import java.util.Map;
+import java.util.Random;
 
 public class AdControlHelp {
     private static AdControlHelp instance;
     private static AdControl adControl;
     private static AdmobHelp admobHelp;
+    private static Random random = new Random();
 
     public void getAdControlFromFireBase(FireBaseListener fireBaseListener, Activity activity) {
         Log.v("ads", "Load Firebase");
@@ -33,7 +35,7 @@ public class AdControlHelp {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
-                            Log.d("ads", document.getId() + " => " + document.getData());
+                            Log.v("ads", document.getId() + " => " + document.getData());
                             JSONObject object = new JSONObject(document.getData());
                             for (int i = 0; i < object.names().length(); i++) {
                                 try {
@@ -42,23 +44,44 @@ public class AdControlHelp {
                                         case "admob_full":
                                             adControl.admob_full(getRealAdmob(object.getString(key), activity));
                                             break;
+                                        case "admob_full_rate":
+                                            adControl.admob_full_rate(object.getInt(key));
+                                            break;
                                         case "admob_native_setting":
                                             adControl.admob_native_setting(getRealAdmob(object.getString(key), activity));
+                                            break;
+                                        case "admob_native_setting_rate":
+                                            adControl.admob_native_setting_rate(object.getInt(key));
                                             break;
                                         case "admob_native_banner":
                                             adControl.admob_native_banner(getRealAdmob(object.getString(key), activity));
                                             break;
+                                        case "admob_native_banner_rate":
+                                            adControl.admob_native_banner_rate(object.getInt(key));
+                                            break;
                                         case "admob_native_main":
                                             adControl.admob_native_main(getRealAdmob(object.getString(key), activity));
+                                            break;
+                                        case "admob_native_main_rate":
+                                            adControl.admob_native_main_rate(object.getInt(key));
                                             break;
                                         case "admob_native_result":
                                             adControl.admob_native_result(getRealAdmob(object.getString(key), activity));
                                             break;
+                                        case "admob_native_result_rate":
+                                            adControl.admob_native_result_rate(object.getInt(key));
+                                            break;
                                         case "admob_banner":
                                             adControl.admob_banner(getRealAdmob(object.getString(key), activity));
                                             break;
+                                        case "admob_banner_rate":
+                                            adControl.admob_banner_rate(object.getInt(key));
+                                            break;
                                         case "admob_open":
                                             adControl.admob_open(getRealAdmob(object.getString(key), activity));
+                                            break;
+                                        case "admob_open_rate":
+                                            adControl.admob_open_rate(object.getInt(key));
                                             break;
                                         case "version":
                                             adControl.isUpdate(object.getInt(key));
@@ -66,18 +89,18 @@ public class AdControlHelp {
                                         case "version_update_url":
                                             adControl.version_update_url(object.getString("version_update_url"));
                                     }
-                                    Log.d("ads", "key = " + key + ":" + object.getString(key));
+                                    Log.v("ads", "key = " + key + ":" + object.getString(key));
                                     adControl.isInit(true);
                                     adControl.old_date(-1);
                                 } catch (JSONException e) {
-                                    Log.d("ads", "Lỗi");
+                                    Log.v("ads", "Lỗi");
                                     e.printStackTrace();
                                 }
                             }
-                            Log.d("ads", document.getId() + " => " + document.getData());
+                            Log.v("ads", document.getId() + " => " + document.getData());
                         }
                     } else {
-                        Log.d("ads", "Error getting documents.", task.getException());
+                        Log.v("ads", "Error getting documents.", task.getException());
                     }
                     if (fireBaseListener != null)
                         fireBaseListener.addOnCompleteListener();
@@ -99,7 +122,7 @@ public class AdControlHelp {
                 Map<String, AdapterStatus> statusMap = initializationStatus.getAdapterStatusMap();
                 for (String adapterClass : statusMap.keySet()) {
                     AdapterStatus status = statusMap.get(adapterClass);
-                    Log.d("ads", String.format("Adapter name: %s, Description: %s, Latency: %d", adapterClass, status.getDescription(), status.getLatency()));
+                    Log.v("ads", String.format("Adapter name: %s, Description: %s, Latency: %d", adapterClass, status.getDescription(), status.getLatency()));
                 }
                 if (mobileAdsInitialize != null)
                     mobileAdsInitialize.onInitialized();
@@ -108,6 +131,12 @@ public class AdControlHelp {
     }
 
     private AdControlHelp() {
+    }
+
+    private boolean delivery_rate(int rate) {
+        int r = random.nextInt(100);
+        Log.v("ads", "Rate: " + r + "/" + rate);
+        return rate > r;
     }
 
     private String getRealAdmob(String reverse, Activity activity) {
@@ -120,7 +149,7 @@ public class AdControlHelp {
 
     public void loadNative(Activity mActivity, LinearLayout root_view, AdControl.NativeBundle nativeBundle) {
         loadNetworkHelp(mActivity);
-        if (adControl.remove_ads() || !adControl.isInit()) {
+        if (adControl.remove_ads() || !adControl.isInit() || !delivery_rate(nativeBundle.rate)) {
             admobHelp.goneNative(root_view);
             return;
         }
@@ -131,7 +160,7 @@ public class AdControlHelp {
 
     public void loadBanner(Activity mActivity, View view) {
         loadNetworkHelp(mActivity);
-        if (adControl.remove_ads() || !adControl.isInit()) {
+        if (adControl.remove_ads() || !adControl.isInit() || !delivery_rate(adControl.admob_banner_rate())) {
             admobHelp.goneBanner(view);
             return;
         }
@@ -150,14 +179,13 @@ public class AdControlHelp {
         if (!adControl.admob_full().equals(""))
             admobHelp.loadInterstitialAd(activity, adLoadedListener);
         else {
-
             if (adLoadedListener != null)
                 adLoadedListener.onAdLoaded();
         }
     }
 
     public void showInterstitialAd(Activity activity, AdCloseListener adCloseListener) {
-        if (adControl.remove_ads() || !adControl.isInit()) {
+        if (adControl.remove_ads() || !adControl.isInit() || !delivery_rate(adControl.admob_full_rate())) {
             if (adCloseListener != null)
                 adCloseListener.onAdClosed();
             return;
@@ -186,3 +214,4 @@ public class AdControlHelp {
         void onInitialized();
     }
 }
+

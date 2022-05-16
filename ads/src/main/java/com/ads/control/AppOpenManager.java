@@ -2,6 +2,8 @@ package com.ads.control;
 
 import static androidx.lifecycle.Lifecycle.Event.ON_START;
 
+import static java.lang.Enum.valueOf;
+
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
@@ -18,12 +20,14 @@ import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.appopen.AppOpenAd;
 
 import java.util.Date;
+import java.util.Random;
 
 public class AppOpenManager implements Application.ActivityLifecycleCallbacks, LifecycleObserver {
 
     private static final String LOG_TAG = "AppOpenManager";
     private AppOpenAd appOpenAd = null;
     private static boolean isShowingAd = false;
+    private static Random random = new Random();
     private long loadTime = 0;
     private long timeshowAds = 0;
     private final long timeReshow = 30 * 1000;
@@ -44,7 +48,7 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks, L
     @OnLifecycleEvent(ON_START)
     public void onStart() {
 //        showAdIfAvailable();
-//        Log.d(LOG_TAG, "onStart");
+//        Log.v(LOG_TAG, "onStart");
     }
 
     /**
@@ -89,12 +93,19 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks, L
     /**
      * Shows the ad if one isn't already showing.
      */
+    private boolean delivery_rate() {
+        int r = random.nextInt(100);
+        int rate = AdControl.getInstance(currentActivity).admob_open_rate();
+        Log.v("ads", "Rate: " + r + "/" + rate);
+        return rate > r;
+    }
+
     public void showAdIfAvailable() {
         // Only show ad if there is not already an app open ad currently showing
         // and an ad is available.
-        if (!isShowingAd && isAdAvailable() && canShow()) {
+        if (!isShowingAd && isAdAvailable() && canShow() && delivery_rate()) {
             if (AdControl._isShowOpenAds) {
-                Log.d(LOG_TAG, "Will show ad.");
+                Log.v(LOG_TAG, "Will show ad.");
                 timeshowAds = System.currentTimeMillis();
                 FullScreenContentCallback fullScreenContentCallback =
                         new FullScreenContentCallback() {
@@ -103,13 +114,13 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks, L
                                 // Set the reference to null so isAdAvailable() returns false.
                                 AppOpenManager.this.appOpenAd = null;
                                 isShowingAd = false;
-                                Log.d(LOG_TAG, "isShowingAd=fales");
+                                Log.v(LOG_TAG, "isShowingAd=fales");
                                 fetchAd();
                             }
 
                             @Override
                             public void onAdFailedToShowFullScreenContent(AdError adError) {
-                                Log.d(LOG_TAG, "AdError: " + adError.getMessage());
+                                Log.v(LOG_TAG, "AdError: " + adError.getMessage());
                             }
 
                             @Override
@@ -124,10 +135,6 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks, L
 
 
         } else {
-            Log.d(LOG_TAG, "Can not show ad.");
-            Log.d(LOG_TAG, "isShowingAd: " + isShowingAd);
-            Log.d(LOG_TAG, "canShow: " + canShow());
-            Log.d(LOG_TAG, "isAdAvailable: " + isAdAvailable());
             fetchAd();
         }
     }
@@ -150,13 +157,13 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks, L
      * Utility method that checks if ad exists and can be shown.
      */
     public boolean isAdAvailable() {
-        return appOpenAd != null
-                && wasLoadTimeLessThanNHoursAgo(4);
+        return appOpenAd != null && wasLoadTimeLessThanNHoursAgo(4);
     }
 
     public boolean canShow() {
-        return true;
-//        return (timeshowAds + timeReshow) < System.currentTimeMillis();
+//        if (AdControl._isTestAds)
+//        return true;
+        return (timeshowAds + timeReshow) < System.currentTimeMillis();
     }
 
     @Override
@@ -167,15 +174,15 @@ public class AppOpenManager implements Application.ActivityLifecycleCallbacks, L
     @Override
     public void onActivityStarted(Activity activity) {
         Log.v("LifeCycleT", "Started: " + activity.getComponentName().getClassName());
-        if (activity.getComponentName().getClassName().toLowerCase().contains("mainactivity"))
-            currentActivity = activity;
+//        if (activity.getComponentName().getClassName().toLowerCase().contains("mainactivity"))
+        currentActivity = activity;
     }
 
     @Override
     public void onActivityResumed(Activity activity) {
         Log.v("LifeCycleT", "Resumed: " + activity.getComponentName().getClassName());
-        if (activity.getComponentName().getClassName().toLowerCase().contains("mainactivity"))
-            currentActivity = activity;
+//        if (activity.getComponentName().getClassName().toLowerCase().contains("mainactivity"))
+        currentActivity = activity;
     }
 
     @Override

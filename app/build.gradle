@@ -4,7 +4,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId 'com.zekaimedia.batterysaverpro'
+        applicationId 'com.tforlive.batterysaverpro'
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1

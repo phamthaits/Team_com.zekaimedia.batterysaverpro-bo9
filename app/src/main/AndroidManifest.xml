@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.zekaimedia.batterysaverpro">
+    package="com.tforlive.batterysaverpro">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -36,7 +36,7 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
-        android:name="com.zekaimedia.batterysaverpro.App"
+        android:name="com.tforlive.batterysaverpro.App"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -47,10 +47,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.ChargeActivity"
+            android:name="com.tforlive.batterysaverpro.activity.ChargeActivity"
             android:screenOrientation="portrait"></activity>
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.ChargeSettingActivity"
+            android:name="com.tforlive.batterysaverpro.activity.ChargeSettingActivity"
             android:screenOrientation="portrait"></activity>
 
         <uses-library
@@ -65,82 +65,82 @@
             android:value="true" />
 
         <activity
-            android:name="com.zekaimedia.batterysaverpro.billing.RemoveAdsActivity"
+            android:name="com.tforlive.batterysaverpro.billing.RemoveAdsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.DoNotDisturbActivity"
+            android:name="com.tforlive.batterysaverpro.activity.DoNotDisturbActivity"
             android:label="@string/title_activity_do_not_disturb"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.LanguageActivity"
+            android:name="com.tforlive.batterysaverpro.activity.LanguageActivity"
             android:label="@string/title_activity_language"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.WhiteListAddActivity"
+            android:name="com.tforlive.batterysaverpro.activity.WhiteListAddActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.WhiteListActivity"
+            android:name="com.tforlive.batterysaverpro.activity.WhiteListActivity"
             android:label="@string/title_activity_white_list"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.CleanResultActivity"
+            android:name="com.tforlive.batterysaverpro.activity.CleanResultActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.MainActivity"
+            android:name="com.tforlive.batterysaverpro.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.CleanActivity"
+            android:name="com.tforlive.batterysaverpro.activity.CleanActivity"
             android:exported="true"
             android:label="@string/junk_clean_nav"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.SettingActivity"
+            android:name="com.tforlive.batterysaverpro.activity.SettingActivity"
             android:exported="true"
             android:label="Setting"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.ChartActivity"
+            android:name="com.tforlive.batterysaverpro.activity.ChartActivity"
             android:exported="true"
             android:label="ChartActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.AppManagerActivity"
+            android:name="com.tforlive.batterysaverpro.activity.AppManagerActivity"
             android:exported="true"
             android:label="AppManagerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.BatterySaverActivity"
+            android:name="com.tforlive.batterysaverpro.activity.BatterySaverActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.BoostActivity"
+            android:name="com.tforlive.batterysaverpro.activity.BoostActivity"
             android:exported="true"
             android:label="@string/phone_boost_nav"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.CoolActivity"
+            android:name="com.tforlive.batterysaverpro.activity.CoolActivity"
             android:exported="true"
             android:label="@string/phone_cool_nav"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.PermissionActivity"
+            android:name="com.tforlive.batterysaverpro.activity.PermissionActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.zekaimedia.batterysaverpro.activity.SplashActivity"
+            android:name="com.tforlive.batterysaverpro.activity.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -150,19 +150,19 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.zekaimedia.batterysaverpro.Receiver.AlarmReceiver">
+        <receiver android:name="com.tforlive.batterysaverpro.Receiver.AlarmReceiver">
             <intent-filter>
                 <action android:name="com.app.action.alarmmanager" />
             </intent-filter>
         </receiver>
 
         <service
-            android:name="com.zekaimedia.batterysaverpro.service.BatteryService"
+            android:name="com.tforlive.batterysaverpro.service.BatteryService"
             android:exported="false" />
 
-        <receiver android:name="com.zekaimedia.batterysaverpro.Receiver.BatteryStatusReceiver" />
+        <receiver android:name="com.tforlive.batterysaverpro.Receiver.BatteryStatusReceiver" />
         <receiver
-            android:name="com.zekaimedia.batterysaverpro.Receiver.AutoRebootReceiver"
+            android:name="com.tforlive.batterysaverpro.Receiver.AutoRebootReceiver"
             android:enabled="true"
             android:exported="true"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
@@ -179,7 +179,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name="com.zekaimedia.batterysaverpro.Receiver.UpgradeReceiver"
+            android:name="com.tforlive.batterysaverpro.Receiver.UpgradeReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

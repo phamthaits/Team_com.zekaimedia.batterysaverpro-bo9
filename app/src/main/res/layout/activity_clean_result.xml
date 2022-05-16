@@ -200,7 +200,7 @@
                 android:layout_height="@dimen/_10sdp"
                 android:layout_gravity="center">
 
-                <com.zekaimedia.batterysaverpro.view.HoloCircularProgressBar
+                <com.tforlive.batterysaverpro.view.HoloCircularProgressBar
                     android:id="@+id/ivDoneHoloCirular"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

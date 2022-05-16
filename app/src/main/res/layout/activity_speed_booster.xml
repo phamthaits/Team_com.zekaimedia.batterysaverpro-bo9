@@ -198,7 +198,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.zekaimedia.batterysaverpro.view.HoloCircularProgressBar
+                <com.tforlive.batterysaverpro.view.HoloCircularProgressBar
                     android:id="@+id/ivDoneHoloCirular"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
